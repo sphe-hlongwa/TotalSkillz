@@ -1,0 +1,236 @@
+/* ============================================
+   Topics Page Styles
+   ============================================ */
+
+.topic-hero {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+}
+
+.topic-hero__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.topic-hero__title {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.topic-hero__desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+}
+
+/* Lesson cards */
+.lesson-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    transition: all var(--transition);
+}
+
+.lesson-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.lesson-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.lesson-card__header:hover {
+    background: var(--primary-pale);
+}
+
+.lesson-card__title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.lesson-card__toggle {
+    transition: transform var(--transition);
+    color: var(--text-muted);
+}
+
+.lesson-card__header.open .lesson-card__toggle {
+    transform: rotate(180deg);
+}
+
+.lesson-card__body {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--ease), padding 0.3s;
+}
+
+.lesson-card__body.open {
+    max-height: 2000px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+/* Visual explanation */
+.visual-block {
+    background: var(--primary-pale);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.visual-block svg {
+    max-width: 100%;
+}
+
+/* Step by step */
+.steps-list {
+    counter-reset: step;
+    margin: 1rem 0;
+}
+
+.step-item {
+    counter-increment: step;
+    position: relative;
+    padding: 1rem 1rem 1rem 3rem;
+    margin-bottom: 0.5rem;
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--primary);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    opacity: 0.4;
+}
+
+.step-item.revealed {
+    opacity: 1;
+}
+
+.step-item::before {
+    content: counter(step);
+    position: absolute;
+    left: 0.75rem;
+    top: 1rem;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-full);
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.step-item .math {
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+/* Formula card */
+.formula-box {
+    background: var(--bg-card);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.formula-box__formula {
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.formula-box__label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* Topics list */
+.topics-list-page {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.topics-list-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    text-align: center;
+    transition: all var(--transition);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.topics-list-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.topics-list-card__bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+}
+
+.topics-list-card__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-lg);
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.topics-list-card__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.topics-list-card__count {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .topics-list-page {
+        grid-template-columns: 1fr;
+    }
+}

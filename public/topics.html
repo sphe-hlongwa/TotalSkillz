@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topics - Total Skillz.inc</title>
+    <meta name="description"
+        content="Grade 12 Mathematics topics with visual lessons, diagrams, step-by-step solutions, and key formulas.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/topics.css">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <a href="dashboard.html" class="header__logo">
+            <div class="header__logo-icon"
+                style="overflow: hidden; padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                <img src="logo.jpg" alt="Logo"
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+            </div>
+            <span>Total Skillz.inc</span>
+        </a>
+        <nav class="header__nav">
+            <a href="dashboard.html" class="header__nav-link"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
+            <a href="practice.html" class="header__nav-link"><i class="fa-solid fa-dumbbell"></i> Practice</a>
+            <a href="topics.html" class="header__nav-link active"><i class="fa-solid fa-book-open"></i> Topics</a>
+            <a href="interactive.html" class="header__nav-link"><i class="fa-solid fa-chalkboard-user"></i> Live
+                Classes</a>
+        </nav>
+        <div class="header__actions">
+
+            <div class="user-avatar" onclick="logout()" title="Sign out"></div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav__panel">
+            <a href="dashboard.html" class="mobile-nav__link"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
+            <a href="practice.html" class="mobile-nav__link"><i class="fa-solid fa-dumbbell"></i> Practice</a>
+            <a href="topics.html" class="mobile-nav__link active"><i class="fa-solid fa-book-open"></i> Topics</a>
+            <a href="interactive.html" class="mobile-nav__link"><i class="fa-solid fa-chalkboard-user"></i> Live
+                Classes</a>
+            <hr style="border:none;border-top:1px solid var(--border);margin:1rem 0;">
+
+            <button class="mobile-nav__link" onclick="logout()" style="color:var(--accent-red);"><i
+                    class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+        </div>
+    </div>
+
+    <main class="main page-enter">
+        <div class="container">
+            <div id="topicContent"></div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        if (!requireAuth()) throw 'Not authed';
+
+        const topicsMeta = {
+            // PAPER 1 TOPICS
+            algebra: {
+                title: 'Algebra, Equations & Inequalities', desc: 'Quadratic equations, surds, inequalities & simultaneous equations',
+                icon: 'fa-solid fa-superscript', color: '#4f46e5',
+                lessons: [
+                    {
+                        title: 'Solving Quadratic Equations',
+                        formula: { tex: '\\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\]', label: 'Quadratic Formula' },
+                        explanation: 'A quadratic equation is in the form \\(ax^2 + bx + c = 0\\). Solve by factorising, completing the square, or using the quadratic formula.',
+                        visual: `<svg viewBox="0 0 400 250" width="400" height="250">
+              <defs><linearGradient id="gA" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#4f46e520"/><stop offset="100%" stop-color="#4f46e500"/></linearGradient></defs>
+              <line x1="40" y1="210" x2="380" y2="210" stroke="var(--text-muted)" stroke-width="1.5"/>
+              <line x1="40" y1="20" x2="40" y2="210" stroke="var(--text-muted)" stroke-width="1.5"/>
+              <text x="385" y="215" font-size="12" fill="var(--text-muted)">x</text>
+              <text x="30" y="15" font-size="12" fill="var(--text-muted)">y</text>
+              <path d="M60,190 Q130,10 200,80 Q270,150 340,20" fill="none" stroke="#4f46e5" stroke-width="2.5"/>
+              <path d="M60,190 Q130,10 200,80 Q270,150 340,20 L340,210 L60,210 Z" fill="url(#gA)"/>
+              <circle cx="120" cy="210" r="5" fill="#ef4444"/><text x="105" y="232" font-size="11" fill="#ef4444" font-weight="600">x&#8321;</text>
+              <circle cx="300" cy="210" r="5" fill="#ef4444"/><text x="285" y="232" font-size="11" fill="#ef4444" font-weight="600">x&#8322;</text>
+              <circle cx="200" cy="80" r="5" fill="#4f46e5"/><text x="208" y="75" font-size="11" fill="#4f46e5" font-weight="600">vertex</text>
+            </svg>`,
+                        steps: [
+                            'Transpose the equation to equal zero: \\(ax^2 + bx + c = 0\\)',
+                            'Calculate discriminant: \\(\\Delta = b^2 - 4ac\\) to determine nature of roots.',
+                            'If \\(\\Delta > 0\\) (two roots), \\(\\Delta = 0\\) (one root), \\(\\Delta < 0\\) (no real roots)',
+                            'Substitute into the quadratic formula to find values for \\(x\\)'
+                        ]
+                    },
+                    {
+                        title: 'Simultaneous Equations',
+                        formula: { tex: '\\[ y = f(x) \\quad \\text{and} \\quad ax^2 + bx + c = 0 \\]', label: 'Substitution Method' },
+                        explanation: 'Solve linear and non-linear equations simultaneously by making one variable the subject of the formula.',
+                        steps: [
+                            'In the linear equation, make \\(x\\) or \\(y\\) the subject of the formula (e.g., \\(y = mx + c\\)).',
+                            'Substitute this expression into the more complex/quadratic equation.',
+                            'Solve the resulting quadratic equation to find the two separate values.',
+                            'Substitute both values back into the linear equation to find their coordinate pairs.'
+                        ]
+                    },
+                    {
+                        title: 'Surd Equations',
+                        formula: { tex: '\\[ \\sqrt{x+a} = b \\implies x+a = b^2 \\]', label: 'Isolating the Surd' },
+                        explanation: 'Surd equations require you to isolate the root and square both sides to remove the radical sign.',
+                        steps: [
+                            'Isolate the surd (root) on one side of the equation.',
+                            'Square both sides of the equation to eliminate the root symbol.',
+                            'Expand properly on both sides and bring all terms to one side to form a standard quadratic.',
+                            'Solve for \\(x\\). IMPORTANT: ALWAYS check your solutions by substituting back into original equation to reject invalid roots.'
+                        ]
+                    }
+                ]
+            },
+            patterns: {
+                title: 'Number Patterns', desc: 'Arithmetic & Geometric Sequences and Series.',
+                icon: 'fa-solid fa-list-ol', color: '#0ea5e9',
+                lessons: [
+                    {
+                        title: 'Arithmetic Sequences & Series',
+                        formula: { tex: '\\[ S_n = \\frac{n}{2}[2a + (n-1)d] \\]', label: 'Sum of an arithmetic series' },
+                        explanation: 'An arithmetic sequence adds or subtracts a constant difference (\\(d\\)) between consecutive terms.',
+                        steps: [
+                            'Identify first term \\(a\\) and common difference \\(d = T_2 - T_1\\).',
+                            'General term is \\(T_n = a + (n-1)d\\).',
+                            'Sum formula 1: \\(S_n = \\frac{n}{2}[2a + (n-1)d]\\)',
+                            'Sum formula 2 (if last term \\(l\\) is known): \\(S_n = \\frac{n}{2}(a + l)\\)'
+                        ]
+                    },
+                    {
+                        title: 'Geometric Sequences & Series',
+                        formula: { tex: '\\[ S_n = \\frac{a(r^n - 1)}{r - 1} \\]', label: 'Sum of geometric series' },
+                        explanation: 'A geometric sequence multiplies by a constant ratio (\\(r\\)) between consecutive terms.',
+                        steps: [
+                            'Identify first term \\(a\\) and common ratio \\(r = \\frac{T_2}{T_1}\\).',
+                            'General term is \\(T_n = ar^{n-1}\\).',
+                            'Sum formula: \\(S_n = \\frac{a(r^n - 1)}{r - 1}\\) for \\(r \\ne 1\\).',
+                            'Sum to infinity (only when \\(-1 < r < 1\\)): \\(S_\\infty = \\frac{a}{1 - r}\\)'
+                        ]
+                    }
+                ]
+            },
+            functions: {
+                title: 'Functions & Graphs', desc: 'Parabolas, hyperbolas, exp curves, and inverses.',
+                icon: 'fa-solid fa-chart-line', color: '#10b981',
+                lessons: [
+                    {
+                        title: 'The Parabola & Inverse',
+                        formula: { tex: '\\[ y = a(x - p)^2 + q \\]', label: 'Turning point form' },
+                        explanation: 'A U-shaped curve. The inverse is formed by swapping \\(x\\) and \\(y\\), resulting in \\(x = ay^2\\), which is not a function unless domain is restricted.',
+                        visual: `<svg viewBox="0 0 400 250" width="400" height="250">
+              <line x1="200" y1="10" x2="200" y2="240" stroke="var(--text-muted)" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="30" y1="200" x2="370" y2="200" stroke="var(--text-muted)" stroke-width="1.5"/>
+              <line x1="200" y1="10" x2="200" y2="240" stroke="var(--text-muted)" stroke-width="1.5"/>
+              <path d="M60,200 Q200,20 340,200" fill="none" stroke="#10b981" stroke-width="3"/>
+              <circle cx="200" cy="60" r="6" fill="#10b981"/>
+              <text x="210" y="55" font-size="12" fill="#10b981" font-weight="600">Turning Point (p, q)</text>
+            </svg>`,
+                        steps: [
+                            'Turning point is at \\((p, q)\\).',
+                            'Axis of symmetry at \\(x = p\\) or \\(x = -b/(2a)\\).',
+                            'To find inverse \\(f^{-1}(x)\\): Swap \\(x\\) and \\(y\\) and solve for \\(y\\).',
+                            'Restrict the domain (e.g. \\(x \\ge 0\\)) to ensure the inverse is a function.'
+                        ]
+                    },
+                    {
+                        title: 'Exponential & Logarithmic Functions',
+                        formula: { tex: '\\[ y = a^x \\implies y = \\log_a x \\]', label: 'Log Inverse property' },
+                        explanation: 'Exponential functions reflect across \\(y=x\\) to form logarithms.',
+                        steps: [
+                            'Exp graph \\(y = a^x\\) has horizontal asymptote at \\(y=0\\), and passes through \\((0, 1)\\).',
+                            'If \\(a > 1\\) it is increasing; if \\(0 < a < 1\\) it is decreasing.',
+                            'Log graph \\(y = \\log_a x\\) has vertical asymptote at \\(x=0\\), and passes through \\((1, 0)\\).'
+                        ]
+                    }
+                ]
+            },
+            finance: {
+                title: 'Finance, Growth & Decay', desc: 'Present and future value annuities, sinking funds.',
+                icon: 'fa-solid fa-sack-dollar', color: '#f59e0b',
+                lessons: [
+                    {
+                        title: 'Future Value Annuities',
+                        formula: { tex: '\\[ F = \\frac{x[(1 + i)^n - 1]}{i} \\]', label: 'Future Value Formula' },
+                        explanation: 'Used when regular equal payments are made to save up a future amount of money (e.g. savings account, sinking fund).',
+                        steps: [
+                            'Identify \\(x\\) as the regular payment amount.',
+                            'Identify \\(i\\) as the effective interest rate per period (e.g. 12% p.a. monthly = 0.01).',
+                            'Identify \\(n\\) as the total number of payments made.',
+                            'Substitute and calculate for the total Future Value \\(F\\).'
+                        ]
+                    },
+                    {
+                        title: 'Present Value Annuities',
+                        formula: { tex: '\\[ P = \\frac{x[1 - (1 + i)^{-n}]}{i} \\]', label: 'Present Value Formula' },
+                        explanation: 'Used when paying off a lump sum loan with regular equal payments (e.g. paying off a mortgage or car).',
+                        steps: [
+                            'Identify \\(x\\) as the regular repayment installment.',
+                            'Identify \\(P\\) as the initial loan amount (Present Value) borrowed.',
+                            'Use negative exponents \\(-n\\) for total number of periods.',
+                            'If payments start immediately, adjust timelines properly.'
+                        ]
+                    }
+                ]
+            },
+            calculus: {
+                title: 'Differential Calculus', desc: 'First principles, power rules & cubic graphs.',
+                icon: 'fa-solid fa-infinity', color: '#ec4899',
+                lessons: [
+                    {
+                        title: 'First Principles',
+                        formula: { tex: '\\[ f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} \\]', label: 'Limit definition of derivative' },
+                        explanation: 'The formal definition used to find the derivative of a function. You must explicitly show the limit notation.',
+                        steps: [
+                            'Substitute \\((x+h)\\) into the function to get \\(f(x+h)\\)',
+                            'Subtract the original function \\(f(x)\\)',
+                            'Factorise the numerator to cancel out the \\(h\\) in the denominator.',
+                            'Apply limit as \\(h \\to 0\\) (remove all remaining \\(h\\) terms).'
+                        ]
+                    },
+                    {
+                        title: 'Power Rules & Applications',
+                        formula: { tex: '\\[ \\frac{d}{dx} x^n = nx^{n-1} \\]', label: 'Derivate Power Rule' },
+                        explanation: 'Calculus shortcuts and application finding maximums and minimums of cubic models.',
+                        steps: [
+                            'Use power rules to easily differentiate polynomial expansions.',
+                            'For optimization: differentiate equation, set derivative to 0, and solve for roots (turning points).',
+                            'Second derivative \\(f\'\'(x)\\) identifies nature of turning points. Point of inflection occurs where \\(f\'\'(x) = 0\\).'
+                        ]
+                    }
+                ]
+            },
+            probability: {
+                title: 'Counting & Probability', desc: 'Factorials, arrangements, and standard probability.',
+                icon: 'fa-solid fa-dice', color: '#eab308',
+                lessons: [
+                    {
+                        title: 'Fundamental Counting Principle',
+                        formula: { tex: '\\[ m \\times n \\times p \\dots \\]', label: 'Number of outcomes' },
+                        explanation: 'Calculate the total possible arrangements or combinations using factorials (!).',
+                        steps: [
+                            'Identify number of choices for each slot.',
+                            'If objects can repeat, choices stay the same (e.g. \\(10 \\times 10 \\times 10\\)).',
+                            'If objects cannot repeat use factorials (e.g. \\(5! = 5 \\times 4 \\times 3 \\times 2 \\times 1\\)).',
+                            'Handling restrictions: Fix restricted items first, then arrange the remaining items.'
+                        ]
+                    },
+                    {
+                        title: 'Venn Diagrams & Events',
+                        formula: { tex: '\\[ P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\]', label: 'Addition Rule' },
+                        explanation: 'Understanding intersections and unions between probability sets.',
+                        steps: [
+                            'Mutually exclusive: Events cannot happen at the same time, therefore \\(P(A \\cap B) = 0\\).',
+                            'Independent Events: Occurrence of one does not affect the other, defined by \\(P(A \\cap B) = P(A) \\times P(B)\\).',
+                            'Complementary events: \\(P(A) + P(\\text{not } A) = 1\\).'
+                        ]
+                    }
+                ]
+            },
+
+            // PAPER 2 TOPICS
+            trigonometry: {
+                title: 'Trigonometry (WTS Style)', desc: 'Pythagoras, ASTC diagram, double & compound angles.',
+                icon: 'fa-solid fa-compass-drafting', color: '#8b5cf6',
+                lessons: [
+                    {
+                        title: 'Measurement of Triangles & Ratios',
+                        formula: { tex: '\\[ x^2 + y^2 = r^2 \\]', label: 'Pythagoras Theorem' },
+                        explanation: 'Trigonometry is the study of relationships between lines and triangles. Pythagoras can be used anytime in a right-angled triangle.',
+                        visual: `<svg viewBox="0 0 300 260" width="300" height="260">
+              <polygon points="50,220 250,220 250,60" fill="#8b5cf620" stroke="#8b5cf6" stroke-width="2"/>
+              <text x="140" y="240" font-size="13" fill="var(--text)" font-weight="600">x (adjacent)</text>
+              <text x="260" y="145" font-size="13" fill="var(--text)" font-weight="600" transform="rotate(90,260,145)">y (opposite)</text>
+              <text x="120" y="130" font-size="13" fill="#8b5cf6" font-weight="700" transform="rotate(-33,130,145)">r (hypotenuse)</text>
+              <text x="70" y="215" font-size="14" fill="#8b5cf6" font-weight="700">&#952;</text>
+              <path d="M85,220 L85,205 L70,205" fill="none" stroke="var(--text-muted)" stroke-width="1.5"/>
+            </svg>`,
+                        steps: [
+                            'Identify \\(x\\) (adjacent), \\(y\\) (opposite), and \\(r\\) (hypotenuse - always positive).',
+                            'Find unknown side using: \\(x^2 + y^2 = r^2\\)',
+                            'Set up standard ratios: \\(\\sin \\theta = \\frac{y}{r}\\), \\(\\cos \\theta = \\frac{x}{r}\\), \\(\\tan \\theta = \\frac{y}{x}\\).'
+                        ]
+                    },
+                    {
+                        title: 'The ASTC Diagram (All Sbiya\'s Take Coffee)',
+                        formula: { tex: '\\[ \\text{CAST Diagram - Quadrant signs} \\]', label: 'Positive Trig Signs' },
+                        explanation: 'WTS "All Sbiya\'s Take Coffee" method to quickly identify which trig ratios are positive in which Cartesian quadrant.',
+                        visual: `<svg viewBox="0 0 300 300" width="300" height="300">
+              <!-- Grid lines -->
+              <line x1="150" y1="20" x2="150" y2="280" stroke="var(--border)" stroke-width="2"/>
+              <line x1="20" y1="150" x2="280" y2="150" stroke="var(--border)" stroke-width="2"/>
+              <circle cx="150" cy="150" r="100" fill="none" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="8"/>
+              
+              <!-- Quadrant text -->
+              <text x="220" y="100" font-size="18" fill="var(--text)" font-weight="bold">A (All)</text>
+              <text x="70" y="100" font-size="18" fill="var(--text)" font-weight="bold">S (Sbiya's)</text>
+              <text x="60" y="210" font-size="18" fill="var(--text)" font-weight="bold">T (Take)</text>
+              <text x="200" y="210" font-size="18" fill="var(--text)" font-weight="bold">C (Coffee)</text>
+              
+              <text x="205" y="120" font-size="12" fill="#8b5cf6">+ All ratios</text>
+              <text x="50" y="120" font-size="12" fill="#8b5cf6">+ Sin only (Q2)</text>
+              <text x="50" y="230" font-size="12" fill="#8b5cf6">+ Tan only (Q3)</text>
+              <text x="205" y="230" font-size="12" fill="#8b5cf6">+ Cos only (Q4)</text>
+
+              <text x="285" y="155" font-size="10" fill="var(--text-muted)">0&#176;/360&#176;</text>
+              <text x="140" y="15" font-size="10" fill="var(--text-muted)">90&#176;</text>
+              <text x="0" y="155" font-size="10" fill="var(--text-muted)">180&#176;</text>
+              <text x="135" y="295" font-size="10" fill="var(--text-muted)">270&#176;</text>
+            </svg>`,
+                        steps: [
+                            'Q1 (0 to 90): All are positive',
+                            'Q2 (90 to 180): Sin is positive. Reduce angles using \\(180^\\circ - x\\)',
+                            'Q3 (180 to 270): Tan is positive. Reduce angles using \\(180^\\circ + x\\)',
+                            'Q4 (270 to 360): Cos is positive. Reduce angles using \\(360^\\circ - x\\)'
+                        ]
+                    },
+                    {
+                        title: 'Double & Compound Angles',
+                        formula: { tex: '\\[ \\cos 2x = \\cos^2 x - \\sin^2 x \\]', label: 'Identities' },
+                        explanation: 'Advanced trigonometric identities used mostly to simplify grade 12 expressions and equations.',
+                        steps: [
+                            'Substitute identities directly from the formula sheet.',
+                            'Double angle sine: \\(\\sin 2x = 2 \\sin x \\cos x\\)',
+                            'Double angle cosine expands into 3 forms depending on what is needed.',
+                            'Compound angles: e.g. \\(\\sin(\\alpha \\pm \\beta) = \\sin \\alpha \\cos \\beta \\pm \\cos \\alpha \\sin \\beta\\)'
+                        ]
+                    }
+                ]
+            },
+            analytical_geometry: {
+                title: 'Analytical Geometry', desc: 'Circles, tangents, and coordinate geometry.',
+                icon: 'fa-solid fa-drafting-compass', color: '#0ea5e9',
+                lessons: [
+                    {
+                        title: 'Equation of a Circle',
+                        formula: { tex: '\\[ (x - a)^2 + (y - b)^2 = r^2 \\]', label: 'Standard Coordinate Form' },
+                        explanation: 'Describes a perfect circle on the Cartesian plane with centre coordinates \\((a, b)\\) and radius \\(r\\).',
+                        steps: [
+                            'Identify the centre of the circle \\((a, b)\\) from the equation or graph.',
+                            'If given in standard expanded polynomial form, complete the square for \\(x\\) and \\(y\\).',
+                            'Radius \\(r\\) is the square root of the constant term on the Right Hand Side.'
+                        ]
+                    },
+                    {
+                        title: 'Tangents to a Circle',
+                        formula: { tex: '\\[ m_{tan} \\times m_{rad} = -1 \\]', label: 'Perpendicular Gradients' },
+                        explanation: 'A tangent line touches the circle at exactly one point and is perpendicular to the radius drawn to that point.',
+                        steps: [
+                            'Find the gradient of the radius (using centre point and tangent touch point).',
+                            'Determine tangent gradient by flipping fraction and changing sign: \\(m_{tan} = -\\frac{1}{m_{rad}}\\)',
+                            'Substitute touch point coordinates into \\(y - y_1 = m(x - x_1)\\) to find tangent line equation.'
+                        ]
+                    }
+                ]
+            },
+            euclidean_geometry: {
+                title: 'Euclidean Geometry', desc: 'Circle geometry theorems, similarities, and proportionality.',
+                icon: 'fa-solid fa-shapes', color: '#10b981',
+                lessons: [
+                    {
+                        title: 'Proportionality & Similarity',
+                        formula: { tex: '\\[ \\frac{\\text{Area } \\Delta_1}{\\text{Area } \\Delta_2} \\]', label: 'Ratio of areas' },
+                        explanation: 'Triangles are similar if their corresponding angles are equal. A line parallel to one side of a triangle divides the other two proportionally.',
+                        steps: [
+                            'Prove similarity by showing 3 angles are equal (equiangular) - state "AAA".',
+                            'Once proven, state that corresponding sides are in proportion: \\(\\frac{AB}{DE} = \\frac{BC}{EF} = \\frac{AC}{DF}\\).',
+                            'The ratio of areas of similar triangles is equal to the square of the ratio of their corresponding sides.'
+                        ]
+                    },
+                    {
+                        title: 'Circle Theorems',
+                        formula: { tex: '\\[ \\angle \\text{ at centre} = 2 \\times \\angle \\text{ at circumference} \\]', label: 'Key Theorem' },
+                        explanation: 'Core circle geometry properties required for proof structures.',
+                        steps: [
+                            'Angle in a semi-circle equals \\(90^\\circ\\).',
+                            'Opposite angles in a cyclic quadrilateral are supplementary (add to \\(180^\\circ\\)).',
+                            'Tan-Chord Theorem: angle between a tangent and a chord equals the angle in the alternate segment.',
+                            'Always state your reasons beside your mathematical statements in geometry tests.'
+                        ]
+                    }
+                ]
+            },
+            statistics: {
+                title: 'Statistics', desc: 'Regression lines and bivariate data interpretation.',
+                icon: 'fa-solid fa-chart-line', color: '#f59e0b',
+                lessons: [
+                    {
+                        title: 'Bivariate Data & Regression',
+                        formula: { tex: '\\[ \\hat{y} = a + bx \\]', label: 'Line of Best Fit' },
+                        explanation: 'Statistical regression calculates the best fit straight line to represent a scatter plot trend.',
+                        steps: [
+                            'Use your scientific calculator in STAT mode to input data pairs (x, y).',
+                            'Retrieve the y-intercept \\(a\\) and gradient \\(b\\) directly from calculator memory variables.',
+                            'Write the equation: \\(\\hat{y} = a + bx\\).',
+                            'Use equation to predict future outcome by substituting a given \\(x\\) (interpolation vs extrapolation).'
+                        ]
+                    },
+                    {
+                        title: 'Correlation Coefficient',
+                        formula: { tex: '\\[ r \\]', label: 'Strength of relationship' },
+                        explanation: 'The \\(r\\)-value determines how strongly scattered data points relate linearly.',
+                        steps: [
+                            'If \\(r = 1\\) or \\(-1\\), it is a perfect uniform positive or negative correlation.',
+                            'If \\(r = 0\\), there is no correlation.',
+                            'Strong positive implies close to \\(1\\), weak negative implies close to \\(0\\) on the negative side.'
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // ---- Render ----
+        const params = new URLSearchParams(window.location.search);
+        const selectedTopic = params.get('t');
+
+        function renderTopicsList() {
+            const container = document.getElementById('topicContent');
+            container.innerHTML = `
+        <h1 class="section-title" style="margin-bottom:0.3rem;">All Topics</h1>
+        <p class="section-subtitle">Choose a topic to explore lessons, formulas, and visual explanations.</p>
+        <div class="topics-list-page">
+          ${Object.entries(topicsMeta).map(([key, t]) => `
+            <a href="topics.html?t=${key}" class="topics-list-card">
+              <div class="topics-list-card__bar" style="background:${t.color};"></div>
+              <div class="topics-list-card__icon" style="background:${t.color}15;color:${t.color};"><i class="${t.icon}"></i></div>
+              <h3 class="topics-list-card__title">${t.title}</h3>
+              <p class="topics-list-card__count">${t.lessons.length} lesson${t.lessons.length > 1 ? 's' : ''}</p>
+            </a>`).join('')}
+        </div>`;
+        }
+
+        function renderTopicDetail(key) {
+            const topic = topicsMeta[key];
+            if (!topic) { renderTopicsList(); return; }
+            const container = document.getElementById('topicContent');
+            container.innerHTML = `
+        <a href="topics.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-size:0.88rem;font-weight:500;color:var(--text-secondary);margin-bottom:0.5rem;">
+          <i class="fa-solid fa-arrow-left"></i> All Topics
+        </a>
+        <div class="topic-hero">
+          <div class="topic-hero__icon" style="background:${topic.color}15;color:${topic.color};"><i class="${topic.icon}"></i></div>
+          <div>
+            <h1 class="topic-hero__title">${topic.title}</h1>
+            <p class="topic-hero__desc">${topic.desc}</p>
+          </div>
+        </div>
+        ${topic.lessons.map((lesson, li) => `
+          <div class="lesson-card reveal">
+            <div class="lesson-card__header" onclick="toggleLesson(this)">
+              <span class="lesson-card__title"><i class="fa-solid fa-book" style="color:${topic.color};"></i> ${lesson.title}</span>
+              <i class="fa-solid fa-chevron-down lesson-card__toggle"></i>
+            </div>
+            <div class="lesson-card__body" id="lesson-${li}">
+              ${lesson.formula ? `
+                <div class="formula-box">
+                  <div class="math-block formula-animate">
+                    <div class="formula-box__formula">${lesson.formula.tex}</div>
+                  </div>
+                  <div class="formula-box__label">${lesson.formula.label}</div>
+                </div>` : ''}
+              <p style="font-size:0.92rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem;">${lesson.explanation}</p>
+              ${lesson.visual ? `<div class="visual-block">${lesson.visual}</div>` : ''}
+              <h4 style="font-size:0.92rem;font-weight:700;margin-bottom:0.5rem;">
+                <i class="fa-solid fa-shoe-prints" style="color:${topic.color};margin-right:0.4rem;"></i>
+                Step-by-Step (click each to reveal)
+              </h4>
+              <div class="steps-list">
+                ${lesson.steps.map(s => `<div class="step-item" onclick="this.classList.add('revealed');renderMath(this);">${s}</div>`).join('')}
+              </div>
+              <div style="margin-top:1.25rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+                <a href="practice.html?topic=${key}" class="btn btn-primary btn-sm"><i class="fa-solid fa-dumbbell"></i> Practice This</a>
+                <a href="https://www.youtube.com/results?search_query=grade+12+maths+${encodeURIComponent(lesson.title)}" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-youtube"></i> Watch Videos</a>
+              </div>
+            </div>
+          </div>`).join('')}`;
+            initReveal();
+            renderMath(container);
+        }
+
+        window.toggleLesson = function (header) {
+            const body = header.nextElementSibling;
+            header.classList.toggle('open');
+            body.classList.toggle('open');
+            if (body.classList.contains('open')) renderMath(body);
+        };
+
+        if (selectedTopic) renderTopicDetail(selectedTopic);
+        else renderTopicsList();
+    </script>
+</body>
+
+</html>

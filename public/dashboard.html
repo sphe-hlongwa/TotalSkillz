@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Total Skillz.inc</title>
+    <meta name="description"
+        content="Your Total Skillz.inc dashboard. Track progress, practice daily, search resources, and master every topic.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <a href="dashboard.html" class="header__logo">
+            <div class="header__logo-icon"
+                style="overflow: hidden; padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
+                <img src="logo.jpg" alt="Logo"
+                    style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+            </div>
+            <span>Total Skillz.inc</span>
+        </a>
+        <nav class="header__nav">
+            <a href="dashboard.html" class="header__nav-link active"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
+            <a href="practice.html" class="header__nav-link"><i class="fa-solid fa-dumbbell"></i> Practice</a>
+            <a href="topics.html" class="header__nav-link"><i class="fa-solid fa-book-open"></i> Topics</a>
+            <a href="interactive.html" class="header__nav-link"><i class="fa-solid fa-chalkboard-user"></i> Live
+                Classes</a>
+        </nav>
+        <div class="header__actions">
+            <div class="streak-display" id="streakDisplay">
+                <i class="fa-solid fa-fire"></i> <span id="streakCount">0</span> day streak
+            </div>
+
+            <div class="user-avatar" id="userAvatar" onclick="logout()" title="Sign out"></div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav__panel">
+            <a href="dashboard.html" class="mobile-nav__link active"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
+            <a href="practice.html" class="mobile-nav__link"><i class="fa-solid fa-dumbbell"></i> Practice</a>
+            <a href="topics.html" class="mobile-nav__link"><i class="fa-solid fa-book-open"></i> Topics</a>
+            <a href="interactive.html" class="mobile-nav__link"><i class="fa-solid fa-chalkboard-user"></i> Live
+                Classes</a>
+            <hr style="border:none;border-top:1px solid var(--border);margin:1rem 0;">
+
+            <button class="mobile-nav__link" onclick="logout()" style="color:var(--accent-red);"><i
+                    class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+        </div>
+    </div>
+
+    <main class="main page-enter">
+        <div class="container">
+
+            <!-- Welcome Banner -->
+            <div class="welcome-banner" id="welcomeBanner">
+                <p class="welcome-banner__greeting" id="greeting">Good evening</p>
+                <h1 class="welcome-banner__name" id="userName">Learner</h1>
+                <p class="welcome-banner__msg">Keep up the momentum! Every problem you solve brings you closer to
+                    mastering matric maths.</p>
+                <div class="welcome-banner__stats">
+                    <div class="welcome-stat"><span class="welcome-stat__num" id="statCorrect">0</span><span
+                            class="welcome-stat__label">Correct</span></div>
+                    <div class="welcome-stat"><span class="welcome-stat__num" id="statAttempted">0</span><span
+                            class="welcome-stat__label">Attempted</span></div>
+                    <div class="welcome-stat"><span class="welcome-stat__num" id="statAccuracy">0%</span><span
+                            class="welcome-stat__label">Accuracy</span></div>
+                    <div class="welcome-stat"><span class="welcome-stat__num" id="statBadges">0</span><span
+                            class="welcome-stat__label">Badges</span></div>
+                </div>
+                <!-- Motivational Quotes -->
+                <div class="quotes-widget">
+                    <div class="quote-track" id="quoteTrack">
+                        <!-- Dynamic quotes go here -->
+                    </div>
+                </div>
+
+                <!-- Search -->
+                <div class="search-section">
+                    <div class="search-bar" id="searchBar">
+                        <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted);"></i>
+                        <input type="text" id="searchInput" placeholder="Search topics, videos, formulas...">
+                        <button type="button" id="searchBtn" aria-label="Search"><i
+                                class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div id="searchResults" class="search-results" style="display:none;"></div>
+                </div>
+
+                <!-- Layout: Main + Sidebar -->
+                <div class="dash-layout">
+                    <div>
+                        <div class="reveal">
+                            <h2 class="section-title">Topics</h2>
+                            <p class="section-subtitle">Select a topic to start learning and practising.</p>
+                        </div>
+                        <div class="grid-3 reveal" id="topicsGrid"></div>
+
+                        <div class="reveal" style="margin-top:2rem;">
+                            <h2 class="section-title">Your Badges</h2>
+                            <p class="section-subtitle">Earn badges by completing challenges and building streaks.</p>
+                            <div id="badgesGrid" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1rem;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="dash-sidebar">
+                        <!-- Daily Challenge -->
+                        <div class="daily-card" id="dailyCard">
+                            <div class="daily-card__header">
+                                <h3 class="daily-card__title"><i class="fa-solid fa-bolt"
+                                        style="color:var(--accent-amber);"></i> Daily Challenge</h3>
+                                <span class="badge badge-amber" id="dailyBadge">New</span>
+                            </div>
+                            <div id="dailyContent"></div>
+                        </div>
+
+                        <!-- Weak Areas -->
+                        <div class="cheat-card" id="weakAreasCard">
+                            <h3 class="cheat-card__title"><i class="fa-solid fa-triangle-exclamation"
+                                    style="color:var(--accent-red);margin-right:0.4rem;"></i> Weak Areas</h3>
+                            <div id="weakAreas">
+                                <p style="font-size:0.85rem;color:var(--text-muted);">Complete some practice to see weak
+                                    areas here.</p>
+                            </div>
+                        </div>
+
+                        <!-- Quick Formulas -->
+                        <div class="cheat-card">
+                            <h3 class="cheat-card__title"><i class="fa-solid fa-scroll"
+                                    style="color:var(--primary);margin-right:0.4rem;"></i> Quick Formulas</h3>
+                            <div class="cheat-item">
+                                <div class="cheat-item__label">Quadratic Formula</div>
+                                \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)
+                            </div>
+                            <div class="cheat-item">
+                                <div class="cheat-item__label">Derivative (First Principles)</div>
+                                \( f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \)
+                            </div>
+                            <div class="cheat-item">
+                                <div class="cheat-item__label">Compound Interest</div>
+                                \( A = P(1 + i)^n \)
+                            </div>
+                            <div class="cheat-item">
+                                <div class="cheat-item__label">Distance Formula</div>
+                                \( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        if (!requireAuth()) throw 'Not authed';
+
+        const topicsData = [
+            { id: 'algebra', title: 'Algebra', desc: 'Equations, inequalities, sequences and series', icon: 'fa-solid fa-superscript', color: '#4f46e5' },
+            { id: 'functions', title: 'Functions', desc: 'Graphs, inverses, transformations', icon: 'fa-solid fa-chart-line', color: '#0ea5e9' },
+            { id: 'trigonometry', title: 'Trigonometry', desc: 'Identities, equations, sine and cosine rules', icon: 'fa-solid fa-compass-drafting', color: '#8b5cf6' },
+            { id: 'calculus', title: 'Calculus', desc: 'Limits, derivatives, rates of change', icon: 'fa-solid fa-infinity', color: '#ec4899' },
+            { id: 'geometry', title: 'Geometry', desc: 'Circle theorems, coordinate geometry', icon: 'fa-solid fa-draw-polygon', color: '#10b981' },
+            { id: 'probability', title: 'Probability & Stats', desc: 'Counting, probability rules, distributions', icon: 'fa-solid fa-dice', color: '#f59e0b' },
+        ];
+
+        const quotePool = [
+            // Einstein
+            { text: "Pure mathematics is, in its way, the poetry of logical ideas.", author: "Albert Einstein", img: "iestine.webp", set: 0 },
+            { text: "Do not worry about your difficulties in Mathematics. I can assure you mine are still greater.", author: "Albert Einstein", img: "iestine.webp", set: 1 },
+            { text: "The important thing is not to stop questioning.", author: "Albert Einstein", img: "iestine.webp", set: 2 },
+            { text: "Imagination is more important than knowledge.", author: "Albert Einstein", img: "iestine.webp", set: 3 },
+            // Feynman
+            { text: "To those who do not know mathematics it is difficult to get across a real feeling as to the beauty of nature.", author: "Richard Feynman", img: "feyman.jpg", set: 0 },
+            { text: "The first principle is that you must not fool yourself and you are the easiest person to fool.", author: "Richard Feynman", img: "feyman.jpg", set: 1 },
+            { text: "If you want to master something, teach it.", author: "Richard Feynman", img: "feyman.jpg", set: 2 },
+            { text: "What I cannot create, I do not understand.", author: "Richard Feynman", img: "feyman.jpg", set: 3 },
+            // Euclid
+            { text: "There is no royal road to geometry.", author: "Euclid", img: "euclid.jpg", set: 0 },
+            { text: "A line is a length without breadth.", author: "Euclid", img: "euclid.jpg", set: 1 },
+            { text: "The laws of nature are but the mathematical thoughts of God.", author: "Euclid", img: "euclid.jpg", set: 2 },
+            { text: "Things which are equal to the same thing are also equal to one another.", author: "Euclid", img: "euclid.jpg", set: 3 },
+            // Euler
+            { text: "Nothing takes place in the world whose meaning is not that of some maximum or minimum.", author: "Leonhard Euler", img: "euler.jpg", set: 0 },
+            { text: "Logic is the foundation of the certainty of all the knowledge we acquire.", author: "Leonhard Euler", img: "euler.jpg", set: 1 },
+            { text: "Everything that happens in the world follows a rule of maximum or minimum.", author: "Leonhard Euler", img: "euler.jpg", set: 2 },
+            { text: "By the help of mathematics, I can see what others cannot.", author: "Leonhard Euler", img: "euler.jpg", set: 3 }
+        ];
+
+        let currentQuoteIndex = 0;
+
+        function initQuotes() {
+            const track = document.getElementById('quoteTrack');
+            const daySet = new Date().getDate() % 4;
+            const dailyQuotes = quotePool.filter(q => q.set === daySet);
+
+            track.innerHTML = dailyQuotes.map(q => `
+                <div class="quote-item">
+                    <div class="quote-portrait">
+                        <img src="${q.img}" alt="${q.author}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center;"><i class="fa-solid fa-user-tie"></i></div>
+                    </div>
+                    <div class="quote-content">
+                        <span class="quote-text">${q.text}</span>
+                        <span class="quote-author">— ${q.author}</span>
+                    </div>
+                </div>
+            `).join('');
+
+            setInterval(() => {
+                currentQuoteIndex = (currentQuoteIndex + 1) % dailyQuotes.length;
+                track.style.transform = `translateX(-${currentQuoteIndex * 100}%)`;
+            }, 6000);
+        }
+
+        function init() {
+            const user = getUser();
+            const progress = getProgress();
+            const hour = new Date().getHours();
+            document.getElementById('greeting').textContent = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('streakCount').textContent = progress.streak;
+            document.getElementById('statCorrect').textContent = progress.totalCorrect;
+            document.getElementById('statAttempted').textContent = progress.totalAttempted;
+            document.getElementById('statAccuracy').textContent = progress.totalAttempted > 0 ? Math.round((progress.totalCorrect / progress.totalAttempted) * 100) + '%' : '0%';
+            document.getElementById('statBadges').textContent = progress.badges.length;
+            renderTopics(progress);
+            renderDaily();
+            renderWeakAreas();
+            renderBadges(progress);
+            initQuotes();
+        }
+
+        function renderTopics(progress) {
+            const grid = document.getElementById('topicsGrid');
+            grid.innerHTML = topicsData.map(t => {
+                const p = progress.topics[t.id] || { level: 0 };
+                return `
+                <a href="topics.html?t=${t.id}" class="topic-card">
+                  <div class="topic-card__header">
+                    <div class="topic-card__icon" style="background:${t.color}15;color:${t.color};"><i class="${t.icon}"></i></div>
+                    <div class="radial-progress" style="--percent:${p.level}%; --color:${t.color};">${p.level}%</div>
+                  </div>
+                  <h3 class="topic-card__title">${t.title}</h3>
+                  <p class="topic-card__desc">${t.desc}</p>
+                  <div class="topic-card__footer">
+                    <span class="badge badge-primary">Practice available</span>
+                    <i class="fa-solid fa-arrow-right-long" style="color:var(--text-muted);opacity:0.6;"></i>
+                  </div>
+                </a>`;
+            }).join('');
+        }
+
+        // ---- Daily Challenge ----
+        const dailyQuestions = [
+            { q: 'Solve for \\(x\\): \\(2x^2 - 5x - 3 = 0\\)', options: ['\\(x = 3\\) or \\(x = -\\tfrac{1}{2}\\)', '\\(x = -3\\) or \\(x = \\tfrac{1}{2}\\)', '\\(x = 3\\) or \\(x = \\tfrac{1}{2}\\)', '\\(x = -3\\) or \\(x = -\\tfrac{1}{2}\\)'], answer: 0, topic: 'algebra' },
+            { q: 'Find \\(f\'(x)\\) if \\(f(x) = 3x^2 + 4x - 7\\)', options: ['\\(6x + 4\\)', '\\(3x + 4\\)', '\\(6x^2 + 4\\)', '\\(6x - 7\\)'], answer: 0, topic: 'calculus' },
+            { q: 'Simplify: \\(\\dfrac{\\sin(2x)}{\\sin(x)}\\)', options: ['\\(2\\cos(x)\\)', '\\(2\\sin(x)\\)', '\\(\\cos(x)\\)', '\\(\\tan(x)\\)'], answer: 0, topic: 'trigonometry' },
+            { q: 'If \\(P(A)=0.4\\), \\(P(B)=0.5\\), \\(P(A \\cap B)=0.2\\), find \\(P(A \\cup B)\\)', options: ['\\(0.7\\)', '\\(0.9\\)', '\\(0.6\\)', '\\(0.3\\)'], answer: 0, topic: 'probability' },
+            { q: 'Find the gradient of the line joining \\((1,3)\\) and \\((4,9)\\)', options: ['\\(2\\)', '\\(3\\)', '\\(6\\)', '\\(\\tfrac{1}{2}\\)'], answer: 0, topic: 'geometry' },
+            { q: 'Sum of first 10 terms: \\(3, 6, 12, 24, \\ldots\\)', options: ['\\(3069\\)', '\\(3072\\)', '\\(1536\\)', '\\(3066\\)'], answer: 0, topic: 'algebra' },
+            { q: 'Find the turning point of \\(y = x^2 - 6x + 5\\)', options: ['\\((3, -4)\\)', '\\((3, 4)\\)', '\\((-3, -4)\\)', '\\((6, 5)\\)'], answer: 0, topic: 'functions' },
+        ];
+
+        function renderDaily() {
+            const progress = getProgress();
+            if (progress.dailyDone) {
+                document.getElementById('dailyContent').innerHTML = '<div style="text-align:center;padding:1rem;"><i class="fa-solid fa-circle-check" style="font-size:2.5rem;color:var(--accent-green);"></i><p style="margin-top:0.75rem;font-weight:600;">Daily challenge complete!</p><p style="font-size:0.85rem;color:var(--text-muted);">Come back tomorrow for a new one.</p></div>';
+                document.getElementById('dailyBadge').textContent = 'Done';
+                document.getElementById('dailyBadge').className = 'badge badge-green';
+                return;
+            }
+            const q = dailyQuestions[new Date().getDay() % dailyQuestions.length];
+            const letters = ['A', 'B', 'C', 'D'];
+            document.getElementById('dailyContent').innerHTML = `
+        <div class="daily-card__question">${q.q}</div>
+        <div class="daily-card__options">
+          ${q.options.map((opt, i) => `<button class="option-btn" onclick="checkDaily(${i}, ${q.answer}, '${q.topic}')"><span class="option-btn__letter">${letters[i]}</span><span>${opt}</span></button>`).join('')}
+        </div>`;
+            renderMath(document.getElementById('dailyContent'));
+        }
+
+        window.checkDaily = function (selected, correct, topic) {
+            const buttons = document.querySelectorAll('.daily-card__options .option-btn');
+            buttons.forEach((btn, i) => { btn.disabled = true; btn.style.pointerEvents = 'none'; if (i === correct) btn.classList.add('correct'); if (i === selected && i !== correct) btn.classList.add('wrong'); });
+            recordAnswer(topic, selected === correct);
+            const p = getProgress(); p.dailyDone = true; saveProgress(p);
+            setTimeout(() => {
+                showToast(selected === correct ? 'Correct! Great work!' : 'Not quite. Review this topic to improve.', selected === correct ? 'success' : 'error');
+                document.getElementById('dailyBadge').textContent = selected === correct ? 'Correct' : 'Review';
+                document.getElementById('dailyBadge').className = 'badge ' + (selected === correct ? 'badge-green' : 'badge-red');
+                init();
+            }, 500);
+        };
+
+        function renderWeakAreas() {
+            const weak = getWeakTopics();
+            const container = document.getElementById('weakAreas');
+            if (!weak.length) return;
+            container.innerHTML = weak.map(w => {
+                const t = topicsData.find(d => d.id === w.name);
+                return `<a href="practice.html?topic=${w.name}" class="weak-area-card">
+          <div class="weak-area-card__icon" style="background:${t.color}15;color:${t.color};"><i class="${t.icon}"></i></div>
+          <div class="weak-area-card__info"><div class="weak-area-card__topic">${t.title}</div><div class="weak-area-card__stat">${w.correct}/${w.total} correct (${w.level}%)</div></div>
+          <span class="badge badge-red">Needs work</span></a>`;
+            }).join('');
+        }
+
+        const badgeDefs = {
+            first10: { icon: 'fa-solid fa-award', label: '10 Correct', color: '#4f46e5' },
+            fifty: { icon: 'fa-solid fa-trophy', label: '50 Correct', color: '#f59e0b' },
+            streak3: { icon: 'fa-solid fa-fire', label: '3-Day Streak', color: '#ef4444' },
+            streak7: { icon: 'fa-solid fa-fire-flame-curved', label: 'Weekly Warrior', color: '#ec4899' },
+            master_algebra: { icon: 'fa-solid fa-superscript', label: 'Algebra Master', color: '#4f46e5' },
+            master_functions: { icon: 'fa-solid fa-chart-line', label: 'Functions Master', color: '#0ea5e9' },
+            master_trigonometry: { icon: 'fa-solid fa-compass-drafting', label: 'Trig Master', color: '#8b5cf6' },
+            master_calculus: { icon: 'fa-solid fa-infinity', label: 'Calculus Master', color: '#ec4899' },
+            master_geometry: { icon: 'fa-solid fa-draw-polygon', label: 'Geometry Master', color: '#10b981' },
+            master_probability: { icon: 'fa-solid fa-dice', label: 'Probability Master', color: '#f59e0b' },
+        };
+
+        function renderBadges(progress) {
+            const grid = document.getElementById('badgesGrid');
+            grid.innerHTML = Object.entries(badgeDefs).map(([key, b]) => {
+                const earned = progress.badges.includes(key);
+                return `<div style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;border-radius:var(--radius-md);background:${earned ? b.color + '15' : 'var(--border-light)'};border:1px solid ${earned ? b.color + '40' : 'var(--border)'};opacity:${earned ? '1' : '0.45'};">
+          <i class="${b.icon}" style="color:${earned ? b.color : 'var(--text-muted)'};font-size:1rem;"></i>
+          <span style="font-size:0.8rem;font-weight:600;color:${earned ? b.color : 'var(--text-muted)'};">${b.label}</span></div>`;
+            }).join('');
+        }
+
+        // ---- Search ----
+        document.getElementById('searchBtn').addEventListener('click', doSearch);
+        document.getElementById('searchInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+
+        function doSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) return;
+            const results = document.getElementById('searchResults');
+            results.style.display = 'block';
+            results.innerHTML = '<p style="color:var(--text-muted);padding:1rem;">Searching...</p>';
+            setTimeout(() => {
+                let html = '<div class="tabs tab-container"><div class="tabs" style="margin-bottom:1rem;">';
+                html += '<button class="tab-btn active" data-tab="tab-videos">Videos</button>';
+                html += '<button class="tab-btn" data-tab="tab-papers">Past Papers</button>';
+                html += '<button class="tab-btn" data-tab="tab-cheat">Cheat Sheets</button></div>';
+                html += '<div class="tab-panel active" id="tab-videos">' + searchYouTube(query) + '</div>';
+                html += '<div class="tab-panel" id="tab-papers">' + searchPapers(query) + '</div>';
+                html += '<div class="tab-panel" id="tab-cheat">' + searchCheatSheets(query) + '</div></div>';
+                results.innerHTML = html;
+                initTabs();
+                renderMath(results);
+            }, 600);
+        }
+
+        function searchYouTube(query) {
+            const videos = [
+                { title: 'Grade 12 ' + query + ' - Full Lesson', channel: 'Maths with Mr J', url: 'https://www.youtube.com/results?search_query=grade+12+' + encodeURIComponent(query) },
+                { title: query + ' Explained Simply - Matric Maths', channel: 'The Organic Chemistry Tutor', url: 'https://www.youtube.com/results?search_query=grade+12+maths+' + encodeURIComponent(query) },
+                { title: 'How to Solve ' + query + ' Problems', channel: 'Eddie Woo', url: 'https://www.youtube.com/results?search_query=' + encodeURIComponent(query) + '+mathematics+grade+12' },
+            ];
+            return videos.map(v => `<a href="${v.url}" target="_blank" class="result-card">
+        <div class="result-card__thumb"><i class="fa-brands fa-youtube" style="color:#ef4444;font-size:2rem;"></i></div>
+        <div class="result-card__info"><div class="result-card__title">${v.title}</div><div class="result-card__desc">${v.channel}</div>
+        <div class="result-card__meta"><span class="badge badge-red">Video</span></div></div></a>`).join('');
+        }
+
+        function searchPapers(query) {
+            const currentYear = new Date().getFullYear();
+            let papersHTML = '<div style="margin-bottom: 1rem;"><p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom: 0.5rem;">Select year to jump to Grade 12 Math Past Papers:</p>';
+
+            // Generate Year grid from 2020 to Current Year
+            papersHTML += '<div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom: 1.5rem;">';
+            for (let y = currentYear; y >= 2020; y--) {
+                papersHTML += `<a href="https://stanmorephysics.com/maths-exam-papers-grade-12/" target="_blank" style="padding: 0.4rem 0.8rem; background: var(--primary-pale); color: var(--primary); border-radius: var(--radius-md); font-weight: 600; font-size: 0.85rem; text-decoration: none; cursor: pointer; transition: opacity 0.2s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">${y} Papers <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem; margin-left:0.25rem;"></i></a>`;
+            }
+            papersHTML += '</div></div>';
+
+            // Actual specific links provided by User
+            const sources = [
+                { title: 'Stanmore Physics - Maths Exam Papers (Grade 12)', desc: 'Comprehensive repository of Mathematics NSC past papers from 2020 onwards.', url: 'https://stanmorephysics.com/maths-exam-papers-grade-12/' },
+                { title: 'Testpapers.co.za - Grade 12 Mathematics', desc: 'Find Grade 12 Math Past Papers & Memos (2020 - Current)', url: 'https://www.testpapers.co.za/gr12-mathematics?srsltid=AfmBOoodwS_VNBYEr1Lxt0yYxDW3HHMwlP4Av8Xy2Ey5pX5DkteOMB2F' },
+                { title: 'JSDT Solutions - Grade 12 Maths', desc: 'Detailed past papers and solutions for Grade 12 Mathematics.', url: 'https://www.jsdtsolutions.com/grade-12-maths-2023' },
+                { title: 'SA Exam Papers - Mathematics', desc: 'South African Exam papers for Grade 12 Mathematics.', url: 'https://www.saexampapers.co.za/grade-12-mathematics/' }
+            ];
+
+            papersHTML += '<div style="display:flex; flex-direction:column; gap:0.75rem;">' + sources.map(p => `<a href="${p.url}" target="_blank" class="result-card">
+        <div class="result-card__thumb"><i class="fa-solid fa-file-pdf" style="color:var(--primary);font-size:1.5rem;"></i></div>
+        <div class="result-card__info"><div class="result-card__title">${p.title}</div><div class="result-card__desc">${p.desc}</div>
+        <div class="result-card__meta"><span class="badge badge-primary">External Link</span></div></div></a>`).join('') + '</div>';
+
+            return papersHTML;
+        }
+
+        function searchCheatSheets(query) {
+            const q = query.toLowerCase();
+            const sheets = {
+                algebra: '<div class="cheat-item"><div class="cheat-item__label">Quadratic Formula</div>\\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\)</div><div class="cheat-item"><div class="cheat-item__label">Arithmetic Series Sum</div>\\( S_n = \\frac{n}{2}\\big[2a + (n-1)d\\big] \\)</div><div class="cheat-item"><div class="cheat-item__label">Geometric Series Sum</div>\\( S_n = \\frac{a(r^n - 1)}{r - 1}, \\quad r \\neq 1 \\)</div>',
+                trig: '<div class="cheat-item"><div class="cheat-item__label">Pythagorean Identity</div>\\( \\sin^2 x + \\cos^2 x = 1 \\)</div><div class="cheat-item"><div class="cheat-item__label">Double Angle</div>\\( \\sin 2x = 2\\sin x \\cos x \\)</div><div class="cheat-item"><div class="cheat-item__label">Sine Rule</div>\\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C} \\)</div>',
+                calculus: '<div class="cheat-item"><div class="cheat-item__label">Power Rule</div>\\( \\frac{d}{dx}\\left[x^n\\right] = nx^{n-1} \\)</div><div class="cheat-item"><div class="cheat-item__label">First Principles</div>\\( f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} \\)</div>',
+                function: '<div class="cheat-item"><div class="cheat-item__label">Axis of Symmetry</div>\\( x = \\frac{-b}{2a} \\)</div><div class="cheat-item"><div class="cheat-item__label">Inverse</div>Swap \\(x\\) and \\(y\\), then solve for \\(y\\)</div>',
+                geometry: '<div class="cheat-item"><div class="cheat-item__label">Distance Formula</div>\\( d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} \\)</div><div class="cheat-item"><div class="cheat-item__label">Midpoint</div>\\( M = \\left(\\frac{x_1+x_2}{2},\\; \\frac{y_1+y_2}{2}\\right) \\)</div>',
+                probability: '<div class="cheat-item"><div class="cheat-item__label">Addition Rule</div>\\( P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\)</div><div class="cheat-item"><div class="cheat-item__label">Complementary</div>\\( P(A\') = 1 - P(A) \\)</div>',
+            };
+            let match = '';
+            for (const [key, val] of Object.entries(sheets)) {
+                if (q.includes(key) || key.includes(q.slice(0, 4))) match += val;
+            }
+            if (!match) match = Object.values(sheets).join('');
+            return match;
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
