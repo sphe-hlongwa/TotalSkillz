@@ -10,7 +10,7 @@
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-xl);
-    padding: 2.2rem 2.5rem;
+    padding: clamp(1.5rem, 5vw, 2.2rem) clamp(1.5rem, 6vw, 2.5rem);
     color: white;
     position: relative;
     overflow: hidden;
@@ -37,7 +37,7 @@
 }
 
 .welcome-banner__name {
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 4vw, 1.6rem);
     font-weight: 800;
     margin-bottom: 0.5rem;
 }
@@ -125,7 +125,7 @@
 }
 
 .quote-text {
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 3.5vw, 1.15rem);
     line-height: 1.6;
     font-style: italic;
     color: var(--text);
@@ -175,7 +175,7 @@
 }
 
 .search-section .search-bar {
-    max-width: 600px;
+    max-width: 100%; /* More fluid on mobile */
 }
 
 /* Topic Cards */
@@ -216,7 +216,7 @@
 }
 
 .topic-card__title {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.1rem);
     font-weight: 700;
 }
 
@@ -485,7 +485,7 @@
 
 @media (max-width: 600px) {
     .welcome-banner {
-        padding: 1.5rem;
+        padding: 1.25rem;
     }
 
     .welcome-banner__name {
