@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Total Skillz.inc</title>
+    <title>Dashboard - Total Skill</title>
     <meta name="description"
-        content="Your Total Skillz.inc dashboard. Track progress, practice daily, search resources, and master every topic.">
+        content="Your Total Skill dashboard. Track progress, practice daily, search resources, and master every topic.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -22,7 +22,6 @@
                 <img src="logo.jpg" alt="Logo"
                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
             </div>
-            <span>Total Skillz.inc</span>
         </a>
         <nav class="header__nav">
             <a href="dashboard.html" class="header__nav-link active"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
@@ -62,7 +61,12 @@
             <!-- Welcome Banner -->
             <div class="welcome-banner" id="welcomeBanner">
                 <p class="welcome-banner__greeting" id="greeting">Good evening</p>
-                <h1 class="welcome-banner__name" id="userName">Learner</h1>
+                <h1 class="welcome-banner__name"
+                    style="font-family: 'Inter', system-ui, sans-serif; font-weight: 900; letter-spacing: -0.04em; font-size: clamp(1.6rem, 5vw, 2.2rem); text-transform: uppercase; background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center; gap: 0.5rem;">
+                    Welcome to Total Skillz
+                    <i class="fa-solid fa-brain" style="-webkit-text-fill-color: #8b5cf6;"></i>
+                    <span id="userName" style="display:none;"></span>
+                </h1>
                 <p class="welcome-banner__msg">Keep up the momentum! Every problem you solve brings you closer to
                     mastering matric maths.</p>
                 <div class="welcome-banner__stats">
@@ -75,88 +79,111 @@
                     <div class="welcome-stat"><span class="welcome-stat__num" id="statBadges">0</span><span
                             class="welcome-stat__label">Badges</span></div>
                 </div>
-                <!-- Motivational Quotes -->
-                <div class="quotes-widget">
-                    <div class="quote-track" id="quoteTrack">
-                        <!-- Dynamic quotes go here -->
-                    </div>
-                </div>
-
-                <!-- Search -->
-                <div class="search-section">
-                    <div class="search-bar" id="searchBar">
-                        <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted);"></i>
-                        <input type="text" id="searchInput" placeholder="Search topics, videos, formulas...">
-                        <button type="button" id="searchBtn" aria-label="Search"><i
-                                class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                    <div id="searchResults" class="search-results" style="display:none;"></div>
-                </div>
-
-                <!-- Layout: Main + Sidebar -->
-                <div class="dash-layout">
-                    <div>
-                        <div class="reveal">
-                            <h2 class="section-title">Topics</h2>
-                            <p class="section-subtitle">Select a topic to start learning and practising.</p>
-                        </div>
-                        <div class="grid-3 reveal" id="topicsGrid"></div>
-
-                        <div class="reveal" style="margin-top:2rem;">
-                            <h2 class="section-title">Your Badges</h2>
-                            <p class="section-subtitle">Earn badges by completing challenges and building streaks.</p>
-                            <div id="badgesGrid" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1rem;"></div>
-                        </div>
-                    </div>
-
-                    <!-- Sidebar -->
-                    <div class="dash-sidebar">
-                        <!-- Daily Challenge -->
-                        <div class="daily-card" id="dailyCard">
-                            <div class="daily-card__header">
-                                <h3 class="daily-card__title"><i class="fa-solid fa-bolt"
-                                        style="color:var(--accent-amber);"></i> Daily Challenge</h3>
-                                <span class="badge badge-amber" id="dailyBadge">New</span>
-                            </div>
-                            <div id="dailyContent"></div>
-                        </div>
-
-                        <!-- Weak Areas -->
-                        <div class="cheat-card" id="weakAreasCard">
-                            <h3 class="cheat-card__title"><i class="fa-solid fa-triangle-exclamation"
-                                    style="color:var(--accent-red);margin-right:0.4rem;"></i> Weak Areas</h3>
-                            <div id="weakAreas">
-                                <p style="font-size:0.85rem;color:var(--text-muted);">Complete some practice to see weak
-                                    areas here.</p>
-                            </div>
-                        </div>
-
-                        <!-- Quick Formulas -->
-                        <div class="cheat-card">
-                            <h3 class="cheat-card__title"><i class="fa-solid fa-scroll"
-                                    style="color:var(--primary);margin-right:0.4rem;"></i> Quick Formulas</h3>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Quadratic Formula</div>
-                                \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)
-                            </div>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Derivative (First Principles)</div>
-                                \( f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \)
-                            </div>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Compound Interest</div>
-                                \( A = P(1 + i)^n \)
-                            </div>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Distance Formula</div>
-                                \( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+            <!-- Motivational Quotes -->
+            <div class="quotes-widget">
+                <div class="quote-track" id="quoteTrack">
+                    <!-- Dynamic quotes go here -->
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-section">
+                <div class="search-bar" id="searchBar">
+                    <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted);"></i>
+                    <input type="text" id="searchInput" placeholder="Search topics, videos, formulas...">
+                    <button type="button" id="searchBtn" aria-label="Search"><i
+                            class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div id="searchResults" class="search-results" style="display:none;"></div>
+            </div>
+
+            <!-- Layout: Main + Sidebar -->
+            <div class="dash-layout">
+                <div>
+                    <div class="reveal">
+                        <h2 class="section-title">Topics</h2>
+                        <p class="section-subtitle">Select a topic to start learning and practising.</p>
+                    </div>
+                    <div class="grid-3 reveal" id="topicsGrid"></div>
+
+                    <div class="reveal" style="margin-top:2rem;">
+                        <h2 class="section-title">Your Badges</h2>
+                        <p class="section-subtitle">Earn badges by completing challenges and building streaks.</p>
+                        <div id="badgesGrid" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="dash-sidebar">
+                    <!-- Daily Challenge -->
+                    <div class="daily-card" id="dailyCard">
+                        <div class="daily-card__header">
+                            <h3 class="daily-card__title"><i class="fa-solid fa-bolt"
+                                    style="color:var(--accent-amber);"></i> Daily Challenge</h3>
+                            <span class="badge badge-amber" id="dailyBadge">New</span>
+                        </div>
+                        <div id="dailyContent"></div>
+                    </div>
+
+                    <!-- Weak Areas -->
+                    <div class="cheat-card" id="weakAreasCard">
+                        <h3 class="cheat-card__title"><i class="fa-solid fa-triangle-exclamation"
+                                style="color:var(--accent-red);margin-right:0.4rem;"></i> Weak Areas</h3>
+                        <div id="weakAreas">
+                            <p style="font-size:0.85rem;color:var(--text-muted);">Complete some practice to see weak
+                                areas here.</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Formulas -->
+                    <div class="cheat-card">
+                        <h3 class="cheat-card__title"><i class="fa-solid fa-scroll"
+                                style="color:var(--primary);margin-right:0.4rem;"></i> Quick Formulas</h3>
+                        <div class="cheat-item">
+                            <div class="cheat-item__label">Quadratic Formula</div>
+                            \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)
+                        </div>
+                        <div class="cheat-item">
+                            <div class="cheat-item__label">Derivative (First Principles)</div>
+                            \( f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \)
+                        </div>
+                        <div class="cheat-item">
+                            <div class="cheat-item__label">Compound Interest</div>
+                            \( A = P(1 + i)^n \)
+                        </div>
+                        <div class="cheat-item">
+                            <div class="cheat-item__label">Distance Formula</div>
+                            \( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <footer
+        style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 2rem;">
+        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;">
+            Crafted by <span style="color: var(--primary); font-weight: 600;">Sphephelo Hlongwa</span>
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; font-size: 1.2rem;">
+            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank"
+                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-telegram"></i></a>
+            <a href="https://github.com/sphe-hlongwa" target="_blank"
+                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-github"></i></a>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -166,11 +193,15 @@
 
         const topicsData = [
             { id: 'algebra', title: 'Algebra', desc: 'Equations, inequalities, sequences and series', icon: 'fa-solid fa-superscript', color: '#4f46e5' },
-            { id: 'functions', title: 'Functions', desc: 'Graphs, inverses, transformations', icon: 'fa-solid fa-chart-line', color: '#0ea5e9' },
+            { id: 'patterns', title: 'Patterns', desc: 'Arithmetic & Geometric number patterns', icon: 'fa-solid fa-list-ol', color: '#0ea5e9' },
+            { id: 'functions', title: 'Functions', desc: 'Graphs, inverses, transformations', icon: 'fa-solid fa-chart-line', color: '#10b981' },
+            { id: 'finance', title: 'Finance', desc: 'Annuities, loans, sinking funds, and decay', icon: 'fa-solid fa-sack-dollar', color: '#f59e0b' },
             { id: 'trigonometry', title: 'Trigonometry', desc: 'Identities, equations, sine and cosine rules', icon: 'fa-solid fa-compass-drafting', color: '#8b5cf6' },
-            { id: 'calculus', title: 'Calculus', desc: 'Limits, derivatives, rates of change', icon: 'fa-solid fa-infinity', color: '#ec4899' },
-            { id: 'geometry', title: 'Geometry', desc: 'Circle theorems, coordinate geometry', icon: 'fa-solid fa-draw-polygon', color: '#10b981' },
-            { id: 'probability', title: 'Probability & Stats', desc: 'Counting, probability rules, distributions', icon: 'fa-solid fa-dice', color: '#f59e0b' },
+            { id: 'analytical_geometry', title: 'Analytical Geom', desc: 'Circles, tangents, and coordinate geometry', icon: 'fa-solid fa-drafting-compass', color: '#0ea5e9' },
+            { id: 'euclidean_geometry', title: 'Euclidean Geom', desc: 'Circle theorems and proportionality', icon: 'fa-solid fa-shapes', color: '#10b981' },
+            { id: 'calculus', title: 'Calculus', desc: 'Limits, derivatives, and rates of change', icon: 'fa-solid fa-infinity', color: '#ec4899' },
+            { id: 'probability', title: 'Probability', desc: 'Counting, Venn diagrams, and rules', icon: 'fa-solid fa-dice', color: '#eab308' },
+            { id: 'statistics', title: 'Statistics', desc: 'Regression, correlation, and distributions', icon: 'fa-solid fa-chart-simple', color: '#f59e0b' },
         ];
 
         const quotePool = [
@@ -193,7 +224,26 @@
             { text: "Nothing takes place in the world whose meaning is not that of some maximum or minimum.", author: "Leonhard Euler", img: "euler.jpg", set: 0 },
             { text: "Logic is the foundation of the certainty of all the knowledge we acquire.", author: "Leonhard Euler", img: "euler.jpg", set: 1 },
             { text: "Everything that happens in the world follows a rule of maximum or minimum.", author: "Leonhard Euler", img: "euler.jpg", set: 2 },
-            { text: "By the help of mathematics, I can see what others cannot.", author: "Leonhard Euler", img: "euler.jpg", set: 3 }
+            { text: "By the help of mathematics, I can see what others cannot.", author: "Leonhard Euler", img: "euler.jpg", set: 3 },
+            // Newton
+            { text: "If I have seen further it is by standing on the shoulders of Giants.", author: "Isaac Newton", img: "isaac.jpg", set: 0 },
+            { text: "Truth is ever to be found in simplicity, and not in the multiplicity and confusion of things.", author: "Isaac Newton", img: "isaac.jpg", set: 1 },
+            // Gauss
+            { text: "Mathematics is the queen of the sciences.", author: "Carl Friedrich Gauss", img: "gauss.jpg", set: 2 },
+            // Lovelace
+            { text: "That brain of mine is something more than merely mortal; as time will show.", author: "Ada Lovelace", img: "lovelace.jpg", set: 3 },
+            // Pythagoras
+            { text: "Numbers have a way of taking a man by the hand and leading him down the path of reason.", author: "Pythagoras", img: "pythagoras.jpg", set: 0 },
+            // Archimedes
+            { text: "Give me a place to stand, and a lever long enough, and I will move the world.", author: "Archimedes", img: "archimedes.jpg", set: 1 },
+            // Descartes
+            { text: "Perfect numbers like perfect men are very rare.", author: "Rene Descartes", img: "descartes.jpg", set: 2 },
+            // Galileo
+            { text: "Mathematics is the language with which God has written the universe.", author: "Galileo Galilei", img: "galileo.jpg", set: 3 },
+            // Ramanujan
+            { text: "An equation for me has no meaning unless it expresses a thought of God.", author: "Srinivasa Ramanujan", img: "ramanujan.jpg", set: 0 },
+            // Pascal
+            { text: "Since we cannot know all that there is to be known about anything, we ought to know a little about everything.", author: "Blaise Pascal", img: "pascal.jpg", set: 1 }
         ];
 
         let currentQuoteIndex = 0;
@@ -321,11 +371,15 @@
             streak3: { icon: 'fa-solid fa-fire', label: '3-Day Streak', color: '#ef4444' },
             streak7: { icon: 'fa-solid fa-fire-flame-curved', label: 'Weekly Warrior', color: '#ec4899' },
             master_algebra: { icon: 'fa-solid fa-superscript', label: 'Algebra Master', color: '#4f46e5' },
-            master_functions: { icon: 'fa-solid fa-chart-line', label: 'Functions Master', color: '#0ea5e9' },
+            master_patterns: { icon: 'fa-solid fa-list-ol', label: 'Patterns Master', color: '#0ea5e9' },
+            master_functions: { icon: 'fa-solid fa-chart-line', label: 'Functions Master', color: '#10b981' },
+            master_finance: { icon: 'fa-solid fa-sack-dollar', label: 'Finance Master', color: '#f59e0b' },
             master_trigonometry: { icon: 'fa-solid fa-compass-drafting', label: 'Trig Master', color: '#8b5cf6' },
+            master_analytical_geometry: { icon: 'fa-solid fa-drafting-compass', label: 'Analytical Master', color: '#0ea5e9' },
+            master_euclidean_geometry: { icon: 'fa-solid fa-shapes', label: 'Euclidean Master', color: '#10b981' },
             master_calculus: { icon: 'fa-solid fa-infinity', label: 'Calculus Master', color: '#ec4899' },
-            master_geometry: { icon: 'fa-solid fa-draw-polygon', label: 'Geometry Master', color: '#10b981' },
-            master_probability: { icon: 'fa-solid fa-dice', label: 'Probability Master', color: '#f59e0b' },
+            master_probability: { icon: 'fa-solid fa-dice', label: 'Prob Master', color: '#eab308' },
+            master_statistics: { icon: 'fa-solid fa-chart-simple', label: 'Stats Master', color: '#f59e0b' },
         };
 
         function renderBadges(progress) {

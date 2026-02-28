@@ -1,5 +1,5 @@
 /* ============================================
-   Total Skillz.inc - Core JavaScript
+   Total Skill - Core JavaScript
    ============================================ */
 
 // ---- Theme ----
@@ -29,6 +29,23 @@ function requireAuth() {
     if (!getUser()) { window.location.href = 'index.html'; return false; }
     return true;
 }
+// ---- Security Helpers ----
+function sanitizeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+function sanitizeText(str) {
+    return str.replace(/[&<>"']/g, (m) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    }[m]));
+}
+
 function getInitials(name) {
     return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
 }
@@ -107,11 +124,15 @@ function getProgress() {
     return p ? JSON.parse(p) : {
         topics: {
             algebra: { correct: 0, total: 0, level: 0 },
+            patterns: { correct: 0, total: 0, level: 0 },
             functions: { correct: 0, total: 0, level: 0 },
+            finance: { correct: 0, total: 0, level: 0 },
             trigonometry: { correct: 0, total: 0, level: 0 },
+            analytical_geometry: { correct: 0, total: 0, level: 0 },
+            euclidean_geometry: { correct: 0, total: 0, level: 0 },
             calculus: { correct: 0, total: 0, level: 0 },
-            geometry: { correct: 0, total: 0, level: 0 },
-            probability: { correct: 0, total: 0, level: 0 }
+            probability: { correct: 0, total: 0, level: 0 },
+            statistics: { correct: 0, total: 0, level: 0 }
         },
         streak: 0,
         lastPractice: null,
@@ -141,7 +162,7 @@ function updateStreak() {
 
 function recordAnswer(topic, correct) {
     const p = getProgress();
-    if (!p.topics[topic]) return;
+    if (!p.topics[topic]) p.topics[topic] = { correct: 0, total: 0, level: 0 };
     p.topics[topic].total++;
     p.totalAttempted++;
     if (correct) {
@@ -208,6 +229,26 @@ function renderMath(el) {
     }
 }
 
+// ---- Topic Toggle (Mobile) ----
+function initTopicToggle() {
+    const btn = document.getElementById('topicToggleBtn');
+    const wrapper = document.getElementById('topicPills');
+    const icon = document.getElementById('topicToggleIcon');
+
+    if (!btn || !wrapper || !icon) return;
+
+    btn.addEventListener('click', () => {
+        wrapper.classList.toggle('expanded');
+        if (wrapper.classList.contains('expanded')) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
+        } else {
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
+        }
+    });
+}
+
 // ---- Init ----
 document.addEventListener('DOMContentLoaded', () => {
     setTheme(getTheme());
@@ -215,5 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initReveal();
     initTabs();
+    initTopicToggle();
     renderMath();
 });

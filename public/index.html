@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total Skillz.inc - Sign In</title>
+    <title>Total Skill - Sign In</title>
     <meta name="description"
-        content="Sign in to Total Skillz.inc, your interactive Grade 12 Mathematics learning hub with visual lessons, daily practice, and progress tracking.">
+        content="Sign in to Total Skill, your interactive Grade 12 Mathematics learning hub with visual lessons, daily practice, and progress tracking.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -20,10 +20,10 @@
             <div class="auth-visual__content">
                 <div class="auth-visual__icon"
                     style="overflow: hidden; padding: 0; display: flex; align-items: center; justify-content: center; background: transparent;">
-                    <img src="logo.jpg" alt="Total Skillz Logo"
+                    <img src="logo.jpg" alt="Total Skill Logo"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                 </div>
-                <h1 class="auth-visual__title">Total Skillz.inc</h1>
+                <h1 class="auth-visual__title" style="display:none;">Total Skill</h1>
                 <p class="auth-visual__desc">Master Grade 12 Mathematics with visual lessons, daily practice, and smart
                     tracking.</p>
                 <div class="auth-visual__formulas">
@@ -152,8 +152,32 @@
         </div>
     </div>
 
+    <footer
+        style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 2rem;">
+        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;">
+            Crafted by <span style="color: var(--primary); font-weight: 600;">Sphephelo Hlongwa</span>
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; font-size: 1.2rem;">
+            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank"
+                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-telegram"></i></a>
+            <a href="https://github.com/sphe-hlongwa" target="_blank"
+                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-github"></i></a>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
     <script src="js/main.js"></script>
     <script>
         if (getUser()) window.location.href = 'dashboard.html';
@@ -191,7 +215,7 @@
         function showError(inputId, errId) { document.getElementById(inputId).classList.add('error'); document.getElementById(errId).classList.add('visible'); }
         function clearErrors() { document.querySelectorAll('.form-input').forEach(i => i.classList.remove('error')); document.querySelectorAll('.form-error').forEach(e => e.classList.remove('visible')); }
 
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
             e.preventDefault(); clearErrors();
             const email = document.getElementById('loginEmail').value.trim();
             const pass = document.getElementById('loginPassword').value;
@@ -201,13 +225,26 @@
             if (valid) {
                 const users = JSON.parse(localStorage.getItem('mg12_users') || '[]');
                 const found = users.find(u => u.email === email);
-                if (found && found.password === pass) { setUser({ name: found.name, email: found.email }); updateStreak(); window.location.href = 'dashboard.html'; }
-                else if (found) { showError('loginPassword', 'loginPassErr'); document.getElementById('loginPassErr').textContent = 'Incorrect password'; }
-                else { setUser({ name: email.split('@')[0], email }); updateStreak(); window.location.href = 'dashboard.html'; }
+
+                if (found) {
+                    // Verify hashed password
+                    const match = await dcodeIO.bcrypt.compare(pass, found.password);
+                    if (match) {
+                        setUser({ name: found.name, email: found.email });
+                        updateStreak();
+                        window.location.href = 'dashboard.html';
+                    } else {
+                        showError('loginPassword', 'loginPassErr');
+                        document.getElementById('loginPassErr').textContent = 'Incorrect password';
+                    }
+                } else {
+                    showError('loginEmail', 'loginEmailErr');
+                    document.getElementById('loginEmailErr').textContent = 'Account not found. Please sign up first.';
+                }
             }
         });
 
-        document.getElementById('signupForm').addEventListener('submit', function (e) {
+        document.getElementById('signupForm').addEventListener('submit', async function (e) {
             e.preventDefault(); clearErrors();
             const name = document.getElementById('signupName').value.trim();
             const email = document.getElementById('signupEmail').value.trim();
@@ -219,13 +256,20 @@
             if (valid) {
                 const users = JSON.parse(localStorage.getItem('mg12_users') || '[]');
                 if (users.find(u => u.email === email)) { showError('signupEmail', 'signupEmailErr'); document.getElementById('signupEmailErr').textContent = 'Email already registered'; return; }
-                users.push({ name, email, password: pass });
+
+                // Hash password before saving
+                const salt = await dcodeIO.bcrypt.genSalt(10);
+                const hash = await dcodeIO.bcrypt.hash(pass, salt);
+
+                users.push({ name, email, password: hash });
                 localStorage.setItem('mg12_users', JSON.stringify(users));
                 setUser({ name, email }); updateStreak(); window.location.href = 'dashboard.html';
             }
         });
 
-        document.getElementById('googleBtn').addEventListener('click', () => { setUser({ name: 'Learner', email: 'learner@demo.com' }); updateStreak(); window.location.href = 'dashboard.html'; });
+        document.getElementById('googleBtn').addEventListener('click', () => {
+            alert('Google Sign-In is currently in demo mode and requires a linked account. Please use the standard Sign-Up form for now.');
+        });
     </script>
 </body>
 

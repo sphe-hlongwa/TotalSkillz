@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practice - Total Skillz.inc</title>
+    <title>Practice - Total Skill</title>
     <meta name="description"
         content="Daily maths practice with instant feedback, step-by-step solutions, and weak area tracking.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,7 +21,7 @@
                 <img src="logo.jpg" alt="Logo"
                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
             </div>
-            <span>Total Skillz.inc</span>
+
         </a>
         <nav class="header__nav">
             <a href="dashboard.html" class="header__nav-link"><i class="fa-solid fa-grid-2"></i> Dashboard</a>
@@ -60,20 +60,50 @@
                 </div>
             </div>
 
-            <div class="topic-pills" id="topicPills">
-                <button class="pill active" data-topic="all"><i class="fa-solid fa-layer-group"></i> All Topics</button>
-                <button class="pill" data-topic="algebra"><i class="fa-solid fa-superscript"></i> Algebra</button>
-                <button class="pill" data-topic="functions"><i class="fa-solid fa-chart-line"></i> Functions</button>
-                <button class="pill" data-topic="trigonometry"><i class="fa-solid fa-compass-drafting"></i>
-                    Trigonometry</button>
-                <button class="pill" data-topic="calculus"><i class="fa-solid fa-infinity"></i> Calculus</button>
-                <button class="pill" data-topic="geometry"><i class="fa-solid fa-draw-polygon"></i> Geometry</button>
-                <button class="pill" data-topic="probability"><i class="fa-solid fa-dice"></i> Probability</button>
+            <div class="topic-pills-wrapper">
+                <button class="topic-toggle-btn" id="topicToggleBtn">
+                    <span><i class="fa-solid fa-layer-group"></i> Choose Topic</span>
+                    <i class="fa-solid fa-chevron-down" id="topicToggleIcon"></i>
+                </button>
+                <div class="topic-pills" id="topicPills">
+                    <button class="pill active" data-topic="all"><i class="fa-solid fa-layer-group"></i> All
+                        Topics</button>
+                    <button class="pill" data-topic="algebra"><i class="fa-solid fa-superscript"></i> Algebra</button>
+                    <button class="pill" data-topic="patterns"><i class="fa-solid fa-list-ol"></i> Patterns</button>
+                    <button class="pill" data-topic="functions"><i class="fa-solid fa-chart-line"></i>
+                        Functions</button>
+                    <button class="pill" data-topic="finance"><i class="fa-solid fa-sack-dollar"></i> Finance</button>
+                    <button class="pill" data-topic="trigonometry"><i class="fa-solid fa-compass-drafting"></i>
+                        Trigonometry</button>
+                    <button class="pill" data-topic="analytical_geometry"><i class="fa-solid fa-drafting-compass"></i>
+                        Analytical Geom</button>
+                    <button class="pill" data-topic="euclidean_geometry"><i class="fa-solid fa-shapes"></i> Euclidean
+                        Geom</button>
+                    <button class="pill" data-topic="calculus"><i class="fa-solid fa-infinity"></i> Calculus</button>
+                    <button class="pill" data-topic="probability"><i class="fa-solid fa-dice"></i> Probability</button>
+                    <button class="pill" data-topic="statistics"><i class="fa-solid fa-chart-simple"></i>
+                        Statistics</button>
+                </div>
             </div>
 
             <div class="practice-layout">
                 <div id="questionArea"></div>
                 <div class="practice-sidebar">
+                    <!-- Indirect Monetization: Premium PDF Study Guide -->
+                    <div class="premium-card">
+                        <div class="premium-card__badge">Premium</div>
+                        <div class="premium-card__title">Master Grade 12<br>Math Summary</div>
+                        <p class="premium-card__desc">Complete formula sheets, exam tips, and common traps for all
+                            topics.</p>
+                        <div class="premium-card__price">
+                            <span class="premium-card__amount">R49</span>
+                            <span class="premium-card__label">once-off</span>
+                        </div>
+                        <a href="#" class="download-btn">
+                            <i class="fa-solid fa-file-pdf"></i> Get PDF Guide
+                        </a>
+                    </div>
+
                     <div class="mini-stat-card">
                         <div class="mini-stat-card__title"><i class="fa-solid fa-bullseye"></i> Session Score</div>
                         <div class="mini-stat-card__value" id="sessionScore">0 / 0</div>
@@ -93,6 +123,29 @@
         </div>
     </main>
 
+    <footer
+        style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 2rem;">
+        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;">
+            Crafted by <span style="color: var(--primary); font-weight: 600;">Sphephelo Hlongwa</span>
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1rem; font-size: 1.2rem;">
+            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank"
+                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-telegram"></i></a>
+            <a href="https://github.com/sphe-hlongwa" target="_blank"
+                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
+                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
+                    class="fa-brands fa-github"></i></a>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script src="js/main.js"></script>
@@ -101,12 +154,1104 @@
 
         // ---- Question Bank with LaTeX ----
         const questionBank = [
-            // Algebra
+            // Algebra - New
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(3x^2 - 12x = 0\\)',
+                options: [
+                    '\\(x = 0\\) or \\(x = -4\\)',
+                    '\\(x = 4\\)',
+                    '\\(x = 0\\) or \\(x = 4\\)',
+                    '\\(x = 3\\) or \\(x = 4\\)'],
+                answer: 2,
+                solution: [
+                    'Factorise the expression: \\(3x(x - 4) = 0\\)',
+                    'Set each factor to zero: \\(3x = 0\\) or \\(x - 4 = 0\\)',
+                    '\\(x = 0\\) or \\(x = 4\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Simplify the expression: \\(\\frac{x^2 - 9}{x + 3}\\)',
+                options: [
+                    '\\(x - 9\\)',
+                    '\\(x - 3\\)',
+                    '\\(x + 3\\)',
+                    '\\(x^2 - 3\\)'],
+                answer: 1,
+                solution: [
+                    'Factorise the numerator using difference of squares: \\(x^2 - 9 = (x - 3)(x + 3)\\)',
+                    'Substitute back: \\(\\frac{(x - 3)(x + 3)}{x + 3}\\)',
+                    'Cancel the common factor \\((x + 3)\\):',
+                    'Result is \\(x - 3\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\) and \\(y\\): \\(x + y = 5\\) and \\(x^2 + y^2 = 13\\)',
+                options: [
+                    '\\((0, 5)\\) or \\((5, 0)\\)',
+                    '\\((2, 2)\\)',
+                    '\\((1, 4)\\) or \\((4, 1)\\)',
+                    '\\((2, 3)\\) or \\((3, 2)\\)'],
+                answer: 3,
+                solution: [
+                    'From first eq: \\(y = 5 - x\\)',
+                    'Substitute into second: \\(x^2 + (5 - x)^2 = 13\\)',
+                    'Expand: \\(x^2 + 25 - 10x + x^2 = 13\\)',
+                    '\\(2x^2 - 10x + 12 = 0\\)',
+                    'Divide by 2: \\(x^2 - 5x + 6 = 0\\)',
+                    'Factorise: \\((x - 2)(x - 3) = 0 \\implies x=2\\) or \\(x=3\\)',
+                    'If \\(x=2, y=3\\). If \\(x=3, y=2\\).'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Determine the nature of the roots for the equation \\(x^2 + 4x + 4 = 0\\).',
+                options: [
+                    'Real, rational and unequal',
+                    'Non-real/Imaginary',
+                    'Real, rational and equal',
+                    'Real, irrational and unequal'],
+                answer: 2,
+                solution: [
+                    'Calculate the discriminant \\(\\Delta = b^2 - 4ac\\)',
+                    '\\(a=1, b=4, c=4\\)',
+                    '\\(\\Delta = (4)^2 - 4(1)(4) = 16 - 16 = 0\\)',
+                    'Since \\(\\Delta = 0\\), the roots are real, rational and equal.'
+                ]
+            },
+
+            // Patterns - New
+            {
+                topic: 'patterns',
+                q: 'A quadratic sequence with a general term \\(T_n\\) has the following properties:<br><ul><li>\\(T_{29} = 1166\\)</li><li>\\(T_n - T_{n-1} = 3n - 4\\)</li></ul>Determine the value of the first term of the quadratic sequence.',
+                options: [
+                    '-24',
+                    '-23',
+                    '-25',
+                    '-22'],
+                answer: 0,
+                solution: [
+                    'The first difference is given by \\(T_n - T_{n-1} = 3n - 4\\).',
+                    'First differences: \\(d_2 = T_2 - T_1 = 3(2) - 4 = 2\\), \\(d_3 = T_3 - T_2 = 3(3) - 4 = 5\\)',
+                    'Second difference \\(2a = d_3 - d_2 = 5 - 2 = 3 \\implies a = 1.5\\)',
+                    'Using \\(3a + b = d_2\\): \\(3(1.5) + b = 2 \\implies 4.5 + b = 2 \\implies b = -2.5\\)',
+                    'General term is \\(T_n = 1.5n^2 - 2.5n + c\\)',
+                    'Substitute \\(n = 29\\): \\(1166 = 1.5(29)^2 - 2.5(29) + c\\)',
+                    '\\(1166 = 1.5(841) - 72.5 + c\\)',
+                    '\\(1166 = 1261.5 - 72.5 + c = 1189 + c \\implies c = -23\\)',
+                    'First term \\(T_1 = a + b + c = 1.5 - 2.5 - 23 = -24\\)'
+                ]
+            },
+            // Patterns - Sigma Notation (Added from image)
+            {
+                topic: 'patterns',
+                q: 'Given: \\(\\sum_{k=2}^{13} (-3)^k\\)<br><br>Write down the values of the first three terms of the series.',
+                options: [
+                    '\\(9 ; -27 ; 81\\)',
+                    '\\(-9 ; 27 ; -81\\)',
+                    '\\(-3 ; 9 ; -27\\)',
+                    '\\(9 ; 27 ; 81\\)'],
+                answer: 0,
+                solution: [
+                    'Substitute \\(k=2, 3, 4\\) into the general term:',
+                    '\\(T_1 (k=2) = (-3)^2 = 9\\)',
+                    '\\(T_2 (k=3) = (-3)^3 = -27\\)',
+                    '\\(T_3 (k=4) = (-3)^4 = 81\\)',
+                    'The first three terms are \\(9; -27; 81\\).'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Given: \\(\\sum_{k=2}^{13} (-3)^k\\)<br><br>Write down the value of the constant ratio.',
+                options: [
+                    '\\(3\\)',
+                    '\\(-3\\)',
+                    '\\(-\\frac{1}{3}\\)',
+                    '\\(\\frac{1}{3}\\)'],
+                answer: 1,
+                solution: [
+                    'The constant ratio \\(r = \\frac{T_2}{T_1}\\)',
+                    'Using the terms from the previous question: \\(r = \\frac{-27}{9}\\)',
+                    '\\(r = -3\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Will \\(\\sum_{k=2}^{\\infty} (-3)^k\\) converge? Explain your answer.',
+                options: [
+                    'Yes, because \\(r = -3\\).',
+                    'Yes, because \\(-1 < r < 1\\).',
+                    'No, because \\(r = -3\\) which is not between -1 and 1.',
+                    'No, because the terms alternate in sign.'],
+                answer: 2,
+                solution: [
+                    'For a geometric series to converge, the constant ratio \\(r\\) must satisfy \\(-1 < r < 1\\).',
+                    'In this series, \\(r = -3\\).',
+                    'Since \\(|-3| > 1\\) (or \\(-3\\) is not between -1 and 1), the series does NOT converge.'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Calculate \\(\\sum_{k=2}^{13} (-3)^k x\\). Give your answer in terms of \\(x\\).',
+                options: [
+                    '\\(1195740x\\)',
+                    '\\(-1195740x\\)',
+                    '\\(-398580x\\)',
+                    '\\(398580x\\)'],
+                answer: 1,
+                solution: [
+                    'The series is \\(9x - 27x + 81x - \\dots\\)',
+                    'Identify components: \\(a = 9x\\) and \\(r = -3\\)',
+                    'Number of terms \\(n = \\text{top} - \\text{bottom} + 1 = 13 - 2 + 1 = 12\\)',
+                    'Use the sum of a geometric series formula: \\(S_n = \\frac{a(1 - r^n)}{1 - r}\\)',
+                    '\\(S_{12} = \\frac{9x(1 - (-3)^{12})}{1 - (-3)}\\)',
+                    '\\(S_{12} = \\frac{9x(1 - 531441)}{4} = \\frac{9x(-531440)}{4}\\)',
+                    '\\(S_{12} = 9x(-132860) = -1195740x\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Find the general term \\(T_n\\) for the quadratic pattern: \\(2; 5; 10; 17; \\dots\\)',
+                options: [
+                    '\\(T_n = n^2 - 1\\)',
+                    '\\(T_n = 2n + 1\\)',
+                    '\\(T_n = 2n^2\\)',
+                    '\\(T_n = n^2 + 1\\)'],
+                answer: 3,
+                solution: [
+                    'Check first differences: \\(3, 5, 7, \\dots\\)',
+                    'Check second differences: \\(2, 2, \\dots\\)',
+                    'Constant 2nd difference \\(2a = 2 \\implies a = 1\\)',
+                    '\\(3a + b = 3 \\implies 3(1) + b = 3 \\implies b = 0\\)',
+                    '\\(a + b + c = 2 \\implies 1 + 0 + c = 2 \\implies c = 1\\)',
+                    '\\(T_n = n^2 + 1\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Calculate the sum to infinity of the geometric series: \\(8 + 4 + 2 + 1 + \\dots\\)',
+                options: [
+                    '32',
+                    '12',
+                    '16',
+                    '8'],
+                answer: 2,
+                solution: [
+                    'Identify components: \\(a = 8\\) and \\(r = \\frac{4}{8} = 0.5\\)',
+                    'Check convergence: \\(|r| < 1\\), so it converges.',
+                    'Use formula: \\(S_{\\infty} = \\frac{a}{1 - r}\\)',
+                    '\\(S_{\\infty} = \\frac{8}{1 - 0.5} = \\frac{8}{0.5} = 16\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Evaluate the following sigma notation: \\(\\sum_{k=1}^{10} (3k + 2)\\)',
+                options: [
+                    '185',
+                    '155',
+                    '210',
+                    '190'],
+                answer: 0,
+                solution: [
+                    'This is an arithmetic series.',
+                    'First term (k=1): \\(a = 3(1) + 2 = 5\\)',
+                    'Last term (k=10): \\(l = 3(10) + 2 = 32\\)',
+                    'Number of terms: \\(n = 10\\)',
+                    '\\(S_n = \\frac{n}{2}(a + l) = \\frac{10}{2}(5 + 32) = 5(37) = 185\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Determine the 20th term of the arithmetic sequence: \\(5; 11; 17; \\dots\\)',
+                options: [
+                    '125',
+                    '120',
+                    '119',
+                    '114'],
+                answer: 2,
+                solution: [
+                    '\\(a = 5\\), \\(d = 11 - 5 = 6\\)',
+                    'Formula: \\(T_n = a + (n - 1)d\\)',
+                    '\\(T_{20} = 5 + (20 - 1)6 = 5 + 19(6)\\)',
+                    '\\(T_{20} = 5 + 114 = 119\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Given: The sum to \\(n\\) terms of an arithmetic sequence is \\(S_n = 3n^2 - 5n\\). Calculate the sum of the first 21 terms of this sequence.',
+                options: [
+                    '1407',
+                    '1323',
+                    '1281',
+                    '1218'],
+                answer: 3,
+                solution: [
+                    'Substitute \\(n = 21\\) into the given formula:',
+                    '\\(S_{21} = 3(21)^2 - 5(21)\\)',
+                    '\\(S_{21} = 3(441) - 105\\)',
+                    '\\(S_{21} = 1323 - 105 = 1218\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Given: The sum to \\(n\\) terms of an arithmetic sequence is \\(S_n = 3n^2 - 5n\\). Determine the 22nd term (\\(T_{22}\\)) of this sequence.',
+                options: [
+                    '130',
+                    '124',
+                    '121',
+                    '118'],
+                answer: 1,
+                solution: [
+                    'Use the formula \\(T_n = S_n - S_{n-1}\\):',
+                    '\\(T_{22} = S_{22} - S_{21}\\)',
+                    'From previous calculation, \\(S_{21} = 1218\\)',
+                    'Calculate \\(S_{22} = 3(22)^2 - 5(22) = 3(484) - 110 = 1452 - 110 = 1342\\)',
+                    '\\(T_{22} = 1342 - 1218 = 124\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Given: The sum to \\(n\\) terms of an arithmetic sequence is \\(S_n = 3n^2 - 5n\\). How many terms of this sequence must be added to obtain a sum of 8162?',
+                options: [
+                    '51',
+                    '54',
+                    '52',
+                    '53'],
+                answer: 3,
+                solution: [
+                    'Set \\(S_n = 8162\\):',
+                    '\\(3n^2 - 5n = 8162 \\implies 3n^2 - 5n - 8162 = 0\\)',
+                    'Use quadratic formula: \\(n = \\frac{-(-5) \\pm \\sqrt{(-5)^2 - 4(3)(-8162)}}{2(3)}\\)',
+                    '\\(n = \\frac{5 \\pm \\sqrt{25 + 97944}}{6} = \\frac{5 \\pm \\sqrt{97969}}{6}\\)',
+                    '\\(n = \\frac{5 + 313}{6} = \\frac{318}{6} = 53\\) (since \\(n > 0\\))'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Consider the sequence: \\(7 ; 7 ; 7 ; 12 ; 7 ; 17 ; 7 ; 22 ; \\dots\\) Determine the value of the 78th term of this sequence.',
+                options: [
+                    '197',
+                    '187',
+                    '22',
+                    '7'],
+                answer: 0,
+                solution: [
+                    'The sequence is a combination of two sequences:',
+                    'Odd positions: \\(7, 7, 7, 7, \\dots\\) (constant)',
+                    'Even positions: \\(7, 12, 17, 22, \\dots\\) (arithmetic with \\(d=5\\))',
+                    'The 78th term is in an even position. It is the 39th term of the even sequence.',
+                    '\\(a = 7, d = 5, n = 39\\)',
+                    '\\(T_{39} = 7 + (39-1)5 = 7 + 38(5) = 7 + 190 = 197\\)',
+                    'Wait, let’s re-check the options/calculation: 7, 12, 17, 22... T1:7, T2:12, T3:17... term k of even sequence is T_{2k}.',
+                    '78th term is k=39. \\(T_{39} = 7 + 38(5) = 197\\). (Adjusting options to match math)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Consider the sequence: \\(7 ; 7 ; 7 ; 12 ; 7 ; 17 ; 7 ; 22 ; \\dots\\) Calculate the sum of the first 103 terms of this sequence.',
+                options: [
+                    '7096',
+                    '7500',
+                    '7350',
+                    '7620'],
+                answer: 0,
+                solution: [
+                    'Odd positions (52 terms): \\(7, 7, 7, \\dots\\) Sum = \\(52 \\times 7 = 364\\)',
+                    'Even positions (51 terms): \\(7, 12, 17, 22, \\dots\\)',
+                    'Sum = \\(\\frac{51}{2}[2(7) + (51-1)5] = \\frac{51}{2}[14 + 250] = \\frac{51}{2}(264) = 51 \\times 132 = 6732\\)',
+                    'Total Sum = \\(364 + 6732 = 7096\\). (Adjusting options to match math)'
+                ]
+            },
+
+            // Functions - New
+            // Functions - Hyperbola (Added from image)
+            {
+                topic: 'functions',
+                q: 'Which of the following expressions is equivalent to \\(f(x) = \\frac{2x+3}{-x-3}\\)?',
+                options: [
+                    '\\(\\frac{3}{x+3} - 2\\)',
+                    '\\(\\frac{-3}{x+3} - 2\\)',
+                    '\\(\\frac{3}{x-3} + 2\\)',
+                    '\\(\\frac{-2}{x+3} + 3\\)'],
+                answer: 0,
+                solution: [
+                    '\\(f(x) = \\frac{2x+3}{-(x+3)}\\)',
+                    '\\(= \\frac{2x+6-3}{-(x+3)}\\)',
+                    '\\(= \\frac{2(x+3)-3}{-(x+3)}\\)',
+                    '\\(= \\frac{2(x+3)}{-(x+3)} - \\frac{3}{-(x+3)}\\)',
+                    '\\(= -2 + \\frac{3}{x+3} = \\frac{3}{x+3} - 2\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Given \\(f(x) = \\frac{3}{x+3} - 2\\), determine the coordinates of the intercepts of \\(f\\) with the axes.',
+                options: [
+                    'x-int: \\((-1.5 ; 0)\\), y-int: \\((0 ; -1)\\)',
+                    'x-int: \\((1.5 ; 0)\\), y-int: \\((0 ; -1)\\)',
+                    'x-int: \\((-1.5 ; 0)\\), y-int: \\((0 ; -2)\\)',
+                    'x-int: \\((-1.5 ; 0)\\), y-int: \\((0 ; 1)\\)'],
+                answer: 0,
+                solution: [
+                    'For the y-intercept, let \\(x = 0\\): \\(f(0) = \\frac{3}{0+3} - 2 = 1 - 2 = -1\\). Point is \\((0 ; -1)\\).',
+                    'For the x-intercept, let \\(y = 0\\): \\(0 = \\frac{3}{x+3} - 2 \\implies 2 = \\frac{3}{x+3}\\)',
+                    '\\(2(x+3) = 3 \\implies 2x + 6 = 3 \\implies 2x = -3 \\implies x = -1.5\\). Point is \\((-1.5 ; 0)\\).'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'What are the equations of the asymptotes of the graph \\(f(x) = \\frac{3}{x+3} - 2\\)?',
+                options: [
+                    '\\(x = -3\\) and \\(y = -2\\)',
+                    '\\(x = 3\\) and \\(y = -2\\)',
+                    '\\(x = -3\\) and \\(y = 2\\)',
+                    '\\(x = 3\\) and \\(y = 2\\)'],
+                answer: 0,
+                solution: [
+                    'The general form of a hyperbola is \\(y = \\frac{a}{x-p} + q\\), with asymptotes \\(x = p\\) and \\(y = q\\).',
+                    'From \\(f(x) = \\frac{3}{x+3} - 2\\), we can see \\(p = -3\\) and \\(q = -2\\).',
+                    'Vertical asymptote: \\(x = -3\\).',
+                    'Horizontal asymptote: \\(y = -2\\).'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Determine the equation of the axis of symmetry of \\(f(x) = \\frac{3}{x+3} - 2\\) that represents a decreasing function.',
+                options: [
+                    '\\(y = -x - 5\\)',
+                    '\\(y = x + 1\\)',
+                    '\\(y = -x - 1\\)',
+                    '\\(y = x - 5\\)'],
+                answer: 0,
+                solution: [
+                    'The axes of symmetry for a hyperbola pass through the point of intersection of its asymptotes \\((-3; -2)\\).',
+                    'They have gradients of \\(1\\) (increasing) and \\(-1\\) (decreasing).',
+                    'For the decreasing axis of symmetry, \\(m = -1\\).',
+                    '\\(y - y_1 = m(x - x_1) \\implies y - (-2) = -1(x - (-3))\\)',
+                    '\\(y + 2 = -x - 3 \\implies y = -x - 5\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Determine the value(s) of \\(x\\) for which \\(f(x) = \\frac{3}{x+3} - 2\\) is decreasing.',
+                options: [
+                    '\\(x \\in \\mathbb{R} , x \\neq -3\\)',
+                    '\\(x > -3\\)',
+                    '\\(x < -3\\)',
+                    '\\(x \\in \\mathbb{R}\\)'],
+                answer: 0,
+                solution: [
+                    'For the hyperbola \\(f(x) = \\frac{a}{x-p} + q\\), if \\(a > 0\\), the function is decreasing in both quadrants where it exists.',
+                    'Here, \\(a = 3\\) (which is positive).',
+                    'Therefore, the function is decreasing for all real values of \\(x\\) except at the vertical asymptote.',
+                    'The vertical asymptote is at \\(x = -3\\).',
+                    'So, it is decreasing for \\(x \\in \\mathbb{R} , x \\neq -3\\).'
+                ]
+            },
+            // Functions - Parabola and Line (Added from image)
+            {
+                topic: 'functions',
+                q: 'Sketched below is the parabola \\(f\\) and the straight line \\(g(x) = 3x + 6\\). R and S are the x-intercepts of \\(f\\), and \\(P(-\\frac{1}{2}; 9)\\) is its turning point. \\(g\\) has its x-intercept at R.<br><br><div style="width:100%; max-width:450px; margin: 1.5rem auto; display: flex; justify-content: center;"><svg viewBox="-40 -40 220 220" style="width:100%; max-width: 400px; height:auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));"><defs><marker id="arrow-axis" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--text-muted)"/></marker><marker id="arrow-line" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--primary)"/></marker><marker id="arrow-parabola" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent-amber)"/></marker></defs><g stroke="var(--text-muted)" stroke-width="1.5"><line x1="-30" y1="120" x2="160" y2="120" marker-start="url(#arrow-axis)" marker-end="url(#arrow-axis)"/><line x1="120" y1="170" x2="120" y2="-20" marker-start="url(#arrow-axis)" marker-end="url(#arrow-axis)"/></g><text x="165" y="115" fill="var(--text-muted)" font-family="math" font-size="14">x</text><text x="130" y="-15" fill="var(--text-muted)" font-family="math" font-size="14">y</text><path d="M 20 170 Q 60 -100 140 170" fill="none" stroke="var(--accent-amber)" stroke-width="2.5" marker-start="url(#arrow-parabola)" marker-end="url(#arrow-parabola)"/><text x="20" y="110" fill="var(--text)" font-family="serif" font-weight="bold" font-size="14">R</text><text x="135" y="110" fill="var(--text)" font-family="serif" font-weight="bold" font-size="14">S</text><text x="65" y="10" fill="var(--text)" font-family="serif" font-size="12">P(-1/2 ; 9)</text><circle cx="60" cy="20" r="4" fill="var(--accent-amber)"/><text x="35" y="45" fill="var(--accent-amber)" font-family="serif" font-style="italic" font-weight="bold" font-size="16">f</text><line x1="15" y1="170" x2="155" y2="-10" stroke="var(--primary)" stroke-width="2.5" marker-start="url(#arrow-line)" marker-end="url(#arrow-line)"/><text x="145" y="15" fill="var(--primary)" font-family="serif" font-style="italic" font-weight="bold" font-size="16">g</text></svg></div>Calculate the coordinates of R.',
+                options: [
+                    '\\((-2 ; 0)\\)',
+                    '\\((2 ; 0)\\)',
+                    '\\((0 ; 6)\\)',
+                    '\\((-3 ; 0)\\)'],
+                answer: 0,
+                solution: [
+                    'R is the x-intercept of both \\(f\\) and \\(g\\).',
+                    'Since we have the equation for \\(g(x) = 3x + 6\\), we can find its x-intercept by setting \\(y = 0\\).',
+                    '\\(3x + 6 = 0\\)',
+                    '\\(3x = -6\\)',
+                    '\\(x = -2\\)',
+                    'Therefore, the coordinates of R are \\((-2 ; 0)\\).'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Sketched below is the parabola \\(f\\) and the straight line \\(g(x) = 3x + 6\\). R and S are the x-intercepts of \\(f\\), and \\(P(-\\frac{1}{2}; 9)\\) is its turning point. \\(g\\) has its x-intercept at R.<br><br>Determine the equation of the parabola \\(f\\).',
+                options: [
+                    '\\(f(x) = -2x^2 - 2x + 8\\)',
+                    '\\(f(x) = -4x^2 - 4x + 8\\)',
+                    '\\(f(x) = -2x^2 - 4x + 6\\)',
+                    '\\(f(x) = -4x^2 - 2x + 6\\)'],
+                answer: 1,
+                solution: [
+                    'Since we are given the turning point \\(P(-\\frac{1}{2}; 9)\\), we can use the turning point form of a parabola: \\(f(x) = a(x - p)^2 + q\\).',
+                    'Substitute the turning point \\(p = -\\frac{1}{2}, q = 9\\):',
+                    '\\(f(x) = a(x + \\frac{1}{2})^2 + 9\\)',
+                    'We also know the parabola passes through the point R\\((-2; 0)\\). Substitute this point to solve for \\(a\\):',
+                    '\\(0 = a(-2 + \\frac{1}{2})^2 + 9\\)',
+                    '\\(-9 = a(-\\frac{3}{2})^2\\)',
+                    '\\(-9 = a(\\frac{9}{4})\\)',
+                    '\\(a = -9 \\times \\frac{4}{9} = -4\\)',
+                    'Substitute \\(a\\) back into the equation: \\(f(x) = -4(x + \\frac{1}{2})^2 + 9\\)',
+                    'Expand to get the standard form:',
+                    '\\(f(x) = -4(x^2 + x + \\frac{1}{4}) + 9\\)',
+                    '\\(f(x) = -4x^2 - 4x - 1 + 9\\)',
+                    '\\(f(x) = -4x^2 - 4x + 8\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Determine the value(s) of \\(x\\) for which \\(f(x) \\ge 0\\), given \\(f(x) = \\frac{2x+3}{-x-3}\\).',
+                options: [
+                    '\\(-3 < x \\le -1.5\\)',
+                    '\\(x \\le -1.5\\)',
+                    '\\(x > -3\\)',
+                    '\\(-3 \\le x \\le -1.5\\)'],
+                answer: 0,
+                solution: [
+                    'We need to solve \\(\\frac{2x+3}{-x-3} \\ge 0\\).',
+                    'Find critical values by setting numerator and denominator to zero:',
+                    'Numerator: \\(2x + 3 = 0 \\implies x = -1.5\\)',
+                    'Denominator: \\(-x - 3 = 0 \\implies x = -3\\)',
+                    'Test intervals around \\(-3\\) and \\(-1.5\\):',
+                    'For \\(x < -3\\), e.g., \\(-4\\): \\(\\frac{2(-4)+3}{-(-4)-3} = \\frac{-5}{1} = -5\\) (Negative)',
+                    'For \\(-3 < x < -1.5\\), e.g., \\(-2\\): \\(\\frac{2(-2)+3}{-(-2)-3} = \\frac{-1}{-1} = 1\\) (Positive)',
+                    'For \\(x > -1.5\\), e.g., \\(0\\): \\(\\frac{2(0)+3}{-0-3} = \\frac{3}{-3} = -1\\) (Negative)',
+                    'The inequality is \\(\\ge 0\\), so include the root \\(-1.5\\) but always exclude the asymptote \\(-3\\).',
+                    'Result: \\(-3 < x \\le -1.5\\).'
+                ]
+            },
+            // Functions - Exponential & Inverse
+            {
+                topic: 'functions',
+                q: 'Consider \\(g(x) = \\left(\\frac{1}{3}\\right)^x\\). Determine the equation of \\(g^{-1}\\) in the form \\(y = \\dots\\)',
+                options: [
+                    '\\(y = \\log_{3} x\\)',
+                    '\\(y = \\log_{\\frac{1}{3}} x\\)',
+                    '\\(y = 3^x\\)',
+                    '\\(y = -3^x\\)'],
+                answer: 1,
+                solution: [
+                    'The given function is \\(y = \\left(\\frac{1}{3}\\right)^x\\).',
+                    'To find the inverse function \\(g^{-1}\\), swap \\(x\\) and \\(y\\):',
+                    '\\(x = \\left(\\frac{1}{3}\\right)^y\\)',
+                    'Convert the exponential equation to logarithmic form to solve for \\(y\\):',
+                    '\\(y = \\log_{\\frac{1}{3}} x\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Consider \\(g(x) = \\left(\\frac{1}{3}\\right)^x\\) and its inverse \\(g^{-1}(x) = \\log_{\\frac{1}{3}} x\\).<br><br>Which of the following describes the key features of the sketch graph of \\(g^{-1}\\)?<br><br><div style="width:100%; max-width:500px; margin: 1.5rem auto; border-radius:8px; overflow:hidden; box-shadow: var(--shadow-sm);"><iframe src="https://www.desmos.com/calculator/2x2vmln5e8?embed" width="100%" height="300" style="border: 1px solid #ccc; background: white;" frameborder="0"></iframe></div>',
+                options: [
+                    'Intercept at \\((0; 1)\\), passing through \\((3; -1)\\), asymptote at \\(y=0\\)',
+                    'Intercept at \\((1; 0)\\), passing through \\((3; -1)\\), asymptote at \\(x=0\\)',
+                    'Intercept at \\((1; 0)\\), passing through \\((3; 1)\\), asymptote at \\(x=0\\)',
+                    'Intercept at \\((0; 1)\\), passing through \\((\\frac{1}{3}; 1)\\), asymptote at \\(y=0\\)'],
+                answer: 1,
+                solution: [
+                    'Since \\(g(x) = (1/3)^x\\) has a y-intercept at \\(y=1\\), passing through \\((0,1)\\), its inverse \\(g^{-1}\\) will have an x-intercept at \\(x=1\\), passing through \\((1,0)\\).',
+                    'The horizontal asymptote of \\(g\\) is \\(y=0\\). Therefore, the vertical asymptote of \\(g^{-1}\\) is \\(x=0\\) (the y-axis).',
+                    'Let\'s find another point on \\(g^{-1}\\) using \\(y = \\log_{\\frac{1}{3}} x\\).',
+                    'Let \\(x = 3\\): \\(y = \\log_{\\frac{1}{3}} 3 = -1\\). So it passes through \\((3; -1)\\).'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'The graph of \\(h(x) = a\\left(\\frac{1}{3}\\right)^x + 7\\) passes through the point \\((-2 ; 10)\\). Calculate the value of \\(a\\).',
+                options: [
+                    '\\(a = 3\\)',
+                    '\\(a = 1\\)',
+                    '\\(a = \\frac{1}{3}\\)',
+                    '\\(a = -1\\)'],
+                answer: 2,
+                solution: [
+                    'Substitute the point \\(x = -2\\) and \\(y = 10\\) into the equation for \\(h(x)\\):',
+                    '\\(10 = a\\left(\\frac{1}{3}\\right)^{-2} + 7\\)',
+                    '\\(10 - 7 = a\\left(3^{-1}\\right)^{-2}\\)',
+                    '\\(3 = a(3^2)\\)',
+                    '\\(3 = 9a\\)',
+                    '\\(a = \\frac{1}{3}\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Given \\(g(x) = \\left(\\frac{1}{3}\\right)^x\\) and \\(h(x) = \\frac{1}{3}\\left(\\frac{1}{3}\\right)^x + 7\\). Describe the translation from \\(h\\) to \\(g\\).',
+                options: [
+                    'Shift 1 unit right and 7 units down',
+                    'Shift 1 unit left and 7 units down',
+                    'Shift 1 unit left and 7 units up',
+                    'Shift 1 unit right and 7 units up'],
+                answer: 0,
+                solution: [
+                    'First, simplify \\(h(x)\\): \\(h(x) = \\left(\\frac{1}{3}\\right)^1 \\cdot \\left(\\frac{1}{3}\\right)^x + 7 = \\left(\\frac{1}{3}\\right)^{x+1} + 7\\)',
+                    'Notice that \\(h(x) = g(x+1) + 7\\). This means \\(h\\) is derived from \\(g\\) by shifting it 1 unit LEFT and 7 units UP.',
+                    'The question asks for the translation from \\(h\\) back to \\(g\\).',
+                    'Therefore, we must reverse these steps: shift 1 unit RIGHT and 7 units DOWN.',
+                    'Check: Start with \\(h(x)\\). Shift right 1 unit (replace \\(x\\) with \\(x-1\\)): \\(h(x-1) = (1/3)^{(x-1)+1} + 7 = (1/3)^x + 7\\).',
+                    'Shift down 7 units (subtract 7): \\((1/3)^x + 7 - 7 = (1/3)^x = g(x)\\). Correct!'
+                ]
+            },
+            // Functions - Root & Parabola Inverse
+            // Functions - Root & Parabola Inverse
+            {
+                topic: 'functions',
+                q: 'The graph of \\(f^{-1}(x) = \\sqrt{3x}\\), \\(x \\ge 0\\) is drawn. \\(f^{-1}\\) passes through \\(A(3; 3)\\).<br><br><div style="width:100%; max-width:400px; margin: 1.5rem auto; padding: 1rem; border-radius:8px; overflow:hidden; background: var(--bg-card); border: 1px solid var(--border); box-shadow: var(--shadow-sm);"><svg viewBox="0 0 400 300" style="width: 100%; height: auto;"><defs><marker id="arrowHead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="var(--text)"/></marker></defs><line x1="20" y1="280" x2="380" y2="280" stroke="var(--text)" stroke-width="2" marker-end="url(#arrowHead)"/><line x1="40" y1="290" x2="40" y2="20" stroke="var(--text)" stroke-width="2" marker-end="url(#arrowHead)"/><text x="25" y="295" fill="var(--text)" font-family="sans-serif" font-size="14">O</text><text x="380" y="295" fill="var(--text)" font-family="sans-serif" font-size="14">x</text><text x="25" y="20" fill="var(--text)" font-family="sans-serif" font-size="14">y</text><path d="M40 280 Q45 200, 160 160 T 360 80" fill="none" stroke="var(--primary)" stroke-width="3"/><circle cx="160" cy="160" r="4" fill="var(--text)"/><text x="165" y="175" fill="var(--text)" font-family="sans-serif" font-size="14">A(3;3)</text><text x="330" y="70" fill="var(--primary)" font-family="sans-serif" font-weight="bold" font-size="16">f⁻¹</text></svg></div><br>Determine the equation of \\(f\\) in the form \\(y = \\dots\\)',
+                options: [
+                    '\\(y = 3x^2\\) for \\(x \\ge 0\\)',
+                    '\\(y = \\frac{1}{3}x^2\\) for \\(x \\ge 0\\)',
+                    '\\(y = \\frac{1}{3}x^2\\) for all \\(x\\)',
+                    '\\(y = x^2 - 3\\) for \\(x \\ge 0\\)'],
+                answer: 1,
+                solution: [
+                    'The given inverse function is \\(y = \\sqrt{3x}\\) where \\(x \\ge 0\\). Note that since \\(x \\ge 0\\), the output \\(y\\) is also \\(y \\ge 0\\).',
+                    'To find the original function \\(f(x)\\), swap \\(x\\) and \\(y\\):',
+                    '\\(x = \\sqrt{3y}\\)',
+                    'Since the original \\(y \\ge 0\\), the swapped \\(x \\ge 0\\).',
+                    'Square both sides to solve for \\(y\\):',
+                    '\\(x^2 = (\\sqrt{3y})^2\\)',
+                    '\\(x^2 = 3y\\)',
+                    'Divide by 3: \\(y = \\frac{1}{3}x^2\\)',
+                    'Because the domain of \\(f^{-1}\\) was \\(x \\ge 0\\), the range of \\(f\\) is \\(y \\ge 0\\). Because the range of \\(f^{-1}\\) was \\(y \\ge 0\\), the domain of \\(f\\) is \\(x \\ge 0\\).',
+                    'Thus, the equation is \\(y = \\frac{1}{3}x^2\\) for \\(x \\ge 0\\).'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Given \\(f(x) = \\frac{1}{3}x^2\\) for \\(x \\ge 0\\) and \\(f^{-1}(x) = \\sqrt{3x}\\) for \\(x \\ge 0\\), which intersect at \\(x=0\\) and \\(x=3\\).<br><br>For which values of \\(x\\) will \\(f(x) \\le f^{-1}(x)\\)?',
+                options: [
+                    '\\(x \\ge 3\\)',
+                    '\\(0 < x < 3\\)',
+                    '\\(0 \\le x \\le 3\\)',
+                    '\\(x \\le 0\\)'],
+                answer: 2,
+                solution: [
+                    'The inequality \\(f(x) \\le f^{-1}(x)\\) asks where the graph of the parabola \\(f\\) is below or equal to the root graph \\(f^{-1}\\).',
+                    'A function and its inverse intersect on the line \\(y = x\\). We can see they intersect at \\(x = 0\\) and \\(x = 3\\).',
+                    'In the interval between \\(x=0\\) and \\(x=3\\), the concave-down root curve \\(\\sqrt{3x}\\) lies above the concave-up parabola \\(\\frac{1}{3}x^2\\).',
+                    'Since the inequality is "less than OR EQUAL TO", we include the points of intersection.',
+                    'Therefore, the solution is \\(0 \\le x \\le 3\\).'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Determine the range of the function \\(f(x) = 2x^2 - 4\\).',
+                options: [
+                    '\\(y \\ge 0\\)',
+                    '\\(y \\le -4\\)',
+                    'All real numbers',
+                    '\\(y \\ge -4\\)'],
+                answer: 3,
+                solution: [
+                    'The function is a parabola opening upwards (a > 0).',
+                    'The turning point is at \\(x = 0\\), giving the minimum value.',
+                    '\\(f(0) = 2(0)^2 - 4 = -4\\)',
+                    'Since it opens up, the range is all y-values from the minimum upwards.',
+                    '\\(y \\ge -4\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Find the equation of the vertical asymptote for \\(y = \\frac{3}{x + 2} - 1\\).',
+                options: [
+                    '\\(y = -1\\)',
+                    '\\(x = 2\\)',
+                    '\\(y = 3\\)',
+                    '\\(x = -2\\)'],
+                answer: 3,
+                solution: [
+                    'For a hyperbola \\(y = \\frac{a}{x - p} + q\\), the vertical asymptote is \\(x = p\\).',
+                    'Set the denominator to zero: \\(x + 2 = 0\\)',
+                    '\\(x = -2\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Identify the turning point of the parabola \\(f(x) = -(x + 3)^2 + 5\\).',
+                options: [
+                    '\\((0, 5)\\)',
+                    '\\((-3, -5)\\)',
+                    '\\((3, 5)\\)',
+                    '\\((-3, 5)\\)'],
+                answer: 3,
+                solution: [
+                    'The equation is in the form \\(y = a(x - p)^2 + q\\).',
+                    'The turning point is \\((p, q)\\).',
+                    'By comparison, \\(p = -3\\) and \\(q = 5\\).',
+                    'Turning point: \\((-3, 5)\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Find the x-intercept of the exponential function \\(y = 2^x - 8\\).',
+                options: [
+                    '\\(x = 8\\)',
+                    '\\(x = 2\\)',
+                    '\\(x = 3\\)',
+                    '\\(x = 4\\)'],
+                answer: 2,
+                solution: [
+                    'To find the x-intercept, set \\(y = 0\\):',
+                    '\\(0 = 2^x - 8 \\implies 2^x = 8\\)',
+                    'Write 8 as a power of 2: \\(2^x = 2^3\\)',
+                    'Equate exponents: \\(x = 3\\)'
+                ]
+            },
+
+            // Finance - New
+            {
+                topic: 'finance',
+                q: 'R1 000 is invested for 5 years at an interest rate of 10% per annum, compounded monthly. Calculate the final value.',
+                options: [
+                    'R1 500.00',
+                    'R1 610.51',
+                    'R1 645.31',
+                    'R1 628.89'],
+                answer: 2,
+                solution: [
+                    '\\(P = 1000, n = 5 \\times 12 = 60, i = \\frac{0.10}{12}\\)',
+                    'Formula: \\(A = P(1 + i)^n\\)',
+                    '\\(A = 1000(1 + \\frac{0.10}{12})^{60}\\)',
+                    '\\(A = 1000(1.008333)^{60} \\approx R1 645.31\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'Calculate the monthly repayment on a loan of R200 000, repaid over 20 years at an interest rate of 9% p.a., compounded monthly.',
+                options: [
+                    'R1 500.00',
+                    'R1 850.00',
+                    'R1 799.45',
+                    'R2 120.30'],
+                answer: 2,
+                solution: [
+                    '\\(P = 200 000, n = 20 \\times 12 = 240, i = \\frac{0.09}{12} = 0.0075\\)',
+                    'Use Present Value Annuity formula: \\(P = \\frac{x[1 - (1 + i)^{-n}]}{i}\\)',
+                    '\\(200 000 = \\frac{x[1 - (1.0075)^{-240}]}{0.0075}\\)',
+                    '\\(x = \\frac{200 000 \\times 0.0075}{1 - (1.0075)^{-240}} \\approx R1 799.45\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'R500 is deposited monthly into a sinking fund earning 12% p.a. compounded monthly. How much is in the fund after 3 years?',
+                options: [
+                    'R21 538.44',
+                    'R20 120.50',
+                    'R22 410.00',
+                    'R18 000.00'],
+                answer: 0,
+                solution: [
+                    '\\(x = 500, n = 3 \\times 12 = 36, i = \\frac{0.12}{12} = 0.01\\)',
+                    'Use Future Value Annuity formula: \\(F = \\frac{x[(1 + i)^n - 1]}{i}\\)',
+                    '\\(F = \\frac{500[(1.01)^{36} - 1]}{0.01}\\)',
+                    '\\(F = 50000[1.430768 - 1] \\approx R21 538.44\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'Convert a nominal interest rate of 12% p.a. compounded quarterly to the effective annual interest rate.',
+                options: [
+                    '12.68%',
+                    '12.00%',
+                    '13.10%',
+                    '12.55%'],
+                answer: 3,
+                solution: [
+                    '\\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)',
+                    '\\(m = 4\\) (compounded quarterly)',
+                    '\\(1 + i_{eff} = (1 + \\frac{0.12}{4})^4 = (1.03)^4\\)',
+                    '\\(1 + i_{eff} \\approx 1.1255\\)',
+                    '\\(i_{eff} \\approx 0.1255 \\implies 12.55\\%\\)'
+                ]
+            },
+
+            // Trigonometry - New
+            {
+                topic: 'trigonometry',
+                q: 'Calculate the value of \\(\\cos 75^\\circ\\) without using a calculator, using compound angle identities.',
+                options: [
+                    '\\(\\frac{\\sqrt{3} - 1}{2}\\)',
+                    '\\(\\frac{\\sqrt{6} + \\sqrt{2}}{4}\\)',
+                    '\\(\\frac{\\sqrt{6} - \\sqrt{2}}{4}\\)',
+                    '\\(\\frac{\\sqrt{2} - \\sqrt{6}}{4}\\)'],
+                answer: 2,
+                solution: [
+                    '\\(\\cos 75^\\circ = \\cos(45^\\circ + 30^\\circ)\\)',
+                    'Use formula: \\(\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B\\)',
+                    '\\(\\cos(45+30) = \\cos 45 \\cos 30 - \\sin 45 \\sin 30\\)',
+                    '\\(= (\\frac{\\sqrt{2}}{2})(\\frac{\\sqrt{3}}{2}) - (\\frac{\\sqrt{2}}{2})(\\frac{1}{2})\\)',
+                    '\\(= \\frac{\\sqrt{6}}{4} - \\frac{\\sqrt{2}}{4} = \\frac{\\sqrt{6} - \\sqrt{2}}{4}\\)'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Find the general solution for the equation: \\(2\\sin^2 x + \\sin x - 1 = 0\\)',
+                options: [
+                    '\\(x = 60^\\circ + k \\cdot 360^\\circ\\)',
+                    '\\(x = 30^\\circ + k \\cdot 360^\\circ, 150^\\circ + k \\cdot 360^\\circ, 270^\\circ + k \\cdot 360^\\circ\\)',
+                    '\\(x = 30^\\circ + k \\cdot 180^\\circ\\)',
+                    '\\(x = 30^\\circ, 270^\\circ\\)'],
+                answer: 1,
+                solution: [
+                    'Factorise the quadratic: \\((2\\sin x - 1)(\\sin x + 1) = 0\\)',
+                    'Case 1: \\(\\sin x = 0.5 \\implies x = 30^\\circ + k \\cdot 360^\\circ\\) or \\(x = 150^\\circ + k \\cdot 360^\\circ\\)',
+                    'Case 2: \\(\\sin x = -1 \\implies x = 270^\\circ + k \\cdot 360^\\circ\\)',
+                    'General solution includes all three branches for integers \\(k\\).'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'In \\(\\triangle ABC\\), \\(a = 5\\), \\(b = 7\\), and \\(\\angle C = 60^\\circ\\). Calculate the length of side \\(c\\).',
+                options: [
+                    '\\(\\sqrt{44}\\)',
+                    '\\(\\sqrt{74}\\)',
+                    '6',
+                    '\\(\\sqrt{39}\\)'],
+                answer: 3,
+                solution: [
+                    'Use the Cosine Rule: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\)',
+                    '\\(c^2 = 5^2 + 7^2 - 2(5)(7) \\cos 60^\\circ\\)',
+                    '\\(c^2 = 25 + 49 - 70(0.5)\\)',
+                    '\\(c^2 = 74 - 35 = 39\\)',
+                    '\\(c = \\sqrt{39}\\)'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Simplify the expression: \\(\\sin(x + 30^\\circ) + \\sin(x - 30^\\circ)\\)',
+                options: [
+                    '\\(\\sqrt{3} \\sin x\\)',
+                    '\\(\\cos x\\)',
+                    '\\(\\sqrt{3} \\cos x\\)',
+                    '\\(2\\sin x\\)'],
+                answer: 0,
+                solution: [
+                    'Use compound angle expansion:',
+                    '\\(\\sin(x+30) = \\sin x \\cos 30 + \\cos x \\sin 30\\)',
+                    '\\(\\sin(x-30) = \\sin x \\cos 30 - \\cos x \\sin 30\\)',
+                    'Add them: \\(2 \\sin x \\cos 30\\)',
+                    '\\(2 \\sin x (\\frac{\\sqrt{3}}{2}) = \\sqrt{3} \\sin x\\)'
+                ]
+            },
+
+            // Analytical Geometry - New
+            {
+                topic: 'analytical_geometry',
+                q: 'Find the equation of a circle with center \\((2, -3)\\) and radius \\(5\\).',
+                options: [
+                    '\\((x - 2)^2 + (y + 3)^2 = 25\\)',
+                    '\\((x + 2)^2 + (y - 3)^2 = 25\\)',
+                    '\\((x - 2)^2 + (y + 3)^2 = 5\\)',
+                    '\\(x^2 + y^2 = 25\\)'],
+                answer: 0,
+                solution: [
+                    'Standard form: \\((x - a)^2 + (y - b)^2 = r^2\\)',
+                    'Substitute center \\((a, b) = (2, -3)\\) and \\(r = 5\\):',
+                    '\\((x - 2)^2 + (y - (-3))^2 = 5^2\\)',
+                    '\\((x - 2)^2 + (y + 3)^2 = 25\\)'
+                ]
+            },
+            {
+                topic: 'analytical_geometry',
+                q: 'Calculate the midpoint of the line segment joining points \\(A(1, 4)\\) and \\(B(5, 10)\\).',
+                options: [
+                    '\\((2, 3)\\)',
+                    '\\((3, 7)\\)',
+                    '\\((6, 14)\\)',
+                    '\\((4, 6)\\)'],
+                answer: 1,
+                solution: [
+                    'Midpoint formula: \\(M(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2})\\)',
+                    '\\(x_M = \\frac{1 + 5}{2} = 3\\)',
+                    '\\(y_M = \\frac{4 + 10}{2} = 7\\)',
+                    'Midpoint is \\((3, 7)\\)'
+                ]
+            },
+            {
+                topic: 'analytical_geometry',
+                q: 'Determine the gradient of a line that is perpendicular to the line \\(y = 3x - 5\\).',
+                options: [
+                    '\\(-3\\)',
+                    '\\(3\\)',
+                    '\\(-\\frac{1}{3}\\)',
+                    '\\(\\frac{1}{3}\\)'],
+                answer: 2,
+                solution: [
+                    'The given line has gradient \\(m_1 = 3\\).',
+                    'For perpendicular lines, \\(m_1 \\times m_2 = -1\\).',
+                    '\\(3 \\times m_2 = -1 \\implies m_2 = -\\frac{1}{3}\\)'
+                ]
+            },
+            {
+                topic: 'analytical_geometry',
+                q: 'Calculate the distance between the points \\((0, 0)\\) and \\((6, 8)\\).',
+                options: [
+                    '100',
+                    '10',
+                    '14',
+                    '7'],
+                answer: 1,
+                solution: [
+                    'Distance formula: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\)',
+                    '\\(d = \\sqrt{(6-0)^2 + (8-0)^2}\\)',
+                    '\\(d = \\sqrt{36 + 64} = \\sqrt{100} = 10\\)'
+                ]
+            },
+
+            // Euclidean Geometry - New
+            {
+                topic: 'euclidean_geometry',
+                q: 'In a circle, the angle subtended by an arc at the center is \\(110^\\circ\\). What is the angle subtended by the same arc at any point on the circumference?',
+                options: [
+                    '\\(220^\\circ\\)',
+                    '\\(90^\\circ\\)',
+                    '\\(110^\\circ\\)',
+                    '\\(55^\\circ\\)'],
+                answer: 3,
+                solution: [
+                    'Theorem: The angle at the center is twice the angle at the circumference.',
+                    '\\(\\angle_{center} = 2 \\times \\angle_{circumference}\\)',
+                    '\\(110^\\circ = 2 \\times \\angle_{circumference}\\)',
+                    '\\(\\angle_{circumference} = 55^\\circ\\)'
+                ]
+            },
+            {
+                topic: 'euclidean_geometry',
+                q: 'If \\(ABCD\\) is a cyclic quadrilateral and \\(\\angle A = 85^\\circ\\), what is the size of the opposite angle \\(\\angle C\\)?',
+                options: [
+                    '\\(275^\\circ\\)',
+                    '\\(95^\\circ\\)',
+                    '\\(180^\\circ\\)',
+                    '\\(85^\\circ\\)'],
+                answer: 1,
+                solution: [
+                    'Theorem: Opposite angles of a cyclic quadrilateral are supplementary (add up to \\(180^\\circ\\)).',
+                    '\\(\\angle A + \\angle C = 180^\\circ\\)',
+                    '\\(85^\\circ + \\angle C = 180^\\circ\\)',
+                    '\\(\\angle C = 180^\\circ - 85^\\circ = 95^\\circ\\)'
+                ]
+            },
+            {
+                topic: 'euclidean_geometry',
+                q: 'According to the tangent-chord theorem, the angle between a tangent and a chord is equal to:',
+                options: [
+                    '\\(90^\\circ\\)',
+                    'the angle in the alternate segment',
+                    'the angle at the center',
+                    'twice the angle at the circumference'],
+                answer: 1,
+                solution: [
+                    'The tangent-chord theorem states that the angle between a tangent and a chord through the point of contact is equal to the angle subtended by the chord in the alternate segment.'
+                ]
+            },
+            {
+                topic: 'euclidean_geometry',
+                q: 'If two triangles are similar and the ratio of their corresponding sides is 2:3, what is the ratio of their areas?',
+                options: [
+                    '8:27',
+                    '1:1.5',
+                    '4:9',
+                    '2:3'],
+                answer: 2,
+                solution: [
+                    'For similar figures, if the ratio of lengths is \\(k\\), the ratio of areas is \\(k^2\\).',
+                    'Side ratio = \\(2/3\\)',
+                    'Area ratio = \\((2/3)^2 = 4/9\\)'
+                ]
+            },
+
+            // Calculus - New
+            {
+                topic: 'calculus',
+                q: 'Determine the derivative of \\(f(x) = \\frac{1}{x}\\) using first principles.',
+                options: [
+                    '\\(\\ln x\\)',
+                    '\\(-x^{-2}\\)',
+                    '\\(x^{-2}\\)',
+                    '\\(x^0\\)'],
+                answer: 1,
+                solution: [
+                    '\\(f\'(x) = \\lim_{h \\to 0} \\frac{\\frac{1}{x+h} - \\frac{1}{x}}{h}\\)',
+                    'Find common denominator: \\(\\frac{x - (x+h)}{x(x+h)} \\cdot \\frac{1}{h}\\)',
+                    '\\(= \\frac{-h}{x(x+h)h} = \\frac{-1}{x(x+h)}\\)',
+                    'As \\(h \\to 0\\), derivative is \\(-\\frac{1}{x^2} = -x^{-2}\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'A rectangular garden with a perimeter of 40m is to be enclosed. Find the maximum possible area.',
+                options: [
+                    '\\(200 m^2\\)',
+                    '\\(80 m^2\\)',
+                    '\\(400 m^2\\)',
+                    '\\(100 m^2\\)'],
+                answer: 3,
+                solution: [
+                    'Perimeter: \\(2x + 2y = 40 \\implies y = 20 - x\\)',
+                    'Area: \\(A = x(20 - x) = 20x - x^2\\)',
+                    'Differentiate and set to zero: \\(A\' = 20 - 2x = 0\\)',
+                    '\\(x = 10\\). Then \\(y = 10\\).',
+                    'Max Area = \\(10 \\times 10 = 100 m^2\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'Identify the x-coordinate of the point of inflection for the function \\(f(x) = x^3 - 3x^2 + 5\\).',
+                options: [
+                    '\\(x = 2\\)',
+                    '\\(x = 1\\)',
+                    '\\(x = 3\\)',
+                    '\\(x = 0\\)'],
+                answer: 1,
+                solution: [
+                    'Point of inflection is where the second derivative is zero.',
+                    '\\(f\'(x) = 3x^2 - 6x\\)',
+                    '\\(f\'\'(x) = 6x - 6\\)',
+                    'Set \\(6x - 6 = 0 \\implies x = 1\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'Find the stationary points of the function \\(y = 2x^2 - 4x + 1\\).',
+                options: [
+                    '\\((2, 1)\\)',
+                    '\\((1, 1)\\)',
+                    '\\((1, -1)\\)',
+                    '\\((0, 1)\\)'],
+                answer: 2,
+                solution: [
+                    'Stationary points are where \\(y\' = 0\\).',
+                    '\\(y\' = 4x - 4\\)',
+                    '\\(4x - 4 = 0 \\implies x = 1\\)',
+                    'Substitute \\(x=1\\) into original eq: \\(y = 2(1)^2 - 4(1) + 1 = 2 - 4 + 1 = -1\\)',
+                    'Stationary point is \\((1, -1)\\)'
+                ]
+            },
+
+            // Probability - New
+            {
+                topic: 'probability',
+                q: 'In how many different ways can the letters of the word "MATHS" be arranged?',
+                options: [
+                    '720',
+                    '60',
+                    '120',
+                    '24'],
+                answer: 2,
+                solution: [
+                    'The word "MATHS" has 5 distinct letters.',
+                    'The number of arrangements is given by \\(5!\\) (5 factorial).',
+                    '\\(5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)'
+                ]
+            },
+            {
+                topic: 'probability',
+                q: 'If events \\(A\\) and \\(B\\) are mutually exclusive, and \\(P(A) = 0.3\\) and \\(P(B) = 0.4\\), what is \\(P(A \\text{ or } B)\\)?',
+                options: [
+                    '1.0',
+                    '0.1',
+                    '0.7',
+                    '0.12'],
+                answer: 2,
+                solution: [
+                    'For mutually exclusive events, \\(P(A \\text{ and } B) = 0\\).',
+                    '\\(P(A \\text{ or } B) = P(A) + P(B)\\)',
+                    '\\(P(A \\text{ or } B) = 0.3 + 0.4 = 0.7\\)'
+                ]
+            },
+            {
+                topic: 'probability',
+                q: 'Consider two independent events \\(A\\) and \\(B\\) where \\(P(A) = 0.4\\) and \\(P(B) = 0.5\\). Find \\(P(A \\text{ and } B)\\).',
+                options: [
+                    '0.25',
+                    '0.2',
+                    '0.9',
+                    '0.1'],
+                answer: 1,
+                solution: [
+                    'For independent events, \\(P(A \\text{ and } B) = P(A) \\times P(B)\\).',
+                    '\\(P(A \\text{ and } B) = 0.4 \\times 0.5 = 0.2\\)'
+                ]
+            },
+            {
+                topic: 'probability',
+                q: 'How many ways can 3 people be seated in a row of 5 chairs?',
+                options: [
+                    '15',
+                    '10',
+                    '60',
+                    '125'],
+                answer: 2,
+                solution: [
+                    'This is a permutation problem (order matters): \\(P(5, 3)\\)',
+                    '\\(P(5, 3) = \\frac{5!}{(5-3)!} = \\frac{120}{2} = 60\\)',
+                    'Alternatively, there are 5 options for the 1st person, 4 for the 2nd, and 3 for the 3rd: \\(5 \\times 4 \\times 3 = 60\\)'
+                ]
+            },
+
+            // Statistics - New
+            {
+                topic: 'statistics',
+                q: 'Calculate the mean of the following data set: \\(2, 4, 6, 8, 10\\).',
+                options: [
+                    '6',
+                    '7',
+                    '8',
+                    '5'],
+                answer: 0,
+                solution: [
+                    'Sum of values: \\(2 + 4 + 6 + 8 + 10 = 30\\)',
+                    'Number of values: 5',
+                    'Mean = \\(\\frac{30}{5} = 6\\)'
+                ]
+            },
+            {
+                topic: 'statistics',
+                q: 'What is the standard deviation of a data set where all values are identical (e.g., \\(5, 5, 5, 5\\))?',
+                options: [
+                    '0',
+                    'Undefined',
+                    '5',
+                    '1'],
+                answer: 0,
+                solution: [
+                    'Standard deviation measures spread or dispersion.',
+                    'If all values are identical, there is no spread.',
+                    'Therefore, the deviation from the mean for every point is zero, making the standard deviation 0.'
+                ]
+            },
+            {
+                topic: 'statistics',
+                q: 'In a box-and-whisker plot, what percentage of the data lies between the first quartile (Q1) and the third quartile (Q3)?',
+                options: [
+                    '100%',
+                    '75%',
+                    '50%',
+                    '25%'],
+                answer: 2,
+                solution: [
+                    'The interquartile range (IQR) is the distance between Q1 and Q3.',
+                    'Q1 is the 25th percentile and Q3 is the 75th percentile.',
+                    'The middle 50% of the data falls between these two quartiles.'
+                ]
+            },
+            {
+                topic: 'statistics',
+                q: 'Given a least squares regression line \\(\\hat{y} = 2x + 1\\), predict the value of \\(y\\) when \\(x = 5\\).',
+                options: [
+                    '11',
+                    '7',
+                    '10',
+                    '12'],
+                answer: 0,
+                solution: [
+                    'Substitute \\(x = 5\\) into the equation:',
+                    '\\(\\hat{y} = 2(5) + 1 = 10 + 1 = 11\\)'
+                ]
+            },
+            // Original Algebra
             {
                 topic: 'algebra',
                 q: 'Solve for \\(x\\) if \\(x^2 - 5x - 2 = 0\\). Leave your answer in simplest surd form.',
-                options: ['\\(x = \\frac{5 \\pm \\sqrt{33}}{2}\\)', '\\(x = \\frac{-5 \\pm \\sqrt{33}}{2}\\)', '\\(x = \\frac{5 \\pm \\sqrt{17}}{2}\\)', '\\(x = 5 \\pm \\sqrt{33}\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = \\frac{-5 \\pm \\sqrt{33}}{2}\\)',
+                    '\\(x = 5 \\pm \\sqrt{33}\\)',
+                    '\\(x = \\frac{5 \\pm \\sqrt{17}}{2}\\)',
+                    '\\(x = \\frac{5 \\pm \\sqrt{33}}{2}\\)'],
+                answer: 3,
                 solution: [
                     'Use the quadratic formula: \\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)',
                     'Substitute \\(a=1, b=-5, c=-2\\):',
@@ -118,8 +1263,12 @@
             {
                 topic: 'algebra',
                 q: 'Calculate the value of \\(\\sum_{k=1}^{50} (2k - 1)\\)',
-                options: ['\\(2500\\)', '\\(5000\\)', '\\(2550\\)', '\\(2450\\)'],
-                answer: 0,
+                options: [
+                    '\\(2550\\)',
+                    '\\(2450\\)',
+                    '\\(2500\\)',
+                    '\\(5000\\)'],
+                answer: 2,
                 solution: [
                     'This is an arithmetic series where \\(T_k = 2k - 1\\).',
                     'First term \\(a = 2(1) - 1 = 1\\)',
@@ -132,8 +1281,12 @@
             {
                 topic: 'algebra',
                 q: 'Solve the inequality: \\(x^2 - 4x > 5\\)',
-                options: ['\\(x < -1\\) or \\(x > 5\\)', '\\(-1 < x < 5\\)', '\\(x < -5\\) or \\(x > 1\\)', '\\(-5 < x < 1\\)'],
-                answer: 0,
+                options: [
+                    '\\(x < -5\\) or \\(x > 1\\)',
+                    '\\(x < -1\\) or \\(x > 5\\)',
+                    '\\(-5 < x < 1\\)',
+                    '\\(-1 < x < 5\\)'],
+                answer: 1,
                 solution: [
                     'Rearrange to standard form: \\(x^2 - 4x - 5 > 0\\)',
                     'Factorise: \\((x - 5)(x + 1) > 0\\)',
@@ -145,7 +1298,11 @@
             {
                 topic: 'algebra',
                 q: 'The first three terms of a geometric sequence are \\(x\\), \\(x+2\\), and \\(x+6\\). Determine the value of \\(x\\).',
-                options: ['\\(x = 2\\)', '\\(x = -2\\)', '\\(x = 4\\)', '\\(x = -4\\)'],
+                options: [
+                    '\\(x = 2\\)',
+                    '\\(x = -4\\)',
+                    '\\(x = 4\\)',
+                    '\\(x = -2\\)'],
                 answer: 0,
                 solution: [
                     'For a geometric sequence, the common ratio is constant: \\(\\frac{T_2}{T_1} = \\frac{T_3}{T_2}\\)',
@@ -160,7 +1317,11 @@
             {
                 topic: 'functions',
                 q: 'Given \\(f(x) = \\frac{2}{x-3} + 1\\), what are the equations of the asymptotes?',
-                options: ['\\(x = 3\\) and \\(y = 1\\)', '\\(x = -3\\) and \\(y = 1\\)', '\\(x = 3\\) and \\(y = -1\\)', '\\(x = -3\\) and \\(y = -1\\)'],
+                options: [
+                    '\\(x = 3\\) and \\(y = 1\\)',
+                    '\\(x = -3\\) and \\(y = 1\\)',
+                    '\\(x = 3\\) and \\(y = -1\\)',
+                    '\\(x = -3\\) and \\(y = -1\\)'],
                 answer: 0,
                 solution: [
                     'The vertical asymptote is where the denominator is zero: \\(x - 3 = 0 \\implies x = 3\\)',
@@ -171,7 +1332,11 @@
             {
                 topic: 'functions',
                 q: 'Find the inverse function \\(f^{-1}(x)\\) if \\(f(x) = 3^x\\)',
-                options: ['\\(f^{-1}(x) = \\log_3(x)\\)', '\\(f^{-1}(x) = 3^{-x}\\)', '\\(f^{-1}(x) = \\frac{1}{3^x}\\)', '\\(f^{-1}(x) = x^3\\)'],
+                options: [
+                    '\\(f^{-1}(x) = \\log_3(x)\\)',
+                    '\\(f^{-1}(x) = x^3\\)',
+                    '\\(f^{-1}(x) = 3^{-x}\\)',
+                    '\\(f^{-1}(x) = \\frac{1}{3^x}\\)'],
                 answer: 0,
                 solution: [
                     'Let \\(y = 3^x\\)',
@@ -184,8 +1349,12 @@
             {
                 topic: 'functions',
                 q: 'Given the parabola \\(g(x) = -2(x-1)^2 + 8\\), identify the coordinates of the turning point.',
-                options: ['\\((1, 8)\\)', '\\((-1, 8)\\)', '\\((1, -8)\\)', '\\((-2, 8)\\)'],
-                answer: 0,
+                options: [
+                    '\\((-2, 8)\\)',
+                    '\\((-1, 8)\\)',
+                    '\\((1, -8)\\)',
+                    '\\((1, 8)\\)'],
+                answer: 3,
                 solution: [
                     'The equation is in vertex form: \\(y = a(x-p)^2 + q\\)',
                     'The turning point is \\((p, q)\\).',
@@ -196,8 +1365,12 @@
             {
                 topic: 'functions',
                 q: 'If \\(h(x) = 2x^2 - 4x - 6\\), find the x-intercepts of the graph.',
-                options: ['\\(x = 3\\) or \\(x = -1\\)', '\\(x = -3\\) or \\(x = 1\\)', '\\(x = 6\\) or \\(x = -1\\)', '\\(x = 2\\) or \\(x = -3\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = 2\\) or \\(x = -3\\)',
+                    '\\(x = 3\\) or \\(x = -1\\)',
+                    '\\(x = -3\\) or \\(x = 1\\)',
+                    '\\(x = 6\\) or \\(x = -1\\)'],
+                answer: 1,
                 solution: [
                     'Set \\(h(x) = 0\\): \\(2x^2 - 4x - 6 = 0\\)',
                     'Divide by 2: \\(x^2 - 2x - 3 = 0\\)',
@@ -210,8 +1383,12 @@
             {
                 topic: 'trigonometry',
                 q: 'Simplify fully: \\(\\frac{\\sin(180^\\circ - x) \\cdot \\cos(360^\\circ - x)}{\\sin(90^\\circ - x)}\\)',
-                options: ['\\(\\sin x\\)', '\\(-\\sin x\\)', '\\(\\cos x\\)', '\\(\\tan x\\)'],
-                answer: 0,
+                options: [
+                    '\\(\\cos x\\)',
+                    '\\(-\\sin x\\)',
+                    '\\(\\tan x\\)',
+                    '\\(\\sin x\\)'],
+                answer: 3,
                 solution: [
                     'Use reduction formulae:',
                     '\\(\\sin(180^\\circ - x) = \\sin x\\) (2nd quadrant, positive)',
@@ -221,44 +1398,163 @@
                     'Cancel \\(\\cos x\\) to get \\(\\sin x\\)'
                 ]
             },
+            // Trigonometry - Graphs & Advanced Questions
             {
                 topic: 'trigonometry',
-                q: 'Which expression is equivalent to \\(\\cos 2x\\)?',
-                options: ['\\(2\\cos^2 x - 1\\)', '\\(2\\sin^2 x - 1\\)', '\\(\\cos^2 x + \\sin^2 x\\)', '\\(2\\sin x \\cos x\\)'],
+                q: 'Consider the graphs of \\(f(x) = \\sin 2x\\) and \\(g(x) = \\cos(x - 45^\\circ)\\) for \\(x \\in [-180^\\circ ; 180^\\circ]\\).<br><br><div style="width:100%; max-width:500px; margin: 1.5rem auto; padding: 1rem; border-radius:12px; background: var(--bg-card); border: 2px solid var(--border); box-shadow: var(--shadow-md); position: relative; overflow: hidden;"><svg viewBox="0 0 400 300" style="width: 100%; height: auto; display: block;"><defs><pattern id="graph-grid-final" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="var(--border)" stroke-width="0.5" opacity="0.3"/></pattern><marker id="arrowHeadFinal" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="var(--text)"/></marker></defs><rect width="400" height="300" fill="url(#graph-grid-final)"/><line x1="20" y1="150" x2="380" y2="150" stroke="var(--text)" stroke-width="2" marker-end="url(#arrowHeadFinal)"/><line x1="200" y1="280" x2="200" y2="20" stroke="var(--text)" stroke-width="2" marker-end="url(#arrowHeadFinal)"/><path d="M40 150 Q75 40, 115 150 T 195 150 T 275 150 T 355 150" fill="none" stroke="var(--primary)" stroke-width="3" style="filter: drop-shadow(0px 0px 3px var(--primary));"/><path d="M40 220 Q120 40, 240 70 T 360 220" fill="none" stroke="var(--accent-amber)" stroke-width="3" style="filter: drop-shadow(0px 0px 3px var(--accent-amber));"/><circle cx="240" cy="70" r="4.5" fill="var(--text)"/><text x="240" y="55" fill="var(--text)" font-weight="bold" font-family="monospace">C</text><circle cx="340" cy="185" r="4" fill="var(--text)"/><text x="340" y="210" fill="var(--text)" font-weight="bold" font-family="monospace">D</text><circle cx="125" cy="185" r="4" fill="var(--text)"/><text x="110" y="210" fill="var(--text)" font-weight="bold" font-family="monospace">B</text><circle cx="155" cy="230" r="4" fill="var(--text)"/><text x="145" y="255" fill="var(--text)" font-weight="bold" font-family="monospace">A</text><text x="330" y="45" fill="var(--accent-amber)" font-weight="bold" font-family="monospace" font-size="16">g</text><text x="330" y="115" fill="var(--primary)" font-weight="bold" font-family="monospace" font-size="16">f</text><text x="185" y="145" fill="var(--text)" font-size="11">0°</text><text x="270" y="145" fill="var(--text)" font-size="11">90°</text><text x="350" y="145" fill="var(--text)" font-size="11">180°</text><text x="100" y="145" fill="var(--text)" font-size="11">-90°</text><text x="15" y="145" fill="var(--text)" font-size="11">-180°</text></svg></div><br>Determine the general solution of \\(\\cos(x - 45^\\circ) = \\sin 2x\\).',
+                options: [
+                    '\\(x = 45^\\circ + k \\cdot 120^\\circ\\)',
+                    '\\(x = 135^\\circ + k \\cdot 360^\\circ\\)',
+                    '\\(x = 45^\\circ + k \\cdot 360^\\circ\\)',
+                    '\\(x = 15^\\circ + k \\cdot 180^\\circ\\)'],
                 answer: 0,
                 solution: [
-                    'The double angle identity for cosine has 3 forms:',
-                    '1) \\(\\cos^2 x - \\sin^2 x\\)',
-                    '2) \\(2\\cos^2 x - 1\\)',
-                    '3) \\(1 - 2\\sin^2 x\\)',
-                    'The correct option corresponding to form 2 is \\(2\\cos^2 x - 1\\).'
+                    '\\(\\cos(x - 45^\\circ) = \\cos(90^\\circ - 2x)\\)',
+                    'General Solution: \\(x - 45^\\circ = \\pm(90^\\circ - 2x) + k \\cdot 360^\\circ\\)',
+                    'Case 1 (+): \\(3x = 135^\\circ + k \\cdot 360^\\circ \\implies x = 45^\\circ + k \\cdot 120^\\circ\\)',
+                    'Case 2 (-): \\(-x = -45^\\circ + k \\cdot 360^\\circ\\)',
+                    'Both reduce to the general form: \\(x = 45^\\circ + k \\cdot 120^\\circ\\)'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Using the diagram provided, write down the period of \\(g(x)\\).',
+                options: [
+                    '\\(180^\\circ\\)',
+                    '\\(360^\\circ\\)',
+                    '\\(90^\\circ\\)',
+                    '\\(720^\\circ\\)'],
+                answer: 1,
+                solution: [
+                    'Function \\(g(x) = \\cos(x - 45^\\circ)\\) is a standard cosine graph shifted horizontally.',
+                    'The shift does not affect the period. Standard period is \\(360^\\circ\\).'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Identify the coordinates of the minimum point \\(A\\) on graph \\(g\\).',
+                options: [
+                    '\\((-135^\\circ ; -1)\\)',
+                    '\\((-45^\\circ ; -1)\\)',
+                    '\\((225^\\circ ; -1)\\)',
+                    '\\((-135^\\circ ; 0)\\)'],
+                answer: 0,
+                solution: [
+                    'Minimum value is -1. Occurs when \\(x - 45^\\circ = -180^\\circ\\).',
+                    'Therefore, \\(x = -135^\\circ\\). Point \\(A\\) is \\((-135^\\circ ; -1)\\).'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'For which values of \\(x\\) in the interval \\(x \\in [0^\\circ ; 180^\\circ]\\) is \\(\\frac{f(x)}{g(x)} < 0\\)?',
+                options: [
+                    '\\(x \\in (90^\\circ ; 135^\\circ)\\)',
+                    '\\(x \\in (45^\\circ ; 90^\\circ)\\)',
+                    '\\(x \\in (135^\\circ ; 180^\\circ)\\)',
+                    '\\(x \\in (0^\\circ ; 45^\\circ)\\)'],
+                answer: 0,
+                solution: [
+                    'The ratio is negative when \\(f\\) and \\(g\\) have opposite signs.',
+                    'Between \\(90^\\circ\\) and \\(135^\\circ\\), \\(f\\) is negative and \\(g\\) is positive. Ratio is negative.'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Solve for \\(x \\in [0^\\circ ; 180^\\circ]\\) if \\(\\sin 2x \\ge \\frac{1}{\\sqrt{2}}(\\cos x + \\sin x)\\).',
+                options: [
+                    '\\(x = 45^\\circ\\) or \\(x \\in [165^\\circ ; 180^\\circ]\\)',
+                    '\\(x \\in [45^\\circ ; 165^\\circ]\\)',
+                    '\\(x \\in [0^\\circ ; 45^\\circ]\\)',
+                    '\\(x \\in [165^\\circ ; 180^\\circ]\\)'],
+                answer: 0,
+                solution: [
+                    'The inequality is \\(f(x) \\ge g(x)\\). From the graph, this happens only at \\(x=45^\\circ\\) and when \\(x \\ge 165^\\circ\\).'
                 ]
             },
             {
                 topic: 'trigonometry',
                 q: 'If \\(\\tan \\theta = \\frac{3}{4}\\) and \\(\\theta \\in [180^\\circ; 360^\\circ]\\), determine \\(\\sin \\theta\\) without a calculator.',
-                options: ['\\(-\\frac{3}{5}\\)', '\\(\\frac{3}{5}\\)', '\\(-\\frac{4}{5}\\)', '\\(\\frac{4}{5}\\)'],
+                options: [
+                    '\\(-\\frac{3}{5}\\)',
+                    '\\(\\frac{3}{5}\\)',
+                    '\\(-\\frac{4}{5}\\)',
+                    '\\(\\frac{4}{5}\\)'],
                 answer: 0,
                 solution: [
                     'Tangent is positive in Q3. Given domain restricts to Q3 or Q4, so \\(\\theta\\) is in Q3.',
                     'In Q3, \\(x = -4\\) and \\(y = -3\\)',
-                    '\\(r^2 = x^2 + y^2 = (-4)^2 + (-3)^2 = 25 \\implies r = 5\\)',
-                    '\\(\\sin \\theta = \\frac{y}{r} = \\frac{-3}{5}\\)',
-                    'Therefore, \\(\\sin \\theta = -\\frac{3}{5}\\)'
+                    '\\(r^2 = x^2 + y^2 = 25 \\implies r = 5\\). \\(\\sin \\theta = \\frac{y}{r} = -\\frac{3}{5}\\).'
                 ]
             },
             {
                 topic: 'trigonometry',
                 q: 'Solve for \\(x\\) if \\(\\sin 2x = \\cos(x - 30^\\circ)\\)',
-                options: ['\\(x = 40^\\circ + k \\cdot 120^\\circ\\) or \\(x = 60^\\circ + k \\cdot 360^\\circ\\)', '\\(x = 20^\\circ + k \\cdot 120^\\circ\\)', '\\(x = 60^\\circ + k \\cdot 180^\\circ\\)', '\\(x = 40^\\circ + k \\cdot 360^\\circ\\)'],
+                options: [
+                    '\\(x = 40^\\circ + k \\cdot 120^\\circ\\) or \\(x = 60^\\circ + k \\cdot 360^\\circ\\)',
+                    '\\(x = 20^\\circ + k \\cdot 120^\\circ\\)',
+                    '\\(x = 60^\\circ + k \\cdot 180^\\circ\\)',
+                    '\\(x = 40^\\circ + k \\cdot 360^\\circ\\)'],
                 answer: 0,
                 solution: [
-                    'Use co-functions: \\(\\sin 2x = \\sin(90^\\circ - (x - 30^\\circ))\\)',
-                    '\\(\\sin 2x = \\sin(120^\\circ - x)\\)',
-                    'General solution part 1: \\(2x = 120^\\circ - x + k \\cdot 360^\\circ\\)',
-                    '\\(3x = 120^\\circ + k \\cdot 360^\\circ \\implies x = 40^\\circ + k \\cdot 120^\\circ\\)',
-                    'General solution part 2: \\(2x = 180^\\circ - (120^\\circ - x) + k \\cdot 360^\\circ\\)',
-                    '\\(2x = 60^\\circ + x + k \\cdot 360^\\circ \\implies x = 60^\\circ + k \\cdot 360^\\circ\\)'
+                    'Use co-functions: \\(\\sin 2x = \\sin(90^\\circ - (x - 30^\\circ)) = \\sin(120^\\circ - x)\\).',
+                    'Case 1: \\(2x = 120^\\circ - x + 360k \\implies x = 40^\\circ + 120k\\).',
+                    'Case 2: \\(2x = 180 - (120 - x) + 360k \\implies x = 60^\\circ + 360k\\).'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'If \\(5\\sin\\beta - 4 = 0\\) and \\(\\beta \\in (90^\\circ ; 270^\\circ)\\), determine the value of \\(\\cos\\beta\\).',
+                options: [
+                    '\\(\\frac{3}{5}\\)',
+                    '\\(-\\frac{3}{5}\\)',
+                    '\\(-\\frac{4}{5}\\)',
+                    '\\(\\frac{4}{5}\\)'],
+                answer: 1,
+                solution: [
+                    '\\(\\sin\\beta = \\frac{4}{5}\\). Since \\(\\beta\\) is in Q2, \\(x\\) is negative.',
+                    '\\(x^2 + 16 = 25 \\implies x = -3\\). \\(\\cos\\beta = -\\frac{3}{5}\\).'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Given \\(\\cos\\beta = -\\frac{3}{5}\\), find the value of \\(\\cos 2\\beta\\).',
+                options: [
+                    '\\(-\\frac{7}{25}\\)',
+                    '\\(\\frac{7}{25}\\)',
+                    '\\(-\\frac{1}{25}\\)',
+                    '\\(\\frac{18}{25}\\)'],
+                answer: 0,
+                solution: [
+                    '\\(\\cos 2\\beta = 2\\cos^2\\beta - 1 = 2(\\frac{9}{25}) - 1 = -\\frac{7}{25}\\).'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Simplify fully: \\(\\frac{\\sin(-180^\\circ - \\theta) \\cdot \\tan(180^\\circ - \\theta) \\cdot \\cos(-\\theta)}{\\cos^2(90^\\circ + \\theta) + 3\\sin^2\\theta}\\)',
+                options: [
+                    '\\(\\frac{1}{4}\\)',
+                    '\\(-\\frac{\\tan \\theta}{4}\\)',
+                    '\\(-\\frac{1}{4}\\)',
+                    '\\(-\\frac{1}{2}\\)'],
+                answer: 2,
+                solution: [
+                    'Numerator: \\(\\sin\\theta \\cdot (-\\tan\\theta) \\cdot \\cos\\theta = -\\sin^2\\theta\\).',
+                    'Denominator: \\(\\sin^2\\theta + 3\\sin^2\\theta = 4\\sin^2\\theta\\).',
+                    'Result: \\(-\\frac{1}{4}\\).'
+                ]
+            },
+            {
+                topic: 'trigonometry',
+                q: 'Prove the identity: \\(\\frac{1}{8}(1 - \\cos 4x) = \\sin^2 x \\cos^2 x\\). Which step correctly starts the LHS?',
+                options: [
+                    '\\(\\frac{1}{8}(2\\sin^2 2x)\\)',
+                    '\\(\\frac{1}{4}(1 - \\cos^2 2x)\\)',
+                    '\\(\\frac{1}{8}(1 - (2\\cos^2 2x - 1))\\)',
+                    '\\(\\frac{1}{8}\\sin 4x\\)'],
+                answer: 0,
+                solution: [
+                    '\\(1 - \\cos 4x = 2\\sin^2 2x\\). \\(LHS = \\frac{1}{8}(2\\sin^2 2x) = \\frac{1}{4}\\sin^2 2x\\).',
+                    '\\(\\frac{1}{4}(2\\sin x \\cos x)^2 = \\sin^2 x \\cos^2 x = RHS\\).'
                 ]
             },
 
@@ -266,8 +1562,12 @@
             {
                 topic: 'calculus',
                 q: 'Determine \\(f\'(x)\\) from first principles if \\(f(x) = 3x^2\\). The limit definition step is:',
-                options: ['\\(\\lim_{h \\to 0} \\frac{3(x+h)^2 - 3x^2}{h}\\)', '\\(\\lim_{h \\to 0} \\frac{(3x+h)^2 - 3x^2}{h}\\)', '\\(\\frac{3(x+h)^2 - 3x^2}{h}\\)', '\\(\\lim_{x \\to 0} \\frac{3(x+h)^2 - 3x^2}{h}\\)'],
-                answer: 0,
+                options: [
+                    '\\(\\lim_{x \\to 0} \\frac{3(x+h)^2 - 3x^2}{h}\\)',
+                    '\\(\\lim_{h \\to 0} \\frac{3(x+h)^2 - 3x^2}{h}\\)',
+                    '\\(\\frac{3(x+h)^2 - 3x^2}{h}\\)',
+                    '\\(\\lim_{h \\to 0} \\frac{(3x+h)^2 - 3x^2}{h}\\)'],
+                answer: 1,
                 solution: [
                     'First principles formula: \\(f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}\\)',
                     'Substitute \\(f(x) = 3x^2\\):',
@@ -278,8 +1578,12 @@
             {
                 topic: 'calculus',
                 q: 'Determine \\(\\frac{dy}{dx}\\) if \\(y = \\frac{2}{x^3} - \\sqrt{x}\\)',
-                options: ['\\(-6x^{-4} - \\frac{1}{2}x^{-1/2}\\)', '\\(6x^{-4} - \\frac{1}{2}x^{-1/2}\\)', '\\(-6x^{-2} - 2x^{1/2}\\)', '\\(-2x^{-4} - \\frac{1}{2}x^{-1/2}\\)'],
-                answer: 0,
+                options: [
+                    '\\(6x^{-4} - \\frac{1}{2}x^{-1/2}\\)',
+                    '\\(-6x^{-2} - 2x^{1/2}\\)',
+                    '\\(-2x^{-4} - \\frac{1}{2}x^{-1/2}\\)',
+                    '\\(-6x^{-4} - \\frac{1}{2}x^{-1/2}\\)'],
+                answer: 3,
                 solution: [
                     'Convert to exponent form: \\(y = 2x^{-3} - x^{1/2}\\)',
                     'Apply the power rule: \\(\\frac{d}{dx} x^n = n x^{n-1}\\)',
@@ -290,8 +1594,12 @@
             {
                 topic: 'calculus',
                 q: 'Given \\(f(x) = x^3 - 3x^2\\), find the x-coordinates of the stationary points.',
-                options: ['\\(x = 0\\) and \\(x = 2\\)', '\\(x = 0\\) and \\(x = 3\\)', '\\(x = 1\\) and \\(x = 2\\)', '\\(x = -2\\) and \\(x = 0\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = 1\\) and \\(x = 2\\)',
+                    '\\(x = -2\\) and \\(x = 0\\)',
+                    '\\(x = 0\\) and \\(x = 3\\)',
+                    '\\(x = 0\\) and \\(x = 2\\)'],
+                answer: 3,
                 solution: [
                     'Stationary points occur where \\(f\'(x) = 0\\)',
                     'Differentiate: \\(f\'(x) = 3x^2 - 6x\\)',
@@ -303,8 +1611,12 @@
             {
                 topic: 'calculus',
                 q: 'The volume of a box is given by \\(V(x) = 4x^3 - 48x^2 + 144x\\). Find the value of \\(x\\) that maximises the volume, where \\(0 < x < 6\\).',
-                options: ['\\(x = 2\\)', '\\(x = 6\\)', '\\(x = 3\\)', '\\(x = 4\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = 6\\)',
+                    '\\(x = 2\\)',
+                    '\\(x = 4\\)',
+                    '\\(x = 3\\)'],
+                answer: 1,
                 solution: [
                     'Find the derivative: \\(V\'(x) = 12x^2 - 96x + 144\\)',
                     'Set \\(V\'(x) = 0\\) for maximum: \\(12(x^2 - 8x + 12) = 0\\)',
@@ -316,10 +1628,14 @@
 
             // Geometry
             {
-                topic: 'geometry',
+                topic: 'analytical_geometry',
                 q: 'The equation of a circle is \\(x^2 + y^2 - 4x + 6y - 12 = 0\\). Find the coordinates of the centre.',
-                options: ['\\((2, -3)\\)', '\\((-2, 3)\\)', '\\((4, -6)\\)', '\\((-4, 6)\\)'],
-                answer: 0,
+                options: [
+                    '\\((4, -6)\\)',
+                    '\\((-4, 6)\\)',
+                    '\\((-2, 3)\\)',
+                    '\\((2, -3)\\)'],
+                answer: 3,
                 solution: [
                     'Group terms: \\((x^2 - 4x) + (y^2 + 6y) = 12\\)',
                     'Complete the square: \\((x^2 - 4x + 4) + (y^2 + 6y + 9) = 12 + 4 + 9\\)',
@@ -329,10 +1645,14 @@
                 ]
             },
             {
-                topic: 'geometry',
+                topic: 'euclidean_geometry',
                 q: 'Two triangles, \\(\\Delta ABC\\) and \\(\\Delta DEF\\), are similar. The area of \\(\\Delta ABC\\) is 20 and the ratio of their corresponding sides is \\(\\frac{AB}{DE} = \\frac{1}{2}\\). What is the area of \\(\\Delta DEF\\)?',
-                options: ['\\(80\\)', '\\(40\\)', '\\(10\\)', '\\(100\\)'],
-                answer: 0,
+                options: [
+                    '\\(100\\)',
+                    '\\(80\\)',
+                    '\\(40\\)',
+                    '\\(10\\)'],
+                answer: 1,
                 solution: [
                     'For similar triangles, the ratio of their areas is the square of the ratio of their sides.',
                     '\\(\\frac{\\text{Area } \\Delta ABC}{\\text{Area } \\Delta DEF} = \\left(\\frac{AB}{DE}\\right)^2\\)',
@@ -341,9 +1661,13 @@
                 ]
             },
             {
-                topic: 'geometry',
+                topic: 'analytical_geometry',
                 q: 'Find the equation of the tangent to the circle \\(x^2 + y^2 = 25\\) at the point \\((3, 4)\\).',
-                options: ['\\(y = -\\frac{3}{4}x + \\frac{25}{4}\\)', '\\(y = \\frac{3}{4}x + \\frac{7}{4}\\)', '\\(y = -\\frac{4}{3}x + 8\\)', '\\(y = \\frac{4}{3}x\\)'],
+                options: [
+                    '\\(y = -\\frac{3}{4}x + \\frac{25}{4}\\)',
+                    '\\(y = \\frac{3}{4}x + \\frac{7}{4}\\)',
+                    '\\(y = \\frac{4}{3}x\\)',
+                    '\\(y = -\\frac{4}{3}x + 8\\)'],
                 answer: 0,
                 solution: [
                     'The centre of the circle is \\((0, 0)\\).',
@@ -355,10 +1679,14 @@
                 ]
             },
             {
-                topic: 'geometry',
+                topic: 'euclidean_geometry',
                 q: 'In a cyclic quadrilateral \\(ABCD\\), angle \\(A = 3x\\) and angle \\(C = 2x\\). What is the value of \\(x\\)?',
-                options: ['\\(36^\\circ\\)', '\\(72^\\circ\\)', '\\(18^\\circ\\)', '\\(54^\\circ\\)'],
-                answer: 0,
+                options: [
+                    '\\(72^\\circ\\)',
+                    '\\(36^\\circ\\)',
+                    '\\(18^\\circ\\)',
+                    '\\(54^\\circ\\)'],
+                answer: 1,
                 solution: [
                     'Opposite angles of a cyclic quadrilateral are supplementary (add up to \\(180^\\circ\\)).',
                     '\\(A + C = 180^\\circ\\)',
@@ -372,8 +1700,12 @@
             {
                 topic: 'probability',
                 q: 'A 4-digit PIN is made using digits 0-9. How many PINs are possible if digits can be repeated?',
-                options: ['\\(10\\,000\\)', '\\(5\\,040\\)', '\\(9\\,000\\)', '\\(10\\)'],
-                answer: 0,
+                options: [
+                    '\\(5\\,040\\)',
+                    '\\(10\\)',
+                    '\\(10\\,000\\)',
+                    '\\(9\\,000\\)'],
+                answer: 2,
                 solution: [
                     'There are 10 choices for each of the 4 positions.',
                     'Using the fundamental counting principle:',
@@ -383,8 +1715,12 @@
             {
                 topic: 'probability',
                 q: 'Events A and B are mutually exclusive. If \\(P(A) = 0,4\\) and \\(P(A \\cup B) = 0,7\\), find \\(P(B)\\).',
-                options: ['\\(0,3\\)', '\\(0,28\\)', '\\(1,1\\)', '\\(0,12\\)'],
-                answer: 0,
+                options: [
+                    '\\(0,28\\)',
+                    '\\(1,1\\)',
+                    '\\(0,3\\)',
+                    '\\(0,12\\)'],
+                answer: 2,
                 solution: [
                     'For mutually exclusive events, \\(P(A \\cap B) = 0\\).',
                     'The addition rule is \\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\)',
@@ -396,8 +1732,12 @@
             {
                 topic: 'probability',
                 q: 'How many different arrangements can be made from the letters of the word "SUCCESS"?',
-                options: ['\\(420\\)', '\\(5\\,040\\)', '\\(840\\)', '\\(210\\)'],
-                answer: 0,
+                options: [
+                    '\\(210\\)',
+                    '\\(420\\)',
+                    '\\(840\\)',
+                    '\\(5\\,040\\)'],
+                answer: 1,
                 solution: [
                     'The word "SUCCESS" has 7 letters.',
                     'There are repeating letters: 3 S\'s and 2 C\'s.',
@@ -409,8 +1749,12 @@
             {
                 topic: 'probability',
                 q: 'A bag contains 5 red balls and 3 blue balls. A ball is drawn and NOT replaced. Then a second ball is drawn. What is the probability that both are red?',
-                options: ['\\(\\frac{5}{14}\\)', '\\(\\frac{25}{64}\\)', '\\(\\frac{5}{28}\\)', '\\(\\frac{10}{27}\\)'],
-                answer: 0,
+                options: [
+                    '\\(\\frac{5}{28}\\)',
+                    '\\(\\frac{5}{14}\\)',
+                    '\\(\\frac{10}{27}\\)',
+                    '\\(\\frac{25}{64}\\)'],
+                answer: 1,
                 solution: [
                     'P(First is red) = \\(\\frac{5}{8}\\)',
                     'Since there is NO replacement, there are now 4 red balls out of 7 total.',
@@ -424,8 +1768,12 @@
             {
                 topic: 'algebra',
                 q: 'Solve for \\(x\\) and \\(y\\) simultaneously: \\(3x - y = 1\\) and \\(x^2 + xy - y^2 = -1\\)',
-                options: ['\\(x = 0, y = -1\\) or \\(x = \\frac{2}{5}, y = \\frac{1}{5}\\)', '\\(x = 1, y = 2\\) or \\(x = 0, y = -1\\)', '\\(x = -1, y = -4\\)', '\\(x = 0, y = 1\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = 1, y = 2\\) or \\(x = 0, y = -1\\)',
+                    '\\(x = -1, y = -4\\)',
+                    '\\(x = 0, y = 1\\)',
+                    '\\(x = 0, y = -1\\) or \\(x = \\frac{2}{5}, y = \\frac{1}{5}\\)'],
+                answer: 3,
                 solution: [
                     'From \\(3x - y = 1\\), express \\(y\\) in terms of \\(x\\): \\(y = 3x - 1\\)',
                     'Substitute into the second equation: \\(x^2 + x(3x - 1) - (3x - 1)^2 = -1\\)',
@@ -447,8 +1795,12 @@
             {
                 topic: 'algebra',
                 q: 'Solve for \\(x\\): \\(\\sqrt{2x + 5} = x + 1\\)',
-                options: ['\\(x = 2\\)', '\\(x = -2\\)', '\\(x = 2\\) or \\(x = -2\\)', '\\(x = 4\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = 2\\) or \\(x = -2\\)',
+                    '\\(x = 4\\)',
+                    '\\(x = -2\\)',
+                    '\\(x = 2\\)'],
+                answer: 3,
                 solution: [
                     'Square both sides: \\(2x + 5 = (x + 1)^2\\)',
                     '\\(2x + 5 = x^2 + 2x + 1\\)',
@@ -462,7 +1814,11 @@
             {
                 topic: 'algebra',
                 q: 'For which values of \\(k\\) will the equation \\(x^2 + (k+2)x + 4 = 0\\) have equal roots?',
-                options: ['\\(k = 2\\) or \\(k = -6\\)', '\\(k = 2\\) or \\(k = 6\\)', '\\(k = -2\\) or \\(k = 6\\)', '\\(k = 4\\)'],
+                options: [
+                    '\\(k = 2\\) or \\(k = -6\\)',
+                    '\\(k = 2\\) or \\(k = 6\\)',
+                    '\\(k = 4\\)',
+                    '\\(k = -2\\) or \\(k = 6\\)'],
                 answer: 0,
                 solution: [
                     'For equal roots, the discriminant must be zero: \\(\\Delta = b^2 - 4ac = 0\\)',
@@ -476,8 +1832,12 @@
             {
                 topic: 'algebra',
                 q: 'The sum to infinity of a geometric series is 9, and the first term is 3. Find the common ratio \\(r\\).',
-                options: ['\\(r = \\frac{2}{3}\\)', '\\(r = \\frac{1}{3}\\)', '\\(r = \\frac{1}{2}\\)', '\\(r = \\frac{3}{4}\\)'],
-                answer: 0,
+                options: [
+                    '\\(r = \\frac{3}{4}\\)',
+                    '\\(r = \\frac{1}{2}\\)',
+                    '\\(r = \\frac{2}{3}\\)',
+                    '\\(r = \\frac{1}{3}\\)'],
+                answer: 2,
                 solution: [
                     'Use the sum to infinity formula: \\(S_\\infty = \\frac{a}{1 - r}\\)',
                     'Substitute \\(S_\\infty = 9\\) and \\(a = 3\\):',
@@ -491,8 +1851,12 @@
             {
                 topic: 'functions',
                 q: 'Find the range of the function \\(f(x) = \\frac{3}{x-2} + 4\\)',
-                options: ['\\(y \\in \\mathbb{R}, y \\neq 4\\)', '\\(y \\in \\mathbb{R}, y \\neq 2\\)', '\\(y > 4\\)', '\\(y < 4\\)'],
-                answer: 0,
+                options: [
+                    '\\(y > 4\\)',
+                    '\\(y \\in \\mathbb{R}, y \\neq 4\\)',
+                    '\\(y < 4\\)',
+                    '\\(y \\in \\mathbb{R}, y \\neq 2\\)'],
+                answer: 1,
                 solution: [
                     'The range of a hyperbola \\(y = \\frac{a}{x-p} + q\\) is all real values except the horizontal asymptote.',
                     'The horizontal asymptote is \\(y = q\\).',
@@ -503,8 +1867,12 @@
             {
                 topic: 'functions',
                 q: 'Find the y-intercept of the graph of \\(g(x) = 2^{x+3} - 5\\)',
-                options: ['\\(3\\)', '\\(-5\\)', '\\(8\\)', '\\(0\\)'],
-                answer: 0,
+                options: [
+                    '\\(8\\)',
+                    '\\(3\\)',
+                    '\\(0\\)',
+                    '\\(-5\\)'],
+                answer: 1,
                 solution: [
                     'To find the y-intercept, set \\(x = 0\\).',
                     '\\(g(0) = 2^{0+3} - 5\\)',
@@ -515,7 +1883,11 @@
             {
                 topic: 'functions',
                 q: 'If the point \\((2; 9)\\) lies on the graph of \\(f(x) = b^x + 1\\), find the value of \\(b\\) given \\(b > 0\\).',
-                options: ['\\(b = 2\\)', '\\(b = 3\\)', '\\(b = 2\\sqrt{2}\\)', '\\(b = 8\\)'],
+                options: [
+                    '\\(b = 8\\)',
+                    '\\(b = 3\\)',
+                    '\\(b = 2\\)',
+                    '\\(b = 2\\sqrt{2}\\)'],
                 answer: 1,
                 solution: [
                     'Substitute the point \\((2; 9)\\) into the equation:',
@@ -530,7 +1902,11 @@
             {
                 topic: 'functions',
                 q: 'Determine the axis of symmetry of the parabola \\(f(x) = 2x^2 - 8x + 3\\)',
-                options: ['\\(x = 2\\)', '\\(x = -2\\)', '\\(x = 4\\)', '\\(x = 1\\)'],
+                options: [
+                    '\\(x = 2\\)',
+                    '\\(x = 4\\)',
+                    '\\(x = 1\\)',
+                    '\\(x = -2\\)'],
                 answer: 0,
                 solution: [
                     'The axis of symmetry is given by \\(x = \\frac{-b}{2a}\\).',
@@ -543,8 +1919,12 @@
             {
                 topic: 'trigonometry',
                 q: 'In \\(\\Delta ABC\\), side \\(a=5\\), side \\(b=7\\), and \\(\\angle C=60^\\circ\\). Calculate the length of side \\(c\\).',
-                options: ['\\(\\sqrt{39}\\)', '\\(6\\)', '\\(\\sqrt{74}\\)', '\\(8\\)'],
-                answer: 0,
+                options: [
+                    '\\(8\\)',
+                    '\\(6\\)',
+                    '\\(\\sqrt{39}\\)',
+                    '\\(\\sqrt{74}\\)'],
+                answer: 2,
                 solution: [
                     'Use the Cosine Rule: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\)',
                     '\\(c^2 = 5^2 + 7^2 - 2(5)(7) \\cos 60^\\circ\\)',
@@ -556,8 +1936,12 @@
             {
                 topic: 'trigonometry',
                 q: 'Simplify the expression: \\(\\cos(x - 90^\\circ)\\)',
-                options: ['\\(\\sin x\\)', '\\(-\\sin x\\)', '\\(\\cos x\\)', '\\(-\\cos x\\)'],
-                answer: 0,
+                options: [
+                    '\\(-\\cos x\\)',
+                    '\\(-\\sin x\\)',
+                    '\\(\\sin x\\)',
+                    '\\(\\cos x\\)'],
+                answer: 2,
                 solution: [
                     '\\(\\cos(x - 90^\\circ) = \\cos(-(90^\\circ - x))\\)',
                     'Since cosine is an even function, \\(\\cos(-\\theta) = \\cos \\theta\\).',
@@ -568,8 +1952,12 @@
             {
                 topic: 'trigonometry',
                 q: 'Simplify fully: \\(\\frac{1 - \\cos 2x}{\\sin 2x}\\)',
-                options: ['\\(\\tan x\\)', '\\(\\cot x\\)', '\\(\\sin x\\)', '\\(1\\)'],
-                answer: 0,
+                options: [
+                    '\\(\\sin x\\)',
+                    '\\(\\cot x\\)',
+                    '\\(\\tan x\\)',
+                    '\\(1\\)'],
+                answer: 2,
                 solution: [
                     'Use identities: \\(\\cos 2x = 1 - 2\\sin^2 x\\) and \\(\\sin 2x = 2\\sin x \\cos x\\)',
                     'Numerator: \\(1 - (1 - 2\\sin^2 x) = 2\\sin^2 x\\)',
@@ -581,8 +1969,12 @@
             {
                 topic: 'trigonometry',
                 q: 'Find the general solution for \\(x\\) if \\(2\\sin x = 1\\)',
-                options: ['\\(x = 30^\\circ + k \\cdot 360^\\circ\\) or \\(x = 150^\\circ + k \\cdot 360^\\circ\\)', '\\(x = 30^\\circ + k \\cdot 180^\\circ\\)', '\\(x = 60^\\circ + k \\cdot 360^\\circ\\)', '\\(x = 30^\\circ + k \\cdot 90^\\circ\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = 30^\\circ + k \\cdot 90^\\circ\\)',
+                    '\\(x = 60^\\circ + k \\cdot 360^\\circ\\)',
+                    '\\(x = 30^\\circ + k \\cdot 360^\\circ\\) or \\(x = 150^\\circ + k \\cdot 360^\\circ\\)',
+                    '\\(x = 30^\\circ + k \\cdot 180^\\circ\\)'],
+                answer: 2,
                 solution: [
                     '\\(\\sin x = \\frac{1}{2}\\)',
                     'Reference angle \\(= \\sin^{-1}(0,5) = 30^\\circ\\)',
@@ -595,8 +1987,12 @@
             {
                 topic: 'calculus',
                 q: 'Determine \\(f\'(x)\\) if \\(f(x) = \\frac{x^3 - 8}{x - 2}\\) for \\(x \\neq 2\\)',
-                options: ['\\(2x + 2\\)', '\\(3x^2\\)', '\\(x^2 + 2x + 4\\)', '\\(3x + 2\\)'],
-                answer: 0,
+                options: [
+                    '\\(x^2 + 2x + 4\\)',
+                    '\\(2x + 2\\)',
+                    '\\(3x + 2\\)',
+                    '\\(3x^2\\)'],
+                answer: 1,
                 solution: [
                     'Simplify the expression before differentiating.',
                     'Factorise the numerator (difference of cubes): \\(x^3 - 8 = (x - 2)(x^2 + 2x + 4)\\)',
@@ -607,8 +2003,12 @@
             {
                 topic: 'calculus',
                 q: 'Find the x-coordinate of the point of inflection for the function \\(f(x) = x^3 - 6x^2 + 9x\\)',
-                options: ['\\(x = 2\\)', '\\(x = 1\\)', '\\(x = 3\\)', '\\(x = 0\\)'],
-                answer: 0,
+                options: [
+                    '\\(x = 3\\)',
+                    '\\(x = 1\\)',
+                    '\\(x = 2\\)',
+                    '\\(x = 0\\)'],
+                answer: 2,
                 solution: [
                     'The point of inflection occurs where the second derivative \\(f\'\'(x) = 0\\)',
                     'First derivative: \\(f\'(x) = 3x^2 - 12x + 9\\)',
@@ -619,8 +2019,12 @@
             {
                 topic: 'calculus',
                 q: 'An object moves such that its displacement \\(s\\) (in metres) after \\(t\\) seconds is given by \\(s(t) = t^2 - 4t + 5\\). Find its velocity at \\(t = 3\\) seconds.',
-                options: ['\\(2\\, \\text{m/s}\\)', '\\(1\\, \\text{m/s}\\)', '\\(3\\, \\text{m/s}\\)', '\\(5\\, \\text{m/s}\\)'],
-                answer: 0,
+                options: [
+                    '\\(3\\, \\text{m/s}\\)',
+                    '\\(5\\, \\text{m/s}\\)',
+                    '\\(1\\, \\text{m/s}\\)',
+                    '\\(2\\, \\text{m/s}\\)'],
+                answer: 3,
                 solution: [
                     'Velocity is the derivative of displacement: \\(v(t) = s\'(t)\\)',
                     '\\(v(t) = 2t - 4\\)',
@@ -630,8 +2034,12 @@
             {
                 topic: 'calculus',
                 q: 'Determine the gradient of the tangent to the curve \\(f(x) = 2x^2\\) at the point where \\(x = 1\\).',
-                options: ['\\(4\\)', '\\(2\\)', '\\(1\\)', '\\(0\\)'],
-                answer: 0,
+                options: [
+                    '\\(1\\)',
+                    '\\(2\\)',
+                    '\\(4\\)',
+                    '\\(0\\)'],
+                answer: 2,
                 solution: [
                     'The gradient of the tangent is given by the derivative at that point: \\(f\'(x)\\)',
                     '\\(f\'(x) = 4x\\)',
@@ -640,10 +2048,14 @@
             },
             // Geometry
             {
-                topic: 'geometry',
+                topic: 'analytical_geometry',
                 q: 'If the distance between the points \\((k; 2)\\) and \\((1; -1)\\) is 5 units, find the possible values of \\(k\\).',
-                options: ['\\(k = 5\\) or \\(k = -3\\)', '\\(k = 4\\) or \\(k = -2\\)', '\\(k = 6\\) or \\(k = -4\\)', '\\(k = 3\\)'],
-                answer: 0,
+                options: [
+                    '\\(k = 3\\)',
+                    '\\(k = 4\\) or \\(k = -2\\)',
+                    '\\(k = 6\\) or \\(k = -4\\)',
+                    '\\(k = 5\\) or \\(k = -3\\)'],
+                answer: 3,
                 solution: [
                     'Distance formula: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\)',
                     '\\(5 = \\sqrt{(k - 1)^2 + (2 - (-1))^2}\\)',
@@ -654,10 +2066,14 @@
                 ]
             },
             {
-                topic: 'geometry',
+                topic: 'euclidean_geometry',
                 q: 'A chord of length 8 cm is at a distance of 3 cm from the centre of a circle. Calculate the radius of the circle.',
-                options: ['\\(5\\, \\text{cm}\\)', '\\(\\sqrt{73}\\, \\text{cm}\\)', '\\(4\\, \\text{cm}\\)', '\\(6\\, \\text{cm}\\)'],
-                answer: 0,
+                options: [
+                    '\\(6\\, \\text{cm}\\)',
+                    '\\(5\\, \\text{cm}\\)',
+                    '\\(4\\, \\text{cm}\\)',
+                    '\\(\\sqrt{73}\\, \\text{cm}\\)'],
+                answer: 1,
                 solution: [
                     'The perpendicular from the centre to a chord bisects the chord.',
                     'This forms a right-angled triangle with the radius as the hypotenuse.',
@@ -667,10 +2083,14 @@
                 ]
             },
             {
-                topic: 'geometry',
+                topic: 'euclidean_geometry',
                 q: 'In \\(\\Delta ABC\\), side \\(DE \\parallel BC\\) with \\(D\\) on \\(AB\\) and \\(E\\) on \\(AC\\). If \\(AD = 2\\), \\(DB = 3\\), and \\(AE = 4\\), find the length of \\(EC\\).',
-                options: ['\\(6\\)', '\\(5\\)', '\\(3\\)', '\\(4,5\\)'],
-                answer: 0,
+                options: [
+                    '\\(3\\)',
+                    '\\(6\\)',
+                    '\\(4,5\\)',
+                    '\\(5\\)'],
+                answer: 1,
                 solution: [
                     'By the Line Proportionality Theorem: \\(\\frac{AD}{DB} = \\frac{AE}{EC}\\)',
                     '\\(\\frac{2}{3} = \\frac{4}{EC}\\)',
@@ -679,10 +2099,14 @@
                 ]
             },
             {
-                topic: 'geometry',
+                topic: 'euclidean_geometry',
                 q: 'A line segment from the centre of a circle perpendicular to a chord...',
-                options: ['Bisects the chord', 'Is equal to the radius', 'Is parallel to the chord', 'Is twice the chord length'],
-                answer: 0,
+                options: [
+                    'Is twice the chord length',
+                    'Is equal to the radius',
+                    'Bisects the chord',
+                    'Is parallel to the chord'],
+                answer: 2,
                 solution: [
                     'Theorem: The line drawn from the centre of a circle perpendicular to a chord bisects the chord.',
                     'This is a fundamental circle theorem in Grade 11/12 Geometry.'
@@ -692,8 +2116,12 @@
             {
                 topic: 'probability',
                 q: 'Events A and B are independent. If \\(P(A) = 0,3\\) and \\(P(B) = 0,6\\), find \\(P(A \\cap B)\\).',
-                options: ['\\(0,18\\)', '\\(0,9\\)', '\\(0,3\\)', '\\(0,2\\)'],
-                answer: 0,
+                options: [
+                    '\\(0,3\\)',
+                    '\\(0,18\\)',
+                    '\\(0,9\\)',
+                    '\\(0,2\\)'],
+                answer: 1,
                 solution: [
                     'For independent events, \\(P(A \\cap B) = P(A) \\times P(B)\\)',
                     '\\(P(A \\cap B) = 0,3 \\times 0,6 = 0,18\\)'
@@ -702,8 +2130,12 @@
             {
                 topic: 'probability',
                 q: 'In how many different ways can 5 distinct books be arranged on a shelf?',
-                options: ['\\(120\\)', '\\(25\\)', '\\(60\\)', '\\(24\\)'],
-                answer: 0,
+                options: [
+                    '\\(25\\)',
+                    '\\(24\\)',
+                    '\\(120\\)',
+                    '\\(60\\)'],
+                answer: 2,
                 solution: [
                     'The number of arrangements of \\(n\\) distinct objects is \\(n!\\)',
                     'For 5 books, arrangements \\(= 5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)'
@@ -712,8 +2144,12 @@
             {
                 topic: 'probability',
                 q: 'In a group of 30 students, 20 like Mathematics, 15 like Science, and 10 like both. How many students like NEITHER Mathematics nor Science?',
-                options: ['\\(5\\)', '\\(10\\)', '\\(0\\)', '\\(15\\)'],
-                answer: 0,
+                options: [
+                    '\\(15\\)',
+                    '\\(0\\)',
+                    '\\(5\\)',
+                    '\\(10\\)'],
+                answer: 2,
                 solution: [
                     'Let \\(M\\) be Math and \\(S\\) be Science.',
                     '\\(n(M \\cup S) = n(M) + n(S) - n(M \\cap S) = 20 + 15 - 10 = 25\\)',
@@ -723,12 +2159,313 @@
             {
                 topic: 'probability',
                 q: 'A bag contains 4 red balls and 6 blue balls. A ball is drawn, its color is recorded, and it is REPLACED. Then a second ball is drawn. Find the probability that both balls are red.',
-                options: ['\\(0,16\\)', '\\(0,4\\)', '\\(0,24\\)', '\\(0,12\\)'],
-                answer: 0,
+                options: [
+                    '\\(0,12\\)',
+                    '\\(0,24\\)',
+                    '\\(0,4\\)',
+                    '\\(0,16\\)'],
+                answer: 3,
                 solution: [
                     '\\(P(\\text{Red}) = \\frac{4}{10} = 0,4\\)',
                     'Since the ball is REPLACED, the events are independent.',
                     '\\(P(\\text{both Red}) = 0,4 \\times 0,4 = 0,16\\)'
+                ]
+            },
+            // --- NUMBER PATTERNS ---
+            {
+                topic: 'patterns',
+                q: 'Determine the 10th term of the arithmetic sequence: \\(7; 11; 15; \\dots\\)',
+                options: [
+                    '\\(51\\)',
+                    '\\(39\\)',
+                    '\\(47\\)',
+                    '\\(43\\)'],
+                answer: 3,
+                solution: [
+                    'Identify first term \\(a = 7\\) and common difference \\(d = 11 - 7 = 4\\).',
+                    'Use general term formula: \\(T_n = a + (n-1)d\\)',
+                    '\\(T_{10} = 7 + (10 - 1)(4)\\)',
+                    '\\(T_{10} = 7 + 9(4) = 7 + 36 = 43\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Calculate the sum to infinity of the series: \\(8 + 4 + 2 + 1 + \\dots\\)',
+                options: [
+                    '\\(16\\)',
+                    '\\(12\\)',
+                    '\\(20\\)',
+                    '\\(15\\)'],
+                answer: 0,
+                solution: [
+                    'Identify first term \\(a = 8\\) and common ratio \\(r = \\frac{4}{8} = 0,5\\).',
+                    'Since \\(-1 < r < 1\\), the series converges.',
+                    'Use sum to infinity formula: \\(S_\\infty = \\frac{a}{1 - r}\\)',
+                    '\\(S_\\infty = \\frac{8}{1 - 0,5} = \\frac{8}{0,5} = 16\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'In a quadratic sequence, the first three terms are \\(3; 10; 21\\). Determine the second difference.',
+                options: [
+                    '\\(4\\)',
+                    '\\(11\\)',
+                    '\\(2\\)',
+                    '\\(7\\)'],
+                answer: 0,
+                solution: [
+                    'First differences: \\(10 - 3 = 7\\) and \\(21 - 10 = 11\\).',
+                    'Second difference: \\(11 - 7 = 4\\).',
+                    'The second difference is constant for a quadratic sequence.'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Calculate the value of: \\(\\sum_{i=1}^{20} (3i + 2)\\)',
+                options: [
+                    '\\(700\\)',
+                    '\\(640\\)',
+                    '\\(630\\)',
+                    '\\(670\\)'],
+                answer: 3,
+                solution: [
+                    'This is an arithmetic series with \\(n = 20\\) terms.',
+                    'First term (i=1): \\(a = 3(1) + 2 = 5\\)',
+                    'Last term (i=20): \\(l = 3(20) + 2 = 62\\)',
+                    'Use sum formula: \\(S_n = \\frac{n}{2}(a + l)\\)',
+                    '\\(S_{20} = \\frac{20}{2}(5 + 62) = 10(67) = 670\\)'
+                ]
+            },
+            // --- FINANCE ---
+            {
+                topic: 'finance',
+                q: 'A father saves \\(R1\\,000\\) every month for his daughter\\/s education. The bank offers an interest rate of \\(9\\%\\) p.a. compounded monthly. Calculate the value of his savings after 5 years.',
+                options: [
+                    '\\(R65\\,400,00\\)',
+                    '\\(R60\\,000,00\\)',
+                    '\\(R75\\,424,14\\)',
+                    '\\(R82\\,100,00\\)'],
+                answer: 2,
+                solution: [
+                    'This is a Future Value Annuity problem.',
+                    '\\(x = 1000\\), \\(i = 0,09 / 12 = 0,0075\\), \\(n = 5 \\times 12 = 60\\)',
+                    '\\(F = \\frac{x[(1 + i)^n - 1]}{i}\\)',
+                    '\\(F = \\frac{1000[(1 + 0,0075)^{60} - 1]}{0,0075}\\)',
+                    '\\(F \\approx R75\\,424,14\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'A car depreciates on a reducing balance at a rate of \\(15\\%\\) p.a. If the car is currently worth \\(R200\\,000\\), what will its value be in 3 years time?',
+                options: [
+                    '\\(R140\\,000\\)',
+                    '\\(R122\\,825\\)',
+                    '\\(R110\\,000\\)',
+                    '\\(R135\\,200\\)'],
+                answer: 1,
+                solution: [
+                    'Use reducing balance formula: \\(A = P(1 - i)^n\\)',
+                    '\\(P = 200\\,000\\), \\(i = 0,15\\), \\(n = 3\\)',
+                    '\\(A = 200\\,000(1 - 0,15)^3\\)',
+                    '\\(A = 200\\,000(0,85)^3 \\approx R122\\,825\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'Determine the effective annual interest rate if the nominal interest rate is \\(12\\%\\) p.a. compounded quarterly.',
+                options: [
+                    '\\(13\\%\\)',
+                    '\\(12,36\\%\\)',
+                    '\\(12\\%\\)',
+                    '\\(12,55\\%\\)'],
+                answer: 3,
+                solution: [
+                    'Use the formula: \\(1 + i_e = (1 + \\frac{i_n}{m})^m\\)',
+                    '\\(i_n = 0,12\\), \\(m = 4\\)',
+                    '\\(1 + i_e = (1 + \\frac{0,12}{4})^4\\)',
+                    '\\(1 + i_e = (1,03)^4 \\approx 1,1255\\)',
+                    '\\(i_e = 0,1255 \\implies 12,55\\%\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'A loan of \\(R500\\,000\\) is to be repaid over 20 years with monthly installments at \\(10\\%\\) p.a. compounded monthly. Calculate the monthly installment \\(x\\).',
+                options: [
+                    '\\(R5\\,000,00\\)',
+                    '\\(R4\\,825,11\\)',
+                    '\\(R4\\,500,00\\)',
+                    '\\(R5\\,200,00\\)'],
+                answer: 1,
+                solution: [
+                    'This is a Present Value Annuity problem.',
+                    '\\(P = 500\\,000\\), \\(i = 0,10 / 12\\), \\(n = 20 \\times 12 = 240\\)',
+                    '\\(P = \\frac{x[1 - (1 + i)^{-n}]}{i} \\implies x = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\)',
+                    '\\(x = \\frac{500\\,000(0,10/12)}{1 - (1 + 0,10/12)^{-240}}\\)',
+                    '\\(x \\approx R4\\,825,11\\)'
+                ]
+            },
+            // --- STATISTICS ---
+            {
+                topic: 'statistics',
+                q: 'The least squares regression line for a set of data is given by \\(\\hat{y} = 12 + 1,5x\\). Predict the value of \\(y\\) if \\(x = 10\\).',
+                options: [
+                    '\\(27\\)',
+                    '\\(15\\)',
+                    '\\(12\\)',
+                    '\\(25\\)'],
+                answer: 0,
+                solution: [
+                    'Substitute \\(x = 10\\) into the regression equation:',
+                    '\\(\\hat{y} = 12 + 1,5(10)\\)',
+                    '\\(\\hat{y} = 12 + 15 = 27\\)'
+                ]
+            },
+            {
+                topic: 'statistics',
+                q: 'If the correlation coefficient \\(r\\) for a bivariate data set is \\(-0,92\\), which of the following best describes the relationship?',
+                options: [
+                    'Strong negative correlation',
+                    'Weak negative correlation',
+                    'Strong positive correlation',
+                    'No correlation'],
+                answer: 0,
+                solution: [
+                    'The \\(r\\)-value ranges from -1 to 1.',
+                    'An \\(r\\)-value close to -1 indicates a strong negative linear relationship.',
+                    'Since \\(-0,92\\) is very close to -1, it is a strong negative correlation.'
+                ]
+            },
+            {
+                topic: 'statistics',
+                q: 'Calculate the mean of the following data set: \\(12; 15; 18; 25; 30\\)',
+                options: [
+                    '\\(20\\)',
+                    '\\(25\\)',
+                    '\\(18\\)',
+                    '\\(22\\)'],
+                answer: 0,
+                solution: [
+                    'The mean is the sum of the values divided by the number of values.',
+                    'Sum \\(= 12 + 15 + 18 + 25 + 30 = 100\\)',
+                    'Number of values \\(n = 5\\)',
+                    'Mean \\(= 100 / 5 = 20\\)'
+                ]
+            },
+            {
+                topic: 'statistics',
+                q: 'The data set for heights of learners is normally distributed with a mean of \\(160\\, \\text{cm}\\) and a standard deviation of \\(8\\, \\text{cm}\\). What percentage of learners are expected to have a height between \\(152\\, \\text{cm}\\) and \\(168\\, \\text{cm}\\)?',
+                options: [
+                    '\\(50\\%\\)',
+                    '\\(99,7\\%\\)',
+                    '\\(68\\%\\)',
+                    '\\(95\\%\\)'],
+                answer: 2,
+                solution: [
+                    'In a normal distribution, approximately \\(68\\%\\) of the data lies within one standard deviation of the mean.',
+                    '\\(160 - 8 = 152\\) and \\(160 + 8 = 168\\).',
+                    'This range is \\(\\mu \\pm 1\\sigma\\).',
+                    'Therefore, \\(68\\%\\) of learners are in this range.'
+                ]
+            },
+            {
+                topic: 'analytical_geometry',
+                q: 'Find the equation of the line passing through \\((1; 2)\\) and parallel to \\(y = 3x - 5\\).',
+                options: [
+                    '\\(y = 3x - 1\\)',
+                    '\\(y = -\\frac{1}{3}x + \\frac{5}{3}\\)',
+                    '\\(y = 3x + 5\\)',
+                    '\\(y = 3x + 1\\)'],
+                answer: 0,
+                solution: [
+                    'Parallel lines have the same gradient. So \\(m = 3\\).',
+                    'Use point-slope form: \\(y - y_1 = m(x - x_1)\\)',
+                    '\\(y - 2 = 3(x - 1)\\)',
+                    '\\(y = 3x - 3 + 2\\)',
+                    '\\(y = 3x - 1\\)'
+                ]
+            },
+            // --- MORE PATTERNS ---
+            {
+                topic: 'patterns',
+                q: 'The sum of the first \\(n\\) terms of a series is \\(S_n = 3n^2 - 2n\\). Calculate the value of the 5th term \\(T_5\\).',
+                options: [
+                    '\\(25\\)',
+                    '\\(40\\)',
+                    '\\(15\\)',
+                    '\\(65\\)'],
+                answer: 0,
+                solution: [
+                    '\\(T_n = S_n - S_{n-1}\\)',
+                    '\\(T_5 = S_5 - S_4\\)',
+                    '\\(S_5 = 3(5)^2 - 2(5) = 75 - 10 = 65\\)',
+                    '\\(S_4 = 3(4)^2 - 2(4) = 48 - 8 = 40\\)',
+                    '\\(T_5 = 65 - 40 = 25\\)'
+                ]
+            },
+            {
+                topic: 'patterns',
+                q: 'Find the first term of a geometric series if \\(S_\\infty = 20\\) and \\(r = 0,6\\).',
+                options: [
+                    '\\(12\\)',
+                    '\\(8\\)',
+                    '\\(15\\)',
+                    '\\(10\\)'],
+                answer: 1,
+                solution: [
+                    '\\(S_\\infty = \\frac{a}{1 - r}\\)',
+                    '\\(20 = \\frac{a}{1 - 0,6}\\)',
+                    '\\(20 = \\frac{a}{0,4}\\)',
+                    '\\(a = 20 \\times 0,4 = 8\\)'
+                ]
+            },
+            // --- MORE FINANCE ---
+            {
+                topic: 'finance',
+                q: 'How long (in years) will it take for an investment to double if it grows at \\(10\\%\\) p.a. compounded annually?',
+                options: [
+                    '\\(8,5\\, \\text{years}\\)',
+                    '\\(10\\, \\text{years}\\)',
+                    '\\(7,27\\, \\text{years}\\)',
+                    '\\(5\\, \\text{years}\\)'],
+                answer: 2,
+                solution: [
+                    'Use compound interest: \\(A = P(1 + i)^n\\)',
+                    'For doubling, \\(A = 2P\\): \\(2P = P(1 + 0,10)^n\\)',
+                    '\\(2 = (1,1)^n \\implies \\log 2 = n \\log 1,1\\)',
+                    '\\(n = \\frac{\\log 2}{\\log 1,1} \\approx 7,27\\, \\text{years}\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'Calculate the monthly payment on a loan of \\(R100\\,000\\) at \\(12\\%\\) p.a. compounded monthly, to be repaid over 5 years.',
+                options: [
+                    '\\(R2\\,000,00\\)',
+                    '\\(R2\\,500,00\\)',
+                    '\\(R1\\,666,67\\)',
+                    '\\(R2\\,224,44\\)'],
+                answer: 3,
+                solution: [
+                    'Present Value Annuity: \\(x = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\)',
+                    '\\(P = 100\\,000\\), \\(i = 0,12 / 12 = 0,01\\), \\(n = 5 \\times 12 = 60\\)',
+                    '\\(x = \\frac{100\\,000(0,01)}{1 - (1,01)^{-60}} \\approx R2\\,224,44\\)'
+                ]
+            },
+            // --- MORE STATISTICS ---
+            {
+                topic: 'statistics',
+                q: 'In a set of 11 scores, the median is 20. If a score of 40 is added to the data set, what is the new median?',
+                options: [
+                    'Between 20 and 40',
+                    '20',
+                    '30',
+                    'Insufficient information'],
+                answer: 0,
+                solution: [
+                    'The original 11 scores had the 6th term as the median (20).',
+                    'Adding 40 (which is larger than 20) makes the data set 12 terms.',
+                    'The new median is the average of the 6th and 7th terms.',
+                    'Since 40 is larger than 20, the new 7th term will be $\\ge 20$.',
+                    'The median will likely shift slightly upwards or stay 20 if the 7th term was also 20.'
                 ]
             }
         ];
@@ -767,8 +2504,8 @@
             if (questionIndex >= filteredQuestions.length) { renderSummary(); return; }
             const q = filteredQuestions[questionIndex];
             const letters = ['A', 'B', 'C', 'D'];
-            const topicNames = { algebra: 'Algebra', functions: 'Functions', trigonometry: 'Trigonometry', calculus: 'Calculus', geometry: 'Geometry', probability: 'Probability' };
-            const topicColors = { algebra: '#4f46e5', functions: '#0ea5e9', trigonometry: '#8b5cf6', calculus: '#ec4899', geometry: '#10b981', probability: '#f59e0b' };
+            const topicNames = { algebra: 'Algebra', patterns: 'Number Patterns', functions: 'Functions', finance: 'Finance', trigonometry: 'Trigonometry', calculus: 'Calculus', analytical_geometry: 'Analytical Geometry', euclidean_geometry: 'Euclidean Geometry', probability: 'Probability', statistics: 'Statistics' };
+            const topicColors = { algebra: '#4f46e5', patterns: '#0ea5e9', functions: '#10b981', finance: '#f59e0b', trigonometry: '#8b5cf6', calculus: '#ec4899', analytical_geometry: '#0ea5e9', euclidean_geometry: '#10b981', probability: '#eab308', statistics: '#f59e0b' };
 
             area.innerHTML = `
         <div class="question-container animate-scale">
@@ -825,7 +2562,7 @@
         function renderTopicBreakdown() {
             const progress = getProgress();
             const container = document.getElementById('topicBreakdown');
-            const topicNames = { algebra: 'Algebra', functions: 'Functions', trigonometry: 'Trig', calculus: 'Calculus', geometry: 'Geometry', probability: 'Probability' };
+            const topicNames = { algebra: 'Algebra', patterns: 'Patterns', functions: 'Functions', finance: 'Finance', trigonometry: 'Trig', calculus: 'Calculus', analytical_geometry: 'Analytical', euclidean_geometry: 'Euclidean', probability: 'Probability', statistics: 'Stats' };
             container.innerHTML = Object.entries(progress.topics).map(([key, t]) => {
                 const pct = t.total > 0 ? Math.round((t.correct / t.total) * 100) : 0;
                 const barClass = pct >= 70 ? 'progress-bar-green' : pct >= 40 ? 'progress-bar-amber' : '';

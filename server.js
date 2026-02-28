@@ -1,10 +1,35 @@
 const express = require('express');
 const path = require('path');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Security: Helmet helps secure Express apps by setting various HTTP headers
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            "script-src": ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net", "cdnjs.cloudflare.com"],
+            "img-src": ["'self'", "data:", "blob:"],
+        },
+    },
+}));
+
+// Security: Rate limiting to prevent brute-force attacks
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: 'Too many requests from this IP, please try again after 15 minutes',
+});
+app.use(limiter);
+
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Explicit route for the homepage
 app.get('/', (req, res) => {
@@ -13,7 +38,7 @@ app.get('/', (req, res) => {
 
 // Example API route for future database integration
 app.get('/api/status', (req, res) => {
-    res.json({ status: 'Total Skillz.inc Server is Running', database: 'Disconnected (Pending Setup)' });
+    res.json({ status: 'Total Skill Server is Running', database: 'Disconnected (Pending Setup)' });
 });
 
 app.listen(PORT, () => {
