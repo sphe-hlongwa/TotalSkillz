@@ -300,24 +300,32 @@
             const containerId = `recaptcha-container-${panel}`;
             const buttonId = `sign-in-button-${panel}`;
 
-            // If we already have a verifier on this specific container, do nothing
-            if (window.recaptchaInstances && window.recaptchaInstances[containerId]) return;
+            // Return existing instance if already created
+            if (window.recaptchaInstances && window.recaptchaInstances[containerId]) {
+                return window.recaptchaInstances[containerId];
+            }
 
             if (!window.recaptchaInstances) window.recaptchaInstances = {};
 
             try {
-                // Implementing exactly as requested but adapted for compat SDK
+                // Initialize reCAPTCHA verifier
                 window.recaptchaInstances[containerId] = new firebase.auth.RecaptchaVerifier(buttonId, {
                     'size': 'invisible',
                     'callback': (response) => {
                         console.log("Recaptcha verified for", panel);
-                        // The user's snippet suggested calling onSignInSubmit()
-                        // In our structure, sendOTP('login') is already triggered by the click.
+                    },
+                    'expired-callback': () => {
+                        console.warn("Recaptcha expired, resetting...");
+                        if (window.grecaptcha) window.grecaptcha.reset();
                     }
                 });
+
+                // Set global reference for convenience
                 window.recaptchaVerifier = window.recaptchaInstances[containerId];
+                return window.recaptchaInstances[containerId];
             } catch (e) {
                 console.error("Recaptcha Init Error:", e);
+                return null;
             }
         }
 
@@ -329,34 +337,45 @@
             const sendBtn = document.getElementById(isLogin ? 'sign-in-button-login' : 'sign-in-button-signup');
             const otpSection = document.getElementById(isLogin ? 'loginOTPSection' : 'signupOTPSection');
 
+            // Simple validation
             if (!phoneNumber || phoneNumber.length < 10) {
                 showError(isLogin ? 'loginPhone' : 'signupPhone', isLogin ? 'loginPhoneErr' : 'signupPhoneErr');
                 return;
             }
 
             try {
-                const containerId = `recaptcha-container-${panel}`;
-                const appVerifier = window.recaptchaInstances[containerId];
+                // Robust verification: ensure appVerifier exists
+                let appVerifier = window.recaptchaInstances ? window.recaptchaInstances[`recaptcha-container-${panel}`] : null;
 
                 if (!appVerifier) {
-                    throw new Error("Recaptcha not initialized. Please refresh.");
+                    console.log("ReCaptcha not initialized, attempting auto-fix...");
+                    appVerifier = initRecaptcha(panel);
                 }
 
+                if (!appVerifier) {
+                    throw new Error("ReCaptcha initialization failed. Please check your internet connection or refresh the page.");
+                }
+
+                // Send OTP
                 const confirmationResult = await firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier);
                 window.confirmationResult = confirmationResult;
 
+                // UI Transition
                 sendBtn.style.display = 'none';
                 otpSection.style.display = 'block';
                 showToast("Verification code sent!", "success");
             } catch (error) {
-                console.error("SMS Error full details:", error);
-                console.dir(error);
-                errorEl.textContent = error.message || "An internal error occurred.";
+                console.error("SMS Error:", error);
+                errorEl.textContent = error.message.includes('auth/invalid-phone-number')
+                    ? "Invalid phone number format."
+                    : (error.message || "Failed to send code.");
                 errorEl.classList.add('visible');
-                // Reset recaptcha on error so it can be retried
-                if (window.recaptchaInstances[`recaptcha-container-${panel}`]) {
-                    window.recaptchaInstances[`recaptcha-container-${panel}`].render().then(widgetId => {
-                        grecaptcha.reset(widgetId);
+
+                // Reset recaptcha on error so it can be retried immediately
+                const containerId = `recaptcha-container-${panel}`;
+                if (window.recaptchaInstances && window.recaptchaInstances[containerId]) {
+                    window.recaptchaInstances[containerId].render().then(widgetId => {
+                        if (window.grecaptcha) grecaptcha.reset(widgetId);
                     }).catch(() => { });
                 }
             }
