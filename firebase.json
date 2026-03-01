@@ -1,5 +1,6 @@
 {
     "hosting": {
+        "site": "totalskillz",
         "public": "public",
         "ignore": [
             "firebase.json",
