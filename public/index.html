@@ -49,7 +49,7 @@
             <!-- Login Form -->
             <div class="auth-form-wrap" id="loginPanel">
                 <div class="auth-form__header">
-                    <h2 class="auth-form__title">Welcome back</h2>
+                    <h2 class="auth-form__title">Welcome</h2>
                     <p class="auth-form__subtitle">Sign in to continue your learning journey</p>
                 </div>
 
@@ -97,6 +97,11 @@
 
                 <!-- Phone Login Form -->
                 <form id="phoneLoginForm" style="display:none;" novalidate>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" id="loginPhoneName" placeholder="Your full name" required>
+                        <div class="form-error" id="loginPhoneNameErr">Please enter your name</div>
+                    </div>
                     <div class="form-group">
                         <label class="form-label">Phone Number</label>
                         <input type="tel" class="form-input" id="loginPhone" placeholder="+27 12 345 6789" required>
@@ -400,6 +405,12 @@
                 if (!isLogin) {
                     const name = document.getElementById('signupNamePhone').value.trim();
                     await user.updateProfile({ displayName: name });
+                } else {
+                    // Phone login: apply entered name if the user doesn't already have one
+                    const name = document.getElementById('loginPhoneName').value.trim();
+                    if (name && !user.displayName) {
+                        await user.updateProfile({ displayName: name });
+                    }
                 }
 
                 // Redirection handled by onAuthStateChanged in main.js
