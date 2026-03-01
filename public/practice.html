@@ -289,6 +289,665 @@
                 ]
             },
 
+            // Algebra - From Exam Paper
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x^2 - 3x - 10 = 0\\)',
+                options: [
+                    '\\(x = -5\\) or \\(x = 2\\)',
+                    '\\(x = 5\\) or \\(x = 2\\)',
+                    '\\(x = -5\\) or \\(x = -2\\)',
+                    '\\(x = 5\\) or \\(x = -2\\)'],
+                answer: 3,
+                solution: [
+                    'Factorise: \\(x^2 - 3x - 10 = 0\\)',
+                    'Find two numbers that multiply to \\(-10\\) and add to \\(-3\\): these are \\(-5\\) and \\(+2\\).',
+                    '\\((x - 5)(x + 2) = 0\\)',
+                    '\\(x = 5\\) or \\(x = -2\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(3x^2 + 6x + 1 = 0\\) (correct to TWO decimal places)',
+                options: [
+                    '\\(x \\approx 0.18\\) or \\(x \\approx 1.82\\)',
+                    '\\(x \\approx 0.18\\) or \\(x \\approx -1.82\\)',
+                    '\\(x \\approx -0.18\\) or \\(x \\approx -1.82\\)',
+                    '\\(x \\approx -0.18\\) or \\(x \\approx 1.82\\)'],
+                answer: 2,
+                solution: [
+                    'Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)',
+                    'Here \\(a = 3, b = 6, c = 1\\)',
+                    '\\(\\Delta = 6^2 - 4(3)(1) = 36 - 12 = 24\\)',
+                    '\\(x = \\dfrac{-6 \\pm \\sqrt{24}}{6}\\)',
+                    '\\(x = \\dfrac{-6 + 4.899}{6} \\approx -0.18\\) or \\(x = \\dfrac{-6 - 4.899}{6} \\approx -1.82\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(2^{x+4} + 2^x = 8\\,704\\)',
+                options: [
+                    '\\(x = 7\\)',
+                    '\\(x = 8\\)',
+                    '\\(x = 10\\)',
+                    '\\(x = 9\\)'],
+                answer: 3,
+                solution: [
+                    'Apply the exponent law: \\(2^{x+4} = 2^x \\cdot 2^4 = 16 \\cdot 2^x\\)',
+                    'Substitute into the equation: \\(16 \\cdot 2^x + 2^x = 8704\\)',
+                    'Factorise: \\(2^x(16 + 1) = 8704\\)',
+                    '\\(2^x \\cdot 17 = 8704\\)',
+                    '\\(2^x = \\dfrac{8704}{17} = 512 = 2^9\\)',
+                    '\\(x = 9\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\((x - 8)(x + 2) \\le 0\\)',
+                options: [
+                    '\\(x \\le -2\\) or \\(x \\ge 8\\)',
+                    '\\(-2 \\le x \\le 8\\)',
+                    '\\(-2 < x < 8\\)',
+                    '\\(x < -2\\) or \\(x > 8\\)'],
+                answer: 1,
+                solution: [
+                    'Find critical values by setting each factor to zero:',
+                    '\\(x - 8 = 0 \\Rightarrow x = 8\\) and \\(x + 2 = 0 \\Rightarrow x = -2\\)',
+                    'Test intervals on a number line: the product is \\(\\le 0\\) (negative or zero) when the factors have opposite signs.',
+                    'This occurs between the critical values.',
+                    'Include equality (\\(\\le\\)) so the endpoints are included.',
+                    '\\(-2 \\le x \\le 8\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x + 3\\sqrt{x + 2} = 2\\)',
+                options: [
+                    '\\(x = 2\\)',
+                    '\\(x = -2\\)',
+                    '\\(x = -1\\)',
+                    'No real solution'],
+                answer: 2,
+                solution: [
+                    'Let \\(u = \\sqrt{x + 2}\\), so \\(u^2 = x + 2\\), meaning \\(x = u^2 - 2\\).',
+                    'Substitute into the equation: \\((u^2 - 2) + 3u = 2\\)',
+                    '\\(u^2 + 3u - 4 = 0\\)',
+                    'Factorise: \\((u + 4)(u - 1) = 0\\)',
+                    '\\(u = -4\\) (rejected, since \\(u = \\sqrt{x+2} \\ge 0\\)) or \\(u = 1\\)',
+                    '\\(\\sqrt{x + 2} = 1 \\Rightarrow x + 2 = 1 \\Rightarrow x = -1\\)',
+                    'Verify: \\(-1 + 3\\sqrt{-1+2} = -1 + 3(1) = 2\\) ✓'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'A rectangle has sides of \\((y - 3)\\) metres and \\((x + 2)\\) metres. It has a perimeter of 24 metres and an area of 32 square metres. Calculate the values of \\(x\\) and \\(y\\).',
+                options: [
+                    '\\(x = 4\\) and \\(y = 8\\)',
+                    '\\(x = 6, y = 7\\) or \\(x = 2, y = 11\\)',
+                    '\\(x = 3\\) and \\(y = 10\\)',
+                    '\\(x = 5, y = 8\\) or \\(x = 2, y = 11\\)'],
+                answer: 1,
+                solution: [
+                    'Perimeter: \\(2[(y - 3) + (x + 2)] = 24\\)',
+                    '\\((y - 3) + (x + 2) = 12 \\Rightarrow x + y = 13 \\Rightarrow y = 13 - x\\)',
+                    'Area: \\((y - 3)(x + 2) = 32\\)',
+                    'Substitute \\(y = 13 - x\\): \\((13 - x - 3)(x + 2) = 32\\)',
+                    '\\((10 - x)(x + 2) = 32\\)',
+                    '\\(10x + 20 - x^2 - 2x = 32\\)',
+                    '\\(-x^2 + 8x - 12 = 0 \\Rightarrow x^2 - 8x + 12 = 0\\)',
+                    '\\((x - 6)(x - 2) = 0\\)',
+                    '\\(x = 6, y = 7\\) or \\(x = 2, y = 11\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Show that \\(\\left(1 + x^m + x^{-n}\\right)^2 - \\left(1 - x^m - x^{-n}\\right)^2\\) is divisible by 2 for all real values of \\(m\\) and \\(n\\). Which identity best demonstrates this?',
+                options: [
+                    'The expression equals \\(2(x^m + x^{-n})\\)',
+                    'The expression equals \\((x^m + x^{-n})^2\\)',
+                    'Using difference of squares, the expression simplifies to \\(4(x^m + x^{-n})\\), which is divisible by 4 and hence by 2',
+                    'The expression equals \\(2\\) for all values of \\(m\\) and \\(n\\)'],
+                answer: 2,
+                solution: [
+                    'Let \\(A = 1\\) and \\(B = x^m + x^{-n}\\) so the expression becomes \\((A + B)^2 - (A - B)^2\\).',
+                    'Apply the difference of squares identity: \\((A+B)^2 - (A-B)^2 = [(A+B) - (A-B)][(A+B) + (A-B)]\\)',
+                    '\\(= [2B][2A]\\)',
+                    '\\(= 4AB\\)',
+                    '\\(= 4(1)(x^m + x^{-n})\\)',
+                    '\\(= 4(x^m + x^{-n})\\)',
+                    'Since the expression equals \\(4(x^m + x^{-n})\\), it is divisible by 4, and therefore also divisible by 2, for all real values of \\(m\\) and \\(n\\). ✓'
+                ]
+            },
+
+            // Algebra - From Exam Paper 2
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x^2 + 2x + 1 = 0\\)',
+                options: [
+                    '\\(x = 1\\) or \\(x = -1\\)',
+                    '\\(x = -1\\) (equal roots)',
+                    '\\(x = 1\\) (equal roots)',
+                    '\\(x = 2\\) or \\(x = -1\\)'],
+                answer: 1,
+                solution: [
+                    'Recognise the perfect square: \\(x^2 + 2x + 1 = (x + 1)^2\\)',
+                    '\\((x + 1)^2 = 0\\)',
+                    '\\(x + 1 = 0\\)',
+                    '\\(x = -1\\) (equal roots — discriminant \\(\\Delta = 0\\))'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x(5x - 3) = 1\\) (correct to TWO decimal places)',
+                options: [
+                    '\\(x \\approx 0.84\\) or \\(x \\approx -0.24\\)',
+                    '\\(x \\approx -0.84\\) or \\(x \\approx 0.24\\)',
+                    '\\(x \\approx 0.84\\) or \\(x \\approx 0.24\\)',
+                    '\\(x \\approx -0.84\\) or \\(x \\approx -0.24\\)'],
+                answer: 0,
+                solution: [
+                    'Expand: \\(5x^2 - 3x = 1\\)',
+                    'Rearrange: \\(5x^2 - 3x - 1 = 0\\)',
+                    'Use quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\) with \\(a=5, b=-3, c=-1\\)',
+                    '\\(\\Delta = (-3)^2 - 4(5)(-1) = 9 + 20 = 29\\)',
+                    '\\(x = \\dfrac{3 \\pm \\sqrt{29}}{10}\\)',
+                    '\\(x \\approx \\dfrac{3 + 5.39}{10} \\approx 0.84\\) or \\(x \\approx \\dfrac{3 - 5.39}{10} \\approx -0.24\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(2x + 3 > x^2\\)',
+                options: [
+                    '\\(x < -1\\) or \\(x > 3\\)',
+                    '\\(-1 \\le x \\le 3\\)',
+                    '\\(-1 < x < 3\\)',
+                    '\\(x \\le -1\\) or \\(x \\ge 3\\)'],
+                answer: 2,
+                solution: [
+                    'Rearrange: \\(0 > x^2 - 2x - 3\\)',
+                    'Factorise: \\(x^2 - 2x - 3 < 0\\)',
+                    '\\((x - 3)(x + 1) < 0\\)',
+                    'Critical values: \\(x = 3\\) and \\(x = -1\\)',
+                    'The parabola opens upward, so the expression is negative between the roots.',
+                    '\\(-1 < x < 3\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(\\sqrt{7x - 12} - x = 0\\)',
+                options: [
+                    '\\(x = 3\\) only',
+                    '\\(x = 4\\) only',
+                    '\\(x = 3\\) or \\(x = 4\\)',
+                    '\\(x = 2\\) or \\(x = 6\\)'],
+                answer: 2,
+                solution: [
+                    'Isolate the surd: \\(\\sqrt{7x - 12} = x\\)',
+                    'Square both sides: \\(7x - 12 = x^2\\)',
+                    'Rearrange: \\(x^2 - 7x + 12 = 0\\)',
+                    'Factorise: \\((x - 3)(x - 4) = 0\\)',
+                    '\\(x = 3\\) or \\(x = 4\\)',
+                    'Verify both (squaring can introduce extraneous roots):',
+                    '\\(x=3\\): \\(\\sqrt{21-12} = \\sqrt{9} = 3\\) ✓',
+                    '\\(x=4\\): \\(\\sqrt{28-12} = \\sqrt{16} = 4\\) ✓',
+                    'Both solutions are valid.'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(\\left(\\dfrac{1}{6}\\right)^{3x+2} \\cdot 216^{3x} = \\dfrac{1}{216}\\)',
+                options: [
+                    '\\(x = \\dfrac{1}{6}\\)',
+                    '\\(x = -\\dfrac{1}{6}\\)',
+                    '\\(x = \\dfrac{1}{3}\\)',
+                    '\\(x = -\\dfrac{1}{3}\\)'],
+                answer: 1,
+                solution: [
+                    'Write everything as powers of 6: \\(216 = 6^3\\), \\(\\dfrac{1}{6} = 6^{-1}\\), \\(\\dfrac{1}{216} = 6^{-3}\\)',
+                    '\\((6^{-1})^{3x+2} \\cdot (6^3)^{3x} = 6^{-3}\\)',
+                    '\\(6^{-(3x+2)} \\cdot 6^{9x} = 6^{-3}\\)',
+                    'Add exponents on the left: \\(6^{-3x-2+9x} = 6^{-3}\\)',
+                    '\\(6^{6x-2} = 6^{-3}\\)',
+                    'Equate exponents: \\(6x - 2 = -3\\)',
+                    '\\(6x = -1 \\Rightarrow x = -\\dfrac{1}{6}\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve simultaneously for \\(x\\) and \\(y\\):<br>\\(x + y = 3\\) and \\(x^2 + 2y^2 = 18\\)',
+                options: [
+                    '\\(x = 0, y = 3\\) or \\(x = 4, y = -1\\)',
+                    '\\(x = 3, y = 0\\) or \\(x = -1, y = 4\\)',
+                    '\\(x = 2, y = 1\\) or \\(x = -2, y = 5\\)',
+                    '\\(x = 1, y = 2\\) or \\(x = 3, y = 0\\)'],
+                answer: 0,
+                solution: [
+                    'From the first equation: \\(x = 3 - y\\)',
+                    'Substitute into the second: \\((3 - y)^2 + 2y^2 = 18\\)',
+                    '\\(9 - 6y + y^2 + 2y^2 = 18\\)',
+                    '\\(3y^2 - 6y + 9 = 18\\)',
+                    '\\(3y^2 - 6y - 9 = 0 \\Rightarrow y^2 - 2y - 3 = 0\\)',
+                    '\\((y - 3)(y + 1) = 0\\)',
+                    '\\(y = 3\\) → \\(x = 0\\), or \\(y = -1\\) → \\(x = 4\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Given \\((\\sqrt{5})^x - (\\sqrt[3]{2})^y = 17\\), where \\(x\\) and \\(y \\in \\mathbb{N}\\), determine the value of \\(P = x \\times y\\).',
+                options: [
+                    '\\(P = 24\\)',
+                    '\\(P = 18\\)',
+                    '\\(P = 36\\)',
+                    '\\(P = 30\\)'],
+                answer: 2,
+                solution: [
+                    'Rewrite: \\(5^{x/2} - 2^{y/3} = 17\\)',
+                    'Try small natural numbers for \\(x\\). Let \\(x = 4\\): \\(5^{4/2} = 5^2 = 25\\)',
+                    '\\(25 - 2^{y/3} = 17 \\Rightarrow 2^{y/3} = 8 = 2^3\\)',
+                    '\\(\\dfrac{y}{3} = 3 \\Rightarrow y = 9\\)',
+                    'Both \\(x = 4\\) and \\(y = 9\\) are natural numbers ✓',
+                    '\\(P = x \\times y = 4 \\times 9 = 36\\)'
+                ]
+            },
+
+            // Algebra - From Exam Paper 3
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x^2 + 4x = 0\\)',
+                options: [
+                    '\\(x = 4\\) only',
+                    '\\(x = -4\\) only',
+                    '\\(x = 0\\) or \\(x = -4\\)',
+                    '\\(x = 0\\) or \\(x = 4\\)'],
+                answer: 2,
+                solution: [
+                    'Factorise by taking out the common factor:',
+                    '\\(x(x + 4) = 0\\)',
+                    '\\(x = 0\\) or \\(x + 4 = 0\\)',
+                    '\\(x = 0\\) or \\(x = -4\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(2x^2 - \\dfrac{1}{2} = 3x\\) (correct to TWO decimal places)',
+                options: [
+                    '\\(x \\approx 1.65\\) or \\(x \\approx -0.15\\)',
+                    '\\(x \\approx -1.65\\) or \\(x \\approx 0.15\\)',
+                    '\\(x \\approx 1.65\\) or \\(x \\approx 0.15\\)',
+                    '\\(x \\approx -1.65\\) or \\(x \\approx -0.15\\)'],
+                answer: 0,
+                solution: [
+                    'Multiply through by 2 to clear the fraction: \\(4x^2 - 1 = 6x\\)',
+                    'Rearrange: \\(4x^2 - 6x - 1 = 0\\)',
+                    'Use the quadratic formula with \\(a=4, b=-6, c=-1\\):',
+                    '\\(\\Delta = (-6)^2 - 4(4)(-1) = 36 + 16 = 52\\)',
+                    '\\(x = \\dfrac{6 \\pm \\sqrt{52}}{8} = \\dfrac{6 \\pm 2\\sqrt{13}}{8} = \\dfrac{3 \\pm \\sqrt{13}}{4}\\)',
+                    '\\(x \\approx \\dfrac{3 + 3.606}{4} \\approx 1.65\\) or \\(x \\approx \\dfrac{3 - 3.606}{4} \\approx -0.15\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(3x^2 + 5x \\ge 2\\)',
+                options: [
+                    '\\(-2 \\le x \\le \\dfrac{1}{3}\\)',
+                    '\\(x < -2\\) or \\(x > \\dfrac{1}{3}\\)',
+                    '\\(x \\le -2\\) or \\(x \\ge \\dfrac{1}{3}\\)',
+                    '\\(-2 < x < \\dfrac{1}{3}\\)'],
+                answer: 2,
+                solution: [
+                    'Rearrange: \\(3x^2 + 5x - 2 \\ge 0\\)',
+                    'Factorise: \\((3x - 1)(x + 2) \\ge 0\\)',
+                    'Critical values: \\(x = \\dfrac{1}{3}\\) and \\(x = -2\\)',
+                    'The parabola opens upward, so the expression is \\(\\ge 0\\) outside the roots.',
+                    'Include equality (\\(\\ge\\)), so endpoints are included.',
+                    '\\(x \\le -2\\) or \\(x \\ge \\dfrac{1}{3}\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(2^{2x} + 2^x - 6 = 0\\)',
+                options: [
+                    '\\(x = 0\\)',
+                    '\\(x = 2\\)',
+                    '\\(x = 1\\)',
+                    '\\(x = -1\\)'],
+                answer: 2,
+                solution: [
+                    'Let \\(k = 2^x\\), then \\(2^{2x} = (2^x)^2 = k^2\\).',
+                    'Substitute: \\(k^2 + k - 6 = 0\\)',
+                    'Factorise: \\((k + 3)(k - 2) = 0\\)',
+                    '\\(k = -3\\) (rejected, since \\(2^x > 0\\) for all \\(x\\)) or \\(k = 2\\)',
+                    '\\(2^x = 2 = 2^1\\)',
+                    '\\(x = 1\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x^2 - 2x + 3 + \\dfrac{2}{x^2 - 2x} = 0\\)',
+                options: [
+                    '\\(x = 1\\)',
+                    'No real solution',
+                    '\\(x = 0\\) or \\(x = 2\\)',
+                    '\\(x = 1\\) or \\(x = 2\\)'],
+                answer: 0,
+                solution: [
+                    'Let \\(u = x^2 - 2x\\). Note: \\(u \\neq 0\\) (denominator).',
+                    'Substitute: \\(u + 3 + \\dfrac{2}{u} = 0\\)',
+                    'Multiply by \\(u\\): \\(u^2 + 3u + 2 = 0\\)',
+                    'Factorise: \\((u + 1)(u + 2) = 0\\)',
+                    '\\(u = -1\\) or \\(u = -2\\)',
+                    'Case 1: \\(x^2 - 2x = -1 \\Rightarrow x^2 - 2x + 1 = 0 \\Rightarrow (x-1)^2 = 0 \\Rightarrow x = 1\\)',
+                    'Case 2: \\(x^2 - 2x = -2 \\Rightarrow x^2 - 2x + 2 = 0\\); \\(\\Delta = 4 - 8 = -4 < 0\\) (no real solutions)',
+                    'Verify \\(x=1\\): \\(x^2-2x = 1-2 = -1 \\neq 0\\) ✓',
+                    '\\(x = 1\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(\\sqrt{x + 5} - x = -1\\)',
+                options: [
+                    '\\(x = 4\\) only',
+                    '\\(x = -1\\) only',
+                    '\\(x = 4\\) or \\(x = -1\\)',
+                    'No real solution'],
+                answer: 0,
+                solution: [
+                    'Isolate the surd: \\(\\sqrt{x + 5} = x - 1\\)',
+                    'Restriction: \\(x - 1 \\ge 0 \\Rightarrow x \\ge 1\\)',
+                    'Square both sides: \\(x + 5 = (x-1)^2 = x^2 - 2x + 1\\)',
+                    'Rearrange: \\(x^2 - 3x - 4 = 0\\)',
+                    'Factorise: \\((x - 4)(x + 1) = 0\\)',
+                    '\\(x = 4\\) or \\(x = -1\\)',
+                    'Check against restriction \\(x \\ge 1\\): \\(x = -1\\) is rejected.',
+                    'Verify \\(x = 4\\): \\(\\sqrt{9} - 4 = 3 - 4 = -1\\) ✓',
+                    '\\(x = 4\\) only.'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\) and \\(y\\) simultaneously:<br>\\(x + 2y = 5\\) and \\(2y^2 - xy - 4x^2 = 8\\)',
+                options: [
+                    '\\(x = \\tfrac{1}{2}, y = \\tfrac{9}{4}\\) or \\(x = -3, y = 4\\)',
+                    '\\(x = 1, y = 2\\) or \\(x = -3, y = 4\\)',
+                    '\\(x = \\tfrac{1}{2}, y = \\tfrac{9}{4}\\) or \\(x = 3, y = -4\\)',
+                    '\\(x = 2, y = \\tfrac{3}{2}\\) or \\(x = -3, y = 4\\)'],
+                answer: 0,
+                solution: [
+                    'From the first equation: \\(x = 5 - 2y\\)',
+                    'Substitute into the second equation:',
+                    '\\(2y^2 - (5-2y)y - 4(5-2y)^2 = 8\\)',
+                    '\\(2y^2 - 5y + 2y^2 - 4(25 - 20y + 4y^2) = 8\\)',
+                    '\\(4y^2 - 5y - 100 + 80y - 16y^2 = 8\\)',
+                    '\\(-12y^2 + 75y - 108 = 0\\)',
+                    'Divide by \\(-3\\): \\(4y^2 - 25y + 36 = 0\\)',
+                    'Factorise: \\((4y - 9)(y - 4) = 0\\)',
+                    '\\(y = \\dfrac{9}{4}\\) → \\(x = 5 - \\dfrac{9}{2} = \\dfrac{1}{2}\\)',
+                    '\\(y = 4\\) → \\(x = 5 - 8 = -3\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'For which values of \\(k\\) will the roots of \\(6x^2 + 6 = 4kx\\) be real and equal?',
+                options: [
+                    '\\(k = 6\\) or \\(k = -6\\)',
+                    '\\(k = 2\\) or \\(k = -2\\)',
+                    '\\(k = 0\\)',
+                    '\\(k = 3\\) or \\(k = -3\\)'],
+                answer: 3,
+                solution: [
+                    'Rearrange to standard form: \\(6x^2 - 4kx + 6 = 0\\)',
+                    'Here: \\(a = 6,\\; b = -4k,\\; c = 6\\)',
+                    'For real and equal roots, the discriminant must equal zero: \\(\\Delta = 0\\)',
+                    '\\(b^2 - 4ac = 0\\)',
+                    '\\((-4k)^2 - 4(6)(6) = 0\\)',
+                    '\\(16k^2 - 144 = 0\\)',
+                    '\\(k^2 = 9\\)',
+                    '\\(k = 3\\) or \\(k = -3\\)'
+                ]
+            },
+
+            // Algebra - From Exam Paper 4
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\((x + 3)(2 - 5x) = 0\\)',
+                options: [
+                    '\\(x = 3\\) or \\(x = -2\\)',
+                    '\\(x = -3\\) or \\(x = \\dfrac{2}{5}\\)',
+                    '\\(x = 3\\) or \\(x = \\dfrac{2}{5}\\)',
+                    '\\(x = -3\\) or \\(x = -\\dfrac{2}{5}\\)'],
+                answer: 1,
+                solution: [
+                    'Set each factor equal to zero:',
+                    '\\(x + 3 = 0 \\Rightarrow x = -3\\)',
+                    '\\(2 - 5x = 0 \\Rightarrow 5x = 2 \\Rightarrow x = \\dfrac{2}{5}\\)',
+                    '\\(x = -3\\) or \\(x = \\dfrac{2}{5}\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(7x^2 + 5x - 8 = 0\\) (correct to TWO decimal places)',
+                options: [
+                    '\\(x \\approx 0.77\\) or \\(x \\approx -1.48\\)',
+                    '\\(x \\approx -0.77\\) or \\(x \\approx 1.48\\)',
+                    '\\(x \\approx 0.77\\) or \\(x \\approx 1.48\\)',
+                    '\\(x \\approx -0.77\\) or \\(x \\approx -1.48\\)'],
+                answer: 0,
+                solution: [
+                    'Use the quadratic formula with \\(a = 7, b = 5, c = -8\\):',
+                    '\\(\\Delta = 5^2 - 4(7)(-8) = 25 + 224 = 249\\)',
+                    '\\(x = \\dfrac{-5 \\pm \\sqrt{249}}{14}\\)',
+                    '\\(\\sqrt{249} \\approx 15.78\\)',
+                    '\\(x \\approx \\dfrac{-5 + 15.78}{14} \\approx 0.77\\) or \\(x \\approx \\dfrac{-5 - 15.78}{14} \\approx -1.48\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(\\dfrac{7}{x^2 - 2x - 8} > 0\\)',
+                options: [
+                    '\\(-2 < x < 4\\)',
+                    '\\(x < -2\\) or \\(x > 4\\)',
+                    '\\(-4 < x < 2\\)',
+                    '\\(x < -4\\) or \\(x > 2\\)'],
+                answer: 1,
+                solution: [
+                    'Since the numerator 7 is positive, the sign of the fraction depends on the denominator.',
+                    'We need the denominator \\(> 0\\): \\(x^2 - 2x - 8 > 0\\)',
+                    'Factorise: \\((x - 4)(x + 2) > 0\\)',
+                    'Critical values: \\(x = 4\\) and \\(x = -2\\)',
+                    'The parabola opens upward, so the expression is \\(> 0\\) outside the roots.',
+                    '\\(x < -2\\) or \\(x > 4\\)',
+                    'Note: \\(x = -2\\) and \\(x = 4\\) are excluded (denominator = 0).'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(3^{x+2} = 42 - 5 \\cdot 3^x\\)',
+                options: [
+                    '\\(x = 0\\)',
+                    '\\(x = 2\\)',
+                    '\\(x = -1\\)',
+                    '\\(x = 1\\)'],
+                answer: 3,
+                solution: [
+                    'Apply the exponent law: \\(3^{x+2} = 3^2 \\cdot 3^x = 9 \\cdot 3^x\\)',
+                    'Substitute: \\(9 \\cdot 3^x = 42 - 5 \\cdot 3^x\\)',
+                    'Collect like terms: \\(9 \\cdot 3^x + 5 \\cdot 3^x = 42\\)',
+                    '\\(14 \\cdot 3^x = 42\\)',
+                    '\\(3^x = 3 = 3^1\\)',
+                    '\\(x = 1\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x - \\sqrt{5x - 1} = 5\\)',
+                options: [
+                    '\\(x = 2\\) only',
+                    '\\(x = 13\\) only',
+                    '\\(x = 2\\) or \\(x = 13\\)',
+                    'No real solution'],
+                answer: 1,
+                solution: [
+                    'Rearrange: \\(x - 5 = \\sqrt{5x - 1}\\)',
+                    'Restriction: \\(x - 5 \\ge 0 \\Rightarrow x \\ge 5\\)',
+                    'Square both sides: \\((x-5)^2 = 5x - 1\\)',
+                    '\\(x^2 - 10x + 25 = 5x - 1\\)',
+                    '\\(x^2 - 15x + 26 = 0\\)',
+                    'Factorise: \\((x - 2)(x - 13) = 0\\)',
+                    '\\(x = 2\\) or \\(x = 13\\)',
+                    'Check restriction \\(x \\ge 5\\): \\(x = 2\\) is rejected.',
+                    'Verify \\(x = 13\\): \\(13 - \\sqrt{65-1} = 13 - \\sqrt{64} = 13 - 8 = 5\\) ✓',
+                    '\\(x = 13\\) only.'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\) and \\(y\\) simultaneously:<br>\\(x - y = 3\\) and \\(x^2 - xy = 2y^2 + 7\\)',
+                options: [
+                    '\\(x = 5, y = 2\\) or \\(x = \\tfrac{5}{2}, y = -\\tfrac{1}{2}\\)',
+                    '\\(x = 5, y = 2\\) or \\(x = -\\tfrac{5}{2}, y = \\tfrac{1}{2}\\)',
+                    '\\(x = 4, y = 1\\) or \\(x = 3, y = 0\\)',
+                    '\\(x = 5, y = 2\\) or \\(x = \\tfrac{7}{2}, y = \\tfrac{1}{2}\\)'],
+                answer: 0,
+                solution: [
+                    'From the first equation: \\(x = y + 3\\)',
+                    'Substitute into the second:',
+                    '\\((y+3)^2 - (y+3)y = 2y^2 + 7\\)',
+                    '\\(y^2 + 6y + 9 - y^2 - 3y = 2y^2 + 7\\)',
+                    '\\(3y + 9 = 2y^2 + 7\\)',
+                    '\\(2y^2 - 3y - 2 = 0\\)',
+                    'Factorise: \\((2y + 1)(y - 2) = 0\\)',
+                    '\\(y = -\\dfrac{1}{2}\\) → \\(x = \\dfrac{5}{2}\\)',
+                    '\\(y = 2\\) → \\(x = 5\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Prove that the roots of \\(2x^2 + px - p^2 = 0\\) are rational for all rational values of \\(p\\). Which statement correctly demonstrates this?',
+                options: [
+                    'The discriminant \\(\\Delta = 9p^2\\), which is a perfect square, so \\(\\sqrt{\\Delta} = 3|p|\\) is rational',
+                    'The discriminant \\(\\Delta = p^2\\), making roots always rational',
+                    'The discriminant \\(\\Delta = 8p^2\\), so roots are irrational unless \\(p = 0\\)',
+                    'The sum of the roots \\(= -\\tfrac{p}{2}\\) which is always rational'],
+                answer: 0,
+                solution: [
+                    'Calculate the discriminant: \\(\\Delta = b^2 - 4ac\\) with \\(a=2, b=p, c=-p^2\\)',
+                    '\\(\\Delta = p^2 - 4(2)(-p^2) = p^2 + 8p^2 = 9p^2\\)',
+                    '\\(\\sqrt{\\Delta} = \\sqrt{9p^2} = 3|p|\\), which is rational for any rational \\(p\\).',
+                    'Since \\(\\Delta \\ge 0\\) and \\(\\sqrt{\\Delta}\\) is rational, the roots \\(x = \\dfrac{-p \\pm 3p}{4}\\) are rational.',
+                    'Specifically: \\(x = \\dfrac{-p + 3p}{4} = \\dfrac{p}{2}\\) or \\(x = \\dfrac{-p - 3p}{4} = -p\\). ✓'
+                ]
+            },
+
+            // Algebra - From Exam Paper 5
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(x(x + 3) = 28\\)',
+                options: [
+                    '\\(x = 7\\) or \\(x = -4\\)',
+                    '\\(x = -7\\) or \\(x = 4\\)',
+                    '\\(x = 4\\) or \\(x = 7\\)',
+                    '\\(x = -7\\) or \\(x = -4\\)'],
+                answer: 1,
+                solution: [
+                    'Expand and rearrange: \\(x^2 + 3x - 28 = 0\\)',
+                    'Factorise — find two numbers that multiply to \\(-28\\) and add to \\(3\\): these are \\(7\\) and \\(-4\\):',
+                    '\\((x + 7)(x - 4) = 0\\)',
+                    '\\(x = -7\\) or \\(x = 4\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(2x^2 + 7x - 1 = 0\\) (correct to TWO decimal places)',
+                options: [
+                    '\\(x \\approx -0.14\\) or \\(x \\approx 3.64\\)',
+                    '\\(x \\approx 0.14\\) or \\(x \\approx -3.64\\)',
+                    '\\(x \\approx 0.14\\) or \\(x \\approx 3.64\\)',
+                    '\\(x \\approx -0.14\\) or \\(x \\approx -3.64\\)'],
+                answer: 1,
+                solution: [
+                    'Use the quadratic formula with \\(a = 2, b = 7, c = -1\\):',
+                    '\\(\\Delta = 7^2 - 4(2)(-1) = 49 + 8 = 57\\)',
+                    '\\(x = \\dfrac{-7 \\pm \\sqrt{57}}{4}\\)',
+                    '\\(\\sqrt{57} \\approx 7.55\\)',
+                    '\\(x \\approx \\dfrac{-7 + 7.55}{4} \\approx 0.14\\) or \\(x \\approx \\dfrac{-7 - 7.55}{4} \\approx -3.64\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\((x + 4)(5 - x) \\ge 0\\)',
+                options: [
+                    '\\(x < -4\\) or \\(x > 5\\)',
+                    '\\(-4 < x < 5\\)',
+                    '\\(-4 \\le x \\le 5\\)',
+                    '\\(x \\le -4\\) or \\(x \\ge 5\\)'],
+                answer: 2,
+                solution: [
+                    'Critical values: \\(x + 4 = 0 \\Rightarrow x = -4\\) and \\(5 - x = 0 \\Rightarrow x = 5\\)',
+                    'The product is \\(\\ge 0\\) when both factors are non-negative or both non-positive.',
+                    'Test intervals: the expression is positive between the roots.',
+                    'Include equality (\\(\\ge\\)) so endpoints are included.',
+                    '\\(-4 \\le x \\le 5\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve for \\(x\\): \\(2\\sqrt{x + 4} - 3 = x + 1\\)',
+                options: [
+                    '\\(x = 0\\) only',
+                    '\\(x = -4\\) only',
+                    '\\(x = 0\\) or \\(x = -4\\)',
+                    'No real solution'],
+                answer: 2,
+                solution: [
+                    'Rearrange: \\(2\\sqrt{x+4} = x + 4\\)',
+                    'Let \\(u = \\sqrt{x+4}\\), so \\(u^2 = x + 4\\) and \\(u \\ge 0\\):',
+                    '\\(2u = u^2 \\Rightarrow u^2 - 2u = 0 \\Rightarrow u(u-2) = 0\\)',
+                    '\\(u = 0\\) or \\(u = 2\\)',
+                    'If \\(u = 0\\): \\(\\sqrt{x+4} = 0 \\Rightarrow x = -4\\)',
+                    'If \\(u = 2\\): \\(\\sqrt{x+4} = 2 \\Rightarrow x + 4 = 4 \\Rightarrow x = 0\\)',
+                    'Verify \\(x = -4\\): \\(2\\sqrt{0} - 3 = -3\\) and \\(-4 + 1 = -3\\) ✓',
+                    'Verify \\(x = 0\\): \\(2\\sqrt{4} - 3 = 1\\) and \\(0 + 1 = 1\\) ✓',
+                    '\\(x = 0\\) or \\(x = -4\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Solve simultaneously for \\(x\\) and \\(y\\):<br>\\(y - x = -7\\) and \\(x^2 + 3xy = -27\\)',
+                options: [
+                    '\\(x = 3, y = -4\\) or \\(x = \\tfrac{9}{4}, y = -\\tfrac{19}{4}\\)',
+                    '\\(x = 3, y = -4\\) or \\(x = -\\tfrac{9}{4}, y = \\tfrac{19}{4}\\)',
+                    '\\(x = -3, y = 4\\) or \\(x = \\tfrac{9}{4}, y = -\\tfrac{19}{4}\\)',
+                    '\\(x = 3, y = 4\\) or \\(x = \\tfrac{9}{4}, y = \\tfrac{19}{4}\\)'],
+                answer: 0,
+                solution: [
+                    'From the first equation: \\(y = x - 7\\)',
+                    'Substitute into the second: \\(x^2 + 3x(x - 7) = -27\\)',
+                    '\\(x^2 + 3x^2 - 21x = -27\\)',
+                    '\\(4x^2 - 21x + 27 = 0\\)',
+                    '\\(\\Delta = (-21)^2 - 4(4)(27) = 441 - 432 = 9\\)',
+                    '\\(x = \\dfrac{21 \\pm 3}{8}\\)',
+                    '\\(x = \\dfrac{24}{8} = 3\\) or \\(x = \\dfrac{18}{8} = \\dfrac{9}{4}\\)',
+                    'If \\(x = 3\\): \\(y = 3 - 7 = -4\\)',
+                    'If \\(x = \\dfrac{9}{4}\\): \\(y = \\dfrac{9}{4} - 7 = -\\dfrac{19}{4}\\)'
+                ]
+            },
+            {
+                topic: 'algebra',
+                q: 'Simplify fully (without a calculator): \\(\\sqrt[n]{\\dfrac{10^n + 2^{n+2}}{5^{2n} + 4 \\cdot 5^n}}\\), where \\(n \\neq 0\\)',
+                options: [
+                    '\\(\\dfrac{2}{5}\\)',
+                    '\\(\\dfrac{4}{5}\\)',
+                    '\\(2\\)',
+                    '\\(\\dfrac{2}{25}\\)'],
+                answer: 0,
+                solution: [
+                    'Simplify the numerator: \\(10^n + 2^{n+2} = (2 \\cdot 5)^n + 4 \\cdot 2^n = 2^n \\cdot 5^n + 4 \\cdot 2^n = 2^n(5^n + 4)\\)',
+                    'Simplify the denominator: \\(5^{2n} + 4 \\cdot 5^n = 5^n \\cdot 5^n + 4 \\cdot 5^n = 5^n(5^n + 4)\\)',
+                    'Divide: \\(\\dfrac{2^n(5^n + 4)}{5^n(5^n + 4)} = \\dfrac{2^n}{5^n} = \\left(\\dfrac{2}{5}\\right)^n\\)',
+                    'Take the \\(n\\)th root: \\(\\sqrt[n]{\\left(\\dfrac{2}{5}\\right)^n} = \\dfrac{2}{5}\\)'
+                ]
+            },
+
             // Patterns - New
             {
                 topic: 'patterns',
@@ -858,6 +1517,81 @@
                 ]
             },
 
+            // Functions - From Exam Paper (Parabola & Line)
+            {
+                topic: 'functions',
+                q: 'Given \\(f(x) = x^2 - 2x - 3\\) and \\(g(x) = x - 3\\), \\(x \\in \\mathbb{R}\\).<br><br>What are the turning point, axis of symmetry, and x-intercepts of \\(f(x)\\)?',
+                options: [
+                    'Turning point \\((1, -4)\\); axis \\(x=1\\); x-intercepts \\(x=-1\\) and \\(x=3\\)',
+                    'Turning point \\((-1, -4)\\); axis \\(x=-1\\); x-intercepts \\(x=1\\) and \\(x=3\\)',
+                    'Turning point \\((1, -4)\\); axis \\(x=1\\); x-intercepts \\(x=1\\) and \\(x=-3\\)',
+                    'Turning point \\((2, -3)\\); axis \\(x=2\\); x-intercepts \\(x=-1\\) and \\(x=3\\)'],
+                answer: 0,
+                solution: [
+                    'Complete the square: \\(f(x) = x^2 - 2x - 3 = (x-1)^2 - 1 - 3 = (x-1)^2 - 4\\)',
+                    'Turning point: \\((1, -4)\\); Axis of symmetry: \\(x = 1\\)',
+                    'x-intercepts (set \\(y=0\\)): \\(x^2 - 2x - 3 = 0 \\Rightarrow (x-3)(x+1) = 0\\)',
+                    '\\(x = 3\\) or \\(x = -1\\)',
+                    'y-intercept (set \\(x=0\\)): \\(f(0) = -3\\)',
+                    'For \\(g(x) = x-3\\): x-intercept at \\(x=3\\), y-intercept at \\(y=-3\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Given \\(f(x) = x^2 - 2x - 3\\) and \\(g(x) = x - 3\\).<br><br>Determine the values of \\(x\\) for which \\(f(x) > g(x)\\).',
+                options: [
+                    '\\(x < 0\\) or \\(x > 3\\)',
+                    '\\(0 < x < 3\\)',
+                    '\\(0 \\le x \\le 3\\)',
+                    '\\(x \\le 0\\) or \\(x \\ge 3\\)'],
+                answer: 0,
+                solution: [
+                    'Set up the inequality: \\(x^2 - 2x - 3 > x - 3\\)',
+                    'Rearrange: \\(x^2 - 3x > 0\\)',
+                    'Factorise: \\(x(x - 3) > 0\\)',
+                    'Critical values: \\(x = 0\\) and \\(x = 3\\)',
+                    'The parabola opens upward, so the expression is positive outside the roots.',
+                    '\\(x < 0\\) or \\(x > 3\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Given \\(f(x) = x^2 - 2x - 3\\) and \\(g(x) = x - 3\\).<br><br>Determine the values of \\(x\\) for which \\(f(x) \\cdot g(x) \\le 0\\).',
+                options: [
+                    '\\(x \\le -1\\) or \\(x = 3\\)',
+                    '\\(-1 \\le x \\le 3\\)',
+                    '\\(x \\le -1\\) or \\(x \\ge 3\\)',
+                    '\\(x = 3\\) only'],
+                answer: 0,
+                solution: [
+                    '\\(f(x) \\cdot g(x) = (x^2 - 2x - 3)(x - 3) = (x-3)(x+1)(x-3) = (x-3)^2(x+1)\\)',
+                    'We need \\((x-3)^2(x+1) \\le 0\\)',
+                    'Since \\((x-3)^2 \\ge 0\\) always, the product is \\(\\le 0\\) when:',
+                    '\\(x + 1 \\le 0\\) (i.e. \\(x \\le -1\\)) and \\((x-3)^2 \\ge 0\\) — product is negative, OR',
+                    '\\((x-3)^2 = 0\\) (i.e. \\(x = 3\\)) — product equals zero.',
+                    'Answer: \\(x \\le -1\\) or \\(x = 3\\)'
+                ]
+            },
+            {
+                topic: 'functions',
+                q: 'Given \\(f(x) = x^2 - 2x - 3\\), determine the range of \\(h\\) if \\(h(x) = -[f(x) + 4]\\).',
+                options: [
+                    '\\(h \\ge 0\\)',
+                    '\\(h \\le 4\\)',
+                    '\\(h \\ge -4\\)',
+                    '\\(h \\le 0\\)'],
+                answer: 3,
+                solution: [
+                    'Substitute \\(f(x) = x^2 - 2x - 3\\):',
+                    '\\(h(x) = -[x^2 - 2x - 3 + 4] = -[x^2 - 2x + 1]\\)',
+                    '\\(= -[(x-1)^2]\\)',
+                    '\\(= -(x-1)^2\\)',
+                    'Since \\((x-1)^2 \\ge 0\\) for all \\(x\\), we have \\(-(x-1)^2 \\le 0\\).',
+                    'Maximum value of \\(h\\) is \\(0\\) (at \\(x = 1\\)), and it decreases without bound.',
+                    'Range: \\(h \\le 0\\)'
+                ]
+            },
+
             // Finance - New
             {
                 topic: 'finance',
@@ -922,6 +1656,177 @@
                     '\\(1 + i_{eff} = (1 + \\frac{0.12}{4})^4 = (1.03)^4\\)',
                     '\\(1 + i_{eff} \\approx 1.1255\\)',
                     '\\(i_{eff} \\approx 0.1255 \\implies 12.55\\%\\)'
+                ]
+            },
+
+            // Finance - From Exam Paper (Grouped by scenario)
+
+            // --- Siya's Investment (2 related questions) ---
+            {
+                topic: 'finance',
+                q: 'Siya invests R500 000 for 5 years at an interest rate of 6,5% p.a. compounded monthly.<br><br>Calculate the <strong>effective annual interest rate</strong> of the investment (correct to 4 decimal places).',
+                options: [
+                    '6,5000%',
+                    '6,6972%',
+                    '7,2500%',
+                    '6,5417%'],
+                answer: 1,
+                solution: [
+                    'Use the effective rate formula: \\(i_{eff} = \\left(1 + \\dfrac{i_{nom}}{m}\\right)^m - 1\\)',
+                    'Here: \\(i_{nom} = 0{,}065\\) and \\(m = 12\\) (compounded monthly)',
+                    '\\(i_{eff} = \\left(1 + \\dfrac{0{,}065}{12}\\right)^{12} - 1\\)',
+                    '\\(= (1{,}005 41\\overline{6})^{12} - 1\\)',
+                    '\\(\\approx 1{,}066972 - 1\\)',
+                    '\\(i_{eff} \\approx 0{,}066972 = 6{,}6972\\%\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'Siya invests R500 000 for 5 years at an interest rate of 6,5% p.a. compounded monthly. (Effective rate ≈ 6,6972% p.a.)<br><br>Calculate how much money Siya will receive at the end of the 5 years.',
+                options: [
+                    'R662 500,00',
+                    'R691 406,00',
+                    'R680 290,50',
+                    'R712 550,25'],
+                answer: 1,
+                solution: [
+                    'Use compound interest formula: \\(A = P\\left(1 + \\dfrac{i}{m}\\right)^{mn}\\)',
+                    '\\(P = 500\\,000,\\; i = 0{,}065,\\; m = 12,\\; n = 5\\)',
+                    '\\(A = 500\\,000 \\times \\left(1 + \\dfrac{0{,}065}{12}\\right)^{60}\\)',
+                    '\\(= 500\\,000 \\times (1{,}005 41\\overline{6})^{60}\\)',
+                    '\\(= 500\\,000 \\times (1{,}066 972)^5\\)',
+                    '\\(\\approx 500\\,000 \\times 1{,}382 812\\)',
+                    '\\(\\approx \\text{R}691\\,406\\)'
+                ]
+            },
+
+            // --- Sports Car Depreciation ---
+            {
+                topic: 'finance',
+                q: 'A sports car is purchased for R800 000. After how many years will the value of the car be R250 000, if the annual rate of depreciation is 20,75% p.a. on the reducing-balance method?',
+                options: [
+                    '4 years',
+                    '6 years',
+                    '5 years',
+                    '7 years'],
+                answer: 2,
+                solution: [
+                    'Use the reducing-balance formula: \\(A = P(1 - i)^n\\)',
+                    '\\(250\\,000 = 800\\,000 \\times (1 - 0{,}2075)^n\\)',
+                    '\\(\\dfrac{250\\,000}{800\\,000} = (0{,}7925)^n\\)',
+                    '\\(0{,}3125 = (0{,}7925)^n\\)',
+                    'Take logs of both sides: \\(n = \\dfrac{\\log 0{,}3125}{\\log 0{,}7925}\\)',
+                    '\\(n = \\dfrac{-0{,}50515}{-0{,}10083} \\approx 5{,}01\\)',
+                    '\\(\\therefore n \\approx 5\\) years'
+                ]
+            },
+
+            // --- School Hall Savings Account ---
+            {
+                topic: 'finance',
+                q: 'A school plans to build a mini-hall costing R2 000 000 in 10 years\' time. On 1 January 2025, R650 197 is deposited at 6,1% p.a. compounded monthly for 5 years. On 1 January 2030, an additional amount R\\(x\\) is deposited, earning 7,47% p.a. compounded quarterly for the remaining 5 years.<br><br>Calculate the value of \\(x\\).',
+                options: [
+                    '\\(x \\approx \\text{R}480\\,000\\)',
+                    '\\(x \\approx \\text{R}550\\,000\\)',
+                    '\\(x \\approx \\text{R}500\\,527\\)',
+                    '\\(x \\approx \\text{R}620\\,000\\)'],
+                answer: 2,
+                solution: [
+                    'Step 1: Grow R650 197 at 6,1% p.a. compounded monthly for 5 years (to Jan 2030):',
+                    '\\(A_1 = 650\\,197 \\times \\left(1 + \\dfrac{0{,}061}{12}\\right)^{60} \\approx 650\\,197 \\times 1{,}35537 \\approx \\text{R}881\\,447\\)',
+                    'Step 2: On Jan 2030, total in account = \\(881\\,447 + x\\)',
+                    'Step 3: Grow for 5 years at 7,47% p.a. compounded quarterly (20 periods):',
+                    '\\((881\\,447 + x) \\times \\left(1 + \\dfrac{0{,}0747}{4}\\right)^{20} = 2\\,000\\,000\\)',
+                    '\\((881\\,447 + x) \\times (1{,}018675)^{20} = 2\\,000\\,000\\)',
+                    '\\((881\\,447 + x) \\times 1{,}44773 = 2\\,000\\,000\\)',
+                    '\\(881\\,447 + x = \\dfrac{2\\,000\\,000}{1{,}44773} \\approx 1\\,381\\,974\\)',
+                    '\\(x \\approx 1\\,381\\,974 - 881\\,447 \\approx \\text{R}500\\,527\\)'
+                ]
+            },
+
+            // Finance - From Exam Paper 2 (Grouped by scenario)
+
+            // --- 6.1: Simple Interest Doubling Time ---
+            {
+                topic: 'finance',
+                q: 'How long must R50 000 be invested to <strong>double</strong> at an interest rate of 8,5% p.a. on the straight-line (simple interest) method? Give your answer in years and months.',
+                options: [
+                    '10 years and 6 months',
+                    '12 years and 0 months',
+                    '11 years and 9 months',
+                    '11 years and 3 months'],
+                answer: 2,
+                solution: [
+                    'Simple interest formula: \\(A = P(1 + in)\\)',
+                    'For doubling: \\(A = 2P\\)',
+                    '\\(2P = P(1 + 0{,}085 \\cdot n)\\)',
+                    '\\(2 = 1 + 0{,}085n \\Rightarrow 0{,}085n = 1\\)',
+                    '\\(n = \\dfrac{1}{0{,}085} = 11{,}7647...\\) years',
+                    '\\(0{,}7647 \\times 12 \\approx 9{,}18\\) months → 9 months',
+                    'Answer: \\(\\approx\\) 11 years and 9 months'
+                ]
+            },
+
+            // --- 6.2: Thabiso Loan (2 consecutive questions) ---
+            {
+                topic: 'finance',
+                q: 'On 1 June 2024, Thabiso received a loan of R250 000 at 15% p.a. compounded monthly to buy a car. He missed his first two monthly instalments (July and August 2024) and only started paying on 1 September 2024.<br><br>Calculate the amount Thabiso owed the bank on <strong>1 August 2024</strong> (a month before his first payment).',
+                options: [
+                    '\\(\\approx\\) R253 148',
+                    '\\(\\approx\\) R256 289',
+                    '\\(\\approx\\) R262 695',
+                    '\\(\\approx\\) R250 000'],
+                answer: 1,
+                solution: [
+                    'From 1 June 2024 to 1 August 2024 = 2 months.',
+                    'Use compound interest: \\(A = P\\left(1 + \\dfrac{i}{m}\\right)^n\\)',
+                    '\\(A = 250\\,000 \\times \\left(1 + \\dfrac{0{,}15}{12}\\right)^2\\)',
+                    '\\(= 250\\,000 \\times (1{,}0125)^2\\)',
+                    '\\(= 250\\,000 \\times 1{,}02515625\\)',
+                    '\\(\\approx \\text{R}256\\,289{,}06\\)'
+                ]
+            },
+            {
+                topic: 'finance',
+                q: 'Thabiso\'s balance on 1 September 2024 (after 3 months of no payment) is ≈ R259 493. He now pays monthly until 1 June 2028.<br><br>Calculate his <strong>monthly instalment</strong>.',
+                options: [
+                    '\\(\\approx\\) R6 500',
+                    '\\(\\approx\\) R7 578',
+                    '\\(\\approx\\) R8 200',
+                    '\\(\\approx\\) R7 100'],
+                answer: 1,
+                solution: [
+                    'From 1 June 2024 to 1 September 2024 = 3 months; balance grows further:',
+                    '\\(A = 250\\,000 \\times (1{,}0125)^3 \\approx \\text{R}259\\,493\\)',
+                    'This is the present value on 1 September 2024.',
+                    'Payments: 1 Sep 2024 to 1 Jun 2028 = 45 monthly payments \\((n = 45)\\)',
+                    'Use present value of annuity: \\(PV = x \\times \\dfrac{1 - (1+i)^{-n}}{i}\\)',
+                    '\\(259\\,493 = x \\times \\dfrac{1 - (1{,}0125)^{-45}}{0{,}0125}\\)',
+                    '\\((1{,}0125)^{-45} \\approx 0{,}57193\\)',
+                    '\\(259\\,493 = x \\times \\dfrac{0{,}42807}{0{,}0125} = x \\times 34{,}246\\)',
+                    '\\(x \\approx \\dfrac{259\\,493}{34{,}246} \\approx \\text{R}7\\,578\\)'
+                ]
+            },
+
+            // --- 6.3: Two-deposit investment ---
+            {
+                topic: 'finance',
+                q: 'R\\(x\\) is invested at 12% p.a. compounded monthly. Three years later, R\\(2x\\) is deposited into the same account. After 7 years total, there is R276 558,75 in the account. Determine the value of \\(x\\).',
+                options: [
+                    '\\(x = \\text{R}40\\,000\\)',
+                    '\\(x = \\text{R}60\\,000\\)',
+                    '\\(x = \\text{R}50\\,000\\)',
+                    '\\(x = \\text{R}45\\,000\\)'],
+                answer: 2,
+                solution: [
+                    'Monthly rate: \\(i = 0{,}12/12 = 0{,}01\\)',
+                    'First deposit (Rx) grows for 7 years = 84 months: \\(x \\times (1{,}01)^{84}\\)',
+                    'Second deposit (R2x) grows for 4 years = 48 months: \\(2x \\times (1{,}01)^{48}\\)',
+                    '\\((1{,}01)^{84} \\approx 2{,}30653\\) and \\((1{,}01)^{48} \\approx 1{,}61223\\)',
+                    'Total: \\(x(2{,}30653) + 2x(1{,}61223) = 276\\,558{,}75\\)',
+                    '\\(2{,}30653x + 3{,}22446x = 276\\,558{,}75\\)',
+                    '\\(5{,}53099x = 276\\,558{,}75\\)',
+                    '\\(x = \\dfrac{276\\,558{,}75}{5{,}53099} = \\text{R}50\\,000\\)'
                 ]
             },
 
@@ -1188,6 +2093,295 @@
                 ]
             },
 
+            // Calculus - From Exam Paper
+            {
+                topic: 'calculus',
+                q: 'Determine \\(f\'(x)\\) from first principles, given that \\(f(x) = x^2 - 2\\).',
+                options: [
+                    '\\(f\'(x) = 2x - 2\\)',
+                    '\\(f\'(x) = x^2\\)',
+                    '\\(f\'(x) = 2x\\)',
+                    '\\(f\'(x) = 2x + h\\)'],
+                answer: 2,
+                solution: [
+                    '\\(f\'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}\\)',
+                    '\\(f(x+h) = (x+h)^2 - 2 = x^2 + 2xh + h^2 - 2\\)',
+                    '\\(f\'(x) = \\lim_{h \\to 0} \\dfrac{x^2 + 2xh + h^2 - 2 - (x^2 - 2)}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{2xh + h^2}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{h(2x + h)}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} (2x + h)\\)',
+                    '\\(= 2x\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'Determine \\(\\dfrac{d}{dx}\\left[3x^2 - 4x\\right]\\)',
+                options: [
+                    '\\(6x\\)',
+                    '\\(6x - 4\\)',
+                    '\\(3x - 4\\)',
+                    '\\(6x^2 - 4\\)'],
+                answer: 1,
+                solution: [
+                    'Apply the power rule: \\(\\dfrac{d}{dx}[x^n] = nx^{n-1}\\)',
+                    '\\(\\dfrac{d}{dx}[3x^2] = 3 \\cdot 2x = 6x\\)',
+                    '\\(\\dfrac{d}{dx}[-4x] = -4\\)',
+                    '\\(\\dfrac{d}{dx}[3x^2 - 4x] = 6x - 4\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'Determine \\(g\'(x)\\) if \\(g(x) = -2\\sqrt{x}(x-1)^2\\)',
+                options: [
+                    '\\(g\'(x) = -5x\\sqrt{x} + 6\\sqrt{x} - \\dfrac{1}{\\sqrt{x}}\\)',
+                    '\\(g\'(x) = -4\\sqrt{x}(x-1)\\)',
+                    '\\(g\'(x) = -2(x-1)^2 + \\sqrt{x}\\)',
+                    '\\(g\'(x) = -5x^{3/2} + 4x^{1/2}\\)'],
+                answer: 0,
+                solution: [
+                    'Expand first: \\(g(x) = -2x^{1/2}(x-1)^2 = -2x^{1/2}(x^2 - 2x + 1)\\)',
+                    '\\(= -2x^{5/2} + 4x^{3/2} - 2x^{1/2}\\)',
+                    'Differentiate term by term using the power rule:',
+                    '\\(g\'(x) = -2 \\cdot \\dfrac{5}{2}x^{3/2} + 4 \\cdot \\dfrac{3}{2}x^{1/2} - 2 \\cdot \\dfrac{1}{2}x^{-1/2}\\)',
+                    '\\(= -5x^{3/2} + 6x^{1/2} - x^{-1/2}\\)',
+                    '\\(= -5x\\sqrt{x} + 6\\sqrt{x} - \\dfrac{1}{\\sqrt{x}}\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'The line \\(y = 4x - 14\\) is a common tangent to \\(f(x) = 2x^2 - 4x - 6\\) and \\(g(x) = ax^2 + bx - 18\\). Calculate the values of \\(a\\) and \\(b\\).',
+                options: [
+                    '\\(a = 1\\) and \\(b = -4\\)',
+                    '\\(a = -1\\) and \\(b = 8\\)',
+                    '\\(a = 2\\) and \\(b = -4\\)',
+                    '\\(a = -2\\) and \\(b = 6\\)'],
+                answer: 1,
+                solution: [
+                    'Find the tangent point on \\(f\\): \\(f\'(x) = 4x - 4 = 4 \\Rightarrow x = 2\\)',
+                    'Check: \\(f(2) = 8 - 8 - 6 = -6\\) and \\(y = 4(2) - 14 = -6\\) ✓. Tangent point is \\((2, -6)\\).',
+                    'Since it\'s a common tangent at the same point, \\(g\\) must pass through \\((2, -6)\\) with gradient 4.',
+                    'Gradient: \\(g\'(2) = 2a(2) + b = 4a + b = 4\\) ... (I)',
+                    'Point: \\(g(2) = 4a + 2b - 18 = -6 \\Rightarrow 4a + 2b = 12 \\Rightarrow 2a + b = 6\\) ... (II)',
+                    'Subtract (I) from (II): \\((2a + b) - (4a + b) = 6 - 4 \\Rightarrow -2a = 2 \\Rightarrow a = -1\\)',
+                    'Substitute into (II): \\(2(-1) + b = 6 \\Rightarrow b = 8\\)',
+                    '\\(a = -1\\) and \\(b = 8\\)'
+                ]
+            },
+
+            // Calculus - From Exam Paper (First Principles & Rules)
+            {
+                topic: 'calculus',
+                q: 'Determine \\(f\'(x)\\) from first principles, given that \\(f(x) = x^2 + x\\).',
+                options: [
+                    '\\(f\'(x) = 2x\\)',
+                    '\\(f\'(x) = 2x + 1\\)',
+                    '\\(f\'(x) = x + 1\\)',
+                    '\\(f\'(x) = 2x - 1\\)'],
+                answer: 1,
+                solution: [
+                    '\\(f\'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}\\)',
+                    '\\(f(x+h) = (x+h)^2 + (x+h) = x^2 + 2xh + h^2 + x + h\\)',
+                    '\\(f\'(x) = \\lim_{h \\to 0} \\dfrac{x^2 + 2xh + h^2 + x + h - x^2 - x}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{2xh + h^2 + h}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{h(2x + h + 1)}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} (2x + h + 1)\\)',
+                    '\\(= 2x + 1\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'Determine \\(f\'(x)\\) if \\(f(x) = 3x^4 - \\dfrac{1}{2}x^2\\)',
+                options: [
+                    '\\(f\'(x) = 12x^3 - x\\)',
+                    '\\(f\'(x) = 12x^3 - \\dfrac{1}{2}\\)',
+                    '\\(f\'(x) = 3x^3 - x\\)',
+                    '\\(f\'(x) = 12x^4 - x\\)'],
+                answer: 0,
+                solution: [
+                    'Apply the power rule \\(\\dfrac{d}{dx}[x^n] = nx^{n-1}\\) to each term:',
+                    '\\(\\dfrac{d}{dx}[3x^4] = 3 \\times 4x^3 = 12x^3\\)',
+                    '\\(\\dfrac{d}{dx}\\left[-\\dfrac{1}{2}x^2\\right] = -\\dfrac{1}{2} \\times 2x = -x\\)',
+                    '\\(f\'(x) = 12x^3 - x\\)'
+                ]
+            },
+            {
+                topic: 'calculus',
+                q: 'Determine \\(D_x\\left[\\dfrac{x + 4}{\\sqrt{x}}\\right]\\)',
+                options: [
+                    '\\(\\dfrac{1}{2\\sqrt{x}} - \\dfrac{2}{x\\sqrt{x}}\\)',
+                    '\\(\\dfrac{1}{\\sqrt{x}} - \\dfrac{4}{x^2}\\)',
+                    '\\(\\dfrac{1}{2\\sqrt{x}} + \\dfrac{2}{x\\sqrt{x}}\\)',
+                    '\\(\\dfrac{x+4}{2x\\sqrt{x}}\\)'],
+                answer: 0,
+                solution: [
+                    'Rewrite using index laws: \\(\\dfrac{x+4}{\\sqrt{x}} = \\dfrac{x}{x^{1/2}} + \\dfrac{4}{x^{1/2}} = x^{1/2} + 4x^{-1/2}\\)',
+                    'Differentiate term by term:',
+                    '\\(D_x\\left[x^{1/2}\\right] = \\dfrac{1}{2}x^{-1/2}\\)',
+                    '\\(D_x\\left[4x^{-1/2}\\right] = 4 \\times \\left(-\\dfrac{1}{2}\\right)x^{-3/2} = -2x^{-3/2}\\)',
+                    '\\(= \\dfrac{1}{2}x^{-1/2} - 2x^{-3/2}\\)',
+                    '\\(= \\dfrac{1}{2\\sqrt{x}} - \\dfrac{2}{x\\sqrt{x}}\\)'
+                ]
+            },
+
+            // Calculus - From Exam Paper (Advanced)
+
+            // --- 7.1: First Principles ---
+            {
+                topic: 'calculus',
+                q: 'Determine \\(f\'(x)\\) from first principles, given that \\(f(x) = \\dfrac{3}{x}\\).',
+                options: [
+                    '\\(f\'(x) = \\dfrac{3}{x^2}\\)',
+                    '\\(f\'(x) = -\\dfrac{3}{x^2}\\)',
+                    '\\(f\'(x) = \\dfrac{3}{x}\\)',
+                    '\\(f\'(x) = -3x\\)'],
+                answer: 1,
+                solution: [
+                    '\\(f\'(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{\\dfrac{3}{x+h} - \\dfrac{3}{x}}{h}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{3x - 3(x+h)}{xh(x+h)}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{-3h}{xh(x+h)}\\)',
+                    '\\(= \\lim_{h \\to 0} \\dfrac{-3}{x(x+h)}\\)',
+                    '\\(= -\\dfrac{3}{x^2}\\)'
+                ]
+            },
+
+            // --- 7.2.1: Simplify and differentiate ---
+            {
+                topic: 'calculus',
+                q: 'Determine \\(D_x\\left[\\dfrac{\\sqrt[3]{x^2} - x^{-3/2}}{\\sqrt{x}}\\right]\\)',
+                options: [
+                    '\\(\\dfrac{1}{6}x^{-5/6} + 2x^{-3}\\)',
+                    '\\(\\dfrac{1}{6}x^{-5/6} - 2x^{-3}\\)',
+                    '\\(\\dfrac{1}{3}x^{-1/6} + 2x^{-2}\\)',
+                    '\\(x^{-5/6} - 2x^{-3}\\)'],
+                answer: 0,
+                solution: [
+                    'Rewrite: \\(\\dfrac{x^{2/3} - x^{-3/2}}{x^{1/2}}\\)',
+                    '\\(= x^{2/3 - 1/2} - x^{-3/2 - 1/2} = x^{1/6} - x^{-2}\\)',
+                    'Differentiate: \\(D_x[x^{1/6}] = \\dfrac{1}{6}x^{-5/6}\\)',
+                    '\\(D_x[-x^{-2}] = -(-2)x^{-3} = 2x^{-3}\\)',
+                    '\\(= \\dfrac{1}{6}x^{-5/6} + 2x^{-3} = \\dfrac{1}{6\\sqrt[6]{x^5}} + \\dfrac{2}{x^3}\\)'
+                ]
+            },
+
+            // --- 7.2.2: Implicit differentiation ---
+            {
+                topic: 'calculus',
+                q: 'Determine \\(\\dfrac{dy}{dx}\\) if \\(xy - y = x^2 - 1\\).',
+                options: [
+                    '\\(\\dfrac{dy}{dx} = \\dfrac{2x - y}{x - 1}\\)',
+                    '\\(\\dfrac{dy}{dx} = 1\\)',
+                    '\\(\\dfrac{dy}{dx} = 2x\\)',
+                    '\\(\\dfrac{dy}{dx} = \\dfrac{x-1}{2x}\\)'],
+                answer: 1,
+                solution: [
+                    'Factor the left side: \\(y(x - 1) = x^2 - 1 = (x-1)(x+1)\\)',
+                    'Divide both sides by \\((x-1)\\), for \\(x \\neq 1\\): \\(y = x + 1\\)',
+                    '\\(\\dfrac{dy}{dx} = 1\\)',
+                    'Alternatively, differentiate implicitly: \\(y + x\\dfrac{dy}{dx} - \\dfrac{dy}{dx} = 2x\\)',
+                    '\\(\\dfrac{dy}{dx}(x-1) = 2x - y\\); substituting \\(y = x+1\\): \\(\\dfrac{dy}{dx} = \\dfrac{2x-(x+1)}{x-1} = \\dfrac{x-1}{x-1} = 1\\)'
+                ]
+            },
+
+            // --- 7.3.1: Show a=2 and b=3 ---
+            {
+                topic: 'calculus',
+                q: 'The gradient of the tangent to \\(f(x) = ax^3 + bx^2\\) at point \\((1, 5)\\) is 12.<br>Show which values of \\(a\\) and \\(b\\) are correct.',
+                options: [
+                    '\\(a = 3, b = 2\\)',
+                    '\\(a = 2, b = 3\\)',
+                    '\\(a = 1, b = 4\\)',
+                    '\\(a = 4, b = 1\\)'],
+                answer: 1,
+                solution: [
+                    'Since \\((1, 5)\\) lies on \\(f\\): \\(f(1) = a(1)^3 + b(1)^2 = a + b = 5\\) ... (I)',
+                    '\\(f\'(x) = 3ax^2 + 2bx\\)',
+                    'Gradient at \\(x=1\\) is 12: \\(f\'(1) = 3a + 2b = 12\\) ... (II)',
+                    'From (I): \\(b = 5 - a\\). Substitute into (II): \\(3a + 2(5-a) = 12\\)',
+                    '\\(3a + 10 - 2a = 12 \\Rightarrow a = 2\\)',
+                    '\\(b = 5 - 2 = 3\\) ✓'
+                ]
+            },
+
+            // --- 7.3.2: Tangent parallel to x-axis ---
+            {
+                topic: 'calculus',
+                q: 'For \\(f(x) = 2x^3 + 3x^2\\) (where \\(a=2, b=3\\)), determine the coordinates of the points where the tangent is parallel to the x-axis.',
+                options: [
+                    '\\((0, 0)\\) only',
+                    '\\((-1, 1)\\) only',
+                    '\\((0, 0)\\) and \\((-1, 1)\\)',
+                    '\\((1, 5)\\) and \\((0, 0)\\)'],
+                answer: 2,
+                solution: [
+                    'Tangent parallel to x-axis means \\(f\'(x) = 0\\).',
+                    '\\(f\'(x) = 6x^2 + 6x = 6x(x+1) = 0\\)',
+                    '\\(x = 0\\) or \\(x = -1\\)',
+                    '\\(f(0) = 0\\) → point \\((0, 0)\\)',
+                    '\\(f(-1) = 2(-1)^3 + 3(-1)^2 = -2 + 3 = 1\\) → point \\((-1, 1)\\)'
+                ]
+            },
+
+            // --- 8.1.1: Concavity interpretation ---
+            {
+                topic: 'calculus',
+                q: 'A cubic function \\(f\\) satisfies: \\(f(0)=0\\), \\(f(3)=0\\), \\(f\'(1)=0\\), \\(f\'(3)=0\\), \\(f\'\'(2)=0\\), and \\(f\'\'(x) < 0\\) for \\(x > 2\\).<br><br>What does \\(f\'\'(x) < 0\\) for \\(x > 2\\) mean?',
+                options: [
+                    '\\(f\\) is increasing for \\(x > 2\\)',
+                    '\\(f\\) is concave down (the gradient of \\(f\\) is decreasing) for \\(x > 2\\)',
+                    '\\(f\\) has a minimum at \\(x = 2\\)',
+                    '\\(f\'\\) is positive for \\(x > 2\\)'],
+                answer: 1,
+                solution: [
+                    '\\(f\'\'(x) < 0\\) means the second derivative is negative.',
+                    'This indicates that \\(f\'(x)\\) is decreasing — the function is concave down.',
+                    'In graph terms: the curve bends downward for \\(x > 2\\).',
+                    '\\(x = 2\\) is a point of inflection where the concavity changes.'
+                ]
+            },
+
+            // --- 8.1.3: f'(x)·f(x) < 0 ---
+            {
+                topic: 'calculus',
+                q: 'For the cubic \\(f\\) with \\(f(x) = -2x^3 + 12x^2 - 18x\\), \\(f\'(x) = -6(x-1)(x-3)\\).<br><br>Determine the values of \\(x\\) for which \\(f\'(x) \\cdot f(x) < 0\\).',
+                options: [
+                    '\\(0 < x < 1\\) or \\(x > 3\\)',
+                    '\\(x < 0\\) or \\(1 < x < 3\\)',
+                    '\\(1 < x < 3\\) only',
+                    '\\(x < 0\\) only'],
+                answer: 1,
+                solution: [
+                    '\\(f(x) = -2x(x-3)^2\\) and \\(f\'(x) = -6(x-1)(x-3)\\)',
+                    '\\(f\'(x) \\cdot f(x) = -6(x-1)(x-3) \\times (-2x)(x-3)^2 = 12x(x-1)(x-3)^3\\)',
+                    'We need \\(12x(x-1)(x-3)^3 < 0\\), i.e., \\(x(x-1)(x-3)^3 < 0\\)',
+                    'Critical values: \\(x = 0, 1, 3\\). Note \\((x-3)^3\\) and \\((x-3)\\) have the same sign.',
+                    'Sign table: \\(x < 0\\): \\((-)(-)(-)= -\\) ✓ ; \\(0<x<1\\): \\((+)(-)(-) = +\\) ✗',
+                    '\\(1 < x < 3\\): \\((+)(+)(-) = -\\) ✓ ; \\(x > 3\\): \\((+)(+)(+) = +\\) ✗',
+                    '\\(x < 0\\) or \\(1 < x < 3\\)'
+                ]
+            },
+
+            // --- 8.2: Equation of cubic through W(5, -40) ---
+            {
+                topic: 'calculus',
+                q: 'A cubic \\(f\\) has stationary points at \\(x=1\\) and \\(x=3\\), zeros at \\(x=0\\) and \\(x=3\\), and passes through \\(W(5, -40)\\). Find \\(f(x) = px^3 + qx^2 + rx\\).',
+                options: [
+                    '\\(f(x) = -2x^3 + 12x^2 - 18x\\)',
+                    '\\(f(x) = 2x^3 - 12x^2 + 18x\\)',
+                    '\\(f(x) = -x^3 + 6x^2 - 9x\\)',
+                    '\\(f(x) = -2x^3 + 6x^2 - 12x\\)'],
+                answer: 0,
+                solution: [
+                    'Since \\(f\'(x) = 0\\) at \\(x=1\\) and \\(x=3\\): \\(f\'(x) = a(x-1)(x-3) = a(x^2-4x+3)\\)',
+                    'Integrate: \\(f(x) = a\\left(\\dfrac{x^3}{3} - 2x^2 + 3x\\right) + C\\)',
+                    '\\(f(0) = 0 \\Rightarrow C = 0\\); \\(f(3) = a(9-18+9) = 0\\) ✓ (free)',
+                    'Substitute \\(W(5,-40)\\): \\(a\\left(\\dfrac{125}{3} - 50 + 15\\right) = -40\\)',
+                    '\\(a \\times \\dfrac{20}{3} = -40 \\Rightarrow a = -6\\)',
+                    '\\(f(x) = -6\\left(\\dfrac{x^3}{3} - 2x^2 + 3x\\right) = -2x^3 + 12x^2 - 18x\\)',
+                    'So \\(p = -2, q = 12, r = -18\\).'
+                ]
+            },
+
             // Probability - New
             {
                 topic: 'probability',
@@ -1246,6 +2440,109 @@
                     'This is a permutation problem (order matters): \\(P(5, 3)\\)',
                     '\\(P(5, 3) = \\frac{5!}{(5-3)!} = \\frac{120}{2} = 60\\)',
                     'Alternatively, there are 5 options for the 1st person, 4 for the 2nd, and 3 for the 3rd: \\(5 \\times 4 \\times 3 = 60\\)'
+                ]
+            },
+
+            // Probability - From Exam Paper (Grouped by scenario)
+
+            // --- Events A & B: Mutually Exclusive vs Independent ---
+            {
+                topic: 'probability',
+                q: 'Two events A and B are such that \\(P(A) = 0{,}4\\), \\(P(B) = x\\) and \\(P(A \\text{ or } B) = 0{,}52\\).<br><br>Determine the value of \\(x\\) for which A and B are <strong>mutually exclusive</strong>.',
+                options: [
+                    '\\(x = 0{,}22\\)',
+                    '\\(x = 0{,}12\\)',
+                    '\\(x = 0{,}08\\)',
+                    '\\(x = 0{,}52\\)'],
+                answer: 1,
+                solution: [
+                    'For mutually exclusive events: \\(P(A \\text{ or } B) = P(A) + P(B)\\)',
+                    '\\(0{,}52 = 0{,}4 + x\\)',
+                    '\\(x = 0{,}52 - 0{,}4 = 0{,}12\\)'
+                ]
+            },
+            {
+                topic: 'probability',
+                q: 'Two events A and B are such that \\(P(A) = 0{,}4\\), \\(P(B) = x\\) and \\(P(A \\text{ or } B) = 0{,}52\\).<br><br>Determine the value of \\(x\\) for which A and B are <strong>independent</strong>.',
+                options: [
+                    '\\(x = 0{,}12\\)',
+                    '\\(x = 0{,}25\\)',
+                    '\\(x = 0{,}2\\)',
+                    '\\(x = 0{,}3\\)'],
+                answer: 2,
+                solution: [
+                    'For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B) = 0{,}4x\\)',
+                    'Use the addition rule: \\(P(A \\text{ or } B) = P(A) + P(B) - P(A \\text{ and } B)\\)',
+                    '\\(0{,}52 = 0{,}4 + x - 0{,}4x\\)',
+                    '\\(0{,}52 = 0{,}4 + 0{,}6x\\)',
+                    '\\(0{,}12 = 0{,}6x\\)',
+                    '\\(x = 0{,}2\\)'
+                ]
+            },
+
+            // --- Winter Camp Beverages (5 related questions) ---
+            {
+                topic: 'probability',
+                q: 'A school organised a winter camp for 120 learners. They chose from coffee (C), milo (M) and tea (T).<br>• 5 drink none &nbsp;• 10 only milo &nbsp;• 8 only coffee &nbsp;• 6 only tea<br>• 35 do not drink tea &nbsp;• 66 drink coffee and tea &nbsp;• 75 drink milo and tea &nbsp;• \\(x\\) drink all three<br><br>Determine the value of \\(x\\).',
+                options: [
+                    '\\(x = 48\\)',
+                    '\\(x = 55\\)',
+                    '\\(x = 62\\)',
+                    '\\(x = 70\\)'],
+                answer: 2,
+                solution: [
+                    'Those who do not drink tea = only C + only M + (C∩M only) + none = 35',
+                    '\\(8 + 10 + (C{\\cap}M \\text{ only}) + 5 = 35 \\Rightarrow C{\\cap}M \\text{ only} = 12\\)',
+                    'Let C∩T only = \\(b\\) and M∩T only = \\(c\\).',
+                    'Coffee and tea (at least): \\(b + x = 66\\) → \\(b = 66 - x\\)',
+                    'Milo and tea (at least): \\(c + x = 75\\) → \\(c = 75 - x\\)',
+                    'Total: \\(8 + 10 + 6 + 12 + (66-x) + (75-x) + x + 5 = 120\\)',
+                    '\\(182 - x = 120\\)',
+                    '\\(x = 62\\)'
+                ]
+            },
+            {
+                topic: 'probability',
+                q: 'Winter camp scenario (120 learners, C/M/T). From the Venn diagram: \\(x = 62\\), C∩T only = 4, M∩T only = 13, C∩M only = 12.<br><br>Determine the probability that a learner chosen at random drinks <strong>coffee and tea</strong>.',
+                options: [
+                    '\\(\\dfrac{4}{120}\\)',
+                    '\\(\\dfrac{66}{120} = \\dfrac{11}{20}\\)',
+                    '\\(\\dfrac{62}{120}\\)',
+                    '\\(\\dfrac{13}{120}\\)'],
+                answer: 1,
+                solution: [
+                    'Learners who drink coffee AND tea (at least) = C∩T only + all three = 4 + 62 = 66',
+                    '\\(P(C \\text{ and } T) = \\dfrac{66}{120} = \\dfrac{11}{20} = 0{,}55\\)'
+                ]
+            },
+            {
+                topic: 'probability',
+                q: 'Winter camp scenario (120 learners). Determine the probability that a learner chosen at random prefers <strong>at least TWO</strong> of the beverages.',
+                options: [
+                    '\\(\\dfrac{62}{120}\\)',
+                    '\\(\\dfrac{78}{120}\\)',
+                    '\\(\\dfrac{91}{120}\\)',
+                    '\\(\\dfrac{79}{120}\\)'],
+                answer: 2,
+                solution: [
+                    'Learners who drink at least two beverages = (C∩M only) + (C∩T only) + (M∩T only) + all three',
+                    '\\(= 12 + 4 + 13 + 62 = 91\\)',
+                    '\\(P(\\text{at least 2}) = \\dfrac{91}{120}\\)'
+                ]
+            },
+            {
+                topic: 'probability',
+                q: 'Winter camp scenario (120 learners). Determine \\(P(\\text{not C and not T})\\).',
+                options: [
+                    '\\(\\dfrac{5}{120}\\)',
+                    '\\(\\dfrac{10}{120}\\)',
+                    '\\(\\dfrac{22}{120}\\)',
+                    '\\(\\dfrac{15}{120} = \\dfrac{1}{8}\\)'],
+                answer: 3,
+                solution: [
+                    '"Not C and not T" means learners who drink neither coffee nor tea.',
+                    'These are: only milo + none = 10 + 5 = 15',
+                    '\\(P(\\text{not C and not T}) = \\dfrac{15}{120} = \\dfrac{1}{8} = 0{,}125\\)'
                 ]
             },
 
