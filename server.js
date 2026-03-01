@@ -14,38 +14,50 @@ app.use(helmet({
             "script-src": [
                 "'self'",
                 "'unsafe-inline'",
-                "cdn.jsdelivr.net",
-                "cdnjs.cloudflare.com",
-                "www.gstatic.com",
-                "www.google.com",
+                "'unsafe-eval'",
                 "https://www.gstatic.com",
-                "https://www.google.com"
+                "https://apis.google.com",
+                "https://cdn.jsdelivr.net",
+                "https://cdnjs.cloudflare.com",
+                "https://www.google.com/recaptcha/",
+                "https://www.gstatic.com/recaptcha/"
             ],
             "style-src": [
                 "'self'",
                 "'unsafe-inline'",
-                "cdn.jsdelivr.net",
-                "cdnjs.cloudflare.com",
-                "fonts.googleapis.com"
+                "https://fonts.googleapis.com",
+                "https://cdn.jsdelivr.net",
+                "https://cdnjs.cloudflare.com"
             ],
             "font-src": [
                 "'self'",
-                "cdn.jsdelivr.net",
-                "cdnjs.cloudflare.com",
-                "fonts.gstatic.com"
+                "https://fonts.gstatic.com",
+                "https://cdnjs.cloudflare.com",
+                "https://cdn.jsdelivr.net"
             ],
             "connect-src": [
                 "'self'",
                 "https://*.googleapis.com",
                 "https://*.firebaseio.com",
-                "https://*.firebaseapp.com"
+                "https://*.firebaseapp.com",
+                "https://totalskillz.web.app",
+                "https://totalskillz-3bc18.web.app"
             ],
             "frame-src": [
                 "'self'",
                 "https://*.firebaseapp.com",
-                "https://www.google.com"
+                "https://www.google.com/recaptcha/",
+                "https://totalskillz.firebaseapp.com",
+                "https://totalskillz-3bc18.firebaseapp.com"
             ],
-            "img-src": ["'self'", "data:", "blob:", "https://*.googleusercontent.com"],
+            "img-src": [
+                "'self'",
+                "data:",
+                "blob:",
+                "https://*.googleusercontent.com",
+                "https://www.gstatic.com",
+                "https://*.googleapis.com"
+            ],
         },
     },
 }));

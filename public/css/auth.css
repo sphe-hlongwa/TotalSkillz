@@ -25,7 +25,7 @@
                                                                 content: '';
                                                                 position: absolute;
                                                                 inset: 0;
-                                                                background: url('../login-bg.jpg') center/cover no-repeat;
+                                                                background: url('../backround3.jpg') center/cover no-repeat;
                                                                 filter: blur(8px) brightness(0.6);
                                                                 transform: scale(1.1);
                                                                 /* Prevent blurred edges */

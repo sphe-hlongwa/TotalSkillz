@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/;">
 </head>
 
 <body>
@@ -253,7 +255,9 @@
     <script src="js/firebase-config.js"></script>
     <script src="js/main.js"></script>
     <script>
-        if (!requireAuth()) throw 'Not authed';
+        // Auth guard is handled by onAuthStateChanged in main.js
+        // Do NOT throw here — let Firebase restore the session first
+        // dashboard init() is called after Firebase confirms user is logged in (see bottom of script)
 
         const topicsData = [
             { id: 'algebra', title: 'Algebra', desc: 'Equations, inequalities, sequences and series', icon: 'fa-solid fa-superscript', color: '#4f46e5' },
@@ -536,8 +540,13 @@
             if (!match) match = Object.values(sheets).join('');
             return match;
         }
-
-        init();
+        // Wait for Firebase to confirm auth before rendering dashboard content
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                init();
+            }
+            // If no user, main.js onAuthStateChanged will redirect to index.html
+        });
     </script>
 </body>
 
