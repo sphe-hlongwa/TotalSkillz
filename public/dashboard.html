@@ -35,10 +35,68 @@
                 <i class="fa-solid fa-fire"></i> <span id="streakCount">0</span> day streak
             </div>
 
-            <div class="user-avatar" id="userAvatar" onclick="logout()" title="Sign out"></div>
+            <div class="user-avatar" id="userAvatar" onclick="toggleProfileModal()" title="View profile"></div>
             <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
     </header>
+
+    <!-- Profile Modal Overlay -->
+    <div class="profile-modal-overlay" id="profileModalOverlay" onclick="closeProfileModal(event)">
+        <div class="profile-modal" id="profileModal" onclick="event.stopPropagation()">
+            <button class="profile-modal__close" onclick="toggleProfileModal()" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="profile-modal__header">
+                <span class="profile-modal__email" id="modalUserEmail">user@email.com</span>
+                <div class="profile-modal__avatar-container">
+                    <div class="profile-modal__avatar" id="modalUserAvatar">US</div>
+                    <div class="profile-modal__avatar-edit">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                </div>
+                <h2 class="profile-modal__greeting" id="modalUserGreeting">Hi, User!</h2>
+                <a href="#" class="profile-modal__manage-btn">Manage your Skillz Account</a>
+            </div>
+
+            <div class="profile-modal__alert">
+                <div class="profile-modal__alert-icon">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <div class="profile-modal__alert-content">
+                    <div class="profile-modal__alert-title">Keep your progress safe</div>
+                    <div class="profile-modal__alert-desc">Make sure your email is verified to never lose your learning
+                        streaks.</div>
+                    <div class="profile-modal__alert-actions">
+                        <button class="profile-modal__alert-btn">Dismiss</button>
+                        <button class="profile-modal__alert-btn" style="color:var(--secondary);">Verify now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-modal__accounts">
+                <div class="profile-modal__account-item">
+                    <div class="profile-modal__account-avatar" style="background:#065f46;">S</div>
+                    <div class="profile-modal__account-info">
+                        <div class="profile-modal__account-name">Secondary Account</div>
+                        <div class="profile-modal__account-email">study.mate@gmail.com</div>
+                    </div>
+                </div>
+                <div class="profile-modal__account-item" style="border-bottom:none;">
+                    <i class="fa-solid fa-user-plus"
+                        style="width:32px; text-align:center; color:var(--text-secondary);"></i>
+                    <div class="profile-modal__account-info">
+                        <div class="profile-modal__account-name">Add another account</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-modal__footer">
+                <button class="profile-modal__logout-btn" onclick="logout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sign out
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Mobile Nav -->
     <div class="mobile-nav" id="mobileNav">
@@ -187,6 +245,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- App Config -->
+    <script src="js/firebase-config.js"></script>
     <script src="js/main.js"></script>
     <script>
         if (!requireAuth()) throw 'Not authed';

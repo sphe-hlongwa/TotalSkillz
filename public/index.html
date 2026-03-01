@@ -14,6 +14,12 @@
 </head>
 
 <body>
+    <script>
+        // Prevention: Alert user if they are using file:// protocol
+        if (window.location.protocol === 'file:') {
+            alert("⚠️ WARNING: You are opening this file directly. Firebase Authentication will NOT work on the 'file://' protocol. Please use 'npm start' and visit http://localhost:3000 instead.");
+        }
+    </script>
     <div class="auth-page">
         <!-- Left Panel -->
         <div class="auth-visual">
@@ -59,8 +65,13 @@
                     Continue with Google
                 </button>
 
-                <div class="auth-divider"><span>or sign in with email</span></div>
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab active"
+                        onclick="switchAuthMethod('email', 'login')">Email</button>
+                    <button type="button" class="auth-tab" onclick="switchAuthMethod('phone', 'login')">Phone</button>
+                </div>
 
+                <!-- Email Login Form -->
                 <form id="loginForm" novalidate>
                     <div class="form-group">
                         <label class="form-label">Email</label>
@@ -82,6 +93,34 @@
                     </button>
                 </form>
 
+                <!-- Phone Login Form -->
+                <form id="phoneLoginForm" style="display:none;" novalidate>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" id="loginPhone" placeholder="+27 12 345 6789" required>
+                        <div class="form-error" id="loginPhoneErr">Enter a valid phone number with country code</div>
+                    </div>
+
+                    <div id="loginOTPSection" style="display:none;">
+                        <div class="form-group">
+                            <label class="form-label">Verification Code</label>
+                            <input type="text" class="form-input" id="loginOTP" placeholder="6-digit code"
+                                maxlength="6">
+                            <div class="form-error" id="loginOTPErr">Invalid or expired code</div>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="verifyOTP('login')">
+                            Verify & Sign In <i class="fa-solid fa-check"></i>
+                        </button>
+                    </div>
+
+                    <button type="button" id="sign-in-button-login" class="btn btn-primary btn-block btn-lg"
+                        onclick="sendOTP('login')">
+                        Send Verification Code <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                    <div id="recaptcha-container-login" style="margin-top:1rem;"></div>
+                </form>
+
                 <p class="auth-switch">
                     Don't have an account?
                     <button type="button" onclick="showPanel('signupPanel')">Create account</button>
@@ -95,7 +134,7 @@
                     <p class="auth-form__subtitle">Start mastering Grade 12 Mathematics today</p>
                 </div>
 
-                <button class="btn-google" type="button">
+                <button class="btn-google" type="button" id="googleBtnSignup">
                     <svg width="18" height="18" viewBox="0 0 48 48">
                         <path fill="#EA4335"
                             d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
@@ -109,8 +148,13 @@
                     Continue with Google
                 </button>
 
-                <div class="auth-divider"><span>or sign up with email</span></div>
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab active"
+                        onclick="switchAuthMethod('email', 'signup')">Email</button>
+                    <button type="button" class="auth-tab" onclick="switchAuthMethod('phone', 'signup')">Phone</button>
+                </div>
 
+                <!-- Email Signup Form -->
                 <form id="signupForm" novalidate>
                     <div class="form-group">
                         <label class="form-label">Full Name</label>
@@ -144,6 +188,40 @@
                     </button>
                 </form>
 
+                <!-- Phone Signup Form -->
+                <form id="phoneSignupForm" style="display:none;" novalidate>
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-input" id="signupNamePhone" placeholder="Your full name"
+                            required>
+                        <div class="form-error" id="signupNamePhoneErr">Please enter your name</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" id="signupPhone" placeholder="+27 12 345 6789" required>
+                        <div class="form-error" id="signupPhoneErr">Enter a valid phone number</div>
+                    </div>
+
+                    <div id="signupOTPSection" style="display:none;">
+                        <div class="form-group">
+                            <label class="form-label">Verification Code</label>
+                            <input type="text" class="form-input" id="signupOTP" placeholder="6-digit code"
+                                maxlength="6">
+                            <div class="form-error" id="signupOTPErr">Invalid or expired code</div>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block btn-lg" onclick="verifyOTP('signup')">
+                            Verify & Create Account <i class="fa-solid fa-check"></i>
+                        </button>
+                    </div>
+
+                    <button type="button" id="sign-in-button-signup" class="btn btn-primary btn-block btn-lg"
+                        onclick="sendOTP('signup')">
+                        Send Verification Code <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                    <div id="recaptcha-container-signup" style="margin-top:1rem;"></div>
+                </form>
+
                 <p class="auth-switch">
                     Already have an account?
                     <button type="button" onclick="showPanel('loginPanel')">Sign in</button>
@@ -175,10 +253,19 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+    <!-- KaTeX -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/firebase-config.js"></script>
     <script src="js/main.js"></script>
+
     <script>
         if (getUser()) window.location.href = 'dashboard.html';
 
@@ -188,6 +275,119 @@
             const el = document.getElementById(id);
             el.style.display = 'block';
             el.style.animation = 'slideUp 0.4s var(--ease)';
+        }
+
+        function switchAuthMethod(method, panel) {
+            const isLogin = panel === 'login';
+            const emailForm = document.getElementById(isLogin ? 'loginForm' : 'signupForm');
+            const phoneForm = document.getElementById(isLogin ? 'phoneLoginForm' : 'phoneSignupForm');
+            const tabs = document.querySelectorAll(isLogin ? '#loginPanel .auth-tab' : '#signupPanel .auth-tab');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            if (method === 'email') {
+                tabs[0].classList.add('active');
+                emailForm.style.display = 'block';
+                phoneForm.style.display = 'none';
+            } else {
+                tabs[1].classList.add('active');
+                emailForm.style.display = 'none';
+                phoneForm.style.display = 'block';
+                initRecaptcha(isLogin ? 'login' : 'signup');
+            }
+        }
+
+        function initRecaptcha(panel) {
+            const containerId = `recaptcha-container-${panel}`;
+            const buttonId = `sign-in-button-${panel}`;
+
+            // If we already have a verifier on this specific container, do nothing
+            if (window.recaptchaInstances && window.recaptchaInstances[containerId]) return;
+
+            if (!window.recaptchaInstances) window.recaptchaInstances = {};
+
+            try {
+                // Implementing exactly as requested but adapted for compat SDK
+                window.recaptchaInstances[containerId] = new firebase.auth.RecaptchaVerifier(buttonId, {
+                    'size': 'invisible',
+                    'callback': (response) => {
+                        console.log("Recaptcha verified for", panel);
+                        // The user's snippet suggested calling onSignInSubmit()
+                        // In our structure, sendOTP('login') is already triggered by the click.
+                    }
+                });
+                window.recaptchaVerifier = window.recaptchaInstances[containerId];
+            } catch (e) {
+                console.error("Recaptcha Init Error:", e);
+            }
+        }
+
+        async function sendOTP(panel) {
+            const isLogin = panel === 'login';
+            const phoneInput = document.getElementById(isLogin ? 'loginPhone' : 'signupPhone');
+            const phoneNumber = phoneInput.value.trim();
+            const errorEl = document.getElementById(isLogin ? 'loginPhoneErr' : 'signupPhoneErr');
+            const sendBtn = document.getElementById(isLogin ? 'sign-in-button-login' : 'sign-in-button-signup');
+            const otpSection = document.getElementById(isLogin ? 'loginOTPSection' : 'signupOTPSection');
+
+            if (!phoneNumber || phoneNumber.length < 10) {
+                showError(isLogin ? 'loginPhone' : 'signupPhone', isLogin ? 'loginPhoneErr' : 'signupPhoneErr');
+                return;
+            }
+
+            try {
+                const containerId = `recaptcha-container-${panel}`;
+                const appVerifier = window.recaptchaInstances[containerId];
+
+                if (!appVerifier) {
+                    throw new Error("Recaptcha not initialized. Please refresh.");
+                }
+
+                const confirmationResult = await firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier);
+                window.confirmationResult = confirmationResult;
+
+                sendBtn.style.display = 'none';
+                otpSection.style.display = 'block';
+                showToast("Verification code sent!", "success");
+            } catch (error) {
+                console.error("SMS Error full details:", error);
+                console.dir(error);
+                errorEl.textContent = error.message || "An internal error occurred.";
+                errorEl.classList.add('visible');
+                // Reset recaptcha on error so it can be retried
+                if (window.recaptchaInstances[`recaptcha-container-${panel}`]) {
+                    window.recaptchaInstances[`recaptcha-container-${panel}`].render().then(widgetId => {
+                        grecaptcha.reset(widgetId);
+                    }).catch(() => { });
+                }
+            }
+        }
+
+        async function verifyOTP(panel) {
+            const isLogin = panel === 'login';
+            const code = document.getElementById(isLogin ? 'loginOTP' : 'signupOTP').value.trim();
+            const errorEl = document.getElementById(isLogin ? 'loginOTPErr' : 'signupOTPErr');
+
+            if (code.length !== 6) {
+                showError(isLogin ? 'loginOTP' : 'signupOTP', isLogin ? 'loginOTPErr' : 'signupOTPErr');
+                return;
+            }
+
+            try {
+                const result = await window.confirmationResult.confirm(code);
+                const user = result.user;
+
+                if (!isLogin) {
+                    const name = document.getElementById('signupNamePhone').value.trim();
+                    await user.updateProfile({ displayName: name });
+                }
+
+                // Redirection handled by onAuthStateChanged in main.js
+            } catch (error) {
+                console.error("Verification Error full details:", error);
+                console.dir(error);
+                errorEl.textContent = error.message || "Invalid code. Please try again.";
+                errorEl.classList.add('visible');
+            }
         }
 
         function togglePassword(inputId, btn) {
@@ -222,25 +422,19 @@
             let valid = true;
             if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('loginEmail', 'loginEmailErr'); valid = false; }
             if (!pass) { showError('loginPassword', 'loginPassErr'); valid = false; }
-            if (valid) {
-                const users = JSON.parse(localStorage.getItem('mg12_users') || '[]');
-                const found = users.find(u => u.email === email);
 
-                if (found) {
-                    // Verify hashed password
-                    const match = await dcodeIO.bcrypt.compare(pass, found.password);
-                    if (match) {
-                        setUser({ name: found.name, email: found.email });
-                        updateStreak();
-                        window.location.href = 'dashboard.html';
-                    } else {
-                        showError('loginPassword', 'loginPassErr');
-                        document.getElementById('loginPassErr').textContent = 'Incorrect password';
-                    }
-                } else {
-                    showError('loginEmail', 'loginEmailErr');
-                    document.getElementById('loginEmailErr').textContent = 'Account not found. Please sign up first.';
+            if (valid && window.mg12_auth) {
+                try {
+                    await window.mg12_auth.signInWithEmailAndPassword(email, pass);
+                    // Redirect handled by onAuthStateChanged in main.js
+                } catch (error) {
+                    console.error("Login Error full details:", error);
+                    console.dir(error);
+                    showError('loginPassword', 'loginPassErr');
+                    document.getElementById('loginPassErr').textContent = error.message;
                 }
+            } else if (!window.mg12_auth) {
+                console.error("Firebase Auth not initialized. Check your config.");
             }
         });
 
@@ -253,22 +447,43 @@
             if (!name || name.length < 2) { showError('signupName', 'signupNameErr'); valid = false; }
             if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('signupEmail', 'signupEmailErr'); valid = false; }
             if (!pass || pass.length < 8) { showError('signupPassword', 'signupPassErr'); valid = false; }
-            if (valid) {
-                const users = JSON.parse(localStorage.getItem('mg12_users') || '[]');
-                if (users.find(u => u.email === email)) { showError('signupEmail', 'signupEmailErr'); document.getElementById('signupEmailErr').textContent = 'Email already registered'; return; }
 
-                // Hash password before saving
-                const salt = await dcodeIO.bcrypt.genSalt(10);
-                const hash = await dcodeIO.bcrypt.hash(pass, salt);
-
-                users.push({ name, email, password: hash });
-                localStorage.setItem('mg12_users', JSON.stringify(users));
-                setUser({ name, email }); updateStreak(); window.location.href = 'dashboard.html';
+            if (valid && window.mg12_auth) {
+                try {
+                    const result = await window.mg12_auth.createUserWithEmailAndPassword(email, pass);
+                    await result.user.updateProfile({ displayName: name });
+                    // Initial progress set in main.js/syncFromFirestore logic
+                } catch (error) {
+                    console.error("Signup Error full details:", error);
+                    console.dir(error);
+                    showError('signupEmail', 'signupEmailErr');
+                    document.getElementById('signupEmailErr').textContent = error.message;
+                }
             }
         });
 
-        document.getElementById('googleBtn').addEventListener('click', () => {
-            alert('Google Sign-In is currently in demo mode and requires a linked account. Please use the standard Sign-Up form for now.');
+        document.querySelectorAll('.btn-google').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                if (window.mg12_auth) {
+                    const originalContent = btn.innerHTML;
+                    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Connecting...';
+                    btn.style.opacity = '0.7';
+                    btn.style.pointerEvents = 'none';
+
+                    const provider = new firebase.auth.GoogleAuthProvider();
+                    try {
+                        await window.mg12_auth.signInWithPopup(provider);
+                        // Redirect handled by onAuthStateChanged in main.js
+                    } catch (error) {
+                        console.error("Google Sign-In Error full details:", error);
+                        console.dir(error);
+                        btn.innerHTML = originalContent;
+                        btn.style.opacity = '1';
+                        btn.style.pointerEvents = 'all';
+                        alert("Google Sign-In failed: " + error.message);
+                    }
+                }
+            });
         });
     </script>
 </body>

@@ -11,8 +11,41 @@ app.use(helmet({
     contentSecurityPolicy: {
         directives: {
             ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-            "script-src": ["'self'", "'unsafe-inline'", "cdn.jsdelivr.net", "cdnjs.cloudflare.com"],
-            "img-src": ["'self'", "data:", "blob:"],
+            "script-src": [
+                "'self'",
+                "'unsafe-inline'",
+                "cdn.jsdelivr.net",
+                "cdnjs.cloudflare.com",
+                "www.gstatic.com",
+                "www.google.com",
+                "https://www.gstatic.com",
+                "https://www.google.com"
+            ],
+            "style-src": [
+                "'self'",
+                "'unsafe-inline'",
+                "cdn.jsdelivr.net",
+                "cdnjs.cloudflare.com",
+                "fonts.googleapis.com"
+            ],
+            "font-src": [
+                "'self'",
+                "cdn.jsdelivr.net",
+                "cdnjs.cloudflare.com",
+                "fonts.gstatic.com"
+            ],
+            "connect-src": [
+                "'self'",
+                "https://*.googleapis.com",
+                "https://*.firebaseio.com",
+                "https://*.firebaseapp.com"
+            ],
+            "frame-src": [
+                "'self'",
+                "https://*.firebaseapp.com",
+                "https://www.google.com"
+            ],
+            "img-src": ["'self'", "data:", "blob:", "https://*.googleusercontent.com"],
         },
     },
 }));

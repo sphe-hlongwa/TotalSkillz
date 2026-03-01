@@ -15,18 +15,40 @@ function toggleTheme() {
 
 // ---- Auth helpers ----
 function getUser() {
+    // Firebase manages user state globally via auth.currentUser
+    const user = window.mg12_auth ? window.mg12_auth.currentUser : null;
+    if (user) {
+        return { name: user.displayName || 'User', email: user.email, uid: user.uid };
+    }
+    // Fallback to legacy check during migration
     const u = localStorage.getItem('mg12_user');
     return u ? JSON.parse(u) : null;
 }
 function setUser(user) {
-    localStorage.setItem('mg12_user', JSON.stringify(user));
+    // This is now handled by Firebase Auth state changes
+    if (user) localStorage.setItem('mg12_user', JSON.stringify(user));
+    else localStorage.removeItem('mg12_user');
 }
 function logout() {
-    localStorage.removeItem('mg12_user');
-    window.location.href = 'index.html';
+    if (window.mg12_auth) {
+        window.mg12_auth.signOut().then(() => {
+            localStorage.removeItem('mg12_user');
+            window.location.href = 'index.html';
+        });
+    } else {
+        localStorage.removeItem('mg12_user');
+        window.location.href = 'index.html';
+    }
 }
 function requireAuth() {
-    if (!getUser()) { window.location.href = 'index.html'; return false; }
+    // We'll primarily use the onAuthStateChanged listener for redirects
+    if (!getUser()) {
+        // Small delay to allow Firebase to initialize
+        setTimeout(() => {
+            if (!getUser()) window.location.href = 'index.html';
+        }, 1000);
+        return false;
+    }
     return true;
 }
 // ---- Security Helpers ----
@@ -142,7 +164,79 @@ function getProgress() {
         dailyDone: false
     };
 }
-function saveProgress(p) { localStorage.setItem('mg12_progress', JSON.stringify(p)); }
+// --- Profile Modal Logic ---
+function toggleProfileModal() {
+    const overlay = document.getElementById('profileModalOverlay');
+    if (!overlay) return;
+    const isActive = overlay.classList.contains('active');
+
+    if (!isActive) {
+        overlay.style.display = 'flex';
+        // Force reflow
+        overlay.offsetHeight;
+        overlay.classList.add('active');
+        populateProfileModal();
+    } else {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 300);
+    }
+}
+
+function closeProfileModal(e) {
+    if (e.target.id === 'profileModalOverlay') {
+        toggleProfileModal();
+    }
+}
+
+function populateProfileModal() {
+    const user = firebase.auth().currentUser;
+    if (!user) return;
+
+    const emailEl = document.getElementById('modalUserEmail');
+    const avatarEl = document.getElementById('modalUserAvatar');
+    const greetingEl = document.getElementById('modalUserGreeting');
+
+    const name = user.displayName || user.email?.split('@')[0] || user.phoneNumber || 'User';
+    const identifier = user.email || user.phoneNumber || 'User';
+    const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+
+    if (emailEl) emailEl.textContent = identifier;
+    if (avatarEl) avatarEl.textContent = initials;
+    if (greetingEl) greetingEl.textContent = `Hi, ${name.split(' ')[0]}!`;
+}
+
+// ---- Progress Handling ----
+async function saveProgress(data) {
+    const user = firebase.auth().currentUser;
+    localStorage.setItem('userProgress', JSON.stringify(data));
+
+    if (user) {
+        try {
+            await firebase.firestore().collection('users').doc(user.uid).set({
+                progress: data,
+                lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+            }, { merge: true });
+        } catch (error) {
+            console.error("Error saving progress to Firestore:", error);
+        }
+    }
+}
+
+async function syncFromFirestore(uid) {
+    try {
+        const doc = await firebase.firestore().collection('users').doc(uid).get();
+        if (doc.exists && doc.data().progress) {
+            const data = doc.data().progress;
+            localStorage.setItem('userProgress', JSON.stringify(data));
+            return data;
+        }
+    } catch (error) {
+        console.error("Error syncing from Firestore:", error);
+    }
+    return null;
+}
 
 function updateStreak() {
     const p = getProgress();
@@ -258,4 +352,45 @@ document.addEventListener('DOMContentLoaded', () => {
     initTabs();
     initTopicToggle();
     renderMath();
+
+    // Firebase Auth State Observer
+    firebase.auth().onAuthStateChanged(async (user) => {
+        const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.includes('index.html');
+        const protectedPages = ['dashboard.html', 'practice.html', 'interactive.html', 'topics.html'];
+        const isProtected = protectedPages.some(p => window.location.pathname.endsWith(p));
+
+        if (user) {
+            console.log("Authenticated as:", user.email || user.phoneNumber);
+
+            // Populate avatars on the page
+            const avatars = document.querySelectorAll('.user-avatar');
+            const name = user.displayName || user.email?.split('@')[0] || user.phoneNumber || 'User';
+            const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+
+            avatars.forEach(av => {
+                av.textContent = initials;
+                av.style.background = 'linear-gradient(135deg, var(--primary), var(--accent-purple))';
+                av.style.display = 'flex';
+                av.style.alignItems = 'center';
+                av.style.justifyContent = 'center';
+                av.style.color = 'white';
+                av.style.fontWeight = '700';
+                av.style.fontSize = '0.8rem';
+            });
+
+            // Sync progress
+            await syncFromFirestore(user.uid);
+
+            if (isIndex) {
+                window.location.href = 'dashboard.html';
+            }
+        } else {
+            // User is signed out
+            if (isProtected) {
+                window.location.href = 'index.html';
+            }
+        }
+    });
+
+    initReveal();
 });
