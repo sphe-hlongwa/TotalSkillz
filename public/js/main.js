@@ -3,14 +3,17 @@
    ============================================ */
 
 // ---- Theme ----
-function getTheme() { return 'dark'; }
+function getTheme() {
+    return localStorage.getItem('mg12_theme') || 'light';
+}
 function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    // Hide any residual theme buttons just in case
-    document.querySelectorAll('.theme-btn').forEach(btn => btn.style.display = 'none');
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('mg12_theme', theme);
 }
 function toggleTheme() {
-    // Disabled
+    const current = getTheme();
+    const next = current === 'dark' ? 'light' : 'dark';
+    setTheme(next);
 }
 
 // ---- Auth helpers ----
@@ -141,9 +144,8 @@ function showToast(message, type = 'info') {
 }
 
 // ---- Progress / Tracking ----
-function getProgress() {
-    const p = localStorage.getItem('mg12_progress');
-    return p ? JSON.parse(p) : {
+function getInitialProgress() {
+    return {
         topics: {
             algebra: { correct: 0, total: 0, level: 0 },
             patterns: { correct: 0, total: 0, level: 0 },
@@ -161,9 +163,189 @@ function getProgress() {
         totalCorrect: 0,
         totalAttempted: 0,
         badges: [],
-        dailyDone: false
+        dailyDone: false,
+        bio: '',
+        settings: {
+            theme: 'light',
+            dailyGoal: 10,
+            publicProfile: true
+        }
     };
 }
+
+function getProgress() {
+    const p = localStorage.getItem('mg12_progress');
+    if (!p) return getInitialProgress();
+    const data = JSON.parse(p);
+    // Ensure new fields exist
+    if (!data.settings) data.settings = getInitialProgress().settings;
+    if (data.bio === undefined) data.bio = '';
+    return data;
+}
+async function handleForgotPassword(e) {
+    e.preventDefault();
+    const email = document.getElementById('forgotEmail').value;
+    const emailErr = document.getElementById('forgotEmailErr');
+
+    if (!validateEmail(email)) {
+        emailErr.style.display = 'block';
+        return;
+    }
+    emailErr.style.display = 'none';
+
+    try {
+        await firebase.auth().sendPasswordResetEmail(email);
+        showToast('Password reset link sent to your email!', 'success');
+        showPanel('loginPanel');
+    } catch (error) {
+        console.error("Reset error:", error);
+        showToast('Failed to send reset link. ' + error.message, 'error');
+    }
+}
+
+// --- Settings Logic ---
+function toggleSettingsOverlay() {
+    const overlay = document.getElementById('settingsOverlay');
+    if (!overlay) return;
+    const isActive = overlay.classList.contains('active');
+
+    if (!isActive) {
+        overlay.style.display = 'flex';
+        overlay.offsetHeight;
+        overlay.classList.add('active');
+        populateSettings();
+    } else {
+        overlay.classList.remove('active');
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 400);
+    }
+}
+
+function closeSettingsIfOutside(e) {
+    if (e.target.id === 'settingsOverlay') toggleSettingsOverlay();
+}
+
+function populateSettings() {
+    const user = firebase.auth().currentUser;
+    const p = getProgress();
+
+    // Identity
+    const nameInput = document.getElementById('settingsName');
+    const bioText = document.getElementById('settingsBio');
+    if (nameInput) nameInput.value = user?.displayName || p.name || '';
+    if (bioText) bioText.value = p.bio || '';
+
+    // Preferences
+    const darkToggle = document.getElementById('darkModeToggle');
+    const goalSlider = document.getElementById('goalSlider');
+    const goalVal = document.getElementById('goalValue');
+
+    if (darkToggle) darkToggle.checked = document.body.getAttribute('data-theme') === 'dark';
+    if (goalSlider) goalSlider.value = p.settings?.dailyGoal || 10;
+    if (goalVal) goalVal.textContent = (p.settings?.dailyGoal || 10) + ' Questions';
+
+    calculateSecurityScore();
+}
+
+async function saveNameChange() {
+    const name = document.getElementById('settingsName').value.trim();
+    const user = firebase.auth().currentUser;
+    if (user && name) {
+        try {
+            await user.updateProfile({ displayName: name });
+            showToast('Display name updated!', 'success');
+            populateProfileModal();
+        } catch (error) {
+            showToast('Failed to update name.', 'error');
+        }
+    }
+}
+
+function saveBio(val) {
+    const p = getProgress();
+    p.bio = val;
+    saveProgress(p);
+}
+
+function toggleDarkTheme(isDark) {
+    const theme = isDark ? 'dark' : 'light';
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('mg12_theme', theme);
+
+    const p = getProgress();
+    if (!p.settings) p.settings = {};
+    p.settings.theme = theme;
+    saveProgress(p);
+}
+
+function updateGoalPreview(val) {
+    document.getElementById('goalValue').textContent = val + ' Questions';
+}
+
+function saveGoal(val) {
+    const p = getProgress();
+    if (!p.settings) p.settings = {};
+    p.settings.dailyGoal = parseInt(val);
+    saveProgress(p);
+    showToast('Daily goal updated!', 'info');
+}
+
+function calculateSecurityScore() {
+    const user = firebase.auth().currentUser;
+    let score = 50; // Base score for having an account
+    if (user?.emailVerified) score += 25;
+    if (user?.phoneNumber) score += 25;
+
+    const ring = document.getElementById('securityScoreRing');
+    if (ring) {
+        ring.textContent = score + '%';
+        const color = score === 100 ? 'var(--accent-green)' : (score >= 75 ? 'var(--primary)' : 'var(--accent-amber)');
+        ring.style.borderColor = color;
+    }
+}
+
+function exportProgressData() {
+    const data = JSON.stringify(getProgress(), null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `MathGrade12_Progress_${new Date().toISOString().split('T')[0]}.json`;
+    a.click();
+    showToast('Progress exported!', 'success');
+}
+
+function confirmResetProgress() {
+    const conf = confirm("Are you sure you want to reset all your learning progress? This cannot be undone.");
+    if (conf) {
+        const check = prompt("Type 'RESET' to confirm:");
+        if (check === 'RESET') {
+            const fresh = getInitialProgress();
+            saveProgress(fresh);
+            location.reload();
+        }
+    }
+}
+
+async function confirmDeleteAccount() {
+    const conf = confirm("CRITICAL: This will permanently delete your account and all progress. Are you absolutely sure?");
+    if (conf) {
+        const check = prompt("Type your email to confirm deletion:");
+        const user = firebase.auth().currentUser;
+        if (check === user?.email) {
+            try {
+                await user.delete();
+                localStorage.clear();
+                window.location.href = 'index.html';
+            } catch (error) {
+                showToast('Please re-login to complete sensitive action.', 'error');
+                console.error(error);
+            }
+        }
+    }
+}
+
 // --- Profile Modal Logic ---
 function toggleProfileModal() {
     const overlay = document.getElementById('profileModalOverlay');
@@ -176,11 +358,56 @@ function toggleProfileModal() {
         overlay.offsetHeight;
         overlay.classList.add('active');
         populateProfileModal();
+        renderAccountList();
     } else {
         overlay.classList.remove('active');
         setTimeout(() => {
             overlay.style.display = 'none';
         }, 300);
+    }
+}
+
+function dismissVerificationAlert() {
+    sessionStorage.setItem('mg12_verify_dismissed', 'true');
+    const alert = document.querySelector('.profile-modal__alert');
+    if (alert) alert.style.display = 'none';
+}
+
+async function sendVerificationEmail() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+        try {
+            await user.sendEmailVerification();
+            showToast('Verification email sent! Check your inbox.', 'success');
+            // Change button text to "Sent!"
+            const btn = document.querySelector('button[onclick="sendVerificationEmail()"]');
+            if (btn) {
+                btn.textContent = 'Sent! Check Inbox';
+                btn.disabled = true;
+                btn.style.opacity = '0.5';
+            }
+        } catch (error) {
+            console.error("Verification error:", error);
+            showToast('Failed to send verification email.', 'error');
+        }
+    }
+}
+
+async function checkVerificationStatus() {
+    const user = firebase.auth().currentUser;
+    if (user) {
+        try {
+            await user.reload();
+            const reloadedUser = firebase.auth().currentUser;
+            if (reloadedUser.emailVerified) {
+                showToast('Email verified successfully!', 'success');
+                populateProfileModal(); // This will hide the alert
+            } else {
+                showToast('Email not verified yet. Please click the link in your email.', 'info');
+            }
+        } catch (error) {
+            console.error("Reload error:", error);
+        }
     }
 }
 
@@ -197,14 +424,135 @@ function populateProfileModal() {
     const emailEl = document.getElementById('modalUserEmail');
     const avatarEl = document.getElementById('modalUserAvatar');
     const greetingEl = document.getElementById('modalUserGreeting');
+    const alertEl = document.querySelector('.profile-modal__alert');
 
     const name = user.displayName || user.email?.split('@')[0] || user.phoneNumber || 'User';
     const identifier = user.email || user.phoneNumber || 'User';
     const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
 
     if (emailEl) emailEl.textContent = identifier;
-    if (avatarEl) avatarEl.textContent = initials;
+
+    if (avatarEl) {
+        if (user.photoURL) {
+            avatarEl.innerHTML = `<img src="${user.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+            avatarEl.style.background = 'transparent';
+        } else {
+            avatarEl.textContent = initials;
+            avatarEl.style.background = 'linear-gradient(135deg, var(--primary), var(--accent-purple))';
+        }
+    }
+
     if (greetingEl) greetingEl.textContent = `Hi, ${name.split(' ')[0]}!`;
+
+    // Show verification alert if email not verified
+    if (alertEl) {
+        const isDismissed = sessionStorage.getItem('mg12_verify_dismissed');
+        if (user.email && !user.emailVerified && !isDismissed) {
+            alertEl.style.display = 'flex';
+        } else {
+            alertEl.style.display = 'none';
+        }
+    }
+}
+
+async function handleProfilePic(input) {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        if (file.size > 1024 * 1024) { // 1MB limit for Base64
+            showToast('Image too large. Please select an image under 1MB.', 'error');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+            const base64 = e.target.result;
+            const user = firebase.auth().currentUser;
+            if (user) {
+                try {
+                    await user.updateProfile({ photoURL: base64 });
+                    showToast('Profile picture updated!', 'success');
+                    populateProfileModal();
+                    // Update all avatars on page
+                    document.querySelectorAll('.user-avatar').forEach(av => {
+                        av.innerHTML = `<img src="${base64}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+                        av.style.background = 'transparent';
+                    });
+                } catch (error) {
+                    console.error("Error updating profile pic:", error);
+                    showToast('Failed to update profile picture.', 'error');
+                }
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+function updateAccountList(user) {
+    if (!user) return;
+    let accounts = JSON.parse(localStorage.getItem('mg12_accounts') || '[]');
+    const newAccount = {
+        uid: user.uid,
+        name: user.displayName || user.email?.split('@')[0] || 'User',
+        email: user.email || user.phoneNumber,
+        photoURL: user.photoURL
+    };
+
+    // Remove existing if any
+    accounts = accounts.filter(a => a.uid !== user.uid);
+    accounts.unshift(newAccount);
+    // Keep last 5
+    localStorage.setItem('mg12_accounts', JSON.stringify(accounts.slice(0, 5)));
+}
+
+function renderAccountList() {
+    const container = document.getElementById('modalAccountsList');
+    if (!container) return;
+
+    const accounts = JSON.parse(localStorage.getItem('mg12_accounts') || '[]');
+    const currentUser = firebase.auth().currentUser;
+
+    // Filter out current user from the list (they are shown in header)
+    const otherAccounts = accounts.filter(a => a.uid !== (currentUser ? currentUser.uid : null));
+
+    let html = otherAccounts.map(a => `
+        <div class="profile-modal__account-item" onclick="switchAccount('${a.uid}')">
+            <div class="profile-modal__account-avatar" style="background:var(--primary-pale); color:var(--primary);">
+                ${a.photoURL ? `<img src="${a.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` : getInitials(a.name)}
+            </div>
+            <div class="profile-modal__account-info">
+                <div class="profile-modal__account-name">${a.name}</div>
+                <div class="profile-modal__account-email">${a.email}</div>
+            </div>
+        </div>
+    `).join('');
+
+    // Add account button
+    html += `
+        <div class="profile-modal__account-item" style="border-bottom:none;" onclick="addAccount()">
+            <i class="fa-solid fa-user-plus" style="width:32px; text-align:center; color:var(--text-secondary);"></i>
+            <div class="profile-modal__account-info">
+                <div class="profile-modal__account-name">Add another account</div>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = html;
+}
+
+function addAccount() {
+    // To add an account, we sign out and go to login
+    firebase.auth().signOut().then(() => {
+        window.location.href = 'index.html?action=add_account';
+    });
+}
+
+function switchAccount(uid) {
+    // Firebase doesn't support easy multi-auth in standard web SDK easily without multiple apps
+    // So "switching" means signing out and signing in again.
+    // We'll just go to login page where the switcher will be shown
+    firebase.auth().signOut().then(() => {
+        window.location.href = 'index.html';
+    });
 }
 
 // ---- Progress Handling ----
@@ -346,7 +694,7 @@ function initTopicToggle() {
 // ---- Init ----
 document.addEventListener('DOMContentLoaded', () => {
     setTheme(getTheme());
-    
+
     // Migration: Move legacy 'userProgress' to 'mg12_progress'
     const legacyProgress = localStorage.getItem('userProgress');
     if (legacyProgress && !localStorage.getItem('mg12_progress')) {
@@ -376,8 +724,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
 
             avatars.forEach(av => {
-                av.textContent = initials;
-                av.style.background = 'linear-gradient(135deg, var(--primary), var(--accent-purple))';
+                if (user.photoURL) {
+                    av.innerHTML = `<img src="${user.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+                    av.style.background = 'transparent';
+                } else {
+                    av.textContent = initials;
+                    av.style.background = 'linear-gradient(135deg, var(--primary), var(--accent-purple))';
+                }
                 av.style.display = 'flex';
                 av.style.alignItems = 'center';
                 av.style.justifyContent = 'center';
@@ -387,9 +740,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Sync progress
-            await syncFromFirestore(user.uid);
+            const syncedData = await syncFromFirestore(user.uid);
+            if (syncedData && syncedData.settings?.theme) {
+                setTheme(syncedData.settings.theme);
+            }
+            updateAccountList(user);
 
-            if (isIndex) {
+            if (isIndex && !window.location.search.includes('action=add_account')) {
                 window.location.href = 'dashboard.html';
             }
         } else {

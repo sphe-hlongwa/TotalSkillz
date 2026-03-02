@@ -46,6 +46,39 @@
 
         <!-- Right Panel -->
         <div class="auth-form-section">
+            <!-- Account Switcher (if accounts exist) -->
+            <div class="auth-form-wrap" id="accountSwitcher" style="display:none;">
+                <div class="auth-form__header" style="text-align:center;">
+                    <h2 class="auth-form__title">Choose an account</h2>
+                    <p class="auth-form__subtitle">Select a profile to continue</p>
+                </div>
+                <div id="accountList" class="account-picker">
+                    <!-- Accounts rendered here -->
+                </div>
+                <button type="button" class="btn btn-secondary btn-block" style="margin-top:1.5rem;"
+                    onclick="showPanel('loginPanel')">
+                    <i class="fa-solid fa-user-plus"></i> Use another account
+                </button>
+            </div>
+
+            <!-- Forgot Password Panel -->
+            <div class="auth-form-wrap" id="forgotPanel" style="display:none;">
+                <div class="auth-form__header">
+                    <h2 class="auth-form__title">Reset Password</h2>
+                    <p class="auth-form__subtitle">Enter your email and we'll send you a reset link</p>
+                </div>
+                <form id="forgotForm" novalidate onsubmit="handleForgotPassword(event)">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="forgotEmail" placeholder="you@email.com" required>
+                        <div class="form-error" id="forgotEmailErr">Please enter a valid email address</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Send Reset Link</button>
+                    <button type="button" class="btn btn-secondary btn-block" style="margin-top:1rem;"
+                        onclick="showPanel('loginPanel')">Back to Login</button>
+                </form>
+            </div>
+
             <!-- Login Form -->
             <div class="auth-form-wrap" id="loginPanel">
                 <div class="auth-form__header">
@@ -83,10 +116,13 @@
                     <div class="form-group">
                         <label class="form-label">Password</label>
                         <div class="password-wrap">
-                            <input type="password" class="form-input" id="loginPassword"
-                                placeholder="Enter your password" required>
-                            <button type="button" class="password-toggle"
-                                onclick="togglePassword('loginPassword', this)"><i class="fa-solid fa-eye"></i></button>
+                            <input type="password" class="form-input" id="loginPassword" placeholder="••••••••"
+                                required>
+                            <i class="fa-solid fa-eye password-toggle" onclick="togglePassword('loginPassword')"></i>
+                        </div>
+                        <div style="text-align:right; margin-top:0.5rem;">
+                            <button type="button" class="btn-link" style="font-size:0.8rem; color: white;"
+                                onclick="showPanel('forgotPanel')">Forgot Password?</button>
                         </div>
                         <div class="form-error" id="loginPassErr">Password is required</div>
                     </div>
@@ -121,7 +157,7 @@
                     </div>
 
                     <button type="button" id="sign-in-button-login" class="btn btn-primary btn-block btn-lg"
-                        onclick="sendOTP('login')">
+                        style="margin-top:1.5rem;" onclick="sendOTP('login')">
                         Send Verification Code <i class="fa-solid fa-paper-plane"></i>
                     </button>
 
@@ -274,11 +310,50 @@
     <script src="js/main.js"></script>
 
     <script>
-        if (getUser()) window.location.href = 'dashboard.html';
+        document.addEventListener('DOMContentLoaded', () => {
+            initAccountSwitcher();
+            if (getUser() && !window.location.search.includes('action=add_account')) {
+                window.location.href = 'dashboard.html';
+            }
+        });
+
+        function initAccountSwitcher() {
+            const accounts = JSON.parse(localStorage.getItem('mg12_accounts') || '[]');
+            const switcher = document.getElementById('accountSwitcher');
+            const list = document.getElementById('accountList');
+            const isAddAccount = window.location.search.includes('action=add_account');
+
+            if (accounts.length > 0 && !isAddAccount) {
+                switcher.style.display = 'block';
+                document.getElementById('loginPanel').style.display = 'none';
+
+                list.innerHTML = accounts.map(a => `
+                    <div class="account-item" onclick="selectAccount('${a.email}')">
+                        <div class="account-item__avatar">
+                            ${a.photoURL ? `<img src="${a.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` : getInitials(a.name)}
+                        </div>
+                        <div class="account-item__info">
+                            <div class="account-item__name">${a.name}</div>
+                            <div class="account-item__email">${a.email}</div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right" style="margin-left:auto; opacity:0.3;"></i>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function selectAccount(email) {
+            // Show login panel and pre-fill email
+            showPanel('loginPanel');
+            document.getElementById('loginEmail').value = email;
+            document.getElementById('loginPassword').focus();
+        }
 
         function showPanel(id) {
             document.getElementById('loginPanel').style.display = 'none';
             document.getElementById('signupPanel').style.display = 'none';
+            document.getElementById('accountSwitcher').style.display = 'none';
+            document.getElementById('forgotPanel').style.display = 'none';
             const el = document.getElementById(id);
             el.style.display = 'block';
             el.style.animation = 'slideUp 0.4s var(--ease)';
