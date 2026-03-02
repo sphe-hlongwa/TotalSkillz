@@ -210,7 +210,7 @@ function populateProfileModal() {
 // ---- Progress Handling ----
 async function saveProgress(data) {
     const user = firebase.auth().currentUser;
-    localStorage.setItem('userProgress', JSON.stringify(data));
+    localStorage.setItem('mg12_progress', JSON.stringify(data));
 
     if (user) {
         try {
@@ -229,7 +229,7 @@ async function syncFromFirestore(uid) {
         const doc = await firebase.firestore().collection('users').doc(uid).get();
         if (doc.exists && doc.data().progress) {
             const data = doc.data().progress;
-            localStorage.setItem('userProgress', JSON.stringify(data));
+            localStorage.setItem('mg12_progress', JSON.stringify(data));
             return data;
         }
     } catch (error) {
@@ -346,6 +346,14 @@ function initTopicToggle() {
 // ---- Init ----
 document.addEventListener('DOMContentLoaded', () => {
     setTheme(getTheme());
+    
+    // Migration: Move legacy 'userProgress' to 'mg12_progress'
+    const legacyProgress = localStorage.getItem('userProgress');
+    if (legacyProgress && !localStorage.getItem('mg12_progress')) {
+        localStorage.setItem('mg12_progress', legacyProgress);
+        localStorage.removeItem('userProgress');
+    }
+
     initHeader();
     initMobileNav();
     initReveal();
