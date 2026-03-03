@@ -3,33 +3,42 @@
    ============================================ */
 
 .topic-hero {
-    padding: 2rem 0;
+    padding: 32px;
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 2rem;
+    gap: 1.5rem;
+    background: var(--bg-hover);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    margin-bottom: 2.5rem;
 }
 
 .topic-hero__icon {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: var(--radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     flex-shrink: 0;
 }
 
 .topic-hero__title {
-    font-size: 1.6rem;
+    font-size: clamp(1.6rem, 5vw, 2rem);
     font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    max-width: 800px;
+    text-wrap: balance;
+    color: var(--text);
 }
 
 .topic-hero__desc {
-    font-size: 0.92rem;
+    font-size: 1rem;
     color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 600px;
 }
 
 /* Lesson cards */

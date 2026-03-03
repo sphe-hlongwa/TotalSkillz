@@ -20,8 +20,8 @@
     --accent-red-light: #fee2e2;
     --accent-purple: #8b5cf6;
 
-    --bg: #f8fafc;
-    --bg-card: #ffffff;
+    --bg: #ffffff;
+    --bg-card: #f8fafc;
     --bg-elevated: #ffffff;
     --border: #e2e8f0;
     --border-light: #f1f5f9;
@@ -62,11 +62,24 @@
     --section-gap: clamp(1.5rem, 5vh, 2.5rem);
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    inset: -5%;
+    background-image: url('../white_backround.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px) brightness(0.9);
+    z-index: -5;
+    pointer-events: none;
+    transition: background-image 0.5s ease;
+}
+
 /* ---------- Dark Mode ---------- */
 [data-theme="dark"] {
-    --bg: #0f172a;
-    --bg-card: #1e293b;
-    --bg-elevated: #1e293b;
+    --bg: #000000;
+    --bg-card: #111111;
+    --bg-elevated: #111111;
     --border: #334155;
     --border-light: #1e293b;
     --text: #f1f5f9;
@@ -81,6 +94,11 @@
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.35);
     --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.25);
+}
+
+body[data-theme="dark"]::before {
+    background-image: url('../black_backround.jpg');
+    filter: blur(5px) brightness(0.4);
 }
 
 /* ---------- Reset ---------- */
@@ -106,17 +124,6 @@ body {
     transition: background var(--transition), color var(--transition);
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    inset: -5%;
-    background-image: url('../backround3.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(10px) brightness(0.3);
-    z-index: -5;
-    pointer-events: none;
-}
 
 a {
     text-decoration: none;
@@ -162,6 +169,130 @@ select {
     background: var(--primary-light);
     border-radius: 6px;
 }
+
+/* ---------- Layout Structure ---------- */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: var(--header-h, 64px);
+    background: transparent;
+    position: relative;
+    transition: background 0.4s ease;
+}
+
+.layout-wrapper {
+    display: flex;
+    flex: 1;
+    min-height: calc(100vh - var(--header-h, 64px));
+}
+
+.content-main {
+    flex: 1;
+    min-width: 0;
+    padding: var(--container-px);
+    position: relative;
+    background: transparent;
+}
+
+/* ---------- Header ---------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-h, 64px);
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--container-px);
+    z-index: 1100;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.header__left,
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.header__logo-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.streak-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--primary-pale);
+    color: var(--primary);
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 1px solid var(--primary-light);
+    white-space: nowrap;
+}
+
+.header__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.header__avatar:hover {
+    transform: scale(1.05);
+}
+
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 0.4rem 0.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+    background: var(--bg-card);
+    color: var(--primary);
+}
+
+.header__logo {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+
 
 /* ---------- Typography ---------- */
 h1,
@@ -328,6 +459,88 @@ h3 {
 .header__nav-link.active {
     background: var(--primary-pale);
     color: var(--primary);
+}
+
+/* Header Center Navigation */
+.header__center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: all var(--transition);
+}
+
+@media (max-width: 850px) {
+    .header__center {
+        position: static;
+        transform: none;
+        left: auto;
+        margin: 0 auto;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .streak-badge {
+        display: none;
+    }
+
+    .header__logo span {
+        display: none;
+    }
+
+    .header__center {
+        gap: 0.25rem;
+    }
+
+    .header__icon-nav {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+}
+
+.header__icon-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+}
+
+.header__icon-nav:hover,
+.header__icon-nav.active {
+    color: var(--primary);
+    background: var(--primary-pale);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    margin-right: 0.5rem;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--primary);
+    background: var(--primary-pale);
 }
 
 .header__nav-link.active {

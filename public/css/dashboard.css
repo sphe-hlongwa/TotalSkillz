@@ -10,7 +10,7 @@
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-xl);
-    padding: clamp(1.5rem, 5vw, 2.2rem) clamp(1.5rem, 6vw, 2.5rem);
+    padding: 32px;
     color: white;
     position: relative;
     overflow: hidden;
@@ -33,19 +33,31 @@
 .welcome-banner__greeting {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.75);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
 }
 
 .welcome-banner__name {
-    font-size: clamp(1.3rem, 4vw, 1.6rem);
-    font-weight: 800;
-    margin-bottom: 0.5rem;
+    font-size: clamp(1.6rem, 5vw, 2.22rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    text-wrap: balance;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
 }
 
 .welcome-banner__msg {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.85);
-    max-width: 500px;
+    max-width: 600px;
+    line-height: 1.6;
 }
 
 .welcome-banner__stats {
@@ -69,103 +81,155 @@
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Quotes Widget */
-.quotes-widget {
-    margin-bottom: 2rem;
+/* Stats Panel - Smooth Rectangle */
+.stats-panel {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
-    overflow: hidden;
-    position: relative;
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
+    margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
-.quote-track {
-    display: flex;
-    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+.stats-panel:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
 }
 
-.quote-item {
-    flex: 0 0 100%;
+.stat-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    padding: 0 2rem;
-}
-
-.quote-portrait {
-    width: 100px;
-    height: 100px;
+    padding: 0.5rem;
     border-radius: var(--radius-md);
-    overflow: hidden;
-    flex-shrink: 0;
-    border: 2px solid var(--primary-pale);
-    background: var(--bg-elevated);
+    transition: background 0.2s;
+    text-align: center;
+    gap: 0.25rem;
+}
+
+.stat-item:hover {
+    background: var(--bg-hover);
+}
+
+.stat-item__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1rem;
+    margin-bottom: 0;
 }
 
-.quote-portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.quote-portrait i {
-    font-size: 2.5rem;
-    color: var(--primary-light);
-}
-
-.quote-content {
-    text-align: left;
-    max-width: 600px;
-}
-
-.quote-text {
-    font-size: clamp(1rem, 3.5vw, 1.15rem);
-    line-height: 1.6;
-    font-style: italic;
+.stat-item__value {
+    font-size: 1.15rem;
+    font-weight: 800;
     color: var(--text);
-    margin-bottom: 0.75rem;
-    display: block;
-    position: relative;
+    line-height: 1.1;
 }
 
-.quote-text::before {
-    content: '"';
-    font-size: 3rem;
-    position: absolute;
-    top: -1.5rem;
-    left: -1.5rem;
-    opacity: 0.1;
-    font-family: serif;
-}
-
-.quote-author {
-    font-size: 0.85rem;
+.stat-item__label {
+    font-size: 0.65rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 0.4px;
+}
+
+/* Section Highlighting */
+.settings-section.highlight-flash {
+    animation: borderFlash 2s ease;
+}
+
+@keyframes borderFlash {
+    0% {
+        border-color: var(--primary);
+        box-shadow: 0 0 15px var(--primary-pale);
+    }
+
+    100% {
+        border-color: var(--border);
+        box-shadow: none;
+    }
 }
 
 @media (max-width: 600px) {
-    .quote-item {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0 1rem;
-        text-align: center;
+    .stats-panel {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1rem;
+        border-radius: 16px;
+    }
+}
+
+/* Integrated Quote in Welcome Banner */
+.welcome-banner__quote {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+}
+
+.quote-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    opacity: 1;
+}
+
+.quote-content.reveal-active {
+    animation: revealQuote 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes revealQuote {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    .quote-content {
-        text-align: center;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quote-icon {
+    font-size: 1.2rem;
+    color: var(--accent-purple-light);
+    opacity: 0.6;
+    margin-bottom: 0.2rem;
+}
+
+.quote-text {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+}
+
+.quote-author {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #8b5cf6;
+    /* Same as brain icon */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .welcome-banner__quote {
+        margin-top: 1rem;
+        padding-top: 0.75rem;
     }
 
-    .quote-text::before {
-        display: none;
+    .quote-text {
+        font-size: 0.95rem;
     }
 }
 
@@ -175,7 +239,8 @@
 }
 
 .search-section .search-bar {
-    max-width: 100%; /* More fluid on mobile */
+    max-width: 100%;
+    /* More fluid on mobile */
 }
 
 /* Topic Cards */
@@ -503,5 +568,29 @@
     .result-card__thumb {
         width: 100%;
         height: 160px;
+    }
+}
+
+/* Sidebar Layout Integration */
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg);
+    position: relative;
+}
+
+.dashboard-main {
+    flex: 1;
+    min-width: 0;
+    /* Prevent flex overflow */
+    padding: 2rem;
+    padding-top: 100px;
+    /* Account for fixed header if present */
+}
+
+@media (max-width: 768px) {
+    .dashboard-main {
+        padding: 1rem;
+        padding-top: 80px;
     }
 }

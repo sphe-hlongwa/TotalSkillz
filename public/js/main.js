@@ -9,6 +9,15 @@ function getTheme() {
 function setTheme(theme) {
     document.body.setAttribute('data-theme', theme);
     localStorage.setItem('mg12_theme', theme);
+    updateThemeToggleIcon(theme);
+}
+
+function updateThemeToggleIcon(theme) {
+    const btn = document.getElementById('headerThemeToggle');
+    if (btn) {
+        const icon = btn.querySelector('i');
+        icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
 }
 function toggleTheme() {
     const current = getTheme();
@@ -72,6 +81,7 @@ function sanitizeText(str) {
 }
 
 function getInitials(name) {
+    if (!name) return '??';
     return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
 }
 
@@ -182,17 +192,17 @@ function getProgress() {
     if (data.bio === undefined) data.bio = '';
     return data;
 }
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 async function handleForgotPassword(e) {
     e.preventDefault();
-    const email = document.getElementById('forgotEmail').value;
-    const emailErr = document.getElementById('forgotEmailErr');
-
+    const email = document.getElementById('forgotEmail').value.trim();
     if (!validateEmail(email)) {
-        emailErr.style.display = 'block';
+        showError('forgotEmail', 'forgotEmailErr');
         return;
     }
-    emailErr.style.display = 'none';
-
     try {
         await firebase.auth().sendPasswordResetEmail(email);
         showToast('Password reset link sent to your email!', 'success');
@@ -201,6 +211,18 @@ async function handleForgotPassword(e) {
         console.error("Reset error:", error);
         showToast('Failed to send reset link. ' + error.message, 'error');
     }
+}
+
+function showError(inputId, errId) {
+    const input = document.getElementById(inputId);
+    const err = document.getElementById(errId);
+    if (input) input.classList.add('error');
+    if (err) err.classList.add('visible');
+}
+
+function clearErrors() {
+    document.querySelectorAll('.form-input').forEach(i => i.classList.remove('error'));
+    document.querySelectorAll('.form-error').forEach(e => e.classList.remove('visible'));
 }
 
 // --- Settings Logic ---
@@ -226,6 +248,47 @@ function closeSettingsIfOutside(e) {
     if (e.target.id === 'settingsOverlay') toggleSettingsOverlay();
 }
 
+/**
+ * Unified Sidebar Navigation
+ * Handles internal settings view switching and external page redirects
+ */
+function handleSidebarClick(el) {
+    const view = el.getAttribute('data-view');
+    const href = el.getAttribute('href');
+
+    // If it's a settings view
+    if (view) {
+        openSettings(view);
+        return false;
+    }
+
+    // Otherwise, let the default href redirect happen (or handle via JS)
+    if (href && href !== '#') {
+        window.location.href = href;
+    }
+}
+
+function openSettings(sectionId) {
+    const overlay = document.getElementById('settingsOverlay');
+    if (!overlay) return;
+
+    if (!overlay.classList.contains('active')) {
+        toggleSettingsOverlay();
+    }
+
+    if (sectionId) {
+        setTimeout(() => {
+            const section = document.querySelector(`.settings-section[data-section="${sectionId}"]`) ||
+                document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                section.classList.add('highlight-flash');
+                setTimeout(() => section.classList.remove('highlight-flash'), 2500);
+            }
+        }, 500);
+    }
+}
+
 function populateSettings() {
     const user = firebase.auth().currentUser;
     const p = getProgress();
@@ -245,6 +308,26 @@ function populateSettings() {
     if (goalSlider) goalSlider.value = p.settings?.dailyGoal || 10;
     if (goalVal) goalVal.textContent = (p.settings?.dailyGoal || 10) + ' Questions';
 
+    const targetMarkSlider = document.getElementById('targetMarkSlider');
+    const targetMarkVal = document.getElementById('targetMarkValue');
+    if (targetMarkSlider) targetMarkSlider.value = p.settings?.targetMark || 80;
+    if (targetMarkVal) targetMarkVal.textContent = (p.settings?.targetMark || 80) + '%';
+
+    const weeklyHoursVal = document.getElementById('weeklyHoursValue');
+    if (weeklyHoursVal) weeklyHoursVal.textContent = p.settings?.weeklyHours || 5;
+
+    const examDateInput = document.getElementById('examDateInput');
+    if (examDateInput && p.settings?.examDate) {
+        examDateInput.value = p.settings.examDate;
+        updateExamCountdown(p.settings.examDate);
+    }
+
+    const remindersToggle = document.getElementById('remindersToggle');
+    if (remindersToggle) remindersToggle.checked = p.settings?.reminders || false;
+
+    if (typeof renderWeakAreaPills === 'function') {
+        renderWeakAreaPills(p.settings?.weakAreas || []);
+    }
     calculateSecurityScore();
 }
 
@@ -270,13 +353,18 @@ function saveBio(val) {
 
 function toggleDarkTheme(isDark) {
     const theme = isDark ? 'dark' : 'light';
-    document.body.setAttribute('data-theme', theme);
-    localStorage.setItem('mg12_theme', theme);
+    setTheme(theme); // this sets DOM attribute, local storage, and the toggle icon
 
     const p = getProgress();
     if (!p.settings) p.settings = {};
     p.settings.theme = theme;
     saveProgress(p);
+}
+
+function toggleThemeManually() {
+    const current = document.body.getAttribute('data-theme') || 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    toggleDarkTheme(next === 'dark');
 }
 
 function updateGoalPreview(val) {
@@ -289,6 +377,96 @@ function saveGoal(val) {
     p.settings.dailyGoal = parseInt(val);
     saveProgress(p);
     showToast('Daily goal updated!', 'info');
+}
+
+function updateTargetMarkPreview(val) {
+    document.getElementById('targetMarkValue').textContent = val + '%';
+}
+
+function saveTargetMark(val) {
+    const p = getProgress();
+    if (!p.settings) p.settings = {};
+    p.settings.targetMark = parseInt(val);
+    saveProgress(p);
+    showToast('Target mark updated!', 'info');
+}
+
+function adjustWeeklyHours(change) {
+    const p = getProgress();
+    if (!p.settings) p.settings = {};
+    let current = p.settings.weeklyHours || 5;
+    current += change;
+    if (current < 1) current = 1;
+    if (current > 40) current = 40;
+    p.settings.weeklyHours = current;
+    document.getElementById('weeklyHoursValue').textContent = current;
+    saveProgress(p);
+}
+
+function renderWeakAreaPills(selectedAreas) {
+    const container = document.getElementById('weakAreaPills');
+    if (!container) return;
+    const availableTopics = [
+        { id: 'algebra', title: 'Algebra' }, { id: 'patterns', title: 'Patterns' },
+        { id: 'functions', title: 'Functions' }, { id: 'finance', title: 'Finance' },
+        { id: 'trigonometry', title: 'Trigonometry' }, { id: 'analytical_geometry', title: 'Analytical Geom' },
+        { id: 'euclidean_geometry', title: 'Euclidean Geom' }, { id: 'calculus', title: 'Calculus' },
+        { id: 'probability', title: 'Probability' }, { id: 'statistics', title: 'Statistics' }
+    ];
+    container.innerHTML = availableTopics.map(t => {
+        const isActive = selectedAreas.includes(t.id);
+        return `<div class="topic-pill ${isActive ? 'active' : ''}" onclick="toggleWeakArea('${t.id}')">${t.title}</div>`;
+    }).join('');
+}
+
+function toggleWeakArea(topicId) {
+    const p = getProgress();
+    if (!p.settings) p.settings = {};
+    if (!p.settings.weakAreas) p.settings.weakAreas = [];
+    const index = p.settings.weakAreas.indexOf(topicId);
+    if (index > -1) {
+        p.settings.weakAreas.splice(index, 1);
+    } else {
+        if (p.settings.weakAreas.length >= 3) {
+            showToast('You can only select up to 3 weak areas for now.', 'info');
+            return;
+        }
+        p.settings.weakAreas.push(topicId);
+    }
+    saveProgress(p);
+    renderWeakAreaPills(p.settings.weakAreas);
+}
+
+function saveExamDate(val) {
+    const p = getProgress();
+    if (!p.settings) p.settings = {};
+    p.settings.examDate = val;
+    saveProgress(p);
+    updateExamCountdown(val);
+    showToast('Exam date saved!', 'success');
+}
+
+function updateExamCountdown(dateString) {
+    const box = document.getElementById('examCountdownBox');
+    const label = document.getElementById('examDaysLeft');
+    if (!box || !label) return;
+    if (!dateString) { box.style.display = 'none'; return; }
+    const examDate = new Date(dateString);
+    const today = new Date();
+    examDate.setHours(0, 0, 0, 0);
+    today.setHours(0, 0, 0, 0);
+    const diffTime = Math.max(0, examDate - today);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    label.textContent = diffDays;
+    box.style.display = 'flex';
+}
+
+function saveReminders(checked) {
+    const p = getProgress();
+    if (!p.settings) p.settings = {};
+    p.settings.reminders = checked;
+    saveProgress(p);
+    showToast(checked ? 'Study reminders enabled!' : 'Reminders disabled', 'info');
 }
 
 function calculateSecurityScore() {
@@ -347,6 +525,62 @@ async function confirmDeleteAccount() {
 }
 
 // --- Profile Modal Logic ---
+async function handleProfilePic(input) {
+    if (input.files && input.files[0]) {
+        const file = input.files[0];
+        // Compress image on the client side so Base64 is tiny enough for Firebase Auth
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = new Image();
+            img.onload = async () => {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 150;
+                const MAX_HEIGHT = 150;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
+                }
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                const compressedBase64 = canvas.toDataURL('image/jpeg', 0.8);
+
+                const user = firebase.auth().currentUser;
+                if (user) {
+                    try {
+                        await user.updateProfile({ photoURL: compressedBase64 });
+                        showToast('Profile picture updated!', 'success');
+                        populateProfileModal();
+                        document.querySelectorAll('.user-avatar').forEach(av => {
+                            av.innerHTML = `<img src="${compressedBase64}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+                            av.style.background = 'transparent';
+                        });
+
+                        const p = getProgress();
+                        saveProgress(p);
+                    } catch (error) {
+                        console.error("Profile update error:", error);
+                        showToast('Failed to update profile picture.', 'error');
+                    }
+                }
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
 function toggleProfileModal() {
     const overlay = document.getElementById('profileModalOverlay');
     if (!overlay) return;
@@ -428,7 +662,7 @@ function populateProfileModal() {
 
     const name = user.displayName || user.email?.split('@')[0] || user.phoneNumber || 'User';
     const identifier = user.email || user.phoneNumber || 'User';
-    const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+    const initials = getInitials(name);
 
     if (emailEl) emailEl.textContent = identifier;
 
@@ -455,37 +689,6 @@ function populateProfileModal() {
     }
 }
 
-async function handleProfilePic(input) {
-    if (input.files && input.files[0]) {
-        const file = input.files[0];
-        if (file.size > 1024 * 1024) { // 1MB limit for Base64
-            showToast('Image too large. Please select an image under 1MB.', 'error');
-            return;
-        }
-
-        const reader = new FileReader();
-        reader.onload = async (e) => {
-            const base64 = e.target.result;
-            const user = firebase.auth().currentUser;
-            if (user) {
-                try {
-                    await user.updateProfile({ photoURL: base64 });
-                    showToast('Profile picture updated!', 'success');
-                    populateProfileModal();
-                    // Update all avatars on page
-                    document.querySelectorAll('.user-avatar').forEach(av => {
-                        av.innerHTML = `<img src="${base64}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
-                        av.style.background = 'transparent';
-                    });
-                } catch (error) {
-                    console.error("Error updating profile pic:", error);
-                    showToast('Failed to update profile picture.', 'error');
-                }
-            }
-        };
-        reader.readAsDataURL(file);
-    }
-}
 
 function updateAccountList(user) {
     if (!user) return;
@@ -721,7 +924,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Populate avatars on the page
             const avatars = document.querySelectorAll('.user-avatar');
             const name = user.displayName || user.email?.split('@')[0] || user.phoneNumber || 'User';
-            const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+            const initials = getInitials(name);
 
             avatars.forEach(av => {
                 if (user.photoURL) {

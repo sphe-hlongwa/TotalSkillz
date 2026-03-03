@@ -1,0 +1,175 @@
+/* ============================================
+   Skillz Sidebar Component
+   ============================================ */
+
+:root {
+    --sidebar-width: 260px;
+    /* Matching style.css --sidebar-w */
+    --sidebar-collapsed-width: 68px;
+    /* More compact */
+    --sidebar-transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skillz-sidebar {
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-h, 64px));
+    background: transparent;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    transition: width var(--sidebar-transition), background var(--sidebar-transition), border-color var(--sidebar-transition);
+    overflow: hidden;
+    position: sticky;
+    top: var(--header-h, 64px);
+    z-index: 1000;
+}
+
+.skillz-sidebar.collapsed {
+    width: 0;
+    border-right: none;
+    padding: 0;
+}
+
+
+/* Navigation */
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    /* Very tight vertical distance */
+}
+
+.sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+.nav-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.nav-section-title {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 0.5rem 0.75rem 0.25rem;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+}
+
+.collapsed .nav-section-title {
+    opacity: 0;
+    height: 10px;
+    /* Collapse space */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.nav-item i {
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.nav-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: opacity 0.3s;
+}
+
+.collapsed .nav-label {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.collapsed .nav-item {
+    justify-content: center;
+    padding: 0.6rem 0;
+}
+
+.nav-item:hover {
+    background: var(--bg-card);
+    color: var(--primary);
+}
+
+.nav-item.active {
+    background: var(--primary-pale);
+    color: var(--primary);
+}
+
+.nav-item.danger:hover {
+    background: rgba(var(--accent-red-rgb, 239, 68, 68), 0.1);
+    color: var(--accent-red, #ef4444);
+}
+
+.collapsible-trigger i:last-child {
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    /* Tighter sub-item gap */
+}
+
+.nav-section.open .collapsible-content {
+    max-height: 200px;
+}
+
+.nav-section.open .collapsible-trigger i:last-child {
+    transform: rotate(180deg);
+}
+
+/* Footer */
+.sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--sidebar-border);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skillz-sidebar {
+        position: fixed;
+        top: var(--header-h, 64px);
+        left: -100%;
+        width: 260px;
+        height: calc(100vh - var(--header-h, 64px));
+        background: var(--bg-card);
+        /* Needs background so content isn't visible underneath */
+        z-index: 1001;
+        transition: left 0.3s ease;
+        border-right: 1px solid var(--border);
+    }
+
+    .skillz-sidebar.mobile-open {
+        left: 0;
+    }
+}

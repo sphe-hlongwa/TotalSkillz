@@ -213,6 +213,92 @@ input:checked+.slider:before {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Topic Pills */
+.topic-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.topic-pill {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.topic-pill:hover {
+    border-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.topic-pill.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 2px 5px rgba(var(--primary-rgb, 79, 70, 229), 0.3);
+}
+
+/* Form Inputs (Date Picker) */
+.form-input[type="date"] {
+    cursor: pointer;
+    color: var(--text);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+}
+
+.form-input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(0.5);
+}
+
+[data-theme="dark"] .form-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+}
+
+/* Exam Countdown Box */
+.countdown-box {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb, 79, 70, 229), 0.1), rgba(var(--accent-purple-rgb, 139, 92, 246), 0.1));
+    border: 1px solid var(--primary-light);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.countdown-box__days {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.countdown-box__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.countdown-box__icon {
+    font-size: 2rem;
+    color: var(--primary);
+    opacity: 0.2;
+}
+
 /* Danger Zone */
 .danger-section {
     border: 1px solid rgba(var(--accent-red-rgb), 0.2);
