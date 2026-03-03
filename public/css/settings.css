@@ -22,9 +22,12 @@
 .settings-drawer {
     width: 100%;
     max-width: 450px;
-    background: var(--bg-elevated);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-left: 1px solid var(--glass-border);
     height: 100%;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--glass-shadow);
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
@@ -92,13 +95,16 @@
 
 /* Security Score */
 .security-score {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     padding: 1.25rem;
     display: flex;
     align-items: center;
     gap: 1.25rem;
+    box-shadow: var(--glass-shadow);
 }
 
 .score-circle {
@@ -268,14 +274,18 @@ input:checked+.slider:before {
 
 /* Exam Countdown Box */
 .countdown-box {
-    background: linear-gradient(135deg, rgba(var(--primary-rgb, 79, 70, 229), 0.1), rgba(var(--accent-purple-rgb, 139, 92, 246), 0.1));
-    border: 1px solid var(--primary-light);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-left: 4px solid var(--primary);
     border-radius: var(--radius-md);
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 0.5rem;
+    box-shadow: var(--glass-shadow);
 }
 
 .countdown-box__days {
@@ -325,15 +335,4 @@ input:checked+.slider:before {
     color: white;
 }
 
-/* Dark Mode Tokens */
-[data-theme="dark"] {
-    --bg: #0a0a0a;
-    --bg-card: #151515;
-    --bg-elevated: #1e1e1e;
-    --text: #f0f0f0;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666;
-    --border: #333;
-    --border-light: #222;
-    --surface: #222;
-}
+/* Using global dark mode theme via style.css */

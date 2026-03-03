@@ -57,6 +57,12 @@
     --sidebar-w: 260px;
     --content-max: 1200px;
 
+    /* Glassmorphism Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --glass-blur: blur(12px);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+
     /* Fluid Scaling Tokens */
     --container-px: clamp(1rem, 5vw, 2rem);
     --section-gap: clamp(1.5rem, 5vh, 2.5rem);
@@ -66,7 +72,7 @@ body::before {
     content: '';
     position: fixed;
     inset: -5%;
-    background-image: url('../white_backround.jpg');
+    background-image: url('../black_backround.jpg');
     background-size: cover;
     background-position: center;
     filter: blur(5px) brightness(0.9);
@@ -94,6 +100,12 @@ body::before {
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
     --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.35);
     --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.25);
+
+    /* Dark Mode Glass */
+    --glass-bg: rgba(13, 13, 13, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(20px);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 body[data-theme="dark"]::before {
@@ -113,6 +125,8 @@ body[data-theme="dark"]::before {
 html {
     scroll-behavior: smooth;
     font-size: clamp(14px, 1vw + 12px, 16px);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -121,6 +135,8 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
     transition: background var(--transition), color var(--transition);
 }
 
@@ -156,15 +172,18 @@ select {
     font-size: inherit;
 }
 
-/* ---------- Scrollbar ---------- */
-::-webkit-scrollbar {
-    width: 6px;
+::--webkit-scrollbar {
+    display: none;
 }
 
-::-webkit-scrollbar-track {
-    background: var(--bg);
+body {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
+/* Specific thumb styles if scrollbar is ever shown again elsewhere */
 ::-webkit-scrollbar-thumb {
     background: var(--primary-light);
     border-radius: 6px;
@@ -754,16 +773,20 @@ h3 {
 
 /* ---------- Cards ---------- */
 .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: all var(--transition);
+    padding: 1.5rem;
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
 .card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
+    border-color: var(--primary-light);
+    box-shadow: var(--shadow-xl);
 }
 
 .card__body {

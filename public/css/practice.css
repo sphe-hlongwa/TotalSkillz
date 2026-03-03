@@ -89,12 +89,15 @@
 
 /* Question container */
 .question-container {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
     padding: clamp(1.25rem, 5vw, 2rem);
     max-width: 720px;
     margin: 0 auto;
+    box-shadow: var(--glass-shadow);
 }
 
 .question-header {
@@ -246,13 +249,16 @@
 
 /* Score summary */
 .score-summary {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-xl);
     padding: clamp(1.5rem, 6vw, 2.5rem);
     text-align: center;
     max-width: 500px;
     margin: 2rem auto;
+    box-shadow: var(--glass-shadow);
     animation: scaleIn 0.5s var(--ease);
 }
 
@@ -295,10 +301,13 @@
 }
 
 .mini-stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     padding: 1.25rem;
+    box-shadow: var(--glass-shadow);
 }
 
 .mini-stat-card__title {

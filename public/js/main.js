@@ -7,7 +7,12 @@ function getTheme() {
     return localStorage.getItem('mg12_theme') || 'light';
 }
 function setTheme(theme) {
-    document.body.setAttribute('data-theme', theme);
+    const isAuthPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.includes('index.html');
+    if (isAuthPage) {
+        document.body.setAttribute('data-theme', 'dark');
+    } else {
+        document.body.setAttribute('data-theme', theme);
+    }
     localStorage.setItem('mg12_theme', theme);
     updateThemeToggleIcon(theme);
 }
@@ -105,6 +110,39 @@ function initHeader() {
     document.querySelectorAll('.user-avatar').forEach(el => {
         if (user) el.textContent = getInitials(user.name);
     });
+}
+
+// ---- UI Animations ----
+function animateCounter(el, target, duration = 1500) {
+    if (!el) return;
+    let start = 0;
+    const isPercentage = typeof target === 'string' && target.includes('%');
+    const targetValue = isPercentage ? parseInt(target) : parseInt(target);
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+        const current = Math.floor(ease * targetValue);
+
+        el.textContent = isPercentage ? current + '%' : current;
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            el.textContent = target; // Ensure exact final value
+        }
+    }
+    requestAnimationFrame(update);
+}
+
+function updateProgressRing(id, percent) {
+    const ring = document.getElementById(id);
+    if (!ring) return;
+    const p = Math.min(Math.max(percent, 0), 100);
+    // Stroke-dasharray for svg circle (circumference 100)
+    ring.style.strokeDasharray = `${p}, 100`;
 }
 
 // ---- Mobile nav ----

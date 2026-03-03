@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Total Skill</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <meta name="description"
         content="Your Total Skill dashboard. Track progress, practice daily, search resources, and master every topic.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css?v=4">
 
-    <link rel="stylesheet" href="css/dashboard.css?v=3">
+    <link rel="stylesheet" href="css/dashboard.css?v=5">
     <link rel="stylesheet" href="css/settings.css?v=4">
     <link rel="stylesheet" href="components/sidebar.css?v=3">
     <meta http-equiv="Content-Security-Policy"
@@ -147,50 +148,104 @@
                 <div class="container">
                     <!-- Welcome Banner -->
                     <div class="welcome-banner" id="welcomeBanner">
-                        <p class="welcome-banner__greeting" id="greeting">Good evening</p>
-                        <h1 class="welcome-banner__name">
-                            Welcome to Total Skillz
-                            <i class="fa-solid fa-brain" style="-webkit-text-fill-color: #8b5cf6;"></i>
-                            <span id="userName" style="display:inline;"></span>
-                        </h1>
-                        <p class="welcome-banner__msg">Keep up the momentum! Every problem you solve brings you closer
-                            to
-                            mastering matric maths.</p>
-                        <div class="welcome-banner__quote" id="welcomeQuote"></div>
+                        <div class="welcome-banner__content">
+                            <p class="welcome-banner__greeting" id="greeting">Good evening</p>
+                            <h1 class="welcome-banner__name">
+                                Welcome to Total Skillz
+                                <i class="fa-solid fa-brain" style="-webkit-text-fill-color: #8b5cf6;"></i>
+                                <span id="userName" style="display:inline;"></span>
+                            </h1>
+                            <p class="welcome-banner__msg">Keep up the momentum! Every problem you solve brings you
+                                closer to mastering matric maths.</p>
+
+                            <div class="welcome-banner__cta">
+                                <a href="practice.html" class="btn btn-primary btn-lg glow-btn" id="resumeBtn">
+                                    <i class="fa-solid fa-play"></i> Resume Learning
+                                </a>
+                            </div>
+
+                            <div class="welcome-banner__quote" id="welcomeQuote"></div>
+                        </div>
+
                     </div>
 
                     <!-- New Stats Panel (Smooth Rectangle) -->
                     <div class="stats-panel reveal">
                         <div class="stat-item">
-                            <div class="stat-item__icon"
-                                style="background:var(--accent-green-light); color:var(--accent-green);">
-                                <i class="fa-solid fa-circle-check"></i>
+                            <div class="stat-item__visual">
+                                <svg viewBox="0 0 36 36" class="stat-ring">
+                                    <path class="stat-ring__bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="stat-ring__progress" id="ringCorrect" stroke-dasharray="0, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        style="stroke: var(--accent-green);" />
+                                </svg>
+                                <div class="stat-item__icon"
+                                    style="background:var(--accent-green-light); color:var(--accent-green);">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                </div>
                             </div>
-                            <div class="stat-item__value" id="statCorrect">0</div>
-                            <div class="stat-item__label">Correct</div>
+                            <div class="stat-item__content">
+                                <div class="stat-item__value counter" id="statCorrect" data-target="0">0</div>
+                                <div class="stat-item__label">Correct</div>
+                            </div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-item__icon" style="background:var(--primary-pale); color:var(--primary);">
-                                <i class="fa-solid fa-pen-to-square"></i>
+                            <div class="stat-item__visual">
+                                <svg viewBox="0 0 36 36" class="stat-ring">
+                                    <path class="stat-ring__bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="stat-ring__progress" id="ringAttempted" stroke-dasharray="0, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        style="stroke: var(--primary);" />
+                                </svg>
+                                <div class="stat-item__icon"
+                                    style="background:var(--primary-pale); color:var(--primary);">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </div>
                             </div>
-                            <div class="stat-item__value" id="statAttempted">0</div>
-                            <div class="stat-item__label">Attempted</div>
+                            <div class="stat-item__content">
+                                <div class="stat-item__value counter" id="statAttempted" data-target="0">0</div>
+                                <div class="stat-item__label">Attempted</div>
+                            </div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-item__icon"
-                                style="background:var(--accent-purple-pale); color:var(--accent-purple);">
-                                <i class="fa-solid fa-bullseye"></i>
+                            <div class="stat-item__visual">
+                                <svg viewBox="0 0 36 36" class="stat-ring">
+                                    <path class="stat-ring__bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="stat-ring__progress" id="ringAccuracy" stroke-dasharray="0, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        style="stroke: var(--accent-purple);" />
+                                </svg>
+                                <div class="stat-item__icon"
+                                    style="background:var(--accent-purple-pale); color:var(--accent-purple);">
+                                    <i class="fa-solid fa-bullseye"></i>
+                                </div>
                             </div>
-                            <div class="stat-item__value" id="statAccuracy">0%</div>
-                            <div class="stat-item__label">Accuracy</div>
+                            <div class="stat-item__content">
+                                <div class="stat-item__value counter" id="statAccuracy" data-target="0">0%</div>
+                                <div class="stat-item__label">Accuracy</div>
+                            </div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-item__icon"
-                                style="background:var(--accent-amber-light); color:var(--accent-amber);">
-                                <i class="fa-solid fa-award"></i>
+                            <div class="stat-item__visual">
+                                <svg viewBox="0 0 36 36" class="stat-ring">
+                                    <path class="stat-ring__bg"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <path class="stat-ring__progress" id="ringBadges" stroke-dasharray="0, 100"
+                                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                        style="stroke: var(--accent-amber);" />
+                                </svg>
+                                <div class="stat-item__icon"
+                                    style="background:var(--accent-amber-light); color:var(--accent-amber);">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
                             </div>
-                            <div class="stat-item__value" id="statBadges">0</div>
-                            <div class="stat-item__label">Badges</div>
+                            <div class="stat-item__content">
+                                <div class="stat-item__value counter" id="statBadges" data-target="0">0</div>
+                                <div class="stat-item__label">Badges</div>
+                            </div>
                         </div>
                     </div>
 
@@ -221,6 +276,8 @@
                                 </p>
                                 <div id="badgesGrid" style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1rem;">
                                 </div>
+                                <button id="viewAllBadgesBtn" class="btn btn-secondary btn-sm"
+                                    style="margin-top: 1rem; display: none;">View All</button>
                             </div>
                         </div>
 
@@ -300,6 +357,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -403,10 +461,36 @@
             document.getElementById('greeting').textContent = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
             document.getElementById('userName').textContent = user.name;
             document.getElementById('streakCount').textContent = progress.streak;
-            document.getElementById('statCorrect').textContent = progress.totalCorrect;
-            document.getElementById('statAttempted').textContent = progress.totalAttempted;
-            document.getElementById('statAccuracy').textContent = progress.totalAttempted > 0 ? Math.round((progress.totalCorrect / progress.totalAttempted) * 100) + '%' : '0%';
-            document.getElementById('statBadges').textContent = progress.badges.length;
+
+            // Premium Stat Animations
+            const accuracy = progress.totalAttempted > 0 ? Math.round((progress.totalCorrect / progress.totalAttempted) * 100) : 0;
+
+            animateCounter(document.getElementById('statCorrect'), progress.totalCorrect);
+            animateCounter(document.getElementById('statAttempted'), progress.totalAttempted);
+            animateCounter(document.getElementById('statAccuracy'), accuracy + '%');
+            animateCounter(document.getElementById('statBadges'), progress.badges.length);
+
+            // Update Rings
+            setTimeout(() => {
+                updateProgressRing('ringCorrect', Math.min((progress.totalCorrect / 50) * 100, 100)); // Goal 50
+                updateProgressRing('ringAttempted', Math.min((progress.totalAttempted / 100) * 100, 100)); // Goal 100
+                updateProgressRing('ringAccuracy', accuracy);
+                updateProgressRing('ringBadges', Math.min((progress.badges.length / 14) * 100, 100));
+            }, 500);
+
+            // Resume Button Logic
+            const resumeBtn = document.getElementById('resumeBtn');
+            if (resumeBtn && progress.topics) {
+                // Find most recent topic or default to first topic
+                const topics = Object.entries(progress.topics);
+                if (topics.length > 0) {
+                    const lastTopic = topics.sort((a, b) => (b[1].total || 0) - (a[1].total || 0))[0][0];
+                    resumeBtn.href = `practice.html?topic=${lastTopic}`;
+                    const topicTitle = topicsData.find(t => t.id === lastTopic)?.title || 'Learning';
+                    resumeBtn.innerHTML = `<i class="fa-solid fa-play"></i> Continue ${topicTitle}`;
+                }
+            }
+
             renderTopics(progress);
             renderDaily();
             renderWeakAreas();
@@ -510,14 +594,33 @@
             master_statistics: { icon: 'fa-solid fa-chart-simple', label: 'Stats Master', color: '#f59e0b' },
         };
 
+        let showAllBadges = false;
         function renderBadges(progress) {
             const grid = document.getElementById('badgesGrid');
-            grid.innerHTML = Object.entries(badgeDefs).map(([key, b]) => {
-                const earned = progress.badges.includes(key);
-                return `<div style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;border-radius:var(--radius-md);background:${earned ? b.color + '15' : 'var(--border-light)'};border:1px solid ${earned ? b.color + '40' : 'var(--border)'};opacity:${earned ? '1' : '0.45'};">
-          <i class="${b.icon}" style="color:${earned ? b.color : 'var(--text-muted)'};font-size:1rem;"></i>
-          <span style="font-size:0.8rem;font-weight:600;color:${earned ? b.color : 'var(--text-muted)'};">${b.label}</span></div>`;
-            }).join('');
+            const btn = document.getElementById('viewAllBadgesBtn');
+            const entries = Object.entries(badgeDefs);
+
+            const renderList = (limit) => {
+                grid.innerHTML = entries.slice(0, limit || entries.length).map(([key, b]) => {
+                    const earned = progress.badges.includes(key);
+                    return `<div class="badge-item" style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1rem;border-radius:var(--radius-md);background:${earned ? b.color + '15' : 'var(--border-light)'};border:1px solid ${earned ? b.color + '40' : 'var(--border)'};opacity:${earned ? '1' : '0.45'}; transition: all 0.3s ease;">
+              <i class="${b.icon}" style="color:${earned ? b.color : 'var(--text-muted)'};font-size:1rem;"></i>
+              <span style="font-size:0.8rem;font-weight:600;color:${earned ? b.color : 'var(--text-muted)'};">${b.label}</span></div>`;
+                }).join('');
+            };
+
+            if (entries.length > 4) {
+                btn.style.display = 'inline-block';
+                btn.onclick = () => {
+                    showAllBadges = !showAllBadges;
+                    renderList(showAllBadges ? null : 4);
+                    btn.textContent = showAllBadges ? 'Show Less' : 'View All';
+                };
+                renderList(showAllBadges ? null : 4);
+            } else {
+                btn.style.display = 'none';
+                renderList();
+            }
         }
 
         // ---- Search ----

@@ -13,8 +13,10 @@
 .skillz-sidebar {
     width: var(--sidebar-width);
     height: calc(100vh - var(--header-h, 64px));
-    background: transparent;
-    border-right: 1px solid var(--border);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-right: 1px solid var(--glass-border);
     display: flex;
     flex-direction: column;
     transition: width var(--sidebar-transition), background var(--sidebar-transition), border-color var(--sidebar-transition);
@@ -111,13 +113,18 @@
 }
 
 .nav-item:hover {
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--primary);
 }
 
+[data-theme="light"] .nav-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
 .nav-item.active {
-    background: var(--primary-pale);
-    color: var(--primary);
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
 .nav-item.danger:hover {
