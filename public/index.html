@@ -22,6 +22,22 @@
             alert("⚠️ WARNING: You are opening this file directly. Firebase Authentication will NOT work on the 'file://' protocol. Please use 'npm start' and visit http://localhost:3000 instead.");
         }
     </script>
+    <!-- ============================================================
+         STRUCTURE GUARD — Read before editing this file!
+         ============================================================
+         Required nesting order (do NOT reorder or remove these):
+         
+           [1] .auth-page             — primary grid container (2 columns)
+               [1a] .auth-visual      — left panel (formulas & logo)
+               [1b] .auth-form-section — right panel (contains form wraps)
+                   [1c] .auth-form-wrap — container for specific forms (Id'd: loginPanel, signupPanel, etc.)
+         
+         CRITICAL UI PATTERNS:
+         - Password fields MUST be inside .password-wrap for correct icon alignment.
+         - Toggles MUST have the .password-toggle class.
+         - Segmented controls MUST use .auth-tabs > .auth-tab.active.
+         ============================================================ -->
+
     <div class="auth-page">
         <!-- Left Panel -->
         <div class="auth-visual">

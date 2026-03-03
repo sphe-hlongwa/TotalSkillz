@@ -226,14 +226,139 @@ function clearErrors() {
 }
 
 // --- Settings Logic ---
+function injectSettingsOverlay() {
+    if (document.getElementById('settingsOverlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'settings-overlay';
+    overlay.id = 'settingsOverlay';
+    overlay.onclick = (e) => closeSettingsIfOutside(e);
+
+    overlay.innerHTML = `
+        <div class="settings-drawer" id="settingsDrawer">
+            <div class="settings-header">
+                <h2><i class="fa-solid fa-gears"></i> Manage Account</h2>
+                <button class="close-settings" onclick="toggleSettingsOverlay()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="settings-content">
+                <!-- Identity Section -->
+                <div class="settings-section" data-section="identity">
+                    <h3 class="settings-section__title">Identity</h3>
+                    <div class="setting-item">
+                        <label class="setting-item__label">Display Name</label>
+                        <div class="setting-control">
+                            <input type="text" id="settingsName" class="form-input" placeholder="Your name">
+                            <button class="btn btn-primary btn-sm" onclick="saveNameChange()">Update</button>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <label class="setting-item__label">Study Bio</label>
+                        <textarea id="settingsBio" class="form-input" style="height:80px; resize:none;" placeholder="What is your goal?" onblur="saveBio(this.value)"></textarea>
+                    </div>
+                </div>
+                <!-- Security Section -->
+                <div class="settings-section" data-section="security">
+                    <h3 class="settings-section__title">Security</h3>
+                    <div class="security-score">
+                        <div class="score-circle" id="securityScoreRing">0%</div>
+                        <div>
+                            <div style="font-weight:700;">Security Score</div>
+                            <div style="font-size:0.8rem; opacity:0.7;">Verify email & add phone to hit 100%</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-block" onclick="window.location.href='index.html?action=change_password'">Change Password</button>
+                </div>
+                <!-- Preferences Section -->
+                <div class="settings-section" data-section="preferences">
+                    <h3 class="settings-section__title">Learning Preferences</h3>
+                    <div class="setting-item">
+                        <div class="setting-control">
+                            <div>
+                                <div class="setting-item__label">Daily Question Goal</div>
+                                <div id="goalValue" style="color:var(--primary); font-weight:700;">10 Questions</div>
+                            </div>
+                        </div>
+                        <input type="range" class="range-slider" min="5" max="50" step="5" value="10" id="goalSlider" oninput="updateGoalPreview(this.value)" onchange="saveGoal(this.value)">
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-control">
+                            <div>
+                                <div class="setting-item__label">Target Matric Mark</div>
+                                <div id="targetMarkValue" style="color:var(--primary); font-weight:700;">80%</div>
+                            </div>
+                        </div>
+                        <input type="range" class="range-slider" min="30" max="100" step="5" value="80" id="targetMarkSlider" oninput="updateTargetMarkPreview(this.value)" onchange="saveTargetMark(this.value)">
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-control">
+                            <div>
+                                <div class="setting-item__label">Weekly Study Goal</div>
+                                <div class="setting-item__desc">Target hours per week</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.5rem;">
+                                <button class="btn btn-secondary btn-sm" style="padding:0.25rem 0.5rem; font-size:1.2rem;" onclick="adjustWeeklyHours(-1)">-</button>
+                                <span id="weeklyHoursValue" style="font-weight:700; width:3ch; text-align:center;">5</span>
+                                <button class="btn btn-secondary btn-sm" style="padding:0.25rem 0.5rem; font-size:1.2rem;" onclick="adjustWeeklyHours(1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-item__label">Weak Area Focus</div>
+                        <div class="setting-item__desc">Select topics to prioritize in your practice feed</div>
+                        <div class="topic-pills" id="weakAreaPills"></div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-control">
+                            <div><div class="setting-item__label">Final Exam Date</div></div>
+                            <input type="date" class="form-input" id="examDateInput" onchange="saveExamDate(this.value)">
+                        </div>
+                        <div class="countdown-box" id="examCountdownBox" style="display:none;">
+                            <div><div class="countdown-box__days" id="examDaysLeft">0</div><div class="countdown-box__label">Days Left</div></div>
+                            <i class="fa-regular fa-calendar-check countdown-box__icon"></i>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-control">
+                            <div>
+                                <div class="setting-item__label">Study Reminders</div>
+                                <div class="setting-item__desc">Daily push notifications</div>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="remindersToggle" onchange="saveReminders(this.checked)">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Data Section -->
+                <div class="settings-section danger-section" data-section="danger">
+                    <h3 class="settings-section__title" style="color:var(--accent-red);">Danger Zone</h3>
+                    <button class="danger-btn" onclick="exportProgressData()"><i class="fa-solid fa-download"></i> Export Progress (JSON)</button>
+                    <button class="danger-btn" onclick="confirmResetProgress()"><i class="fa-solid fa-rotate-left"></i> Reset Learning Progress</button>
+                    <button class="danger-btn" style="background:var(--accent-red); color:white;" onclick="confirmDeleteAccount()"><i class="fa-solid fa-trash-can"></i> Delete Account permanently</button>
+                </div>
+            </div>
+            <div class="settings-footer" style="padding:1.5rem; border-top:1px solid var(--border); text-align:center;">
+                <p style="font-size:0.75rem; color:var(--text-muted);">MathGrade12 v2.4.0 • Built with <i class="fa-solid fa-heart" style="color:var(--accent-red);"></i></p>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+}
+
 function toggleSettingsOverlay() {
-    const overlay = document.getElementById('settingsOverlay');
-    if (!overlay) return;
+    let overlay = document.getElementById('settingsOverlay');
+    if (!overlay) {
+        injectSettingsOverlay();
+        overlay = document.getElementById('settingsOverlay');
+    }
+
     const isActive = overlay.classList.contains('active');
 
     if (!isActive) {
         overlay.style.display = 'flex';
-        overlay.offsetHeight;
+        overlay.offsetHeight; // force reflow
         overlay.classList.add('active');
         populateSettings();
     } else {
@@ -262,24 +387,37 @@ function handleSidebarClick(el) {
         return false;
     }
 
-    // Otherwise, let the default href redirect happen (or handle via JS)
+    // Otherwise, let the default href redirect happen
     if (href && href !== '#') {
         window.location.href = href;
     }
 }
 
 function openSettings(sectionId) {
-    const overlay = document.getElementById('settingsOverlay');
-    if (!overlay) return;
+    let overlay = document.getElementById('settingsOverlay');
+    if (!overlay) {
+        injectSettingsOverlay();
+        overlay = document.getElementById('settingsOverlay');
+    }
 
     if (!overlay.classList.contains('active')) {
         toggleSettingsOverlay();
     }
 
     if (sectionId) {
+        // Map sidebar data-view to settings data-section if different
+        const sectionMap = {
+            'data': 'danger',
+            'identity': 'identity',
+            'security': 'security',
+            'preferences': 'preferences',
+            'danger': 'danger'
+        };
+        const targetId = sectionMap[sectionId] || sectionId;
+
         setTimeout(() => {
-            const section = document.querySelector(`.settings-section[data-section="${sectionId}"]`) ||
-                document.getElementById(sectionId);
+            const section = document.querySelector(`.settings-section[data-section="${targetId}"]`) ||
+                document.getElementById(targetId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 section.classList.add('highlight-flash');
@@ -501,7 +639,8 @@ function confirmResetProgress() {
         if (check === 'RESET') {
             const fresh = getInitialProgress();
             saveProgress(fresh);
-            location.reload();
+            showToast('Progress reset successfully.', 'success');
+            setTimeout(() => location.reload(), 1500);
         }
     }
 }
@@ -525,6 +664,65 @@ async function confirmDeleteAccount() {
 }
 
 // --- Profile Modal Logic ---
+function injectProfileModal() {
+    if (document.getElementById('profileModalOverlay')) return;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'profile-modal-overlay';
+    overlay.id = 'profileModalOverlay';
+    overlay.onclick = (e) => closeProfileModal(e);
+
+    overlay.innerHTML = `
+        <div class="profile-modal" id="profileModal" onclick="event.stopPropagation()">
+            <button class="profile-modal__close" onclick="toggleProfileModal()" aria-label="Close modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="profile-modal__header">
+                <span class="profile-modal__email" id="modalUserEmail">user@email.com</span>
+                <div class="profile-modal__avatar-container">
+                    <div class="profile-modal__avatar" id="modalUserAvatar">US</div>
+                    <div class="profile-modal__avatar-edit"
+                        onclick="document.getElementById('profilePicInput').click()">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <input type="file" id="profilePicInput" accept="image/*" style="display:none;"
+                        onchange="handleProfilePic(this)">
+                </div>
+                <h2 class="profile-modal__greeting" id="modalUserGreeting">Hi, User!</h2>
+                <button type="button" class="profile-modal__manage-btn" onclick="toggleSettingsOverlay()">Manage your
+                    Skillz Account</button>
+            </div>
+
+            <div class="profile-modal__alert" style="display:none;">
+                <div class="profile-modal__alert-icon">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <div class="profile-modal__alert-content">
+                    <div class="profile-modal__alert-title">Keep your progress safe</div>
+                    <div class="profile-modal__alert-desc">Make sure your email is verified to never lose your learning streaks.</div>
+                    <div class="profile-modal__alert-actions">
+                        <button class="profile-modal__alert-btn" onclick="dismissVerificationAlert()">Dismiss</button>
+                        <button class="profile-modal__alert-btn" style="color:var(--text-muted);" onclick="checkVerificationStatus()">Check status</button>
+                        <button class="profile-modal__alert-btn" style="color:var(--secondary);" onclick="sendVerificationEmail()">Verify now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-modal__accounts" id="modalAccountsList">
+                <!-- Accounts rendered by main.js -->
+            </div>
+
+            <div class="profile-modal__footer">
+                <button class="profile-modal__logout-btn" onclick="logout()">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sign out
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(overlay);
+}
+
 async function handleProfilePic(input) {
     if (input.files && input.files[0]) {
         const file = input.files[0];
@@ -582,8 +780,11 @@ async function handleProfilePic(input) {
 }
 
 function toggleProfileModal() {
-    const overlay = document.getElementById('profileModalOverlay');
-    if (!overlay) return;
+    let overlay = document.getElementById('profileModalOverlay');
+    if (!overlay) {
+        injectProfileModal();
+        overlay = document.getElementById('profileModalOverlay');
+    }
     const isActive = overlay.classList.contains('active');
 
     if (!isActive) {
@@ -961,4 +1162,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     initReveal();
+    renderMath();
+
+    // Sidebar View Change Listener
+    document.addEventListener('skillz-view-change', (e) => {
+        if (e.detail && e.detail.view) {
+            openSettings(e.detail.view);
+        }
+    });
 });
