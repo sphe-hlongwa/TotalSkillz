@@ -1559,6 +1559,11 @@ h3 {
     transform: translateY(-1px);
 }
 
+/* Hide bottom-nav by default (desktop) */
+.bottom-nav {
+    display: none;
+}
+
 /* ---------- Mobile Optimizations (Strictly Mobile) ---------- */
 @media (max-width: 768px) {
     .header__left {
@@ -1655,9 +1660,4 @@ h3 {
     .layout-wrapper {
         min-height: auto;
     }
-}
-
-/* Hide bottom-nav on desktop */
-.bottom-nav {
-    display: none;
 }
