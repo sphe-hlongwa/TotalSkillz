@@ -4,7 +4,7 @@
 
 // ---- Theme ----
 function getTheme() {
-    return localStorage.getItem('mg12_theme') || 'light';
+    return localStorage.getItem('totalskillz_theme') || 'light';
 }
 function setTheme(theme) {
     const isAuthPage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname.includes('index.html');
@@ -13,16 +13,16 @@ function setTheme(theme) {
     } else {
         document.body.setAttribute('data-theme', theme);
     }
-    localStorage.setItem('mg12_theme', theme);
+    localStorage.setItem('totalskillz_theme', theme);
     updateThemeToggleIcon(theme);
 }
 
 function updateThemeToggleIcon(theme) {
-    const btn = document.getElementById('headerThemeToggle');
-    if (btn) {
+    const btns = document.querySelectorAll('.modal-theme-toggle');
+    btns.forEach(btn => {
         const icon = btn.querySelector('i');
-        icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    }
+        if (icon) icon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    });
 }
 function toggleTheme() {
     const current = getTheme();
@@ -33,27 +33,27 @@ function toggleTheme() {
 // ---- Auth helpers ----
 function getUser() {
     // Firebase manages user state globally via auth.currentUser
-    const user = window.mg12_auth ? window.mg12_auth.currentUser : null;
+    const user = window.totalskillz_auth ? window.totalskillz_auth.currentUser : null;
     if (user) {
         return { name: user.displayName || 'User', email: user.email, uid: user.uid };
     }
     // Fallback to legacy check during migration
-    const u = localStorage.getItem('mg12_user');
+    const u = localStorage.getItem('totalskillz_user');
     return u ? JSON.parse(u) : null;
 }
 function setUser(user) {
     // This is now handled by Firebase Auth state changes
-    if (user) localStorage.setItem('mg12_user', JSON.stringify(user));
-    else localStorage.removeItem('mg12_user');
+    if (user) localStorage.setItem('totalskillz_user', JSON.stringify(user));
+    else localStorage.removeItem('totalskillz_user');
 }
 function logout() {
-    if (window.mg12_auth) {
-        window.mg12_auth.signOut().then(() => {
-            localStorage.removeItem('mg12_user');
+    if (window.totalskillz_auth) {
+        window.totalskillz_auth.signOut().then(() => {
+            localStorage.removeItem('totalskillz_user');
             window.location.href = 'index.html';
         });
     } else {
-        localStorage.removeItem('mg12_user');
+        localStorage.removeItem('totalskillz_user');
         window.location.href = 'index.html';
     }
 }
@@ -110,6 +110,43 @@ function initHeader() {
     document.querySelectorAll('.user-avatar').forEach(el => {
         if (user) el.textContent = getInitials(user.name);
     });
+
+    initBottomNav();
+}
+
+// ---- Bottom Nav ----
+function initBottomNav() {
+    if (document.getElementById('bottomNav')) return;
+
+    const nav = document.createElement('nav');
+    nav.className = 'bottom-nav';
+    nav.id = 'bottomNav';
+
+    const page = window.location.pathname.split('/').pop() || 'dashboard.html';
+
+    const navItems = [
+        { id: 'practice', icon: 'fa-solid fa-dumbbell', label: 'Practice', href: 'practice.html' },
+        { id: 'topics', icon: 'fa-solid fa-book-open', label: 'Topics', href: 'topics.html' },
+        { id: 'live', icon: 'fa-solid fa-video', label: 'Live Classes', href: 'interactive.html' },
+        { id: 'manage', icon: 'fa-solid fa-gear', label: 'Manage', action: 'toggleSettingsOverlay()' }
+    ];
+
+    nav.innerHTML = navItems.map(item => {
+        const isActive = item.href === page;
+        const attr = item.action ? `onclick="${item.action}"` : `href="${item.href}"`;
+        const tag = item.action ? 'button' : 'a';
+
+        return `
+            <${tag} ${attr} class="bottom-nav__item ${isActive ? 'active' : ''}">
+                <div class="bottom-nav__icon-wrap">
+                    <i class="${item.icon}"></i>
+                </div>
+                <span class="bottom-nav__label">${item.label}</span>
+            </${tag}>
+        `;
+    }).join('');
+
+    document.body.appendChild(nav);
 }
 
 // ---- UI Animations ----
@@ -222,7 +259,7 @@ function getInitialProgress() {
 }
 
 function getProgress() {
-    const p = localStorage.getItem('mg12_progress');
+    const p = localStorage.getItem('totalskillz_progress');
     if (!p) return getInitialProgress();
     const data = JSON.parse(p);
     // Ensure new fields exist
@@ -377,7 +414,16 @@ function injectSettingsOverlay() {
                 </div>
             </div>
             <div class="settings-footer" style="padding:1.5rem; border-top:1px solid var(--border); text-align:center;">
-                <p style="font-size:0.75rem; color:var(--text-muted);">MathGrade12 v2.4.0 • Built with <i class="fa-solid fa-heart" style="color:var(--accent-red);"></i></p>
+                <div class="sidebar-custom-footer" style="margin-bottom: 1rem;">
+                    <p style="font-size: 0.8rem; margin-bottom: 0.5rem;">Crafted by <span style="color: var(--primary); font-weight: 700;">Sphephelo Hlongwa</span></p>
+                    <div class="sidebar-socials" style="display: flex; justify-content: center; gap: 1rem;">
+                        <a href="#" style="color: var(--text-muted); font-size: 1.1rem;"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" style="color: var(--text-muted); font-size: 1.1rem;"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank" style="color: var(--text-muted); font-size: 1.1rem;"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="https://github.com/sphe-hlongwa" target="_blank" style="color: var(--text-muted); font-size: 1.1rem;"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <p style="font-size:0.7rem; color:var(--text-muted); opacity: 0.8;">TotalSkillz v2.4.0 • Built For Success</p>
             </div>
         </div>
     `;
@@ -537,11 +583,6 @@ function toggleDarkTheme(isDark) {
     saveProgress(p);
 }
 
-function toggleThemeManually() {
-    const current = document.body.getAttribute('data-theme') || 'light';
-    const next = current === 'dark' ? 'light' : 'dark';
-    toggleDarkTheme(next === 'dark');
-}
 
 function updateGoalPreview(val) {
     document.getElementById('goalValue').textContent = val + ' Questions';
@@ -665,7 +706,7 @@ function exportProgressData() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `MathGrade12_Progress_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `TotalSkillz_Progress_${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     showToast('Progress exported!', 'success');
 }
@@ -727,8 +768,11 @@ function injectProfileModal() {
                         onchange="handleProfilePic(this)">
                 </div>
                 <h2 class="profile-modal__greeting" id="modalUserGreeting">Hi, User!</h2>
-                <button type="button" class="profile-modal__manage-btn" onclick="toggleSettingsOverlay()">Manage your
-                    Skillz Account</button>
+                <div style="display: flex; gap: 0.75rem; justify-content: center; margin-top: 0.5rem;">
+                    <button type="button" class="theme-toggle-btn modal-theme-toggle" onclick="toggleTheme()" style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-card); display: flex; align-items: center; justify-content: center; border: 1px solid var(--border);">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="profile-modal__alert" style="display:none;">
@@ -841,7 +885,7 @@ function toggleProfileModal() {
 }
 
 function dismissVerificationAlert() {
-    sessionStorage.setItem('mg12_verify_dismissed', 'true');
+    sessionStorage.setItem('totalskillz_verify_dismissed', 'true');
     const alert = document.querySelector('.profile-modal__alert');
     if (alert) alert.style.display = 'none';
 }
@@ -919,7 +963,7 @@ function populateProfileModal() {
 
     // Show verification alert if email not verified
     if (alertEl) {
-        const isDismissed = sessionStorage.getItem('mg12_verify_dismissed');
+        const isDismissed = sessionStorage.getItem('totalskillz_verify_dismissed');
         if (user.email && !user.emailVerified && !isDismissed) {
             alertEl.style.display = 'flex';
         } else {
@@ -931,7 +975,7 @@ function populateProfileModal() {
 
 function updateAccountList(user) {
     if (!user) return;
-    let accounts = JSON.parse(localStorage.getItem('mg12_accounts') || '[]');
+    let accounts = JSON.parse(localStorage.getItem('totalskillz_accounts') || '[]');
     const newAccount = {
         uid: user.uid,
         name: user.displayName || user.email?.split('@')[0] || 'User',
@@ -943,14 +987,14 @@ function updateAccountList(user) {
     accounts = accounts.filter(a => a.uid !== user.uid);
     accounts.unshift(newAccount);
     // Keep last 5
-    localStorage.setItem('mg12_accounts', JSON.stringify(accounts.slice(0, 5)));
+    localStorage.setItem('totalskillz_accounts', JSON.stringify(accounts.slice(0, 5)));
 }
 
 function renderAccountList() {
     const container = document.getElementById('modalAccountsList');
     if (!container) return;
 
-    const accounts = JSON.parse(localStorage.getItem('mg12_accounts') || '[]');
+    const accounts = JSON.parse(localStorage.getItem('totalskillz_accounts') || '[]');
     const currentUser = firebase.auth().currentUser;
 
     // Filter out current user from the list (they are shown in header)
@@ -1000,7 +1044,7 @@ function switchAccount(uid) {
 // ---- Progress Handling ----
 async function saveProgress(data) {
     const user = firebase.auth().currentUser;
-    localStorage.setItem('mg12_progress', JSON.stringify(data));
+    localStorage.setItem('totalskillz_progress', JSON.stringify(data));
 
     if (user) {
         try {
@@ -1019,7 +1063,7 @@ async function syncFromFirestore(uid) {
         const doc = await firebase.firestore().collection('users').doc(uid).get();
         if (doc.exists && doc.data().progress) {
             const data = doc.data().progress;
-            localStorage.setItem('mg12_progress', JSON.stringify(data));
+            localStorage.setItem('totalskillz_progress', JSON.stringify(data));
             return data;
         }
     } catch (error) {
@@ -1137,10 +1181,29 @@ function initTopicToggle() {
 document.addEventListener('DOMContentLoaded', () => {
     setTheme(getTheme());
 
-    // Migration: Move legacy 'userProgress' to 'mg12_progress'
+    // Migration: Move mg12_ prefixed keys to totalskillz_
+    const legacyKeys = ['progress', 'user', 'theme', 'accounts', 'verify_dismissed', 'quote_reveal'];
+    legacyKeys.forEach(k => {
+        const oldKey = `mg12_${k}`;
+        const newKey = `totalskillz_${k}`;
+        const val = localStorage.getItem(oldKey) || (k === 'verify_dismissed' ? sessionStorage.getItem(oldKey) : null);
+
+        if (val && !localStorage.getItem(newKey) && !(k === 'verify_dismissed' && sessionStorage.getItem(newKey))) {
+            if (k === 'verify_dismissed') {
+                sessionStorage.setItem(newKey, val);
+                sessionStorage.removeItem(oldKey);
+            } else {
+                localStorage.setItem(newKey, val);
+                localStorage.removeItem(oldKey);
+            }
+            console.log(`Migrated legacy key: ${oldKey} -> ${newKey}`);
+        }
+    });
+
+    // Migration: Move legacy 'userProgress' to 'totalskillz_progress'
     const legacyProgress = localStorage.getItem('userProgress');
-    if (legacyProgress && !localStorage.getItem('mg12_progress')) {
-        localStorage.setItem('mg12_progress', legacyProgress);
+    if (legacyProgress && !localStorage.getItem('totalskillz_progress')) {
+        localStorage.setItem('totalskillz_progress', legacyProgress);
         localStorage.removeItem('userProgress');
     }
 

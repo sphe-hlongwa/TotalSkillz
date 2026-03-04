@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Total Skill - Sign In</title>
+    <title>TotalSkillz - Sign In</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <meta name="description"
-        content="Sign in to Total Skill, your interactive Grade 12 Mathematics learning hub with visual lessons, daily practice, and progress tracking.">
+        content="Sign in to TotalSkillz, your interactive Grade 12 Mathematics learning hub with visual lessons, daily practice, and progress tracking.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -48,7 +48,7 @@
                     <img src="logo.jpg" alt="Total Skill Logo"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                 </div>
-                <h1 class="auth-visual__title">Total Skill</h1>
+                <h1 class="auth-visual__title">TotalSkillz</h1>
                 <p class="auth-visual__desc">Master Grade 12 Mathematics with visual lessons, daily practice, and smart
                     tracking.</p>
                 <div class="auth-visual__formulas">
@@ -287,32 +287,41 @@
                     Already have an account?
                     <button type="button" onclick="showPanel('loginPanel')">Sign in</button>
                 </p>
+
+                <!-- Footer / Credits -->
+                <div class="auth-footer"
+                    style="margin-top: 2.5rem; text-align: center; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+                    <div class="sidebar-custom-footer" style="margin-bottom: 1rem;">
+                        <p style="font-size: 0.8rem; margin-bottom: 0.6rem; color: var(--text-muted);">Crafted by <span
+                                style="color: var(--primary); font-weight: 700;">Sphephelo Hlongwa</span></p>
+                        <div class="sidebar-socials" style="display: flex; justify-content: center; gap: 1.25rem;">
+                            <a href="#" style="color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-muted)'"><i
+                                    class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#" style="color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-muted)'"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank"
+                                style="color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-muted)'"><i
+                                    class="fa-brands fa-telegram"></i></a>
+                            <a href="https://github.com/sphe-hlongwa" target="_blank"
+                                style="color: var(--text-muted); font-size: 1.1rem; transition: color 0.3s;"
+                                onmouseover="this.style.color='var(--primary)'"
+                                onmouseout="this.style.color='var(--text-muted)'"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <p style="font-size:0.7rem; color:var(--text-muted); opacity: 0.6;">TotalSkillz v2.4.0 • Built For
+                        Success</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer
-        style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 2rem;">
-        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;">
-            Crafted by <span style="color: var(--primary); font-weight: 600;">Sphephelo Hlongwa</span>
-        </p>
-        <div style="display: flex; justify-content: center; gap: 1rem; font-size: 1.2rem;">
-            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-linkedin"></i></a>
-            <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank"
-                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-telegram"></i></a>
-            <a href="https://github.com/sphe-hlongwa" target="_blank"
-                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-github"></i></a>
-        </div>
-    </footer>
 
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -336,7 +345,7 @@
         });
 
         function initAccountSwitcher() {
-            const accounts = JSON.parse(localStorage.getItem('mg12_accounts') || '[]');
+            const accounts = JSON.parse(localStorage.getItem('totalskillz_accounts') || '[]');
             const switcher = document.getElementById('accountSwitcher');
             const list = document.getElementById('accountList');
             const isAddAccount = window.location.search.includes('action=add_account');
@@ -554,9 +563,9 @@
             if (!email || !validateEmail(email)) { showError('loginEmail', 'loginEmailErr'); valid = false; }
             if (!pass) { showError('loginPassword', 'loginPassErr'); valid = false; }
 
-            if (valid && window.mg12_auth) {
+            if (valid && window.totalskillz_auth) {
                 try {
-                    await window.mg12_auth.signInWithEmailAndPassword(email, pass);
+                    await window.totalskillz_auth.signInWithEmailAndPassword(email, pass);
                     // Redirect handled by onAuthStateChanged in main.js
                 } catch (error) {
                     console.error("Login Error full details:", error);
@@ -564,7 +573,7 @@
                     showError('loginPassword', 'loginPassErr');
                     document.getElementById('loginPassErr').textContent = error.message;
                 }
-            } else if (!window.mg12_auth) {
+            } else if (!window.totalskillz_auth) {
                 console.error("Firebase Auth not initialized. Check your config.");
             }
         });
@@ -579,9 +588,9 @@
             if (!email || !validateEmail(email)) { showError('signupEmail', 'signupEmailErr'); valid = false; }
             if (!pass || pass.length < 8) { showError('signupPassword', 'signupPassErr'); valid = false; }
 
-            if (valid && window.mg12_auth) {
+            if (valid && window.totalskillz_auth) {
                 try {
-                    const result = await window.mg12_auth.createUserWithEmailAndPassword(email, pass);
+                    const result = await window.totalskillz_auth.createUserWithEmailAndPassword(email, pass);
                     await result.user.updateProfile({ displayName: name });
                     // Initial progress set in main.js/syncFromFirestore logic
                 } catch (error) {
@@ -595,7 +604,9 @@
 
         document.querySelectorAll('.btn-google').forEach(btn => {
             btn.addEventListener('click', async () => {
-                if (window.mg12_auth) {
+                if (window.totalskillz_auth) {
+                    const isWebView = /wv|Version\/[\d\.]+/.test(navigator.userAgent);
+
                     const originalContent = btn.innerHTML;
                     btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Connecting...';
                     btn.style.opacity = '0.7';
@@ -603,15 +614,22 @@
 
                     const provider = new firebase.auth.GoogleAuthProvider();
                     try {
-                        await window.mg12_auth.signInWithPopup(provider);
-                        // Redirect handled by onAuthStateChanged in main.js
+                        // In some APK environments, signInWithPopup is blocked.
+                        // We try it first, but suggest manual login on failure.
+                        await window.totalskillz_auth.signInWithPopup(provider);
                     } catch (error) {
-                        console.error("Google Sign-In Error full details:", error);
-                        console.dir(error);
+                        console.error("Google Sign-In Error:", error);
                         btn.innerHTML = originalContent;
                         btn.style.opacity = '1';
                         btn.style.pointerEvents = 'all';
-                        alert("Google Sign-In failed: " + error.message);
+
+                        if (error.code === 'auth/popup-blocked' || error.code === 'auth/operation-not-supported-in-this-environment') {
+                            alert("Google login is blocked by your device/app. Please use the Email or Phone method instead.");
+                        } else if (error.code === 'auth/missing-initial-state') {
+                            alert("Browser session issue. Please try closing the app and reopening it, or use Email/Phone.");
+                        } else {
+                            alert("Sign-in failed: " + error.message);
+                        }
                     }
                 }
             });

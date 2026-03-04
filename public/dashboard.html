@@ -54,26 +54,7 @@
                 </a>
             </div>
 
-            <div class="header__center">
-                <a href="practice.html" class="header__icon-nav" title="Practice">
-                    <i class="fa-solid fa-dumbbell"></i>
-                </a>
-                <a href="topics.html" class="header__icon-nav" title="Topics">
-                    <i class="fa-solid fa-book-open"></i>
-                </a>
-                <a href="interactive.html" class="header__icon-nav" title="Live Classes">
-                    <i class="fa-solid fa-video"></i>
-                </a>
-            </div>
-
             <div class="header__right">
-                <button class="theme-toggle-btn" onclick="toggleThemeManually()" id="headerThemeToggle"
-                    title="Toggle Dark/Light Mode">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <div class="streak-badge" id="streakDisplay">
-                    <i class="fa-solid fa-fire"></i> <span id="streakCount">0</span> Day Streak
-                </div>
                 <div class="header__avatar user-avatar" id="userAvatar" onclick="toggleProfileModal()"
                     title="View profile">US</div>
             </div>
@@ -146,31 +127,19 @@
 
             <main class="content-main page-enter">
                 <div class="container">
-                    <!-- Welcome Banner -->
-                    <div class="welcome-banner" id="welcomeBanner">
-                        <div class="welcome-banner__content">
-                            <p class="welcome-banner__greeting" id="greeting">Good evening</p>
-                            <h1 class="welcome-banner__name">
-                                Welcome to Total Skillz
-                                <i class="fa-solid fa-brain" style="-webkit-text-fill-color: #8b5cf6;"></i>
-                                <span id="userName" style="display:inline;"></span>
-                            </h1>
-                            <p class="welcome-banner__msg">Keep up the momentum! Every problem you solve brings you
-                                closer to mastering matric maths.</p>
-
-                            <div class="welcome-banner__cta">
-                                <a href="practice.html" class="btn btn-primary btn-lg glow-btn" id="resumeBtn">
-                                    <i class="fa-solid fa-play"></i> Resume Learning
-                                </a>
-                            </div>
-
-                            <div class="welcome-banner__quote" id="welcomeQuote"></div>
+                    <!-- Search (Moved to Top) -->
+                    <div class="search-section" style="margin-bottom: 1rem; margin-top: -1rem;">
+                        <div class="search-bar" id="searchBar">
+                            <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted);"></i>
+                            <input type="text" id="searchInput" placeholder="Search topics, videos, formulas...">
+                            <button type="button" id="searchBtn" aria-label="Search"><i
+                                    class="fa-solid fa-arrow-right"></i></button>
                         </div>
-
+                        <div id="searchResults" class="search-results" style="display:none;"></div>
                     </div>
 
-                    <!-- New Stats Panel (Smooth Rectangle) -->
-                    <div class="stats-panel reveal">
+                    <!-- New Stats Panel (Under Search) -->
+                    <div class="stats-panel reveal" style="margin-top: -0.5rem; margin-bottom: 1.5rem;">
                         <div class="stat-item">
                             <div class="stat-item__visual">
                                 <svg viewBox="0 0 36 36" class="stat-ring">
@@ -249,18 +218,6 @@
                         </div>
                     </div>
 
-
-                    <!-- Search -->
-                    <div class="search-section">
-                        <div class="search-bar" id="searchBar">
-                            <i class="fa-solid fa-magnifying-glass" style="color:var(--text-muted);"></i>
-                            <input type="text" id="searchInput" placeholder="Search topics, videos, formulas...">
-                            <button type="button" id="searchBtn" aria-label="Search"><i
-                                    class="fa-solid fa-arrow-right"></i></button>
-                        </div>
-                        <div id="searchResults" class="search-results" style="display:none;"></div>
-                    </div>
-
                     <!-- Layout: Main + Sidebar -->
                     <div class="dash-layout">
                         <div>
@@ -333,28 +290,6 @@
         </div> <!-- Close layout-wrapper -->
     </div> <!-- Close main-layout -->
 
-    <footer
-        style="text-align: center; padding: 2rem 1rem; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 2rem;">
-        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;">
-            Crafted by <span style="color: var(--primary); font-weight: 600;">Sphephelo Hlongwa</span>
-        </p>
-        <div style="display: flex; justify-content: center; gap: 1rem; font-size: 1.2rem;">
-            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-linkedin"></i></a>
-            <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank"
-                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-telegram"></i></a>
-            <a href="https://github.com/sphe-hlongwa" target="_blank"
-                style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;"
-                onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i
-                    class="fa-brands fa-github"></i></a>
-        </div>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -434,7 +369,7 @@
             if (!container) return;
 
             const dayKey = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-            const lastReveal = localStorage.getItem('mg12_quote_reveal');
+            const lastReveal = localStorage.getItem('totalskillz_quote_reveal');
             const isNewDay = lastReveal !== dayKey;
 
             // Pick a single high-impact quote for the day
@@ -450,52 +385,41 @@
             `;
 
             if (isNewDay) {
-                localStorage.setItem('mg12_quote_reveal', dayKey);
+                localStorage.setItem('totalskillz_quote_reveal', dayKey);
             }
         }
 
         function init() {
             const user = getUser();
             const progress = getProgress();
-            const hour = new Date().getHours();
-            document.getElementById('greeting').textContent = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
-            document.getElementById('userName').textContent = user.name;
-            document.getElementById('streakCount').textContent = progress.streak;
+            const streakDisplay = document.getElementById('streakCount');
+            if (streakDisplay) streakDisplay.textContent = progress.streak;
 
             // Premium Stat Animations
             const accuracy = progress.totalAttempted > 0 ? Math.round((progress.totalCorrect / progress.totalAttempted) * 100) : 0;
 
-            animateCounter(document.getElementById('statCorrect'), progress.totalCorrect);
-            animateCounter(document.getElementById('statAttempted'), progress.totalAttempted);
-            animateCounter(document.getElementById('statAccuracy'), accuracy + '%');
-            animateCounter(document.getElementById('statBadges'), progress.badges.length);
+            const sc = document.getElementById('statCorrect');
+            const sa = document.getElementById('statAttempted');
+            const sacc = document.getElementById('statAccuracy');
+            const sb = document.getElementById('statBadges');
+
+            if (sc) animateCounter(sc, progress.totalCorrect);
+            if (sa) animateCounter(sa, progress.totalAttempted);
+            if (sacc) animateCounter(sacc, accuracy + '%');
+            if (sb) animateCounter(sb, progress.badges.length);
 
             // Update Rings
             setTimeout(() => {
-                updateProgressRing('ringCorrect', Math.min((progress.totalCorrect / 50) * 100, 100)); // Goal 50
-                updateProgressRing('ringAttempted', Math.min((progress.totalAttempted / 100) * 100, 100)); // Goal 100
-                updateProgressRing('ringAccuracy', accuracy);
-                updateProgressRing('ringBadges', Math.min((progress.badges.length / 14) * 100, 100));
+                if (document.getElementById('ringCorrect')) updateProgressRing('ringCorrect', Math.min((progress.totalCorrect / 50) * 100, 100)); // Goal 50
+                if (document.getElementById('ringAttempted')) updateProgressRing('ringAttempted', Math.min((progress.totalAttempted / 100) * 100, 100)); // Goal 100
+                if (document.getElementById('ringAccuracy')) updateProgressRing('ringAccuracy', accuracy);
+                if (document.getElementById('ringBadges')) updateProgressRing('ringBadges', Math.min((progress.badges.length / 14) * 100, 100));
             }, 500);
-
-            // Resume Button Logic
-            const resumeBtn = document.getElementById('resumeBtn');
-            if (resumeBtn && progress.topics) {
-                // Find most recent topic or default to first topic
-                const topics = Object.entries(progress.topics);
-                if (topics.length > 0) {
-                    const lastTopic = topics.sort((a, b) => (b[1].total || 0) - (a[1].total || 0))[0][0];
-                    resumeBtn.href = `practice.html?topic=${lastTopic}`;
-                    const topicTitle = topicsData.find(t => t.id === lastTopic)?.title || 'Learning';
-                    resumeBtn.innerHTML = `<i class="fa-solid fa-play"></i> Continue ${topicTitle}`;
-                }
-            }
 
             renderTopics(progress);
             renderDaily();
             renderWeakAreas();
             renderBadges(progress);
-            initQuotes();
         }
 
         function renderTopics(progress) {

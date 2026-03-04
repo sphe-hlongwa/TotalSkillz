@@ -14,6 +14,6 @@ const firebaseConfig = {
 // Initialize Firebase
 if (typeof firebase !== 'undefined') {
     firebase.initializeApp(firebaseConfig);
-    window.mg12_auth = firebase.auth();
-    window.mg12_db = firebase.firestore();
+    window.totalskillz_auth = firebase.auth();
+    window.totalskillz_db = firebase.firestore();
 }

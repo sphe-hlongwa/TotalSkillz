@@ -159,6 +159,49 @@
 .sidebar-footer {
     padding: 1rem;
     border-top: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar-custom-footer {
+    text-align: center;
+    padding: 0.5rem 0;
+    transition: opacity 0.3s;
+}
+
+.collapsed .sidebar-custom-footer {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar-custom-footer p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    white-space: nowrap;
+}
+
+.sidebar-custom-footer span {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.sidebar-socials {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.sidebar-socials a {
+    color: var(--text-muted);
+    font-size: 1rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.sidebar-socials a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
 }
 
 /* Responsive */
