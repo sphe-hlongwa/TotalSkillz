@@ -212,6 +212,8 @@ body {
     padding: var(--container-px);
     position: relative;
     background: transparent;
+    margin-left: var(--sidebar-w, 260px);
+    transition: margin-left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ---------- Header ---------- */
@@ -1659,5 +1661,10 @@ h3 {
 
     .layout-wrapper {
         min-height: auto;
+    }
+
+    /* On mobile the sidebar is hidden off-screen, so no margin needed */
+    .content-main {
+        margin-left: 0 !important;
     }
 }

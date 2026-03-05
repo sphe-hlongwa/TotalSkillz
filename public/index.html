@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="css/auth.css">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/;">
@@ -355,13 +356,13 @@
                 document.getElementById('loginPanel').style.display = 'none';
 
                 list.innerHTML = accounts.map(a => `
-                    <div class="account-item" onclick="selectAccount('${a.email}')">
+                    <div class="account-item" onclick="selectAccount('${sanitizeText(a.email)}')">
                         <div class="account-item__avatar">
-                            ${a.photoURL ? `<img src="${a.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` : getInitials(a.name)}
+                            ${a.photoURL ? `<img src="${sanitizeHTML(a.photoURL)}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` : getInitials(sanitizeText(a.name))}
                         </div>
                         <div class="account-item__info">
-                            <div class="account-item__name">${a.name}</div>
-                            <div class="account-item__email">${a.email}</div>
+                            <div class="account-item__name">${sanitizeText(a.name)}</div>
+                            <div class="account-item__email">${sanitizeText(a.email)}</div>
                         </div>
                         <i class="fa-solid fa-chevron-right" style="margin-left:auto; opacity:0.3;"></i>
                     </div>

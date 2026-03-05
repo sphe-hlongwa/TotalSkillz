@@ -21,15 +21,23 @@
     flex-direction: column;
     transition: width var(--sidebar-transition), background var(--sidebar-transition), border-color var(--sidebar-transition);
     overflow: hidden;
-    position: sticky;
+    position: fixed;
     top: var(--header-h, 64px);
+    left: 0;
     z-index: 1000;
+    overflow-y: auto;
 }
 
 .skillz-sidebar.collapsed {
     width: 0;
     border-right: none;
     padding: 0;
+}
+
+/* When sidebar is collapsed, content should expand back */
+.skillz-sidebar.collapsed~.content-main,
+body:has(.skillz-sidebar.collapsed) .content-main {
+    margin-left: 0;
 }
 
 

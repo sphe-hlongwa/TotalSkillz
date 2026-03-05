@@ -1,0 +1,21 @@
+{
+  "name": "TotalSkillz Math Grade 12",
+  "short_name": "TotalSkillz",
+  "description": "Master Grade 12 Mathematics with practice, topics, and live classes.",
+  "start_url": "/dashboard.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

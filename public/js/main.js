@@ -28,6 +28,14 @@ function toggleTheme() {
     const current = getTheme();
     const next = current === 'dark' ? 'light' : 'dark';
     setTheme(next);
+
+    // Keep progress object in sync (for cloud/offline persistence)
+    try {
+        const p = getProgress();
+        if (!p.settings) p.settings = {};
+        p.settings.theme = next;
+        saveProgress(p);
+    } catch (e) { console.warn("Failed to save theme to progress", e); }
 }
 
 // ---- Auth helpers ----
@@ -112,6 +120,15 @@ function initHeader() {
     });
 
     initBottomNav();
+
+    // Register Service Worker for Offline Mode
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('SW Registered', reg))
+                .catch(err => console.error('SW Registration Failed', err));
+        });
+    }
 }
 
 // ---- Bottom Nav ----
@@ -1003,11 +1020,11 @@ function renderAccountList() {
     let html = otherAccounts.map(a => `
         <div class="profile-modal__account-item" onclick="switchAccount('${a.uid}')">
             <div class="profile-modal__account-avatar" style="background:var(--primary-pale); color:var(--primary);">
-                ${a.photoURL ? `<img src="${a.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` : getInitials(a.name)}
+                ${a.photoURL ? `<img src="${sanitizeHTML(a.photoURL)}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">` : getInitials(sanitizeText(a.name))}
             </div>
             <div class="profile-modal__account-info">
-                <div class="profile-modal__account-name">${a.name}</div>
-                <div class="profile-modal__account-email">${a.email}</div>
+                <div class="profile-modal__account-name">${sanitizeText(a.name)}</div>
+                <div class="profile-modal__account-email">${sanitizeText(a.email)}</div>
             </div>
         </div>
     `).join('');
