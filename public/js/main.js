@@ -267,6 +267,7 @@ function getInitialProgress() {
         badges: [],
         dailyDone: false,
         bio: '',
+        missedQuestions: [],
         settings: {
             theme: 'light',
             dailyGoal: 10,
@@ -1269,7 +1270,24 @@ document.addEventListener('DOMContentLoaded', () => {
             updateAccountList(user);
 
             if (isIndex && !window.location.search.includes('action=add_account')) {
-                window.location.href = 'dashboard.html';
+                // Check if user has completed onboarding
+                const localOnboarded = localStorage.getItem('totalskillz_onboarded');
+                if (localOnboarded) {
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // Check Firestore for onboarded flag
+                    firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
+                        if (doc.exists && doc.data().onboarded) {
+                            localStorage.setItem('totalskillz_onboarded', 'true');
+                            window.location.href = 'dashboard.html';
+                        } else {
+                            window.location.href = 'onboarding.html';
+                        }
+                    }).catch(() => {
+                        // On error, go to dashboard to avoid blocking users
+                        window.location.href = 'dashboard.html';
+                    });
+                }
             }
         } else {
             // User is signed out

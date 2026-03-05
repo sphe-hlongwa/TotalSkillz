@@ -100,6 +100,10 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span class="nav-label">Topics</span>
                         </a>
+                        <a href="exam.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <span class="nav-label">Exam Mode</span>
+                        </a>
                         <a href="interactive.html" class="nav-item" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span class="nav-label">Live Classes</span>
@@ -110,7 +114,7 @@
                         <span class="nav-section-title">Data Management</span>
                         <a href="#" class="nav-item" data-view="data" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-database"></i>
-                            <span class="nav-label">Export & Sync</span>
+                            <span class="nav-label">Export &amp; Sync</span>
                         </a>
                         <a href="#" class="nav-item danger" data-view="danger" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-trash-can"></i>
@@ -146,6 +150,9 @@
                         <div class="topic-pills" id="topicPills">
                             <button class="pill active" data-topic="all"><i class="fa-solid fa-layer-group"></i> All
                                 Topics</button>
+                            <button class="pill" data-topic="review" id="reviewPill"
+                                style="background:var(--accent-amber-light);border-color:var(--accent-amber);color:var(--accent-amber);"><i
+                                    class="fa-solid fa-rotate-left"></i> Review Missed</button>
                             <button class="pill" data-topic="algebra"><i class="fa-solid fa-superscript"></i>
                                 Algebra</button>
                             <button class="pill" data-topic="patterns"><i class="fa-solid fa-list-ol"></i>
@@ -248,9 +255,29 @@
         let failedQuestions = []; // Track failed questions
 
         function filterQuestions() {
-            filteredQuestions = currentTopic === 'all'
-                ? [...questionBank].sort(() => Math.random() - 0.5)
-                : questionBank.filter(q => q.topic === currentTopic).sort(() => Math.random() - 0.5);
+            const p = getProgress();
+            if (currentTopic === 'review') {
+                // Spaced repetition: pull questions that were previously missed
+                const missed = p.missedQuestions || [];
+                if (missed.length === 0) {
+                    filteredQuestions = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 20);
+                    showToast('No missed questions yet — practise some topics first!', 'info');
+                } else {
+                    // Match stored question text to questions in bank
+                    const missedSet = new Set(missed);
+                    filteredQuestions = questionBank.filter(q => missedSet.has(q.q)).sort(() => Math.random() - 0.5);
+                    if (filteredQuestions.length === 0) {
+                        filteredQuestions = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 20);
+                        showToast('Great — all missed questions cleared! Showing random questions.', 'success');
+                    } else {
+                        showToast(`Reviewing ${filteredQuestions.length} previously missed question${filteredQuestions.length !== 1 ? 's' : ''}.`, 'info');
+                    }
+                }
+            } else {
+                filteredQuestions = currentTopic === 'all'
+                    ? [...questionBank].sort(() => Math.random() - 0.5)
+                    : questionBank.filter(q => q.topic === currentTopic).sort(() => Math.random() - 0.5);
+            }
             questionIndex = 0;
         }
 
@@ -316,15 +343,31 @@
             const buttons = document.querySelectorAll('.answer-btn');
             buttons.forEach((btn, i) => { btn.style.pointerEvents = 'none'; if (i === q.answer) btn.classList.add('correct'); if (i === selected && i !== q.answer) btn.classList.add('wrong'); });
             sessionTotal++;
-            if (selected === q.answer) {
+            const isCorrect = selected === q.answer;
+            if (isCorrect) {
                 sessionCorrect++;
+                // Remove from missed questions if they got it right this time
+                const p = getProgress();
+                if (p.missedQuestions && p.missedQuestions.includes(q.q)) {
+                    p.missedQuestions = p.missedQuestions.filter(qText => qText !== q.q);
+                    saveProgress(p);
+                }
             } else {
                 failedQuestions.push(q);
+                // Save to persistent missed questions for spaced repetition
+                const p = getProgress();
+                if (!p.missedQuestions) p.missedQuestions = [];
+                if (!p.missedQuestions.includes(q.q)) {
+                    p.missedQuestions.push(q.q);
+                    // Cap at 50 entries
+                    if (p.missedQuestions.length > 50) p.missedQuestions.shift();
+                    saveProgress(p);
+                }
             }
-            recordAnswer(q.topic, selected === q.answer);
+            recordAnswer(q.topic, isCorrect);
             document.getElementById('showSolution').style.display = '';
             document.getElementById('nextBtn').style.display = '';
-            showToast(selected === q.answer ? 'Correct!' : 'Incorrect. Review the solution.', selected === q.answer ? 'success' : 'error');
+            showToast(isCorrect ? 'Correct! 🎉' : 'Incorrect. Review the solution.', isCorrect ? 'success' : 'error');
             updateSessionDisplay(); renderTopicBreakdown(); checkSuggestions();
         }
 

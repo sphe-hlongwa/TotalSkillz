@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to TotalSkillz</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        :root {
+            --step-color: #4f46e5;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+            padding: 1rem;
+        }
+
+        .onboard-wrap {
+            width: 100%;
+            max-width: 560px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+
+        /* Progress bar */
+        .onboard-bar {
+            height: 5px;
+            background: var(--border-light);
+            position: relative;
+        }
+
+        .onboard-bar__fill {
+            height: 100%;
+            background: var(--primary);
+            transition: width 0.4s ease;
+            width: 33.3%;
+            border-radius: 0 3px 3px 0;
+        }
+
+        /* Header */
+        .onboard-header {
+            padding: 2rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .onboard-header__icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--primary-pale);
+            color: var(--primary);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .onboard-header__step {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.3rem;
+        }
+
+        .onboard-header__title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+        }
+
+        .onboard-header__desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Body */
+        .onboard-body {
+            padding: 1.5rem 2rem;
+        }
+
+        /* Topic grid */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.6rem;
+            margin-top: 0.75rem;
+        }
+
+        .topic-chip {
+            padding: 0.65rem 0.75rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            user-select: none;
+            background: var(--bg);
+        }
+
+        .topic-chip:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .topic-chip.selected {
+            border-color: var(--primary);
+            background: var(--primary-pale);
+            color: var(--primary);
+        }
+
+        .topic-chip i {
+            font-size: 0.9rem;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Target mark */
+        .mark-display {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            margin: 0.5rem 0;
+        }
+
+        .range-slider {
+            width: 100%;
+            margin-top: 0.5rem;
+            accent-color: var(--primary);
+        }
+
+        .mark-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Goal buttons */
+        .goal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+            margin-top: 0.75rem;
+        }
+
+        .goal-btn {
+            padding: 1rem 0.5rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            text-align: center;
+            background: var(--bg);
+            transition: all 0.2s;
+        }
+
+        .goal-btn:hover {
+            border-color: var(--primary-light);
+        }
+
+        .goal-btn.selected {
+            border-color: var(--primary);
+            background: var(--primary-pale);
+        }
+
+        .goal-btn__num {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .goal-btn__label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        /* Footer */
+        .onboard-footer {
+            padding: 1.25rem 2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .onboard-footer .btn {
+            flex: 1;
+        }
+
+        .skip-link {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .skip-link:hover {
+            color: var(--primary);
+        }
+
+        /* Step visibility */
+        .onboard-step {
+            display: none;
+        }
+
+        .onboard-step.active {
+            display: block;
+        }
+
+        /* Exam date */
+        .exam-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="onboard-wrap">
+        <div class="onboard-bar">
+            <div class="onboard-bar__fill" id="progressBar"></div>
+        </div>
+
+        <!-- STEP 1: Weak Topics -->
+        <div class="onboard-step active" id="step1">
+            <div class="onboard-header">
+                <div class="onboard-header__icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="onboard-header__step">Step 1 of 3</div>
+                <div class="onboard-header__title">What are your weak areas?</div>
+                <div class="onboard-header__desc">Select up to 3 topics you struggle with most. We'll prioritise these
+                    in your practice sessions.</div>
+            </div>
+            <div class="onboard-body">
+                <div class="topic-grid" id="topicGrid">
+                    <div class="topic-chip" data-id="algebra" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-superscript"></i> Algebra</div>
+                    <div class="topic-chip" data-id="patterns" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-list-ol"></i> Patterns</div>
+                    <div class="topic-chip" data-id="functions" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-chart-line"></i> Functions</div>
+                    <div class="topic-chip" data-id="finance" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-sack-dollar"></i> Finance</div>
+                    <div class="topic-chip" data-id="trigonometry" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-compass-drafting"></i> Trigonometry</div>
+                    <div class="topic-chip" data-id="analytical_geometry" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-drafting-compass"></i> Analytical Geom</div>
+                    <div class="topic-chip" data-id="euclidean_geometry" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-shapes"></i> Euclidean Geom</div>
+                    <div class="topic-chip" data-id="calculus" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-infinity"></i> Calculus</div>
+                    <div class="topic-chip" data-id="probability" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-dice"></i> Probability</div>
+                    <div class="topic-chip" data-id="statistics" onclick="toggleTopic(this)"><i
+                            class="fa-solid fa-chart-simple"></i> Statistics</div>
+                </div>
+            </div>
+            <div class="onboard-footer">
+                <span class="skip-link" onclick="skipOnboarding()">Skip setup</span>
+                <button class="btn btn-primary" onclick="goStep(2)">Continue <i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- STEP 2: Target Mark + Exam Date -->
+        <div class="onboard-step" id="step2">
+            <div class="onboard-header">
+                <div class="onboard-header__icon"
+                    style="background:var(--accent-amber-light);color:var(--accent-amber);"><i
+                        class="fa-solid fa-bullseye"></i></div>
+                <div class="onboard-header__step">Step 2 of 3</div>
+                <div class="onboard-header__title">Set your targets</div>
+                <div class="onboard-header__desc">What mark are you aiming for? When is your matric exam?</div>
+            </div>
+            <div class="onboard-body">
+                <label style="font-weight:700;font-size:0.9rem;">Target Matric Mark</label>
+                <div class="mark-display" id="markDisplay">80%</div>
+                <input type="range" class="range-slider" id="markSlider" min="30" max="100" step="5" value="80"
+                    oninput="document.getElementById('markDisplay').textContent=this.value+'%'">
+                <div class="mark-labels"><span>30%</span><span>Distinction 80%</span><span>100%</span></div>
+
+                <div style="margin-top:1.5rem;">
+                    <label style="font-weight:700;font-size:0.9rem;">Final Exam Date (optional)</label>
+                    <input type="date" class="form-input" id="examDateInput" style="margin-top:0.5rem;">
+                    <p class="exam-hint"><i class="fa-regular fa-calendar"></i> We'll show a countdown on your
+                        dashboard.</p>
+                </div>
+            </div>
+            <div class="onboard-footer">
+                <button class="btn btn-secondary" onclick="goStep(1)"><i class="fa-solid fa-arrow-left"></i>
+                    Back</button>
+                <button class="btn btn-primary" onclick="goStep(3)">Continue <i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- STEP 3: Daily Goal -->
+        <div class="onboard-step" id="step3">
+            <div class="onboard-header">
+                <div class="onboard-header__icon"
+                    style="background:var(--accent-green-light);color:var(--accent-green);"><i
+                        class="fa-solid fa-dumbbell"></i></div>
+                <div class="onboard-header__step">Step 3 of 3</div>
+                <div class="onboard-header__title">Daily practice goal</div>
+                <div class="onboard-header__desc">How many questions do you want to answer each day? Consistent practice
+                    is what builds mastery.</div>
+            </div>
+            <div class="onboard-body">
+                <div class="goal-grid">
+                    <div class="goal-btn selected" data-goal="5" onclick="selectGoal(this)">
+                        <div class="goal-btn__num">5</div>
+                        <div class="goal-btn__label">Quick session</div>
+                    </div>
+                    <div class="goal-btn" data-goal="10" onclick="selectGoal(this)">
+                        <div class="goal-btn__num">10</div>
+                        <div class="goal-btn__label">Recommended</div>
+                    </div>
+                    <div class="goal-btn" data-goal="20" onclick="selectGoal(this)">
+                        <div class="goal-btn__num">20</div>
+                        <div class="goal-btn__label">Serious grind</div>
+                    </div>
+                    <div class="goal-btn" data-goal="30" onclick="selectGoal(this)">
+                        <div class="goal-btn__num">30</div>
+                        <div class="goal-btn__label">Exam prep</div>
+                    </div>
+                    <div class="goal-btn" data-goal="50" onclick="selectGoal(this)">
+                        <div class="goal-btn__num">50</div>
+                        <div class="goal-btn__label">Full hustle</div>
+                    </div>
+                    <div class="goal-btn" data-goal="0" onclick="selectGoal(this)">
+                        <div class="goal-btn__num">∞</div>
+                        <div class="goal-btn__label">No limit</div>
+                    </div>
+                </div>
+            </div>
+            <div class="onboard-footer">
+                <button class="btn btn-secondary" onclick="goStep(2)"><i class="fa-solid fa-arrow-left"></i>
+                    Back</button>
+                <button class="btn btn-primary" id="finishBtn" onclick="finishOnboarding()">
+                    <i class="fa-solid fa-rocket"></i> Let's go!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js?v=5"></script>
+    <script>
+        let currentStep = 1;
+        let selectedTopics = [];
+        let selectedGoal = 5;
+
+        // Guard — only allow logged-in users
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+            // If already onboarded, skip to dashboard
+            firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
+                if (doc.exists && doc.data().onboarded) {
+                    window.location.href = 'dashboard.html';
+                }
+            });
+            // Pre-fill theme
+            setTheme(getTheme());
+        });
+
+        function goStep(n) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            currentStep = n;
+            document.getElementById('step' + n).classList.add('active');
+            const fills = { 1: '33.3%', 2: '66.6%', 3: '100%' };
+            document.getElementById('progressBar').style.width = fills[n];
+        }
+
+        function toggleTopic(el) {
+            const id = el.dataset.id;
+            if (el.classList.contains('selected')) {
+                el.classList.remove('selected');
+                selectedTopics = selectedTopics.filter(t => t !== id);
+            } else {
+                if (selectedTopics.length >= 3) {
+                    // Flash the element to signal limit
+                    el.style.animation = 'none';
+                    el.style.border = '1.5px solid var(--accent-red)';
+                    setTimeout(() => el.style.border = '', 700);
+                    return;
+                }
+                el.classList.add('selected');
+                selectedTopics.push(id);
+            }
+        }
+
+        function selectGoal(el) {
+            document.querySelectorAll('.goal-btn').forEach(b => b.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedGoal = parseInt(el.dataset.goal) || 999;
+        }
+
+        async function finishOnboarding() {
+            const btn = document.getElementById('finishBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
+
+            const user = firebase.auth().currentUser;
+            if (!user) { window.location.href = 'index.html'; return; }
+
+            const targetMark = parseInt(document.getElementById('markSlider').value);
+            const examDate = document.getElementById('examDateInput').value || null;
+
+            // Merge settings into existing progress
+            const p = getProgress();
+            if (!p.settings) p.settings = {};
+            p.settings.weakAreas = selectedTopics;
+            p.settings.targetMark = targetMark;
+            p.settings.dailyGoal = selectedGoal;
+            if (examDate) p.settings.examDate = examDate;
+
+            await saveProgress(p);
+
+            // Mark as onboarded in Firestore
+            await firebase.firestore().collection('users').doc(user.uid).set({
+                onboarded: true
+            }, { merge: true });
+
+            localStorage.setItem('totalskillz_onboarded', 'true');
+            window.location.href = 'dashboard.html';
+        }
+
+        async function skipOnboarding() {
+            const user = firebase.auth().currentUser;
+            if (user) {
+                await firebase.firestore().collection('users').doc(user.uid).set({ onboarded: true }, { merge: true });
+                localStorage.setItem('totalskillz_onboarded', 'true');
+            }
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</body>
+
+</html>

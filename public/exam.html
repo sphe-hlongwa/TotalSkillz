@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Mode - TotalSkillz</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/dashboard.css?v=5">
+    <link rel="stylesheet" href="css/practice.css?v=3">
+    <link rel="stylesheet" href="css/settings.css?v=4">
+    <link rel="stylesheet" href="components/sidebar.css?v=3">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        /* ---- Exam Setup Screen ---- */
+        .exam-setup {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .setup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .setup-card {
+            padding: 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            background: var(--bg-card);
+        }
+
+        .setup-card:hover {
+            border-color: var(--primary-light);
+        }
+
+        .setup-card.selected {
+            border-color: var(--primary);
+            background: var(--primary-pale);
+        }
+
+        .setup-card__icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .setup-card__title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .setup-card__desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin: 1rem 0;
+        }
+
+        .timer-btn {
+            padding: 0.9rem 0.5rem;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            text-align: center;
+            background: var(--bg);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .timer-btn:hover {
+            border-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .timer-btn.selected {
+            border-color: var(--primary);
+            background: var(--primary-pale);
+            color: var(--primary);
+        }
+
+        /* ---- Exam Timer Bar ---- */
+        .exam-timer-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timer-bar__track {
+            flex: 1;
+            height: 8px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .timer-bar__fill {
+            height: 100%;
+            background: var(--accent-green);
+            border-radius: 4px;
+            transition: width 1s linear, background 0.5s;
+        }
+
+        .timer-bar__fill.amber {
+            background: var(--accent-amber);
+        }
+
+        .timer-bar__fill.red {
+            background: var(--accent-red);
+        }
+
+        .timer-display {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text);
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
+            min-width: 70px;
+            text-align: right;
+        }
+
+        .timer-display.amber {
+            color: var(--accent-amber);
+        }
+
+        .timer-display.red {
+            color: var(--accent-red);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.5
+            }
+        }
+
+        .exam-q-counter {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .exam-stop-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.3rem 0.7rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .exam-stop-btn:hover {
+            background: var(--accent-red);
+            color: white;
+            border-color: var(--accent-red);
+        }
+
+        /* ---- Exam Body ---- */
+        #examBody {
+            padding-top: 3.5rem;
+        }
+
+        /* offset for fixed timer bar */
+        .exam-container {
+            max-width: 720px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+
+        /* ---- Results Screen ---- */
+        .results-hero {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .results-score-ring {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 6px solid var(--primary);
+            background: var(--primary-pale);
+        }
+
+        .results-score-ring__num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .results-score-ring__label {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.2rem;
+        }
+
+        .results-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .results-meta__item {
+            text-align: center;
+        }
+
+        .results-meta__value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text);
+        }
+
+        .results-meta__label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .topic-result-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .topic-result-bar__name {
+            width: 130px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .topic-result-bar__progress {
+            flex: 1;
+            height: 7px;
+            background: var(--border-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .topic-result-bar__fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.7s ease;
+        }
+
+        .topic-result-bar__pct {
+            font-size: 0.78rem;
+            font-weight: 700;
+            width: 36px;
+            text-align: right;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-layout" id="mainLayout">
+        <header class="header">
+            <div class="header__left">
+                <button id="sidebarToggle" class="sidebar-toggle-btn" aria-label="Toggle sidebar"><i
+                        class="fa-solid fa-bars"></i></button>
+                <a href="dashboard.html" class="header__logo"><img src="logo.jpg" alt="Logo"
+                        class="header__logo-img"></a>
+            </div>
+            <div class="header__right">
+                <div class="header__avatar user-avatar" id="userAvatar" onclick="toggleProfileModal()"
+                    title="View profile">US</div>
+            </div>
+        </header>
+
+        <div class="layout-wrapper">
+            <aside class="skillz-sidebar" id="skillzSidebar">
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <span class="nav-section-title">Overview</span>
+                        <a href="dashboard.html" class="nav-item" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-table-cells-large"></i><span class="nav-label">Dashboard</span></a>
+                        <a href="#" class="nav-item" data-view="identity" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-user-cog"></i><span class="nav-label">Identity &amp; Bio</span></a>
+                    </div>
+                    <div class="nav-section">
+                        <span class="nav-section-title">Learning Tools</span>
+                        <a href="practice.html" class="nav-item" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-dumbbell"></i><span class="nav-label">Practice</span></a>
+                        <a href="topics.html" class="nav-item" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-book-open"></i><span class="nav-label">Topics</span></a>
+                        <a href="exam.html" class="nav-item active" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-stopwatch"></i><span class="nav-label">Exam Mode</span></a>
+                        <a href="interactive.html" class="nav-item" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-chalkboard-user"></i><span class="nav-label">Live Classes</span></a>
+                    </div>
+                    <div class="nav-section">
+                        <span class="nav-section-title">Data Management</span>
+                        <a href="#" class="nav-item" data-view="data" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-database"></i><span class="nav-label">Export &amp; Sync</span></a>
+                    </div>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="nav-item danger" onclick="logout()"
+                        style="width:100%;border:none;background:none;font-family:inherit;">
+                        <i class="fa-solid fa-right-from-bracket"></i><span class="nav-label">Sign Out</span>
+                    </button>
+                </div>
+            </aside>
+
+            <main class="content-main page-enter" id="examBody">
+                <div class="container exam-container" id="examContainer">
+                    <!-- Injected by JS -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js?v=5"></script>
+    <script src="components/sidebar.js?v=4"></script>
+    <script>
+        // =========================================================
+        //  STATE
+        // =========================================================
+        let allQuestions = [];
+        let examQuestions = [];
+        let examAnswers = {};          // { index: selected }
+        let examCorrect = {};          // { index: correctAnswer }
+        let examTopicMap = {};         // { index: topic }
+        let timerInterval = null;
+        let secondsLeft = 0;
+        let totalSeconds = 0;
+        let examActive = false;
+        let currentPaper = 'paper1';
+        let currentDuration = 120;     // minutes
+
+        const PAPER1_TOPICS = ['algebra', 'patterns', 'functions', 'finance', 'calculus', 'probability'];
+        const PAPER2_TOPICS = ['trigonometry', 'analytical_geometry', 'euclidean_geometry', 'statistics'];
+
+        // =========================================================
+        //  SETUP SCREEN
+        // =========================================================
+        function showSetup() {
+            document.getElementById('examContainer').innerHTML = `
+                <div class="exam-setup">
+                    <h1 class="section-title"><i class="fa-solid fa-stopwatch" style="color:var(--primary);"></i> Exam Mode</h1>
+                    <p class="section-subtitle">Simulate real NSC exam conditions with a countdown timer. Questions are randomly selected from your chosen paper.</p>
+
+                    <h3 style="font-size:0.9rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.5rem;margin-top:1.5rem;">SELECT PAPER</h3>
+                    <div class="setup-grid">
+                        <div class="setup-card selected" id="cardP1" onclick="selectPaper('paper1')">
+                            <div class="setup-card__icon">📐</div>
+                            <div class="setup-card__title">Paper 1</div>
+                            <div class="setup-card__desc">Algebra, Patterns, Functions, Finance, Calculus, Probability</div>
+                        </div>
+                        <div class="setup-card" id="cardP2" onclick="selectPaper('paper2')">
+                            <div class="setup-card__icon">📏</div>
+                            <div class="setup-card__title">Paper 2</div>
+                            <div class="setup-card__desc">Trigonometry, Analytical Geom, Euclidean Geom, Statistics</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size:0.9rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.5rem;">SELECT DURATION</h3>
+                    <div class="timer-grid">
+                        <div class="timer-btn" onclick="selectDuration(30,this)">30 min<br><small style="font-weight:400;color:var(--text-muted);">Quick test</small></div>
+                        <div class="timer-btn" onclick="selectDuration(60,this)">60 min<br><small style="font-weight:400;color:var(--text-muted);">Half paper</small></div>
+                        <div class="timer-btn selected" onclick="selectDuration(120,this)">120 min<br><small style="font-weight:400;color:var(--text-muted);">Full exam</small></div>
+                    </div>
+
+                    <div style="margin-top:0.5rem;padding:1rem;background:var(--primary-pale);border-radius:var(--radius-md);border:1px solid var(--primary-light);font-size:0.85rem;color:var(--text-secondary);">
+                        <i class="fa-solid fa-circle-info" style="color:var(--primary);margin-right:0.4rem;"></i>
+                        Questions are drawn from the full question bank and cover all difficulty levels. The exam auto-submits when time runs out.
+                    </div>
+
+                    <div style="margin-top:1.5rem;">
+                        <button class="btn btn-primary btn-lg" style="width:100%;" onclick="startExam()">
+                            <i class="fa-solid fa-play"></i> Start Exam
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectPaper(p) {
+            currentPaper = p;
+            document.getElementById('cardP1').classList.toggle('selected', p === 'paper1');
+            document.getElementById('cardP2').classList.toggle('selected', p === 'paper2');
+        }
+
+        function selectDuration(mins, el) {
+            currentDuration = mins;
+            document.querySelectorAll('.timer-btn').forEach(b => b.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        // =========================================================
+        //  EXAM LOGIC
+        // =========================================================
+        function startExam() {
+            if (!allQuestions.length) { showToast('Questions not loaded yet. Please wait.', 'info'); return; }
+
+            const topics = currentPaper === 'paper1' ? PAPER1_TOPICS : PAPER2_TOPICS;
+            const pool = allQuestions.filter(q => topics.includes(q.topic));
+
+            // Shuffle and pick up to 30 questions
+            examQuestions = pool.sort(() => Math.random() - 0.5).slice(0, 30);
+            examAnswers = {};
+            examCorrect = {};
+            examTopicMap = {};
+            examQuestions.forEach((q, i) => {
+                examCorrect[i] = q.answer;
+                examTopicMap[i] = q.topic;
+            });
+
+            totalSeconds = secondsLeft = currentDuration * 60;
+            examActive = true;
+
+            renderExamUI();
+            startTimer();
+        }
+
+        function renderExamUI() {
+            // Timer bar (fixed)
+            let timerBar = document.getElementById('examTimerBar');
+            if (!timerBar) {
+                timerBar = document.createElement('div');
+                timerBar.className = 'exam-timer-bar';
+                timerBar.id = 'examTimerBar';
+                document.body.insertBefore(timerBar, document.body.firstChild);
+            }
+            timerBar.innerHTML = `
+                <span class="exam-q-counter" id="examQCounter">Q 1 / ${examQuestions.length}</span>
+                <div class="timer-bar__track"><div class="timer-bar__fill" id="timerFill"></div></div>
+                <span class="timer-display" id="timerDisplay">--:--</span>
+                <button class="exam-stop-btn" onclick="confirmStop()"><i class="fa-solid fa-stop"></i> Stop</button>
+            `;
+            document.getElementById('examBody').style.paddingTop = '3.5rem';
+
+            // Render all questions (single-page scroll style)
+            const container = document.getElementById('examContainer');
+            container.innerHTML = `
+                <div style="max-width:720px; margin:1.5rem auto;">
+                    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;">
+                        <i class="fa-solid fa-circle-info" style="color:var(--primary);font-size:1.2rem;flex-shrink:0;"></i>
+                        <p style="font-size:0.88rem;color:var(--text-secondary);margin:0;">Answer all ${examQuestions.length} questions. Your answers auto-save as you go. Submit when you're ready or wait for the timer.</p>
+                    </div>
+                    <div id="examQList"></div>
+                    <button class="btn btn-primary btn-lg" style="width:100%;margin-top:1.5rem;margin-bottom:3rem;" onclick="submitExam()">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Exam
+                    </button>
+                </div>
+            `;
+
+            const list = document.getElementById('examQList');
+            const letters = ['A', 'B', 'C', 'D'];
+            list.innerHTML = examQuestions.map((q, i) => `
+                <div class="question-container" id="eq${i}" style="margin-bottom:1.25rem;">
+                    <div class="question-header">
+                        <span class="question-number">Question ${i + 1}</span>
+                        <span class="question-topic" style="font-size:0.78rem;color:var(--text-muted);">${q.topic.replace(/_/g, ' ')}</span>
+                    </div>
+                    <div class="question-text">${q.q}</div>
+                    <div class="options-grid" id="opts${i}">
+                        ${q.options.map((opt, oi) => `
+                            <button class="answer-btn" id="opt_${i}_${oi}" onclick="selectExamAnswer(${i}, ${oi})">
+                                <span class="letter">${letters[oi]}</span>
+                                <span>${opt}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            renderMath(list);
+        }
+
+        function selectExamAnswer(qIdx, optIdx) {
+            examAnswers[qIdx] = optIdx;
+            // Update UI
+            for (let i = 0; i < 4; i++) {
+                const b = document.getElementById(`opt_${qIdx}_${i}`);
+                if (b) b.classList.toggle('selected-answer', i === optIdx);
+            }
+            // Update counter
+            const answered = Object.keys(examAnswers).length;
+            const counter = document.getElementById('examQCounter');
+            if (counter) counter.textContent = `${answered} / ${examQuestions.length} answered`;
+        }
+
+        // =========================================================
+        //  TIMER
+        // =========================================================
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                secondsLeft--;
+                updateTimerDisplay();
+                if (secondsLeft <= 0) { clearInterval(timerInterval); submitExam(true); }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const pct = (secondsLeft / totalSeconds) * 100;
+            const fill = document.getElementById('timerFill');
+            const disp = document.getElementById('timerDisplay');
+            if (!fill || !disp) return;
+
+            const mins = Math.floor(secondsLeft / 60);
+            const secs = secondsLeft % 60;
+            disp.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+            fill.style.width = pct + '%';
+            fill.className = 'timer-bar__fill' + (pct < 15 ? ' red' : pct < 25 ? ' amber' : '');
+            disp.className = 'timer-display' + (pct < 15 ? ' red' : pct < 25 ? ' amber' : '');
+        }
+
+        function confirmStop() {
+            if (confirm('Stop the exam? Your current answers will be submitted.')) { clearInterval(timerInterval); submitExam(false); }
+        }
+
+        // =========================================================
+        //  SUBMIT + RESULTS
+        // =========================================================
+        function submitExam(autoSubmit = false) {
+            examActive = false;
+            clearInterval(timerInterval);
+
+            // Remove timer bar
+            const bar = document.getElementById('examTimerBar');
+            if (bar) bar.remove();
+            document.getElementById('examBody').style.paddingTop = '';
+
+            // Score calculation
+            let correct = 0;
+            const topicStats = {};
+            examQuestions.forEach((q, i) => {
+                const topic = q.topic;
+                if (!topicStats[topic]) topicStats[topic] = { correct: 0, total: 0 };
+                topicStats[topic].total++;
+                if (examAnswers[i] === examCorrect[i]) { correct++; topicStats[topic].correct++; }
+            });
+
+            const total = examQuestions.length;
+            const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+            const timeTaken = totalSeconds - secondsLeft;
+            const mins = Math.floor(timeTaken / 60);
+            const secs = timeTaken % 60;
+
+            // Record all answers to progress
+            examQuestions.forEach((q, i) => {
+                const isCorrect = examAnswers[i] === examCorrect[i];
+                recordAnswer(q.topic, isCorrect);
+            });
+
+            // Grade label
+            let grade, gradeColor;
+            if (pct >= 80) { grade = '🏆 Distinction'; gradeColor = 'var(--accent-amber)'; }
+            else if (pct >= 70) { grade = '⭐ Merit'; gradeColor = 'var(--primary)'; }
+            else if (pct >= 60) { grade = '✅ Pass'; gradeColor = 'var(--accent-green)'; }
+            else if (pct >= 50) { grade = '📚 Keep Going'; gradeColor = 'var(--accent-amber)'; }
+            else { grade = '🔄 More Practice Needed'; gradeColor = 'var(--accent-red)'; }
+
+            const topicBars = Object.entries(topicStats).map(([t, s]) => {
+                const p = s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
+                const col = p >= 70 ? 'var(--accent-green)' : p >= 40 ? 'var(--accent-amber)' : 'var(--accent-red)';
+                return `<div class="topic-result-bar">
+                    <div class="topic-result-bar__name">${t.replace(/_/g, ' ')}</div>
+                    <div class="topic-result-bar__progress"><div class="topic-result-bar__fill" style="width:${p}%;background:${col};"></div></div>
+                    <div class="topic-result-bar__pct" style="color:${col};">${p}%</div>
+                </div>`;
+            }).join('');
+
+            // Missed questions review
+            const missedHTML = examQuestions.map((q, i) => {
+                if (examAnswers[i] === examCorrect[i]) return '';
+                const letters = ['A', 'B', 'C', 'D'];
+                return `<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1rem;">
+                    <div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">Question ${i + 1} · ${q.topic.replace(/_/g, ' ')}</div>
+                    <div style="margin-bottom:1rem;">${q.q}</div>
+                    <div style="color:var(--accent-green);font-size:0.9rem;margin-bottom:0.75rem;"><i class="fa-solid fa-check"></i> Correct: ${letters[q.answer]}. ${q.options[q.answer]}</div>
+                    ${examAnswers[i] !== undefined ? `<div style="color:var(--accent-red);font-size:0.85rem;margin-bottom:0.75rem;"><i class="fa-solid fa-xmark"></i> You answered: ${letters[examAnswers[i]]}. ${q.options[examAnswers[i]]}</div>` : '<div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.75rem;"><i class="fa-regular fa-circle"></i> Not answered</div>'}
+                    <div class="solution-box visible" style="margin-top:0;">
+                        <div class="solution-box__title"><i class="fa-solid fa-lightbulb"></i> Step-by-Step Solution</div>
+                        <div class="solution-box__steps">${q.solution.map(s => `<div class="step">${s}</div>`).join('')}</div>
+                    </div>
+                </div>`;
+            }).join('');
+
+            const container = document.getElementById('examContainer');
+            container.innerHTML = `
+                <div style="max-width:680px;margin:0 auto;padding:1.5rem 0;">
+                    ${autoSubmit ? `<div style="background:var(--accent-red);color:white;padding:0.75rem 1rem;border-radius:var(--radius-md);text-align:center;margin-bottom:1.5rem;font-weight:600;"><i class="fa-solid fa-clock"></i> Time's up! Exam auto-submitted.</div>` : ''}
+                    <div class="results-hero">
+                        <div class="results-score-ring" style="border-color:${gradeColor};background:${gradeColor}20;">
+                            <div class="results-score-ring__num" style="color:${gradeColor};">${pct}%</div>
+                            <div class="results-score-ring__label">Score</div>
+                        </div>
+                        <div style="font-size:1.3rem;font-weight:800;color:${gradeColor};margin-bottom:0.5rem;">${grade}</div>
+                        <div class="results-meta">
+                            <div class="results-meta__item"><div class="results-meta__value">${correct}/${total}</div><div class="results-meta__label">Correct</div></div>
+                            <div class="results-meta__item"><div class="results-meta__value">${mins}:${String(secs).padStart(2, '0')}</div><div class="results-meta__label">Time Taken</div></div>
+                            <div class="results-meta__item"><div class="results-meta__value">${total - correct}</div><div class="results-meta__label">Missed</div></div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-bottom:1.5rem;">
+                        <h3 class="section-title" style="font-size:1rem;margin-bottom:1rem;"><i class="fa-solid fa-chart-bar" style="color:var(--primary);"></i> Topic Breakdown</h3>
+                        ${topicBars}
+                    </div>
+
+                    <div style="display:flex;gap:1rem;margin-bottom:2rem;">
+                        <button class="btn btn-primary" style="flex:1;" onclick="showSetup()"><i class="fa-solid fa-rotate"></i> New Exam</button>
+                        <a href="practice.html" class="btn btn-secondary" style="flex:1;text-align:center;"><i class="fa-solid fa-dumbbell"></i> Practice Weak Areas</a>
+                    </div>
+
+                    ${missedHTML ? `<h3 class="section-title" style="font-size:1.1rem;margin-bottom:1rem;color:var(--accent-red);"><i class="fa-solid fa-triangle-exclamation"></i> Review Missed Questions</h3>${missedHTML}` : ''}
+                </div>
+            `;
+            renderMath(container);
+        }
+
+        // =========================================================
+        //  INIT
+        // =========================================================
+        fetch('js/questions.json')
+            .then(r => r.json())
+            .then(q => { allQuestions = q; })
+            .catch(e => console.error('Failed to load questions:', e));
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) { window.location.href = 'index.html'; return; }
+        });
+
+        // Add answer-btn selected state style
+        const style = document.createElement('style');
+        style.textContent = `.answer-btn.selected-answer { background: var(--primary-pale); border-color: var(--primary); color: var(--primary); }`;
+        document.head.appendChild(style);
+
+        showSetup();
+    </script>
+</body>
+
+</html>
