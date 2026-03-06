@@ -10,14 +10,14 @@
         content="Grade 12 Mathematics topics with visual lessons, diagrams, step-by-step solutions, and key formulas.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=4">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="css/dashboard.css?v=3"> /* Reusing card styles */
+    <link rel="stylesheet" href="css/dashboard.css?v=5">
     <link rel="stylesheet" href="css/topics.css?v=3">
     <link rel="stylesheet" href="css/settings.css?v=4">
     <link rel="stylesheet" href="components/sidebar.css?v=3">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
 </head>
 
 <body>
@@ -80,6 +80,12 @@
                             <i class="fa-solid fa-shield-halved"></i>
                             <span class="nav-label">Security & Access</span>
                         </a>
+                        <a href="admin.html" class="nav-item" id="adminSidebarLink"
+                            style="display:none; border-left: 3px solid var(--accent-purple); background: rgba(168, 85, 247, 0.1);">
+                            <i class="fa-solid fa-unlock-keyhole" style="color: var(--accent-purple);"></i>
+                            <span class="nav-label" style="color: var(--accent-purple); font-weight: 700;">Admin
+                                Point</span>
+                        </a>
                     </div>
 
                     <div class="nav-section">
@@ -100,9 +106,21 @@
                             <i class="fa-solid fa-book-open"></i>
                             <span class="nav-label">Topics</span>
                         </a>
+                        <a href="exam.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <span class="nav-label">Exam Mode</span>
+                        </a>
                         <a href="interactive.html" class="nav-item" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span class="nav-label">Live Classes</span>
+                        </a>
+                        <a href="examiner.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-user-secret"></i>
+                            <span class="nav-label">Examiner Mode</span>
+                        </a>
+                        <a href="vault.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-shield-virus"></i>
+                            <span class="nav-label">Mistake Vault</span>
                         </a>
                     </div>
 
@@ -141,12 +159,13 @@
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <!-- App Config -->
     <script src="js/firebase-config.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=6"></script>
+    <script src="js/masterclass-data.js?v=2"></script>
+    <script src="components/sidebar.js?v=4"></script>
     <script>
         // Auth guard handled by onAuthStateChanged in main.js - do not throw here
 
@@ -561,10 +580,47 @@
               </div>
               <div style="margin-top:1.25rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
                 <a href="practice.html?topic=${key}" class="btn btn-primary btn-sm"><i class="fa-solid fa-dumbbell"></i> Practice This</a>
-                <a href="https://www.youtube.com/results?search_query=grade+12+maths+${encodeURIComponent(lesson.title)}" target="_blank" class="btn btn-secondary btn-sm"><i class="fa-brands fa-youtube"></i> Watch Videos</a>
+                <a href="#" onclick="openVideoModal(\`grade 12 maths \${lesson.title.replace(/'/g, \\"\\\\'\\")}\`, \`\${lesson.title.replace(/'/g, \\"\\\\'\\")}\`); return false;" class="btn btn-secondary btn-sm"><i class="fa-brands fa-youtube"></i> Watch Videos</a>
               </div>
             </div>
-          </div>`).join('')}`;
+          </div>`).join('')}
+
+        <!-- Mastery Workshop Section -->
+        ${masterclassData[key] ? `
+          <div class="mastery-workshop reveal">
+            <div class="workshop-header">
+              <div class="workshop-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+              <div>
+                <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:0.25rem;">Mastery Workshop</h2>
+                <p style="font-size:0.9rem;color:var(--text-secondary);">Model Questions with Examiner's Secrets</p>
+              </div>
+            </div>
+
+            ${masterclassData[key].map((tutorial, ti) => `
+              <div class="tutorial-card">
+                <div class="tutorial-tag">Model ${ti + 1}</div>
+                <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:1rem;color:var(--text);">${tutorial.title}</h3>
+                <div class="formula-box" style="margin-bottom:2rem; border-color:var(--accent-amber);">
+                  <div class="math-block" style="color:var(--text);">${tutorial.question}</div>
+                  <div class="formula-box__label">Initial Problem</div>
+                </div>
+
+                <div class="annotated-steps">
+                  ${tutorial.steps.map(step => `
+                    <div class="annotated-step">
+                      <div class="step-math math-block">${step.tex}</div>
+                      <div class="step-note">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span>${step.note}</span>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        ` : ''}
+        `;
             initReveal();
             renderMath(container);
         }

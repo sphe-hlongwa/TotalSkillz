@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TotalSkillz - Admin Control Point</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.youtube.com https://www.youtube-nocookie.com;">
+    <style>
+        :root {
+            --admin-bg: #080f1a;
+            --admin-card: #0f1e2e;
+            --admin-card2: #162131;
+            --admin-accent: #38bdf8;
+            --admin-accent-dim: rgba(56, 189, 248, 0.1);
+            --admin-border: #1e3348;
+            --admin-text: #e2eaf4;
+            --admin-muted: #6b90b0;
+            --admin-green: #22c55e;
+            --admin-red: #ef4444;
+            --admin-amber: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--admin-bg);
+            color: var(--admin-text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            display: flex;
+            min-height: 100vh;
+            font-size: 14px;
+        }
+
+        /* ---- SIDEBAR ---- */
+        .admin-sidebar {
+            width: 240px;
+            flex-shrink: 0;
+            background: var(--admin-card);
+            border-right: 1px solid var(--admin-border);
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .admin-logo {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--admin-accent);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 0.75rem 1.25rem;
+            border-bottom: 1px solid var(--admin-border);
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-nav__item {
+            padding: 0.65rem 0.85rem;
+            border-radius: 8px;
+            color: var(--admin-muted);
+            cursor: pointer;
+            transition: all 0.18s;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-weight: 500;
+            font-size: 0.88rem;
+            border: 1px solid transparent;
+        }
+
+        .admin-nav__item:hover {
+            background: var(--admin-accent-dim);
+            color: var(--admin-accent);
+        }
+
+        .admin-nav__item.active {
+            background: var(--admin-accent-dim);
+            color: var(--admin-accent);
+            border-color: rgba(56, 189, 248, 0.25);
+            font-weight: 700;
+        }
+
+        .admin-nav__section {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--admin-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.75rem 0.85rem 0.35rem;
+        }
+
+        .sidebar-exit {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--admin-border);
+        }
+
+        /* ---- MAIN ---- */
+        .admin-main {
+            flex: 1;
+            min-width: 0;
+            padding: 2rem 2.5rem;
+            overflow-y: auto;
+        }
+
+        /* ---- PANELS ---- */
+        .admin-panel {
+            display: none;
+            animation: fadeUp 0.3s ease;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---- PAGE HEADER ---- */
+        .admin-page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        .admin-page-header h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--admin-text);
+        }
+
+        .live-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--admin-green);
+            background: rgba(34, 197, 94, 0.1);
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+        }
+
+        /* ---- METRICS ---- */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .metric-card {
+            background: var(--admin-card);
+            border: 1px solid var(--admin-border);
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            transition: border-color 0.2s;
+        }
+
+        .metric-card:hover {
+            border-color: var(--admin-accent);
+        }
+
+        .metric-card__icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--admin-accent-dim);
+            color: var(--admin-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .metric-card__value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        .metric-card__label {
+            font-size: 0.78rem;
+            color: var(--admin-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ---- TABLE ---- */
+        .admin-table-wrap {
+            background: var(--admin-card);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .admin-table-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        .admin-table-title {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            color: var(--admin-muted);
+            background: rgba(0, 0, 0, 0.25);
+            padding: 0.75rem 1.25rem;
+            text-align: left;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 0.85rem 1.25rem;
+            border-bottom: 1px solid var(--admin-border);
+            font-size: 0.86rem;
+            color: var(--admin-text);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(56, 189, 248, 0.03);
+        }
+
+        /* ---- BADGES ---- */
+        .badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .badge-open {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+        }
+
+        .badge-closed {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+        }
+
+        .badge-blue {
+            background: var(--admin-accent-dim);
+            color: var(--admin-accent);
+        }
+
+        /* ---- BUTTONS ---- */
+        .admin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 7px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.18s;
+            border: 1px solid var(--admin-border);
+            background: transparent;
+            color: var(--admin-muted);
+        }
+
+        .admin-btn:hover {
+            color: var(--admin-text);
+            border-color: var(--admin-accent);
+        }
+
+        .admin-btn.primary {
+            background: var(--admin-accent);
+            color: #000;
+            border-color: var(--admin-accent);
+        }
+
+        .admin-btn.primary:hover {
+            opacity: 0.85;
+        }
+
+        .admin-btn.danger {
+            color: var(--admin-red);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .admin-btn.danger:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--admin-red);
+        }
+
+        .admin-btn.success {
+            color: var(--admin-green);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .admin-btn.success:hover {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: var(--admin-green);
+        }
+
+        /* ---- SEARCH ---- */
+        .admin-search {
+            background: var(--admin-card2);
+            border: 1px solid var(--admin-border);
+            color: var(--admin-text);
+            padding: 0.5rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            width: 220px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .admin-search:focus {
+            border-color: var(--admin-accent);
+        }
+
+        /* ---- BROADCAST ---- */
+        .broadcast-form {
+            background: var(--admin-card);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .broadcast-form label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--admin-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .broadcast-form input,
+        .broadcast-form textarea,
+        .broadcast-form select {
+            width: 100%;
+            background: var(--admin-card2);
+            border: 1px solid var(--admin-border);
+            color: var(--admin-text);
+            padding: 0.65rem 0.9rem;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.88rem;
+            outline: none;
+            margin-bottom: 1.25rem;
+            transition: border-color 0.2s;
+        }
+
+        .broadcast-form input:focus,
+        .broadcast-form textarea:focus {
+            border-color: var(--admin-accent);
+        }
+
+        .broadcast-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* ---- USER DETAIL ---- */
+        .user-detail-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .user-detail-box {
+            background: var(--admin-card2);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.82rem;
+        }
+
+        .user-detail-box span {
+            color: var(--admin-muted);
+            display: block;
+            font-size: 0.7rem;
+            margin-bottom: 0.2rem;
+            text-transform: uppercase;
+        }
+
+        /* ---- TOAST ---- */
+        #adminToast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: #1e3348;
+            color: var(--admin-text);
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--admin-accent);
+            font-size: 0.88rem;
+            z-index: 9999;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        #adminToast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ---- SHROUD ---- */
+        #securityShroud {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* ---- EMPTY STATE ---- */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--admin-muted);
+        }
+
+        .empty-state i {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+            opacity: 0.4;
+            display: block;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .admin-sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.25rem;
+                padding: 0.75rem;
+            }
+
+            .admin-logo {
+                display: none;
+            }
+
+            .admin-nav__section {
+                display: none;
+            }
+
+            .admin-nav__item {
+                font-size: 0.76rem;
+                padding: 0.5rem 0.65rem;
+            }
+
+            .admin-main {
+                padding: 1rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Security Shroud -->
+    <div id="securityShroud">
+        <i class="fa-solid fa-shield-halved fa-spin" style="font-size:2.5rem; color:#38bdf8;"></i>
+        <h2 style="color:white; font-family:monospace; font-size:1rem;">VERIFYING CREDENTIALS...</h2>
+    </div>
+
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <i class="fa-solid fa-code"></i> Admin Point
+        </div>
+        <div class="admin-nav__section">Core</div>
+        <div class="admin-nav__item active" onclick="showPanel('overview', this)">
+            <i class="fa-solid fa-chart-line"></i> Overview
+        </div>
+        <div class="admin-nav__item" onclick="showPanel('users', this)">
+            <i class="fa-solid fa-users"></i> Users
+        </div>
+        <div class="admin-nav__section">Reports</div>
+        <div class="admin-nav__item" onclick="showPanel('reports', this)">
+            <i class="fa-solid fa-bug"></i> Bug Reports
+        </div>
+        <div class="admin-nav__section">Tools</div>
+        <div class="admin-nav__item" onclick="showPanel('broadcast', this)">
+            <i class="fa-solid fa-bullhorn"></i> Broadcast
+        </div>
+        <div class="sidebar-exit">
+            <div class="admin-nav__item" onclick="logoutAdmin()" style="color:#ef4444;">
+                <i class="fa-solid fa-power-off"></i> Exit Admin
+            </div>
+            <a href="dashboard.html" class="admin-nav__item" style="text-decoration:none;">
+                <i class="fa-solid fa-arrow-left"></i> Back to App
+            </a>
+        </div>
+    </aside>
+
+    <!-- Admin Main -->
+    <main class="admin-main">
+
+        <!-- ===== OVERVIEW PANEL ===== -->
+        <div id="panel-overview" class="admin-panel active">
+            <div class="admin-page-header">
+                <h1><i class="fa-solid fa-chart-line" style="color:var(--admin-accent);"></i> System Overview</h1>
+                <div class="live-badge">
+                    <i class="fa-solid fa-circle" style="font-size:0.5rem;"></i> Live Production
+                </div>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-card__icon"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <div class="metric-card__value" id="metricTotalUsers">—</div>
+                        <div class="metric-card__label">Registered Users</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-card__icon" style="color:#ef4444; background:rgba(239,68,68,0.1);">
+                        <i class="fa-solid fa-bug"></i>
+                    </div>
+                    <div>
+                        <div class="metric-card__value" id="metricOpenReports">—</div>
+                        <div class="metric-card__label">Open Bug Reports</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-card__icon" style="color:#22c55e; background:rgba(34,197,94,0.1);">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <div>
+                        <div class="metric-card__value" id="metricClosedReports">—</div>
+                        <div class="metric-card__label">Resolved Reports</div>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-card__icon" style="color:#f59e0b; background:rgba(245,158,11,0.1);">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <div>
+                        <div class="metric-card__value" id="metricBroadcasts">—</div>
+                        <div class="metric-card__label">Broadcasts Sent</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Reports Preview -->
+            <div class="admin-table-wrap">
+                <div class="admin-table-header">
+                    <span class="admin-table-title"><i class="fa-solid fa-clipboard-list"
+                            style="color:var(--admin-accent);"></i> Recent Bug Reports</span>
+                    <button class="admin-btn" onclick="showPanel('reports', document.querySelector('[onclick*=\"
+                        reports\"]'))">View All</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>User</th>
+                            <th>Module</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="overviewReportsBody">
+                        <tr>
+                            <td colspan="5" class="empty-state">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== USERS PANEL ===== -->
+        <div id="panel-users" class="admin-panel">
+            <div class="admin-page-header">
+                <h1><i class="fa-solid fa-users" style="color:var(--admin-accent);"></i> Registered Users</h1>
+                <input type="text" id="userSearch" class="admin-search" placeholder="Search by name or email..."
+                    oninput="filterUsers(this.value)">
+            </div>
+
+            <div class="admin-table-wrap">
+                <div class="admin-table-header">
+                    <span class="admin-table-title">All Accounts <span id="userCount" class="badge badge-blue"
+                            style="margin-left:0.5rem;">—</span></span>
+                    <button class="admin-btn primary" onclick="loadUsers()"><i class="fa-solid fa-rotate"></i>
+                        Refresh</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Questions Done</th>
+                            <th>Accuracy</th>
+                            <th>Streak</th>
+                            <th>Badges</th>
+                            <th>Last Active</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr>
+                            <td colspan="7" style="text-align:center; color:var(--admin-muted); padding:3rem;">Loading
+                                users...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== REPORTS PANEL ===== -->
+        <div id="panel-reports" class="admin-panel">
+            <div class="admin-page-header">
+                <h1><i class="fa-solid fa-bug" style="color:#ef4444;"></i> Bug Reports</h1>
+                <div style="display:flex; gap:0.5rem;">
+                    <button class="admin-btn" onclick="filterReports('all')" id="filterAll"
+                        style="color:var(--admin-text);">All</button>
+                    <button class="admin-btn" onclick="filterReports('open')" id="filterOpen">Open</button>
+                    <button class="admin-btn success" onclick="filterReports('closed')"
+                        id="filterClosed">Resolved</button>
+                    <button class="admin-btn primary" onclick="loadReports()"><i class="fa-solid fa-rotate"></i>
+                        Refresh</button>
+                </div>
+            </div>
+
+            <div class="admin-table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>User</th>
+                            <th>Module / Context</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportsTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align:center; color:var(--admin-muted); padding:3rem;">Loading
+                                reports...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== BROADCAST PANEL ===== -->
+        <div id="panel-broadcast" class="admin-panel">
+            <div class="admin-page-header">
+                <h1><i class="fa-solid fa-bullhorn" style="color:var(--admin-accent);"></i> Broadcast</h1>
+            </div>
+
+            <div class="broadcast-form">
+                <h3 style="margin-bottom:1.25rem; font-size:1rem; color:var(--admin-text);">Send App Announcement</h3>
+
+                <label>Message Type</label>
+                <select id="broadcastType">
+                    <option value="info">ℹ️ Info (Blue)</option>
+                    <option value="success">✅ Success (Green)</option>
+                    <option value="warning">⚠️ Warning (Amber)</option>
+                    <option value="alert">🚨 Alert (Red)</option>
+                </select>
+
+                <label>Title</label>
+                <input type="text" id="broadcastTitle" placeholder="e.g. New Feature: Exam Mode">
+
+                <label>Message Body</label>
+                <textarea id="broadcastBody" placeholder="Write your message here..."></textarea>
+
+                <label>Expires After</label>
+                <select id="broadcastExpiry">
+                    <option value="1">1 Day</option>
+                    <option value="3">3 Days</option>
+                    <option value="7" selected>1 Week</option>
+                    <option value="30">30 Days</option>
+                    <option value="0">Never</option>
+                </select>
+
+                <button class="admin-btn primary" style="width:100%; justify-content:center; padding:0.75rem;"
+                    onclick="sendBroadcast()">
+                    <i class="fa-solid fa-paper-plane"></i> Send Broadcast to All Users
+                </button>
+            </div>
+
+            <!-- Previous broadcasts -->
+            <div class="admin-table-wrap">
+                <div class="admin-table-header">
+                    <span class="admin-table-title">Sent Broadcasts</span>
+                    <button class="admin-btn" onclick="loadBroadcasts()"><i class="fa-solid fa-rotate"></i>
+                        Refresh</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Title</th>
+                            <th>Message</th>
+                            <th>Expires</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="broadcastsTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align:center; color:var(--admin-muted); padding:3rem;">Loading
+                                broadcasts...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Toast -->
+    <div id="adminToast"></div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        const ADMIN_EMAIL = "hlongwasphephelo40@gmail.com";
+        let allReports = [];
+        let allUsers = [];
+
+        // ---- AUTH GUARD ----
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) { window.location.href = 'index.html'; return; }
+            if (user.email !== ADMIN_EMAIL) {
+                alert("ACCESS DENIED. Administrator privileges required.");
+                window.location.href = 'dashboard.html';
+                return;
+            }
+            document.getElementById('securityShroud').style.display = 'none';
+            initAdmin();
+        });
+
+        async function initAdmin() {
+            await Promise.all([loadOverview(), loadUsers(), loadReports(), loadBroadcasts()]);
+        }
+
+        // ---- PANEL SWITCHER ----
+        function showPanel(id, clickedEl) {
+            document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.admin-nav__item').forEach(n => n.classList.remove('active'));
+            document.getElementById('panel-' + id).classList.add('active');
+            if (clickedEl) clickedEl.classList.add('active');
+        }
+
+        // ---- OVERVIEW ----
+        async function loadOverview() {
+            try {
+                const [usersSnap, reportsSnap, broadcastsSnap] = await Promise.all([
+                    firebase.firestore().collection('users').get(),
+                    firebase.firestore().collection('reports').get(),
+                    firebase.firestore().collection('broadcasts').get()
+                ]);
+
+                document.getElementById('metricTotalUsers').textContent = usersSnap.size;
+                document.getElementById('metricBroadcasts').textContent = broadcastsSnap.size;
+
+                let open = 0, closed = 0, recentHtml = '';
+                reportsSnap.docs.slice(0, 5).forEach(doc => {
+                    const d = doc.data();
+                    if (d.status === 'open') open++;
+                    if (d.status === 'closed') closed++;
+                    const date = d.timestamp ? new Date(d.timestamp.toDate()).toLocaleDateString() : 'N/A';
+                    recentHtml += `<tr>
+                        <td style="color:var(--admin-muted);">${date}</td>
+                        <td>${d.email || '—'}</td>
+                        <td><span class="badge badge-blue">${d.module || '—'}</span></td>
+                        <td style="max-width:260px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${d.comment || '—'}</td>
+                        <td><span class="badge ${d.status === 'open' ? 'badge-open' : 'badge-closed'}">${(d.status || '').toUpperCase()}</span></td>
+                    </tr>`;
+                });
+
+                // Count all open/closed properly
+                reportsSnap.forEach(doc => {
+                    const d = doc.data();
+                    if (!(reportsSnap.docs.slice(0, 5).includes(doc))) {
+                        if (d.status === 'open') open++;
+                        if (d.status === 'closed') closed++;
+                    }
+                });
+
+                // Recount cleanly
+                open = 0; closed = 0;
+                reportsSnap.forEach(doc => {
+                    if (doc.data().status === 'open') open++;
+                    if (doc.data().status === 'closed') closed++;
+                });
+
+                document.getElementById('metricOpenReports').textContent = open;
+                document.getElementById('metricClosedReports').textContent = closed;
+                document.getElementById('overviewReportsBody').innerHTML = recentHtml || '<tr><td colspan="5" class="empty-state">No reports yet.</td></tr>';
+            } catch (e) {
+                console.error('Overview error:', e);
+            }
+        }
+
+        // ---- USERS ----
+        async function loadUsers() {
+            const tbody = document.getElementById('usersTableBody');
+            tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--admin-muted); padding:2rem;">Loading users...</td></tr>';
+            try {
+                const snap = await firebase.firestore().collection('users').orderBy('lastUpdated', 'desc').get();
+                allUsers = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                document.getElementById('userCount').textContent = allUsers.length;
+                renderUsers(allUsers);
+            } catch (e) {
+                // Fallback without ordering if index not set
+                try {
+                    const snap = await firebase.firestore().collection('users').get();
+                    allUsers = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    document.getElementById('userCount').textContent = allUsers.length;
+                    renderUsers(allUsers);
+                } catch (e2) {
+                    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:#ef4444; padding:2rem;">Error: ${e2.message}</td></tr>`;
+                }
+            }
+        }
+
+        function renderUsers(users) {
+            const tbody = document.getElementById('usersTableBody');
+            if (!users.length) {
+                tbody.innerHTML = '<tr><td colspan="7" class="empty-state"><i class="fa-solid fa-user-slash"></i>No users found.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = users.map(u => {
+                const prog = u.progress || {};
+                const accuracy = prog.totalAttempted > 0
+                    ? Math.round((prog.totalCorrect / prog.totalAttempted) * 100) + '%' : '—';
+                const lastActive = u.lastUpdated
+                    ? new Date(u.lastUpdated.toDate ? u.lastUpdated.toDate() : u.lastUpdated).toLocaleDateString()
+                    : '—';
+                const initials = (u.displayName || u.email || '?').substring(0, 2).toUpperCase();
+                return `<tr>
+                    <td>
+                        <div style="display:flex; align-items:center; gap:0.75rem;">
+                            <div style="width:32px; height:32px; border-radius:50%; background:var(--admin-accent-dim); color:var(--admin-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem; flex-shrink:0;">${initials}</div>
+                            <span style="font-weight:600;">${u.displayName || '—'}</span>
+                        </div>
+                    </td>
+                    <td style="color:var(--admin-muted);">${u.email || '—'}</td>
+                    <td>${prog.totalAttempted ?? '—'}</td>
+                    <td>${accuracy}</td>
+                    <td>${prog.streak ?? '—'} 🔥</td>
+                    <td>${(prog.badges || []).length}</td>
+                    <td style="color:var(--admin-muted);">${lastActive}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        function filterUsers(q) {
+            const lower = q.toLowerCase();
+            const filtered = allUsers.filter(u =>
+                (u.displayName || '').toLowerCase().includes(lower) ||
+                (u.email || '').toLowerCase().includes(lower)
+            );
+            renderUsers(filtered);
+        }
+
+        // ---- REPORTS ----
+        let reportsFilter = 'all';
+
+        async function loadReports() {
+            const tbody = document.getElementById('reportsTableBody');
+            tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; color:var(--admin-muted); padding:2rem;">Loading reports...</td></tr>';
+            try {
+                const snap = await firebase.firestore().collection('reports')
+                    .orderBy('timestamp', 'desc').get();
+                allReports = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                renderReports();
+            } catch (e) {
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#ef4444;padding:2rem;">Error: ${e.message}</td></tr>`;
+            }
+        }
+
+        function filterReports(status) {
+            reportsFilter = status;
+            renderReports();
+        }
+
+        function renderReports() {
+            const tbody = document.getElementById('reportsTableBody');
+            const filtered = reportsFilter === 'all'
+                ? allReports
+                : allReports.filter(r => r.status === reportsFilter);
+
+            if (!filtered.length) {
+                tbody.innerHTML = '<tr><td colspan="6" class="empty-state"><i class="fa-solid fa-circle-check"></i>No reports match this filter.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(r => {
+                const date = r.timestamp ? new Date(r.timestamp.toDate()).toLocaleDateString() : 'N/A';
+                const resolveBtn = r.status === 'open'
+                    ? `<button class="admin-btn success" onclick="resolveReport('${r.id}')"><i class="fa-solid fa-check"></i> Resolve</button>`
+                    : `<span style="color:var(--admin-muted); font-size:0.75rem;"><i class="fa-solid fa-lock"></i> Done</span>`;
+
+                return `<tr>
+                    <td style="color:var(--admin-muted); white-space:nowrap;">${date}</td>
+                    <td style="font-size:0.82rem;">${r.email || '—'}</td>
+                    <td>
+                        <span class="badge badge-blue">${r.module || '—'}</span><br>
+                        <span style="font-size:0.72rem; color:var(--admin-muted);">${r.context || ''}</span>
+                    </td>
+                    <td style="max-width:280px; font-size:0.82rem;">${r.comment || '—'}</td>
+                    <td><span class="badge ${r.status === 'open' ? 'badge-open' : 'badge-closed'}">${(r.status || '').toUpperCase()}</span></td>
+                    <td style="display:flex; gap:0.4rem; align-items:center;">
+                        ${resolveBtn}
+                        <button class="admin-btn danger" onclick="deleteReport('${r.id}')"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
+        async function resolveReport(docId) {
+            if (!confirm('Mark this report as resolved?')) return;
+            try {
+                await firebase.firestore().collection('reports').doc(docId).update({ status: 'closed' });
+                showToast('Report resolved ✓');
+                loadReports();
+                loadOverview();
+            } catch (e) { showToast('Error: ' + e.message, 'error'); }
+        }
+
+        async function deleteReport(docId) {
+            if (!confirm('Permanently delete this report? This cannot be undone.')) return;
+            try {
+                await firebase.firestore().collection('reports').doc(docId).delete();
+                showToast('Report deleted.');
+                loadReports();
+                loadOverview();
+            } catch (e) { showToast('Error: ' + e.message, 'error'); }
+        }
+
+        // ---- BROADCAST ----
+        async function loadBroadcasts() {
+            const tbody = document.getElementById('broadcastsTableBody');
+            try {
+                const snap = await firebase.firestore().collection('broadcasts')
+                    .orderBy('createdAt', 'desc').get();
+                if (snap.empty) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="empty-state"><i class="fa-solid fa-bullhorn"></i>No broadcasts sent yet.</td></tr>';
+                    return;
+                }
+                tbody.innerHTML = snap.docs.map(doc => {
+                    const d = doc.data();
+                    const date = d.createdAt ? new Date(d.createdAt.toDate()).toLocaleDateString() : 'N/A';
+                    const expires = d.expiresAt ? new Date(d.expiresAt.toDate()).toLocaleDateString() : 'Never';
+                    const typeColors = { info: '#38bdf8', success: '#22c55e', warning: '#f59e0b', alert: '#ef4444' };
+                    const color = typeColors[d.type] || '#38bdf8';
+                    return `<tr>
+                        <td style="color:var(--admin-muted);">${date}</td>
+                        <td><span style="color:${color}; font-weight:700; text-transform:capitalize;">${d.type}</span></td>
+                        <td style="font-weight:600;">${d.title}</td>
+                        <td style="font-size:0.82rem; max-width:240px;">${d.message}</td>
+                        <td style="color:var(--admin-muted);">${expires}</td>
+                        <td>
+                            <button class="admin-btn danger" onclick="deleteBroadcast('${doc.id}')">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>`;
+                }).join('');
+            } catch (e) {
+                tbody.innerHTML = `<tr><td colspan="6" style="color:#ef4444;text-align:center;padding:2rem;">Error: ${e.message}</td></tr>`;
+            }
+        }
+
+        async function sendBroadcast() {
+            const title = document.getElementById('broadcastTitle').value.trim();
+            const message = document.getElementById('broadcastBody').value.trim();
+            const type = document.getElementById('broadcastType').value;
+            const expiryDays = parseInt(document.getElementById('broadcastExpiry').value);
+
+            if (!title || !message) { showToast('Please fill in both title and message.', 'error'); return; }
+
+            const expiresAt = expiryDays > 0
+                ? new Date(Date.now() + expiryDays * 864e5)
+                : null;
+
+            try {
+                await firebase.firestore().collection('broadcasts').add({
+                    title, message, type,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    expiresAt: expiresAt ? firebase.firestore.Timestamp.fromDate(expiresAt) : null,
+                    active: true
+                });
+                showToast('Broadcast sent to all users! ✓');
+                document.getElementById('broadcastTitle').value = '';
+                document.getElementById('broadcastBody').value = '';
+                loadBroadcasts();
+                loadOverview();
+            } catch (e) { showToast('Error: ' + e.message, 'error'); }
+        }
+
+        async function deleteBroadcast(docId) {
+            if (!confirm('Remove this broadcast?')) return;
+            try {
+                await firebase.firestore().collection('broadcasts').doc(docId).delete();
+                showToast('Broadcast removed.');
+                loadBroadcasts();
+                loadOverview();
+            } catch (e) { showToast('Error: ' + e.message, 'error'); }
+        }
+
+        // ---- LOGOUT ----
+        function logoutAdmin() {
+            firebase.auth().signOut().then(() => window.location.href = 'index.html');
+        }
+
+        // ---- TOAST ----
+        let toastTimer;
+        function showToast(msg, type = 'success') {
+            const t = document.getElementById('adminToast');
+            t.textContent = msg;
+            t.style.borderLeftColor = type === 'error' ? '#ef4444' : '#22c55e';
+            t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+        }
+    </script>
+</body>
+
+</html>

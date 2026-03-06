@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistake Vault - Total Skillz</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/dashboard.css?v=5">
+    <link rel="stylesheet" href="css/practice.css?v=3">
+    <link rel="stylesheet" href="components/sidebar.css?v=3">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
+    <style>
+        .vault-hero {
+            background: linear-gradient(135deg, var(--accent-red), #991b1b);
+            color: white;
+            padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 4vw, 2rem);
+            border-radius: var(--radius-xl);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vault-hero::after {
+            content: "\f3ed";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -20px;
+            bottom: -20px;
+            font-size: 10rem;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+
+        .vault-stats {
+            display: flex;
+            justify-content: center;
+            gap: clamp(1rem, 5vw, 3rem);
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .vault-stat-item {
+            text-align: center;
+        }
+
+        .vault-stat-value {
+            font-size: clamp(1.4rem, 5vw, 2rem);
+            font-weight: 800;
+            display: block;
+        }
+
+        .vault-stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .mastery-progress {
+            height: 6px;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .mastery-fill {
+            height: 100%;
+            background: var(--accent-green);
+            transition: width 0.5s ease;
+        }
+
+        .vault-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-card);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius-xl);
+        }
+
+        .vault-empty i {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .vault-hero {
+                border-radius: var(--radius-lg);
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-layout">
+        <header class="header">
+            <div class="header__left">
+                <button id="sidebarToggle" class="sidebar-toggle-btn"><i class="fa-solid fa-bars"></i></button>
+                <a href="dashboard.html" class="header__logo"><img src="logo.jpg" alt="Logo"
+                        class="header__logo-img"></a>
+            </div>
+            <div class="header__right">
+                <div class="header__avatar user-avatar" id="userAvatar" onclick="toggleProfileModal()">US</div>
+            </div>
+        </header>
+
+        <div class="layout-wrapper">
+            <aside class="skillz-sidebar" id="skillzSidebar">
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <span class="nav-section-title">Overview</span>
+                        <a href="dashboard.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-table-cells-large"></i>
+                            <span class="nav-label">Dashboard</span>
+                        </a>
+                        <a href="#" class="nav-item" data-view="identity" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-user-cog"></i>
+                            <span class="nav-label">Identity & Bio</span>
+                        </a>
+                        <a href="#" class="nav-item" data-view="security" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span class="nav-label">Security & Access</span>
+                        </a>
+                        <a href="admin.html" class="nav-item" id="adminSidebarLink"
+                            style="display:none; border-left: 3px solid var(--accent-purple); background: rgba(168, 85, 247, 0.1);">
+                            <i class="fa-solid fa-unlock-keyhole" style="color: var(--accent-purple);"></i>
+                            <span class="nav-label" style="color: var(--accent-purple); font-weight: 700;">Admin
+                                Point</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <span class="nav-section-title">Preferences</span>
+                        <a href="#" class="nav-item" data-view="preferences" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span class="nav-label">Study Goals</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <span class="nav-section-title">Learning Tools</span>
+                        <a href="practice.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-dumbbell"></i>
+                            <span class="nav-label">Practice</span>
+                        </a>
+                        <a href="topics.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-book-open"></i>
+                            <span class="nav-label">Topics</span>
+                        </a>
+                        <a href="exam.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <span class="nav-label">Exam Mode</span>
+                        </a>
+                        <a href="interactive.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            <span class="nav-label">Live Classes</span>
+                        </a>
+                        <a href="examiner.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-user-secret"></i>
+                            <span class="nav-label">Examiner Mode</span>
+                        </a>
+                        <a href="vault.html" class="nav-item active" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-shield-virus"></i>
+                            <span class="nav-label">Mistake Vault</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <span class="nav-section-title">Data Management</span>
+                        <a href="#" class="nav-item" data-view="data" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-database"></i>
+                            <span class="nav-label">Export & Sync</span>
+                        </a>
+                        <a href="#" class="nav-item danger" data-view="danger" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span class="nav-label">Danger Zone</span>
+                        </a>
+                    </div>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="sidebar-custom-footer">
+                        <p>Crafted by <span>Sphephelo Hlongwa</span></p>
+                        <div class="sidebar-socials">
+                            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://t.me/+LYN7mLk7K8I4ZjM0" target="_blank"><i
+                                    class="fa-brands fa-telegram"></i></a>
+                            <a href="https://github.com/sphe-hlongwa" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <button class="nav-item danger" onclick="logout()"
+                        style="width: 100%; border: none; background: none; font-family: inherit; margin-top: 0.5rem;">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="nav-label">Sign Out</span>
+                    </button>
+                </div>
+            </aside>
+
+            <main class="content-main">
+                <div class="vault-hero">
+                    <h1 style="font-size: clamp(1.4rem, 5vw, 2.2rem); font-weight: 850; margin-bottom: 0.5rem;">The
+                        Mistake Vault</h1>
+                    <p style="opacity: 0.9; max-width: 600px; margin: 0 auto;">Master the questions that tripped you up.
+                        Get them right 3 times in a row to clear them from your vault forever.</p>
+
+                    <div class="vault-stats">
+                        <div class="vault-stat-item">
+                            <span class="vault-stat-value" id="vaultCount">0</span>
+                            <span class="vault-stat-label">Questions to Master</span>
+                        </div>
+                        <div class="vault-stat-item">
+                            <span class="vault-stat-value" id="vaultTopics">0</span>
+                            <span class="vault-stat-label">Topics in Debt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="vaultContent">
+                    <!-- Loaded dynamically -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Firebase & Core Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js?v=5"></script>
+    <script src="components/sidebar.js?v=4"></script>
+
+    <script>
+        let vaultQuestions = [];
+        let currentQuestion = null;
+        let sessionTotal = 0;
+        let sessionCorrect = 0;
+
+        function initVault() {
+            const p = getProgress();
+            vaultQuestions = p.mistakeVault || [];
+
+            document.getElementById('vaultCount').textContent = vaultQuestions.length;
+            const uniqueTopics = [...new Set(vaultQuestions.map(q => q.topic))];
+            document.getElementById('vaultTopics').textContent = uniqueTopics.length;
+
+            if (vaultQuestions.length === 0) {
+                renderEmpty();
+            } else {
+                renderVaultList();
+            }
+        }
+
+        function renderEmpty() {
+            document.getElementById('vaultContent').innerHTML = `
+                <div class="vault-empty">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <h2>Vault is Empty!</h2>
+                    <p style="color:var(--text-secondary); margin-bottom: 2rem;">You've mastered all your past mistakes. Keep practicing to stay sharp!</p>
+                    <a href="practice.html" class="btn btn-primary">Start New Practice</a>
+                </div>
+            `;
+        }
+
+        function renderVaultList() {
+            const container = document.getElementById('vaultContent');
+            const topicNames = { algebra: 'Algebra', patterns: 'Patterns', functions: 'Functions', finance: 'Finance', trigonometry: 'Trig', calculus: 'Calculus', analytical_geometry: 'Analytical', euclidean_geometry: 'Euclidean', probability: 'Probability', statistics: 'Stats' };
+
+            let html = `
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
+                    <h2 class="section-title" style="margin:0;">Locked Questions</h2>
+                    <button class="btn btn-primary" onclick="startVaultPractice()"><i class="fa-solid fa-play"></i> Clear All Mistakes</button>
+                </div>
+                <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 1.5rem;">
+            `;
+
+            vaultQuestions.sort((a, b) => b.lastSeen - a.lastSeen).forEach(q => {
+                const masteryWidth = (q.streak / 3) * 100;
+                html += `
+                    <div class="card reveal visible">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
+                            <span class="topic-tag">${topicNames[q.topic] || q.topic}</span>
+                            <span style="font-size:0.75rem; color:var(--text-muted);">Streak: ${q.streak}/3</span>
+                        </div>
+                        <div style="font-size:0.92rem; color:var(--text); margin-bottom:1.5rem; line-height:1.5; min-height:3em;">${q.qText}</div>
+                        <div class="mastery-progress">
+                            <div class="mastery-fill" style="width:${masteryWidth}%"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            container.innerHTML = html;
+            renderMath(container);
+        }
+
+        async function startVaultPractice() {
+            // Load questions.json to get the full question objects
+            try {
+                const response = await fetch('js/questions.json');
+                const allQuestions = await response.json();
+
+                // Map vault data to full question objects
+                const drillQuestions = vaultQuestions.map(v => {
+                    const fullQ = allQuestions.find(aq => aq.q === v.qText);
+                    return fullQ ? fullQ : null;
+                }).filter(q => q !== null);
+
+                if (drillQuestions.length === 0) {
+                    showToast('Could not load question details.', 'error');
+                    return;
+                }
+
+                // Temporary redirect to a practice session with these questions
+                // For simplicity, we'll store them in session storage and tell practice.html to load them
+                sessionStorage.setItem('totalskillz_vault_drill', JSON.stringify(drillQuestions));
+                window.location.href = 'practice.html?mode=vault';
+
+            } catch (error) {
+                console.error("Vault Drill Error:", error);
+                showToast('Failed to start vault drill.', 'error');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initVault();
+        });
+    </script>
+</body>
+
+</html>

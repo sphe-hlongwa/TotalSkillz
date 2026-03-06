@@ -1,4 +1,4 @@
-const CACHE_NAME = 'totalskillz-v3';
+const CACHE_NAME = 'totalskillz-v4';
 const ASSETS_TO_CACHE = [
     '/',
     '/index.html',
@@ -6,13 +6,16 @@ const ASSETS_TO_CACHE = [
     '/practice.html',
     '/topics.html',
     '/interactive.html',
+    '/examiner.html',
     '/css/style.css',
     '/css/dashboard.css',
     '/css/practice.css',
     '/css/topics.css',
     '/css/settings.css',
+    '/css/examiner.css',
     '/js/main.js',
     '/js/firebase-config.js',
+    '/js/examiner-data.js',
     '/logo.jpg'
 ];
 

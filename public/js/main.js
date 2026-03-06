@@ -245,6 +245,17 @@ function showToast(message, type = 'info') {
     setTimeout(() => { toast.style.opacity = '0'; toast.style.transform = 'translateX(60px)'; toast.style.transition = '0.3s'; setTimeout(() => toast.remove(), 300); }, 3500);
 }
 
+// ---- Utility: Question Hashing ----
+function getQuestionHash(qText) {
+    let hash = 0;
+    for (let i = 0; i < qText.length; i++) {
+        const char = qText.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+    }
+    return 'q_' + Math.abs(hash).toString(36);
+}
+
 // ---- Progress / Tracking ----
 function getInitialProgress() {
     return {
@@ -267,7 +278,8 @@ function getInitialProgress() {
         badges: [],
         dailyDone: false,
         bio: '',
-        missedQuestions: [],
+        missedQuestions: [], // legacy support
+        mistakeVault: [],    // [{ id, topic, qText, streak, lastSeen }]
         settings: {
             theme: 'light',
             dailyGoal: 10,
@@ -283,6 +295,7 @@ function getProgress() {
     // Ensure new fields exist
     if (!data.settings) data.settings = getInitialProgress().settings;
     if (data.bio === undefined) data.bio = '';
+    if (!data.mistakeVault) data.mistakeVault = [];
     return data;
 }
 function validateEmail(email) {
@@ -347,6 +360,28 @@ function injectSettingsOverlay() {
                     <div class="setting-item">
                         <label class="setting-item__label">Study Bio</label>
                         <textarea id="settingsBio" class="form-input" style="height:80px; resize:none;" placeholder="What is your goal?" onblur="saveBio(this.value)"></textarea>
+                    </div>
+                    <!-- Province and School -->
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                        <div class="setting-item">
+                            <label class="setting-item__label">Province</label>
+                            <select id="settingsProvince" class="form-input" onchange="saveLocationInfo()">
+                                <option value="">Select Province</option>
+                                <option value="Gauteng">Gauteng</option>
+                                <option value="Western Cape">Western Cape</option>
+                                <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                                <option value="Eastern Cape">Eastern Cape</option>
+                                <option value="Free State">Free State</option>
+                                <option value="Limpopo">Limpopo</option>
+                                <option value="Mpumalanga">Mpumalanga</option>
+                                <option value="North West">North West</option>
+                                <option value="Northern Cape">Northern Cape</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-item__label">School Name</label>
+                            <input type="text" id="settingsSchool" class="form-input" placeholder="e.g. Khuzani High" onblur="saveLocationInfo()">
+                        </div>
                     </div>
                 </div>
                 <!-- Security Section -->
@@ -539,6 +574,12 @@ function populateSettings() {
     if (nameInput) nameInput.value = user?.displayName || p.name || '';
     if (bioText) bioText.value = p.bio || '';
 
+    // Location
+    const provinceSelect = document.getElementById('settingsProvince');
+    const schoolInput = document.getElementById('settingsSchool');
+    if (provinceSelect) provinceSelect.value = p.province || '';
+    if (schoolInput) schoolInput.value = p.school || '';
+
     // Preferences
     const darkToggle = document.getElementById('darkModeToggle');
     const goalSlider = document.getElementById('goalSlider');
@@ -588,6 +629,15 @@ async function saveNameChange() {
 function saveBio(val) {
     const p = getProgress();
     p.bio = val;
+    saveProgress(p);
+}
+
+function saveLocationInfo() {
+    const p = getProgress();
+    const prov = document.getElementById('settingsProvince').value;
+    const school = document.getElementById('settingsSchool').value.trim();
+    p.province = prov;
+    p.school = school;
     saveProgress(p);
 }
 
@@ -1060,20 +1110,44 @@ function switchAccount(uid) {
 }
 
 // ---- Progress Handling ----
+let progressSyncTimeout = null;
+
 async function saveProgress(data) {
-    const user = firebase.auth().currentUser;
+    // 1. Immediate Local Save (Always)
     localStorage.setItem('totalskillz_progress', JSON.stringify(data));
 
-    if (user) {
+    // 2. Debounced Cloud Save (Every 5 seconds of inactivity)
+    if (progressSyncTimeout) clearTimeout(progressSyncTimeout);
+
+    progressSyncTimeout = setTimeout(async () => {
+        const user = firebase.auth().currentUser;
+        if (!user) return;
+
         try {
             await firebase.firestore().collection('users').doc(user.uid).set({
                 progress: data,
                 lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
             }, { merge: true });
+
+            // Leaderboard entry (only if public profile is on)
+            if (data.settings?.publicProfile !== false) {
+                const name = user.displayName || user.email?.split('@')[0] || 'Student';
+                const firstName = name.split(' ')[0]; // first name only for anonymity
+                await firebase.firestore().collection('leaderboard').doc(user.uid).set({
+                    displayName: firstName,
+                    totalCorrect: data.totalCorrect || 0,
+                    totalAttempted: data.totalAttempted || 0,
+                    streak: data.streak || 0,
+                    badges: (data.badges || []).length,
+                    province: data.province || '',
+                    school: data.school || '',
+                    lastActive: firebase.firestore.FieldValue.serverTimestamp()
+                }, { merge: true });
+            }
         } catch (error) {
             console.error("Error saving progress to Firestore:", error);
         }
-    }
+    }, 5000);
 }
 
 async function syncFromFirestore(uid) {
@@ -1106,7 +1180,7 @@ function updateStreak() {
     return p;
 }
 
-function recordAnswer(topic, correct) {
+function recordAnswer(topic, correct, questionObj = null) {
     const p = getProgress();
     if (!p.topics[topic]) p.topics[topic] = { correct: 0, total: 0, level: 0 };
     p.topics[topic].total++;
@@ -1115,6 +1189,41 @@ function recordAnswer(topic, correct) {
         p.topics[topic].correct++;
         p.totalCorrect++;
     }
+
+    // Mistake Vault Logic (Spaced Repetition)
+    if (questionObj) {
+        const qId = getQuestionHash(questionObj.q);
+        const vaultIndex = p.mistakeVault.findIndex(v => v.id === qId);
+
+        if (!correct) {
+            // New mistake or reset streak
+            if (vaultIndex === -1) {
+                p.mistakeVault.push({
+                    id: qId,
+                    topic: topic,
+                    qText: questionObj.q,
+                    streak: 0,
+                    lastSeen: Date.now()
+                });
+            } else {
+                p.mistakeVault[vaultIndex].streak = 0;
+                p.mistakeVault[vaultIndex].lastSeen = Date.now();
+            }
+        } else {
+            // Correct answer - check if in vault
+            if (vaultIndex !== -1) {
+                p.mistakeVault[vaultIndex].streak++;
+                p.mistakeVault[vaultIndex].lastSeen = Date.now();
+
+                // Mastery achieved: Remove after 3 correct in a row
+                if (p.mistakeVault[vaultIndex].streak >= 3) {
+                    p.mistakeVault.splice(vaultIndex, 1);
+                    showToast('Mastery Unlocked! Question removed from Vault.', 'success');
+                }
+            }
+        }
+    }
+
     // Recalculate level (0-100)
     const t = p.topics[topic];
     t.level = t.total > 0 ? Math.round((t.correct / t.total) * 100) : 0;
@@ -1262,6 +1371,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 av.style.fontSize = '0.8rem';
             });
 
+            // Admin Shortcut
+            if (user.email === "hlongwasphephelo40@gmail.com") {
+                const adminLink = document.getElementById('adminSidebarLink');
+                if (adminLink) adminLink.style.display = 'flex';
+            }
+
             // Sync progress
             const syncedData = await syncFromFirestore(user.uid);
             if (syncedData && syncedData.settings?.theme) {
@@ -1307,3 +1422,309 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// ---- Bug & Error Reporting ----
+async function reportMistake(module, contextInfo) {
+    const user = firebase.auth().currentUser;
+    if (!user) {
+        showToast('Please sign in to report mistakes.', 'error');
+        return;
+    }
+
+    const comment = prompt("What's the issue? (e.g., 'Typo in option B', 'Solution math doesn't load'):");
+    if (!comment || comment.trim() === '') return;
+
+    try {
+        await firebase.firestore().collection('reports').add({
+            uid: user.uid,
+            email: user.email || 'Anonymous',
+            module: module,
+            context: contextInfo,
+            comment: comment.trim(),
+            status: 'open',
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        showToast('Report submitted! Thank you for helping improve TotalSkillz.', 'success');
+    } catch (e) {
+        console.error('Error submitting report:', e);
+        showToast('Failed to submit report. Please try again.', 'error');
+    }
+}
+
+// ---- Leaderboard Logic (The "Chase" Algorithm) ----
+async function fetchLeaderboard() {
+    const listElement = document.getElementById('leaderboardList');
+    if (!listElement) return;
+
+    try {
+        const currentUser = firebase.auth().currentUser;
+        if (!currentUser) return; // Wait for auth
+
+        // 1. Get current user's score to set the benchmark
+        const userDoc = await firebase.firestore().collection('leaderboard').doc(currentUser.uid).get();
+        let myStreak = 0;
+        if (userDoc.exists) myStreak = userDoc.data().streak || 0;
+
+        // 2. Fetch people immediately above and below to create "The Chase"
+        // We do a broader query and filter locally to ensure we get neighbors.
+        let query = firebase.firestore().collection('leaderboard').orderBy('streak', 'desc');
+
+        // Apply filters if needed (e.g. Province)
+        const filter = localStorage.getItem('totalskillz_leaderboard_filter') || 'global';
+        const p = getProgress();
+
+        if (filter === 'province') {
+            if (!p.province) {
+                listElement.innerHTML = `<div style="text-align:center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem;">Set your province in <b>Identity</b> settings to see regional rankings.</div>`;
+                return;
+            }
+            query = query.where('province', '==', p.province);
+        } else if (filter === 'school') {
+            if (!p.school) {
+                listElement.innerHTML = `<div style="text-align:center; padding: 2rem; color: var(--text-muted); font-size: 0.85rem;">Set your school in <b>Identity</b> settings to see school rankings.</div>`;
+                return;
+            }
+            query = query.where('school', '==', p.school);
+        }
+
+        const querySnapshot = await query.limit(15).get(); // Optimized to 15 reads for scale
+
+        if (querySnapshot.empty) {
+            listElement.innerHTML = `
+                <div style="text-align:center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+                    No ranking data available yet. Start practicing to be the first!
+                </div>
+            `;
+            return;
+        }
+
+        let allUsers = [];
+        let myRank = -1;
+        let rankCounter = 1;
+
+        querySnapshot.forEach(doc => {
+            const data = doc.data();
+            allUsers.push({ id: doc.id, ...data, rank: rankCounter });
+            if (doc.id === currentUser.uid) {
+                myRank = rankCounter;
+            }
+            rankCounter++;
+        });
+
+        // 3. Determine which users to show (Localized competition)
+        let displayUsers = [];
+        if (myRank === -1) {
+            // User not in top 50, show top 5 as fallback
+            displayUsers = allUsers.slice(0, 5);
+        } else {
+            // Show up to 2 above, self, and up to 2 below (total 5)
+            const startIndex = Math.max(0, myRank - 3); // -1 for 0-index, -2 for neighbors = -3
+            displayUsers = allUsers.slice(startIndex, startIndex + 5);
+        }
+
+        let html = '';
+        let displayDelay = 1;
+
+        displayUsers.forEach(user => {
+            const name = user.displayName || 'Anonymous Learner';
+            // Generate initials
+            const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+
+            // Highlight the current user
+            const isMe = user.id === currentUser.uid;
+            const bgStyle = isMe ? 'background: var(--bg-hover); border: 1px solid var(--primary-light);' : '';
+            const indicator = isMe ? '<span style="font-size: 0.7rem; color: var(--primary); font-weight: bold; margin-left: 0.5rem;">(You)</span>' : '';
+
+            html += `
+                <div class="leaderboard-item" style="animation-delay: ${displayDelay * 0.1}s; ${bgStyle}">
+                    <div class="leaderboard-item__rank" style="${isMe ? 'color: var(--primary);' : ''}">${user.rank}</div>
+                    <div class="leaderboard-item__user">
+                        <div class="leaderboard-item__avatar" style="${isMe ? 'background: var(--primary); color: white;' : ''}">${initials}</div>
+                        <div class="leaderboard-item__name" style="${isMe ? 'font-weight: 700; color: var(--text);' : ''}">${name}${indicator}</div>
+                    </div>
+                    <div class="leaderboard-item__stats">
+                        <div class="leaderboard-item__score" style="${isMe ? 'color: var(--primary);' : ''}">${user.streak || 0}</div>
+                        <div class="leaderboard-item__label">Streak</div>
+                    </div>
+                </div>
+            `;
+            displayDelay++;
+        });
+
+        listElement.innerHTML = html;
+
+    } catch (error) {
+        console.error("Error fetching leaderboard: ", error);
+        listElement.innerHTML = `
+            <div style="text-align:center; padding: 2rem; color: var(--accent-red); font-size: 0.9rem;">
+                <i class="fa-solid fa-triangle-exclamation"></i><br>
+                Failed to load leaderboard data.
+            </div>
+        `;
+    }
+}
+
+function setLeaderboardFilter(filter, el) {
+    localStorage.setItem('totalskillz_leaderboard_filter', filter);
+
+    // Update pills UI
+    const container = el.parentElement;
+    container.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
+    el.classList.add('active');
+
+    // Refresh list
+    const listElement = document.getElementById('leaderboardList');
+    if (listElement) {
+        listElement.innerHTML = `<div style="text-align:center; padding: 2.5rem; color: var(--text-muted);"><i class="fa-solid fa-spinner fa-spin"></i> Filtering...</div>`;
+    }
+    fetchLeaderboard();
+}
+
+// Ensure leaderboard fetches when dashboard loads using an existing init function
+// By looking at the dashboard.html, we can just call this globally or tie it to the auth state.
+document.addEventListener('DOMContentLoaded', () => {
+    // If we're on the dashboard, fetch it
+    if (window.location.pathname.endsWith('dashboard.html')) {
+        setTimeout(() => {
+            // Need a slight delay to ensure firebase is initialized if not using auth observer
+            if (firebase.app()) fetchLeaderboard();
+        }, 1500);
+    }
+});
+
+// ---- Video Player Modal ----
+
+// Curated grade 12 maths video IDs per topic (avoids broken listType=search embeds)
+const TOPIC_VIDEO_MAP = {
+    'algebra': 'JaLIBFOT8XM',  // Grade 12 Algebra
+    'patterns': 'KNwRMs5mflE',  // Arithmetic & Geometric sequences
+    'functions': 'Uc3Q92xfL5A',  // Grade 12 Functions
+    'finance': 'xzpz7MXCMR0',  // Financial Maths
+    'trigonometry': 'jZe6IjFyqBU',  // Grade 12 Trig
+    'analytical_geometry': 'fYyARMqwMG4',  // Analytical Geometry
+    'analytical': 'fYyARMqwMG4',
+    'euclidean_geometry': 'GUHxO_KZRQM',  // Euclidean Geometry / Circle Theorems
+    'euclidean': 'GUHxO_KZRQM',
+    'calculus': '_-4T3fEQtbs',  // Calculus Differentiation
+    'probability': 'YoUF5tKfzh4',  // Probability
+    'statistics': 'MRqtXL2dFP4',  // Statistics regression
+    'quadratic': 'JaLIBFOT8XM',
+    'revision': '6u_KrFkD8tk',  // General grade 12 maths revision
+};
+
+function openVideoModal(queryOrUrl, title = 'Video Lesson') {
+    let overlay = document.getElementById('globalVideoModal');
+
+    // Create modal if it doesn't exist
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'globalVideoModal';
+        overlay.className = 'video-modal-overlay';
+        overlay.innerHTML = `
+            <div class="video-modal-content">
+                <div class="video-modal-header">
+                    <h3 class="video-modal-title" id="videoModalTitle"><i class="fa-brands fa-youtube" style="color:#ef4444;"></i> <span>Video Lesson</span></h3>
+                    <div style="display:flex; gap:0.5rem; align-items:center;">
+                        <a id="videoYouTubeLink" href="#" target="_blank" rel="noopener" class="btn btn-sm btn-secondary" style="font-size:0.75rem;">
+                            <i class="fa-brands fa-youtube"></i> Open on YouTube
+                        </a>
+                        <button class="video-modal-close" onclick="closeVideoModal()"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                <div class="video-modal-body" id="videoModalBody">
+                    <!-- iframe goes here -->
+                </div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        // Close on click outside
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeVideoModal();
+        });
+    }
+
+    // Set title
+    if (document.querySelector('#videoModalTitle span')) {
+        document.querySelector('#videoModalTitle span').textContent = title;
+    }
+
+    // Determine embed URL
+    let embedUrl = '';
+    let youtubeSearchUrl = '';
+
+    if (queryOrUrl.includes('youtube.com/watch?v=') || queryOrUrl.includes('youtu.be/')) {
+        // Direct video URL — extract ID and embed
+        let videoId = queryOrUrl.includes('v=')
+            ? queryOrUrl.split('v=')[1].split('&')[0]
+            : queryOrUrl.split('youtu.be/')[1].split('?')[0];
+        embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        youtubeSearchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+    } else {
+        // Search query — find curated video ID or fallback
+        const lower = queryOrUrl.toLowerCase();
+        let videoId = null;
+
+        // Try to match against known topic keys
+        for (const [key, id] of Object.entries(TOPIC_VIDEO_MAP)) {
+            if (lower.includes(key)) {
+                videoId = id;
+                break;
+            }
+        }
+
+        const searchQuery = encodeURIComponent(queryOrUrl);
+        youtubeSearchUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
+
+        if (videoId) {
+            embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        } else {
+            // No matching video ID — open YouTube search in new tab instead
+            if (document.getElementById('videoYouTubeLink')) {
+                document.getElementById('videoYouTubeLink').href = youtubeSearchUrl;
+            }
+            // Show a friendly redirect message in the modal
+            document.getElementById('videoModalBody').innerHTML = `
+                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:1.25rem; padding:2rem; text-align:center; color:#fff;">
+                    <i class="fa-brands fa-youtube" style="font-size:3.5rem; color:#ef4444;"></i>
+                    <p style="font-size:1rem; opacity:0.9;">Opening YouTube search for<br><strong>"${queryOrUrl}"</strong></p>
+                    <a href="${youtubeSearchUrl}" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeVideoModal()">
+                        <i class="fa-brands fa-youtube"></i> Search on YouTube
+                    </a>
+                </div>
+            `;
+            setTimeout(() => overlay.classList.add('open'), 10);
+            return;
+        }
+    }
+
+    // Update the "Open on YouTube" link
+    if (document.getElementById('videoYouTubeLink')) {
+        document.getElementById('videoYouTubeLink').href = youtubeSearchUrl;
+    }
+
+    // Inject iframe
+    document.getElementById('videoModalBody').innerHTML = `
+        <iframe src="${embedUrl}"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy">
+        </iframe>
+    `;
+
+    // Open with small delay
+    setTimeout(() => overlay.classList.add('open'), 10);
+}
+
+function closeVideoModal() {
+    const overlay = document.getElementById('globalVideoModal');
+    if (overlay) {
+        overlay.classList.remove('open');
+        // Clear iframe to stop playback
+        setTimeout(() => {
+            const body = document.getElementById('videoModalBody');
+            if (body) body.innerHTML = '';
+        }, 300);
+    }
+}
+

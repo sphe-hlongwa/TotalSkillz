@@ -3709,5 +3709,2181 @@
       "Since 40 is larger than 20, the new 7th term will be $\\ge 20$.",
       "The median will likely shift slightly upwards or stay 20 if the 7th term was also 20."
     ]
+  },
+  {
+    "topic": "calculus",
+    "q": "A cone has a radius \\(r\\) and a perpendicular height \\(h\\). The sum of the radius and height is \\(12\\text{ cm}\\). Determine the maximum possible volume of the cone. (Volume of cone = \\(\\frac{1}{3}\\pi r^2 h\\))",
+    "options": [
+      "\\(128\\pi\\text{ cm}^3\\)",
+      "\\(\\frac{256}{3}\\pi\\text{ cm}^3\\)",
+      "\\(512\\pi\\text{ cm}^3\\)",
+      "\\(64\\pi\\text{ cm}^3\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "\\(r + h = 12 \\Rightarrow h = 12 - r\\)",
+      "\\(V(r) = \\frac{1}{3}\\pi r^2 (12 - r) = 4\\pi r^2 - \\frac{1}{3}\\pi r^3\\)",
+      "\\(V'(r) = 8\\pi r - \\pi r^2 = 0\\)",
+      "\\(\\pi r(8 - r) = 0 \\Rightarrow r = 8\\) (since \\(r > 0\\))",
+      "\\(h = 12 - 8 = 4\\)",
+      "\\(V_{max} = \\frac{1}{3}\\pi (8)^2 (4) = \\frac{256}{3}\\pi \\approx 268.08\\text{ cm}^3\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Determine the coordinates of the turning points of the graph of \\(f(x) = x^3 - 3x^2 - 9x + 5\\).",
+    "options": [
+      "\\((-1, 10)\\) and \\((3, -22)\\)",
+      "\\( (1, -6) \\) and \\( (-3, -22) \\)",
+      "\\((-1, 10)\\) and \\((3, 22)\\)",
+      "\\( (1, 6) \\) and \\( (-3, 22) \\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "\\(f'(x) = 3x^2 - 6x - 9\\)",
+      "Set \\(f'(x) = 0\\): \\(3(x^2 - 2x - 3) = 0 \\Rightarrow 3(x-3)(x+1) = 0\\)",
+      "\\(x = 3\\) or \\(x = -1\\)",
+      "Substitute to find y: \\(f(-1) = (-1)^3 - 3(-1)^2 - 9(-1) + 5 = -1 - 3 + 9 + 5 = 10\\)",
+      "\\(f(3) = (3)^3 - 3(3)^2 - 9(3) + 5 = 27 - 27 - 27 + 5 = -22\\)",
+      "Turning points: \\((-1, 10)\\) and \\((3, -22)\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "The function \\(g(x) = -2x^3 + px^2 + qx + 12\\) has a local minimum at \\(x = -1\\) and a point of inflection at \\(x = 1\\). Determine the values of \\(p\\) and \\(q\\).",
+    "options": [
+      "\\(p = 6, q = -12\\)",
+      "\\(p = -6, q = 12\\)",
+      "\\(p = 6, q = 18\\)",
+      "\\(p = -6, q = -18\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Point of inflection at \\(x = 1 \\Rightarrow g''(1) = 0\\)",
+      "\\(g'(x) = -6x^2 + 2px + q\\)",
+      "\\(g''(x) = -12x + 2p\\)",
+      "\\(-12(1) + 2p = 0 \\Rightarrow 2p = 12 \\Rightarrow p = 6\\)",
+      "Local minimum at \\(x = -1 \\Rightarrow g'(-1) = 0\\)",
+      "\\(-6(-1)^2 + 2(6)(-1) + q = 0\\)",
+      "\\(-6 - 12 + q = 0 \\Rightarrow q = 18\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Evaluate \\(\\lim_{x \\to 2} \\frac{x^3 - 8}{x - 2}\\).",
+    "options": [
+      "\\(12\\)",
+      "\\(0\\)",
+      "\\(8\\)",
+      "Undefined"
+    ],
+    "answer": 0,
+    "solution": [
+      "Factorise numerator (difference of cubes): \\(x^3 - 8 = (x - 2)(x^2 + 2x + 4)\\)",
+      "\\(\\lim_{x \\to 2} \\frac{(x - 2)(x^2 + 2x + 4)}{x - 2}\\)",
+      "Cancel common factor: \\(\\lim_{x \\to 2} (x^2 + 2x + 4)\\)",
+      "Substitute \\(x = 2\\): \\(2^2 + 2(2) + 4 = 4 + 4 + 4 = 12\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "A stone is thrown vertically upwards. Its height \\(h\\) in metres above the ground after \\(t\\) seconds is given by \\(h(t) = -5t^2 + 20t + 2\\). Calculate the maximum height reached by the stone.",
+    "options": [
+      "\\(22 \\text{ m}\\)",
+      "\\(42 \\text{ m}\\)",
+      "\\(20 \\text{ m}\\)",
+      "\\(32 \\text{ m}\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Max height occurs when velocity (derivative of height) is zero.",
+      "\\(v(t) = h'(t) = -10t + 20\\)",
+      "Set \\(v(t) = 0\\): \\(-10t + 20 = 0 \\Rightarrow 10t = 20 \\Rightarrow t = 2\\text{ seconds}\\)",
+      "Substitute \\(t = 2\\) into the original height equation:",
+      "\\(h(2) = -5(2)^2 + 20(2) + 2 = -20 + 40 + 2 = 22\\text{ m}\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "A committee of 3 boys and 2 girls is to be chosen from a group of 8 boys and 6 girls. In how many ways can this be done?",
+    "options": [
+      "\\(840\\)",
+      "\\(1120\\)",
+      "\\(56\\)",
+      "\\(15\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Choose 3 boys from 8: \\(\\binom{8}{3} = \\frac{8!}{3!(8-3)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56\\)",
+      "Choose 2 girls from 6: \\(\\binom{6}{2} = \\frac{6!}{2!(6-2)!} = \\frac{6 \\times 5}{2 \\times 1} = 15\\)",
+      "Total combinations = \\(56 \\times 15 = 840\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "The letters of the word EQUATION are arranged randomly in a row. What is the probability that the arrangement starts and ends with a consonant?",
+    "options": [
+      "\\( \\frac{3}{28} \\)",
+      "\\( \\frac{1}{14} \\)",
+      "\\( \\frac{15}{56} \\)",
+      "\\( \\frac{5}{28} \\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "EQUATION has 8 letters: 5 vowels (E, U, A, I, O) and 3 consonants (Q, T, N).",
+      "Total arrangements = \\(8! = 40320\\)",
+      "Favourable outcomes: Choose first consonant (3 options), choose last consonant (2 options), arrange remaining 6 letters (\\(6!\\)).",
+      "\\(3 \\times 2 \\times 6! = 6 \\times 720 = 4320\\)",
+      "Probability = \\(\\frac{4320}{40320} = \\frac{432}{4032} = \\frac{3}{28}\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "A bag contains 5 red balls, 3 blue balls, and 2 green balls. Two balls are drawn at random without replacement. What is the probability that they are both the same colour?",
+    "options": [
+      "\\( \\frac{14}{45} \\)",
+      "\\( \\frac{1}{3} \\)",
+      "\\( \\frac{19}{45} \\)",
+      "\\( \\frac{28}{90} \\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Total balls = 10. Total ways to draw 2 balls = \\(\\binom{10}{2} = 45\\).",
+      "Ways to draw 2 red = \\(\\binom{5}{2} = 10\\)",
+      "Ways to draw 2 blue = \\(\\binom{3}{2} = 3\\)",
+      "Ways to draw 2 green = \\(\\binom{2}{2} = 1\\)",
+      "Total favourable ways = \\(10 + 3 + 1 = 14\\)",
+      "Probability = \\(\\frac{14}{45}\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "Events \\(C\\) and \\(D\\) are mutually exclusive. It is given that \\(P(C) = 2x\\), \\(P(D) = x\\), and \\(P(C \\text{ or } D) = 0.6\\). Determine the value of \\(x\\).",
+    "options": [
+      "\\(0.3\\)",
+      "\\(0.2\\)",
+      "\\(0.4\\)",
+      "\\(0.15\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "For mutually exclusive events, \\(P(C \\text{ or } D) = P(C) + P(D)\\).",
+      "\\(0.6 = 2x + x\\)",
+      "\\(0.6 = 3x\\)",
+      "\\(x = 0.2\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "In a class of 40 learners, 24 play soccer, 18 play rugby, and 6 play neither. How many learners play BOTH soccer and rugby?",
+    "options": [
+      "\\(6\\)",
+      "\\(12\\)",
+      "\\(8\\)",
+      "\\(10\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Total playing = 40 - 6 = 34.",
+      "Using the formula: \\(n(S \\cup R) = n(S) + n(R) - n(S \\cap R)\\)",
+      "\\(34 = 24 + 18 - n(S \\cap R)\\)",
+      "\\(34 = 42 - n(S \\cap R)\\)",
+      "\\(n(S \\cap R) = 42 - 34 = 8\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Thabo invests R\\(15\\,000\\) in an account earning \\(8\\%\\) p.a. compounded quarterly. How much will he have after 5 years?",
+    "options": [
+      "\\( R21\\,000.00 \\)",
+      "\\( R22\\,289.21 \\)",
+      "\\( R21\\,889.32 \\)",
+      "\\( R22\\,300.00 \\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the compound interest formula: \\(A = P(1 + i)^n\\)",
+      "\\(P = 15000\\)",
+      "\\(i = \\frac{0.08}{4} = 0.02\\) per quarter",
+      "\\(n = 5 \\times 4 = 20\\) quarters",
+      "\\(A = 15000(1 + 0.02)^{20}\\)",
+      "\\(A = 15000(1.485947)\\}",
+      "\\(A \\approx R22\\,289.21\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "A business buys a machine for R\\(250\\,000\\). It depreciates at \\(12\\%\\) p.a. on a reducing balance. Calculate its book value after 4 years.",
+    "options": [
+      "\\( R130\\,000.00 \\)",
+      "\\( R152\\,184.32 \\)",
+      "\\( R149\\,800.00 \\)",
+      "\\( R149\\,923.84 \\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the reducing balance depreciation formula: \\(A = P(1 - i)^n\\)",
+      "\\(P = 250000\\), \\(i = 0.12\\), \\(n = 4\\)",
+      "\\(A = 250000(1 - 0.12)^4\\)",
+      "\\(A = 250000(0.88)^4\\)",
+      "\\(A = 250000(0.599695)\\)",
+      "\\(A \\approx R149\\,923.84\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Lerato wants to save R\\(50\\,000\\) for a deposit on a car in 3 years' time. She opens a sinking fund that earns \\(9\\%\\) p.a. compounded monthly. Calculate her required monthly deposit.",
+    "options": [
+      "\\( R1\\,214.50 \\)",
+      "\\( R1\\,388.89 \\)",
+      "\\( R1\\,230.15 \\)",
+      "\\( R1\\,206.87 \\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the future value of an annuity formula: \\(F = \\frac{x[(1+i)^n - 1]}{i}\\)",
+      "\\(F = 50000\\), \\(i = \\frac{0.09}{12} = 0.0075\\), \\(n = 3 \\times 12 = 36\\) payments",
+      "\\(50000 = \\frac{x[(1 + 0.0075)^{36} - 1]}{0.0075}\\)",
+      "\\(50000 \\times 0.0075 = x[1.308645 - 1]\\)",
+      "\\(375 = 0.308645x\\)",
+      "\\(x = \\frac{375}{0.308645} \\approx R1\\,206.87\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Determine the effective annual interest rate if the nominal interest rate is \\(10.5\\%\\) p.a. compounded monthly.",
+    "options": [
+      "\\( 10.5\\% \\)",
+      "\\( 11.02\\% \\)",
+      "\\( 10.87\\% \\)",
+      "\\( 11.51\\% \\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+      "\\(i_{nom} = 0.105\\), \\(m = 12\\)",
+      "\\(1 + i_{eff} = (1 + \\frac{0.105}{12})^{12}\\)",
+      "\\(1 + i_{eff} = (1.00875)^{12} \\approx 1.11020\\)",
+      "\\(i_{eff} = 0.11020 \\times 100\\% = 11.02\\%\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Jason takes out a loan of R\\(800\\,000\\) to buy a house. His interest rate is \\(11\\%\\) p.a. compounded monthly. He repays the loan over 20 years. What is his monthly instalment?",
+    "options": [
+      "\\( R8\\,257.45 \\)",
+      "\\( R7\\,984.32 \\)",
+      "\\( R8\\,000.00 \\)",
+      "\\( R3\\,333.33 \\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the present value of an annuity formula: \\(P = \\frac{x[1 - (1+i)^{-n}]}{i}\\)",
+      "\\(P = 800000\\), \\(i = \\frac{0.11}{12}\\), \\(n = 20 \\times 12 = 240\\)",
+      "\\(800000 = \\frac{x[1 - (1 + \\frac{0.11}{12})^{-240}]}{\\frac{0.11}{12}}\\)",
+      "\\(800000 \\times \\frac{0.11}{12} = x[1 - (1.009167)^{-240}]\\)",
+      "\\(7333.33 = x[1 - 0.111933] = 0.888067x\\)",
+      "\\(x = \\frac{7333.33}{0.888067} \\approx R8\\,257.45\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 2x - 15 = 0\\)",
+    "options": [
+      "\\(x = -5\\) or \\(x = 3\\)",
+      "\\(x = -5\\) or \\(x = -3\\)",
+      "\\(x = 5\\) or \\(x = 3\\)",
+      "\\(x = 5\\) or \\(x = -3\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Factorise the quadratic: \\((x - -5)(x - 3) = 0\\)",
+      "Set each factor to zero: \\(x - -5 = 0\\) or \\(x - 3 = 0\\)",
+      "\\(x = -5\\) or \\(x = 3\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 7x - 8 = 0\\)",
+    "options": [
+      "\\(x = 1\\) or \\(x = -8\\)",
+      "\\(x = 1\\) or \\(x = 8\\)",
+      "\\(x = -1\\) or \\(x = -8\\)",
+      "\\(x = -1\\) or \\(x = 8\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Factorise the quadratic: \\((x - 1)(x - -8) = 0\\)",
+      "Set each factor to zero: \\(x - 1 = 0\\) or \\(x - -8 = 0\\)",
+      "\\(x = 1\\) or \\(x = -8\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 8x + 15 = 0\\)",
+    "options": [
+      "\\(x = 5\\) or \\(x = 3\\)",
+      "\\(x = -5\\) or \\(x = -3\\)",
+      "\\(x = -5\\) or \\(x = 3\\)",
+      "\\(x = 5\\) or \\(x = -3\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Factorise the quadratic: \\((x - 5)(x - 3) = 0\\)",
+      "Set each factor to zero: \\(x - 5 = 0\\) or \\(x - 3 = 0\\)",
+      "\\(x = 5\\) or \\(x = 3\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 13x + 40 = 0\\)",
+    "options": [
+      "\\(x = 5\\) or \\(x = 8\\)",
+      "\\(x = 5\\) or \\(x = -8\\)",
+      "\\(x = -5\\) or \\(x = 8\\)",
+      "\\(x = -5\\) or \\(x = -8\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Factorise the quadratic: \\((x - 5)(x - 8) = 0\\)",
+      "Set each factor to zero: \\(x - 5 = 0\\) or \\(x - 8 = 0\\)",
+      "\\(x = 5\\) or \\(x = 8\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 3x - 28 = 0\\)",
+    "options": [
+      "\\(x = 4\\) or \\(x = -7\\)",
+      "\\(x = -4\\) or \\(x = 7\\)",
+      "\\(x = 4\\) or \\(x = 7\\)",
+      "\\(x = -4\\) or \\(x = -7\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Factorise the quadratic: \\((x - -4)(x - 7) = 0\\)",
+      "Set each factor to zero: \\(x - -4 = 0\\) or \\(x - 7 = 0\\)",
+      "\\(x = -4\\) or \\(x = 7\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(5x^2 + 4x -1 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx -0.20\\) or \\(x \\approx -1.00\\)",
+      "\\(x \\approx -0.20\\) or \\(x \\approx 1.00\\)",
+      "\\(x \\approx 0.20\\) or \\(x \\approx 1.00\\)",
+      "\\(x \\approx 0.20\\) or \\(x \\approx -1.00\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(5)(-1)}}{2(5)}\\)",
+      "\\(x = \\dfrac{-4 \\pm \\sqrt{36}}{10}\\)",
+      "\\(x \\approx 0.20\\) or \\(x \\approx -1.00\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(2x^2 + 4x -2 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.41\\) or \\(x \\approx -2.41\\)",
+      "\\(x \\approx -0.41\\) or \\(x \\approx 2.41\\)",
+      "\\(x \\approx 0.41\\) or \\(x \\approx 2.41\\)",
+      "\\(x \\approx -0.41\\) or \\(x \\approx -2.41\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(2)(-2)}}{2(2)}\\)",
+      "\\(x = \\dfrac{-4 \\pm \\sqrt{32}}{4}\\)",
+      "\\(x \\approx 0.41\\) or \\(x \\approx -2.41\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(3x^2 + 8x -4 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.43\\) or \\(x \\approx 3.10\\)",
+      "\\(x \\approx -0.43\\) or \\(x \\approx 3.10\\)",
+      "\\(x \\approx -0.43\\) or \\(x \\approx -3.10\\)",
+      "\\(x \\approx 0.43\\) or \\(x \\approx -3.10\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(8) \\pm \\sqrt{(8)^2 - 4(3)(-4)}}{2(3)}\\)",
+      "\\(x = \\dfrac{-8 \\pm \\sqrt{112}}{6}\\)",
+      "\\(x \\approx 0.43\\) or \\(x \\approx -3.10\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(4x^2 + 5x -4 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.55\\) or \\(x \\approx -1.80\\)",
+      "\\(x \\approx -0.55\\) or \\(x \\approx 1.80\\)",
+      "\\(x \\approx -0.55\\) or \\(x \\approx -1.80\\)",
+      "\\(x \\approx 0.55\\) or \\(x \\approx 1.80\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(5) \\pm \\sqrt{(5)^2 - 4(4)(-4)}}{2(4)}\\)",
+      "\\(x = \\dfrac{-5 \\pm \\sqrt{89}}{8}\\)",
+      "\\(x \\approx 0.55\\) or \\(x \\approx -1.80\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(3x^2 + 4x -3 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.54\\) or \\(x \\approx -1.87\\)",
+      "\\(x \\approx -0.54\\) or \\(x \\approx -1.87\\)",
+      "\\(x \\approx 0.54\\) or \\(x \\approx 1.87\\)",
+      "\\(x \\approx -0.54\\) or \\(x \\approx 1.87\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(3)(-3)}}{2(3)}\\)",
+      "\\(x = \\dfrac{-4 \\pm \\sqrt{52}}{6}\\)",
+      "\\(x \\approx 0.54\\) or \\(x \\approx -1.87\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 14\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Evaluate algebraically by substitution",
+      "Two non-real solutions",
+      "\\((1, -1)\\) only",
+      "\\((0, -2)\\) and \\((3.7, 0)\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 14\\)",
+      "Expand: \\(x^2 + x^2 - 4x + 4 = 14\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 4\\) and \\(x^2 + y^2 = 28\\), find the coordinates of the points of intersection.",
+    "options": [
+      "\\((1, -3)\\) only",
+      "\\((0, -4)\\) and \\((5.3, 0)\\)",
+      "Two non-real solutions",
+      "Evaluate algebraically by substitution"
+    ],
+    "answer": 3,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 4)^2 = 28\\)",
+      "Expand: \\(x^2 + x^2 - 8x + 16 = 28\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 4\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 19\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Two non-real solutions",
+      "Evaluate algebraically by substitution",
+      "\\((1, -5)\\) only",
+      "\\((0, -6)\\) and \\((4.4, 0)\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 19\\)",
+      "Expand: \\(x^2 + x^2 - 12x + 36 = 19\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 13\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Evaluate algebraically by substitution",
+      "\\((1, -5)\\) only",
+      "\\((0, -6)\\) and \\((3.6, 0)\\)",
+      "Two non-real solutions"
+    ],
+    "answer": 0,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 13\\)",
+      "Expand: \\(x^2 + x^2 - 12x + 36 = 13\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 5\\) and \\(x^2 + y^2 = 30\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Evaluate algebraically by substitution",
+      "\\((0, -5)\\) and \\((5.5, 0)\\)",
+      "Two non-real solutions",
+      "\\((1, -4)\\) only"
+    ],
+    "answer": 0,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 5)^2 = 30\\)",
+      "Expand: \\(x^2 + x^2 - 10x + 25 = 30\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 5\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the 28th term of the arithmetic sequence: -2; -7; -12; ...",
+    "options": [
+      "\\(-132\\)",
+      "\\(-142\\)",
+      "\\(-137\\)",
+      "\\(-142\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Formula for arithmetic sequence: \\(T_n = a + (n-1)d\\)",
+      "Here, \\(a = -2\\) and \\(d = -5\\)",
+      "\\(T_{28} = -2 + (28-1)(-5)\\)",
+      "\\(T_{28} = -2 + -135 = -137\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the 32th term of the arithmetic sequence: 4; 1; -2; ...",
+    "options": [
+      "\\(-89\\)",
+      "\\(-92\\)",
+      "\\(-86\\)",
+      "\\(-92\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Formula for arithmetic sequence: \\(T_n = a + (n-1)d\\)",
+      "Here, \\(a = 4\\) and \\(d = -3\\)",
+      "\\(T_{32} = 4 + (32-1)(-3)\\)",
+      "\\(T_{32} = 4 + -93 = -89\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the 49th term of the arithmetic sequence: -4; -1; 2; ...",
+    "options": [
+      "\\(140\\)",
+      "\\(137\\)",
+      "\\(143\\)",
+      "\\(143\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Formula for arithmetic sequence: \\(T_n = a + (n-1)d\\)",
+      "Here, \\(a = -4\\) and \\(d = 3\\)",
+      "\\(T_{49} = -4 + (49-1)(3)\\)",
+      "\\(T_{49} = -4 + 144 = 140\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the 39th term of the arithmetic sequence: -10; -7; -4; ...",
+    "options": [
+      "\\(101\\)",
+      "\\(104\\)",
+      "\\(107\\)",
+      "\\(107\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Formula for arithmetic sequence: \\(T_n = a + (n-1)d\\)",
+      "Here, \\(a = -10\\) and \\(d = 3\\)",
+      "\\(T_{39} = -10 + (39-1)(3)\\)",
+      "\\(T_{39} = -10 + 114 = 104\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the 47th term of the arithmetic sequence: -10; -14; -18; ...",
+    "options": [
+      "\\(-198\\)",
+      "\\(-198\\)",
+      "\\(-194\\)",
+      "\\(-190\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Formula for arithmetic sequence: \\(T_n = a + (n-1)d\\)",
+      "Here, \\(a = -10\\) and \\(d = -4\\)",
+      "\\(T_{47} = -10 + (47-1)(-4)\\)",
+      "\\(T_{47} = -10 + -184 = -194\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Calculate the sum to infinity of the geometric series: \\(15 + 3 + ...\\)",
+    "options": [
+      "\\(75\\)",
+      "\\(18.75\\)",
+      "Does not converge",
+      "\\(3.75\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Sum to infinity formula: \\(S_{\\infty} = \\dfrac{a}{1 - r}\\)",
+      "Here, \\(a = 15\\) and \\(r = \\dfrac{1}{5}\\)",
+      "\\(S_{\\infty} = \\dfrac{15}{1 - 1/5}\\)",
+      "\\(S_{\\infty} = 18.75\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Calculate the sum to infinity of the geometric series: \\(29 + 7.25 + ...\\)",
+    "options": [
+      "\\(116\\)",
+      "\\(9.666666666666666\\)",
+      "\\(38.666666666666664\\)",
+      "Does not converge"
+    ],
+    "answer": 2,
+    "solution": [
+      "Sum to infinity formula: \\(S_{\\infty} = \\dfrac{a}{1 - r}\\)",
+      "Here, \\(a = 29\\) and \\(r = \\dfrac{1}{4}\\)",
+      "\\(S_{\\infty} = \\dfrac{29}{1 - 1/4}\\)",
+      "\\(S_{\\infty} = 38.666666666666664\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Calculate the sum to infinity of the geometric series: \\(38 + 9.5 + ...\\)",
+    "options": [
+      "Does not converge",
+      "\\(152\\)",
+      "\\(50.666666666666664\\)",
+      "\\(12.666666666666666\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Sum to infinity formula: \\(S_{\\infty} = \\dfrac{a}{1 - r}\\)",
+      "Here, \\(a = 38\\) and \\(r = \\dfrac{1}{4}\\)",
+      "\\(S_{\\infty} = \\dfrac{38}{1 - 1/4}\\)",
+      "\\(S_{\\infty} = 50.666666666666664\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Calculate the sum to infinity of the geometric series: \\(18 + 4.5 + ...\\)",
+    "options": [
+      "\\(6\\)",
+      "Does not converge",
+      "\\(72\\)",
+      "\\(24\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Sum to infinity formula: \\(S_{\\infty} = \\dfrac{a}{1 - r}\\)",
+      "Here, \\(a = 18\\) and \\(r = \\dfrac{1}{4}\\)",
+      "\\(S_{\\infty} = \\dfrac{18}{1 - 1/4}\\)",
+      "\\(S_{\\infty} = 24\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Calculate the sum to infinity of the geometric series: \\(48 + 16 + ...\\)",
+    "options": [
+      "\\(71.99999999999999\\)",
+      "Does not converge",
+      "\\(144\\)",
+      "\\(23.999999999999993\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Sum to infinity formula: \\(S_{\\infty} = \\dfrac{a}{1 - r}\\)",
+      "Here, \\(a = 48\\) and \\(r = \\dfrac{1}{3}\\)",
+      "\\(S_{\\infty} = \\dfrac{48}{1 - 1/3}\\)",
+      "\\(S_{\\infty} = 71.99999999999999\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the general term \\(T_n\\) of the quadratic sequence: 1.5; 5; 11.5; 21; ...",
+    "options": [
+      "\\(T_n = 1.5n^2 -n +1\\)",
+      "\\(T_n = 1.5n^2 - -n + 1\\)",
+      "\\(T_n = 3n^2 + 0n - 1\\)",
+      "\\(T_n = n^2 + -1n + 1.5\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "First differences: 3.5, 6.5, 9.5",
+      "Second difference: 3. So \\(2a = 3 \\implies a = 1.5\\)",
+      "\\(3a + b = 3.5 \\implies 3(1.5) + b = 3.5 \\implies b = -1\\)",
+      "\\(a + b + c = 1.5 \\implies 1.5 + -1 + c = 1.5 \\implies c = 1\\)",
+      "\\(T_n = 1.5n^2 -n +1\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the general term \\(T_n\\) of the quadratic sequence: 2.5; 9; 18.5; 31; ...",
+    "options": [
+      "\\(T_n = 3n^2 + 3n - -1\\)",
+      "\\(T_n = -n^2 + 2n + 1.5\\)",
+      "\\(T_n = 1.5n^2 +2n -1\\)",
+      "\\(T_n = 1.5n^2 - 2n + -1\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "First differences: 6.5, 9.5, 12.5",
+      "Second difference: 3. So \\(2a = 3 \\implies a = 1.5\\)",
+      "\\(3a + b = 6.5 \\implies 3(1.5) + b = 6.5 \\implies b = 2\\)",
+      "\\(a + b + c = 2.5 \\implies 1.5 + 2 + c = 2.5 \\implies c = -1\\)",
+      "\\(T_n = 1.5n^2 +2n -1\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the general term \\(T_n\\) of the quadratic sequence: 4; 12; 24; 40; ...",
+    "options": [
+      "\\(T_n = 2n^2 +2n \\)",
+      "\\(T_n = 4n^2 + 3n - 0\\)",
+      "\\(T_n = 0n^2 + 2n + 2\\)",
+      "\\(T_n = 2n^2 - 2n + 0\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "First differences: 8, 12, 16",
+      "Second difference: 4. So \\(2a = 4 \\implies a = 2\\)",
+      "\\(3a + b = 8 \\implies 3(2) + b = 8 \\implies b = 2\\)",
+      "\\(a + b + c = 4 \\implies 2 + 2 + c = 4 \\implies c = 0\\)",
+      "\\(T_n = 2n^2 +2n \\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the general term \\(T_n\\) of the quadratic sequence: 1; 3; 7; 13; ...",
+    "options": [
+      "\\(T_n = 2n^2 + 0n - 1\\)",
+      "\\(T_n = n^2 + -1n + 1\\)",
+      "\\(T_n = n^2 -1n +1\\)",
+      "\\(T_n = n^2 - -1n + 1\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "First differences: 2, 4, 6",
+      "Second difference: 2. So \\(2a = 2 \\implies a = 1\\)",
+      "\\(3a + b = 2 \\implies 3(1) + b = 2 \\implies b = -1\\)",
+      "\\(a + b + c = 1 \\implies 1 + -1 + c = 1 \\implies c = 1\\)",
+      "\\(T_n = n^2 -1n +1\\)"
+    ]
+  },
+  {
+    "topic": "patterns",
+    "q": "Determine the general term \\(T_n\\) of the quadratic sequence: 0; 9; 22; 39; ...",
+    "options": [
+      "\\(T_n = 2n^2 - 3n + -5\\)",
+      "\\(T_n = 4n^2 + 4n - -5\\)",
+      "\\(T_n = -5n^2 + 3n + 2\\)",
+      "\\(T_n = 2n^2 +3n -5\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "First differences: 9, 13, 17",
+      "Second difference: 4. So \\(2a = 4 \\implies a = 2\\)",
+      "\\(3a + b = 9 \\implies 3(2) + b = 9 \\implies b = 3\\)",
+      "\\(a + b + c = 0 \\implies 2 + 3 + c = 0 \\implies c = -5\\)",
+      "\\(T_n = 2n^2 +3n -5\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the turning point of the parabola: \\(y = 1(x - 5)^2 - 4\\)",
+    "options": [
+      "\\((5; 4)\\)",
+      "\\((-5; -4)\\)",
+      "\\((5; -4)\\)",
+      "\\((-5; 4)\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+      "The turning point is \\((p; q)\\)",
+      "Therefore, the turning point is \\((5; -4)\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the turning point of the parabola: \\(y = 2(x - 4)^2 - 9\\)",
+    "options": [
+      "\\((-4; -9)\\)",
+      "\\((4; 9)\\)",
+      "\\((-4; 9)\\)",
+      "\\((4; -9)\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+      "The turning point is \\((p; q)\\)",
+      "Therefore, the turning point is \\((4; -9)\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the turning point of the parabola: \\(y = 3(x - 2)^2 - 9\\)",
+    "options": [
+      "\\((-2; 9)\\)",
+      "\\((-2; -9)\\)",
+      "\\((2; -9)\\)",
+      "\\((2; 9)\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+      "The turning point is \\((p; q)\\)",
+      "Therefore, the turning point is \\((2; -9)\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the turning point of the parabola: \\(y = -3(x - 0)^2 + 10\\)",
+    "options": [
+      "\\((0; 10)\\)",
+      "\\((0; 10)\\)",
+      "\\((0; -10)\\)",
+      "\\((0; -10)\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+      "The turning point is \\((p; q)\\)",
+      "Therefore, the turning point is \\((0; 10)\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the turning point of the parabola: \\(y = 1(x - 5)^2 + 9\\)",
+    "options": [
+      "\\((-5; -9)\\)",
+      "\\((-5; 9)\\)",
+      "\\((5; 9)\\)",
+      "\\((5; -9)\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+      "The turning point is \\((p; q)\\)",
+      "Therefore, the turning point is \\((5; 9)\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the equation of the inverse of the function \\(f(x) = 4^x\\)",
+    "options": [
+      "\\(f^{-1}(x) = \\log_x 4\\)",
+      "\\(f^{-1}(x) = \\log_{4} x\\)",
+      "\\(f^{-1}(x) = \\dfrac{1}{4^x}\\)",
+      "\\(f^{-1}(x) = 4^{-x}\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Let \\(y = f(x)\\), so \\(y = 4^x\\)",
+      "To find inverse, swap x and y: \\(x = 4^y\\)",
+      "Solve for y by converting to log form: \\(y = \\log_{4} x\\)",
+      "Therefore, \\(f^{-1}(x) = \\log_{4} x\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the equation of the inverse of the function \\(f(x) = 3^x\\)",
+    "options": [
+      "\\(f^{-1}(x) = 3^{-x}\\)",
+      "\\(f^{-1}(x) = \\dfrac{1}{3^x}\\)",
+      "\\(f^{-1}(x) = \\log_{3} x\\)",
+      "\\(f^{-1}(x) = \\log_x 3\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Let \\(y = f(x)\\), so \\(y = 3^x\\)",
+      "To find inverse, swap x and y: \\(x = 3^y\\)",
+      "Solve for y by converting to log form: \\(y = \\log_{3} x\\)",
+      "Therefore, \\(f^{-1}(x) = \\log_{3} x\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the equation of the inverse of the function \\(f(x) = 3^x\\)",
+    "options": [
+      "\\(f^{-1}(x) = \\log_{3} x\\)",
+      "\\(f^{-1}(x) = \\log_x 3\\)",
+      "\\(f^{-1}(x) = \\dfrac{1}{3^x}\\)",
+      "\\(f^{-1}(x) = 3^{-x}\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Let \\(y = f(x)\\), so \\(y = 3^x\\)",
+      "To find inverse, swap x and y: \\(x = 3^y\\)",
+      "Solve for y by converting to log form: \\(y = \\log_{3} x\\)",
+      "Therefore, \\(f^{-1}(x) = \\log_{3} x\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the equation of the inverse of the function \\(f(x) = 4^x\\)",
+    "options": [
+      "\\(f^{-1}(x) = \\log_{4} x\\)",
+      "\\(f^{-1}(x) = 4^{-x}\\)",
+      "\\(f^{-1}(x) = \\log_x 4\\)",
+      "\\(f^{-1}(x) = \\dfrac{1}{4^x}\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Let \\(y = f(x)\\), so \\(y = 4^x\\)",
+      "To find inverse, swap x and y: \\(x = 4^y\\)",
+      "Solve for y by converting to log form: \\(y = \\log_{4} x\\)",
+      "Therefore, \\(f^{-1}(x) = \\log_{4} x\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "Determine the equation of the inverse of the function \\(f(x) = 4^x\\)",
+    "options": [
+      "\\(f^{-1}(x) = \\dfrac{1}{4^x}\\)",
+      "\\(f^{-1}(x) = \\log_x 4\\)",
+      "\\(f^{-1}(x) = \\log_{4} x\\)",
+      "\\(f^{-1}(x) = 4^{-x}\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Let \\(y = f(x)\\), so \\(y = 4^x\\)",
+      "To find inverse, swap x and y: \\(x = 4^y\\)",
+      "Solve for y by converting to log form: \\(y = \\log_{4} x\\)",
+      "Therefore, \\(f^{-1}(x) = \\log_{4} x\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x - 2} - 3\\)",
+    "options": [
+      "\\(x = 2\\) and \\(y = -3\\)",
+      "\\(x = -2\\) and \\(y = -3\\)",
+      "\\(x = -2\\) and \\(y = 3\\)",
+      "\\(x = 2\\) and \\(y = 3\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+      "The denominator is zero when \\(x -2 = 0 \\implies x = 2\\) (Vertical asymptote)",
+      "The horizontal shift is \\(y = -3\\) (Horizontal asymptote)",
+      "Therefore, \\(x = 2\\) and \\(y = -3\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x - 1} + 4\\)",
+    "options": [
+      "\\(x = 1\\) and \\(y = 4\\)",
+      "\\(x = -1\\) and \\(y = -4\\)",
+      "\\(x = 1\\) and \\(y = -4\\)",
+      "\\(x = -1\\) and \\(y = 4\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+      "The denominator is zero when \\(x -1 = 0 \\implies x = 1\\) (Vertical asymptote)",
+      "The horizontal shift is \\(y = 4\\) (Horizontal asymptote)",
+      "Therefore, \\(x = 1\\) and \\(y = 4\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x + 2} + 1\\)",
+    "options": [
+      "\\(x = 2\\) and \\(y = -1\\)",
+      "\\(x = -2\\) and \\(y = -1\\)",
+      "\\(x = -2\\) and \\(y = 1\\)",
+      "\\(x = 2\\) and \\(y = 1\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+      "The denominator is zero when \\(x +2 = 0 \\implies x = -2\\) (Vertical asymptote)",
+      "The horizontal shift is \\(y = 1\\) (Horizontal asymptote)",
+      "Therefore, \\(x = -2\\) and \\(y = 1\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x + 2} - 3\\)",
+    "options": [
+      "\\(x = -2\\) and \\(y = 3\\)",
+      "\\(x = 2\\) and \\(y = -3\\)",
+      "\\(x = 2\\) and \\(y = 3\\)",
+      "\\(x = -2\\) and \\(y = -3\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+      "The denominator is zero when \\(x +2 = 0 \\implies x = -2\\) (Vertical asymptote)",
+      "The horizontal shift is \\(y = -3\\) (Horizontal asymptote)",
+      "Therefore, \\(x = -2\\) and \\(y = -3\\)"
+    ]
+  },
+  {
+    "topic": "functions",
+    "q": "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x - 5} + 3\\)",
+    "options": [
+      "\\(x = -5\\) and \\(y = 3\\)",
+      "\\(x = 5\\) and \\(y = 3\\)",
+      "\\(x = 5\\) and \\(y = -3\\)",
+      "\\(x = -5\\) and \\(y = -3\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+      "The denominator is zero when \\(x -5 = 0 \\implies x = 5\\) (Vertical asymptote)",
+      "The horizontal shift is \\(y = 3\\) (Horizontal asymptote)",
+      "Therefore, \\(x = 5\\) and \\(y = 3\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Determine \\(\\frac{dy}{dx}\\) if \\(y = 2x^2 - \\dfrac{2}{x^2}\\)",
+    "options": [
+      "\\(4x^1 + \\dfrac{2}{x^3}\\)",
+      "\\(4x^1 - \\dfrac{4}{x^3}\\)",
+      "\\(4x^1 + \\dfrac{4}{x^3}\\)",
+      "\\(4x^2 + \\dfrac{4}{x^2}\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Rewrite the expression with negative exponents: \\(y = 2x^2 - 2x^{-2}\\)",
+      "Apply the power rule \\((nx^{n-1})\\):",
+      "\\(\\frac{dy}{dx} = 2(2)x^{2-1} - 2(-2)x^{-2-1}\\)",
+      "\\(\\frac{dy}{dx} = 4x^1 + 4x^{-3}\\)",
+      "Write with positive exponents: \\(4x^1 + \\dfrac{4}{x^3}\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Determine \\(\\frac{dy}{dx}\\) if \\(y = 6x^4 - \\dfrac{6}{x^2}\\)",
+    "options": [
+      "\\(24x^3 + \\dfrac{12}{x^3}\\)",
+      "\\(24x^3 + \\dfrac{6}{x^3}\\)",
+      "\\(24x^4 + \\dfrac{12}{x^2}\\)",
+      "\\(24x^3 - \\dfrac{12}{x^3}\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Rewrite the expression with negative exponents: \\(y = 6x^4 - 6x^{-2}\\)",
+      "Apply the power rule \\((nx^{n-1})\\):",
+      "\\(\\frac{dy}{dx} = 6(4)x^{4-1} - 6(-2)x^{-2-1}\\)",
+      "\\(\\frac{dy}{dx} = 24x^3 + 12x^{-3}\\)",
+      "Write with positive exponents: \\(24x^3 + \\dfrac{12}{x^3}\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Determine \\(\\frac{dy}{dx}\\) if \\(y = 4x^3 - \\dfrac{4}{x^2}\\)",
+    "options": [
+      "\\(12x^2 + \\dfrac{4}{x^3}\\)",
+      "\\(12x^2 - \\dfrac{8}{x^3}\\)",
+      "\\(12x^3 + \\dfrac{8}{x^2}\\)",
+      "\\(12x^2 + \\dfrac{8}{x^3}\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Rewrite the expression with negative exponents: \\(y = 4x^3 - 4x^{-2}\\)",
+      "Apply the power rule \\((nx^{n-1})\\):",
+      "\\(\\frac{dy}{dx} = 4(3)x^{3-1} - 4(-2)x^{-2-1}\\)",
+      "\\(\\frac{dy}{dx} = 12x^2 + 8x^{-3}\\)",
+      "Write with positive exponents: \\(12x^2 + \\dfrac{8}{x^3}\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Determine \\(\\frac{dy}{dx}\\) if \\(y = 4x^2 - \\dfrac{4}{x^2}\\)",
+    "options": [
+      "\\(8x^2 + \\dfrac{8}{x^2}\\)",
+      "\\(8x^1 + \\dfrac{8}{x^3}\\)",
+      "\\(8x^1 + \\dfrac{4}{x^3}\\)",
+      "\\(8x^1 - \\dfrac{8}{x^3}\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Rewrite the expression with negative exponents: \\(y = 4x^2 - 4x^{-2}\\)",
+      "Apply the power rule \\((nx^{n-1})\\):",
+      "\\(\\frac{dy}{dx} = 4(2)x^{2-1} - 4(-2)x^{-2-1}\\)",
+      "\\(\\frac{dy}{dx} = 8x^1 + 8x^{-3}\\)",
+      "Write with positive exponents: \\(8x^1 + \\dfrac{8}{x^3}\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Determine \\(\\frac{dy}{dx}\\) if \\(y = 3x^5 - \\dfrac{3}{x^2}\\)",
+    "options": [
+      "\\(15x^4 + \\dfrac{3}{x^3}\\)",
+      "\\(15x^4 - \\dfrac{6}{x^3}\\)",
+      "\\(15x^4 + \\dfrac{6}{x^3}\\)",
+      "\\(15x^5 + \\dfrac{6}{x^2}\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Rewrite the expression with negative exponents: \\(y = 3x^5 - 3x^{-2}\\)",
+      "Apply the power rule \\((nx^{n-1})\\):",
+      "\\(\\frac{dy}{dx} = 3(5)x^{5-1} - 3(-2)x^{-2-1}\\)",
+      "\\(\\frac{dy}{dx} = 15x^4 + 6x^{-3}\\)",
+      "Write with positive exponents: \\(15x^4 + \\dfrac{6}{x^3}\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f'(x) = (x - -3)(x - 3)\\)",
+    "options": [
+      "\\(x = -3\\) and \\(x = 3\\)",
+      "There are no turning points.",
+      "\\(x = 0\\)",
+      "\\(x = 3\\) and \\(x = -3\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Turning points occur where the first derivative is zero: \\(f'(x) = 0\\)",
+      "\\((x - -3)(x - 3) = 0\\)",
+      "\\(x = -3\\) and \\(x = 3\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f'(x) = (x - -1)(x - -2)\\)",
+    "options": [
+      "There are no turning points.",
+      "\\(x = -1\\) and \\(x = -2\\)",
+      "\\(x = 0\\)",
+      "\\(x = 1\\) and \\(x = 2\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Turning points occur where the first derivative is zero: \\(f'(x) = 0\\)",
+      "\\((x - -1)(x - -2) = 0\\)",
+      "\\(x = -1\\) and \\(x = -2\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f'(x) = (x - -2)(x - 3)\\)",
+    "options": [
+      "There are no turning points.",
+      "\\(x = -2\\) and \\(x = 3\\)",
+      "\\(x = 0\\)",
+      "\\(x = 2\\) and \\(x = -3\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Turning points occur where the first derivative is zero: \\(f'(x) = 0\\)",
+      "\\((x - -2)(x - 3) = 0\\)",
+      "\\(x = -2\\) and \\(x = 3\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f'(x) = (x - 3)(x - -1)\\)",
+    "options": [
+      "\\(x = 0\\)",
+      "There are no turning points.",
+      "\\(x = -3\\) and \\(x = 1\\)",
+      "\\(x = 3\\) and \\(x = -1\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Turning points occur where the first derivative is zero: \\(f'(x) = 0\\)",
+      "\\((x - 3)(x - -1) = 0\\)",
+      "\\(x = 3\\) and \\(x = -1\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f'(x) = (x - 1)(x - -3)\\)",
+    "options": [
+      "\\(x = -1\\) and \\(x = 3\\)",
+      "There are no turning points.",
+      "\\(x = 1\\) and \\(x = -3\\)",
+      "\\(x = 0\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Turning points occur where the first derivative is zero: \\(f'(x) = 0\\)",
+      "\\((x - 1)(x - -3) = 0\\)",
+      "\\(x = 1\\) and \\(x = -3\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "A farmer has 59m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+    "options": [
+      "\\(386.7777777777778\\text{ m}^2\\)",
+      "\\(870.25\\text{ m}^2\\)",
+      "\\(3481\\text{ m}^2\\)",
+      "\\(435.125\\text{ m}^2\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 59 \\implies y = 59 - 2x\\)",
+      "Area \\(A = x \\cdot y = x(59 - 2x) = 59x - 2x^2\\)",
+      "To maximize, set derivative to zero: \\(A' = 59 - 4x = 0 \\implies 4x = 59 \\implies x = 14.75\\)",
+      "Substitute \\(x\\) back: \\(y = 59 - 2(14.75) = 29.5\\)",
+      "Max Area \\(A = (14.75)(29.5) = 435.125\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "A farmer has 58m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+    "options": [
+      "\\(373.7777777777777\\text{ m}^2\\)",
+      "\\(3364\\text{ m}^2\\)",
+      "\\(420.5\\text{ m}^2\\)",
+      "\\(841\\text{ m}^2\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 58 \\implies y = 58 - 2x\\)",
+      "Area \\(A = x \\cdot y = x(58 - 2x) = 58x - 2x^2\\)",
+      "To maximize, set derivative to zero: \\(A' = 58 - 4x = 0 \\implies 4x = 58 \\implies x = 14.5\\)",
+      "Substitute \\(x\\) back: \\(y = 58 - 2(14.5) = 29\\)",
+      "Max Area \\(A = (14.5)(29) = 420.5\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "A farmer has 52m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+    "options": [
+      "\\(2704\\text{ m}^2\\)",
+      "\\(338\\text{ m}^2\\)",
+      "\\(300.4444444444444\\text{ m}^2\\)",
+      "\\(676\\text{ m}^2\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 52 \\implies y = 52 - 2x\\)",
+      "Area \\(A = x \\cdot y = x(52 - 2x) = 52x - 2x^2\\)",
+      "To maximize, set derivative to zero: \\(A' = 52 - 4x = 0 \\implies 4x = 52 \\implies x = 13\\)",
+      "Substitute \\(x\\) back: \\(y = 52 - 2(13) = 26\\)",
+      "Max Area \\(A = (13)(26) = 338\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "A farmer has 49m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+    "options": [
+      "\\(300.125\\text{ m}^2\\)",
+      "\\(2401\\text{ m}^2\\)",
+      "\\(600.25\\text{ m}^2\\)",
+      "\\(266.7777777777777\\text{ m}^2\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 49 \\implies y = 49 - 2x\\)",
+      "Area \\(A = x \\cdot y = x(49 - 2x) = 49x - 2x^2\\)",
+      "To maximize, set derivative to zero: \\(A' = 49 - 4x = 0 \\implies 4x = 49 \\implies x = 12.25\\)",
+      "Substitute \\(x\\) back: \\(y = 49 - 2(12.25) = 24.5\\)",
+      "Max Area \\(A = (12.25)(24.5) = 300.125\\)"
+    ]
+  },
+  {
+    "topic": "calculus",
+    "q": "A farmer has 55m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+    "options": [
+      "\\(3025\\text{ m}^2\\)",
+      "\\(756.25\\text{ m}^2\\)",
+      "\\(336.1111111111111\\text{ m}^2\\)",
+      "\\(378.125\\text{ m}^2\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 55 \\implies y = 55 - 2x\\)",
+      "Area \\(A = x \\cdot y = x(55 - 2x) = 55x - 2x^2\\)",
+      "To maximize, set derivative to zero: \\(A' = 55 - 4x = 0 \\implies 4x = 55 \\implies x = 13.75\\)",
+      "Substitute \\(x\\) back: \\(y = 55 - 2(13.75) = 27.5\\)",
+      "Max Area \\(A = (13.75)(27.5) = 378.125\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "A car valued at R9000 depreciates on the reducing balance method at 10% p.a. Calculate its value after 3 years. (Round to nearest integer)",
+    "options": [
+      "R6561",
+      "R11979",
+      "R6300",
+      "R5905"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+      "\\(P = 9000\\), \\(i = 10/100 = 0.1\\), \\(n = 3\\)",
+      "\\(A = 9000(1 - 0.1)^{3}\\)",
+      "\\(A \\approx 6561\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "A car valued at R7000 depreciates on the reducing balance method at 11% p.a. Calculate its value after 4 years. (Round to nearest integer)",
+    "options": [
+      "R3953",
+      "R4392",
+      "R10626",
+      "R3920"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+      "\\(P = 7000\\), \\(i = 11/100 = 0.11\\), \\(n = 4\\)",
+      "\\(A = 7000(1 - 0.11)^{4}\\)",
+      "\\(A \\approx 4392\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "A car valued at R13000 depreciates on the reducing balance method at 13% p.a. Calculate its value after 3 years. (Round to nearest integer)",
+    "options": [
+      "R18758",
+      "R7704",
+      "R8561",
+      "R7930"
+    ],
+    "answer": 2,
+    "solution": [
+      "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+      "\\(P = 13000\\), \\(i = 13/100 = 0.13\\), \\(n = 3\\)",
+      "\\(A = 13000(1 - 0.13)^{3}\\)",
+      "\\(A \\approx 8561\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "A car valued at R17000 depreciates on the reducing balance method at 15% p.a. Calculate its value after 4 years. (Round to nearest integer)",
+    "options": [
+      "R8874",
+      "R7987",
+      "R6800",
+      "R29733"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+      "\\(P = 17000\\), \\(i = 15/100 = 0.15\\), \\(n = 4\\)",
+      "\\(A = 17000(1 - 0.15)^{4}\\)",
+      "\\(A \\approx 8874\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "A car valued at R6000 depreciates on the reducing balance method at 15% p.a. Calculate its value after 7 years. (Round to nearest integer)",
+    "options": [
+      "R15960",
+      "R1731",
+      "R-300",
+      "R1923"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+      "\\(P = 6000\\), \\(i = 15/100 = 0.15\\), \\(n = 7\\)",
+      "\\(A = 6000(1 - 0.15)^{7}\\)",
+      "\\(A \\approx 1923\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Convert a nominal interest rate of 6% p.a. compounded monthly to an effective annual rate.",
+    "options": [
+      "6%",
+      "6.60%",
+      "6.50%",
+      "6.17%"
+    ],
+    "answer": 3,
+    "solution": [
+      "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+      "\\(1 + i_{eff} = (1 + \\frac{0.06}{12})^{12}\\)",
+      "\\(i_{eff} = (1 + \\frac{0.06}{12})^{12} - 1 = 0.0617\\)",
+      "Multiply by 100: 6.17%"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Convert a nominal interest rate of 6% p.a. compounded monthly to an effective annual rate.",
+    "options": [
+      "6%",
+      "6.60%",
+      "6.17%",
+      "6.50%"
+    ],
+    "answer": 2,
+    "solution": [
+      "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+      "\\(1 + i_{eff} = (1 + \\frac{0.06}{12})^{12}\\)",
+      "\\(i_{eff} = (1 + \\frac{0.06}{12})^{12} - 1 = 0.0617\\)",
+      "Multiply by 100: 6.17%"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Convert a nominal interest rate of 7% p.a. compounded monthly to an effective annual rate.",
+    "options": [
+      "7.70%",
+      "7.23%",
+      "7.50%",
+      "7%"
+    ],
+    "answer": 1,
+    "solution": [
+      "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+      "\\(1 + i_{eff} = (1 + \\frac{0.07}{12})^{12}\\)",
+      "\\(i_{eff} = (1 + \\frac{0.07}{12})^{12} - 1 = 0.0723\\)",
+      "Multiply by 100: 7.23%"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Convert a nominal interest rate of 11% p.a. compounded monthly to an effective annual rate.",
+    "options": [
+      "11.50%",
+      "11.57%",
+      "12.10%",
+      "11%"
+    ],
+    "answer": 1,
+    "solution": [
+      "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+      "\\(1 + i_{eff} = (1 + \\frac{0.11}{12})^{12}\\)",
+      "\\(i_{eff} = (1 + \\frac{0.11}{12})^{12} - 1 = 0.1157\\)",
+      "Multiply by 100: 11.57%"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Convert a nominal interest rate of 10% p.a. compounded monthly to an effective annual rate.",
+    "options": [
+      "10.50%",
+      "10.47%",
+      "11.00%",
+      "10%"
+    ],
+    "answer": 1,
+    "solution": [
+      "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+      "\\(1 + i_{eff} = (1 + \\frac{0.1}{12})^{12}\\)",
+      "\\(i_{eff} = (1 + \\frac{0.1}{12})^{12} - 1 = 0.1047\\)",
+      "Multiply by 100: 10.47%"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Thabo deposits R1000 at the end of every month into an account earning 8% p.a. compounded monthly. How much will he have after 8 years?",
+    "options": [
+      "R107094.87",
+      "R133868.58",
+      "R96000.00",
+      "R160642.30"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+      "\\(x = 1000\\), \\(i = 0.08/12\\), \\(n = 8 \\times 12 = 96\\)",
+      "\\(F = \\dfrac{1000[(1+0.0067)^{96} - 1]}{0.0067}\\)",
+      "\\(F = R133868.58\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Thabo deposits R1000 at the end of every month into an account earning 8% p.a. compounded monthly. How much will he have after 5 years?",
+    "options": [
+      "R73476.86",
+      "R60000.00",
+      "R88172.23",
+      "R58781.48"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+      "\\(x = 1000\\), \\(i = 0.08/12\\), \\(n = 5 \\times 12 = 60\\)",
+      "\\(F = \\dfrac{1000[(1+0.0067)^{60} - 1]}{0.0067}\\)",
+      "\\(F = R73476.86\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Thabo deposits R900 at the end of every month into an account earning 12% p.a. compounded monthly. How much will he have after 6 years?",
+    "options": [
+      "R75391.15",
+      "R64800.00",
+      "R113086.73",
+      "R94238.94"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+      "\\(x = 900\\), \\(i = 0.12/12\\), \\(n = 6 \\times 12 = 72\\)",
+      "\\(F = \\dfrac{900[(1+0.0100)^{72} - 1]}{0.0100}\\)",
+      "\\(F = R94238.94\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Thabo deposits R1200 at the end of every month into an account earning 8% p.a. compounded monthly. How much will he have after 10 years?",
+    "options": [
+      "R175628.19",
+      "R263442.29",
+      "R144000.00",
+      "R219535.24"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+      "\\(x = 1200\\), \\(i = 0.08/12\\), \\(n = 10 \\times 12 = 120\\)",
+      "\\(F = \\dfrac{1200[(1+0.0067)^{120} - 1]}{0.0067}\\)",
+      "\\(F = R219535.24\\)"
+    ]
+  },
+  {
+    "topic": "finance",
+    "q": "Thabo deposits R1000 at the end of every month into an account earning 9% p.a. compounded monthly. How much will he have after 10 years?",
+    "options": [
+      "R193514.28",
+      "R120000.00",
+      "R232217.13",
+      "R154811.42"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+      "\\(x = 1000\\), \\(i = 0.09/12\\), \\(n = 10 \\times 12 = 120\\)",
+      "\\(F = \\dfrac{1000[(1+0.0075)^{120} - 1]}{0.0075}\\)",
+      "\\(F = R193514.28\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "Events A and B are independent. If \\(P(A) = 0.6\\) and \\(P(B) = 0.2\\), calculate \\(P(A \\text{ and } B)\\).",
+    "options": [
+      "\\(0.12\\)",
+      "\\(1\\)",
+      "\\(0\\)",
+      "\\(0.8\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+      "\\(P(A \\text{ and } B) = 0.6 \\times 0.2 = 0.12\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "Events A and B are independent. If \\(P(A) = 0.3\\) and \\(P(B) = 0.3\\), calculate \\(P(A \\text{ and } B)\\).",
+    "options": [
+      "\\(0.09\\)",
+      "\\(1\\)",
+      "\\(0\\)",
+      "\\(0.6\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+      "\\(P(A \\text{ and } B) = 0.3 \\times 0.3 = 0.09\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "Events A and B are independent. If \\(P(A) = 0.2\\) and \\(P(B) = 0.6\\), calculate \\(P(A \\text{ and } B)\\).",
+    "options": [
+      "\\(1\\)",
+      "\\(0.12\\)",
+      "\\(0\\)",
+      "\\(0.8\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+      "\\(P(A \\text{ and } B) = 0.2 \\times 0.6 = 0.12\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "Events A and B are independent. If \\(P(A) = 0.3\\) and \\(P(B) = 0.4\\), calculate \\(P(A \\text{ and } B)\\).",
+    "options": [
+      "\\(0\\)",
+      "\\(0.12\\)",
+      "\\(0.7\\)",
+      "\\(1\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+      "\\(P(A \\text{ and } B) = 0.3 \\times 0.4 = 0.12\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "Events A and B are independent. If \\(P(A) = 0.3\\) and \\(P(B) = 0.5\\), calculate \\(P(A \\text{ and } B)\\).",
+    "options": [
+      "\\(1\\)",
+      "\\(0\\)",
+      "\\(0.15\\)",
+      "\\(0.8\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+      "\\(P(A \\text{ and } B) = 0.3 \\times 0.5 = 0.15\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "How many unique 4-letter arrangements can be made using the letters of the word 'MATA'?",
+    "options": [
+      "16",
+      "24",
+      "12",
+      "24"
+    ],
+    "answer": 2,
+    "solution": [
+      "Total letters: 4 (Numerator = 4!)",
+      "Repeated letters: 2! (Denominator)",
+      "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "How many unique 4-letter arrangements can be made using the letters of the word 'DATA'?",
+    "options": [
+      "24",
+      "12",
+      "16",
+      "24"
+    ],
+    "answer": 1,
+    "solution": [
+      "Total letters: 4 (Numerator = 4!)",
+      "Repeated letters: 2! (Denominator)",
+      "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "How many unique 4-letter arrangements can be made using the letters of the word 'BASE'?",
+    "options": [
+      "48",
+      "28",
+      "24",
+      "24"
+    ],
+    "answer": 2,
+    "solution": [
+      "Total letters: 4 (Numerator = 4!)",
+      "No repeated letters.",
+      "Total arrangements = \\(\\dfrac{4!}{1} = 24\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "How many unique 4-letter arrangements can be made using the letters of the word 'CELL'?",
+    "options": [
+      "24",
+      "16",
+      "24",
+      "12"
+    ],
+    "answer": 3,
+    "solution": [
+      "Total letters: 4 (Numerator = 4!)",
+      "Repeated letters: 2! (Denominator)",
+      "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+    ]
+  },
+  {
+    "topic": "probability",
+    "q": "How many unique 4-letter arrangements can be made using the letters of the word 'MATA'?",
+    "options": [
+      "24",
+      "24",
+      "16",
+      "12"
+    ],
+    "answer": 3,
+    "solution": [
+      "Total letters: 4 (Numerator = 4!)",
+      "Repeated letters: 2! (Denominator)",
+      "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+    "options": [
+      "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)",
+      "\\(-\\tan \\theta\\)",
+      "\\(\\tan \\theta\\)",
+      "\\(-\\sin \\theta\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+      "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+    "options": [
+      "\\(\\tan \\theta\\)",
+      "\\(-\\sin \\theta\\)",
+      "\\(-\\tan \\theta\\)",
+      "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+      "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+    "options": [
+      "\\(-\\sin \\theta\\)",
+      "\\(\\tan \\theta\\)",
+      "\\(-\\tan \\theta\\)",
+      "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+      "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+    "options": [
+      "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)",
+      "\\(-\\tan \\theta\\)",
+      "\\(-\\sin \\theta\\)",
+      "\\(\\tan \\theta\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+      "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+    "options": [
+      "\\(-\\tan \\theta\\)",
+      "\\(\\tan \\theta\\)",
+      "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)",
+      "\\(-\\sin \\theta\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+      "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+      "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+    "options": [
+      "\\(1\\)",
+      "\\(\\sin x \\cos x\\)",
+      "\\(2\\sin^2 x\\)",
+      "\\(2\\cos^2 x\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+      "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+      "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+      "Cosine terms cancel: \\(2\\sin^2 x\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+    "options": [
+      "\\(2\\sin^2 x\\)",
+      "\\(2\\cos^2 x\\)",
+      "\\(1\\)",
+      "\\(\\sin x \\cos x\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+      "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+      "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+      "Cosine terms cancel: \\(2\\sin^2 x\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+    "options": [
+      "\\(2\\cos^2 x\\)",
+      "\\(1\\)",
+      "\\(\\sin x \\cos x\\)",
+      "\\(2\\sin^2 x\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+      "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+      "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+      "Cosine terms cancel: \\(2\\sin^2 x\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+    "options": [
+      "\\(\\sin x \\cos x\\)",
+      "\\(2\\cos^2 x\\)",
+      "\\(2\\sin^2 x\\)",
+      "\\(1\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+      "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+      "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+      "Cosine terms cancel: \\(2\\sin^2 x\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+    "options": [
+      "\\(\\sin x \\cos x\\)",
+      "\\(1\\)",
+      "\\(2\\cos^2 x\\)",
+      "\\(2\\sin^2 x\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+      "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+      "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+      "Cosine terms cancel: \\(2\\sin^2 x\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+    "options": [
+      "\\(45^\\circ\\)",
+      "\\(60^\\circ\\)",
+      "\\(30^\\circ\\)",
+      "\\(120^\\circ\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+      "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+    "options": [
+      "\\(60^\\circ\\)",
+      "\\(120^\\circ\\)",
+      "\\(45^\\circ\\)",
+      "\\(30^\\circ\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+      "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+    "options": [
+      "\\(120^\\circ\\)",
+      "\\(45^\\circ\\)",
+      "\\(30^\\circ\\)",
+      "\\(60^\\circ\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+      "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+    "options": [
+      "\\(120^\\circ\\)",
+      "\\(30^\\circ\\)",
+      "\\(60^\\circ\\)",
+      "\\(45^\\circ\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+      "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+    ]
+  },
+  {
+    "topic": "trigonometry",
+    "q": "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+    "options": [
+      "\\(45^\\circ\\)",
+      "\\(120^\\circ\\)",
+      "\\(30^\\circ\\)",
+      "\\(60^\\circ\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+      "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
+    "options": [
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Angles in same segment are equal",
+      "Exterior angle of cyclic quad = interior opposite angle"
+    ],
+    "answer": 0,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
+    "options": [
+      "Angles in same segment are equal",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Exterior angle of cyclic quad = interior opposite angle"
+    ],
+    "answer": 1,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
+    "options": [
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Angles in same segment are equal",
+      "Tan-chord theorem"
+    ],
+    "answer": 0,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angles in same segment are equal\"?",
+    "options": [
+      "Opposite angles of cyclic quad sum to 180°",
+      "Tan-chord theorem",
+      "Angles in same segment are equal",
+      "Angle at centre = 2 × angle at circumference"
+    ],
+    "answer": 2,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Angles in same segment are equal\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+    "options": [
+      "Exterior angle of cyclic quad = interior opposite angle",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Angles in same segment are equal"
+    ],
+    "answer": 0,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Tan-chord theorem\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+    "options": [
+      "Angles in same segment are equal",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Exterior angle of cyclic quad = interior opposite angle",
+      "Tan-chord theorem"
+    ],
+    "answer": 3,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Tan-chord theorem\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
+    "options": [
+      "Opposite angles of cyclic quad sum to 180°",
+      "Exterior angle of cyclic quad = interior opposite angle",
+      "Tan-chord theorem",
+      "Angle at centre = 2 × angle at circumference"
+    ],
+    "answer": 3,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+    "options": [
+      "Angle at centre = 2 × angle at circumference",
+      "Angles in same segment are equal",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Tan-chord theorem"
+    ],
+    "answer": 3,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Tan-chord theorem\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180°\"?",
+    "options": [
+      "Angle at centre = 2 × angle at circumference",
+      "Angles in same segment are equal",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Exterior angle of cyclic quad = interior opposite angle"
+    ],
+    "answer": 2,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180°\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
+    "options": [
+      "Tan-chord theorem",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Angles in same segment are equal"
+    ],
+    "answer": 1,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+    "options": [
+      "Exterior angle of cyclic quad = interior opposite angle",
+      "Tan-chord theorem",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°"
+    ],
+    "answer": 1,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Tan-chord theorem\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+    "options": [
+      "Exterior angle of cyclic quad = interior opposite angle",
+      "Angles in same segment are equal",
+      "Opposite angles of cyclic quad sum to 180°",
+      "Tan-chord theorem"
+    ],
+    "answer": 3,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Tan-chord theorem\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+    "options": [
+      "Angles in same segment are equal",
+      "Exterior angle of cyclic quad = interior opposite angle",
+      "Tan-chord theorem",
+      "Opposite angles of cyclic quad sum to 180°"
+    ],
+    "answer": 2,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Tan-chord theorem\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180°\"?",
+    "options": [
+      "Tan-chord theorem",
+      "Angles in same segment are equal",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°"
+    ],
+    "answer": 3,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180°\"."
+    ]
+  },
+  {
+    "topic": "geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
+    "options": [
+      "Opposite angles of cyclic quad sum to 180°",
+      "Tan-chord theorem",
+      "Exterior angle of cyclic quad = interior opposite angle",
+      "Angles in same segment are equal"
+    ],
+    "answer": 1,
+    "solution": [
+      "This is standard Euclidean geometry theory.",
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
+    ]
   }
 ]

@@ -1,0 +1,147 @@
+/* ============================================================
+   Discovery Tour Styles (Option 1: The Flight Path)
+   ============================================================ */
+
+:root {
+    --tour-overlay: rgba(0, 0, 0, 0.75);
+    --tour-accent: #f59e0b;
+    /* Amber/Gold for "Discovery" */
+}
+
+/* The Spotlight Overlay */
+.tour-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 9998;
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+/* SVG Mask for the Spotlight */
+.tour-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9997;
+    pointer-events: auto;
+}
+
+/* Highlighting the active element */
+.tour-highlight {
+    position: relative;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+    box-shadow: 0 0 0 4px var(--tour-accent), 0 0 25px rgba(245, 158, 11, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Tooltip Card */
+.tour-tooltip {
+    position: fixed;
+    z-index: 10000;
+    width: 320px;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    color: var(--text);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.tour-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tour-tooltip__header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.tour-tooltip__icon {
+    width: 40px;
+    height: 40px;
+    background: var(--tour-accent);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.tour-tooltip__title {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.tour-tooltip__body {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tour-tooltip__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tour-tooltip__step {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.tour-btns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Pulse animation for the spotlight target */
+@keyframes tourPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+.tour-pulse {
+    animation: tourPulse 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tour-tooltip {
+        width: 280px;
+        left: 50% !important;
+        transform: translate(-50%, 20px);
+    }
+
+    .tour-tooltip.visible {
+        transform: translate(-50%, 0);
+    }
+}

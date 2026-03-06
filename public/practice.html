@@ -10,14 +10,14 @@
         content="Daily maths practice with instant feedback, step-by-step solutions, and weak area tracking.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=4">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="css/dashboard.css?v=3">
+    <link rel="stylesheet" href="css/dashboard.css?v=5">
     <link rel="stylesheet" href="css/practice.css?v=3">
     <link rel="stylesheet" href="css/settings.css?v=4">
     <link rel="stylesheet" href="components/sidebar.css?v=3">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
 </head>
 
 <body>
@@ -80,6 +80,12 @@
                             <i class="fa-solid fa-shield-halved"></i>
                             <span class="nav-label">Security & Access</span>
                         </a>
+                        <a href="admin.html" class="nav-item" id="adminSidebarLink"
+                            style="display:none; border-left: 3px solid var(--accent-purple); background: rgba(168, 85, 247, 0.1);">
+                            <i class="fa-solid fa-unlock-keyhole" style="color: var(--accent-purple);"></i>
+                            <span class="nav-label" style="color: var(--accent-purple); font-weight: 700;">Admin
+                                Point</span>
+                        </a>
                     </div>
 
                     <div class="nav-section">
@@ -107,6 +113,14 @@
                         <a href="interactive.html" class="nav-item" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-chalkboard-user"></i>
                             <span class="nav-label">Live Classes</span>
+                        </a>
+                        <a href="examiner.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-user-secret"></i>
+                            <span class="nav-label">Examiner Mode</span>
+                        </a>
+                        <a href="vault.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-shield-virus"></i>
+                            <span class="nav-label">Mistake Vault</span>
                         </a>
                     </div>
 
@@ -143,10 +157,16 @@
                     </div>
 
                     <div class="topic-pills-wrapper">
-                        <button class="topic-toggle-btn" id="topicToggleBtn">
-                            <span><i class="fa-solid fa-layer-group"></i> Choose Topic</span>
-                            <i class="fa-solid fa-chevron-down" id="topicToggleIcon"></i>
-                        </button>
+                        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                            <button class="topic-toggle-btn" id="topicToggleBtn">
+                                <span><i class="fa-solid fa-layer-group"></i> Choose Topic</span>
+                                <i class="fa-solid fa-chevron-down" id="topicToggleIcon"></i>
+                            </button>
+                            <button class="btn btn-secondary" style="border-radius: 20px;"
+                                onclick="openVideoModal('grade 12 maths ' + (currentTopic === 'all' ? 'revision' : currentTopic), 'Lesson: ' + (currentTopic === 'all' ? 'Revision' : currentTopic))">
+                                <i class="fa-brands fa-youtube" style="color:white"></i> Watch Video Lessons
+                            </button>
+                        </div>
                         <div class="topic-pills" id="topicPills">
                             <button class="pill active" data-topic="all"><i class="fa-solid fa-layer-group"></i> All
                                 Topics</button>
@@ -220,17 +240,53 @@
         </div> <!-- Close layout-wrapper -->
     </div> <!-- Close main-layout -->
 
+    <!-- Intervention Modal (Psychological Engagement) -->
+    <div class="video-modal-overlay" id="interventionModal"
+        style="display: none; align-items: center; justify-content: center;">
+        <div class="video-modal-content"
+            style="max-width: 500px; text-align: center; padding: 2rem; background: var(--bg-card);">
+            <button class="video-modal-close"
+                onclick="document.getElementById('interventionModal').style.display = 'none';">×</button>
+            <div style="font-size: 3rem; color: var(--accent-amber); margin-bottom: 1rem;">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+            <h2 style="font-size: 1.5rem; color: var(--text); margin-bottom: 1rem;">This one is tricky!</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1rem;">
+                It looks like this topic is giving you some trouble. Don't worry, that's how learning happens! Want to
+                watch a quick video breakdown before trying the next one?
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn btn-secondary"
+                    onclick="document.getElementById('interventionModal').style.display = 'none';">
+                    No thanks, I'll keep trying
+                </button>
+                <button class="btn btn-primary"
+                    onclick="document.getElementById('interventionModal').style.display = 'none'; openVideoModal('grade 12 maths ' + (currentTopic === 'all' ? 'revision' : currentTopic), 'Lesson: ' + (currentTopic === 'all' ? 'Revision' : currentTopic));">
+                    <i class="fa-brands fa-youtube" style="color: white; margin-right: 0.5rem;"></i> Watch Video Lesson
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Variable Reward: Critical Hit Container -->
+    <div id="criticalHitContainer" class="critical-hit-popup">
+        <div class="hit-title">Concept Mastered!</div>
+        <div class="hit-points">+500 Bonus Points</div>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <!-- App Config -->
     <script src="js/firebase-config.js"></script>
-    <script src="js/main.js"></script>
-    <script src="components/sidebar.js"></script>
+    <script src="js/main.js?v=6"></script>
+    <script src="components/sidebar.js?v=4"></script>
     <script>
         // ---- Question Bank with LaTeX ----
         let questionBank = [];
@@ -253,10 +309,25 @@
         let sessionCorrect = 0, sessionTotal = 0, questionIndex = 0;
         let filteredQuestions = [];
         let failedQuestions = []; // Track failed questions
+        let consecutiveFails = 0; // Track consecutive fails for intervention
 
         function filterQuestions() {
             const p = getProgress();
-            if (currentTopic === 'review') {
+
+            // Check for Vault Session
+            const vaultDrillData = sessionStorage.getItem('totalskillz_vault_drill');
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('mode') === 'vault' && vaultDrillData) {
+                try {
+                    filteredQuestions = JSON.parse(vaultDrillData);
+                    currentTopic = 'vault';
+                    showToast(`Vault Drill: ${filteredQuestions.length} mistakes to master.`, 'info');
+                    // Clear it so it doesn't linger
+                    sessionStorage.removeItem('totalskillz_vault_drill');
+                } catch (e) {
+                    console.error("Failed to load vault drill:", e);
+                }
+            } else if (currentTopic === 'review') {
                 // Spaced repetition: pull questions that were previously missed
                 const missed = p.missedQuestions || [];
                 if (missed.length === 0) {
@@ -286,7 +357,7 @@
                 document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
                 currentTopic = pill.dataset.topic;
-                sessionCorrect = 0; sessionTotal = 0;
+                sessionCorrect = 0; sessionTotal = 0; consecutiveFails = 0;
                 filterQuestions(); renderQuestion();
             });
         });
@@ -326,6 +397,9 @@
             <button class="btn btn-secondary btn-sm" id="showSolution" style="display:none;" onclick="document.getElementById('solutionBox').classList.add('visible');this.style.display='none';renderMath(document.getElementById('solutionBox'));">
               <i class="fa-solid fa-eye"></i> Show Solution
             </button>
+            <button class="btn btn-secondary btn-sm" style="color:var(--text-muted); border-color:transparent; background:transparent;" onclick="reportMistake('practice', 'Question ' + (${questionIndex + 1}) + ' - ' + '${q.topic}')">
+              <i class="fa-solid fa-flag"></i> Report Mistake
+            </button>
             <button class="btn btn-primary btn-sm" id="nextBtn" style="display:none;" onclick="nextQuestion()">
               Next Question <i class="fa-solid fa-arrow-right"></i>
             </button>
@@ -346,6 +420,13 @@
             const isCorrect = selected === q.answer;
             if (isCorrect) {
                 sessionCorrect++;
+                consecutiveFails = 0; // Reset fails on correct answer
+
+                // Variable Reward: 15% chance to trigger Critical Hit
+                if (Math.random() < 0.15) {
+                    triggerCriticalHit();
+                }
+
                 // Remove from missed questions if they got it right this time
                 const p = getProgress();
                 if (p.missedQuestions && p.missedQuestions.includes(q.q)) {
@@ -354,6 +435,16 @@
                 }
             } else {
                 failedQuestions.push(q);
+                consecutiveFails++; // Increment fails
+
+                // Trigger intervention if 2 consecutive fails
+                if (consecutiveFails >= 2) {
+                    setTimeout(() => {
+                        document.getElementById('interventionModal').style.display = 'flex';
+                    }, 500); // Give them half a second to see the wrong answer before the modal
+                    consecutiveFails = 0; // Reset so we don't spam them every single wrong answer thereafter
+                }
+
                 // Save to persistent missed questions for spaced repetition
                 const p = getProgress();
                 if (!p.missedQuestions) p.missedQuestions = [];
@@ -364,7 +455,7 @@
                     saveProgress(p);
                 }
             }
-            recordAnswer(q.topic, isCorrect);
+            recordAnswer(q.topic, isCorrect, q);
             document.getElementById('showSolution').style.display = '';
             document.getElementById('nextBtn').style.display = '';
             showToast(isCorrect ? 'Correct! 🎉' : 'Incorrect. Review the solution.', isCorrect ? 'success' : 'error');
@@ -373,6 +464,24 @@
 
         function nextQuestion() { questionIndex++; renderQuestion(); }
         function updateSessionDisplay() { document.getElementById('sessionScore').textContent = sessionCorrect + ' / ' + sessionTotal; }
+
+        function triggerCriticalHit() {
+            const hitContainer = document.getElementById('criticalHitContainer');
+            if (!hitContainer) return;
+
+            // Remove animation class to reset it
+            hitContainer.classList.remove('active');
+
+            // Force a reflow
+            void hitContainer.offsetWidth;
+
+            // Add it back
+            hitContainer.classList.add('active');
+
+            // Optional: Play a sound effect if we had one
+            // const audio = new Audio('path/to/sound.mp3');
+            // audio.play();
+        }
 
         function renderTopicBreakdown() {
             const progress = getProgress();
@@ -395,7 +504,7 @@
         <div style="padding:0.5rem 0;font-size:0.85rem;border-bottom:1px solid var(--border-light);">
           <strong>${w.name}</strong> needs work (${w.level}%)
           <br><a href="practice.html?topic=${w.name}" style="color:var(--primary);font-size:0.82rem;font-weight:600;">Practice now</a>
-          | <a href="https://www.youtube.com/results?search_query=grade+12+maths+${w.name}" target="_blank" style="color:var(--accent-red);font-size:0.82rem;font-weight:600;">Watch video</a>
+          | <a href="#" onclick="openVideoModal(\`grade 12 maths \${w.name.replace(/'/g, \\"\\\\'\\")}\`, \`\${w.name.replace(/'/g, \\"\\\\'\\")}\`); return false;" style="color:var(--accent-red);font-size:0.82rem;font-weight:600;">Watch video</a>
         </div>`).join('');
         }
 
@@ -449,7 +558,7 @@
             renderMath(document.getElementById('questionArea'));
         }
 
-        function resetSession() { sessionCorrect = 0; sessionTotal = 0; failedQuestions = []; filterQuestions(); renderQuestion(); }
+        function resetSession() { sessionCorrect = 0; sessionTotal = 0; failedQuestions = []; consecutiveFails = 0; filterQuestions(); renderQuestion(); }
     </script>
 </body>
 

@@ -212,8 +212,12 @@ body:has(.skillz-sidebar.collapsed) .content-main {
     transform: translateY(-2px);
 }
 
-/* Responsive */
+/* ========================
+   Mobile Responsive Fixes
+   ======================== */
 @media (max-width: 768px) {
+
+    /* Sidebar slides in from left */
     .skillz-sidebar {
         position: fixed;
         top: var(--header-h, 64px);
@@ -221,13 +225,37 @@ body:has(.skillz-sidebar.collapsed) .content-main {
         width: 260px;
         height: calc(100vh - var(--header-h, 64px));
         background: var(--bg-card);
-        /* Needs background so content isn't visible underneath */
-        z-index: 1001;
+        z-index: 1200;
         transition: left 0.3s ease;
         border-right: 1px solid var(--border);
     }
 
     .skillz-sidebar.mobile-open {
         left: 0;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
     }
+
+    /* Content fills full width on mobile — no sidebar offset */
+    .content-main {
+        margin-left: 0 !important;
+        padding-bottom: 5rem;
+        /* space above bottom nav */
+    }
+
+    /* Dim overlay behind sidebar when open */
+    .skillz-sidebar.mobile-open::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        left: 260px;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: -1;
+        pointer-events: auto;
+    }
+}
+
+/* Bottom nav safe-area + z-index */
+.bottom-nav {
+    z-index: 900;
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }

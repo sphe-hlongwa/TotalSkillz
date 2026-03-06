@@ -321,7 +321,7 @@
  }
 
  [data-theme="light"] .quote-icon {
-     color: #8b5cf6;
+     color: #7c3aed;
      opacity: 0.8;
  }
 
@@ -340,7 +340,7 @@
  .quote-author {
      font-size: 0.8rem;
      font-weight: 700;
-     color: #8b5cf6;
+     color: #7c3aed;
      /* Same as brain icon */
      text-transform: uppercase;
      letter-spacing: 1px;
@@ -666,6 +666,140 @@
      margin-bottom: 0.2rem;
  }
 
+ /* Leaderboard Widget */
+ .leaderboard-card {
+     background: var(--bg-card);
+     border: 1px solid var(--border);
+     border-radius: var(--radius-lg);
+     padding: 1.5rem;
+     margin-bottom: 2rem;
+     overflow: hidden;
+ }
+
+ .leaderboard-card__header {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     margin-bottom: 1.25rem;
+     border-bottom: 1px solid var(--border-light);
+     padding-bottom: 1rem;
+ }
+
+ .leaderboard-card__title {
+     font-size: 1.15rem;
+     font-weight: 800;
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     color: var(--text);
+ }
+
+ .leaderboard-list {
+     display: flex;
+     flex-direction: column;
+     gap: 0.75rem;
+ }
+
+ .leaderboard-item {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     padding: 0.75rem;
+     border-radius: var(--radius-md);
+     background: var(--bg);
+     border: 1px solid var(--border-light);
+     transition: all var(--transition-fast);
+     opacity: 0;
+     transform: translateY(15px);
+     animation: fadeUpItem 0.4s ease forwards;
+ }
+
+ @keyframes fadeUpItem {
+     to {
+         opacity: 1;
+         transform: translateY(0);
+     }
+ }
+
+ .leaderboard-item:hover {
+     border-color: var(--primary-light);
+     transform: translateX(4px);
+ }
+
+ .leaderboard-item__rank {
+     width: 32px;
+     height: 32px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-weight: 800;
+     font-size: 0.9rem;
+     background: var(--border-light);
+     color: var(--text-muted);
+     flex-shrink: 0;
+ }
+
+ .leaderboard-item:nth-child(1) .leaderboard-item__rank {
+     background: linear-gradient(135deg, #fcd34d, #f59e0b);
+     color: white;
+     box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+ }
+
+ .leaderboard-item:nth-child(2) .leaderboard-item__rank {
+     background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+     color: white;
+ }
+
+ .leaderboard-item:nth-child(3) .leaderboard-item__rank {
+     background: linear-gradient(135deg, #fed7aa, #d97706);
+     color: white;
+ }
+
+ .leaderboard-item__user {
+     flex: 1;
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+
+ .leaderboard-item__avatar {
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     background: var(--primary-pale);
+     color: var(--primary);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-weight: 700;
+     font-size: 0.85rem;
+ }
+
+ .leaderboard-item__name {
+     font-size: 0.95rem;
+     font-weight: 600;
+     color: var(--text);
+ }
+
+ .leaderboard-item__stats {
+     text-align: right;
+ }
+
+ .leaderboard-item__score {
+     font-size: 1.1rem;
+     font-weight: 800;
+     color: var(--primary);
+     font-family: var(--font-mono);
+ }
+
+ .leaderboard-item__label {
+     font-size: 0.7rem;
+     color: var(--text-muted);
+     text-transform: uppercase;
+     letter-spacing: 0.05em;
+ }
+
  @media (max-width: 1024px) {
      .dash-layout {
          grid-template-columns: 1fr;
@@ -793,5 +927,91 @@
          overflow: hidden;
          text-overflow: ellipsis;
          max-width: 100%;
+     }
+ }
+
+ /* Leaderboard Filters */
+ .leaderboard-filters {
+     -ms-overflow-style: none;
+     scrollbar-width: none;
+ }
+
+ .leaderboard-filters::-webkit-scrollbar {
+     display: none;
+ }
+
+ .filter-pill {
+     background: var(--bg-elevated);
+     border: 1px solid var(--border);
+     color: var(--text-secondary);
+     padding: 0.35rem 0.85rem;
+     border-radius: 20px;
+     font-size: 0.75rem;
+     font-weight: 600;
+     white-space: nowrap;
+     cursor: pointer;
+     transition: all 0.2s;
+ }
+
+ .filter-pill:hover {
+     background: var(--border-light);
+ }
+
+ .filter-pill.active {
+     background: var(--primary);
+     border-color: var(--primary);
+     color: white;
+     box-shadow: 0 4px 12px var(--primary-pale);
+ }
+
+ [data-theme="light"] .filter-pill.active {
+     box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+ }
+
+ /* ============================================
+   Dashboard - Mobile Layout
+   ============================================ */
+ @media (max-width: 768px) {
+
+     /* Stack the two-column layout into a single column */
+     .dash-layout {
+         display: flex;
+         flex-direction: column;
+     }
+
+     /* Move sidebar (daily challenge + leaderboard) to the top */
+     #dashSidebar {
+         order: -1;
+         margin-bottom: 1.5rem;
+     }
+
+     /* Main content (topics, badges) goes below */
+     #dashMain {
+         order: 1;
+     }
+
+     /* Hide the Exam Mode card — it's already in the sidebar nav */
+     #examModeCard {
+         display: none !important;
+     }
+
+     /* Compact the daily + leaderboard cards a bit on small screens */
+     .daily-card {
+         padding: 1rem;
+     }
+
+     .leaderboard-card {
+         padding: 1rem;
+     }
+
+     /* Fix: prevent flex-column from stretching button height */
+     .btn {
+         height: auto;
+         align-self: flex-start;
+     }
+
+     .btn-block {
+         align-self: stretch;
+         width: 100%;
      }
  }
