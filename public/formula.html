@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Formulas - Total Skill</title>
+    <link rel="icon" type="image/jpeg" href="/logo.jpg">
+    <meta name="description" content="Your complete Grade 12 Math Information Sheet formulas.">
+
+    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="css/dashboard.css?v=5">
+    <link rel="stylesheet" href="css/settings.css?v=4">
+    <link rel="stylesheet" href="components/sidebar.css?v=3">
+
+    <style>
+        .formula-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .formula-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.3s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .formula-section:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+
+        .formula-section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+
+        .formula-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .formula-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .formula-card {
+            background: var(--bg-elevated);
+            padding: 1.25rem 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 110px;
+        }
+
+        .formula-card:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .formula-label {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .formula-math {
+            font-size: 1.1rem;
+            color: var(--text);
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding-bottom: 0.25rem;
+        }
+
+        /* KaTeX overrides for better contrast */
+        .katex {
+            font-size: 1.15em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- [1] Profile Modal Overlay -->
+    <!-- [2] Settings Overlay -->
+
+    <div class="main-layout" id="mainLayout">
+        <!-- Header -->
+        <header class="header">
+            <div class="header__left">
+                <button id="sidebarToggle" class="sidebar-toggle-btn" aria-label="Toggle sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <a href="dashboard.html" class="header__logo">
+                    <img src="/logo.jpg" alt="Logo" class="header__logo-img">
+                </a>
+            </div>
+
+            <div class="header__center">
+                <nav class="header__nav">
+                    <a href="practice.html" class="header__nav-link">
+                        <i class="fa-solid fa-dumbbell"></i>
+                        <span>Practice</span>
+                    </a>
+                    <a href="topics.html" class="header__nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Topics</span>
+                    </a>
+                    <a href="exam.html" class="header__nav-link">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <span>Exam Mode</span>
+                    </a>
+                </nav>
+            </div>
+<div class="header__right">
+                <div class="header__avatar user-avatar" id="userAvatar" onclick="toggleProfileModal()"
+                    title="View profile">US</div>
+            </div>
+        </header>
+
+        <div class="layout-wrapper">
+            <!-- Sidebar -->
+            <aside class="skillz-sidebar" id="skillzSidebar">
+                <nav class="sidebar-nav">
+                    <div class="nav-section">
+                        <span class="nav-section-title">Overview</span>
+                        <a href="dashboard.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-table-cells-large"></i>
+                            <span class="nav-label">Dashboard</span>
+                        </a>
+                        <a href="#" class="nav-item" data-view="identity" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-user-cog"></i>
+                            <span class="nav-label">Identity & Bio</span>
+                        </a>
+                        <a href="#" class="nav-item" data-view="security" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span class="nav-label">Security & Access</span>
+                        </a>
+                        <a href="admin.html" class="nav-item" id="adminSidebarLink"
+                            style="display:none; border-left: 3px solid var(--primary); background: rgba(79, 70, 229, 0.1);">
+                            <i class="fa-solid fa-unlock-keyhole" style="color: var(--primary);"></i>
+                            <span class="nav-label" style="color: var(--primary); font-weight: 700;">Admin Point</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <span class="nav-section-title">Preferences</span>
+                        <a href="#" class="nav-item" data-view="preferences" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-bullseye"></i>
+                            <span class="nav-label">Study Goals</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <span class="nav-section-title">Learning Tools</span>
+                        <a href="exam.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <span class="nav-label">Exam Mode</span>
+                        </a>
+                        <a href="interactive.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            <span class="nav-label">Live Classes</span>
+                        </a>
+                        <a href="examiner.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-user-secret"></i>
+                            <span class="nav-label">Examiner Mode</span>
+                        </a>
+                        <a href="vault.html" class="nav-item" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-shield-virus"></i>
+                            <span class="nav-label">Mistake Vault</span>
+                        </a>
+                        <a href="formula.html" class="nav-item active" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-scroll"></i>
+                            <span class="nav-label">Quick Formulas</span>
+                        </a>
+                    </div>
+
+                    <div class="nav-section">
+                        <span class="nav-section-title">Data Management</span>
+                        <a href="#" class="nav-item" data-view="data" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-database"></i>
+                            <span class="nav-label">Export & Sync</span>
+                        </a>
+                        <a href="#" class="nav-item danger" data-view="danger" onclick="handleSidebarClick(this)">
+                            <i class="fa-solid fa-trash-can"></i>
+                            <span class="nav-label">Danger Zone</span>
+                        </a>
+                    </div>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <button class="nav-item danger" onclick="logout()"
+                        style="width: 100%; border: none; background: none; font-family: inherit;">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span class="nav-label">Sign Out</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="content-main page-enter">
+                <div class="formula-container">
+                    <div class="reveal">
+                        <h1 class="section-title"><i class="fa-solid fa-scroll"
+                                style="color:var(--primary); margin-right:0.5rem;"></i> Quick Formulas</h1>
+                        <p class="section-subtitle">The official Grade 12 NSC Mathematics Information Sheet. You will be
+                            provided with this sheet in your final exams.</p>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="search-box expose" style="margin-bottom: 2rem;">
+                        <i class="fa-solid fa-magnifying-glass search-box__icon"></i>
+                        <input type="text" id="formulaSearchInput" class="form-input"
+                            placeholder="Search by topic or term..." oninput="searchPageFormulas(this.value)"
+                            style="padding-left: 2.5rem;">
+                    </div>
+
+                    <div id="formulasWrapper">
+                        <!-- ALGEBRA & SEQUENCES -->
+                        <div class="formula-section reveal">
+                            <h2><i class="fa-solid fa-list-ol"></i> Algebra, Sequences & Series</h2>
+                            <div class="formula-grid">
+                                <div class="formula-card">
+                                    <div class="formula-label">Quadratic Formula</div>
+                                    <div class="formula-math">\( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)</div>
+                                </div>
+                                <div class="formula-card">
+                                    <div class="formula-label">Constant Sequence Sum</div>
+                                    <div class="formula-math">\( \sum_{i=1}^{n} 1 = n \)</div>
+                                </div>
+                                <div class="formula-card">
+                                    <div class="formula-label">Sum of First n Integers</div>
+                                    <div class="formula-math">\( \sum_{i=1}^{n} i = \frac{n(n+1)}{2} \)</div>
+                                </div>
+                                <div class="formula-card">
+                                    <div class="formula-label">Arithmetic Series Sum</div>
+                                    <div class="formula-math">\( \sum_{i=1}^{n} (a + (i-1)d) = \frac{n}{2}[2a + (n-1)d]
+                                        \)</div>
+                                </div>
+                                <div class="formula-card">
+                                    <div class="formula-label">Geometric Series Sum</div>
+                                    <div class="formula-math">\( \sum_{i=1}^{n} ar^{i-1} = \frac{a(r^n - 1)}{r-1} \ ; \
+                                        r \neq 1 \)</div>
+                                </div>
+                                <div class="formula-card">
+                                    <div class="formula-label">Sum to Infinity</div>
+                                    <div class="formula-math">\( \sum_{i=1}^{\infty} ar^{i-1} = \frac{a}{1-r} \ ; \ -1 <
+                                            r < 1 \)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FINANCE, GROWTH & DECAY -->
+                            <div class="formula-section reveal">
+                                <h2><i class="fa-solid fa-sack-dollar"></i> Finance, Growth & Decay</h2>
+                                <div class="formula-grid">
+                                    <div class="formula-card">
+                                        <div class="formula-label">Simple Interest / Growth</div>
+                                        <div class="formula-math">\( A = P(1 + ni) \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Simple Depreciation</div>
+                                        <div class="formula-math">\( A = P(1 - ni) \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Compound Depreciation</div>
+                                        <div class="formula-math">\( A = P(1 - i)^n \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Compound Interest</div>
+                                        <div class="formula-math">\( A = P(1 + i)^n \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Future Value Annuity</div>
+                                        <div class="formula-math">\( F = \frac{x[(1+i)^n - 1]}{i} \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Present Value Annuity</div>
+                                        <div class="formula-math">\( P = \frac{x[1-(1+i)^{-n}]}{i} \)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CALCULUS -->
+                            <div class="formula-section reveal">
+                                <h2><i class="fa-solid fa-infinity"></i> Differential Calculus</h2>
+                                <div class="formula-grid">
+                                    <div class="formula-card"
+                                        style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+                                        <div class="formula-label">First Principles</div>
+                                        <div class="formula-math">\( f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ANALYTICAL GEOMETRY -->
+                            <div class="formula-section reveal">
+                                <h2><i class="fa-solid fa-drafting-compass"></i> Analytical Geometry</h2>
+                                <div class="formula-grid">
+                                    <div class="formula-card">
+                                        <div class="formula-label">Distance Formula</div>
+                                        <div class="formula-math">\( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Midpoint</div>
+                                        <div class="formula-math">\( M \left(\frac{x_1 + x_2}{2} ; \frac{y_1 +
+                                            y_2}{2}\right) \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Straight Line (Gradient-Intercept)</div>
+                                        <div class="formula-math">\( y = mx + c \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Straight Line (Point-Gradient)</div>
+                                        <div class="formula-math">\( y - y_1 = m(x - x_1) \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Gradient (Two Points)</div>
+                                        <div class="formula-math">\( m = \frac{y_2 - y_1}{x_2 - x_1} \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Angle of Inclination</div>
+                                        <div class="formula-math">\( m = \tan \theta \)</div>
+                                    </div>
+                                    <div class="formula-card"
+                                        style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto;">
+                                        <div class="formula-label">Circle Equation</div>
+                                        <div class="formula-math">\( (x - a)^2 + (y - b)^2 = r^2 \)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TRIGONOMETRY -->
+                            <div class="formula-section reveal">
+                                <h2><i class="fa-solid fa-compass-drafting"></i> Trigonometry</h2>
+                                <div class="formula-grid">
+                                    <div class="formula-card">
+                                        <div class="formula-label">Sine Rule</div>
+                                        <div class="formula-math">\( \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin
+                                            C} \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Cosine Rule</div>
+                                        <div class="formula-math">\( a^2 = b^2 + c^2 - 2bc \cos A \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Area Rule</div>
+                                        <div class="formula-math">\( \text{area } \Delta ABC = \frac{1}{2}ab \sin C \)
+                                        </div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Compound Angle - Sine (+)</div>
+                                        <div class="formula-math">\( \sin(\alpha + \beta) = \sin \alpha \cos \beta +
+                                            \cos \alpha \sin \beta \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Compound Angle - Sine (-)</div>
+                                        <div class="formula-math">\( \sin(\alpha - \beta) = \sin \alpha \cos \beta -
+                                            \cos \alpha \sin \beta \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Compound Angle - Cosine (+)</div>
+                                        <div class="formula-math">\( \cos(\alpha + \beta) = \cos \alpha \cos \beta -
+                                            \sin \alpha \sin \beta \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Compound Angle - Cosine (-)</div>
+                                        <div class="formula-math">\( \cos(\alpha - \beta) = \cos \alpha \cos \beta +
+                                            \sin \alpha \sin \beta \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Double Angle - Sine</div>
+                                        <div class="formula-math">\( \sin 2\alpha = 2\sin \alpha \cos \alpha \)</div>
+                                    </div>
+                                    <div class="formula-card" style="grid-row: span 2;">
+                                        <div class="formula-label">Double Angle - Cosine</div>
+                                        <div class="formula-math">
+                                            \( \cos 2\alpha = \begin{cases} \cos^2 \alpha - \sin^2 \alpha \\ 1 - 2\sin^2
+                                            \alpha \\ 2\cos^2 \alpha - 1 \end{cases} \)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STATISTICS & PROBABILITY -->
+                            <div class="formula-section reveal">
+                                <h2><i class="fa-solid fa-chart-simple"></i> Statistics & Probability</h2>
+                                <div class="formula-grid">
+                                    <div class="formula-card">
+                                        <div class="formula-label">Mean (\( \bar{x} \))</div>
+                                        <div class="formula-math">\( \bar{x} = \frac{\sum fx}{n} \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Variance (\( \sigma^2 \))</div>
+                                        <div class="formula-math">\( \sigma^2 = \frac{\sum_{i=1}^{n}(x_i -
+                                            \bar{x})^2}{n} \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Basic Probability</div>
+                                        <div class="formula-math">\( P(A) = \frac{n(A)}{n(S)} \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Addition Rule</div>
+                                        <div class="formula-math">\( P(A \text{ or } B) = P(A) + P(B) - P(A \text{ and }
+                                            B) \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Least Squares Regression Line</div>
+                                        <div class="formula-math">\( \hat{y} = a + bx \)</div>
+                                    </div>
+                                    <div class="formula-card">
+                                        <div class="formula-label">Regression Slope (b)</div>
+                                        <div class="formula-math">\( b = \frac{\sum(x - \bar{x})(y - \bar{y})}{\sum(x -
+                                            \bar{x})^2} \)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <!-- App Config -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js?v=6"></script>
+    <script src="components/sidebar.js?v=4"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMath(document.getElementById('formulasWrapper'));
+            initReveal(); // run scroll reveal animations if defined in main.js
+        });
+
+        function searchPageFormulas(query) {
+            query = query.toLowerCase();
+            const cards = document.querySelectorAll('.formula-card');
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Hide sections where all cards are hidden
+            const sections = document.querySelectorAll('.formula-section');
+            sections.forEach(sec => {
+                const visible = Array.from(sec.querySelectorAll('.formula-card')).filter(c => c.style.display !== 'none');
+                sec.style.display = visible.length === 0 ? 'none' : 'block';
+            });
+        }
+    </script>
+</body>
+
+</html>

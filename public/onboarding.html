@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to TotalSkillz</title>
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/jpeg" href="/logo.jpg">
+    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css?v=4">
     <link rel="manifest" href="manifest.json">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
     <style>
         :root {
             --step-color: #4f46e5;
@@ -24,7 +24,7 @@
             background: linear-gradient(135deg, var(--bg) 0%, var(--bg-card) 50%, var(--primary-pale) 100%);
             padding: 1rem;
             position: relative;
-            overflow: hidden;
+            overflow-y: auto; /* Allow scrolling if content is too tall */
         }
 
         /* Ambient background blobs */
@@ -38,7 +38,7 @@
             background: var(--primary);
             opacity: 0.03;
             filter: blur(80px);
-            z-index: 0;
+            z-index: -1; /* Ensure they are behind everything */
         }
 
         body::before {
@@ -49,7 +49,7 @@
         body::after {
             bottom: -100px;
             right: -100px;
-            background: var(--accent-purple);
+            background: var(--primary);
         }
 
         .onboard-wrap {
@@ -60,6 +60,8 @@
             border-radius: var(--radius-xl);
             box-shadow: var(--shadow-xl);
             overflow: hidden;
+            position: relative;
+            z-index: 10; /* Ensure it is above background blobs */
         }
 
         /* Progress bar */
@@ -240,15 +242,24 @@
         }
 
         .skip-link {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            text-decoration: none;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
             cursor: pointer;
             white-space: nowrap;
+            transition: color 0.2s;
         }
 
         .skip-link:hover {
             color: var(--primary);
+            text-decoration: none;
+        }
+
+        .topic-chip i,
+        .goal-btn i,
+        .btn i {
+            pointer-events: none;
         }
 
         /* Step visibility & animations */
@@ -321,7 +332,7 @@
             </div>
             <div class="onboard-footer">
                 <span class="skip-link" onclick="skipOnboarding()">Skip setup</span>
-                <button class="btn btn-primary" onclick="goStep(2)">Continue <i
+                <button class="btn btn-primary" onclick="validateAndGo(2)">Continue <i
                         class="fa-solid fa-arrow-right"></i></button>
             </div>
         </div>
@@ -435,74 +446,128 @@
         });
 
         function goStep(n) {
-            document.getElementById('step' + currentStep).classList.remove('active');
+            const currentEl = document.getElementById('step' + currentStep);
+            const nextEl = document.getElementById('step' + n);
+            if (currentEl) currentEl.classList.remove('active');
+            if (nextEl) nextEl.classList.add('active');
             currentStep = n;
-            document.getElementById('step' + n).classList.add('active');
             const fills = { 1: '33.3%', 2: '66.6%', 3: '100%' };
-            document.getElementById('progressBar').style.width = fills[n];
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) progressBar.style.width = fills[n];
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function validateAndGo(n) {
+            if (currentStep === 1 && selectedTopics.length === 0) {
+                if (typeof showToast === 'function') {
+                    showToast('Please select at least one topic to continue, or skip setup.', 'info');
+                } else {
+                    alert('Please select at least one topic to continue, or skip setup.');
+                }
+                return;
+            }
+            goStep(n);
         }
 
         function toggleTopic(el) {
-            const id = el.dataset.id;
-            if (el.classList.contains('selected')) {
-                el.classList.remove('selected');
+            // Resolve to the chip itself even if the icon inside was clicked
+            const chip = el.closest('.topic-chip') || el;
+            const id = chip.dataset.id;
+            if (!id) return; // safety guard
+            if (chip.classList.contains('selected')) {
+                chip.classList.remove('selected');
                 selectedTopics = selectedTopics.filter(t => t !== id);
             } else {
                 if (selectedTopics.length >= 3) {
-                    // Flash the element to signal limit
-                    el.style.animation = 'none';
-                    el.style.border = '1.5px solid var(--accent-red)';
-                    setTimeout(() => el.style.border = '', 700);
+                    if (typeof showToast === 'function') {
+                        showToast('You can only select up to 3 topics.', 'info');
+                    } else {
+                        chip.style.border = '1.5px solid var(--accent-red)';
+                        setTimeout(() => chip.style.border = '', 700);
+                    }
                     return;
                 }
-                el.classList.add('selected');
+                chip.classList.add('selected');
                 selectedTopics.push(id);
             }
         }
 
         function selectGoal(el) {
+            // Resolve to the goal button even if child element was clicked
+            const btn = el.closest('.goal-btn') || el;
             document.querySelectorAll('.goal-btn').forEach(b => b.classList.remove('selected'));
-            el.classList.add('selected');
-            selectedGoal = parseInt(el.dataset.goal) || 999;
+            btn.classList.add('selected');
+            selectedGoal = parseInt(btn.dataset.goal) || 999;
         }
 
         async function finishOnboarding() {
             const btn = document.getElementById('finishBtn');
+            const originalBtnHtml = btn.innerHTML;
             btn.disabled = true;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Saving...';
 
             const user = firebase.auth().currentUser;
-            if (!user) { window.location.href = 'index.html'; return; }
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
 
             const targetMark = parseInt(document.getElementById('markSlider').value);
             const examDate = document.getElementById('examDateInput').value || null;
 
-            // Merge settings into existing progress
-            const p = getProgress();
-            if (!p.settings) p.settings = {};
-            p.settings.weakAreas = selectedTopics;
-            p.settings.targetMark = targetMark;
-            p.settings.dailyGoal = selectedGoal;
-            if (examDate) p.settings.examDate = examDate;
+            try {
+                // Merge settings into existing progress
+                if (typeof getProgress !== 'function' || typeof saveProgress !== 'function') {
+                    throw new Error('App functions not loaded yet. Please wait a moment and try again.');
+                }
+                const p = getProgress();
+                if (!p.settings) p.settings = {};
+                p.settings.weakAreas = selectedTopics;
+                p.settings.targetMark = targetMark;
+                p.settings.dailyGoal = selectedGoal;
+                if (examDate) p.settings.examDate = examDate;
 
-            await saveProgress(p);
+                await saveProgress(p);
 
-            // Mark as onboarded in Firestore
-            await firebase.firestore().collection('users').doc(user.uid).set({
-                onboarded: true
-            }, { merge: true });
+                // Mark as onboarded in Firestore
+                await firebase.firestore().collection('users').doc(user.uid).set({
+                    onboarded: true
+                }, { merge: true });
 
-            localStorage.setItem('totalskillz_onboarded', 'true');
-            window.location.href = 'dashboard.html';
+                localStorage.setItem('totalskillz_onboarded', 'true');
+                if (typeof showToast === 'function') showToast('Onboarding complete! Welcome!', 'success');
+                window.location.href = 'dashboard.html';
+            } catch (error) {
+                console.error("Error finishing onboarding:", error);
+                if (typeof showToast === 'function') {
+                    showToast(error.message || 'Failed to save settings. Please try again.', 'error');
+                } else {
+                    alert(error.message || 'Failed to save settings. Please try again.');
+                }
+                btn.disabled = false;
+                btn.innerHTML = originalBtnHtml;
+            }
         }
 
         async function skipOnboarding() {
             const user = firebase.auth().currentUser;
-            if (user) {
+            if (!user) {
+                window.location.href = 'index.html';
+                return;
+            }
+            try {
                 await firebase.firestore().collection('users').doc(user.uid).set({ onboarded: true }, { merge: true });
                 localStorage.setItem('totalskillz_onboarded', 'true');
+                if (typeof showToast === 'function') showToast('Onboarding skipped. Redirecting to dashboard.', 'info');
+                window.location.href = 'dashboard.html';
+            } catch (error) {
+                console.error("Error skipping onboarding:", error);
+                if (typeof showToast === 'function') {
+                    showToast('Failed to skip onboarding. Please try again.', 'error');
+                } else {
+                    alert('Failed to skip onboarding. Please try again.');
+                }
             }
-            window.location.href = 'dashboard.html';
         }
     </script>
 </body>

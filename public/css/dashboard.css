@@ -49,7 +49,7 @@
  .floating-svg {
      width: 100%;
      height: 100%;
-     filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4));
+     filter: drop-shadow(0 0 15px rgba(79, 70, 229, 0.1));
      animation: float 6s ease-in-out infinite;
  }
 
@@ -102,18 +102,18 @@
  .glow-btn {
      position: relative;
      overflow: hidden;
-     background: var(--accent-purple);
+     background: var(--primary);
      border: none;
      padding: 1rem 2rem;
      font-weight: 700;
      letter-spacing: 0.5px;
-     box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+     box-shadow: 0 0 20px rgba(79, 70, 229, 0.1);
      transition: all 0.3s ease;
  }
 
  .glow-btn:hover {
      transform: translateY(-3px) scale(1.02);
-     box-shadow: 0 0 30px rgba(139, 92, 246, 0.6);
+     box-shadow: 0 0 30px rgba(79, 70, 229, 0.1);
      background: var(--primary);
  }
 
@@ -278,84 +278,34 @@
      }
  }
 
- /* Integrated Quote in Welcome Banner */
- .welcome-banner__quote {
-     margin-top: 1.25rem;
-     padding-top: 1rem;
-     border-top: 1px solid rgba(255, 255, 255, 0.15);
-     position: relative;
- }
 
- [data-theme="light"] .welcome-banner__quote {
-     border-top: 1px solid rgba(0, 0, 0, 0.12);
- }
 
- .quote-content {
-     display: flex;
-     flex-direction: column;
-     gap: 0.5rem;
-     opacity: 1;
- }
 
- .quote-content.reveal-active {
-     animation: revealQuote 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
- }
 
- @keyframes revealQuote {
-     0% {
-         opacity: 0;
-         transform: translateY(20px);
-     }
 
-     100% {
-         opacity: 1;
-         transform: translateY(0);
-     }
- }
 
- .quote-icon {
-     font-size: 1.2rem;
-     color: var(--accent-purple-light);
-     opacity: 0.6;
-     margin-bottom: 0.2rem;
- }
 
- [data-theme="light"] .quote-icon {
-     color: #7c3aed;
-     opacity: 0.8;
- }
 
- .quote-text {
-     font-size: 1.05rem;
-     line-height: 1.5;
-     font-style: italic;
-     color: rgba(255, 255, 255, 0.95);
-     font-weight: 500;
- }
 
- [data-theme="light"] .quote-text {
-     color: var(--text);
- }
 
- .quote-author {
-     font-size: 0.8rem;
-     font-weight: 700;
-     color: #7c3aed;
-     /* Same as brain icon */
-     text-transform: uppercase;
-     letter-spacing: 1px;
- }
 
- @media (max-width: 600px) {
-     .welcome-banner__quote {
-         margin-top: 1rem;
-         padding-top: 0.75rem;
-     }
 
-     .quote-text {
-         font-size: 0.95rem;
-     }
- }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  /* Search section */
  .search-section {
@@ -703,15 +653,15 @@
  .leaderboard-item {
      display: flex;
      align-items: center;
-     gap: 1rem;
-     padding: 0.75rem;
-     border-radius: var(--radius-md);
-     background: var(--bg);
+     gap: 1.25rem;
+     padding: 0.85rem 1rem;
+     border-radius: var(--radius-lg);
+     background: var(--bg-card);
      border: 1px solid var(--border-light);
      transition: all var(--transition-fast);
-     opacity: 0;
-     transform: translateY(15px);
-     animation: fadeUpItem 0.4s ease forwards;
+     position: relative;
+     overflow: hidden;
+     margin-bottom: 0.75rem;
  }
 
  @keyframes fadeUpItem {
@@ -723,37 +673,33 @@
 
  .leaderboard-item:hover {
      border-color: var(--primary-light);
-     transform: translateX(4px);
+     transform: scale(1.01);
+     box-shadow: var(--shadow-md);
  }
 
  .leaderboard-item__rank {
-     width: 32px;
-     height: 32px;
-     border-radius: 50%;
+     width: 28px;
+     height: 28px;
      display: flex;
      align-items: center;
      justify-content: center;
      font-weight: 800;
-     font-size: 0.9rem;
-     background: var(--border-light);
+     font-size: 0.85rem;
      color: var(--text-muted);
      flex-shrink: 0;
+     z-index: 2;
  }
 
  .leaderboard-item:nth-child(1) .leaderboard-item__rank {
-     background: linear-gradient(135deg, #fcd34d, #f59e0b);
-     color: white;
-     box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+     font-size: 1.2rem;
  }
 
  .leaderboard-item:nth-child(2) .leaderboard-item__rank {
-     background: linear-gradient(135deg, #e2e8f0, #94a3b8);
-     color: white;
+     font-size: 1.2rem;
  }
 
  .leaderboard-item:nth-child(3) .leaderboard-item__rank {
-     background: linear-gradient(135deg, #fed7aa, #d97706);
-     color: white;
+     font-size: 1.2rem;
  }
 
  .leaderboard-item__user {
@@ -764,40 +710,45 @@
  }
 
  .leaderboard-item__avatar {
-     width: 36px;
-     height: 36px;
-     border-radius: 50%;
-     background: var(--primary-pale);
+     width: 42px;
+     height: 42px;
+     border-radius: 12px;
+     background: linear-gradient(135deg, var(--primary-pale), var(--bg-hover));
      color: var(--primary);
      display: flex;
      align-items: center;
      justify-content: center;
-     font-weight: 700;
-     font-size: 0.85rem;
+     font-weight: 800;
+     font-size: 1rem;
+     border: 1px solid var(--border-light);
+     flex-shrink: 0;
  }
 
  .leaderboard-item__name {
-     font-size: 0.95rem;
-     font-weight: 600;
+     font-size: 1rem;
+     font-weight: 700;
      color: var(--text);
  }
 
  .leaderboard-item__stats {
+     margin-left: auto;
      text-align: right;
  }
 
  .leaderboard-item__score {
-     font-size: 1.1rem;
-     font-weight: 800;
+     font-size: 1.15rem;
+     font-weight: 900;
      color: var(--primary);
-     font-family: var(--font-mono);
+     line-height: 1;
  }
 
  .leaderboard-item__label {
-     font-size: 0.7rem;
+     font-size: 0.65rem;
      color: var(--text-muted);
      text-transform: uppercase;
-     letter-spacing: 0.05em;
+     letter-spacing: 0.08em;
+     margin-top: 0.2rem;
+     font-weight: 600;
  }
 
  @media (max-width: 1024px) {

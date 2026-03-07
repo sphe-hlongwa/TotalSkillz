@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Total Skill</title>
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="icon" type="image/jpeg" href="/logo.jpg">
     <meta name="description"
         content="Your Total Skill dashboard. Track progress, practice daily, search resources, and master every topic.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css?v=4">
     <link rel="manifest" href="manifest.json">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="components/sidebar.css?v=3">
     <link rel="stylesheet" href="css/discovery-tour.css?v=1">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
 </head>
 
 <body>
@@ -56,6 +56,22 @@
                 </a>
             </div>
 
+            <div class="header__center">
+                <nav class="header__nav">
+                    <a href="practice.html" class="header__nav-link">
+                        <i class="fa-solid fa-dumbbell"></i>
+                        <span>Practice</span>
+                    </a>
+                    <a href="topics.html" class="header__nav-link">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Topics</span>
+                    </a>
+                    <a href="exam.html" class="header__nav-link">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <span>Exam Mode</span>
+                    </a>
+                </nav>
+            </div>
             <div class="header__right">
                 <div class="header__avatar user-avatar" id="userAvatar" onclick="toggleProfileModal()"
                     title="View profile">US</div>
@@ -80,9 +96,9 @@
                             <span class="nav-label">Security & Access</span>
                         </a>
                         <a href="admin.html" class="nav-item" id="adminSidebarLink"
-                            style="display:none; border-left: 3px solid var(--accent-purple); background: rgba(168, 85, 247, 0.1);">
-                            <i class="fa-solid fa-unlock-keyhole" style="color: var(--accent-purple);"></i>
-                            <span class="nav-label" style="color: var(--accent-purple); font-weight: 700;">Admin
+                            style="display:none; border-left: 3px solid var(--primary); background: rgba(79, 70, 229, 0.1);">
+                            <i class="fa-solid fa-unlock-keyhole" style="color: var(--primary);"></i>
+                            <span class="nav-label" style="color: var(--primary); font-weight: 700;">Admin
                                 Point</span>
                         </a>
                     </div>
@@ -97,14 +113,8 @@
 
                     <div class="nav-section">
                         <span class="nav-section-title">Learning Tools</span>
-                        <a href="/practice.html" class="nav-item" onclick="handleSidebarClick(this)">
-                            <i class="fa-solid fa-dumbbell"></i>
-                            <span class="nav-label">Practice</span>
-                        </a>
-                        <a href="/topics.html" class="nav-item" onclick="handleSidebarClick(this)">
-                            <i class="fa-solid fa-book-open"></i>
-                            <span class="nav-label">Topics</span>
-                        </a>
+                        <a href="formula.html" class="nav-item" onclick="handleSidebarClick(this)"><i
+                                class="fa-solid fa-scroll"></i><span class="nav-label">Quick Formulas</span></a>
                         <a href="/exam.html" class="nav-item" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-stopwatch"></i>
                             <span class="nav-label">Exam Mode</span>
@@ -147,6 +157,11 @@
 
             <main class="content-main page-enter">
                 <div class="container">
+                    <!-- Broadcasts Section -->
+                    <div id="broadcastContainer"
+                        style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; display: none;">
+                    </div>
+
                     <!-- Search (Moved to Top) -->
                     <div class="search-section" style="margin-bottom: 1rem; margin-top: -1rem;">
                         <div class="search-bar" id="searchBar">
@@ -205,10 +220,10 @@
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
                                     <path class="stat-ring__progress" id="ringAccuracy" stroke-dasharray="0, 100"
                                         d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                                        style="stroke: var(--accent-purple);" />
+                                        style="stroke: var(--secondary);" />
                                 </svg>
                                 <div class="stat-item__icon"
-                                    style="background:var(--accent-purple-pale); color:var(--accent-purple);">
+                                    style="background:var(--primary-pale); color:var(--secondary);">
                                     <i class="fa-solid fa-bullseye"></i>
                                 </div>
                             </div>
@@ -247,7 +262,7 @@
                             </div>
                             <div class="grid-3 reveal" id="topicsGrid"></div>
 
-                            <div class="reveal" style="margin-top:2rem;">
+                            <div class="reveal" id="badgesSection" style="margin-top:2rem;">
                                 <h2 class="section-title">Your Badges</h2>
                                 <p class="section-subtitle">Earn badges by completing challenges and building streaks.
                                 </p>
@@ -337,27 +352,7 @@
                             </div>
                         </div>
 
-                        <!-- Quick Formulas -->
-                        <div class="cheat-card">
-                            <h3 class="cheat-card__title"><i class="fa-solid fa-scroll"
-                                    style="color:var(--primary);margin-right:0.4rem;"></i> Quick Formulas</h3>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Quadratic Formula</div>
-                                \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)
-                            </div>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Derivative (First Principles)</div>
-                                \( f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \)
-                            </div>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Compound Interest</div>
-                                \( A = P(1 + i)^n \)
-                            </div>
-                            <div class="cheat-item">
-                                <div class="cheat-item__label">Distance Formula</div>
-                                \( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} \)
-                            </div>
-                        </div>
+                        <!-- Quick Formulas Removed from here and moved to sidebar -->
                     </div>
                 </div>
         </div>
@@ -373,6 +368,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
     <!-- App Config -->
     <script src="/js/firebase-config.js"></script>
     <script src="js/main.js?v=4"></script>
@@ -396,76 +392,35 @@
             { id: 'statistics', title: 'Statistics', desc: 'Regression, correlation, and distributions', icon: 'fa-solid fa-chart-simple', color: '#f59e0b' },
         ];
 
-        const quotePool = [
-            // Einstein
-            { text: "Pure mathematics is, in its way, the poetry of logical ideas.", author: "Albert Einstein", img: "iestine.webp", set: 0 },
-            { text: "Do not worry about your difficulties in Mathematics. I can assure you mine are still greater.", author: "Albert Einstein", img: "iestine.webp", set: 1 },
-            { text: "The important thing is not to stop questioning.", author: "Albert Einstein", img: "iestine.webp", set: 2 },
-            { text: "Imagination is more important than knowledge.", author: "Albert Einstein", img: "iestine.webp", set: 3 },
-            // Feynman
-            { text: "To those who do not know mathematics it is difficult to get across a real feeling as to the beauty of nature.", author: "Richard Feynman", img: "feyman.jpg", set: 0 },
-            { text: "The first principle is that you must not fool yourself and you are the easiest person to fool.", author: "Richard Feynman", img: "feyman.jpg", set: 1 },
-            { text: "If you want to master something, teach it.", author: "Richard Feynman", img: "feyman.jpg", set: 2 },
-            { text: "What I cannot create, I do not understand.", author: "Richard Feynman", img: "feyman.jpg", set: 3 },
-            // Euclid
-            { text: "There is no royal road to geometry.", author: "Euclid", img: "euclid.jpg", set: 0 },
-            { text: "A line is a length without breadth.", author: "Euclid", img: "euclid.jpg", set: 1 },
-            { text: "The laws of nature are but the mathematical thoughts of God.", author: "Euclid", img: "euclid.jpg", set: 2 },
-            { text: "Things which are equal to the same thing are also equal to one another.", author: "Euclid", img: "euclid.jpg", set: 3 },
-            // Euler
-            { text: "Nothing takes place in the world whose meaning is not that of some maximum or minimum.", author: "Leonhard Euler", img: "euler.jpg", set: 0 },
-            { text: "Logic is the foundation of the certainty of all the knowledge we acquire.", author: "Leonhard Euler", img: "euler.jpg", set: 1 },
-            { text: "Everything that happens in the world follows a rule of maximum or minimum.", author: "Leonhard Euler", img: "euler.jpg", set: 2 },
-            { text: "By the help of mathematics, I can see what others cannot.", author: "Leonhard Euler", img: "euler.jpg", set: 3 },
-            // Newton
-            { text: "If I have seen further it is by standing on the shoulders of Giants.", author: "Isaac Newton", img: "isaac.jpg", set: 0 },
-            { text: "Truth is ever to be found in simplicity, and not in the multiplicity and confusion of things.", author: "Isaac Newton", img: "isaac.jpg", set: 1 },
-            // Gauss
-            { text: "Mathematics is the queen of the sciences.", author: "Carl Friedrich Gauss", img: "gauss.jpg", set: 2 },
-            // Lovelace
-            //{ text: "That brain of mine is something more than merely mortal; as time will show.", author: "Ada Lovelace", img: "lovelace.jpg", set: 3 },
-            // Pythagoras
-            { text: "Numbers have a way of taking a man by the hand and leading him down the path of reason.", author: "Pythagoras", img: "pythagoras.jpg", set: 0 },
-            // Archimedes
-            { text: "Give me a place to stand, and a lever long enough, and I will move the world.", author: "Archimedes", img: "archimedes.jpg", set: 1 },
-            // Descartes
-            { text: "Perfect numbers like perfect men are very rare.", author: "Rene Descartes", img: "descartes.jpg", set: 2 },
-            // Galileo
-            { text: "Mathematics is the language with which God has written the universe.", author: "Galileo Galilei", img: "galileo.jpg", set: 3 },
-            // Ramanujan
-            { text: "An equation for me has no meaning unless it expresses a thought of God.", author: "Srinivasa Ramanujan", img: "ramanujan.jpg", set: 0 },
-            // Pascal
-            { text: "Since we cannot know all that there is to be known about anything, we ought to know a little about everything.", author: "Blaise Pascal", img: "pascal.jpg", set: 1 }
-        ];
 
-        let currentQuoteIndex = 0;
-
-        function initQuotes() {
-            const container = document.getElementById('welcomeQuote');
-            if (!container) return;
-
-            const dayKey = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
-            const lastReveal = localStorage.getItem('totalskillz_quote_reveal');
-            const isNewDay = lastReveal !== dayKey;
-
-            // Pick a single high-impact quote for the day
-            const dayIndex = new Date().getDate() % quotePool.length;
-            const q = quotePool[dayIndex];
-
-            container.innerHTML = `
-                <div class="quote-content ${isNewDay ? 'reveal-active' : ''}">
-                    <i class="fa-solid fa-quote-left quote-icon"></i>
-                    <span class="quote-text">${q.text}</span>
-                    <span class="quote-author">— ${q.author}</span>
-                </div>
-            `;
-
-            if (isNewDay) {
-                localStorage.setItem('totalskillz_quote_reveal', dayKey);
+        function adjustLayoutForMobile() {
+            if (window.innerWidth <= 768) {
+                // Move Weak Areas and Recommended Videos to the bottom of dashMain, ABOVE Badges
+                const dashMain = document.getElementById('dashMain');
+                const badgesSection = document.getElementById('badgesSection');
+                const weakAreas = document.getElementById('weakAreasCard');
+                const recVideos = document.getElementById('recommendedVideosCard');
+                if (dashMain && badgesSection && weakAreas && recVideos) {
+                    dashMain.insertBefore(weakAreas, badgesSection);
+                    dashMain.insertBefore(recVideos, badgesSection);
+                }
+            } else {
+                // Move back to sidebar
+                const sidebar = document.getElementById('dashSidebar');
+                const weakAreas = document.getElementById('weakAreasCard');
+                const recVideos = document.getElementById('recommendedVideosCard');
+                if (sidebar && weakAreas && recVideos) {
+                    // Append in the correct order if they are not already there
+                    if (weakAreas.parentElement !== sidebar) sidebar.appendChild(weakAreas);
+                    if (recVideos.parentElement !== sidebar) sidebar.appendChild(recVideos);
+                }
             }
         }
+        window.addEventListener('resize', adjustLayoutForMobile);
 
         function init() {
+            adjustLayoutForMobile();
+
             const user = getUser();
             const progress = getProgress();
             const streakDisplay = document.getElementById('streakCount');
@@ -497,6 +452,9 @@
             renderWeakAreas();
             renderRecommendedVideos();
             renderBadges(progress);
+
+            // Initialize Broadcasts
+            if (typeof loadBroadcasts === 'function') loadBroadcasts();
         }
 
         function renderTopics(progress) {
@@ -520,39 +478,54 @@
         }
 
         // ---- Daily Challenge ----
-        const dailyQuestions = [
-            { q: 'Solve for \\(x\\): \\(2x^2 - 5x - 3 = 0\\)', options: ['\\(x = 3\\) or \\(x = -\\tfrac{1}{2}\\)', '\\(x = -3\\) or \\(x = \\tfrac{1}{2}\\)', '\\(x = 3\\) or \\(x = \\tfrac{1}{2}\\)', '\\(x = -3\\) or \\(x = -\\tfrac{1}{2}\\)'], answer: 0, topic: 'algebra' },
-            { q: 'Find \\(f\'(x)\\) if \\(f(x) = 3x^2 + 4x - 7\\)', options: ['\\(6x + 4\\)', '\\(3x + 4\\)', '\\(6x^2 + 4\\)', '\\(6x - 7\\)'], answer: 0, topic: 'calculus' },
-            { q: 'Simplify: \\(\\dfrac{\\sin(2x)}{\\sin(x)}\\)', options: ['\\(2\\cos(x)\\)', '\\(2\\sin(x)\\)', '\\(\\cos(x)\\)', '\\(\\tan(x)\\)'], answer: 0, topic: 'trigonometry' },
-            { q: 'If \\(P(A)=0.4\\), \\(P(B)=0.5\\), \\(P(A \\cap B)=0.2\\), find \\(P(A \\cup B)\\)', options: ['\\(0.7\\)', '\\(0.9\\)', '\\(0.6\\)', '\\(0.3\\)'], answer: 0, topic: 'probability' },
-            { q: 'Find the gradient of the line joining \\((1,3)\\) and \\((4,9)\\)', options: ['\\(2\\)', '\\(3\\)', '\\(6\\)', '\\(\\tfrac{1}{2}\\)'], answer: 0, topic: 'analytical_geometry' },
-            { q: 'Sum of first 10 terms: \\(3, 6, 12, 24, \\ldots\\)', options: ['\\(3069\\)', '\\(3072\\)', '\\(1536\\)', '\\(3066\\)'], answer: 0, topic: 'algebra' },
-            { q: 'Find the turning point of \\(y = x^2 - 6x + 5\\)', options: ['\\((3, -4)\\)', '\\((3, 4)\\)', '\\((-3, -4)\\)', '\\((6, 5)\\)'], answer: 0, topic: 'functions' },
-        ];
-
-        function renderDaily() {
+        async function renderDaily() {
             const progress = getProgress();
-            if (progress.dailyDone) {
-                document.getElementById('dailyContent').innerHTML = '<div style="text-align:center;padding:1rem;"><i class="fa-solid fa-circle-check" style="font-size:2.5rem;color:var(--accent-green);"></i><p style="margin-top:0.75rem;font-weight:600;">Daily challenge complete!</p><p style="font-size:0.85rem;color:var(--text-muted);">Come back tomorrow for a new one.</p></div>';
-                document.getElementById('dailyBadge').textContent = 'Done';
-                document.getElementById('dailyBadge').className = 'badge badge-green';
+            const today = new Date().toDateString();
+
+            if (progress.lastDailyDate === today) {
+                document.getElementById('dailyCard').style.display = 'none';
                 return;
             }
-            const q = dailyQuestions[new Date().getDay() % dailyQuestions.length];
-            const letters = ['A', 'B', 'C', 'D'];
-            document.getElementById('dailyContent').innerHTML = `
-        <div class="daily-card__question">${q.q}</div>
-        <div class="daily-card__options">
-          ${q.options.map((opt, i) => `<button class="option-btn" onclick="checkDaily(${i}, ${q.answer}, '${q.topic}')"><span class="option-btn__letter">${letters[i]}</span><span>${opt}</span></button>`).join('')}
-        </div>`;
-            renderMath(document.getElementById('dailyContent'));
+
+            try {
+                const response = await fetch('js/questions.json');
+                const allQuestions = await response.json();
+                const hardQuestions = allQuestions.filter(q => q.difficulty === 'hard');
+
+                if (hardQuestions.length === 0) {
+                    document.getElementById('dailyCard').style.display = 'none';
+                    return;
+                }
+
+                // Pick a question based on the date string
+                const seed = today.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+                const q = hardQuestions[seed % hardQuestions.length];
+
+                const letters = ['A', 'B', 'C', 'D'];
+                document.getElementById('dailyContent').innerHTML = `
+                    <div class="daily-card__question">${q.q}</div>
+                    <div class="daily-card__options">
+                        ${q.options.map((opt, i) => `
+                            <button class="option-btn" onclick="checkDaily(${i}, ${q.answer}, '${q.topic}')">
+                                <span class="option-btn__letter">${letters[i]}</span>
+                                <span>${opt}</span>
+                            </button>`).join('')}
+                    </div>`;
+                renderMath(document.getElementById('dailyContent'));
+            } catch (error) {
+                console.error("Daily Challenge Load Error:", error);
+                document.getElementById('dailyCard').style.display = 'none';
+            }
         }
+
 
         window.checkDaily = function (selected, correct, topic) {
             const buttons = document.querySelectorAll('.daily-card__options .option-btn');
             buttons.forEach((btn, i) => { btn.disabled = true; btn.style.pointerEvents = 'none'; if (i === correct) btn.classList.add('correct'); if (i === selected && i !== correct) btn.classList.add('wrong'); });
             recordAnswer(topic, selected === correct);
-            const p = getProgress(); p.dailyDone = true; saveProgress(p);
+            const p = getProgress();
+            p.lastDailyDate = new Date().toDateString();
+            saveProgress(p);
             setTimeout(() => {
                 showToast(selected === correct ? 'Correct! Great work!' : 'Not quite. Review this topic to improve.', selected === correct ? 'success' : 'error');
                 document.getElementById('dailyBadge').textContent = selected === correct ? 'Correct' : 'Review';
@@ -672,21 +645,49 @@
         }
 
         function searchYouTube(query) {
-            const videos = [
-                { title: 'Grade 12 ' + query + ' - Full Lesson', channel: 'Maths with Mr J', search: 'grade 12 ' + query },
-                { title: query + ' Explained Simply - Matric Maths', channel: 'The Organic Chemistry Tutor', search: 'grade 12 maths ' + query },
-                { title: 'How to Solve ' + query + ' Problems', channel: 'Eddie Woo', search: query + ' mathematics grade 12' },
-            ];
-            return videos.map(v => {
+            const queryLower = query.toLowerCase();
+            const matchingTopic = topicsData.find(t =>
+                queryLower.includes(t.id.replace(/_/g, ' ')) ||
+                queryLower.includes(t.title.toLowerCase())
+            );
+
+            const videos = [];
+
+            // If we match a curated topic, put it first as a "Masterclass"
+            if (matchingTopic) {
+                videos.push({
+                    title: `Masterclass: ${matchingTopic.title}`,
+                    channel: 'TotalSkillz Curated',
+                    search: matchingTopic.id,
+                    isDirect: true
+                });
+            }
+
+            // Add variety results
+            videos.push(
+                { title: 'Grade 12 ' + query + ' - Detailed Lesson', channel: 'Kevinmathscience', search: 'grade 12 ' + query },
+                { title: query + ' Explained - Full Summary', channel: 'Mlungisi Nkosi', search: 'grade 12 maths ' + query },
+                { title: 'Solving ' + query + ' Past Paper Questions', channel: 'Bright Young Brains', search: query + ' grade 12' }
+            );
+
+            // Limit to 3-4 results
+            const resultsToShow = videos.slice(0, 4);
+
+            return resultsToShow.map(v => {
                 const safeSearch = v.search.replace(/'/g, "\\'");
                 const safeTitle = v.title.replace(/'/g, "\\'");
+                const badgeColor = v.isDirect ? 'badge-amber' : 'badge-red';
+                const badgeText = v.isDirect ? 'Direct Play' : 'Video';
+
                 return `
                 <a href="#" onclick="openVideoModal('${safeSearch}', '${safeTitle}'); return false;" class="result-card">
-                    <div class="result-card__thumb"><i class="fa-brands fa-youtube" style="color:#ef4444;font-size:2rem;"></i></div>
+                    <div class="result-card__thumb">
+                        <i class="fa-brands fa-youtube" style="color:${v.isDirect ? '#f59e0b' : '#ef4444'}; font-size:2rem;"></i>
+                    </div>
                     <div class="result-card__info">
                         <div class="result-card__title">${v.title}</div>
                         <div class="result-card__desc">${v.channel}</div>
-                        <div class="result-card__meta"><span class="badge badge-red">Video</span></div>
+                        <div class="result-card__meta"><span class="badge ${badgeColor}">${badgeText}</span></div>
                     </div>
                 </a>`;
             }).join('');
@@ -720,25 +721,19 @@
         }
 
         function searchCheatSheets(query) {
-            const q = query.toLowerCase();
-            const sheets = {
-                algebra: '<div class="cheat-item"><div class="cheat-item__label">Quadratic Formula</div>\\( x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\)</div><div class="cheat-item"><div class="cheat-item__label">Arithmetic Series Sum</div>\\( S_n = \\frac{n}{2}\\big[2a + (n-1)d\\big] \\)</div><div class="cheat-item"><div class="cheat-item__label">Geometric Series Sum</div>\\( S_n = \\frac{a(r^n - 1)}{r - 1}, \\quad r \\neq 1 \\)</div>',
-                trig: '<div class="cheat-item"><div class="cheat-item__label">Pythagorean Identity</div>\\( \\sin^2 x + \\cos^2 x = 1 \\)</div><div class="cheat-item"><div class="cheat-item__label">Double Angle</div>\\( \\sin 2x = 2\\sin x \\cos x \\)</div><div class="cheat-item"><div class="cheat-item__label">Sine Rule</div>\\( \\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C} \\)</div>',
-                calculus: '<div class="cheat-item"><div class="cheat-item__label">Power Rule</div>\\( \\frac{d}{dx}\\left[x^n\\right] = nx^{n-1} \\)</div><div class="cheat-item"><div class="cheat-item__label">First Principles</div>\\( f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} \\)</div>',
-                function: '<div class="cheat-item"><div class="cheat-item__label">Axis of Symmetry</div>\\( x = \\frac{-b}{2a} \\)</div><div class="cheat-item"><div class="cheat-item__label">Inverse</div>Swap \\(x\\) and \\(y\\), then solve for \\(y\\)</div>',
-                geometry: '<div class="cheat-item"><div class="cheat-item__label">Distance Formula</div>\\( d = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2} \\)</div><div class="cheat-item"><div class="cheat-item__label">Midpoint</div>\\( M = \\left(\\frac{x_1+x_2}{2},\\; \\frac{y_1+y_2}{2}\\right) \\)</div>',
-                probability: '<div class="cheat-item"><div class="cheat-item__label">Addition Rule</div>\\( P(A \\cup B) = P(A) + P(B) - P(A \\cap B) \\)</div><div class="cheat-item"><div class="cheat-item__label">Complementary</div>\\( P(A\') = 1 - P(A) \\)</div>',
-            };
-            let match = '';
-            for (const [key, val] of Object.entries(sheets)) {
-                if (q.includes(key) || key.includes(q.slice(0, 4))) match += val;
-            }
-            if (!match) match = Object.values(sheets).join('');
-            return match;
+            return `<a href="formula.html" class="result-card" style="text-decoration: none;">
+                <div class="result-card__thumb"><i class="fa-solid fa-scroll" style="color:var(--primary);font-size:1.5rem;"></i></div>
+                <div class="result-card__info">
+                    <div class="result-card__title">Formula Sheet</div>
+                    <div class="result-card__desc">View the complete Grade 12 NSC Mathematics Information Sheet.</div>
+                    <div class="result-card__meta"><span class="badge badge-primary">Quick Link</span></div>
+                </div>
+            </a>`;
         }
         // Wait for Firebase to confirm auth before rendering dashboard content
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
+                updateStreak(); // Reset dailyDone if it's a new day
                 init();
                 // Trigger Discovery Tour after a short delay for animations
                 setTimeout(() => { if (typeof triggerDiscoveryTour === 'function') triggerDiscoveryTour(); }, 2000);

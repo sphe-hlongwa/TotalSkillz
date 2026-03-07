@@ -18,8 +18,8 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #ec4899, #8b5cf6, #4f46e5);
+    height: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
 }
 
 .examiner-hero__icon {
@@ -304,11 +304,18 @@
     }
 
     .stats-bar {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        margin-top: 1rem;
-        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-light);
+    }
+
+    .stat-item:last-child {
+        grid-column: span 2;
+        padding-top: 0.5rem;
+        border-top: 1px dashed var(--border-light);
     }
 
     .stat-value {

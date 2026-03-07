@@ -48,6 +48,7 @@ class DiscoveryTour {
         this.overlay = null;
         this.svg = null;
         this.tooltip = null;
+        this._resizeHandler = null;
     }
 
     init() {
@@ -58,14 +59,15 @@ class DiscoveryTour {
         this.createOverlay();
         this.createTooltip();
 
-        window.addEventListener('resize', () => this.updateSpotlight());
+        this._resizeHandler = () => this.updateSpotlight();
+        window.addEventListener('resize', this._resizeHandler);
         this.start();
     }
 
     createOverlay() {
         // SVG Mask Overlay
         this.overlay = document.createElement('div');
-        this.overlay.className = 'tour-overlay-wrapper';
+        this.overlay.className = 'tour-overlay';
         this.overlay.innerHTML = `
             <svg class="tour-mask" width="100%" height="100%">
                 <defs>
@@ -167,6 +169,13 @@ class DiscoveryTour {
                     this.tooltip.style.left = left + 'px';
                     this.tooltip.style.transform = 'none';
                 }, 500);
+            } else {
+                // Target not found — fall back to centered tooltip
+                this.svgHole.setAttribute('width', '0');
+                this.svgHole.setAttribute('height', '0');
+                this.tooltip.style.top = '50%';
+                this.tooltip.style.left = '50%';
+                this.tooltip.style.transform = 'translate(-50%, -50%)';
             }
         }
     }
@@ -184,6 +193,10 @@ class DiscoveryTour {
     }
 
     finish() {
+        if (this._resizeHandler) {
+            window.removeEventListener('resize', this._resizeHandler);
+            this._resizeHandler = null;
+        }
         this.overlay.remove();
         this.tooltip.remove();
         localStorage.setItem('discovery_tour_completed', 'true');

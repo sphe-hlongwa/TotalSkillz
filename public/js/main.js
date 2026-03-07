@@ -144,7 +144,7 @@ function initBottomNav() {
     const navItems = [
         { id: 'practice', icon: 'fa-solid fa-dumbbell', label: 'Practice', href: 'practice.html' },
         { id: 'topics', icon: 'fa-solid fa-book-open', label: 'Topics', href: 'topics.html' },
-        { id: 'live', icon: 'fa-solid fa-video', label: 'Live Classes', href: 'interactive.html' },
+        { id: 'exam', icon: 'fa-solid fa-stopwatch', label: 'Exam Mode', href: 'exam.html' },
         { id: 'manage', icon: 'fa-solid fa-gear', label: 'Manage', action: 'toggleSettingsOverlay()' }
     ];
 
@@ -276,7 +276,7 @@ function getInitialProgress() {
         totalCorrect: 0,
         totalAttempted: 0,
         badges: [],
-        dailyDone: false,
+        lastDailyDate: null,
         bio: '',
         missedQuestions: [], // legacy support
         mistakeVault: [],    // [{ id, topic, qText, streak, lastSeen }]
@@ -780,14 +780,34 @@ function exportProgressData() {
 }
 
 function confirmResetProgress() {
-    const conf = confirm("Are you sure you want to reset all your learning progress? This cannot be undone.");
+    const conf = confirm("Are you sure you want to reset all your learning progress and settings? This will also take you back to the setup screen.");
     if (conf) {
         const check = prompt("Type 'RESET' to confirm:");
         if (check === 'RESET') {
             const fresh = getInitialProgress();
+
+            // 1. Reset progress stats
             saveProgress(fresh);
-            showToast('Progress reset successfully.', 'success');
-            setTimeout(() => location.reload(), 1500);
+
+            // 2. Reset onboarding status
+            localStorage.removeItem('totalskillz_onboarded');
+
+            const user = firebase.auth().currentUser;
+            if (user) {
+                firebase.firestore().collection('users').doc(user.uid).update({
+                    onboarded: false
+                }).then(() => {
+                    showToast('All data reset successfully.', 'success');
+                    setTimeout(() => window.location.href = 'index.html', 1500);
+                }).catch(err => {
+                    console.error("Firestore reset error:", err);
+                    // Still redirect if local reset worked
+                    window.location.href = 'index.html';
+                });
+            } else {
+                showToast('Progress reset locally.', 'info');
+                setTimeout(() => window.location.href = 'index.html', 1500);
+            }
         }
     }
 }
@@ -809,6 +829,8 @@ async function confirmDeleteAccount() {
         }
     }
 }
+
+// --- Formulas Modal Logic removed, now using dedicated formula.html ---
 
 // --- Profile Modal Logic ---
 function injectProfileModal() {
@@ -874,60 +896,74 @@ function injectProfileModal() {
 }
 
 async function handleProfilePic(input) {
-    if (input.files && input.files[0]) {
-        const file = input.files[0];
-        // Compress image on the client side so Base64 is tiny enough for Firebase Auth
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const img = new Image();
-            img.onload = async () => {
-                const canvas = document.createElement('canvas');
-                const MAX_WIDTH = 150;
-                const MAX_HEIGHT = 150;
-                let width = img.width;
-                let height = img.height;
+    if (!input.files || !input.files[0]) return;
 
-                if (width > height) {
-                    if (width > MAX_WIDTH) {
-                        height *= MAX_WIDTH / width;
-                        width = MAX_WIDTH;
-                    }
-                } else {
-                    if (height > MAX_HEIGHT) {
-                        width *= MAX_HEIGHT / height;
-                        height = MAX_HEIGHT;
-                    }
+    const file = input.files[0];
+    const user = firebase.auth().currentUser;
+    if (!user) return;
+
+    // Show uploading state immediately
+    document.querySelectorAll('.user-avatar').forEach(av => {
+        av.style.opacity = '0.6';
+    });
+    showToast('Uploading photo...', 'info');
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        const img = new Image();
+        img.onload = async () => {
+            // Compress & crop to square at 300x300 for quality
+            const SIZE = 300;
+            const canvas = document.createElement('canvas');
+            canvas.width = SIZE;
+            canvas.height = SIZE;
+            const ctx = canvas.getContext('2d');
+
+            // Crop center square
+            const side = Math.min(img.width, img.height);
+            const sx = (img.width - side) / 2;
+            const sy = (img.height - side) / 2;
+            ctx.drawImage(img, sx, sy, side, side, 0, 0, SIZE, SIZE);
+
+            // Convert to Blob (JPEG, 85% quality)
+            canvas.toBlob(async (blob) => {
+                try {
+                    // Upload to Firebase Storage: avatars/{uid}/profile.jpg
+                    const storageRef = firebase.storage().ref(`avatars/${user.uid}/profile.jpg`);
+                    const uploadTask = await storageRef.put(blob, { contentType: 'image/jpeg' });
+                    const downloadURL = await uploadTask.ref.getDownloadURL();
+
+                    // Update Firebase Auth profile with real URL (not base64)
+                    await user.updateProfile({ photoURL: downloadURL });
+
+                    // Also persist URL to Firestore user doc so other devices pick it up
+                    await firebase.firestore().collection('users').doc(user.uid).set(
+                        { photoURL: downloadURL },
+                        { merge: true }
+                    );
+
+                    // Refresh all avatars on page immediately
+                    document.querySelectorAll('.user-avatar').forEach(av => {
+                        av.innerHTML = `<img src="${downloadURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+                        av.style.background = 'transparent';
+                        av.style.opacity = '1';
+                    });
+
+                    // Refresh profile modal
+                    populateProfileModal();
+                    showToast('Profile picture updated!', 'success');
+                } catch (err) {
+                    console.error('Profile picture upload failed:', err);
+                    document.querySelectorAll('.user-avatar').forEach(av => av.style.opacity = '1');
+                    showToast('Upload failed: ' + err.message, 'error');
                 }
-                canvas.width = width;
-                canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, width, height);
-                const compressedBase64 = canvas.toDataURL('image/jpeg', 0.8);
-
-                const user = firebase.auth().currentUser;
-                if (user) {
-                    try {
-                        await user.updateProfile({ photoURL: compressedBase64 });
-                        showToast('Profile picture updated!', 'success');
-                        populateProfileModal();
-                        document.querySelectorAll('.user-avatar').forEach(av => {
-                            av.innerHTML = `<img src="${compressedBase64}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
-                            av.style.background = 'transparent';
-                        });
-
-                        const p = getProgress();
-                        saveProgress(p);
-                    } catch (error) {
-                        console.error("Profile update error:", error);
-                        showToast('Failed to update profile picture.', 'error');
-                    }
-                }
-            };
-            img.src = e.target.result;
+            }, 'image/jpeg', 0.85);
         };
-        reader.readAsDataURL(file);
-    }
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
 }
+
 
 function toggleProfileModal() {
     let overlay = document.getElementById('profileModalOverlay');
@@ -1023,7 +1059,7 @@ function populateProfileModal() {
             avatarEl.style.background = 'transparent';
         } else {
             avatarEl.textContent = initials;
-            avatarEl.style.background = 'linear-gradient(135deg, var(--primary), var(--accent-purple))';
+            avatarEl.style.background = 'var(--primary)';
         }
     }
 
@@ -1125,6 +1161,8 @@ async function saveProgress(data) {
 
         try {
             await firebase.firestore().collection('users').doc(user.uid).set({
+                displayName: user.displayName,
+                email: user.email,
                 progress: data,
                 lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
             }, { merge: true });
@@ -1175,7 +1213,7 @@ function updateStreak() {
         p.streak = 1;
     }
     p.lastPractice = today;
-    p.dailyDone = false;
+    // p.dailyDone removed - we use lastDailyDate now
     saveProgress(p);
     return p;
 }
@@ -1361,7 +1399,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     av.style.background = 'transparent';
                 } else {
                     av.textContent = initials;
-                    av.style.background = 'linear-gradient(135deg, var(--primary), var(--accent-purple))';
+                    av.style.background = 'var(--primary)';
                 }
                 av.style.display = 'flex';
                 av.style.alignItems = 'center';
@@ -1451,7 +1489,135 @@ async function reportMistake(module, contextInfo) {
     }
 }
 
-// ---- Leaderboard Logic (The "Chase" Algorithm) ----
+// ---- Broadcast System ----
+async function loadBroadcasts() {
+    const container = document.getElementById('broadcastContainer');
+    if (!container) return;
+
+    try {
+        // Query active broadcasts
+        // Note: Firestore requires an index for compound queries. 
+        // If index is missing, we'll fetch all active and filter by date client-side.
+        const snap = await firebase.firestore().collection('broadcasts')
+            .where('active', '==', true)
+            .get();
+
+        if (snap.empty) {
+            container.style.display = 'none';
+            return;
+        }
+
+        const dismissed = JSON.parse(localStorage.getItem('dismissed_broadcasts') || '[]');
+
+        const now = new Date();
+        const validBroadcasts = snap.docs
+            .map(doc => ({ id: doc.id, ...doc.data() }))
+            .filter(b => (!b.expiresAt || b.expiresAt.toDate() > now) && !dismissed.includes(b.id))
+            .sort((a, b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0));
+
+        if (validBroadcasts.length === 0) {
+            container.style.display = 'none';
+            return;
+        }
+
+        // Render Broadcasts
+        container.style.display = 'flex';
+        container.innerHTML = validBroadcasts.map(b => {
+            // Determine styles based on type
+            let bg, border, icon, color;
+            switch (b.type) {
+                case 'success':
+                    bg = 'rgba(34, 197, 94, 0.1)'; border = '#22c55e'; icon = 'fa-circle-check'; color = '#22c55e';
+                    break;
+                case 'warning':
+                    bg = 'rgba(245, 158, 11, 0.1)'; border = '#f59e0b'; icon = 'fa-triangle-exclamation'; color = '#f59e0b';
+                    break;
+                case 'alert':
+                    bg = 'rgba(239, 68, 68, 0.1)'; border = '#ef4444'; icon = 'fa-circle-exclamation'; color = '#ef4444';
+                    break;
+                case 'info':
+                default:
+                    bg = 'rgba(56, 189, 248, 0.1)'; border = '#38bdf8'; icon = 'fa-circle-info'; color = '#38bdf8';
+                    break;
+            }
+
+            return `
+            <div class="broadcast-card" id="broadcast-${b.id}" style="
+                background: ${bg}; 
+                border-left: 4px solid ${border}; 
+                padding: 1rem; 
+                border-radius: 8px; 
+                display: flex; 
+                gap: 1rem; 
+                align-items: flex-start; 
+                position: relative;
+                animation: slideDown 0.3s ease-out;
+            ">
+                <i class="fa-solid ${icon}" style="color: ${color}; font-size: 1.2rem; margin-top: 0.1rem;"></i>
+                <div style="flex: 1;">
+                    <h4 style="margin: 0 0 0.3rem 0; color: var(--text); font-size: 0.95rem;">${b.title}</h4>
+                    <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4;">${b.message}</p>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem; justify-content: center;">
+                    <button onclick="dismissBroadcast('${b.id}')" style="
+                        background: none; 
+                        border: none; 
+                        color: var(--text-muted); 
+                        cursor: pointer; 
+                        padding: 0.2rem;
+                        opacity: 0.6;
+                        transition: opacity 0.2s;
+                    " onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6" title="Dismiss">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <button onclick="openBroadcastReply('${b.id}', '${b.title.replace(/'/g, "\\'")}')" style="
+                        background: none; 
+                        border: none; 
+                        color: var(--primary); 
+                        cursor: pointer; 
+                        padding: 0.2rem;
+                        opacity: 0.8;
+                        transition: opacity 0.2s;
+                    " onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.8" title="Respond">
+                        <i class="fa-solid fa-reply"></i>
+                    </button>
+                </div>
+            </div>`;
+        }).join('');
+
+    } catch (e) {
+        console.error('Error loading broadcasts:', e);
+        // Fail silently - don't disrupt user experience
+    }
+}
+
+function dismissBroadcast(id) {
+    const el = document.getElementById('broadcast-' + id);
+    if (el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-10px)';
+        setTimeout(() => el.remove(), 300);
+
+        // Check if container is empty and hide it
+        const container = document.getElementById('broadcastContainer');
+        if (container && container.children.length <= 1) {
+            setTimeout(() => container.style.display = 'none', 300);
+        }
+    }
+    // Ideally save dismissed ID to localStorage to prevent reappearing
+    const dismissed = JSON.parse(localStorage.getItem('dismissed_broadcasts') || '[]');
+    if (!dismissed.includes(id)) {
+        dismissed.push(id);
+        localStorage.setItem('dismissed_broadcasts', JSON.stringify(dismissed));
+    }
+}
+
+window.showFullLeaderboard = false;
+window.toggleLeaderboardView = function () {
+    window.showFullLeaderboard = !window.showFullLeaderboard;
+    fetchLeaderboard();
+};
+
 async function fetchLeaderboard() {
     const listElement = document.getElementById('leaderboardList');
     if (!listElement) return;
@@ -1522,10 +1688,12 @@ async function fetchLeaderboard() {
             displayUsers = allUsers.slice(startIndex, startIndex + 5);
         }
 
+        const visibleUsers = window.showFullLeaderboard ? displayUsers : displayUsers.slice(0, 2);
+
         let html = '';
         let displayDelay = 1;
 
-        displayUsers.forEach(user => {
+        visibleUsers.forEach(user => {
             const name = user.displayName || 'Anonymous Learner';
             // Generate initials
             const initials = name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
@@ -1533,14 +1701,23 @@ async function fetchLeaderboard() {
             // Highlight the current user
             const isMe = user.id === currentUser.uid;
             const bgStyle = isMe ? 'background: var(--bg-hover); border: 1px solid var(--primary-light);' : '';
-            const indicator = isMe ? '<span style="font-size: 0.7rem; color: var(--primary); font-weight: bold; margin-left: 0.5rem;">(You)</span>' : '';
+            const indicator = isMe ? '<span style="font-size: 0.7rem; color: var(--primary); font-weight: bold; margin-left: 0.4rem;">(You)</span>' : '';
+
+            // Professional Rank Display with Icons
+            let rankDisplay = user.rank;
+            if (user.rank === 1) rankDisplay = '<i class="fa-solid fa-medal" style="color: #f59e0b; font-size: 1.2rem;"></i>';
+            else if (user.rank === 2) rankDisplay = '<i class="fa-solid fa-medal" style="color: #94a3b8; font-size: 1.2rem;"></i>';
+            else if (user.rank === 3) rankDisplay = '<i class="fa-solid fa-medal" style="color: #d97706; font-size: 1.2rem;"></i>';
+            else rankDisplay = `<span style="font-family: inherit; opacity: 0.7;">#${user.rank}</span>`;
 
             html += `
                 <div class="leaderboard-item" style="animation-delay: ${displayDelay * 0.1}s; ${bgStyle}">
-                    <div class="leaderboard-item__rank" style="${isMe ? 'color: var(--primary);' : ''}">${user.rank}</div>
+                    <div class="leaderboard-item__rank">${rankDisplay}</div>
                     <div class="leaderboard-item__user">
                         <div class="leaderboard-item__avatar" style="${isMe ? 'background: var(--primary); color: white;' : ''}">${initials}</div>
-                        <div class="leaderboard-item__name" style="${isMe ? 'font-weight: 700; color: var(--text);' : ''}">${name}${indicator}</div>
+                        <div class="leaderboard-item__details">
+                            <div class="leaderboard-item__name" style="${isMe ? 'color: var(--primary);' : ''}">${name}${indicator}</div>
+                        </div>
                     </div>
                     <div class="leaderboard-item__stats">
                         <div class="leaderboard-item__score" style="${isMe ? 'color: var(--primary);' : ''}">${user.streak || 0}</div>
@@ -1550,6 +1727,14 @@ async function fetchLeaderboard() {
             `;
             displayDelay++;
         });
+
+        if (displayUsers.length > 2) {
+            html += `
+                <button class="btn btn-secondary btn-sm" style="width:100%; margin-top:0.5rem;" onclick="toggleLeaderboardView()">
+                    ${window.showFullLeaderboard ? 'View Less' : 'View All'}
+                </button>
+            `;
+        }
 
         listElement.innerHTML = html;
 
@@ -1598,16 +1783,25 @@ document.addEventListener('DOMContentLoaded', () => {
 const TOPIC_VIDEO_MAP = {
     'algebra': 'JaLIBFOT8XM',  // Grade 12 Algebra
     'patterns': 'KNwRMs5mflE',  // Arithmetic & Geometric sequences
+    'sequence': 'KNwRMs5mflE',
     'functions': 'Uc3Q92xfL5A',  // Grade 12 Functions
+    'inverse': 'Uc3Q92xfL5A',
     'finance': 'xzpz7MXCMR0',  // Financial Maths
+    'annuities': 'xzpz7MXCMR0',
     'trigonometry': 'jZe6IjFyqBU',  // Grade 12 Trig
+    'compound angle': 'jZe6IjFyqBU',
     'analytical_geometry': 'fYyARMqwMG4',  // Analytical Geometry
     'analytical': 'fYyARMqwMG4',
+    'circle geometry': 'fYyARMqwMG4',
     'euclidean_geometry': 'GUHxO_KZRQM',  // Euclidean Geometry / Circle Theorems
     'euclidean': 'GUHxO_KZRQM',
+    'theorems': 'GUHxO_KZRQM',
     'calculus': '_-4T3fEQtbs',  // Calculus Differentiation
+    'derivative': '_-4T3fEQtbs',
     'probability': 'YoUF5tKfzh4',  // Probability
+    'counting': 'YoUF5tKfzh4',
     'statistics': 'MRqtXL2dFP4',  // Statistics regression
+    'regression': 'MRqtXL2dFP4',
     'quadratic': 'JaLIBFOT8XM',
     'revision': '6u_KrFkD8tk',  // General grade 12 maths revision
 };
@@ -1625,14 +1819,11 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
                 <div class="video-modal-header">
                     <h3 class="video-modal-title" id="videoModalTitle"><i class="fa-brands fa-youtube" style="color:#ef4444;"></i> <span>Video Lesson</span></h3>
                     <div style="display:flex; gap:0.5rem; align-items:center;">
-                        <a id="videoYouTubeLink" href="#" target="_blank" rel="noopener" class="btn btn-sm btn-secondary" style="font-size:0.75rem;">
-                            <i class="fa-brands fa-youtube"></i> Open on YouTube
-                        </a>
                         <button class="video-modal-close" onclick="closeVideoModal()"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
                 <div class="video-modal-body" id="videoModalBody">
-                    <!-- iframe goes here -->
+                    <!-- Content goes here -->
                 </div>
             </div>
         `;
@@ -1649,82 +1840,156 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
         document.querySelector('#videoModalTitle span').textContent = title;
     }
 
-    // Determine embed URL
+    // Determine YouTube URL
     let embedUrl = '';
-    let youtubeSearchUrl = '';
+    let isSearch = false;
+    let fallbackSearchQuery = '';
 
-    if (queryOrUrl.includes('youtube.com/watch?v=') || queryOrUrl.includes('youtu.be/')) {
-        // Direct video URL — extract ID and embed
-        let videoId = queryOrUrl.includes('v=')
-            ? queryOrUrl.split('v=')[1].split('&')[0]
-            : queryOrUrl.split('youtu.be/')[1].split('?')[0];
-        embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-        youtubeSearchUrl = `https://www.youtube.com/watch?v=${videoId}`;
+    function isValidUrl(string) {
+        try {
+            new URL(string);
+            return true;
+        } catch (_) {
+            return false;
+        }
+    }
 
-    } else {
+    if (isValidUrl(queryOrUrl)) {
+        if (queryOrUrl.includes('youtube.com/watch?v=')) {
+            const urlParams = new URL(queryOrUrl).searchParams;
+            embedUrl = `https://www.youtube.com/embed/${urlParams.get('v')}`;
+        } else if (queryOrUrl.includes('youtu.be/')) {
+            const id = queryOrUrl.split('.be/')[1].split('?')[0];
+            embedUrl = `https://www.youtube.com/embed/${id}`;
+        }
+    }
+
+    if (!embedUrl) {
         // Search query — find curated video ID or fallback
         const lower = queryOrUrl.toLowerCase();
         let videoId = null;
 
         // Try to match against known topic keys
-        for (const [key, id] of Object.entries(TOPIC_VIDEO_MAP)) {
-            if (lower.includes(key)) {
-                videoId = id;
+        const topicKeys = Object.keys(TOPIC_VIDEO_MAP).sort((a, b) => b.length - a.length);
+        for (const key of topicKeys) {
+            if (lower.includes(key.replace(/_/g, ' '))) {
+                videoId = TOPIC_VIDEO_MAP[key];
                 break;
             }
         }
 
-        const searchQuery = encodeURIComponent(queryOrUrl);
-        youtubeSearchUrl = `https://www.youtube.com/results?search_query=${searchQuery}`;
-
         if (videoId) {
-            embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+            embedUrl = `https://www.youtube.com/embed/${videoId}`;
         } else {
-            // No matching video ID — open YouTube search in new tab instead
-            if (document.getElementById('videoYouTubeLink')) {
-                document.getElementById('videoYouTubeLink').href = youtubeSearchUrl;
-            }
-            // Show a friendly redirect message in the modal
-            document.getElementById('videoModalBody').innerHTML = `
-                <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:1.25rem; padding:2rem; text-align:center; color:#fff;">
-                    <i class="fa-brands fa-youtube" style="font-size:3.5rem; color:#ef4444;"></i>
-                    <p style="font-size:1rem; opacity:0.9;">Opening YouTube search for<br><strong>"${queryOrUrl}"</strong></p>
-                    <a href="${youtubeSearchUrl}" target="_blank" rel="noopener" class="btn btn-primary" onclick="closeVideoModal()">
-                        <i class="fa-brands fa-youtube"></i> Search on YouTube
-                    </a>
-                </div>
-            `;
-            setTimeout(() => overlay.classList.add('open'), 10);
-            return;
+            isSearch = true;
+            fallbackSearchQuery = `${queryOrUrl} Kevinmathscience OR Mlungisi Nkosi OR The Organic Chemistry Tutor`;
         }
     }
 
-    // Update the "Open on YouTube" link
-    if (document.getElementById('videoYouTubeLink')) {
-        document.getElementById('videoYouTubeLink').href = youtubeSearchUrl;
-    }
-
-    // Inject iframe
-    document.getElementById('videoModalBody').innerHTML = `
-        <iframe src="${embedUrl}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen loading="lazy">
-        </iframe>
+    if (isSearch) {
+        // For search results, provide a link instead of an iframe since listType=search is deprecated
+        const targetUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(fallbackSearchQuery)}`;
+        document.getElementById('videoModalBody').innerHTML = `
+        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:1.25rem; padding:2rem; text-align:center; color:var(--text);">
+            <i class="fa-brands fa-youtube" style="font-size:4rem; color:#ef4444; margin-bottom: 0.5rem;"></i>
+            <h4 style="font-size:1.25rem; margin:0; font-weight:700;">Ready to watch?</h4>
+            <p style="font-size:0.95rem; color:var(--text-secondary); margin:0; max-width: 80%;">
+                To provide you with the best playback experience, we'll open this lesson directly on YouTube.
+            </p>
+            <a href="${targetUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem;" onclick="closeVideoModal()">
+                <i class="fa-solid fa-play"></i> Watch on YouTube
+            </a>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
+                <i class="fa-solid fa-circle-info"></i> Includes content from top educators like Kevinmathscience & Mlungisi Nkosi.
+            </p>
+        </div>
     `;
+    } else {
+        // Directly embed the video
+        document.getElementById('videoModalBody').innerHTML = `
+            <div style="position:relative; width: 100%; height: 100%; min-height: 400px; overflow:hidden; border-radius:12px;">
+                <iframe src="${embedUrl}?rel=0" 
+                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        `;
+    }
 
     // Open with small delay
     setTimeout(() => overlay.classList.add('open'), 10);
+
+    // Fetch additional info from our FastAPI backend
+    if (!isSearch) {
+        let videoUrl = '';
+        if (queryOrUrl.includes('youtube.com/watch?v=')) {
+            videoUrl = queryOrUrl;
+        } else if (queryOrUrl.includes('youtu.be/')) {
+            videoUrl = queryOrUrl;
+        } else if (videoId) {
+            videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        }
+
+        if (videoUrl) {
+            fetchVideoInfo(videoUrl);
+        }
+    }
+}
+
+async function fetchVideoInfo(url) {
+    try {
+        const response = await fetch('http://localhost:8000/api/video/info', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            updateVideoModalWithInfo(data);
+        }
+    } catch (e) {
+        console.warn('FastAPI backend not reachable for video info:', e);
+    }
+}
+
+function updateVideoModalWithInfo(info) {
+    const modalBody = document.getElementById('videoModalBody');
+    if (!modalBody) return;
+
+    // Add info sub-panel if not already there
+    let infoPanel = document.getElementById('videoInfoPanel');
+    if (!infoPanel) {
+        infoPanel = document.createElement('div');
+        infoPanel.id = 'videoInfoPanel';
+        infoPanel.className = 'video-info-panel';
+        infoPanel.style = "margin-top: 1rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; color: var(--text-secondary);";
+        modalBody.appendChild(infoPanel);
+    }
+
+    const durationMin = Math.floor(info.duration / 60);
+    const durationSec = info.duration % 60;
+
+    infoPanel.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.5rem;">
+            <strong style="color:var(--text);">${info.title}</strong>
+            <span style="background:var(--primary-pale); color:var(--primary); padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">${durationMin}:${durationSec.toString().padStart(2, '0')}</span>
+        </div>
+        <div style="font-size: 0.8rem; margin-bottom: 0.5rem;">
+            <span style="margin-right: 1rem;"><i class="fa-solid fa-user"></i> ${info.uploader}</span>
+            <span><i class="fa-solid fa-eye"></i> ${info.view_count.toLocaleString()} views</span>
+        </div>
+        <div style="font-size: 0.85rem; line-height: 1.4; opacity: 0.8;">
+            ${info.description}
+        </div>
+    `;
 }
 
 function closeVideoModal() {
     const overlay = document.getElementById('globalVideoModal');
     if (overlay) {
         overlay.classList.remove('open');
-        // Clear iframe to stop playback
-        setTimeout(() => {
-            const body = document.getElementById('videoModalBody');
-            if (body) body.innerHTML = '';
-        }, 300);
     }
 }
 

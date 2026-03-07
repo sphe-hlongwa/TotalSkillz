@@ -41,7 +41,8 @@ app.use(helmet({
                 "https://*.firebaseio.com",
                 "https://*.firebaseapp.com",
                 "https://totalskillz.web.app",
-                "https://totalskillz-3bc18.web.app"
+                "https://totalskillz-3bc18.web.app",
+                "http://localhost:8000"
             ],
             "frame-src": [
                 "'self'",

@@ -136,12 +136,34 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .tour-tooltip {
-        width: 280px;
+        width: 90%;
+        max-width: 320px;
         left: 50% !important;
-        transform: translate(-50%, 20px);
+        transform: translate(-50%, 20px) !important;
+        padding: 1.25rem;
     }
 
     .tour-tooltip.visible {
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 0) !important;
+    }
+
+    .tour-tooltip__header {
+        margin-bottom: 0.5rem;
+    }
+
+    .tour-tooltip__icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    .tour-tooltip__title {
+        font-size: 1rem;
+    }
+
+    .tour-tooltip__body {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
     }
 }

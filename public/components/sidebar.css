@@ -254,8 +254,4 @@ body:has(.skillz-sidebar.collapsed) .content-main {
     }
 }
 
-/* Bottom nav safe-area + z-index */
-.bottom-nav {
-    z-index: 900;
-    padding-bottom: env(safe-area-inset-bottom, 0);
-}
+/* Bottom nav z-index consolidated in style.css */

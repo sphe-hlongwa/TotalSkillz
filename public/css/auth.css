@@ -362,7 +362,7 @@
     height: 48px;
     min-width: 48px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+    background: linear-gradient(135deg, var(--primary), var(--primary));
     display: flex;
     align-items: center;
     justify-content: center;

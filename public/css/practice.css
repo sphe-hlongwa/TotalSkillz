@@ -370,12 +370,12 @@
    ============================================ */
 .premium-card {
     position: relative;
-    background: linear-gradient(135deg, var(--primary), #6366f1);
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
     border-radius: var(--radius-lg);
     padding: 1.5rem;
     color: white;
     overflow: hidden;
-    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);
+    box-shadow: var(--shadow-lg);
     border: none;
     transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
@@ -473,24 +473,24 @@
    Dark Mode Purple Theme Overrides
    ============================================ */
 [data-theme="dark"] .practice-container .section-title {
-    color: var(--accent-purple);
+    color: var(--primary);
 }
 
 [data-theme="dark"] .pill {
-    color: var(--accent-purple);
-    border-color: rgba(139, 92, 246, 0.3);
+    color: var(--primary);
+    border-color: rgba(79, 70, 229, 0.1);
 }
 
 [data-theme="dark"] .pill.active {
-    background: var(--accent-purple);
+    background: var(--primary);
     color: white;
-    border-color: var(--accent-purple);
+    border-color: var(--primary);
 }
 
 [data-theme="dark"] .question-text {
-    background: rgba(139, 92, 246, 0.1);
-    color: var(--accent-purple);
-    border-left-color: var(--accent-purple);
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary);
+    border-left-color: var(--primary);
 }
 
 [data-theme="dark"] .answer-btn {
@@ -504,16 +504,16 @@
 }
 
 [data-theme="dark"] .answer-btn:hover {
-    border-color: var(--accent-purple);
-    background: rgba(139, 92, 246, 0.05);
+    border-color: var(--primary);
+    background: rgba(79, 70, 229, 0.1);
 }
 
 [data-theme="dark"] .mini-stat-card__value {
-    color: var(--accent-purple);
+    color: var(--primary);
 }
 
 [data-theme="dark"] .question-topic {
-    color: var(--accent-purple) !important;
+    color: var(--primary) !important;
 }
 
 [data-theme="dark"] .solution-box {
@@ -522,19 +522,19 @@
 }
 
 [data-theme="dark"] .btn-primary {
-    background: var(--accent-purple);
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.25);
+    background: var(--primary);
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
 }
 
 [data-theme="dark"] .btn-primary:hover {
-    background: #7c3aed;
-    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.3);
+    background: #4f46e5;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.1);
 }
 
 [data-theme="dark"] .premium-card {
-    background: linear-gradient(135deg, var(--accent-purple), #7c3aed);
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
 }
 
 [data-theme="dark"] .download-btn {
-    color: var(--accent-purple);
+    color: var(--primary);
 }
