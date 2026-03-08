@@ -58,10 +58,12 @@ function logout() {
     if (window.totalskillz_auth) {
         window.totalskillz_auth.signOut().then(() => {
             localStorage.removeItem('totalskillz_user');
+            localStorage.removeItem('totalskillz_progress'); // Clear legacy progress on sign out
             window.location.href = 'index.html';
         });
     } else {
         localStorage.removeItem('totalskillz_user');
+        localStorage.removeItem('totalskillz_progress');
         window.location.href = 'index.html';
     }
 }
@@ -278,25 +280,56 @@ function getInitialProgress() {
         badges: [],
         lastDailyDate: null,
         bio: '',
+        province: '',
+        school: '',
         missedQuestions: [], // legacy support
         mistakeVault: [],    // [{ id, topic, qText, streak, lastSeen }]
         settings: {
             theme: 'light',
             dailyGoal: 10,
-            publicProfile: true
+            publicProfile: true,
+            weakAreas: [],
+            examDate: null,
+            reminders: false,
+            targetMark: 80,
+            weeklyHours: 5
         }
     };
 }
 
-function getProgress() {
-    const p = localStorage.getItem('totalskillz_progress');
-    if (!p) return getInitialProgress();
-    const data = JSON.parse(p);
-    // Ensure new fields exist
-    if (!data.settings) data.settings = getInitialProgress().settings;
-    if (data.bio === undefined) data.bio = '';
-    if (!data.mistakeVault) data.mistakeVault = [];
-    return data;
+function getProgress(uid) {
+    // If no UID is provided, try to get it from current session
+    if (!uid) {
+        const user = firebase.auth().currentUser;
+        if (user) uid = user.uid;
+    }
+
+    if (uid) {
+        const userKey = `totalskillz_progress_${uid}`;
+        const p = localStorage.getItem(userKey);
+        if (p) {
+            const data = JSON.parse(p);
+            // Ensure new fields exist
+            if (!data.settings) data.settings = getInitialProgress().settings;
+            if (data.bio === undefined) data.bio = '';
+            if (!data.mistakeVault) data.mistakeVault = [];
+            return data;
+        }
+    }
+
+    // Fallback to legacy key (migration path)
+    const legacyProgress = localStorage.getItem('totalskillz_progress');
+    if (legacyProgress) {
+        const data = JSON.parse(legacyProgress);
+        // If we have a UID now, migrate it immediately
+        if (uid) {
+            localStorage.setItem(`totalskillz_progress_${uid}`, legacyProgress);
+            localStorage.removeItem('totalskillz_progress'); // Remove legacy after migration to avoid double-dipping
+        }
+        return data;
+    }
+
+    return getInitialProgress();
 }
 function validateEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -785,23 +818,28 @@ function confirmResetProgress() {
         const check = prompt("Type 'RESET' to confirm:");
         if (check === 'RESET') {
             const fresh = getInitialProgress();
+            const user = firebase.auth().currentUser;
 
-            // 1. Reset progress stats
+            // 1. Reset locally
             saveProgress(fresh);
-
-            // 2. Reset onboarding status
             localStorage.removeItem('totalskillz_onboarded');
 
-            const user = firebase.auth().currentUser;
             if (user) {
-                firebase.firestore().collection('users').doc(user.uid).update({
-                    onboarded: false
-                }).then(() => {
+                const db = firebase.firestore();
+                // 2. Comprehensive Firestore Wipe
+                const resetUser = db.collection('users').doc(user.uid).set({
+                    onboarded: false,
+                    progress: fresh,
+                    lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+                }, { merge: false });
+
+                const resetLeaderboard = db.collection('leaderboard').doc(user.uid).delete();
+
+                Promise.all([resetUser, resetLeaderboard]).then(() => {
                     showToast('All data reset successfully.', 'success');
                     setTimeout(() => window.location.href = 'index.html', 1500);
                 }).catch(err => {
                     console.error("Firestore reset error:", err);
-                    // Still redirect if local reset worked
                     window.location.href = 'index.html';
                 });
             } else {
@@ -928,7 +966,9 @@ async function handleProfilePic(input) {
             // Convert to Blob (JPEG, 85% quality)
             canvas.toBlob(async (blob) => {
                 try {
-                    // Upload to Firebase Storage: avatars/{uid}/profile.jpg
+                    // [DEPRECATED] Upload to Firebase Storage: avatars/{uid}/profile.jpg
+                    // Disabling for now as storage is not yet set up
+                    /*
                     const storageRef = firebase.storage().ref(`avatars/${user.uid}/profile.jpg`);
                     const uploadTask = await storageRef.put(blob, { contentType: 'image/jpeg' });
                     const downloadURL = await uploadTask.ref.getDownloadURL();
@@ -941,6 +981,8 @@ async function handleProfilePic(input) {
                         { photoURL: downloadURL },
                         { merge: true }
                     );
+                    */
+                    showToast('Profile photo storage is currently disabled.', 'info');
 
                     // Refresh all avatars on page immediately
                     document.querySelectorAll('.user-avatar').forEach(av => {
@@ -1149,8 +1191,15 @@ function switchAccount(uid) {
 let progressSyncTimeout = null;
 
 async function saveProgress(data) {
-    // 1. Immediate Local Save (Always)
-    localStorage.setItem('totalskillz_progress', JSON.stringify(data));
+    const user = firebase.auth().currentUser;
+    const uid = user ? user.uid : null;
+
+    // 1. Immediate Local Save
+    if (uid) {
+        localStorage.setItem(`totalskillz_progress_${uid}`, JSON.stringify(data));
+    } else {
+        localStorage.setItem('totalskillz_progress', JSON.stringify(data));
+    }
 
     // 2. Debounced Cloud Save (Every 5 seconds of inactivity)
     if (progressSyncTimeout) clearTimeout(progressSyncTimeout);
@@ -1193,7 +1242,7 @@ async function syncFromFirestore(uid) {
         const doc = await firebase.firestore().collection('users').doc(uid).get();
         if (doc.exists && doc.data().progress) {
             const data = doc.data().progress;
-            localStorage.setItem('totalskillz_progress', JSON.stringify(data));
+            localStorage.setItem(`totalskillz_progress_${uid}`, JSON.stringify(data));
             return data;
         }
     } catch (error) {
@@ -1425,7 +1474,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isIndex && !window.location.search.includes('action=add_account')) {
                 // Check if user has completed onboarding
                 const localOnboarded = localStorage.getItem('totalskillz_onboarded');
-                if (localOnboarded) {
+                if (localOnboarded === 'true') {
                     window.location.href = 'dashboard.html';
                 } else {
                     // Check Firestore for onboarded flag
@@ -1611,6 +1660,96 @@ function dismissBroadcast(id) {
         localStorage.setItem('dismissed_broadcasts', JSON.stringify(dismissed));
     }
 }
+
+// ---- Broadcast Response System ----
+window.openBroadcastReply = function (id, title) {
+    // Create Modal if it doesn't exist
+    let modal = document.getElementById('broadcastReplyModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'broadcastReplyModal';
+        modal.className = 'video-modal-overlay'; // Reusing modal styles
+        modal.style.display = 'flex';
+        modal.innerHTML = `
+            <div class="video-modal-content" style="max-width: 500px; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+                <button class="video-modal-close" onclick="closeBroadcastReply()">×</button>
+                <h3 id="replyModalTitle" style="margin-bottom: 0.5rem; color: var(--text);">Respond to Announcement</h3>
+                <p id="replyModalBroadcastTitle" style="font-size: 0.85rem; color: var(--primary); margin-bottom: 1.5rem; font-weight: 600;"></p>
+                <textarea id="replyMessage" placeholder="Type your message here..." style="
+                    width: 100%; 
+                    min-height: 120px; 
+                    background: var(--bg-elevated); 
+                    border: 1px solid var(--border); 
+                    border-radius: var(--radius-md); 
+                    color: var(--text); 
+                    padding: 0.75rem; 
+                    font-family: inherit;
+                    margin-bottom: 1.5rem;
+                    outline: none;
+                " onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button class="btn btn-secondary" onclick="closeBroadcastReply()">Cancel</button>
+                    <button class="btn btn-primary" id="submitReplyBtn" onclick="submitBroadcastReply()">
+                        <i class="fa-solid fa-paper-plane" style="margin-right:0.5rem;"></i> Send Response
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    // Set details
+    modal.style.display = 'flex';
+    document.getElementById('replyModalBroadcastTitle').textContent = title;
+    document.getElementById('replyMessage').value = '';
+    window.currentReplyBroadcastId = id;
+    window.currentReplyBroadcastTitle = title;
+    document.getElementById('replyMessage').focus();
+};
+
+window.closeBroadcastReply = function () {
+    const modal = document.getElementById('broadcastReplyModal');
+    if (modal) modal.style.display = 'none';
+};
+
+window.submitBroadcastReply = async function () {
+    const msg = document.getElementById('replyMessage').value.trim();
+    if (!msg) {
+        showToast('Please type a message first.', 'error');
+        return;
+    }
+
+    const btn = document.getElementById('submitReplyBtn');
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+
+    try {
+        const user = firebase.auth().currentUser;
+        if (!user) throw new Error('You must be logged in to respond.');
+
+        await firebase.firestore().collection('broadcast_responses').add({
+            broadcastId: window.currentReplyBroadcastId,
+            broadcastTitle: window.currentReplyBroadcastTitle,
+            studentId: user.uid,
+            name: user.displayName || 'Anonymous Learner',
+            email: user.email,
+            message: msg,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+
+        showToast('Your response has been sent to the instructor.', 'success');
+        closeBroadcastReply();
+        // Automatically dismiss the broadcast once replied
+        dismissBroadcast(window.currentReplyBroadcastId);
+    } catch (e) {
+        console.error("Reply Error:", e);
+        showToast("Failed to send: " + e.message, 'error');
+    } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalText;
+    }
+};
 
 window.showFullLeaderboard = false;
 window.toggleLeaderboardView = function () {
@@ -1993,3 +2132,30 @@ function closeVideoModal() {
     }
 }
 
+// ---- Graph Rendering ----
+function renderMathGraph(elementId, graphData) {
+    const target = document.getElementById(elementId);
+    if (!target || !window.functionPlot) return;
+
+    try {
+        const width = target.offsetWidth || 500;
+        const height = width * 0.6; // Responsive aspect ratio
+
+        window.functionPlot({
+            target: `#${elementId}`,
+            width: width,
+            height: height,
+            grid: true,
+            xAxis: { domain: graphData.domain || [-10, 10] },
+            yAxis: { domain: graphData.yDomain || [-10, 10] },
+            data: [{
+                fn: graphData.fn,
+                color: 'var(--primary)',
+                graphType: 'polyline'
+            }]
+        });
+    } catch (e) {
+        console.error("Graph rendering failed:", e);
+        target.innerHTML = `<div style="padding:1rem;color:var(--accent-red);border:1px solid var(--accent-red);border-radius:var(--radius-md);">Failed to render graph: ${e.message}</div>`;
+    }
+}

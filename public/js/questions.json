@@ -1,5 +1,91 @@
 [
   {
+    "topic": "functions",
+    "difficulty": "manageable",
+    "q": "Consider the graph of $f(x) = x^2 - 4$. What are the x-intercepts of this function?",
+    "options": [
+      "$(-2; 0)$ and $(2; 0)$",
+      "$(0; -4)$",
+      "$(2; 0)$ only",
+      "$(-4; 0)$ and $(4; 0)$"
+    ],
+    "answer": 0,
+    "solution": [
+      "Set $f(x) = 0$:",
+      "$x^2 - 4 = 0$",
+      "$(x - 2)(x + 2) = 0$",
+      "$x = 2$ or $x = -2$",
+      "The intercepts are $(-2; 0)$ and $(2; 0)$."
+    ],
+    "graph": {
+      "fn": "x^2 - 4",
+      "domain": [
+        -5,
+        5
+      ],
+      "yDomain": [
+        -5,
+        5
+      ]
+    }
+  },
+  {
+    "topic": "functions",
+    "difficulty": "manageable",
+    "q": "The graph shows $g(x) = \\frac{2}{x-1} + 1$. Identify the vertical asymptote.",
+    "options": [
+      "$x = 1$",
+      "$x = -1$",
+      "$y = 1$",
+      "$y = 0$"
+    ],
+    "answer": 0,
+    "solution": [
+      "The vertical asymptote occurs where the denominator is zero.",
+      "$x - 1 = 0 \\implies x = 1$."
+    ],
+    "graph": {
+      "fn": "2/(x-1) + 1",
+      "domain": [
+        -5,
+        7
+      ],
+      "yDomain": [
+        -5,
+        7
+      ]
+    }
+  },
+  {
+    "topic": "calculus",
+    "difficulty": "hard",
+    "q": "The cubic function $h(x) = x^3 - 3x$ is shown. Find the x-coordinates of the stationary points.",
+    "options": [
+      "$x = -1$ and $x = 1$",
+      "$x = 0$ and $x = 3$",
+      "$x = -3$ and $x = 3$",
+      "$x = -2$ and $x = 2$"
+    ],
+    "answer": 0,
+    "solution": [
+      "Find the derivative: $h'(x) = 3x^2 - 3$",
+      "Set $h'(x) = 0$:",
+      "$3(x^2 - 1) = 0$",
+      "$x^2 = 1 \\implies x = \\pm 1$."
+    ],
+    "graph": {
+      "fn": "x^3 - 3x",
+      "domain": [
+        -3,
+        3
+      ],
+      "yDomain": [
+        -5,
+        5
+      ]
+    }
+  },
+  {
     "topic": "algebra",
     "q": "Solve for \\(x\\): \\(3x^2 - 12x = 0\\)",
     "options": [
@@ -167,7 +253,7 @@
       "Factorise: \\((u + 4)(u - 1) = 0\\)",
       "\\(u = -4\\) (rejected, since \\(u = \\sqrt{x+2} \\ge 0\\)) or \\(u = 1\\)",
       "\\(\\sqrt{x + 2} = 1 \\Rightarrow x + 2 = 1 \\Rightarrow x = -1\\)",
-      "Verify: \\(-1 + 3\\sqrt{-1+2} = -1 + 3(1) = 2\\) \u00e2\u0153\u201c"
+      "Verify: \\(-1 + 3\\sqrt{-1+2} = -1 + 3(1) = 2\\)  [DONE]"
     ],
     "difficulty": "manageable"
   },
@@ -211,7 +297,7 @@
       "\\(= 4AB\\)",
       "\\(= 4(1)(x^m + x^{-n})\\)",
       "\\(= 4(x^m + x^{-n})\\)",
-      "Since the expression equals \\(4(x^m + x^{-n})\\), it is divisible by 4, and therefore also divisible by 2, for all real values of \\(m\\) and \\(n\\). \u00e2\u0153\u201c"
+      "Since the expression equals \\(4(x^m + x^{-n})\\), it is divisible by 4, and therefore also divisible by 2, for all real values of \\(m\\) and \\(n\\).  [DONE]"
     ],
     "difficulty": "manageable"
   },
@@ -229,7 +315,7 @@
       "Recognise the perfect square: \\(x^2 + 2x + 1 = (x + 1)^2\\)",
       "\\((x + 1)^2 = 0\\)",
       "\\(x + 1 = 0\\)",
-      "\\(x = -1\\) (equal roots \u00e2\u20ac\u201d discriminant \\(\\Delta = 0\\))"
+      "\\(x = -1\\) (equal roots - discriminant \\(\\Delta = 0\\))"
     ],
     "difficulty": "manageable"
   },
@@ -290,8 +376,8 @@
       "Factorise: \\((x - 3)(x - 4) = 0\\)",
       "\\(x = 3\\) or \\(x = 4\\)",
       "Verify both (squaring can introduce extraneous roots):",
-      "\\(x=3\\): \\(\\sqrt{21-12} = \\sqrt{9} = 3\\) \u00e2\u0153\u201c",
-      "\\(x=4\\): \\(\\sqrt{28-12} = \\sqrt{16} = 4\\) \u00e2\u0153\u201c",
+      "\\(x=3\\): \\(\\sqrt{21-12} = \\sqrt{9} = 3\\)  [DONE]",
+      "\\(x=4\\): \\(\\sqrt{28-12} = \\sqrt{16} = 4\\)  [DONE]",
       "Both solutions are valid."
     ],
     "difficulty": "manageable"
@@ -334,7 +420,7 @@
       "\\(3y^2 - 6y + 9 = 18\\)",
       "\\(3y^2 - 6y - 9 = 0 \\Rightarrow y^2 - 2y - 3 = 0\\)",
       "\\((y - 3)(y + 1) = 0\\)",
-      "\\(y = 3\\) \u00e2\u2020\u2019 \\(x = 0\\), or \\(y = -1\\) \u00e2\u2020\u2019 \\(x = 4\\)"
+      "\\(y = 3\\) -> \\(x = 0\\), or \\(y = -1\\) -> \\(x = 4\\)"
     ],
     "difficulty": "manageable"
   },
@@ -353,7 +439,7 @@
       "Try small natural numbers for \\(x\\). Let \\(x = 4\\): \\(5^{4/2} = 5^2 = 25\\)",
       "\\(25 - 2^{y/3} = 17 \\Rightarrow 2^{y/3} = 8 = 2^3\\)",
       "\\(\\dfrac{y}{3} = 3 \\Rightarrow y = 9\\)",
-      "Both \\(x = 4\\) and \\(y = 9\\) are natural numbers \u00e2\u0153\u201c",
+      "Both \\(x = 4\\) and \\(y = 9\\) are natural numbers  [DONE]",
       "\\(P = x \\times y = 4 \\times 9 = 36\\)"
     ],
     "difficulty": "manageable"
@@ -454,7 +540,7 @@
       "\\(u = -1\\) or \\(u = -2\\)",
       "Case 1: \\(x^2 - 2x = -1 \\Rightarrow x^2 - 2x + 1 = 0 \\Rightarrow (x-1)^2 = 0 \\Rightarrow x = 1\\)",
       "Case 2: \\(x^2 - 2x = -2 \\Rightarrow x^2 - 2x + 2 = 0\\); \\(\\Delta = 4 - 8 = -4 < 0\\) (no real solutions)",
-      "Verify \\(x=1\\): \\(x^2-2x = 1-2 = -1 \\neq 0\\) \u00e2\u0153\u201c",
+      "Verify \\(x=1\\): \\(x^2-2x = 1-2 = -1 \\neq 0\\)  [DONE]",
       "\\(x = 1\\)"
     ],
     "difficulty": "manageable"
@@ -477,7 +563,7 @@
       "Factorise: \\((x - 4)(x + 1) = 0\\)",
       "\\(x = 4\\) or \\(x = -1\\)",
       "Check against restriction \\(x \\ge 1\\): \\(x = -1\\) is rejected.",
-      "Verify \\(x = 4\\): \\(\\sqrt{9} - 4 = 3 - 4 = -1\\) \u00e2\u0153\u201c",
+      "Verify \\(x = 4\\): \\(\\sqrt{9} - 4 = 3 - 4 = -1\\)  [DONE]",
       "\\(x = 4\\) only."
     ],
     "difficulty": "manageable"
@@ -501,8 +587,8 @@
       "\\(-12y^2 + 75y - 108 = 0\\)",
       "Divide by \\(-3\\): \\(4y^2 - 25y + 36 = 0\\)",
       "Factorise: \\((4y - 9)(y - 4) = 0\\)",
-      "\\(y = \\dfrac{9}{4}\\) \u00e2\u2020\u2019 \\(x = 5 - \\dfrac{9}{2} = \\dfrac{1}{2}\\)",
-      "\\(y = 4\\) \u00e2\u2020\u2019 \\(x = 5 - 8 = -3\\)"
+      "\\(y = \\dfrac{9}{4}\\) -> \\(x = 5 - \\dfrac{9}{2} = \\dfrac{1}{2}\\)",
+      "\\(y = 4\\) -> \\(x = 5 - 8 = -3\\)"
     ],
     "difficulty": "manageable"
   },
@@ -625,7 +711,7 @@
       "Factorise: \\((x - 2)(x - 13) = 0\\)",
       "\\(x = 2\\) or \\(x = 13\\)",
       "Check restriction \\(x \\ge 5\\): \\(x = 2\\) is rejected.",
-      "Verify \\(x = 13\\): \\(13 - \\sqrt{65-1} = 13 - \\sqrt{64} = 13 - 8 = 5\\) \u00e2\u0153\u201c",
+      "Verify \\(x = 13\\): \\(13 - \\sqrt{65-1} = 13 - \\sqrt{64} = 13 - 8 = 5\\)  [DONE]",
       "\\(x = 13\\) only."
     ],
     "difficulty": "manageable"
@@ -648,8 +734,8 @@
       "\\(3y + 9 = 2y^2 + 7\\)",
       "\\(2y^2 - 3y - 2 = 0\\)",
       "Factorise: \\((2y + 1)(y - 2) = 0\\)",
-      "\\(y = -\\dfrac{1}{2}\\) \u00e2\u2020\u2019 \\(x = \\dfrac{5}{2}\\)",
-      "\\(y = 2\\) \u00e2\u2020\u2019 \\(x = 5\\)"
+      "\\(y = -\\dfrac{1}{2}\\) -> \\(x = \\dfrac{5}{2}\\)",
+      "\\(y = 2\\) -> \\(x = 5\\)"
     ],
     "difficulty": "manageable"
   },
@@ -668,7 +754,7 @@
       "\\(\\Delta = p^2 - 4(2)(-p^2) = p^2 + 8p^2 = 9p^2\\)",
       "\\(\\sqrt{\\Delta} = \\sqrt{9p^2} = 3|p|\\), which is rational for any rational \\(p\\).",
       "Since \\(\\Delta \\ge 0\\) and \\(\\sqrt{\\Delta}\\) is rational, the roots \\(x = \\dfrac{-p \\pm 3p}{4}\\) are rational.",
-      "Specifically: \\(x = \\dfrac{-p + 3p}{4} = \\dfrac{p}{2}\\) or \\(x = \\dfrac{-p - 3p}{4} = -p\\). \u00e2\u0153\u201c"
+      "Specifically: \\(x = \\dfrac{-p + 3p}{4} = \\dfrac{p}{2}\\) or \\(x = \\dfrac{-p - 3p}{4} = -p\\).  [DONE]"
     ],
     "difficulty": "manageable"
   },
@@ -684,7 +770,7 @@
     "answer": 1,
     "solution": [
       "Expand and rearrange: \\(x^2 + 3x - 28 = 0\\)",
-      "Factorise \u00e2\u20ac\u201d find two numbers that multiply to \\(-28\\) and add to \\(3\\): these are \\(7\\) and \\(-4\\):",
+      "Factorise - find two numbers that multiply to \\(-28\\) and add to \\(3\\): these are \\(7\\) and \\(-4\\):",
       "\\((x + 7)(x - 4) = 0\\)",
       "\\(x = -7\\) or \\(x = 4\\)"
     ],
@@ -745,8 +831,8 @@
       "\\(u = 0\\) or \\(u = 2\\)",
       "If \\(u = 0\\): \\(\\sqrt{x+4} = 0 \\Rightarrow x = -4\\)",
       "If \\(u = 2\\): \\(\\sqrt{x+4} = 2 \\Rightarrow x + 4 = 4 \\Rightarrow x = 0\\)",
-      "Verify \\(x = -4\\): \\(2\\sqrt{0} - 3 = -3\\) and \\(-4 + 1 = -3\\) \u00e2\u0153\u201c",
-      "Verify \\(x = 0\\): \\(2\\sqrt{4} - 3 = 1\\) and \\(0 + 1 = 1\\) \u00e2\u0153\u201c",
+      "Verify \\(x = -4\\): \\(2\\sqrt{0} - 3 = -3\\) and \\(-4 + 1 = -3\\)  [DONE]",
+      "Verify \\(x = 0\\): \\(2\\sqrt{4} - 3 = 1\\) and \\(0 + 1 = 1\\)  [DONE]",
       "\\(x = 0\\) or \\(x = -4\\)"
     ],
     "difficulty": "manageable"
@@ -1469,8 +1555,8 @@
       "\\(f(x) \\cdot g(x) = (x^2 - 2x - 3)(x - 3) = (x-3)(x+1)(x-3) = (x-3)^2(x+1)\\)",
       "We need \\((x-3)^2(x+1) \\le 0\\)",
       "Since \\((x-3)^2 \\ge 0\\) always, the product is \\(\\le 0\\) when:",
-      "\\(x + 1 \\le 0\\) (i.e. \\(x \\le -1\\)) and \\((x-3)^2 \\ge 0\\) \u00e2\u20ac\u201d product is negative, OR",
-      "\\((x-3)^2 = 0\\) (i.e. \\(x = 3\\)) \u00e2\u20ac\u201d product equals zero.",
+      "\\(x + 1 \\le 0\\) (i.e. \\(x \\le -1\\)) and \\((x-3)^2 \\ge 0\\) - product is negative, OR",
+      "\\((x-3)^2 = 0\\) (i.e. \\(x = 3\\)) - product equals zero.",
       "Answer: \\(x \\le -1\\) or \\(x = 3\\)"
     ],
     "difficulty": "manageable"
@@ -1670,7 +1756,7 @@
       "\\(2P = P(1 + 0{,}085 \\cdot n)\\)",
       "\\(2 = 1 + 0{,}085n \\Rightarrow 0{,}085n = 1\\)",
       "\\(n = \\dfrac{1}{0{,}085} = 11{,}7647...\\) years",
-      "\\(0{,}7647 \\times 12 \\approx 9{,}18\\) months \u00e2\u2020\u2019 9 months",
+      "\\(0{,}7647 \\times 12 \\approx 9{,}18\\) months -> 9 months",
       "Answer: \\(\\approx\\) 11 years and 9 months"
     ],
     "difficulty": "manageable"
@@ -2098,7 +2184,7 @@
     "answer": 1,
     "solution": [
       "Find the tangent point on \\(f\\): \\(f'(x) = 4x - 4 = 4 \\Rightarrow x = 2\\)",
-      "Check: \\(f(2) = 8 - 8 - 6 = -6\\) and \\(y = 4(2) - 14 = -6\\) \u00e2\u0153\u201c. Tangent point is \\((2, -6)\\).",
+      "Check: \\(f(2) = 8 - 8 - 6 = -6\\) and \\(y = 4(2) - 14 = -6\\)  [DONE]. Tangent point is \\((2, -6)\\).",
       "Since it's a common tangent at the same point, \\(g\\) must pass through \\((2, -6)\\) with gradient 4.",
       "Gradient: \\(g'(2) = 2a(2) + b = 4a + b = 4\\) ... (I)",
       "Point: \\(g(2) = 4a + 2b - 18 = -6 \\Rightarrow 4a + 2b = 12 \\Rightarrow 2a + b = 6\\) ... (II)",
@@ -2241,7 +2327,7 @@
       "Gradient at \\(x=1\\) is 12: \\(f'(1) = 3a + 2b = 12\\) ... (II)",
       "From (I): \\(b = 5 - a\\). Substitute into (II): \\(3a + 2(5-a) = 12\\)",
       "\\(3a + 10 - 2a = 12 \\Rightarrow a = 2\\)",
-      "\\(b = 5 - 2 = 3\\) \u00e2\u0153\u201c"
+      "\\(b = 5 - 2 = 3\\)  [DONE]"
     ],
     "difficulty": "hard"
   },
@@ -2259,8 +2345,8 @@
       "Tangent parallel to x-axis means \\(f'(x) = 0\\).",
       "\\(f'(x) = 6x^2 + 6x = 6x(x+1) = 0\\)",
       "\\(x = 0\\) or \\(x = -1\\)",
-      "\\(f(0) = 0\\) \u00e2\u2020\u2019 point \\((0, 0)\\)",
-      "\\(f(-1) = 2(-1)^3 + 3(-1)^2 = -2 + 3 = 1\\) \u00e2\u2020\u2019 point \\((-1, 1)\\)"
+      "\\(f(0) = 0\\) -> point \\((0, 0)\\)",
+      "\\(f(-1) = 2(-1)^3 + 3(-1)^2 = -2 + 3 = 1\\) -> point \\((-1, 1)\\)"
     ],
     "difficulty": "hard"
   },
@@ -2276,7 +2362,7 @@
     "answer": 1,
     "solution": [
       "\\(f''(x) < 0\\) means the second derivative is negative.",
-      "This indicates that \\(f'(x)\\) is decreasing \u00e2\u20ac\u201d the function is concave down.",
+      "This indicates that \\(f'(x)\\) is decreasing - the function is concave down.",
       "In graph terms: the curve bends downward for \\(x > 2\\).",
       "\\(x = 2\\) is a point of inflection where the concavity changes."
     ],
@@ -2297,8 +2383,8 @@
       "\\(f'(x) \\cdot f(x) = -6(x-1)(x-3) \\times (-2x)(x-3)^2 = 12x(x-1)(x-3)^3\\)",
       "We need \\(12x(x-1)(x-3)^3 < 0\\), i.e., \\(x(x-1)(x-3)^3 < 0\\)",
       "Critical values: \\(x = 0, 1, 3\\). Note \\((x-3)^3\\) and \\((x-3)\\) have the same sign.",
-      "Sign table: \\(x < 0\\): \\((-)(-)(-)= -\\) \u00e2\u0153\u201c ; \\(0<x<1\\): \\((+)(-)(-) = +\\) \u00e2\u0153\u2014",
-      "\\(1 < x < 3\\): \\((+)(+)(-) = -\\) \u00e2\u0153\u201c ; \\(x > 3\\): \\((+)(+)(+) = +\\) \u00e2\u0153\u2014",
+      "Sign table: \\(x < 0\\): \\((-)(-)(-)= -\\)  [DONE] ; \\(0<x<1\\): \\((+)(-)(-) = +\\) \u00e2\u0153\u2014",
+      "\\(1 < x < 3\\): \\((+)(+)(-) = -\\)  [DONE] ; \\(x > 3\\): \\((+)(+)(+) = +\\) \u00e2\u0153\u2014",
       "\\(x < 0\\) or \\(1 < x < 3\\)"
     ],
     "difficulty": "hard"
@@ -2316,7 +2402,7 @@
     "solution": [
       "Since \\(f'(x) = 0\\) at \\(x=1\\) and \\(x=3\\): \\(f'(x) = a(x-1)(x-3) = a(x^2-4x+3)\\)",
       "Integrate: \\(f(x) = a\\left(\\dfrac{x^3}{3} - 2x^2 + 3x\\right) + C\\)",
-      "\\(f(0) = 0 \\Rightarrow C = 0\\); \\(f(3) = a(9-18+9) = 0\\) \u00e2\u0153\u201c (free)",
+      "\\(f(0) = 0 \\Rightarrow C = 0\\); \\(f(3) = a(9-18+9) = 0\\)  [DONE] (free)",
       "Substitute \\(W(5,-40)\\): \\(a\\left(\\dfrac{125}{3} - 50 + 15\\right) = -40\\)",
       "\\(a \\times \\dfrac{20}{3} = -40 \\Rightarrow a = -6\\)",
       "\\(f(x) = -6\\left(\\dfrac{x^3}{3} - 2x^2 + 3x\\right) = -2x^3 + 12x^2 - 18x\\)",
@@ -2442,8 +2528,8 @@
       "Those who do not drink tea = only C + only M + (C\u00e2\u02c6\u00a9M only) + none = 35",
       "\\(8 + 10 + (C{\\cap}M \\text{ only}) + 5 = 35 \\Rightarrow C{\\cap}M \\text{ only} = 12\\)",
       "Let C\u00e2\u02c6\u00a9T only = \\(b\\) and M\u00e2\u02c6\u00a9T only = \\(c\\).",
-      "Coffee and tea (at least): \\(b + x = 66\\) \u00e2\u2020\u2019 \\(b = 66 - x\\)",
-      "Milo and tea (at least): \\(c + x = 75\\) \u00e2\u2020\u2019 \\(c = 75 - x\\)",
+      "Coffee and tea (at least): \\(b + x = 66\\) -> \\(b = 66 - x\\)",
+      "Milo and tea (at least): \\(c + x = 75\\) -> \\(c = 75 - x\\)",
       "Total: \\(8 + 10 + 6 + 12 + (66-x) + (75-x) + x + 5 = 120\\)",
       "\\(182 - x = 120\\)",
       "\\(x = 62\\)"
@@ -7573,7 +7659,7 @@
       "Use co-functions or identity: \\(\\sin x = \\sin(90 - 2x)\\).",
       "Case 1: \\(x = 90 - 2x + k \\cdot 360 \\implies 3x = 90 \\implies x = 30^\\circ\\).",
       "Case 2: \\(x = 180 - (90 - 2x) + k \\cdot 360 \\implies x = 180 - 90 + 2x \\implies -x = 90 \\implies x = -90\\) (Not in range).",
-      "Also \\(150^\\circ\\) works: \\(\\sin 150 = 0.5\\), \\(\\cos 300 = 0.5\\). \u00e2\u0153\u201c",
+      "Also \\(150^\\circ\\) works: \\(\\sin 150 = 0.5\\), \\(\\cos 300 = 0.5\\).  [DONE]",
       "Wait, let's substitute options: \\(\\sin 30 = 0.5, \\cos 60 = 0.5\\). \\(\\sin 150 = 0.5, \\cos 300 = 0.5\\).",
       "Answers are \\(30^\\circ\\) and \\(150^\\circ\\)."
     ],

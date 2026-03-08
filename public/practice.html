@@ -10,38 +10,17 @@
         content="Daily maths practice with instant feedback, step-by-step solutions, and weak area tracking.">
     <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="stylesheet" href="css/style.css?v=4">
+    <link rel="stylesheet" href="css/style.css?v=6">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="css/dashboard.css?v=5">
-    <link rel="stylesheet" href="css/practice.css?v=3">
-    <link rel="stylesheet" href="css/settings.css?v=4">
-    <link rel="stylesheet" href="components/sidebar.css?v=3">
+    <link rel="stylesheet" href="css/dashboard.css?v=6">
+    <link rel="stylesheet" href="css/practice.css?v=6">
+    <link rel="stylesheet" href="css/settings.css?v=6">
+    <link rel="stylesheet" href="components/sidebar.css?v=6">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
 </head>
 
 <body>
-    <!-- ============================================================
-         STRUCTURE GUARD — practice.html
-         ============================================================
-         Correct nesting order (do NOT break this):
-           [1] .profile-modal-overlay  (fixed overlay)
-           [2] #settingsOverlay        (injected by main.js)
-           [3] .main-layout
-               [3a] .header            (fixed top bar)
-               [3b] .layout-wrapper
-                   [3c] .skillz-sidebar
-                   [3d] .content-main  ← page content here
-           [4] <footer>                (OUTSIDE .main-layout)
-           [5] <script> tags           (OUTSIDE .main-layout)
-
-         QUICK CHECK — these must appear in order near the bottom:
-             </main>
-             </div> Close layout-wrapper
-             </div> Close main-layout
-             </footer>
-         ============================================================ -->
-
     <!-- [1] Profile Modal Overlay (injected by main.js) -->
     <!-- [2] Settings Overlay (injected by main.js) -->
 
@@ -59,7 +38,7 @@
 
             <div class="header__center">
                 <nav class="header__nav">
-                    <a href="practice.html" class="header__nav-link">
+                    <a href="practice.html" class="header__nav-link active">
                         <i class="fa-solid fa-dumbbell"></i>
                         <span>Practice</span>
                     </a>
@@ -73,7 +52,7 @@
                     </a>
                 </nav>
             </div>
-<div class="header__right">
+            <div class="header__right">
                 <div class="header__avatar user-avatar" id="userAvatar" onclick="toggleProfileModal()"
                     title="View profile">US</div>
             </div>
@@ -140,7 +119,7 @@
                         <span class="nav-section-title">Data Management</span>
                         <a href="#" class="nav-item" data-view="data" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-database"></i>
-                            <span class="nav-label">Export &amp; Sync</span>
+                            <span class="nav-label">Export & Sync</span>
                         </a>
                         <a href="#" class="nav-item danger" data-view="danger" onclick="handleSidebarClick(this)">
                             <i class="fa-solid fa-trash-can"></i>
@@ -196,11 +175,9 @@
                             <button class="pill" data-topic="trigonometry"><i class="fa-solid fa-compass-drafting"></i>
                                 Trigonometry</button>
                             <button class="pill" data-topic="analytical_geometry"><i
-                                    class="fa-solid fa-drafting-compass"></i>
-                                Analytical Geom</button>
+                                    class="fa-solid fa-drafting-compass"></i> Analytical Geom</button>
                             <button class="pill" data-topic="euclidean_geometry"><i class="fa-solid fa-shapes"></i>
-                                Euclidean
-                                Geom</button>
+                                Euclidean Geom</button>
                             <button class="pill" data-topic="calculus"><i class="fa-solid fa-infinity"></i>
                                 Calculus</button>
                             <button class="pill" data-topic="probability"><i class="fa-solid fa-dice"></i>
@@ -213,13 +190,11 @@
                     <div class="practice-layout">
                         <div id="questionArea"></div>
                         <div class="practice-sidebar">
-                            <!-- Indirect Monetization: Premium PDF Study Guide -->
                             <div class="premium-card">
                                 <div class="premium-card__badge">Premium</div>
                                 <div class="premium-card__title">Master Grade 12<br>Math Summary</div>
                                 <p class="premium-card__desc">Complete formula sheets, exam tips, and common traps for
-                                    all
-                                    topics.</p>
+                                    all topics.</p>
                                 <div class="premium-card__price">
                                     <span class="premium-card__amount">R49</span>
                                     <span class="premium-card__label">once-off</span>
@@ -236,8 +211,7 @@
                             </div>
                             <div class="mini-stat-card">
                                 <div class="mini-stat-card__title"><i class="fa-solid fa-chart-simple"></i> Topic
-                                    Breakdown
-                                </div>
+                                    Breakdown</div>
                                 <div class="topic-breakdown" id="topicBreakdown"></div>
                             </div>
                             <div class="mini-stat-card" id="suggestionsCard" style="display:none;">
@@ -252,7 +226,7 @@
         </div> <!-- Close layout-wrapper -->
     </div> <!-- Close main-layout -->
 
-    <!-- Intervention Modal (Psychological Engagement) -->
+    <!-- Intervention Modal -->
     <div class="video-modal-overlay" id="interventionModal"
         style="display: none; align-items: center; justify-content: center;">
         <div class="video-modal-content"
@@ -286,19 +260,19 @@
         <div class="hit-points">+500 Bonus Points</div>
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <!-- App Config -->
     <script src="js/firebase-config.js"></script>
+    <script src="https://unpkg.com/d3@7"></script>
+    <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
     <script src="js/main.js?v=6"></script>
-    <script src="components/sidebar.js?v=4"></script>
+    <script src="components/sidebar.js?v=6"></script>
+
     <script>
         // ---- Question Bank with LaTeX ----
         let questionBank = [];
@@ -306,8 +280,6 @@
             try {
                 const response = await fetch('js/questions.json');
                 questionBank = await response.json();
-
-                // Initialise after loading
                 filterQuestions();
                 renderQuestion();
                 renderTopicBreakdown();
@@ -320,40 +292,34 @@
         let currentTopic = 'all';
         let sessionCorrect = 0, sessionTotal = 0, questionIndex = 0;
         let filteredQuestions = [];
-        let failedQuestions = []; // Track failed questions
-        let consecutiveFails = 0; // Track consecutive fails for intervention
+        let failedQuestions = [];
+        let consecutiveFails = 0;
 
         function filterQuestions() {
             const p = getProgress();
-
-            // Check for Vault Session
             const vaultDrillData = sessionStorage.getItem('totalskillz_vault_drill');
             const urlParams = new URLSearchParams(window.location.search);
+
             if (urlParams.get('mode') === 'vault' && vaultDrillData) {
                 try {
                     filteredQuestions = JSON.parse(vaultDrillData);
                     currentTopic = 'vault';
                     showToast(`Vault Drill: ${filteredQuestions.length} mistakes to master.`, 'info');
-                    // Clear it so it doesn't linger
                     sessionStorage.removeItem('totalskillz_vault_drill');
-                } catch (e) {
-                    console.error("Failed to load vault drill:", e);
-                }
+                } catch (e) { console.error("Failed to load vault drill:", e); }
             } else if (currentTopic === 'review') {
-                // Spaced repetition: pull questions that were previously missed
                 const missed = p.missedQuestions || [];
                 if (missed.length === 0) {
                     filteredQuestions = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 20);
                     showToast('No missed questions yet — practise some topics first!', 'info');
                 } else {
-                    // Match stored question text to questions in bank
                     const missedSet = new Set(missed);
                     filteredQuestions = questionBank.filter(q => missedSet.has(q.q)).sort(() => Math.random() - 0.5);
                     if (filteredQuestions.length === 0) {
                         filteredQuestions = [...questionBank].sort(() => Math.random() - 0.5).slice(0, 20);
                         showToast('Great — all missed questions cleared! Showing random questions.', 'success');
                     } else {
-                        showToast(`Reviewing ${filteredQuestions.length} previously missed question${filteredQuestions.length !== 1 ? 's' : ''}.`, 'info');
+                        showToast(`Reviewing ${filteredQuestions.length} previously missed questions.`, 'info');
                     }
                 }
             } else {
@@ -390,37 +356,44 @@
             const topicColors = { algebra: '#4f46e5', patterns: '#0ea5e9', functions: '#10b981', finance: '#f59e0b', trigonometry: '#8b5cf6', calculus: '#ec4899', analytical_geometry: '#0ea5e9', euclidean_geometry: '#10b981', probability: '#eab308', statistics: '#f59e0b' };
 
             area.innerHTML = `
-        <div class="question-container animate-scale">
-          <div class="question-header">
-            <span class="question-number">Question ${questionIndex + 1} of ${filteredQuestions.length}</span>
-            <span class="question-topic" style="color:${topicColors[q.topic]};"><i class="fa-solid fa-tag"></i> ${topicNames[q.topic]}</span>
-          </div>
-          <div class="question-text">${q.q}</div>
-          <div class="options-grid">
-            ${q.options.map((opt, i) => `<button class="answer-btn" data-idx="${i}"><span class="letter">${letters[i]}</span><span>${opt}</span></button>`).join('')}
-          </div>
-          <div class="solution-box" id="solutionBox">
-            <div class="solution-box__title"><i class="fa-solid fa-lightbulb"></i> Step-by-Step Solution</div>
-            <div class="solution-box__steps">
-              ${q.solution.map(s => '<div class="step">' + s + '</div>').join('')}
-            </div>
-          </div>
-          <div class="question-actions">
-            <button class="btn btn-secondary btn-sm" id="showSolution" style="display:none;" onclick="document.getElementById('solutionBox').classList.add('visible');this.style.display='none';renderMath(document.getElementById('solutionBox'));">
-              <i class="fa-solid fa-eye"></i> Show Solution
-            </button>
-            <button class="btn btn-secondary btn-sm" style="color:var(--text-muted); border-color:transparent; background:transparent;" onclick="reportMistake('practice', 'Question ' + (${questionIndex + 1}) + ' - ' + '${q.topic}')">
-              <i class="fa-solid fa-flag"></i> Report Mistake
-            </button>
-            <button class="btn btn-primary btn-sm" id="nextBtn" style="display:none;" onclick="nextQuestion()">
-              Next Question <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
-        </div>`;
+            <div class="question-container animate-scale">
+                <div class="question-header">
+                    <span class="question-number">Question ${questionIndex + 1} of ${filteredQuestions.length}</span>
+                    <span class="question-topic" style="color:${topicColors[q.topic]};"><i class="fa-solid fa-tag"></i> ${topicNames[q.topic]}</span>
+                </div>
+                <div class="question-text">${q.q}</div>
+                ${q.graph ? `<div id="graph_${questionIndex}" class="graph-render-area" style="margin: 1.5rem 0; background: white; border-radius: var(--radius-md); border: 1px solid var(--border); overflow: hidden;"></div>` : ''}
+                <div class="options-grid">
+                    ${q.options.map((opt, i) => `<button class="answer-btn" data-idx="${i}"><span class="letter">${letters[i]}</span><span>${opt}</span></button>`).join('')}
+                </div>
+                <div class="solution-box" id="solutionBox">
+                    <div class="solution-box__title"><i class="fa-solid fa-lightbulb"></i> Step-by-Step Solution</div>
+                    <div class="solution-box__steps">
+                        ${q.solution.map(s => '<div class="step">' + s + '</div>').join('')}
+                    </div>
+                </div>
+                <div class="question-actions">
+                    <button class="btn btn-secondary btn-sm" id="showSolution" style="display:none;" onclick="document.getElementById('solutionBox').classList.add('visible');this.style.display='none';renderMath(document.getElementById('solutionBox'));">
+                        <i class="fa-solid fa-eye"></i> Show Solution
+                    </button>
+                    <button class="btn btn-secondary btn-sm" style="color:var(--text-muted); border-color:transparent; background:transparent;" onclick="reportMistake('practice', 'Question ' + (${questionIndex + 1}) + ' - ' + '${q.topic}')">
+                        <i class="fa-solid fa-flag"></i> Report Mistake
+                    </button>
+                    <button class="btn btn-primary btn-sm" id="nextBtn" style="display:none;" onclick="nextQuestion()">
+                        Next Question <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>`;
 
             area.querySelectorAll('.answer-btn').forEach(btn => {
                 btn.addEventListener('click', () => checkAnswer(parseInt(btn.dataset.idx), q));
             });
+
+            if (q.graph) {
+                // Small delay to ensure DOM is ready
+                setTimeout(() => renderMathGraph(`graph_${questionIndex}`, q.graph), 50);
+            }
+
             renderMath(area);
             updateSessionDisplay();
         }
@@ -432,14 +405,8 @@
             const isCorrect = selected === q.answer;
             if (isCorrect) {
                 sessionCorrect++;
-                consecutiveFails = 0; // Reset fails on correct answer
-
-                // Variable Reward: 15% chance to trigger Critical Hit
-                if (Math.random() < 0.15) {
-                    triggerCriticalHit();
-                }
-
-                // Remove from missed questions if they got it right this time
+                consecutiveFails = 0;
+                if (Math.random() < 0.15) { triggerCriticalHit(); }
                 const p = getProgress();
                 if (p.missedQuestions && p.missedQuestions.includes(q.q)) {
                     p.missedQuestions = p.missedQuestions.filter(qText => qText !== q.q);
@@ -447,22 +414,15 @@
                 }
             } else {
                 failedQuestions.push(q);
-                consecutiveFails++; // Increment fails
-
-                // Trigger intervention if 2 consecutive fails
+                consecutiveFails++;
                 if (consecutiveFails >= 2) {
-                    setTimeout(() => {
-                        document.getElementById('interventionModal').style.display = 'flex';
-                    }, 500); // Give them half a second to see the wrong answer before the modal
-                    consecutiveFails = 0; // Reset so we don't spam them every single wrong answer thereafter
+                    setTimeout(() => { document.getElementById('interventionModal').style.display = 'flex'; }, 500);
+                    consecutiveFails = 0;
                 }
-
-                // Save to persistent missed questions for spaced repetition
                 const p = getProgress();
                 if (!p.missedQuestions) p.missedQuestions = [];
                 if (!p.missedQuestions.includes(q.q)) {
                     p.missedQuestions.push(q.q);
-                    // Cap at 50 entries
                     if (p.missedQuestions.length > 50) p.missedQuestions.shift();
                     saveProgress(p);
                 }
@@ -480,29 +440,20 @@
         function triggerCriticalHit() {
             const hitContainer = document.getElementById('criticalHitContainer');
             if (!hitContainer) return;
-
-            // Remove animation class to reset it
             hitContainer.classList.remove('active');
-
-            // Force a reflow
             void hitContainer.offsetWidth;
-
-            // Add it back
             hitContainer.classList.add('active');
-
-            // Optional: Play a sound effect if we had one
-            // const audio = new Audio('path/to/sound.mp3');
-            // audio.play();
         }
 
         function renderTopicBreakdown() {
             const progress = getProgress();
             const container = document.getElementById('topicBreakdown');
-            const topicNames = { algebra: 'Algebra', patterns: 'Patterns', functions: 'Functions', finance: 'Finance', trigonometry: 'Trig', calculus: 'Calculus', analytical_geometry: 'Analytical', euclidean_geometry: 'Euclidean', probability: 'Probability', statistics: 'Stats' };
+            const topicNames = { algebra: 'Algebra', patterns: 'Patterns', sequence: 'Patterns', functions: 'Functions', finance: 'Finance', trigonometry: 'Trig', calculus: 'Calculus', analytical_geometry: 'Analytical', euclidean_geometry: 'Euclidean', probability: 'Probability', statistics: 'Stats' };
             container.innerHTML = Object.entries(progress.topics).map(([key, t]) => {
+                const name = topicNames[key] || (key.charAt(0).toUpperCase() + key.slice(1));
                 const pct = t.total > 0 ? Math.round((t.correct / t.total) * 100) : 0;
                 const barClass = pct >= 70 ? 'progress-bar-green' : pct >= 40 ? 'progress-bar-amber' : '';
-                return `<div class="topic-row"><span class="topic-row__label">${topicNames[key]}</span><div class="topic-row__bar"><div class="progress"><div class="progress-bar ${barClass}" style="width:${pct}%;"></div></div></div><span class="topic-row__pct">${pct}%</span></div>`;
+                return `<div class="topic-row"><span class="topic-row__label">${name}</span><div class="topic-row__bar"><div class="progress"><div class="progress-bar ${barClass}" style="width:${pct}%;"></div></div></div><span class="topic-row__pct">${pct}%</span></div>`;
             }).join('');
         }
 
@@ -513,11 +464,11 @@
             if (!weak.length) { card.style.display = 'none'; return; }
             card.style.display = '';
             container.innerHTML = weak.slice(0, 3).map(w => `
-        <div style="padding:0.5rem 0;font-size:0.85rem;border-bottom:1px solid var(--border-light);">
-          <strong>${w.name}</strong> needs work (${w.level}%)
-          <br><a href="practice.html?topic=${w.name}" style="color:var(--primary);font-size:0.82rem;font-weight:600;">Practice now</a>
-          | <a href="#" onclick="openVideoModal(\`grade 12 maths \${w.name.replace(/'/g, \\"\\\\'\\")}\`, \`\${w.name.replace(/'/g, \\"\\\\'\\")}\`); return false;" style="color:var(--accent-red);font-size:0.82rem;font-weight:600;">Watch video</a>
-        </div>`).join('');
+                <div style="padding:0.5rem 0;font-size:0.85rem;border-bottom:1px solid var(--border-light);">
+                    <strong>${w.name}</strong> needs work (${w.level}%)
+                    <br><a href="practice.html?topic=${w.name}" style="color:var(--primary);font-size:0.82rem;font-weight:600;">Practice now</a>
+                    | <a href="#" onclick="openVideoModal('grade 12 maths ${w.name}', '${w.name}'); return false;" style="color:var(--accent-red);font-size:0.82rem;font-weight:600;">Watch video</a>
+                </div>`).join('');
         }
 
         function renderSummary() {
@@ -527,13 +478,13 @@
             const msg = pct >= 80 ? 'Excellent work! You are mastering this.' : pct >= 50 ? 'Good effort! Keep practising to improve.' : 'Keep going! Review the topics you missed.';
 
             let summaryHTML = `
-        <div class="score-summary">
-          <div class="score-icon" style="color:${iconColor};"><i class="${icon}"></i></div>
-          <div class="score-title">Session Complete</div>
-          <div class="score-value">${pct}%</div>
-          <div class="score-detail">${sessionCorrect} correct out of ${sessionTotal}. ${msg}</div>
-          <button class="btn btn-primary btn-lg" onclick="resetSession()"><i class="fa-solid fa-rotate"></i> Practice Again</button>
-        </div>`;
+                <div class="score-summary">
+                    <div class="score-icon" style="color:${iconColor};"><i class="${icon}"></i></div>
+                    <div class="score-title">Session Complete</div>
+                    <div class="score-value">${pct}%</div>
+                    <div class="score-detail">${sessionCorrect} correct out of ${sessionTotal}. ${msg}</div>
+                    <button class="btn btn-primary btn-lg" onclick="resetSession()"><i class="fa-solid fa-rotate"></i> Practice Again</button>
+                </div>`;
 
             if (failedQuestions.length > 0) {
                 summaryHTML += `
@@ -541,31 +492,28 @@
                     <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--accent-red);">
                         <i class="fa-solid fa-triangle-exclamation"></i> Review Incorrect Answers
                     </h3>
-                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                `;
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">`;
 
                 failedQuestions.forEach((q, idx) => {
                     summaryHTML += `
-                    <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem;">
-                        <div style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem;">
-                            Question ${idx + 1} <span style="font-size: 0.8rem; padding: 0.2rem 0.5rem; background: var(--bg-elevated); border-radius: var(--radius-sm); margin-left: 0.5rem;">${q.topic}</span>
-                        </div>
-                        <div style="margin-bottom: 1rem; color: var(--text);">${q.q}</div>
-                        <div style="margin-bottom: 1rem; font-size: 0.95rem;">
-                            <span style="color: var(--accent-green);"><i class="fa-solid fa-check"></i> Correct Answer:</span> ${q.options[q.answer]}
-                        </div>
-                        <div class="solution-box visible" style="display: block; margin-top: 0;">
-                            <div class="solution-box__title"><i class="fa-solid fa-lightbulb"></i> Step-by-Step Solution</div>
-                            <div class="solution-box__steps">
-                                ${q.solution.map(s => '<div class="step">' + s + '</div>').join('')}
+                        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem;">
+                            <div style="font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                                Question ${idx + 1} <span style="font-size: 0.8rem; padding: 0.2rem 0.5rem; background: var(--bg-elevated); border-radius: var(--radius-sm); margin-left: 0.5rem;">${q.topic}</span>
                             </div>
-                        </div>
-                    </div>`;
+                            <div style="margin-bottom: 1rem; color: var(--text);">${q.q}</div>
+                            <div style="margin-bottom: 1rem; font-size: 0.95rem;">
+                                <span style="color: var(--accent-green);"><i class="fa-solid fa-check"></i> Correct Answer:</span> ${q.options[q.answer]}
+                            </div>
+                            <div class="solution-box visible" style="display: block; margin-top: 0;">
+                                <div class="solution-box__title"><i class="fa-solid fa-lightbulb"></i> Step-by-Step Solution</div>
+                                <div class="solution-box__steps">
+                                    ${q.solution.map(s => '<div class="step">' + s + '</div>').join('')}
+                                </div>
+                            </div>
+                        </div>`;
                 });
-
                 summaryHTML += `</div></div>`;
             }
-
             document.getElementById('questionArea').innerHTML = summaryHTML;
             renderMath(document.getElementById('questionArea'));
         }

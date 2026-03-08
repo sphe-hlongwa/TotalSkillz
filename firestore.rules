@@ -4,14 +4,23 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // Helper: is the request from the developer/admin?
+    // Added check for email_verified to prevent spoofing via unverified accounts
     function isAdmin() {
-      return request.auth != null && request.auth.token.email == "hlongwasphephelo40@gmail.com";
+      return request.auth != null 
+          && request.auth.token.email == "hlongwasphephelo40@gmail.com"
+          && request.auth.token.email_verified == true;
+    }
+
+    // Helper: validate string length
+    function isValidString(val, maxLen) {
+      return val is string && val.size() <= maxLen;
     }
 
     // Users: owner can read/write their own data; admin can read all and delete any
     match /users/{userId} {
       allow read:   if request.auth != null && (request.auth.uid == userId || isAdmin());
-      allow write:  if request.auth != null && request.auth.uid == userId;
+      allow write:  if request.auth != null && request.auth.uid == userId
+                    && request.resource.data.size() < 5000; // Prevent massive document abuse
       allow delete: if isAdmin();
     }
 
@@ -21,14 +30,15 @@ service cloud.firestore {
       allow write:  if request.auth != null && request.auth.uid == userId
                    && request.resource.data.streak is int
                    && request.resource.data.streak >= 0
-                   && request.resource.data.displayName is string
-                   && request.resource.data.displayName.size() <= 20;
+                   && isValidString(request.resource.data.displayName, 25);
       allow delete: if isAdmin();
     }
 
     // Reports: any authenticated user can submit; admin can read/update/delete
     match /reports/{reportId} {
-      allow create: if request.auth != null;
+      allow create: if request.auth != null 
+                    && isValidString(request.resource.data.comment, 1000)
+                    && isValidString(request.resource.data.module, 50);
       allow read, update, delete: if isAdmin();
     }
 
@@ -40,7 +50,8 @@ service cloud.firestore {
 
     // Broadcast Responses: any authenticated user can submit; admin can read/delete
     match /broadcast_responses/{responseId} {
-      allow create: if request.auth != null;
+      allow create: if request.auth != null
+                    && isValidString(request.resource.data.message, 500);
       allow read, delete: if isAdmin();
     }
 

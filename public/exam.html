@@ -8,11 +8,11 @@
     <link rel="icon" type="image/jpeg" href="/logo.jpg">
     <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-    <link rel="stylesheet" href="css/style.css?v=4">
-    <link rel="stylesheet" href="css/dashboard.css?v=5">
-    <link rel="stylesheet" href="css/practice.css?v=3">
-    <link rel="stylesheet" href="css/settings.css?v=4">
-    <link rel="stylesheet" href="components/sidebar.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=6">
+    <link rel="stylesheet" href="css/dashboard.css?v=6">
+    <link rel="stylesheet" href="css/practice.css?v=6">
+    <link rel="stylesheet" href="css/settings.css?v=6">
+    <link rel="stylesheet" href="components/sidebar.css?v=6">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
     <link rel="manifest" href="manifest.json">
@@ -413,8 +413,10 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="js/firebase-config.js"></script>
-    <script src="js/main.js?v=5"></script>
-    <script src="components/sidebar.js?v=4"></script>
+    <script src="https://unpkg.com/d3@7"></script>
+    <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
+    <script src="js/main.js?v=6"></script>
+    <script src="components/sidebar.js?v=6"></script>
     <script>
         // =========================================================
         //  STATE
@@ -431,9 +433,29 @@
         let currentPaper = 'paper1';
         let currentDuration = 120;     // minutes
         let currentDifficulty = 'manageable';
+        let currentExamSession = 'final'; // 'march', 'june', 'prelim', 'final'
 
         const PAPER1_TOPICS = ['algebra', 'patterns', 'functions', 'finance', 'calculus', 'probability'];
-        const PAPER2_TOPICS = ['trigonometry', 'analytical_geometry', 'euclidean_geometry', 'statistics'];
+        const PAPER2_TOPICS = ['statistics', 'analytical_geometry', 'trigonometry', 'euclidean_geometry'];
+
+        const SESSION_CONFIG = {
+            march: {
+                paper1: ['algebra', 'patterns', 'functions', 'trigonometry'],
+                paper2: ['statistics', 'analytical_geometry'] // Partial P2 for term 1
+            },
+            june: {
+                paper1: ['algebra', 'patterns', 'functions', 'finance', 'calculus', 'probability'],
+                paper2: ['statistics', 'analytical_geometry', 'euclidean_geometry', 'trigonometry']
+            },
+            prelim: {
+                paper1: ['algebra', 'patterns', 'functions', 'calculus', 'finance', 'probability'],
+                paper2: ['statistics', 'analytical_geometry', 'trigonometry', 'euclidean_geometry']
+            },
+            final: {
+                paper1: ['algebra', 'patterns', 'functions', 'calculus', 'finance', 'probability'],
+                paper2: ['statistics', 'analytical_geometry', 'trigonometry', 'euclidean_geometry']
+            }
+        };
 
         // =========================================================
         //  SETUP SCREEN
@@ -442,31 +464,60 @@
             document.getElementById('examContainer').innerHTML = `
                 <div class="exam-setup">
                     <h1 class="section-title"><i class="fa-solid fa-stopwatch" style="color:var(--primary);"></i> Exam Mode</h1>
-                    <p class="section-subtitle">Simulate real NSC exam conditions with a countdown timer. Questions are randomly selected from your chosen paper.</p>
+                    <p class="section-subtitle">Simulate real NSC exam conditions with a countdown timer. Select your milestone and paper below.</p>
 
-                    <h3 style="font-size:0.9rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.5rem;margin-top:1.5rem;">SELECT PAPER</h3>
-                    <div class="setup-grid">
-                        <div class="setup-card selected" id="cardP1" onclick="selectPaper('paper1')">
-                            <div class="setup-card__icon">📐</div>
-                            <div class="setup-card__title">Paper 1</div>
-                            <div class="setup-card__desc">Algebra, Patterns, Functions, Finance, Calculus, Probability</div>
+                    <h3 style="font-size:0.9rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.5rem;margin-top:1.5rem;">EXAM SESSION</h3>
+                    <div class="setup-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+                        <div class="setup-card ${currentExamSession === 'march' ? 'selected' : ''}" id="sessionMarch" onclick="selectSession('march')">
+                            <div class="setup-card__icon"><i class="fa-solid fa-calendar-days"></i></div>
+                            <div class="setup-card__title">March</div>
+                            <div class="setup-card__desc">Term 1 Control</div>
                         </div>
-                        <div class="setup-card" id="cardP2" onclick="selectPaper('paper2')">
-                            <div class="setup-card__icon">📏</div>
-                            <div class="setup-card__title">Paper 2</div>
-                            <div class="setup-card__desc">Trigonometry, Analytical Geom, Euclidean Geom, Statistics</div>
+                        <div class="setup-card ${currentExamSession === 'june' ? 'selected' : ''}" id="sessionJune" onclick="selectSession('june')">
+                            <div class="setup-card__icon"><i class="fa-solid fa-cloud-sun"></i></div>
+                            <div class="setup-card__title">June</div>
+                            <div class="setup-card__desc">Mid-Year Prep</div>
+                        </div>
+                        <div class="setup-card ${currentExamSession === 'prelim' ? 'selected' : ''}" id="sessionPrelim" onclick="selectSession('prelim')">
+                            <div class="setup-card__icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                            <div class="setup-card__title">Prelim</div>
+                            <div class="setup-card__desc">Trial Exams</div>
+                        </div>
+                        <div class="setup-card ${currentExamSession === 'final' ? 'selected' : ''}" id="sessionFinal" onclick="selectSession('final')">
+                            <div class="setup-card__icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div class="setup-card__title">Final</div>
+                            <div class="setup-card__desc">NSC Finals</div>
+                        </div>
+                    </div>
+
+                        </div>
+                    </div>
+
+                    <div id="paperSelectionArea">
+                        <h3 style="font-size:0.9rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.5rem;margin-top:1.5rem;">SELECT PAPER</h3>
+                        <div class="setup-grid">
+                            <div class="setup-card ${currentPaper === 'paper1' ? 'selected' : ''}" id="cardP1" onclick="selectPaper('paper1')">
+                                <div class="setup-card__icon"><i class="fa-solid fa-square-root-variable"></i></div>
+                                <div class="setup-card__title">Paper 1</div>
+                                <div class="setup-card__desc" id="p1Desc">Algebra, Patterns, Functions, Calculus, Finance, Prob</div>
+                            </div>
+                            <div class="setup-card ${currentPaper === 'paper2' ? 'selected' : ''}" id="cardP2" onclick="selectPaper('paper2')">
+                                <div class="setup-card__icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                                <div class="setup-card__title">Paper 2</div>
+                                <div class="setup-card__desc" id="p2Desc">Stats, Analytical Geom, Trigonometry, Euclidean Geom</div>
+                            </div>
                         </div>
                     </div>
 
                     <h3 style="font-size:0.9rem;font-weight:700;color:var(--text-secondary);margin-bottom:0.5rem;">SELECT DIFFICULTY</h3>
                     <div class="setup-grid">
                         <div class="setup-card selected" id="diffManageable" onclick="selectDifficulty('manageable')">
-                            <div class="setup-card__icon">🌱</div>
+                            <div class="setup-card__icon"><i class="fa-solid fa-leaf"></i></div>
                             <div class="setup-card__title">Manageable</div>
                             <div class="setup-card__desc">Straightforward applications and core concepts. Not too easy!</div>
                         </div>
                         <div class="setup-card" id="diffHard" onclick="selectDifficulty('hard')">
-                            <div class="setup-card__icon">🔥</div>
+                            <div class="setup-card__icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
                             <div class="setup-card__title">Hard (High Tension)</div>
                             <div class="setup-card__desc">Complex multi-step problems and deep proofs. Atmosphere will be tense!</div>
                         </div>
@@ -493,6 +544,27 @@
             `;
         }
 
+        function selectSession(s) {
+            currentExamSession = s;
+            document.querySelectorAll('[id^="session"]').forEach(el => el.classList.remove('selected'));
+            const map = { march: 'sessionMarch', june: 'sessionJune', prelim: 'sessionPrelim', final: 'sessionFinal' };
+            document.getElementById(map[s]).classList.add('selected');
+
+            const p1Desc = document.getElementById('p1Desc');
+            const p2Desc = document.getElementById('p2Desc');
+
+            if (s === 'march') {
+                p1Desc.textContent = "Algebra, Patterns, Functions, Trigonometry";
+                p2Desc.textContent = "Statistics, Analytical Geometry";
+            } else if (s === 'june') {
+                p1Desc.textContent = "Algebra, Patterns, Functions, Finance, Calculus, Prob";
+                p2Desc.textContent = "Stats, Analytical Geom, Euclidean Geom, Trigonometry";
+            } else {
+                p1Desc.textContent = "Algebra, Patterns, Functions, Calculus, Finance, Prob";
+                p2Desc.textContent = "Stats, Analytical Geom, Trigonometry, Euclidean Geom";
+            }
+        }
+
         function selectPaper(p) {
             currentPaper = p;
             document.getElementById('cardP1').classList.toggle('selected', p === 'paper1');
@@ -517,16 +589,41 @@
         function startExam() {
             if (!allQuestions.length) { showToast('Questions not loaded yet. Please wait.', 'info'); return; }
 
-            const topics = currentPaper === 'paper1' ? PAPER1_TOPICS : PAPER2_TOPICS;
-            let pool = allQuestions.filter(q => topics.includes(q.topic) && q.difficulty === currentDifficulty);
+            const config = SESSION_CONFIG[currentExamSession] || SESSION_CONFIG['final'];
+            const topics = config[currentPaper];
+            const sessionIndices = { march: 0, june: 1, prelim: 2, final: 3 };
+            const sessionIdx = sessionIndices[currentExamSession] !== undefined ? sessionIndices[currentExamSession] : 3;
 
-            // Fallback if difficulty has 0 questions (shouldn't happen with our script)
-            if (pool.length === 0) {
-                pool = allQuestions.filter(q => topics.includes(q.topic));
-            }
+            let pool = [];
+            const questionsPerTopic = Math.floor(25 / topics.length);
+            const remainder = 25 % topics.length;
 
-            // Shuffle and pick up to 25 questions for a tight exam feel
-            examQuestions = pool.sort(() => Math.random() - 0.5).slice(0, 25);
+            topics.forEach((topic, idx) => {
+                let topicPool = allQuestions.filter(q => q.topic === topic && q.difficulty === currentDifficulty);
+                if (topicPool.length === 0) topicPool = allQuestions.filter(q => q.topic === topic);
+
+                // Partition the pool into 4 unique sets based on session
+                const partSize = Math.floor(topicPool.length / 4);
+                let sessionTopicPool;
+
+                if (partSize > 0) {
+                    const start = sessionIdx * partSize;
+                    const end = (sessionIdx === 3) ? topicPool.length : (sessionIdx + 1) * partSize;
+                    sessionTopicPool = topicPool.slice(start, end);
+                } else {
+                    // Fallback if topic pool is too small to partition effectively
+                    sessionTopicPool = topicPool;
+                }
+
+                // Shuffle the questions within this session's partition
+                sessionTopicPool.sort(() => Math.random() - 0.5);
+
+                // Take specific amount
+                const count = questionsPerTopic + (idx < remainder ? 1 : 0);
+                pool = pool.concat(sessionTopicPool.slice(0, count));
+            });
+
+            examQuestions = pool; // Topics are now concatenated in order
             examAnswers = {};
             examCorrect = {};
             examTopicMap = {};
@@ -561,7 +658,7 @@
             timerBar.innerHTML = `
                 <div style="display:flex; flex-direction:column;">
                     <span class="exam-q-counter" id="examQCounter">Q 1 / ${examQuestions.length}</span>
-                    <span style="font-size:0.65rem; font-weight:800; color:${currentDifficulty === 'hard' ? 'var(--accent-red)' : 'var(--primary)'}">${currentDifficulty.toUpperCase()} MODE</span>
+                    <span style="font-size:0.65rem; font-weight:800; color:var(--primary)">${currentExamSession.toUpperCase()} - ${currentDifficulty.toUpperCase()} MODE</span>
                 </div>
                 <div class="timer-bar__track"><div class="timer-bar__fill" id="timerFill"></div></div>
                 <span class="timer-display" id="timerDisplay">--:--</span>
@@ -593,6 +690,7 @@
                         <span class="question-topic" style="font-size:0.78rem;color:var(--text-muted);">${q.topic.replace(/_/g, ' ')}</span>
                     </div>
                     <div class="question-text">${q.q}</div>
+                    ${q.graph ? `<div id="egraph_${i}" class="graph-render-area" style="margin: 1rem 0; background: white; border-radius: var(--radius-md); border: 1px solid var(--border); overflow: hidden;"></div>` : ''}
                     <div class="options-grid" id="opts${i}">
                         ${q.options.map((opt, oi) => `
                             <button class="answer-btn" id="opt_${i}_${oi}" onclick="selectExamAnswer(${i}, ${oi})">
@@ -605,6 +703,13 @@
             `).join('');
 
             renderMath(list);
+
+            // Render all graphs in the list
+            examQuestions.forEach((q, i) => {
+                if (q.graph) {
+                    setTimeout(() => renderMathGraph(`egraph_${i}`, q.graph), 100);
+                }
+            });
         }
 
         function selectExamAnswer(qIdx, optIdx) {
