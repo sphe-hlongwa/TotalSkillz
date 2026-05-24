@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const questions = [];
+let questions = [];
 
 // Helper to shuffle options and track the correct answer index
 function createQuestion(topic, q, rawOptions, correctOptIndex, solution) {
@@ -494,35 +494,59 @@ function generateGeometry() {
 // --------------------------------------------------------------------------
 
 // Read existing questions so we don't delete them
-const filePath = path.join(__dirname, 'public', 'js', 'questions.json');
-let existingQuestions = [];
+function generateAllQuestions(options = {}) {
+    questions = []; // Reset for each run
+    const topicFilter = options.topic || 'all';
 
-if (fs.existsSync(filePath)) {
-    const data = fs.readFileSync(filePath, 'utf8');
-    try {
-        existingQuestions = JSON.parse(data);
-    } catch (e) {
-        console.error("Error parsing existing json, starting fresh.");
+    const generators = {
+        'algebra': generateAlgebra,
+        'patterns': generatePatterns,
+        'functions': generateFunctions,
+        'calculus': generateCalculus,
+        'finance': generateFinance,
+        'probability': generateProbability,
+        'trigonometry': generateTrig,
+        'geometry': generateGeometry
+    };
+
+    if (topicFilter === 'all') {
+        generateAlgebra();
+        generatePatterns();
+        generateFunctions();
+        generateCalculus();
+        generateFinance();
+        generateProbability();
+        generateTrig();
+        generateGeometry();
+    } else if (generators[topicFilter]) {
+        generators[topicFilter]();
     }
+
+    const filePath = path.join(__dirname, 'public', 'js', 'questions.json');
+    let existingQuestions = [];
+
+    if (fs.existsSync(filePath)) {
+        const data = fs.readFileSync(filePath, 'utf8');
+        try {
+            existingQuestions = JSON.parse(data);
+        } catch (e) {
+            console.error("Error parsing existing json, starting fresh.");
+        }
+    }
+
+    const allQuestions = [...existingQuestions, ...questions];
+    fs.writeFileSync(filePath, JSON.stringify(allQuestions, null, 2), 'utf8');
+
+    return {
+        newCount: questions.length,
+        totalCount: allQuestions.length
+    };
 }
 
-// Generate new questions
-generateAlgebra();   // 15
-generatePatterns();  // 15
-generateFunctions(); // 15
-generateCalculus();  // 15
-generateFinance();   // 15
-generateProbability();// 10
-generateTrig();      // 15
-generateGeometry();  // 15
+module.exports = { generateAllQuestions };
 
-// Merge and save
-const allQuestions = [...existingQuestions, ...questions];
-
-// Optional: shuffle all questions so they aren't clumped by topic if loading entirely, 
-// though the app filters by topic anyway.
-
-fs.writeFileSync(filePath, JSON.stringify(allQuestions, null, 2), 'utf8');
-
-console.log(`Successfully generated and appended ${questions.length} new questions.`);
-console.log(`Total questions in database: ${allQuestions.length}`);
+if (require.main === module) {
+    const result = generateAllQuestions();
+    console.log(`Successfully generated and appended ${result.newCount} new questions.`);
+    console.log(`Total questions in database: ${result.totalCount}`);
+}

@@ -1123,7 +1123,7 @@
       "The 78th term is in an even position. It is the 39th term of the even sequence.",
       "\\(a = 7, d = 5, n = 39\\)",
       "\\(T_{39} = 7 + (39-1)5 = 7 + 38(5) = 7 + 190 = 197\\)",
-      "Wait, let\u00e2\u20ac\u2122s re-check the options/calculation: 7, 12, 17, 22... T1:7, T2:12, T3:17... term k of even sequence is T_{2k}.",
+      "Wait, letâ€™s re-check the options/calculation: 7, 12, 17, 22... T1:7, T2:12, T3:17... term k of even sequence is T_{2k}.",
       "78th term is k=39. \\(T_{39} = 7 + 38(5) = 197\\). (Adjusting options to match math)"
     ],
     "difficulty": "manageable"
@@ -1388,7 +1388,7 @@
   },
   {
     "topic": "functions",
-    "q": "The graph of \\(f^{-1}(x) = \\sqrt{3x}\\), \\(x \\ge 0\\) is drawn. \\(f^{-1}\\) passes through \\(A(3; 3)\\).<br><br><div style=\"width:100%; max-width:400px; margin: 1.5rem auto; padding: 1rem; border-radius:8px; overflow:hidden; background: var(--bg-card); border: 1px solid var(--border); box-shadow: var(--shadow-sm);\"><svg viewBox=\"0 0 400 300\" style=\"width: 100%; height: auto;\"><defs><marker id=\"arrowHead\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L9,3 z\" fill=\"var(--text)\"/></marker></defs><line x1=\"20\" y1=\"280\" x2=\"380\" y2=\"280\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHead)\"/><line x1=\"40\" y1=\"290\" x2=\"40\" y2=\"20\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHead)\"/><text x=\"25\" y=\"295\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">O</text><text x=\"380\" y=\"295\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">x</text><text x=\"25\" y=\"20\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">y</text><path d=\"M40 280 Q45 200, 160 160 T 360 80\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"3\"/><circle cx=\"160\" cy=\"160\" r=\"4\" fill=\"var(--text)\"/><text x=\"165\" y=\"175\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">A(3;3)</text><text x=\"330\" y=\"70\" fill=\"var(--primary)\" font-family=\"sans-serif\" font-weight=\"bold\" font-size=\"16\">f\u00e2\u0081\u00bb\u00c2\u00b9</text></svg></div><br>Determine the equation of \\(f\\) in the form \\(y = \\dots\\)",
+    "q": "The graph of \\(f^{-1}(x) = \\sqrt{3x}\\), \\(x \\ge 0\\) is drawn. \\(f^{-1}\\) passes through \\(A(3; 3)\\).<br><br><div style=\"width:100%; max-width:400px; margin: 1.5rem auto; padding: 1rem; border-radius:8px; overflow:hidden; background: var(--bg-card); border: 1px solid var(--border); box-shadow: var(--shadow-sm);\"><svg viewBox=\"0 0 400 300\" style=\"width: 100%; height: auto;\"><defs><marker id=\"arrowHead\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L9,3 z\" fill=\"var(--text)\"/></marker></defs><line x1=\"20\" y1=\"280\" x2=\"380\" y2=\"280\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHead)\"/><line x1=\"40\" y1=\"290\" x2=\"40\" y2=\"20\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHead)\"/><text x=\"25\" y=\"295\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">O</text><text x=\"380\" y=\"295\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">x</text><text x=\"25\" y=\"20\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">y</text><path d=\"M40 280 Q45 200, 160 160 T 360 80\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"3\"/><circle cx=\"160\" cy=\"160\" r=\"4\" fill=\"var(--text)\"/><text x=\"165\" y=\"175\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\">A(3;3)</text><text x=\"330\" y=\"70\" fill=\"var(--primary)\" font-family=\"sans-serif\" font-weight=\"bold\" font-size=\"16\">fâ»Â¹</text></svg></div><br>Determine the equation of \\(f\\) in the form \\(y = \\dots\\)",
     "options": [
       "\\(y = 3x^2\\) for \\(x \\ge 0\\)",
       "\\(y = \\frac{1}{3}x^2\\) for \\(x \\ge 0\\)",
@@ -1677,7 +1677,7 @@
   },
   {
     "topic": "finance",
-    "q": "Siya invests R500 000 for 5 years at an interest rate of 6,5% p.a. compounded monthly. (Effective rate \u00e2\u2030\u02c6 6,6972% p.a.)<br><br>Calculate how much money Siya will receive at the end of the 5 years.",
+    "q": "Siya invests R500 000 for 5 years at an interest rate of 6,5% p.a. compounded monthly. (Effective rate â‰ˆ 6,6972% p.a.)<br><br>Calculate how much money Siya will receive at the end of the 5 years.",
     "options": [
       "R662 500,00",
       "R691 406,00",
@@ -1783,7 +1783,7 @@
   },
   {
     "topic": "finance",
-    "q": "Thabiso's balance on 1 September 2024 (after 3 months of no payment) is \u00e2\u2030\u02c6 R259 493. He now pays monthly until 1 June 2028.<br><br>Calculate his <strong>monthly instalment</strong>.",
+    "q": "Thabiso's balance on 1 September 2024 (after 3 months of no payment) is â‰ˆ R259 493. He now pays monthly until 1 June 2028.<br><br>Calculate his <strong>monthly instalment</strong>.",
     "options": [
       "\\(\\approx\\) R6 500",
       "\\(\\approx\\) R7 578",
@@ -2383,8 +2383,8 @@
       "\\(f'(x) \\cdot f(x) = -6(x-1)(x-3) \\times (-2x)(x-3)^2 = 12x(x-1)(x-3)^3\\)",
       "We need \\(12x(x-1)(x-3)^3 < 0\\), i.e., \\(x(x-1)(x-3)^3 < 0\\)",
       "Critical values: \\(x = 0, 1, 3\\). Note \\((x-3)^3\\) and \\((x-3)\\) have the same sign.",
-      "Sign table: \\(x < 0\\): \\((-)(-)(-)= -\\)  [DONE] ; \\(0<x<1\\): \\((+)(-)(-) = +\\) \u00e2\u0153\u2014",
-      "\\(1 < x < 3\\): \\((+)(+)(-) = -\\)  [DONE] ; \\(x > 3\\): \\((+)(+)(+) = +\\) \u00e2\u0153\u2014",
+      "Sign table: \\(x < 0\\): \\((-)(-)(-)= -\\)  [DONE] ; \\(0<x<1\\): \\((+)(-)(-) = +\\) âœ—",
+      "\\(1 < x < 3\\): \\((+)(+)(-) = -\\)  [DONE] ; \\(x > 3\\): \\((+)(+)(+) = +\\) âœ—",
       "\\(x < 0\\) or \\(1 < x < 3\\)"
     ],
     "difficulty": "hard"
@@ -2516,7 +2516,7 @@
   },
   {
     "topic": "probability",
-    "q": "A school organised a winter camp for 120 learners. They chose from coffee (C), milo (M) and tea (T).<br>\u00e2\u20ac\u00a2 5 drink none &nbsp;\u00e2\u20ac\u00a2 10 only milo &nbsp;\u00e2\u20ac\u00a2 8 only coffee &nbsp;\u00e2\u20ac\u00a2 6 only tea<br>\u00e2\u20ac\u00a2 35 do not drink tea &nbsp;\u00e2\u20ac\u00a2 66 drink coffee and tea &nbsp;\u00e2\u20ac\u00a2 75 drink milo and tea &nbsp;\u00e2\u20ac\u00a2 \\(x\\) drink all three<br><br>Determine the value of \\(x\\).",
+    "q": "A school organised a winter camp for 120 learners. They chose from coffee (C), milo (M) and tea (T).<br>â€¢ 5 drink none &nbsp;â€¢ 10 only milo &nbsp;â€¢ 8 only coffee &nbsp;â€¢ 6 only tea<br>â€¢ 35 do not drink tea &nbsp;â€¢ 66 drink coffee and tea &nbsp;â€¢ 75 drink milo and tea &nbsp;â€¢ \\(x\\) drink all three<br><br>Determine the value of \\(x\\).",
     "options": [
       "\\(x = 48\\)",
       "\\(x = 55\\)",
@@ -2525,9 +2525,9 @@
     ],
     "answer": 2,
     "solution": [
-      "Those who do not drink tea = only C + only M + (C\u00e2\u02c6\u00a9M only) + none = 35",
+      "Those who do not drink tea = only C + only M + (Câˆ©M only) + none = 35",
       "\\(8 + 10 + (C{\\cap}M \\text{ only}) + 5 = 35 \\Rightarrow C{\\cap}M \\text{ only} = 12\\)",
-      "Let C\u00e2\u02c6\u00a9T only = \\(b\\) and M\u00e2\u02c6\u00a9T only = \\(c\\).",
+      "Let Câˆ©T only = \\(b\\) and Mâˆ©T only = \\(c\\).",
       "Coffee and tea (at least): \\(b + x = 66\\) -> \\(b = 66 - x\\)",
       "Milo and tea (at least): \\(c + x = 75\\) -> \\(c = 75 - x\\)",
       "Total: \\(8 + 10 + 6 + 12 + (66-x) + (75-x) + x + 5 = 120\\)",
@@ -2538,7 +2538,7 @@
   },
   {
     "topic": "probability",
-    "q": "Winter camp scenario (120 learners, C/M/T). From the Venn diagram: \\(x = 62\\), C\u00e2\u02c6\u00a9T only = 4, M\u00e2\u02c6\u00a9T only = 13, C\u00e2\u02c6\u00a9M only = 12.<br><br>Determine the probability that a learner chosen at random drinks <strong>coffee and tea</strong>.",
+    "q": "Winter camp scenario (120 learners, C/M/T). From the Venn diagram: \\(x = 62\\), Câˆ©T only = 4, Mâˆ©T only = 13, Câˆ©M only = 12.<br><br>Determine the probability that a learner chosen at random drinks <strong>coffee and tea</strong>.",
     "options": [
       "\\(\\dfrac{4}{120}\\)",
       "\\(\\dfrac{66}{120} = \\dfrac{11}{20}\\)",
@@ -2547,7 +2547,7 @@
     ],
     "answer": 1,
     "solution": [
-      "Learners who drink coffee AND tea (at least) = C\u00e2\u02c6\u00a9T only + all three = 4 + 62 = 66",
+      "Learners who drink coffee AND tea (at least) = Câˆ©T only + all three = 4 + 62 = 66",
       "\\(P(C \\text{ and } T) = \\dfrac{66}{120} = \\dfrac{11}{20} = 0{,}55\\)"
     ],
     "difficulty": "hard"
@@ -2563,7 +2563,7 @@
     ],
     "answer": 2,
     "solution": [
-      "Learners who drink at least two beverages = (C\u00e2\u02c6\u00a9M only) + (C\u00e2\u02c6\u00a9T only) + (M\u00e2\u02c6\u00a9T only) + all three",
+      "Learners who drink at least two beverages = (Câˆ©M only) + (Câˆ©T only) + (Mâˆ©T only) + all three",
       "\\(= 12 + 4 + 13 + 62 = 91\\)",
       "\\(P(\\text{at least 2}) = \\dfrac{91}{120}\\)"
     ],
@@ -2824,7 +2824,7 @@
   },
   {
     "topic": "trigonometry",
-    "q": "Consider the graphs of \\(f(x) = \\sin 2x\\) and \\(g(x) = \\cos(x - 45^\\circ)\\) for \\(x \\in [-180^\\circ ; 180^\\circ]\\).<br><br><div style=\"width:100%; max-width:500px; margin: 1.5rem auto; padding: 1rem; border-radius:12px; background: var(--bg-card); border: 2px solid var(--border); box-shadow: var(--shadow-md); position: relative; overflow: hidden;\"><svg viewBox=\"0 0 400 300\" style=\"width: 100%; height: auto; display: block;\"><defs><pattern id=\"graph-grid-final\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\"><path d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"var(--border)\" stroke-width=\"0.5\" opacity=\"0.3\"/></pattern><marker id=\"arrowHeadFinal\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L9,3 z\" fill=\"var(--text)\"/></marker></defs><rect width=\"400\" height=\"300\" fill=\"url(#graph-grid-final)\"/><line x1=\"20\" y1=\"150\" x2=\"380\" y2=\"150\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHeadFinal)\"/><line x1=\"200\" y1=\"280\" x2=\"200\" y2=\"20\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHeadFinal)\"/><path d=\"M40 150 Q75 40, 115 150 T 195 150 T 275 150 T 355 150\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"3\" style=\"filter: drop-shadow(0px 0px 3px var(--primary));\"/><path d=\"M40 220 Q120 40, 240 70 T 360 220\" fill=\"none\" stroke=\"var(--accent-amber)\" stroke-width=\"3\" style=\"filter: drop-shadow(0px 0px 3px var(--accent-amber));\"/><circle cx=\"240\" cy=\"70\" r=\"4.5\" fill=\"var(--text)\"/><text x=\"240\" y=\"55\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">C</text><circle cx=\"340\" cy=\"185\" r=\"4\" fill=\"var(--text)\"/><text x=\"340\" y=\"210\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">D</text><circle cx=\"125\" cy=\"185\" r=\"4\" fill=\"var(--text)\"/><text x=\"110\" y=\"210\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">B</text><circle cx=\"155\" cy=\"230\" r=\"4\" fill=\"var(--text)\"/><text x=\"145\" y=\"255\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">A</text><text x=\"330\" y=\"45\" fill=\"var(--accent-amber)\" font-weight=\"bold\" font-family=\"monospace\" font-size=\"16\">g</text><text x=\"330\" y=\"115\" fill=\"var(--primary)\" font-weight=\"bold\" font-family=\"monospace\" font-size=\"16\">f</text><text x=\"185\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">0\u00c2\u00b0</text><text x=\"270\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">90\u00c2\u00b0</text><text x=\"350\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">180\u00c2\u00b0</text><text x=\"100\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">-90\u00c2\u00b0</text><text x=\"15\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">-180\u00c2\u00b0</text></svg></div><br>Determine the general solution of \\(\\cos(x - 45^\\circ) = \\sin 2x\\).",
+    "q": "Consider the graphs of \\(f(x) = \\sin 2x\\) and \\(g(x) = \\cos(x - 45^\\circ)\\) for \\(x \\in [-180^\\circ ; 180^\\circ]\\).<br><br><div style=\"width:100%; max-width:500px; margin: 1.5rem auto; padding: 1rem; border-radius:12px; background: var(--bg-card); border: 2px solid var(--border); box-shadow: var(--shadow-md); position: relative; overflow: hidden;\"><svg viewBox=\"0 0 400 300\" style=\"width: 100%; height: auto; display: block;\"><defs><pattern id=\"graph-grid-final\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\"><path d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"var(--border)\" stroke-width=\"0.5\" opacity=\"0.3\"/></pattern><marker id=\"arrowHeadFinal\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L0,6 L9,3 z\" fill=\"var(--text)\"/></marker></defs><rect width=\"400\" height=\"300\" fill=\"url(#graph-grid-final)\"/><line x1=\"20\" y1=\"150\" x2=\"380\" y2=\"150\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHeadFinal)\"/><line x1=\"200\" y1=\"280\" x2=\"200\" y2=\"20\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHeadFinal)\"/><path d=\"M40 150 Q75 40, 115 150 T 195 150 T 275 150 T 355 150\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"3\" style=\"filter: drop-shadow(0px 0px 3px var(--primary));\"/><path d=\"M40 220 Q120 40, 240 70 T 360 220\" fill=\"none\" stroke=\"var(--accent-amber)\" stroke-width=\"3\" style=\"filter: drop-shadow(0px 0px 3px var(--accent-amber));\"/><circle cx=\"240\" cy=\"70\" r=\"4.5\" fill=\"var(--text)\"/><text x=\"240\" y=\"55\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">C</text><circle cx=\"340\" cy=\"185\" r=\"4\" fill=\"var(--text)\"/><text x=\"340\" y=\"210\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">D</text><circle cx=\"125\" cy=\"185\" r=\"4\" fill=\"var(--text)\"/><text x=\"110\" y=\"210\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">B</text><circle cx=\"155\" cy=\"230\" r=\"4\" fill=\"var(--text)\"/><text x=\"145\" y=\"255\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\">A</text><text x=\"330\" y=\"45\" fill=\"var(--accent-amber)\" font-weight=\"bold\" font-family=\"monospace\" font-size=\"16\">g</text><text x=\"330\" y=\"115\" fill=\"var(--primary)\" font-weight=\"bold\" font-family=\"monospace\" font-size=\"16\">f</text><text x=\"185\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">0Â°</text><text x=\"270\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">90Â°</text><text x=\"350\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">180Â°</text><text x=\"100\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">-90Â°</text><text x=\"15\" y=\"145\" fill=\"var(--text)\" font-size=\"11\">-180Â°</text></svg></div><br>Determine the general solution of \\(\\cos(x - 45^\\circ) = \\sin 2x\\).",
     "options": [
       "\\(x = 45^\\circ + k \\cdot 120^\\circ\\)",
       "\\(x = 135^\\circ + k \\cdot 360^\\circ\\)",
@@ -6069,61 +6069,61 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 \u00d7 angle at circumference\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
     "options": [
-      "Angle at centre = 2 \u00d7 angle at circumference",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
       "Angles in same segment are equal",
       "Exterior angle of cyclic quad = interior opposite angle"
     ],
     "answer": 0,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Angle at centre = 2 \u00d7 angle at circumference\"."
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
     ],
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 \u00d7 angle at circumference\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
     "options": [
       "Angles in same segment are equal",
-      "Angle at centre = 2 \u00d7 angle at circumference",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
       "Exterior angle of cyclic quad = interior opposite angle"
     ],
     "answer": 1,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Angle at centre = 2 \u00d7 angle at circumference\"."
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
     ],
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 \u00d7 angle at circumference\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
     "options": [
-      "Angle at centre = 2 \u00d7 angle at circumference",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
       "Angles in same segment are equal",
       "Tan-chord theorem"
     ],
     "answer": 0,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Angle at centre = 2 \u00d7 angle at circumference\"."
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
     ],
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
+    "topic": "euclidean_geometry",
     "q": "Which Euclidean Geometry theorem states exactly this: \"Angles in same segment are equal\"?",
     "options": [
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Opposite angles of cyclic quad sum to 180°",
       "Tan-chord theorem",
       "Angles in same segment are equal",
-      "Angle at centre = 2 \u00d7 angle at circumference"
+      "Angle at centre = 2 × angle at circumference"
     ],
     "answer": 2,
     "solution": [
@@ -6133,12 +6133,12 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
+    "topic": "euclidean_geometry",
     "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
     "options": [
       "Exterior angle of cyclic quad = interior opposite angle",
-      "Angle at centre = 2 \u00d7 angle at circumference",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
       "Angles in same segment are equal"
     ],
     "answer": 0,
@@ -6149,11 +6149,11 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
+    "topic": "euclidean_geometry",
     "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
     "options": [
       "Angles in same segment are equal",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Opposite angles of cyclic quad sum to 180°",
       "Exterior angle of cyclic quad = interior opposite angle",
       "Tan-chord theorem"
     ],
@@ -6165,28 +6165,28 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 \u00d7 angle at circumference\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
     "options": [
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Opposite angles of cyclic quad sum to 180°",
       "Exterior angle of cyclic quad = interior opposite angle",
       "Tan-chord theorem",
-      "Angle at centre = 2 \u00d7 angle at circumference"
+      "Angle at centre = 2 × angle at circumference"
     ],
     "answer": 3,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Angle at centre = 2 \u00d7 angle at circumference\"."
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
     ],
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
+    "topic": "euclidean_geometry",
     "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
     "options": [
-      "Angle at centre = 2 \u00d7 angle at circumference",
+      "Angle at centre = 2 × angle at circumference",
       "Angles in same segment are equal",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Opposite angles of cyclic quad sum to 180°",
       "Tan-chord theorem"
     ],
     "answer": 3,
@@ -6197,45 +6197,45 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180\u00b0\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180°\"?",
     "options": [
-      "Angle at centre = 2 \u00d7 angle at circumference",
+      "Angle at centre = 2 × angle at circumference",
       "Angles in same segment are equal",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Opposite angles of cyclic quad sum to 180°",
       "Exterior angle of cyclic quad = interior opposite angle"
     ],
     "answer": 2,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180\u00b0\"."
+      "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180°\"."
     ],
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 \u00d7 angle at circumference\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
     "options": [
       "Tan-chord theorem",
-      "Angle at centre = 2 \u00d7 angle at circumference",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°",
       "Angles in same segment are equal"
     ],
     "answer": 1,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Angle at centre = 2 \u00d7 angle at circumference\"."
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
     ],
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
+    "topic": "euclidean_geometry",
     "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
     "options": [
       "Exterior angle of cyclic quad = interior opposite angle",
       "Tan-chord theorem",
-      "Angle at centre = 2 \u00d7 angle at circumference",
-      "Opposite angles of cyclic quad sum to 180\u00b0"
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°"
     ],
     "answer": 1,
     "solution": [
@@ -6245,12 +6245,12 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
+    "topic": "euclidean_geometry",
     "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
     "options": [
       "Exterior angle of cyclic quad = interior opposite angle",
       "Angles in same segment are equal",
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Opposite angles of cyclic quad sum to 180°",
       "Tan-chord theorem"
     ],
     "answer": 3,
@@ -6261,13 +6261,13 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
+    "topic": "euclidean_geometry",
     "q": "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
     "options": [
       "Angles in same segment are equal",
       "Exterior angle of cyclic quad = interior opposite angle",
       "Tan-chord theorem",
-      "Opposite angles of cyclic quad sum to 180\u00b0"
+      "Opposite angles of cyclic quad sum to 180°"
     ],
     "answer": 2,
     "solution": [
@@ -6277,26 +6277,26 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180\u00b0\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180°\"?",
     "options": [
       "Tan-chord theorem",
       "Angles in same segment are equal",
-      "Angle at centre = 2 \u00d7 angle at circumference",
-      "Opposite angles of cyclic quad sum to 180\u00b0"
+      "Angle at centre = 2 × angle at circumference",
+      "Opposite angles of cyclic quad sum to 180°"
     ],
     "answer": 3,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180\u00b0\"."
+      "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180°\"."
     ],
     "difficulty": "manageable"
   },
   {
-    "topic": "geometry",
-    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 \u00d7 angle at circumference\"?",
+    "topic": "euclidean_geometry",
+    "q": "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 × angle at circumference\"?",
     "options": [
-      "Opposite angles of cyclic quad sum to 180\u00b0",
+      "Opposite angles of cyclic quad sum to 180°",
       "Tan-chord theorem",
       "Exterior angle of cyclic quad = interior opposite angle",
       "Angles in same segment are equal"
@@ -6304,7 +6304,7 @@
     "answer": 1,
     "solution": [
       "This is standard Euclidean geometry theory.",
-      "The correct theorem name/description is \"Angle at centre = 2 \u00d7 angle at circumference\"."
+      "The correct theorem name/description is \"Angle at centre = 2 × angle at circumference\"."
     ],
     "difficulty": "manageable"
   },
@@ -7457,7 +7457,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Simplify without a calculator: \\(\\frac{\\sin (180^\\circ - \\theta) \\cdot \\cos (90^\\circ + \\theta)}{\\tan \\theta \\cdot \\cos (360^\\circ - \\theta)}\\)",
     "options": [
       "\\(-\\sin \\theta\\)",
@@ -7476,7 +7476,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Determine the general solution of: \\(2\\sin 2x = 1\\)",
     "options": [
       "\\(x = 15^\\circ + k \\cdot 180^\\circ\\) or \\(x = 75^\\circ + k \\cdot 180^\\circ\\)",
@@ -7493,7 +7493,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Calculate the area of \\(\\Delta ABC\\) if \\(a = 10, b = 12\\) and \\(\\hat{C} = 45^\\circ\\).",
     "options": [
       "\\(30\\sqrt{2}\\)",
@@ -7509,7 +7509,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Simplify: \\(\\cos (A + B) \\cos B + \\sin (A + B) \\sin B\\)",
     "options": [
       "\\(\\cos A\\)",
@@ -7525,7 +7525,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "If \\(\\cos 20^\\circ = p\\), determine \\(\\sin 40^\\circ\\) in terms of \\(p\\).",
     "options": [
       "\\(2p\\sqrt{1-p^2}\\)",
@@ -7542,7 +7542,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Determine the maximum value of the function \\(f(x) = 3\\sin x - 1\\).",
     "options": [
       "2",
@@ -7575,7 +7575,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "If \\(\\tan \\theta = \\frac{4}{3}\\) and \\(180^\\circ < \\theta < 270^\\circ\\), calculate \\(\\cos \\theta\\).",
     "options": [
       "\\(-3/5\\)",
@@ -7609,7 +7609,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Prove the following identity: \\(\\tan x + \\frac{\\cos x}{1 + \\sin x} = \\sec x\\). Which step is correct?",
     "options": [
       "Numerator simplifies to \\(1 + \\sin x\\) after common denominator",
@@ -7646,7 +7646,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Solve for \\(x\\) in \\([0^\\circ, 180^\\circ]\\): \\(\\sin x = \\cos 2x\\)",
     "options": [
       "\\(30^\\circ\\) and \\(150^\\circ\\)",
@@ -7681,7 +7681,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Find the period of the function \\(y = \\tan 2x\\).",
     "options": [
       "\\(90^\\circ\\)",
@@ -7713,7 +7713,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Simplify to a single trig ratio: \\(\\frac{2\\cos^2 x - 1}{\\cos x + \\sin x}\\)",
     "options": [
       "\\(\\cos x - \\sin x\\)",
@@ -7747,7 +7747,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Express \\(\\cos 3x\\) in terms of \\(\\sin x\\) and \\(\\cos x\\) using compound angles.",
     "options": [
       "\\(\\cos 2x \\cos x - \\sin 2x \\sin x\\)",
@@ -7779,7 +7779,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Find the general solution of \\(\\tan \\theta = -1\\).",
     "options": [
       "\\(\\theta = 135^\\circ + k \\cdot 180^\\circ\\)",
@@ -7813,7 +7813,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "A building's height is \\(h\\). The angle of elevation from a point 10m away is \\(60^\\circ\\). What is \\(h\\)?",
     "options": [
       "\\(10\\sqrt{3}\\)",
@@ -7845,7 +7845,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Solve: \\(\\cos x = \\sin(x + 20^\\circ)\\)",
     "options": [
       "\\(35^\\circ\\)",
@@ -7861,7 +7861,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Calculate the distance between the points \\(A(2, 3)\\) and \\(B(5, 7)\\).",
     "options": [
       "\\(5\\)",
@@ -7878,7 +7878,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the midpoint of the line segment joining \\(P(-1, 4)\\) and \\(Q(7, -2)\\).",
     "options": [
       "\\((3, 1)\\)",
@@ -7894,7 +7894,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Determine the gradient of the line passing through \\((1, 2)\\) and \\((4, 8)\\).",
     "options": [
       "\\(2\\)",
@@ -7910,7 +7910,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the equation of a line perpendicular to \\(y = 2x + 1\\) that passes through the point \\((0, 4)\\).",
     "options": [
       "\\(y = -\\frac{1}{2}x + 4\\)",
@@ -7927,7 +7927,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Determine the angle of inclination (to the nearest degree) of the line \\(y = x + 5\\).",
     "options": [
       "\\(45^\\circ\\)",
@@ -7943,7 +7943,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the center and radius of the circle with equation \\((x-3)^2 + (y+4)^2 = 25\\).",
     "options": [
       "Center \\((3, -4)\\), Radius \\(5\\)",
@@ -7960,7 +7960,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the equation of the tangent to the circle \\(x^2 + y^2 = 25\\) at the point \\((3, 4)\\).",
     "options": [
       "\\(y = -\\frac{3}{4}x + \\frac{25}{4}\\)",
@@ -7978,7 +7978,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Determine the value of \\(k\\) if the points \\(A(1, 2)\\), \\(B(3, k)\\), and \\(C(5, 6)\\) are collinear.",
     "options": [
       "\\(4\\)",
@@ -7996,7 +7996,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Determine the equation of a circle with center \\((3, 4)\\) that passes through the origin.",
     "options": [
       "\\((x-3)^2 + (y-4)^2 = 25\\)",
@@ -8013,7 +8013,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the gradient of a line parallel to the x-axis.",
     "options": [
       "\\(0\\)",
@@ -8028,7 +8028,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In a circle with center \\(O\\), angle \\(AOB = 100^\\circ\\). What is the size of the angle at the circumference subtended by the same arc?",
     "options": [
       "\\(50^\\circ\\)",
@@ -8044,7 +8044,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "If \\(ABCD\\) is a cyclic quadrilateral and \\(\\hat{A} = 80^\\circ\\), find the size of \\(\\hat{C}\\).",
     "options": [
       "\\(100^\\circ\\)",
@@ -8060,7 +8060,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "A tangent \\(PT\\) touches a circle at \\(T\\). If the radius of the circle is 5 units and \\(OP = 13\\) units (where \\(O\\) is the center), find the length of the tangent \\(PT\\).",
     "options": [
       "\\(12\\) units",
@@ -8077,7 +8077,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In \\(\\Delta ABC\\), a line \\(DE\\) is parallel to \\(BC\\), with \\(D\\) on \\(AB\\) and \\(E\\) on \\(AC\\). If \\(AD = 4, DB = 2\\) and \\(AE = 6\\), find \\(EC\\).",
     "options": [
       "\\(3\\)",
@@ -8093,7 +8093,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "The ratio of the corresponding sides of two similar triangles is \\(2:3\\). What is the ratio of their areas?",
     "options": [
       "\\(4:9\\)",
@@ -8109,7 +8109,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Which theorem states that the exterior angle of a cyclic quadrilateral is equal to the interior opposite angle?",
     "options": [
       "Exterior angle of a cyclic quad",
@@ -8124,7 +8124,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "What is the sum of the angles in a triangle?",
     "options": [
       "\\(180^\\circ\\)",
@@ -8139,7 +8139,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In an isosceles triangle \\(ABC\\) with \\(AB = AC\\), if \\(\\hat{A} = 40^\\circ\\), find \\(\\hat{B}\\).",
     "options": [
       "\\(70^\\circ\\)",
@@ -8155,7 +8155,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Which theorem involves the angle between a tangent and a chord?",
     "options": [
       "Tangent-chord theorem",
@@ -8170,7 +8170,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "If a line segment joins the midpoints of two sides of a triangle, it is _____ to the third side.",
     "options": [
       "parallel",
@@ -8185,7 +8185,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the equation of the locus of points equidistant from \\((0, 0)\\).",
     "options": [
       "\\(x^2 + y^2 = r^2\\)",
@@ -8200,7 +8200,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "The points \\(A(x, 2)\\) and \\(B(4, 6)\\) have a distance of 5 units. Find the positive value of \\(x\\).",
     "options": [
       "\\(7\\)",
@@ -8217,7 +8217,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "What is the gradient of the line \\(3x - 2y = 6\\)?",
     "options": [
       "\\(3/2\\)",
@@ -8233,7 +8233,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the point of intersection of \\(y = 2x\\) and \\(y = -x + 6\\).",
     "options": [
       "\\((2, 4)\\)",
@@ -8249,7 +8249,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "A chord of length 8 units is 3 units from the center of the circle. Find the radius of the circle.",
     "options": [
       "\\(5\\) units",
@@ -8265,7 +8265,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Angle in a semi-circle is always:",
     "options": [
       "\\(90^\\circ\\)",
@@ -8280,7 +8280,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Which condition is NOT sufficient for two triangles to be congruent?",
     "options": [
       "Angle-Angle-Angle (AAA)",
@@ -8295,7 +8295,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Equation of the y-axis is:",
     "options": [
       "\\(x = 0\\)",
@@ -8310,7 +8310,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the distance of \\((3, 4)\\) from the origin.",
     "options": [
       "\\(5\\)",
@@ -8325,7 +8325,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In rectangle \\(ABCD\\), diagonal \\(AC = 10\\). What is diagonal \\(BD\\)?",
     "options": [
       "\\(10\\)",
@@ -9625,7 +9625,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Determine the general solution of: \\(\\cos 2x = \\sin x\\).",
     "options": [
       "\\(x = 30^\\circ + k \\cdot 120^\\circ\\) or \\(x = -90^\\circ + k \\cdot 360^\\circ\\)",
@@ -9642,7 +9642,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Prove that \\((\\sin x + \\cos x)^2 = 1 + \\sin 2x\\). Which identity is used?",
     "options": [
       "\\(\\sin^2 x + \\cos^2 x = 1\\)",
@@ -9659,7 +9659,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Calculate the area of \\(\\Delta PQR\\) if \\(p = 8, q = 10\\) and \\(\\hat{R} = 30^\\circ\\).",
     "options": [
       "\\(20\\)",
@@ -9675,7 +9675,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Find angle \\(A\\) in \\(\\Delta ABC\\) if \\(a=7, b=8, c=9\\).",
     "options": [
       "\\(48.19^\\circ\\)",
@@ -9692,7 +9692,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "In \\(\\Delta DEF\\), \\(\\hat{D} = 40^\\circ\\), \\(\\hat{E} = 60^\\circ\\) and \\(f = 12\\). Find length \\(d\\).",
     "options": [
       "\\(7.82\\)",
@@ -9709,7 +9709,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Simplify: \\(\\sin (90^\\circ - x) \\cdot \\cos (180^\\circ + x)\\).",
     "options": [
       "\\(-\\cos^2 x\\)",
@@ -9726,7 +9726,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Without a calculator, evaluate \\(\\sin^2 30^\\circ + \\cos^2 30^\\circ\\).",
     "options": [
       "\\(1\\)",
@@ -9741,7 +9741,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "What is the maximum value of the expression \\(2 - 3\\cos x\\)?",
     "options": [
       "\\(5\\)",
@@ -9759,7 +9759,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Determine the period of the function \\(y = 3\\sin(2x - 10^\\circ)\\).",
     "options": [
       "\\(180^\\circ\\)",
@@ -9775,7 +9775,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "From the top of a 50m cliff, the angle of depression to a boat is \\(20^\\circ\\). How far is the boat from the base of the cliff?",
     "options": [
       "\\(137.4\\)m",
@@ -9792,7 +9792,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "In a 3D context, a vertical pole \\(PQ\\) of height \\(h\\) stands at \\(Q\\). From \\(R\\), the angle of elevation to \\(P\\) is \\(\\alpha\\). If \\(QR = x\\), then \\(h = \\dots\\)",
     "options": [
       "\\(x \\tan \\alpha\\)",
@@ -9808,7 +9808,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Expand \\(\\cos(45^\\circ + x)\\) using compound angle identities.",
     "options": [
       "\\(\\frac{\\sqrt{2}}{2}(\\cos x - \\sin x)\\)",
@@ -9824,7 +9824,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "If \\(\\sin x = 3/5\\) and \\(90^\\circ < x < 180^\\circ\\), find \\(\\cos 2x\\).",
     "options": [
       "\\(7/25\\)",
@@ -9840,7 +9840,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Determine \\(\\theta\\) to two decimal places if \\(\\tan \\theta = 1.5\\) and \\(180^\\circ < \\theta < 360^\\circ\\).",
     "options": [
       "\\(236.31^\\circ\\)",
@@ -9857,7 +9857,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Evaluate \\(\\sin 15^\\circ\\) exactly.",
     "options": [
       "\\(\\frac{\\sqrt{6} - \\sqrt{2}}{4}\\)",
@@ -9873,7 +9873,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "If the line \\(y = ax + 2\\) passes through the point \\((1, 4)\\), find \\(a\\).",
     "options": [
       "\\(2\\)",
@@ -9888,7 +9888,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "What is the equation of a circle with center \\((-2, 3)\\) and radius 4?",
     "options": [
       "\\((x+2)^2 + (y-3)^2 = 16\\)",
@@ -9903,7 +9903,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "A line has a gradient of \\(-3\\). What is the gradient of a line perpendicular to it?",
     "options": [
       "\\(1/3\\)",
@@ -9918,7 +9918,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the distance of the point \\((3, 7)\\) from the line \\(y = 5\\).",
     "options": [
       "\\(2\\)",
@@ -9933,7 +9933,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Determine the midpoint of the line segment joining \\((0, 0)\\) and \\((4, 6)\\).",
     "options": [
       "\\((2, 3)\\)",
@@ -9948,7 +9948,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the equation of the locus of points equidistant from \\((1, 1)\\) and \\((3, 3)\\).",
     "options": [
       "\\(y = -x + 4\\)",
@@ -9966,7 +9966,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Determine the radius of the circle \\(x^2 + y^2 - 4x + 6y - 3 = 0\\).",
     "options": [
       "\\(4\\)",
@@ -9982,7 +9982,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Find the center of the circle \\(x^2 + y^2 - 4x + 6y - 3 = 0\\).",
     "options": [
       "\\((2, -3)\\)",
@@ -9997,7 +9997,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "A triangle has vertices \\(A(0, 0), B(4, 0)\\) and \\(C(0, 3)\\). Prove it is right-angled.",
     "options": [
       "Gradients of AB and AC product is not relevant as they are axes",
@@ -10013,7 +10013,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "analytical",
+    "topic": "analytical_geometry",
     "q": "Identify the shape formed by the points \\((0, 0), (4, 0), (4, 4), (0, 4)\\).",
     "options": [
       "Square",
@@ -10028,7 +10028,7 @@
     "difficulty": "manageable"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "What is the size of the angle subtended by the diameter at the circumference of a circle?",
     "options": [
       "\\(90^\\circ\\)",
@@ -10043,7 +10043,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "If a line is drawn from the center of a circle perpendicular to a chord, it _____ the chord.",
     "options": [
       "bisects",
@@ -10058,7 +10058,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "A chord of 24 units is 5 units from the center. What is the radius of the circle?",
     "options": [
       "\\(13\\)",
@@ -10075,7 +10075,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "The angle between a tangent and a radius at the point of contact is:",
     "options": [
       "\\(90^\\circ\\)",
@@ -10090,7 +10090,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Two tangents, \\(PA\\) and \\(PB\\), are drawn from a point \\(P\\) outside a circle. If \\(PA = 10\\) cm, what is the length of \\(PB\\)?",
     "options": [
       "\\(10\\) cm",
@@ -10105,7 +10105,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "If angle at center \\(AOB = 120^\\circ\\), find the size of the angle at the circumference subtended by the same major arc.",
     "options": [
       "\\(60^\\circ\\)",
@@ -10121,7 +10121,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Angles in the same segment of a circle are:",
     "options": [
       "Equal",
@@ -10136,7 +10136,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In cyclic quad \\(ABCD\\), find \\(\\hat{B}\\) if \\(\\hat{D} = 110^\\circ\\).",
     "options": [
       "\\(70^\\circ\\)",
@@ -10152,7 +10152,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "What is equal to the exterior angle of a cyclic quadrilateral?",
     "options": [
       "The interior opposite angle",
@@ -10167,7 +10167,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Which theorem relates the angle between a tangent and a chord to the angle in the alternate segment?",
     "options": [
       "Tan-chord theorem",
@@ -10182,7 +10182,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In \\(\\Delta ABC\\), \\(D\\) and \\(E\\) are points on \\(AB\\) and \\(AC\\) such that \\(DE \\parallel BC\\). If \\(AD=2, DB=4\\), find the ratio \\(AE:AC\\).",
     "options": [
       "\\(1:3\\)",
@@ -10199,7 +10199,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "Two triangles are similar if their corresponding _____ are in the same ratio.",
     "options": [
       "sides",
@@ -10214,7 +10214,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "If \\(\\Delta ABC ||| \\Delta DEF\\) and the ratio of sides is \\(1:2\\), and the area of \\(\\Delta ABC\\) is 5, what is the area of \\(\\Delta DEF\\)?",
     "options": [
       "\\(20\\)",
@@ -10230,7 +10230,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "The product of the segments of two chords intersecting inside a circle is equal. If chords \\(AB\\) and \\(CD\\) intersect at \\(E\\), and \\(AE=2, EB=6, CE=3\\). Find \\(ED\\).",
     "options": [
       "\\(4\\)",
@@ -10246,7 +10246,7 @@
     "difficulty": "hard"
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "A line parallel to one side of a triangle divides the other two sides _____.",
     "options": [
       "proportionally",
@@ -10524,7 +10524,7 @@
     ]
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "If two circles intersect at two points, the line joining the centers is the ______ _____ of the common chord.",
     "options": [
       "Perpendicular bisector",
@@ -10539,7 +10539,7 @@
     ]
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In a circle, chords of equal length are _______ from the center.",
     "options": [
       "Equidistant",
@@ -10554,7 +10554,7 @@
     ]
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "The area of a cyclic quadrilateral with sides \\(a, b, c, d\\) is given by Brahmagupta's formula. If sides are 3, 4, 4, 5, find \\(s\\) (semi-perimeter).",
     "options": [
       "\\(8\\)",
@@ -10569,7 +10569,7 @@
     ]
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "The ratio of the areas of two similar triangles is equal to the ratio of the _____ of their corresponding sides.",
     "options": [
       "Squares",
@@ -10584,7 +10584,7 @@
     ]
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "In \\(\\Delta ABC\\), \\(\\hat{A} = 90^\\circ\\) and \\(AD \\perp BC\\). Which is true?",
     "options": [
       "\\(AD^2 = BD \\cdot DC\\)",
@@ -10599,7 +10599,7 @@
     ]
   },
   {
-    "topic": "euclidean",
+    "topic": "euclidean_geometry",
     "q": "What name is given to the point where the three altitudes of a triangle intersect?",
     "options": [
       "Orthocenter",
@@ -10614,7 +10614,7 @@
     ]
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "In 3D space, a vertical pole \\(PQ\\) of height \\(h\\) stands at \\(P\\). From \\(A\\) and \\(B\\) on the ground, the angles of elevation of \\(Q\\) are \\(\\alpha\\) and \\(\\beta\\). If \\(A, P, B\\) are in a straight line, find \\(AB\\).",
     "options": [
       "\\(h(\\cot \\alpha + \\cot \\beta)\\)",
@@ -10631,7 +10631,7 @@
     ]
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "In 3D trigonometry, which result is most commonly used to find sides in a non-right-angled horizontal triangle?",
     "options": [
       "Cosine Rule",
@@ -10646,7 +10646,7 @@
     ]
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "A bird at \\(B\\) is observed from \\(A\\) and \\(C\\) on level ground. Angle of elevation from \\(A\\) is \\(30^\\circ\\). Bearing of bird from \\(A\\) is \\(045^\\circ\\). Distance \\(AC = 100\\). This is an example of:",
     "options": [
       "3D Trigonometry",
@@ -10661,7 +10661,7 @@
     ]
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Simplify \\(\\cos(90^\\circ + x)\\sin(180^\\circ - x) - \\cos^2(x)\\).",
     "options": [
       "\\(-1\\)",
@@ -10677,7 +10677,7 @@
     ]
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "Find the general solution of \\(2\\sin^2 x + \\sin x - 1 = 0\\).",
     "options": [
       "\\(x = 30^\\circ + k\\cdot 360^\\circ\\), etc.",
@@ -10694,7 +10694,7 @@
     ]
   },
   {
-    "topic": "trig",
+    "topic": "trigonometry",
     "q": "If \\(\\tan \\theta = t\\), express \\(\\cos 2\\theta\\) in terms of \\(t\\).",
     "options": [
       "\\(\\frac{1-t^2}{1+t^2}\\)",
@@ -10706,6 +10706,756 @@
     "difficulty": "hard",
     "solution": [
       "\\(\\cos 2\\theta = \\cos^2 \\theta - \\sin^2 \\theta = \\frac{\\cos^2 \\theta - \\sin^2 \\theta}{\\cos^2 \\theta + \\sin^2 \\theta} = \\frac{1 - \\tan^2 \\theta}{1 + \\tan^2 \\theta} = \\frac{1-t^2}{1+t^2}\\)."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 5x - 6 = 0\\)",
+    "options": [
+      "\\(x = -1\\) or \\(x = -6\\)",
+      "\\(x = -1\\) or \\(x = 6\\)",
+      "\\(x = 1\\) or \\(x = -6\\)",
+      "\\(x = 1\\) or \\(x = 6\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Factorise the quadratic: \\((x - 1)(x - -6) = 0\\)",
+      "Set each factor to zero: \\(x - 1 = 0\\) or \\(x - -6 = 0\\)",
+      "\\(x = 1\\) or \\(x = -6\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 3x + 2 = 0\\)",
+    "options": [
+      "\\(x = -1\\) or \\(x = 2\\)",
+      "\\(x = 1\\) or \\(x = -2\\)",
+      "\\(x = -1\\) or \\(x = -2\\)",
+      "\\(x = 1\\) or \\(x = 2\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Factorise the quadratic: \\((x - -1)(x - -2) = 0\\)",
+      "Set each factor to zero: \\(x - -1 = 0\\) or \\(x - -2 = 0\\)",
+      "\\(x = -1\\) or \\(x = -2\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 1x - 6 = 0\\)",
+    "options": [
+      "\\(x = -3\\) or \\(x = 2\\)",
+      "\\(x = -3\\) or \\(x = -2\\)",
+      "\\(x = 3\\) or \\(x = 2\\)",
+      "\\(x = 3\\) or \\(x = -2\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Factorise the quadratic: \\((x - 3)(x - -2) = 0\\)",
+      "Set each factor to zero: \\(x - 3 = 0\\) or \\(x - -2 = 0\\)",
+      "\\(x = 3\\) or \\(x = -2\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 13x + 42 = 0\\)",
+    "options": [
+      "\\(x = 7\\) or \\(x = -6\\)",
+      "\\(x = -7\\) or \\(x = -6\\)",
+      "\\(x = 7\\) or \\(x = 6\\)",
+      "\\(x = -7\\) or \\(x = 6\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Factorise the quadratic: \\((x - -7)(x - -6) = 0\\)",
+      "Set each factor to zero: \\(x - -7 = 0\\) or \\(x - -6 = 0\\)",
+      "\\(x = -7\\) or \\(x = -6\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 6x - 7 = 0\\)",
+    "options": [
+      "\\(x = -1\\) or \\(x = 7\\)",
+      "\\(x = 1\\) or \\(x = 7\\)",
+      "\\(x = -1\\) or \\(x = -7\\)",
+      "\\(x = 1\\) or \\(x = -7\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Factorise the quadratic: \\((x - -1)(x - 7) = 0\\)",
+      "Set each factor to zero: \\(x - -1 = 0\\) or \\(x - 7 = 0\\)",
+      "\\(x = -1\\) or \\(x = 7\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(3x^2 + 6x -5 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.63\\) or \\(x \\approx 2.63\\)",
+      "\\(x \\approx -0.63\\) or \\(x \\approx 2.63\\)",
+      "\\(x \\approx 0.63\\) or \\(x \\approx -2.63\\)",
+      "\\(x \\approx -0.63\\) or \\(x \\approx -2.63\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(3)(-5)}}{2(3)}\\)",
+      "\\(x = \\dfrac{-6 \\pm \\sqrt{96}}{6}\\)",
+      "\\(x \\approx 0.63\\) or \\(x \\approx -2.63\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(3x^2 + 3x -5 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx -0.88\\) or \\(x \\approx -1.88\\)",
+      "\\(x \\approx 0.88\\) or \\(x \\approx -1.88\\)",
+      "\\(x \\approx -0.88\\) or \\(x \\approx 1.88\\)",
+      "\\(x \\approx 0.88\\) or \\(x \\approx 1.88\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(3)(-5)}}{2(3)}\\)",
+      "\\(x = \\dfrac{-3 \\pm \\sqrt{69}}{6}\\)",
+      "\\(x \\approx 0.88\\) or \\(x \\approx -1.88\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(4x^2 + 3x -1 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.25\\) or \\(x \\approx 1.00\\)",
+      "\\(x \\approx -0.25\\) or \\(x \\approx 1.00\\)",
+      "\\(x \\approx 0.25\\) or \\(x \\approx -1.00\\)",
+      "\\(x \\approx -0.25\\) or \\(x \\approx -1.00\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(4)(-1)}}{2(4)}\\)",
+      "\\(x = \\dfrac{-3 \\pm \\sqrt{25}}{8}\\)",
+      "\\(x \\approx 0.25\\) or \\(x \\approx -1.00\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(4x^2 + 8x -2 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.22\\) or \\(x \\approx 2.22\\)",
+      "\\(x \\approx -0.22\\) or \\(x \\approx -2.22\\)",
+      "\\(x \\approx -0.22\\) or \\(x \\approx 2.22\\)",
+      "\\(x \\approx 0.22\\) or \\(x \\approx -2.22\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(8) \\pm \\sqrt{(8)^2 - 4(4)(-2)}}{2(4)}\\)",
+      "\\(x = \\dfrac{-8 \\pm \\sqrt{96}}{8}\\)",
+      "\\(x \\approx 0.22\\) or \\(x \\approx -2.22\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(4x^2 + 8x -5 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx -0.50\\) or \\(x \\approx 2.50\\)",
+      "\\(x \\approx -0.50\\) or \\(x \\approx -2.50\\)",
+      "\\(x \\approx 0.50\\) or \\(x \\approx -2.50\\)",
+      "\\(x \\approx 0.50\\) or \\(x \\approx 2.50\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(8) \\pm \\sqrt{(8)^2 - 4(4)(-5)}}{2(4)}\\)",
+      "\\(x = \\dfrac{-8 \\pm \\sqrt{144}}{8}\\)",
+      "\\(x \\approx 0.50\\) or \\(x \\approx -2.50\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 20\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Two non-real solutions",
+      "\\((0, -6)\\) and \\((4.5, 0)\\)",
+      "\\((1, -5)\\) only",
+      "Evaluate algebraically by substitution"
+    ],
+    "answer": 3,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 20\\)",
+      "Expand: \\(x^2 + x^2 - 12x + 36 = 20\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 3\\) and \\(x^2 + y^2 = 18\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Two non-real solutions",
+      "\\((1, -2)\\) only",
+      "\\((0, -3)\\) and \\((4.2, 0)\\)",
+      "Evaluate algebraically by substitution"
+    ],
+    "answer": 3,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 3)^2 = 18\\)",
+      "Expand: \\(x^2 + x^2 - 6x + 9 = 18\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 3\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+    "options": [
+      "\\((1, -1)\\) only",
+      "Two non-real solutions",
+      "\\((0, -2)\\) and \\((3.5, 0)\\)",
+      "Evaluate algebraically by substitution"
+    ],
+    "answer": 3,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 12\\)",
+      "Expand: \\(x^2 + x^2 - 4x + 4 = 12\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 4\\) and \\(x^2 + y^2 = 18\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Two non-real solutions",
+      "\\((0, -4)\\) and \\((4.2, 0)\\)",
+      "Evaluate algebraically by substitution",
+      "\\((1, -3)\\) only"
+    ],
+    "answer": 2,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 4)^2 = 18\\)",
+      "Expand: \\(x^2 + x^2 - 8x + 16 = 18\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 4\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 3\\) and \\(x^2 + y^2 = 15\\), find the coordinates of the points of intersection.",
+    "options": [
+      "\\((0, -3)\\) and \\((3.9, 0)\\)",
+      "Evaluate algebraically by substitution",
+      "Two non-real solutions",
+      "\\((1, -2)\\) only"
+    ],
+    "answer": 1,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 3)^2 = 15\\)",
+      "Expand: \\(x^2 + x^2 - 6x + 9 = 15\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 3\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 3x - 4 = 0\\)",
+    "options": [
+      "\\(x = 4\\) or \\(x = 1\\)",
+      "\\(x = -4\\) or \\(x = 1\\)",
+      "\\(x = -4\\) or \\(x = -1\\)",
+      "\\(x = 4\\) or \\(x = -1\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Factorise the quadratic: \\((x - 4)(x - -1) = 0\\)",
+      "Set each factor to zero: \\(x - 4 = 0\\) or \\(x - -1 = 0\\)",
+      "\\(x = 4\\) or \\(x = -1\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 2x - 15 = 0\\)",
+    "options": [
+      "\\(x = 3\\) or \\(x = 5\\)",
+      "\\(x = -3\\) or \\(x = 5\\)",
+      "\\(x = 3\\) or \\(x = -5\\)",
+      "\\(x = -3\\) or \\(x = -5\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Factorise the quadratic: \\((x - -3)(x - 5) = 0\\)",
+      "Set each factor to zero: \\(x - -3 = 0\\) or \\(x - 5 = 0\\)",
+      "\\(x = -3\\) or \\(x = 5\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 4x - 12 = 0\\)",
+    "options": [
+      "\\(x = 6\\) or \\(x = 2\\)",
+      "\\(x = 6\\) or \\(x = -2\\)",
+      "\\(x = -6\\) or \\(x = 2\\)",
+      "\\(x = -6\\) or \\(x = -2\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Factorise the quadratic: \\((x - 6)(x - -2) = 0\\)",
+      "Set each factor to zero: \\(x - 6 = 0\\) or \\(x - -2 = 0\\)",
+      "\\(x = 6\\) or \\(x = -2\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 7x + 10 = 0\\)",
+    "options": [
+      "\\(x = 5\\) or \\(x = -2\\)",
+      "\\(x = 5\\) or \\(x = 2\\)",
+      "\\(x = -5\\) or \\(x = -2\\)",
+      "\\(x = -5\\) or \\(x = 2\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Factorise the quadratic: \\((x - -5)(x - -2) = 0\\)",
+      "Set each factor to zero: \\(x - -5 = 0\\) or \\(x - -2 = 0\\)",
+      "\\(x = -5\\) or \\(x = -2\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 11x + 24 = 0\\)",
+    "options": [
+      "\\(x = -8\\) or \\(x = 3\\)",
+      "\\(x = -8\\) or \\(x = -3\\)",
+      "\\(x = 8\\) or \\(x = -3\\)",
+      "\\(x = 8\\) or \\(x = 3\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Factorise the quadratic: \\((x - 8)(x - 3) = 0\\)",
+      "Set each factor to zero: \\(x - 8 = 0\\) or \\(x - 3 = 0\\)",
+      "\\(x = 8\\) or \\(x = 3\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(5x^2 + 4x -3 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx -0.47\\) or \\(x \\approx 1.27\\)",
+      "\\(x \\approx 0.47\\) or \\(x \\approx 1.27\\)",
+      "\\(x \\approx 0.47\\) or \\(x \\approx -1.27\\)",
+      "\\(x \\approx -0.47\\) or \\(x \\approx -1.27\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(5)(-3)}}{2(5)}\\)",
+      "\\(x = \\dfrac{-4 \\pm \\sqrt{76}}{10}\\)",
+      "\\(x \\approx 0.47\\) or \\(x \\approx -1.27\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(2x^2 + 7x -1 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.14\\) or \\(x \\approx 3.64\\)",
+      "\\(x \\approx -0.14\\) or \\(x \\approx -3.64\\)",
+      "\\(x \\approx 0.14\\) or \\(x \\approx -3.64\\)",
+      "\\(x \\approx -0.14\\) or \\(x \\approx 3.64\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(7) \\pm \\sqrt{(7)^2 - 4(2)(-1)}}{2(2)}\\)",
+      "\\(x = \\dfrac{-7 \\pm \\sqrt{57}}{4}\\)",
+      "\\(x \\approx 0.14\\) or \\(x \\approx -3.64\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(3x^2 + 6x -1 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.15\\) or \\(x \\approx -2.15\\)",
+      "\\(x \\approx 0.15\\) or \\(x \\approx 2.15\\)",
+      "\\(x \\approx -0.15\\) or \\(x \\approx -2.15\\)",
+      "\\(x \\approx -0.15\\) or \\(x \\approx 2.15\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(3)(-1)}}{2(3)}\\)",
+      "\\(x = \\dfrac{-6 \\pm \\sqrt{48}}{6}\\)",
+      "\\(x \\approx 0.15\\) or \\(x \\approx -2.15\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(4x^2 + 6x -2 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx -0.28\\) or \\(x \\approx 1.78\\)",
+      "\\(x \\approx 0.28\\) or \\(x \\approx -1.78\\)",
+      "\\(x \\approx 0.28\\) or \\(x \\approx 1.78\\)",
+      "\\(x \\approx -0.28\\) or \\(x \\approx -1.78\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(4)(-2)}}{2(4)}\\)",
+      "\\(x = \\dfrac{-6 \\pm \\sqrt{68}}{8}\\)",
+      "\\(x \\approx 0.28\\) or \\(x \\approx -1.78\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(3x^2 + 9x -5 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.48\\) or \\(x \\approx 3.48\\)",
+      "\\(x \\approx -0.48\\) or \\(x \\approx -3.48\\)",
+      "\\(x \\approx -0.48\\) or \\(x \\approx 3.48\\)",
+      "\\(x \\approx 0.48\\) or \\(x \\approx -3.48\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(9) \\pm \\sqrt{(9)^2 - 4(3)(-5)}}{2(3)}\\)",
+      "\\(x = \\dfrac{-9 \\pm \\sqrt{141}}{6}\\)",
+      "\\(x \\approx 0.48\\) or \\(x \\approx -3.48\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 5\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Two non-real solutions",
+      "Evaluate algebraically by substitution",
+      "\\((0, -5)\\) and \\((3.5, 0)\\)",
+      "\\((1, -4)\\) only"
+    ],
+    "answer": 1,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 5)^2 = 12\\)",
+      "Expand: \\(x^2 + x^2 - 10x + 25 = 12\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 5\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 24\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Evaluate algebraically by substitution",
+      "\\((0, -6)\\) and \\((4.9, 0)\\)",
+      "Two non-real solutions",
+      "\\((1, -5)\\) only"
+    ],
+    "answer": 0,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 24\\)",
+      "Expand: \\(x^2 + x^2 - 12x + 36 = 24\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 22\\), find the coordinates of the points of intersection.",
+    "options": [
+      "\\((1, -5)\\) only",
+      "Evaluate algebraically by substitution",
+      "\\((0, -6)\\) and \\((4.7, 0)\\)",
+      "Two non-real solutions"
+    ],
+    "answer": 1,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 22\\)",
+      "Expand: \\(x^2 + x^2 - 12x + 36 = 22\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 3\\) and \\(x^2 + y^2 = 15\\), find the coordinates of the points of intersection.",
+    "options": [
+      "\\((0, -3)\\) and \\((3.9, 0)\\)",
+      "\\((1, -2)\\) only",
+      "Evaluate algebraically by substitution",
+      "Two non-real solutions"
+    ],
+    "answer": 2,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 3)^2 = 15\\)",
+      "Expand: \\(x^2 + x^2 - 6x + 9 = 15\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 3\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 22\\), find the coordinates of the points of intersection.",
+    "options": [
+      "\\((1, -5)\\) only",
+      "Two non-real solutions",
+      "Evaluate algebraically by substitution",
+      "\\((0, -6)\\) and \\((4.7, 0)\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 22\\)",
+      "Expand: \\(x^2 + x^2 - 12x + 36 = 22\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 13x + 40 = 0\\)",
+    "options": [
+      "\\(x = 8\\) or \\(x = 5\\)",
+      "\\(x = -8\\) or \\(x = -5\\)",
+      "\\(x = 8\\) or \\(x = -5\\)",
+      "\\(x = -8\\) or \\(x = 5\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Factorise the quadratic: \\((x - -8)(x - -5) = 0\\)",
+      "Set each factor to zero: \\(x - -8 = 0\\) or \\(x - -5 = 0\\)",
+      "\\(x = -8\\) or \\(x = -5\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 4x + 3 = 0\\)",
+    "options": [
+      "\\(x = -3\\) or \\(x = 1\\)",
+      "\\(x = 3\\) or \\(x = 1\\)",
+      "\\(x = -3\\) or \\(x = -1\\)",
+      "\\(x = 3\\) or \\(x = -1\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Factorise the quadratic: \\((x - -3)(x - -1) = 0\\)",
+      "Set each factor to zero: \\(x - -3 = 0\\) or \\(x - -1 = 0\\)",
+      "\\(x = -3\\) or \\(x = -1\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 2x - 48 = 0\\)",
+    "options": [
+      "\\(x = 8\\) or \\(x = -6\\)",
+      "\\(x = 8\\) or \\(x = 6\\)",
+      "\\(x = -8\\) or \\(x = 6\\)",
+      "\\(x = -8\\) or \\(x = -6\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Factorise the quadratic: \\((x - -8)(x - 6) = 0\\)",
+      "Set each factor to zero: \\(x - -8 = 0\\) or \\(x - 6 = 0\\)",
+      "\\(x = -8\\) or \\(x = 6\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 + 13x + 42 = 0\\)",
+    "options": [
+      "\\(x = 6\\) or \\(x = 7\\)",
+      "\\(x = 6\\) or \\(x = -7\\)",
+      "\\(x = -6\\) or \\(x = 7\\)",
+      "\\(x = -6\\) or \\(x = -7\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Factorise the quadratic: \\((x - -6)(x - -7) = 0\\)",
+      "Set each factor to zero: \\(x - -6 = 0\\) or \\(x - -7 = 0\\)",
+      "\\(x = -6\\) or \\(x = -7\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(x^2 - 3x - 10 = 0\\)",
+    "options": [
+      "\\(x = -5\\) or \\(x = -2\\)",
+      "\\(x = 5\\) or \\(x = 2\\)",
+      "\\(x = -5\\) or \\(x = 2\\)",
+      "\\(x = 5\\) or \\(x = -2\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Factorise the quadratic: \\((x - 5)(x - -2) = 0\\)",
+      "Set each factor to zero: \\(x - 5 = 0\\) or \\(x - -2 = 0\\)",
+      "\\(x = 5\\) or \\(x = -2\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(5x^2 + 3x -2 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.40\\) or \\(x \\approx -1.00\\)",
+      "\\(x \\approx -0.40\\) or \\(x \\approx 1.00\\)",
+      "\\(x \\approx -0.40\\) or \\(x \\approx -1.00\\)",
+      "\\(x \\approx 0.40\\) or \\(x \\approx 1.00\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(5)(-2)}}{2(5)}\\)",
+      "\\(x = \\dfrac{-3 \\pm \\sqrt{49}}{10}\\)",
+      "\\(x \\approx 0.40\\) or \\(x \\approx -1.00\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(3x^2 + 6x -2 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.29\\) or \\(x \\approx 2.29\\)",
+      "\\(x \\approx 0.29\\) or \\(x \\approx -2.29\\)",
+      "\\(x \\approx -0.29\\) or \\(x \\approx 2.29\\)",
+      "\\(x \\approx -0.29\\) or \\(x \\approx -2.29\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(3)(-2)}}{2(3)}\\)",
+      "\\(x = \\dfrac{-6 \\pm \\sqrt{60}}{6}\\)",
+      "\\(x \\approx 0.29\\) or \\(x \\approx -2.29\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(4x^2 + 3x -5 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.80\\) or \\(x \\approx 1.55\\)",
+      "\\(x \\approx 0.80\\) or \\(x \\approx -1.55\\)",
+      "\\(x \\approx -0.80\\) or \\(x \\approx 1.55\\)",
+      "\\(x \\approx -0.80\\) or \\(x \\approx -1.55\\)"
+    ],
+    "answer": 1,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(4)(-5)}}{2(4)}\\)",
+      "\\(x = \\dfrac{-3 \\pm \\sqrt{89}}{8}\\)",
+      "\\(x \\approx 0.80\\) or \\(x \\approx -1.55\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(5x^2 + 5x -2 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.31\\) or \\(x \\approx 1.31\\)",
+      "\\(x \\approx -0.31\\) or \\(x \\approx 1.31\\)",
+      "\\(x \\approx 0.31\\) or \\(x \\approx -1.31\\)",
+      "\\(x \\approx -0.31\\) or \\(x \\approx -1.31\\)"
+    ],
+    "answer": 2,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(5) \\pm \\sqrt{(5)^2 - 4(5)(-2)}}{2(5)}\\)",
+      "\\(x = \\dfrac{-5 \\pm \\sqrt{65}}{10}\\)",
+      "\\(x \\approx 0.31\\) or \\(x \\approx -1.31\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Solve for \\(x\\): \\(5x^2 + 9x -2 = 0\\) (correct to TWO decimal places)",
+    "options": [
+      "\\(x \\approx 0.20\\) or \\(x \\approx 2.00\\)",
+      "\\(x \\approx -0.20\\) or \\(x \\approx 2.00\\)",
+      "\\(x \\approx -0.20\\) or \\(x \\approx -2.00\\)",
+      "\\(x \\approx 0.20\\) or \\(x \\approx -2.00\\)"
+    ],
+    "answer": 3,
+    "solution": [
+      "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+      "Substitute values: \\(x = \\dfrac{-(9) \\pm \\sqrt{(9)^2 - 4(5)(-2)}}{2(5)}\\)",
+      "\\(x = \\dfrac{-9 \\pm \\sqrt{121}}{10}\\)",
+      "\\(x \\approx 0.20\\) or \\(x \\approx -2.00\\)"
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 15\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Evaluate algebraically by substitution",
+      "\\((1, -5)\\) only",
+      "Two non-real solutions",
+      "\\((0, -6)\\) and \\((3.9, 0)\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 15\\)",
+      "Expand: \\(x^2 + x^2 - 12x + 36 = 15\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Evaluate algebraically by substitution",
+      "\\((1, -1)\\) only",
+      "\\((0, -2)\\) and \\((3.5, 0)\\)",
+      "Two non-real solutions"
+    ],
+    "answer": 0,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 12\\)",
+      "Expand: \\(x^2 + x^2 - 4x + 4 = 12\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 29\\), find the coordinates of the points of intersection.",
+    "options": [
+      "\\((1, -1)\\) only",
+      "\\((0, -2)\\) and \\((5.4, 0)\\)",
+      "Two non-real solutions",
+      "Evaluate algebraically by substitution"
+    ],
+    "answer": 3,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 29\\)",
+      "Expand: \\(x^2 + x^2 - 4x + 4 = 29\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 4\\) and \\(x^2 + y^2 = 22\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Two non-real solutions",
+      "\\((0, -4)\\) and \\((4.7, 0)\\)",
+      "Evaluate algebraically by substitution",
+      "\\((1, -3)\\) only"
+    ],
+    "answer": 2,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 4)^2 = 22\\)",
+      "Expand: \\(x^2 + x^2 - 8x + 16 = 22\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 4\\) to find corresponding y values."
+    ]
+  },
+  {
+    "topic": "algebra",
+    "q": "Given \\(y = x - 5\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+    "options": [
+      "Evaluate algebraically by substitution",
+      "Two non-real solutions",
+      "\\((1, -4)\\) only",
+      "\\((0, -5)\\) and \\((3.5, 0)\\)"
+    ],
+    "answer": 0,
+    "solution": [
+      "Substitute linear into quadratic: \\(x^2 + (x - 5)^2 = 12\\)",
+      "Expand: \\(x^2 + x^2 - 10x + 25 = 12\\)",
+      "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+      "Substitute x values back into \\(y = x - 5\\) to find corresponding y values."
     ]
   }
 ]

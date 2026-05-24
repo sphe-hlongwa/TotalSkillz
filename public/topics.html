@@ -8,6 +8,12 @@
     <link rel="icon" type="image/jpeg" href="/logo.jpg">
     <meta name="description"
         content="Grade 12 Mathematics topics with visual lessons, diagrams, step-by-step solutions, and key formulas.">
+    
+    <link rel="preconnect" href="https://www.youtube-nocookie.com">
+    <link rel="preconnect" href="https://i.ytimg.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <link rel="stylesheet" href="css/style.css?v=6">
@@ -17,7 +23,7 @@
     <link rel="stylesheet" href="css/settings.css?v=6">
     <link rel="stylesheet" href="components/sidebar.css?v=6">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com https://www.google.com/recaptcha/; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-7193a.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-7193a.firebaseapp.com https://*.firebaseapp.com https://www.google.com/recaptcha/ https://www.youtube.com https://www.youtube-nocookie.com;">
 </head>
 
 <body>
@@ -152,22 +158,372 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <!-- App Config -->
     <script src="js/firebase-config.js"></script>
+    <script src="js/video-player.js"></script>
     <script src="js/main.js?v=6"></script>
     <script src="js/masterclass-data.js?v=6"></script>
     <script src="components/sidebar.js?v=6"></script>
 
     <script>
         const topicsMeta = {
-            algebra: { title: 'Algebra, Equations & Inequalities', desc: 'Quadratic equations, surds, inequalities & simultaneous equations', icon: 'fa-solid fa-superscript', color: '#4f46e5', lessons: [{ title: 'Solving Quadratic Equations', formula: { tex: '\\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\]', label: 'Quadratic Formula' }, explanation: 'A quadratic equation is in the form \\(ax^2 + bx + c = 0\\). Solve by factorising, completing the square, or using the quadratic formula.', visual: `<svg viewBox="0 0 400 250" width="400" height="250"><defs><linearGradient id="gA" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#4f46e520" /><stop offset="100%" stop-color="#4f46e500" /></linearGradient></defs><line x1="40" y1="210" x2="380" y2="210" stroke="var(--text-muted)" stroke-width="1.5" /><line x1="40" y1="20" x2="40" y2="210" stroke="var(--text-muted)" stroke-width="1.5" /><text x="385" y="215" font-size="12" fill="var(--text-muted)">x</text><text x="30" y="15" font-size="12" fill="var(--text-muted)">y</text><path d="M60,190 Q130,10 200,80 Q270,150 340,20" fill="none" stroke="#4f46e5" stroke-width="2.5" /><path d="M60,190 Q130,10 200,80 Q270,150 340,20 L340,210 L60,210 Z" fill="url(#gA)" /><circle cx="120" cy="210" r="5" fill="#ef4444" /><text x="105" y="232" font-size="11" fill="#ef4444" font-weight="600">x&#8321;</text><circle cx="300" cy="210" r="5" fill="#ef4444" /><text x="285" y="232" font-size="11" fill="#ef4444" font-weight="600">x&#8322;</text><circle cx="200" cy="80" r="5" fill="#4f46e5" /><text x="208" y="75" font-size="11" fill="#4f46e5" font-weight="600">vertex</text></svg>`, steps: ['Transpose the equation to equal zero: \\(ax^2 + bx + c = 0\\)', 'Calculate discriminant: \\(\\Delta = b^2 - 4ac\\) to determine nature of roots.', 'If \\(\\Delta > 0\\) (two roots), \\(\\Delta = 0\\) (one root), \\(\\Delta < 0\\) (no real roots)', 'Substitute into the quadratic formula to find values for \\(x\\)'] }] },
-            patterns: { title: 'Number Patterns', desc: 'Arithmetic & Geometric Sequences and Series.', icon: 'fa-solid fa-list-ol', color: '#0ea5e9', lessons: [{ title: 'Arithmetic Sequences & Series', formula: { tex: '\\[ S_n = \\frac{n}{2}[2a + (n-1)d] \\]', label: 'Sum of an arithmetic series' }, explanation: 'An arithmetic sequence adds or subtracts a constant difference (\\(d\\)) between consecutive terms.', steps: ['Identify first term \\(a\\) and common difference \\(d = T_2 - T_1\\).', 'General term is \\(T_n = a + (n-1)d\\).', 'Sum formula: \\(S_n = \\frac{n}{2}[2a + (n-1)d]\\)'] }] },
-            functions: { title: 'Functions & Graphs', desc: 'Parabolas, hyperbolas, exp curves, and inverses.', icon: 'fa-solid fa-chart-line', color: '#10b981', lessons: [{ title: 'The Parabola & Inverse', formula: { tex: '\\[ y = a(x - p)^2 + q \\]', label: 'Turning point form' }, explanation: 'A U-shaped curve. The inverse is formed by swapping \\(x\\) and \\(y\\).', steps: ['Turning point is at \\((p, q)\\).', 'To find inverse: Swap \\(x\\) and \\(y\\) and solve for \\(y\\).'] }] },
-            finance: { title: 'Finance, Growth & Decay', desc: 'Annuities and sinking funds.', icon: 'fa-solid fa-sack-dollar', color: '#f59e0b', lessons: [{ title: 'Future Value Annuities', formula: { tex: '\\[ F = \\frac{x[(1 + i)^n - 1]}{i} \\]', label: 'Future Value Formula' }, explanation: 'Used for regular savings.', steps: ['Identify payment \\(x\\), rate \\(i\\), and periods \\(n\\).'] }] },
-            trigonometry: { title: 'Trigonometry', desc: 'ASTC diagram, double & compound angles.', icon: 'fa-solid fa-compass-drafting', color: '#8b5cf6', lessons: [{ title: 'The ASTC Diagram', formula: { tex: '\\[ \\text{CAST Diagram} \\]', label: 'Signs' }, explanation: 'Identify which trig ratios are positive.', steps: ['Q1: All, Q2: Sin, Q3: Tan, Q4: Cos.'] }] },
-            analytical_geometry: { title: 'Analytical Geometry', desc: 'Circles and tangents.', icon: 'fa-solid fa-drafting-compass', color: '#0ea5e9', lessons: [{ title: 'Equation of a Circle', formula: { tex: '\\[ (x - a)^2 + (y - b)^2 = r^2 \\]', label: 'Standard Form' }, explanation: 'Circle with centre (a, b) and radius r.', steps: ['Identify center and radius.'] }] },
-            euclidean_geometry: { title: 'Euclidean Geometry', desc: 'Circle theorems and proportionality.', icon: 'fa-solid fa-shapes', color: '#10b981', lessons: [{ title: 'Circle Theorems', formula: { tex: '\\[ \\angle \\text{ at centre} = 2 \\times \\angle \\text{ at circumference} \\]', label: 'Core Theorem' }, explanation: 'Key properties for proofs.', steps: ['Angle in semi-circle is 90.'] }] },
-            calculus: { title: 'Differential Calculus', desc: 'First principles and power rules.', icon: 'fa-solid fa-infinity', color: '#ec4899', lessons: [{ title: 'First Principles', formula: { tex: '\\[ f\' (x)=\\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} \\]', label: 'Definition' }, explanation: 'Formal definition of derivative.', steps: ['Apply limit definition.'] }] },
-            probability: { title: 'Counting & Probability', desc: 'Factorials and Venn diagrams.', icon: 'fa-solid fa-dice', color: '#eab308', lessons: [{ title: 'Counting Principle', formula: { tex: '\\[ n! \\]', label: 'Arrangements' }, explanation: 'Calculate arrangements.', steps: ['Use factorials for ordering.'] }] },
-            statistics: { title: 'Statistics', desc: 'Regression and correlation.', icon: 'fa-solid fa-chart-line', color: '#f59e0b', lessons: [{ title: 'Regression Line', formula: { tex: '\\[ \\hat{y} = a + bx \\]', label: 'Best Fit' }, explanation: 'Calculate trend line.', steps: ['Find a and b using STAT mode.'] }] }
+            algebra: {
+                title: 'Algebra, Equations & Inequalities',
+                desc: 'Quadratic equations, surds, inequalities & simultaneous equations',
+                icon: 'fa-solid fa-superscript',
+                color: '#4f46e5',
+                lessons: [
+                    {
+                        title: 'Solving Quadratic Equations',
+                        formula: { tex: '\\[ ax^2 + bx + c = 0 \\]', label: 'Standard Form' },
+                        explanation: 'A quadratic equation can be solved by factorising, completing the square, or using the formula.',
+                        steps: [
+                            { desc: 'Standardise the equation to equal zero.', tex: '2x^2 - 5x = 3 \\implies 2x^2 - 5x - 3 = 0' },
+                            { desc: 'Factorise the trinomial (if possible).', tex: '(2x + 1)(x - 3) = 0' },
+                            { desc: 'Set each factor to zero and solve for x.', tex: '2x + 1 = 0 \\text{ or } x - 3 = 0 \\implies x = -0,5; \\, x = 3' }
+                        ]
+                    },
+                    {
+                        title: 'The Quadratic Formula',
+                        formula: { tex: '\\[ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} \\]', label: 'Quadratic Formula' },
+                        explanation: 'Used when factorising is difficult or impossible.',
+                        steps: [
+                            { desc: 'Identify coefficients a, b, and c.', tex: 'x^2 - 4x + 1 = 0 \\implies a=1, b=-4, c=1' },
+                            { desc: 'Substitute into the formula carefully.', tex: 'x = \\frac{-(-4) \\pm \\sqrt{(-4)^2 - 4(1)(1)}}{2(1)}' },
+                            { desc: 'Simplify the surd and calculate final values.', tex: 'x = \\frac{4 \\pm \\sqrt{12}}{2} = 2 \\pm \\sqrt{3}' }
+                        ]
+                    },
+                    {
+                        title: 'Quadratic Inequalities',
+                        formula: { tex: '\\[ x^2 - x - 6 < 0 \\]', label: 'Inequality' },
+                        explanation: 'Solve by finding critical values and testing intervals.',
+                        steps: [
+                            { desc: 'Find Critical Values (CV) by factorising.', tex: '(x-3)(x+2) = 0 \\implies CV: x=3, x=-2' },
+                            { desc: 'Sketch a parabola or test the number line.', tex: '\\text{Parabola concave up, roots at -2 and 3}' },
+                            { desc: 'Identify the region where the graph is below 0.', tex: '-2 < x < 3' }
+                        ]
+                    },
+                    {
+                        title: 'Simultaneous Equations',
+                        formula: { tex: '\\[ y = x + 2 \\text{ and } x^2 + y^2 = 20 \\]', label: 'System' },
+                        explanation: 'Solving for two variables that satisfy two equations.',
+                        steps: [
+                            { desc: 'Substitute the linear equation into the quadratic.', tex: 'x^2 + (x+2)^2 = 20' },
+                            { desc: 'Expand and solve for the first variable.', tex: '2x^2 + 4x - 16 = 0 \\implies x^2 + 2x - 8 = 0 \\implies x = 2, x = -4' },
+                            { desc: 'Substitute back to find the corresponding y values.', tex: 'x=2 \\implies y=4; \\, x=-4 \\implies y=-2' }
+                        ]
+                    }
+                ]
+            },
+            patterns: {
+                title: 'Number Patterns',
+                desc: 'Arithmetic & Geometric Sequences and Series.',
+                icon: 'fa-solid fa-list-ol',
+                color: '#0ea5e9',
+                lessons: [
+                    {
+                        title: 'Arithmetic Sequences',
+                        formula: { tex: '\\[ T_n = a + (n-1)d \\]', label: 'General Term' },
+                        explanation: 'Patterns with a constant common difference.',
+                        steps: [
+                            { desc: 'Find first term (a) and common difference (d).', tex: '5; 8; 11; \\dots \\implies a=5, d=3' },
+                            { desc: 'Substitute into general term formula.', tex: 'T_n = 5 + (n-1)3 \\implies T_n = 3n + 2' },
+                            { desc: 'Use the formula to find any specific term.', tex: 'T_{20} = 3(20) + 2 = 62' }
+                        ]
+                    },
+                    {
+                        title: 'Arithmetic Series',
+                        formula: { tex: '\\[ S_n = \\frac{n}{2}[2a + (n-1)d] \\]', label: 'Sum Formula' },
+                        explanation: 'The sum of terms in an arithmetic sequence.',
+                        steps: [
+                            { desc: 'Identify constant variables n, a, and d.', tex: 'a=2, d=4, n=10' },
+                            { desc: 'Calculate sum using the sum formula.', tex: 'S_{10} = \\frac{10}{2}[2(2) + (9)(4)] = 5(40) = 200' }
+                        ]
+                    },
+                    {
+                        title: 'Geometric Sequences',
+                        formula: { tex: '\\[ T_n = ar^{n-1} \\]', label: 'General Term' },
+                        explanation: 'Patterns with a constant common ratio.',
+                        steps: [
+                            { desc: 'Find first term (a) and common ratio (r).', tex: '2; 6; 18; \\dots \\implies a=2, r=3' },
+                            { desc: 'Apply the general term formula.', tex: 'T_n = 2(3)^{n-1}' }
+                        ]
+                    },
+                    {
+                        title: 'Geometric Series & Sum to Infinity',
+                        formula: { tex: '\\[ S_\\infty = \\frac{a}{1-r} \\text{ if } |r|<1 \\]', label: 'Convergence' },
+                        explanation: 'Sum of infinite terms when the ratio is fractional.',
+                        steps: [
+                            { desc: 'Confirm convergence of the series.', tex: 'r = \\frac{1}{2} \\implies -1 < 0,5 < 1 \\text{ (Convergent)}' },
+                            { desc: 'Apply the sum to infinity formula.', tex: 'S_\\infty = \\frac{10}{1 - 0,5} = 20' }
+                        ]
+                    },
+                    {
+                        title: 'Quadratic Patterns',
+                        formula: { tex: '\\[ T_n = an^2 + bn + c \\]', label: 'General Term' },
+                        explanation: 'Patterns with a constant second difference.',
+                        steps: [
+                            { desc: 'Find the constant second difference to find a.', tex: '2a = 2 \\implies a = 1' },
+                            { desc: 'Use the first difference to find b.', tex: '3a + b = d_1 \\implies 3(1) + b = 3 \\implies b = 0' },
+                            { desc: 'Use the first term to find c.', tex: 'a + b + c = T_1 \\implies 1 + 0 + c = 3 \\implies c = 2' }
+                        ]
+                    }
+                ]
+            },
+            functions: {
+                title: 'Functions & Graphs',
+                desc: 'Parabolas, hyperbolas, exp curves, and inverses.',
+                icon: 'fa-solid fa-chart-line',
+                color: '#10b981',
+                lessons: [
+                    {
+                        title: 'Linear Functions',
+                        formula: { tex: '\\[ y = mx + c \\]', label: 'Straight Line' },
+                        explanation: 'A straight line graph with gradient m and intercept c.',
+                        steps: [
+                            { desc: 'Determine the gradient (m) using two points.', tex: 'm = \\frac{y_2 - y_1}{x_2 - x_1} = \\frac{5 - 1}{2 - 0} = 2' },
+                            { desc: 'Identify the y-intercept (c).', tex: 'c = 1 \\implies y = 2x + 1' },
+                            { desc: 'Plot the line using the dual-intercept method.', tex: '\\text{Set } x=0 \\to y=1; \\, \\text{Set } y=0 \\to x=-0,5' }
+                        ]
+                    },
+                    {
+                        title: 'The Parabola (Quadratic)',
+                        formula: { tex: '\\[ y = a(x - p)^2 + q \\]', label: 'Turning Point Form' },
+                        explanation: 'A symmetric curve with a turning point at (p, q).',
+                        steps: [
+                            { desc: 'Identify the turning point (p, q).', tex: 'y = 2(x - 3)^2 + 4 \\implies TP(3, 4)' },
+                            { desc: 'Determine the direction of the opening (a).', tex: 'a = 2 > 0 \\implies \\text{Opens Upwards}' },
+                            { desc: 'Find x and y intercepts for sketching.', tex: '\\text{Set } x=0 \\to y = 22; \\, \\text{Set } y=0 \\to \\text{No real roots}' }
+                        ]
+                    },
+                    {
+                        title: 'The Hyperbola',
+                        formula: { tex: '\\[ y = \\frac{a}{x-p} + q \\]', label: 'Standard Form' },
+                        explanation: 'A curve with two branches and asymptotes x=p and y=q.',
+                        steps: [
+                            { desc: 'Identify vertical and horizontal asymptotes.', tex: 'y = \\frac{3}{x - 1} + 2 \\implies x=1, y=2' },
+                            { desc: 'Locate the intercepts.', tex: '\\text{Set } x=0 \\to y = -1; \\, \\text{Set } y=0 \\to x = -0,5' },
+                            { desc: 'Sketch the branches in the correct quadrants.', tex: 'a=3 > 0 \\implies \\text{Quadrants 1 and 3 (relative to asymptotes)}' }
+                        ]
+                    },
+                    {
+                        title: 'Inverses & Logs',
+                        formula: { tex: '\\[ f^{-1}(x) \\]', label: 'Reflection' },
+                        explanation: 'Reflecting a function over the line y=x.',
+                        steps: [
+                            { desc: 'Swap x and y variables in the equation.', tex: 'y = 2^x \\implies x = 2^y' },
+                            { desc: 'Solve for y to find the inverse.', tex: 'y = \\log_2 x' },
+                            { desc: 'Identify domain and range of the inverse.', tex: 'D_g: x > 0, \\, R_g: y \\in \\mathbb{R}' }
+                        ]
+                    }
+                ]
+            },
+            finance: {
+                title: 'Finance, Growth & Decay',
+                desc: 'Annuities and sinking funds.',
+                icon: 'fa-solid fa-sack-dollar',
+                color: '#f59e0b',
+                lessons: [
+                    {
+                        title: 'Compound Interest',
+                        formula: { tex: '\\[ A = P(1 + i)^n \\]', label: 'Growth' },
+                        explanation: 'Calculating growth over time.',
+                        steps: [
+                            { desc: 'Identify principal (P), rate (i), and time (n).', tex: 'P=1000, i=0.05, n=3' },
+                            { desc: 'Apply the compound growth formula.', tex: 'A = 1000(1 + 0,05)^3 = 1157,63' }
+                        ]
+                    },
+                    {
+                        title: 'Future Value Annuities',
+                        formula: { tex: '\\[ F = \\frac{x[(1 + i)^n - 1]}{i} \\]', label: 'Savings' },
+                        explanation: 'Used for regular savings/investments.',
+                        steps: [
+                            { desc: 'Determine payment x per period.', tex: 'x = 500, i = 0,08/12, n = 60' },
+                            { desc: 'Calculate the accumulated sum.', tex: 'F = \\frac{500[(1 + 0,0066)^60 - 1]}{0,0066} \\approx 37\\,488' }
+                        ]
+                    },
+                    {
+                        title: 'Present Value Annuities',
+                        formula: { tex: '\\[ P = \\frac{x[1 - (1 + i)^{-n}]}{i} \\]', label: 'Loans' },
+                        explanation: 'Used for loan repayments.',
+                        steps: [
+                            { desc: 'Determine loan amount P and interest rate.', tex: 'P = 250\\,000, i = 0,10/12, n=240' },
+                            { desc: 'Solve for the monthly payment x.', tex: '250\\,000 = \\frac{x[1 - (1 + 0,0083)^{-240}]}{0,0083} \\implies x \\approx 2\\,412' }
+                        ]
+                    }
+                ]
+            },
+            trigonometry: {
+                title: 'Trigonometry',
+                desc: 'ASTC diagram, double & compound angles.',
+                icon: 'fa-solid fa-compass-drafting',
+                color: '#8b5cf6',
+                lessons: [
+                    {
+                        title: 'Reduction Formulae',
+                        formula: { tex: '\\[ \\sin(180^\\circ - \\theta) = \\sin \\theta \\]', label: 'Reduction' },
+                        explanation: 'Simplifying angles to acute form.',
+                        steps: [
+                            { desc: 'Identify the quadrant of the angle.', tex: '180^\\circ + \\theta \\implies \\text{3rd Quadrant}' },
+                            { desc: 'Apply the correct reduction rule and sign.', tex: '\\cos(180^\\circ + \\theta) = -\\cos \\theta' },
+                            { desc: 'Watch for co-functions (90° variants).', tex: '\\sin(90^\\circ - \\theta) = \\cos \\theta' }
+                        ]
+                    },
+                    {
+                        title: 'Double & Compound Angles',
+                        formula: { tex: '\\[ \\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B \\]', label: 'Identities' },
+                        explanation: 'Expanding and simplifying trig expressions.',
+                        steps: [
+                            { desc: 'Identify which identity to apply.', tex: '\\cos 2\\theta = 2\\cos^2\\theta - 1' },
+                            { desc: 'Substitute variables carefully.', tex: '\\cos 70^\\circ \\cos 10^\\circ + \\sin 70^\\circ \\sin 10^\\circ = \\cos(70^\\circ - 10^\\circ) = \\cos 60^\\circ' },
+                            { desc: 'Evaluate specific angles.', tex: '\\cos 60^\\circ = \\frac{1}{2}' }
+                        ]
+                    },
+                    {
+                        title: 'General Solution',
+                        formula: { tex: '\\[ \\theta = \\alpha + k \\cdot 360^\\circ \\]', label: 'Solutions' },
+                        explanation: 'Finding all angles that satisfy a trig equation.',
+                        steps: [
+                            { desc: 'Find the reference angle.', tex: '2\\sin\\theta = 1 \\implies \\sin\\theta = 0,5 \\implies \\alpha = 30^\\circ' },
+                            { desc: 'Identify quadrants based on sign.', tex: '\\sin\\theta > 0 \\implies \\text{Q1: } 30^\\circ, \\, \\text{Q2: } 150^\\circ' },
+                            { desc: 'Add the periodicity term k.', tex: '\\theta = 30^\\circ + k \\cdot 360^\\circ \\text{ or } 150^\\circ + k \\cdot 360^\\circ, \\, k \\in \\mathbb{Z}' }
+                        ]
+                    }
+                ]
+            },
+            analytical_geometry: {
+                title: 'Analytical Geometry',
+                desc: 'Circles and tangents.',
+                icon: 'fa-solid fa-drafting-compass',
+                color: '#0ea5e9',
+                lessons: [
+                    {
+                        title: 'Distance & Gradient',
+                        formula: { tex: '\\[ m = \\frac{y_2-y_1}{x_2-x_1} \\]', label: 'Gradient' },
+                        explanation: 'Calculating slope and length between points.',
+                        steps: [
+                            { desc: 'Substitute coordinates into the formula.', tex: 'A(2,3), B(4,-1) \\implies m = \\frac{-1-3}{4-2} = -2' },
+                            { desc: 'Verify perpendicularity or parallelism.', tex: 'm_1 \\cdot m_2 = -1 \\implies \\text{Perpendicular}' }
+                        ]
+                    },
+                    {
+                        title: 'Equation of a Circle',
+                        formula: { tex: '\\[ (x - a)^2 + (y - b)^2 = r^2 \\]', label: 'Circle' },
+                        explanation: 'Standard form for center (a, b) and radius r.',
+                        steps: [
+                            { desc: 'Identify center (a, b) and radius.', tex: '\\text{Center}(3, -2), r=5 \\implies (x-3)^2 + (y+2)^2 = 25' },
+                            { desc: 'Find the equation of a tangent.', tex: '\\text{Radius } \\perp \\text{ Tangent} \\implies m_t = -1/m_r' }
+                        ]
+                    }
+                ]
+            },
+            euclidean_geometry: {
+                title: 'Euclidean Geometry',
+                desc: 'Circle theorems and proportionality.',
+                icon: 'fa-solid fa-shapes',
+                color: '#10b981',
+                lessons: [
+                    {
+                        title: 'Circle Theorems',
+                        formula: { tex: '\\[ \\angle \\text{ at center} = 2 \\times \\angle \\text{ at circ} \\]', label: 'Theorem' },
+                        explanation: 'Core circle properties for geometric reasoning.',
+                        steps: [
+                            { desc: 'Identify geometric properties in the diagram.', tex: '\\text{Diameter } \\perp \\text{ Chord} \\implies \\text{Chord bisected}' },
+                            { desc: 'Apply theorems to find unknown angles.', tex: '\\hat{C}_1 = 90^\\circ \\, (\\angle \\text{ in semi-circle})' }
+                        ]
+                    },
+                    {
+                        title: 'Proportionality & Similarity',
+                        formula: { tex: '\\[ \\frac{AD}{DB} = \\frac{AE}{EC} \\]', label: 'Similarity' },
+                        explanation: 'Ratios in triangles and parallel lines.',
+                        steps: [
+                            { desc: 'Identify parallel lines for proportionality.', tex: 'DE \\parallel BC \\implies \\frac{AD}{DB} = \\frac{AE}{EC}' },
+                            { desc: 'Establish similarity between triangles.', tex: '\\Delta ADE \\mid\\mid\\mid \\Delta ABC \\, (AAA)' }
+                        ]
+                    }
+                ]
+            },
+            calculus: {
+                title: 'Differential Calculus',
+                desc: 'First principles and power rules.',
+                icon: 'fa-solid fa-infinity',
+                color: '#ec4899',
+                lessons: [
+                    {
+                        title: 'First Principles',
+                        formula: { tex: '\\[ f\'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h} \\]', label: 'Derivative' },
+                        explanation: 'Finding the derivative using the formal definition.',
+                        steps: [
+                            { desc: 'Find and simplify f(x+h).', tex: 'f(x) = x^2 \\implies f(x+h) = (x+h)^2 = x^2 + 2xh + h^2' },
+                            { desc: 'Substitute into the quotient and simplify.', tex: '\\frac{f(x+h) - f(x)}{h} = \\frac{2xh + h^2}{h} = 2x + h' },
+                            { desc: 'Evaluate the limit as h approaches zero.', tex: 'f\'(x) = \\lim_{h \\to 0} (2x + h) = 2x' }
+                        ]
+                    },
+                    {
+                        title: 'Rules of Differentiation',
+                        formula: { tex: '\\[ D_x[ax^n] = anx^{n-1} \\]', label: 'Power Rule' },
+                        explanation: 'Applying short-cut rules to find derivatives.',
+                        steps: [
+                            { desc: 'Prepare the expression for differentiation.', tex: 'f(x) = \\frac{2}{x^3} + 4\\sqrt{x} \\implies f(x) = 2x^{-3} + 4x^{0,5}' },
+                            { desc: 'Apply the power rule to each term.', tex: 'f\'(x) = -6x^{-4} + 2x^{-0,5}' },
+                            { desc: 'Convert to positive exponents if required.', tex: 'f\'(x) = -\\frac{6}{x^4} + \\frac{2}{\\sqrt{x}}' }
+                        ]
+                    }
+                ]
+            },
+            probability: {
+                title: 'Counting & Probability',
+                desc: 'Factorials and Venn diagrams.',
+                icon: 'fa-solid fa-dice',
+                color: '#eab308',
+                lessons: [
+                    {
+                        title: 'Contingency Tables',
+                        formula: { tex: '\\[ P(A|B) = \\frac{P(A \\cap B)}{P(B)} \\]', label: 'Conditional' },
+                        explanation: 'Calculating probability from data tables.',
+                        steps: [
+                            { desc: 'Find totals for rows and columns.', tex: '\\text{Total Managed} = 100, \\, \\text{Total Unmanaged} = 50' },
+                            { desc: 'Identify the intersection and marginal total.', tex: 'P(M \\cap B) = \\frac{20}{150}, \\, P(B) = \\frac{80}{150}' },
+                            { desc: 'Apply the conditional probability formula.', tex: 'P(M|B) = \\frac{20}{150} \\div \\frac{80}{150} = 0,25' }
+                        ]
+                    },
+                    {
+                        title: 'Counting Principles',
+                        formula: { tex: '\\[ n! \\]', label: 'Permutations' },
+                        explanation: 'Counting arrangements and selections.',
+                        steps: [
+                            { desc: 'Calculate permutations for distinct items.', tex: '5 \\text{ students in a row} = 5! = 120' },
+                            { desc: 'Handle restrictions (e.g., items kept together).', tex: '(ABC)DE = 3! \\times 3! = 36' }
+                        ]
+                    }
+                ]
+            },
+            statistics: {
+                title: 'Statistics',
+                desc: 'Regression and correlation.',
+                icon: 'fa-solid fa-chart-line',
+                color: '#f59e0b',
+                lessons: [
+                    {
+                        title: 'Standard Deviation',
+                        formula: { tex: '\\[ \\sigma = \\sqrt{\\frac{\\sum(x - \\bar{x})^2}{n}} \\]', label: 'Spread' },
+                        explanation: 'Measure of data dispersion around the mean.',
+                        steps: [
+                            { desc: 'Calculate the mean of the data set.', tex: '\\bar{x} = \\frac{10+20+30}{3} = 20' },
+                            { desc: 'Find the variance by summing squared differences.', tex: '\\sigma^2 = \\frac{(10-20)^2 + (20-20)^2 + (30-20)^2}{3} = \\frac{200}{3}' },
+                            { desc: 'Take the square root to find standard deviation.', tex: '\\sigma = \\sqrt{66,67} \\approx 8,16' }
+                        ]
+                    },
+                    {
+                        title: 'Regression & Correlation',
+                        formula: { tex: '\\[ \\hat{y} = a + bx \\]', label: 'Line of Best Fit' },
+                        explanation: 'Modeling trends from bivariate data.',
+                        steps: [
+                            { desc: 'Identify independent (x) and dependent (y) variables.', tex: 'x: \\text{Study Hours}, \\, y: \\text{Exam Mark}' },
+                            { desc: 'Determine the regression coefficients a and b.', tex: 'a = 12,4, \\, b = 0,85 \\implies \\hat{y} = 12,4 + 0,85x' },
+                            { desc: 'Interpret the correlation coefficient (r).', tex: 'r = 0,92 \\implies \\text{Strong Positive Correlation}' }
+                        ]
+                    }
+                ]
+            },
         };
 
         const params = new URLSearchParams(window.location.search);
@@ -193,12 +549,53 @@
             const topic = topicsMeta[key];
             if (!topic) { renderTopicsList(); return; }
             const container = document.getElementById('topicContent');
+
+            // Find masterclass data for this topic
+            const mData = window.masterclassData && window.masterclassData[key];
+
+            let workshopHtml = '';
+            if (mData) {
+                workshopHtml = `
+                <div class="mastery-workshop">
+                    <div class="workshop-header">
+                        <div class="workshop-logo"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div>
+                            <h2 style="font-size: 1.5rem; margin-bottom: 0.25rem;">Master Workshop</h2>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">High-level model questions & examiner's notes</p>
+                        </div>
+                    </div>
+                    
+                    ${mData.map((item, index) => `
+                        <div class="tutorial-card">
+                            <div class="tutorial-tag">Model Question ${index + 1}</div>
+                            <h3 style="margin-bottom: 1rem; color: var(--primary);">${item.title}</h3>
+                            <div style="background: var(--bg); padding: 1.25rem; border-radius: var(--radius-md); font-weight: 600; font-size: 1.1rem; border-left: 4px solid var(--accent-amber); margin-bottom: 1.5rem;">
+                                ${item.question}
+                            </div>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                ${item.steps.map((step, sIdx) => `
+                                    <div class="annotated-step">
+                                        <div class="step-math">\\[ ${step.tex} \\]</div>
+                                        <div class="step-note">
+                                            <i class="fa-solid fa-lightbulb"></i>
+                                            <div><strong>Examiner's Note:</strong> ${step.note}</div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>`;
+            }
+
             container.innerHTML = `
             <a href="topics.html" style="display:flex;align-items:center;gap:0.5rem;color:var(--text-secondary);text-decoration:none;margin-bottom:1rem;">
                 <i class="fa-solid fa-arrow-left"></i> All Topics
             </a>
             <h1>${topic.title}</h1>
-            <p>${topic.desc}</p>
+            <p style="margin-bottom: 1.5rem;">${topic.desc}</p>
+            
             ${topic.lessons.map((lesson, li) => `
                 <div class="lesson-card">
                     <div class="lesson-card__header" onclick="toggleLesson(this)">
@@ -210,13 +607,25 @@
                         <p>${lesson.explanation}</p>
                         ${lesson.visual || ''}
                         <div class="steps-list">
-                            ${lesson.steps.map(s => `<div class="step-item">${s}</div>`).join('')}
+                            ${lesson.steps.map(s => {
+                if (typeof s === 'string') return `<div class="step-item revealed">${s}</div>`;
+                return `
+                                <div class="step-item revealed detailed">
+                                    <div class="step-desc">${s.desc}</div>
+                                    <div class="step-example">\\[ ${s.tex} \\]</div>
+                                </div>`;
+            }).join('')}
                         </div>
                     </div>
                 </div>`).join('')}
+
+            ${workshopHtml}
             `;
             renderMath(container);
         }
+
+        // -----------------------------
+
 
         window.toggleLesson = function (header) {
             header.parentElement.classList.toggle('open');
@@ -228,3 +637,4 @@
 </body>
 
 </html>
+

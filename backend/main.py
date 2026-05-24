@@ -1,6 +1,11 @@
-from fastapi import FastAPI, HTTPException
+import re
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from fastapi.responses import JSONResponse
+from pydantic import BaseModel, Field, field_validator
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 import yt_dlp
 import logging
 
@@ -8,27 +13,53 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="TotalSkillz Video Backend")
+# ---- Rate Limiter Setup ----
+limiter = Limiter(key_func=get_remote_address)
 
-# Configure CORS
-# In production, replace ["*"] with the actual origin of your frontend
+app = FastAPI(title="TotalSkillz Video Backend")
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# ---- CORS (tightened from "*") ----
+ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "https://totalskillz.web.app",
+    "https://totalskillz-3bc18.web.app",
+    "https://totalskillz.firebaseapp.com",
+    "https://totalskillz-3bc18.firebaseapp.com",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type", "Authorization"],
+)
+
+# ---- YouTube URL Validation ----
+YOUTUBE_URL_REGEX = re.compile(
+    r'^https?://(www\.)?(youtube\.com|youtu\.be|m\.youtube\.com)/.+'
 )
 
 class VideoRequest(BaseModel):
-    url: str
+    url: str = Field(..., max_length=2048, description="YouTube video URL")
+
+    @field_validator('url')
+    @classmethod
+    def validate_youtube_url(cls, v: str) -> str:
+        v = v.strip()
+        if not YOUTUBE_URL_REGEX.match(v):
+            raise ValueError('URL must be a valid YouTube link (youtube.com or youtu.be)')
+        return v
 
 @app.get("/")
 async def root():
     return {"message": "TotalSkillz Video API is active"}
 
 @app.post("/api/video/info")
-async def get_video_info(request: VideoRequest):
+@limiter.limit("10/minute")
+async def get_video_info(request: Request, video_req: VideoRequest):
     ydl_opts = {
         'quiet': True,
         'no_warnings': True,
@@ -38,9 +69,10 @@ async def get_video_info(request: VideoRequest):
     
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-            info = ydl.extract_info(request.url, download=False)
+            info = ydl.extract_info(video_req.url, download=False)
             
             # Extract relevant fields for our frontend
+            description = info.get("description") or ""
             data = {
                 "id": info.get("id"),
                 "title": info.get("title"),
@@ -48,7 +80,7 @@ async def get_video_info(request: VideoRequest):
                 "duration": info.get("duration"),
                 "view_count": info.get("view_count"),
                 "uploader": info.get("uploader"),
-                "description": info.get("description")[:500] + "..." if info.get("description") and len(info.get("description")) > 500 else info.get("description")
+                "description": description[:500] + "..." if len(description) > 500 else description
             }
             return data
     except Exception as e:
@@ -58,3 +90,4 @@ async def get_video_info(request: VideoRequest):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+

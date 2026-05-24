@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/dashboard.css?v=6">
     <link rel="stylesheet" href="components/sidebar.css?v=6">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-3bc18.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-3bc18.firebaseapp.com https://*.firebaseapp.com https://www.youtube.com https://www.youtube-nocookie.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-7193a.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-7193a.firebaseapp.com https://*.firebaseapp.com https://www.youtube.com https://www.youtube-nocookie.com;">
     <style>
         :root {
             --admin-bg: #000000;
@@ -563,6 +563,10 @@
                             <i class="fa-solid fa-bullhorn"></i>
                             <span class="nav-label">Broadcast</span>
                         </a>
+                        <a href="#" class="nav-item" onclick="showPanel('generator', this)">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span class="nav-label">Question Generator</span>
+                        </a>
                     </div>
                 </nav>
                 <div class="sidebar-footer">
@@ -684,10 +688,10 @@
                             <thead>
                                 <tr>
                                     <th>User Details</th>
-                                    <th>Questions Done</th>
+                                    <th>Role</th>
+                                    <th>Questions</th>
                                     <th>Accuracy</th>
                                     <th>Streak</th>
-                                    <th>Badges</th>
                                     <th>Last Active</th>
                                     <th>Actions</th>
                                 </tr>
@@ -839,6 +843,52 @@
                     </div>
                 </div>
 
+                <!-- Question Generator Panel -->
+                <div id="panel-generator" class="admin-panel">
+                    <div class="admin-page-header">
+                        <h1><i class="fa-solid fa-wand-magic-sparkles" style="color:var(--admin-accent);"></i> Question Generator</h1>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-card__icon"><i class="fa-solid fa-database"></i></div>
+                            <div>
+                                <div class="metric-card__value" id="genTotalQuestions">—</div>
+                                <div class="metric-card__label">Total Questions</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="broadcast-form" style="max-width: 600px;">
+                        <h3 style="margin-bottom:1.25rem; font-size:1rem; color:var(--admin-text);">Generate New Variations</h3>
+                        
+                        <label>Select Topic</label>
+                        <select id="genTopic">
+                            <option value="all">All Topics (Full Refresh)</option>
+                            <option value="algebra">Algebra</option>
+                            <option value="patterns">Number Patterns</option>
+                            <option value="functions">Functions & Graphs</option>
+                            <option value="calculus">Calculus</option>
+                            <option value="finance">Financial Maths</option>
+                            <option value="probability">Probability</option>
+                            <option value="trigonometry">Trigonometry</option>
+                            <option value="geometry">Analytical Geometry</option>
+                        </select>
+                        
+                        <button class="admin-btn primary" style="width:100%; justify-content:center; padding:0.75rem; margin-top:1rem;" id="btnGenerate" onclick="triggerGeneration()">
+                            <i class="fa-solid fa-play"></i> Start Generation
+                        </button>
+                        
+                        <div id="genStatus" style="margin-top: 1.5rem; display: none; padding: 1.25rem; border-radius: 8px; background: var(--admin-accent-dim); border: 1px solid var(--admin-accent);">
+                            <div style="display:flex; align-items:center; gap:1rem;">
+                                <div id="genIcon" class="fa-solid fa-spinner fa-spin" style="font-size:1.25rem; color:var(--admin-accent);"></div>
+                                <div id="genMessage" style="font-weight:500;">Initializing generator...</div>
+                            </div>
+                            <div id="genSubMessage" style="margin-top:0.5rem; font-size:0.85rem; color:var(--admin-muted);">This may take a few seconds as we compute new variations.</div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div> <!-- Close layout-wrapper -->
     </div> <!-- Close main-layout -->
@@ -865,11 +915,16 @@
                 return;
             }
 
-            // Enhanced Security: Check email AND ensure it's verified
-            const idToken = user.getIdTokenResult().then(idTokenResult => {
+            // Check Firestore for user role
+            firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
+                const data = doc.data() || {};
                 const isVerified = user.emailVerified;
 
-                if (user.email !== ADMIN_EMAIL) {
+                // Super Admin fallback or Admin role
+                const isSuperAdmin = user.email === ADMIN_EMAIL;
+                const isAdmin = data.role === 'admin';
+
+                if (!isSuperAdmin && !isAdmin) {
                     showCriticalError("ACCESS DENIED: Insufficient permissions.");
                     setTimeout(() => window.location.href = 'dashboard.html', 3000);
                     return;
@@ -891,14 +946,36 @@
 
         function showCriticalError(msg) {
             const shroud = document.getElementById('securityShroud');
+
+            // If the error is about email verification, show the resend button
+            const isVerificationError = msg.includes("Admin email must be verified");
+            const resendHtml = isVerificationError ?
+                `<button class="admin-btn primary" onclick="resendAdminVerification()" style="background: var(--admin-accent); color: white;">Resend Verification Email</button>` : '';
+
             shroud.innerHTML = `
                 <i class="fa-solid fa-triangle-exclamation" style="font-size:3rem; color:var(--admin-red); margin-bottom:1rem;"></i>
                 <h2 style="color:white; font-family:sans-serif; text-align:center; padding:0 20px;">${msg}</h2>
-                <div style="margin-top:2rem; display:flex; gap:1rem;">
+                <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap: wrap; justify-content: center;">
+                    ${resendHtml}
                     <button class="admin-btn" onclick="logoutAdmin()" style="border-color:var(--admin-red); color:var(--admin-red);">Logout</button>
                     <button class="admin-btn" onclick="window.location.href='dashboard.html'">Back to App</button>
                 </div>
             `;
+        }
+
+        function resendAdminVerification() {
+            const user = firebase.auth().currentUser;
+            if (user) {
+                user.sendEmailVerification()
+                    .then(() => {
+                        alert("Verification email sent! Please check your inbox (and spam folder) for hlongwasphephelo40@gmail.com. Once verified, simply refresh this page.");
+                    })
+                    .catch((error) => {
+                        alert("Error sending verification email: " + error.message);
+                    });
+            } else {
+                alert("No user is currently signed in.");
+            }
         }
 
         async function initAdmin() {
@@ -966,8 +1043,26 @@
                 document.getElementById('metricOpenReports').textContent = open;
                 document.getElementById('metricClosedReports').textContent = closed;
                 document.getElementById('overviewReportsBody').innerHTML = recentHtml || '<tr><td colspan="5" class="empty-state">No reports yet.</td></tr>';
+                
+                // Also update generator total count
+                fetch('js/questions.json')
+                    .then(r => r.json())
+                    .then(data => {
+                        document.getElementById('genTotalQuestions').textContent = data.length;
+                    }).catch(() => {
+                        document.getElementById('genTotalQuestions').textContent = 'Error';
+                    });
             } catch (e) {
                 console.error('Overview error:', e);
+                // Show errors in the metrics if permission fails
+                const metricIds = ['metricTotalUsers', 'metricOpenReports', 'metricClosedReports', 'metricBroadcasts', 'metricResponses'];
+                metricIds.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.innerHTML = '<span style="color:var(--admin-red); font-size:0.7rem;">Error</span>';
+                });
+                if (e.message.includes('permission')) {
+                    showToast("Security access error. Check Firestore rules or account role.", "error");
+                }
             }
         }
 
@@ -988,7 +1083,13 @@
                     document.getElementById('userCount').textContent = allUsers.length;
                     renderUsers(allUsers);
                 } catch (e2) {
-                    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:#ef4444; padding:2rem;">Error: ${e2.message}</td></tr>`;
+                    console.error("User load error:", e2);
+                    tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:var(--admin-red); padding:2rem;">
+                        <i class="fa-solid fa-triangle-exclamation"></i> Error: ${e2.message}
+                    </td></tr>`;
+                    if (e2.message.includes('permission')) {
+                        showToast("Access denied: You don't have permission to view users.", "error");
+                    }
                 }
             }
         }
@@ -1007,6 +1108,11 @@
                     ? new Date(u.lastUpdated.toDate ? u.lastUpdated.toDate() : u.lastUpdated).toLocaleDateString()
                     : '—';
                 const initials = (u.displayName || u.email || '?').substring(0, 2).toUpperCase();
+
+                const isAdmin = u.role === 'admin';
+                const isSuperAdmin = u.email === ADMIN_EMAIL;
+                const roleBadge = isAdmin ? '<span class="badge badge-open">ADMIN</span>' : '<span class="badge">STUDENT</span>';
+
                 return `<tr>
                     <td>
                         <div style="display:flex; align-items:center; gap:0.75rem;">
@@ -1017,18 +1123,46 @@
                             </div>
                         </div>
                     </td>
+                    <td>${roleBadge}</td>
                     <td>${prog.totalAttempted ?? '—'}</td>
                     <td>${accuracy}</td>
                     <td>${prog.streak ?? '—'} <i class="fa-solid fa-fire" style="color:#f59e0b;"></i></td>
-                    <td>${(prog.badges || []).length}</td>
                     <td style="color:var(--admin-muted);">${lastActive}</td>
                     <td>
-                        <button class="admin-btn danger" style="padding: 0.35rem 0.6rem;" onclick="deleteUserRecord('${u.id}', '${(u.displayName || u.email || 'this user').replace(/'/g, "\\'")}')" title="Delete User Record">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
+                        <div style="display:flex; gap:0.5rem;">
+                            ${!isSuperAdmin ? `
+                                <button class="admin-btn ${isAdmin ? 'warning' : 'success'}" style="padding: 0.35rem 0.6rem;" 
+                                    onclick="toggleAdminRole('${u.id}', ${isAdmin})" title="${isAdmin ? 'Revoke Admin' : 'Make Admin'}">
+                                    <i class="fa-solid ${isAdmin ? 'fa-user-minus' : 'fa-user-shield'}"></i>
+                                </button>
+                            ` : ''}
+                            <button class="admin-btn danger" style="padding: 0.35rem 0.6rem;" onclick="deleteUserRecord('${u.id}', '${(u.displayName || u.email || 'this user').replace(/'/g, "\\'")}')" title="Delete User Record">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
                     </td>
                 </tr>`;
             }).join('');
+        }
+
+        async function toggleAdminRole(uid, isCurrentlyAdmin) {
+            const newRole = isCurrentlyAdmin ? null : 'admin';
+            const action = isCurrentlyAdmin ? 'revoke admin permissions from' : 'grant admin permissions to';
+
+            if (confirm(`Are you sure you want to ${action} this user?`)) {
+                try {
+                    await firebase.firestore().collection('users').doc(uid).set({
+                        role: newRole,
+                        lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+                    }, { merge: true });
+
+                    showToast(`Permissions updated successfully!`, 'success');
+                    loadUsers();
+                } catch (e) {
+                    console.error("Role update error:", e);
+                    showToast("Failed to update role: " + e.message, 'error');
+                }
+            }
         }
 
         async function deleteUserRecord(uid, name) {
@@ -1096,7 +1230,13 @@
                 allReports = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
                 renderReports();
             } catch (e) {
-                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:#ef4444;padding:2rem;">Error: ${e.message}</td></tr>`;
+                console.error("Reports load error:", e);
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--admin-red);padding:2rem;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Error loading reports: ${e.message}
+                </td></tr>`;
+                if (e.message.includes('permission')) {
+                    showToast("Access denied for bug reports.", "error");
+                }
             }
         }
 
@@ -1189,7 +1329,13 @@
                     </tr>`;
                 }).join('');
             } catch (e) {
-                tbody.innerHTML = `<tr><td colspan="6" style="color:#ef4444;text-align:center;padding:2rem;">Error: ${e.message}</td></tr>`;
+                console.error("Broadcasts load error:", e);
+                tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--admin-red); padding:2rem;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Error: ${e.message}
+                </td></tr>`;
+                if (e.message.includes('permission')) {
+                    showToast("Access denied for broadcasts.", "error");
+                }
             }
         }
 
@@ -1260,7 +1406,12 @@
                 }).join('');
             } catch (e) {
                 console.error("Error loading responses:", e);
-                tbody.innerHTML = `<tr><td colspan="5" style="color:#ef4444;text-align:center;padding:2rem;">Error: ${e.message}</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" style="color:var(--admin-red);text-align:center;padding:2rem;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Error loading responses: ${e.message}
+                </td></tr>`;
+                if (e.message.includes('permission')) {
+                    showToast("Access denied for student responses.", "error");
+                }
             }
         }
 
@@ -1289,7 +1440,62 @@
             clearTimeout(toastTimer);
             toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
         }
+        // ---- QUESTION GENERATOR ----
+        async function triggerGeneration() {
+            const topic = document.getElementById('genTopic').value;
+            const btn = document.getElementById('btnGenerate');
+            const status = document.getElementById('genStatus');
+            const msg = document.getElementById('genMessage');
+            const icon = document.getElementById('genIcon');
+            const subMsg = document.getElementById('genSubMessage');
+
+            // UI Feedback
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            status.style.display = 'block';
+            msg.textContent = 'Generating questions...';
+            icon.className = 'fa-solid fa-spinner fa-spin';
+            status.style.borderColor = 'var(--admin-accent)';
+            status.style.background = 'var(--admin-accent-dim)';
+
+            try {
+                const response = await fetch('/api/admin/generate-questions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ topic })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    msg.textContent = 'Generation Complete!';
+                    subMsg.textContent = `${result.message} Total in database: ${result.totalCount}`;
+                    icon.className = 'fa-solid fa-check';
+                    icon.style.color = 'var(--admin-green)';
+                    status.style.borderColor = 'var(--admin-green)';
+                    document.getElementById('genTotalQuestions').textContent = result.totalCount;
+                    
+                    // Show success toast
+                    showToast('Questions generated successfully!', 'success');
+                } else {
+                    throw new Error(result.message);
+                }
+            } catch (error) {
+                console.error('Generation failed:', error);
+                msg.textContent = 'Generation Failed';
+                subMsg.textContent = error.message;
+                icon.className = 'fa-solid fa-circle-exclamation';
+                icon.style.color = 'var(--admin-red)';
+                status.style.borderColor = 'var(--admin-red)';
+                showToast('Generation failed. See console.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+        }
+
     </script>
 </body>
 
 </html>
+

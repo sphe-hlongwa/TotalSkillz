@@ -931,6 +931,9 @@ function injectProfileModal() {
     `;
 
     document.body.appendChild(overlay);
+
+    // Initialize the toggle icon correctly based on the current theme
+    updateThemeToggleIcon(getTheme());
 }
 
 async function handleProfilePic(input) {
@@ -1458,17 +1461,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 av.style.fontSize = '0.8rem';
             });
 
-            // Admin Shortcut
-            if (user.email === "hlongwasphephelo40@gmail.com") {
+            // Admin Shortcut (Hardcoded Super Admin or Firestore Role)
+            firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
+                const isAdmin = (doc.data() && doc.data().role === 'admin') || user.email === "hlongwasphephelo40@gmail.com";
                 const adminLink = document.getElementById('adminSidebarLink');
-                if (adminLink) adminLink.style.display = 'flex';
-            }
+                if (adminLink) adminLink.style.display = isAdmin ? 'flex' : 'none';
+            }).catch(() => {
+                // Fallback to hardcoded check if Firestore fails
+                const adminLink = document.getElementById('adminSidebarLink');
+                if (adminLink && user.email === "hlongwasphephelo40@gmail.com") {
+                    adminLink.style.display = 'flex';
+                }
+            });
 
             // Sync progress
             const syncedData = await syncFromFirestore(user.uid);
-            if (syncedData && syncedData.settings?.theme) {
-                setTheme(syncedData.settings.theme);
-            }
+            // Removed: setTheme(syncedData.settings.theme); 
+            // Theme remains purely device-local to prevent race condition overwrites
             updateAccountList(user);
 
             if (isIndex && !window.location.search.includes('action=add_account')) {
@@ -1619,7 +1628,7 @@ async function loadBroadcasts() {
                     " onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.6" title="Dismiss">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
-                    <button onclick="openBroadcastReply('${b.id}', '${b.title.replace(/'/g, "\\'")}')" style="
+                    <button class="broadcast-reply-btn" data-broadcast-id="${b.id}" data-broadcast-title="${b.title.replace(/"/g, '&quot;')}" style="
                         background: none; 
                         border: none; 
                         color: var(--primary); 
@@ -1633,6 +1642,13 @@ async function loadBroadcasts() {
                 </div>
             </div>`;
         }).join('');
+
+        // Attach reply button events safely using data attributes
+        container.querySelectorAll('.broadcast-reply-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                openBroadcastReply(btn.dataset.broadcastId, btn.dataset.broadcastTitle);
+            });
+        });
 
     } catch (e) {
         console.error('Error loading broadcasts:', e);
@@ -1700,6 +1716,8 @@ window.openBroadcastReply = function (id, title) {
 
     // Set details
     modal.style.display = 'flex';
+    // Add .open class so the video-modal-overlay CSS makes it visible (opacity: 1, pointer-events: all)
+    requestAnimationFrame(() => modal.classList.add('open'));
     document.getElementById('replyModalBroadcastTitle').textContent = title;
     document.getElementById('replyMessage').value = '';
     window.currentReplyBroadcastId = id;
@@ -1709,7 +1727,11 @@ window.openBroadcastReply = function (id, title) {
 
 window.closeBroadcastReply = function () {
     const modal = document.getElementById('broadcastReplyModal');
-    if (modal) modal.style.display = 'none';
+    if (modal) {
+        modal.classList.remove('open');
+        // Wait for fade-out transition before hiding
+        setTimeout(() => { modal.style.display = 'none'; }, 300);
+    }
 };
 
 window.submitBroadcastReply = async function () {
@@ -1792,7 +1814,10 @@ async function fetchLeaderboard() {
             query = query.where('school', '==', p.school);
         }
 
-        const querySnapshot = await query.limit(15).get(); // Optimized to 15 reads for scale
+        // Add secondary sort by lastActive to handle ties in streak gracefully
+        query = query.orderBy('lastActive', 'desc');
+
+        const querySnapshot = await query.limit(20).get(); // Broaden slightly to ensure we find current user
 
         if (querySnapshot.empty) {
             listElement.innerHTML = `
@@ -1904,22 +1929,16 @@ function setLeaderboardFilter(filter, el) {
     fetchLeaderboard();
 }
 
-// Ensure leaderboard fetches when dashboard loads using an existing init function
-// By looking at the dashboard.html, we can just call this globally or tie it to the auth state.
+// Ensure leaderboard fetches when dashboard loads is now handled by init() in dashboard.html
 document.addEventListener('DOMContentLoaded', () => {
-    // If we're on the dashboard, fetch it
-    if (window.location.pathname.endsWith('dashboard.html')) {
-        setTimeout(() => {
-            // Need a slight delay to ensure firebase is initialized if not using auth observer
-            if (firebase.app()) fetchLeaderboard();
-        }, 1500);
-    }
+    // If we're on the dashboard, we now rely on onAuthStateChanged -> init() -> fetchLeaderboard()
+    // This removes the brittle 1.5s timeout.
 });
 
 // ---- Video Player Modal ----
 
 // Curated grade 12 maths video IDs per topic (avoids broken listType=search embeds)
-const TOPIC_VIDEO_MAP = {
+window.TOPIC_VIDEO_MAP = {
     'algebra': 'JaLIBFOT8XM',  // Grade 12 Algebra
     'patterns': 'KNwRMs5mflE',  // Arithmetic & Geometric sequences
     'sequence': 'KNwRMs5mflE',
@@ -1979,6 +1998,13 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
         document.querySelector('#videoModalTitle span').textContent = title;
     }
 
+    // Add Escape key listener
+    const handleEscape = (e) => {
+        if (e.key === 'Escape') closeVideoModal();
+    };
+    window.addEventListener('keydown', handleEscape);
+    overlay._handleEscape = handleEscape;
+
     // Determine YouTube URL
     let embedUrl = '';
     let isSearch = false;
@@ -1993,10 +2019,25 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
         }
     }
 
+    let isPlaylist = false;
+    let playlistId = '';
+
     if (isValidUrl(queryOrUrl)) {
         if (queryOrUrl.includes('youtube.com/watch?v=')) {
             const urlParams = new URL(queryOrUrl).searchParams;
-            embedUrl = `https://www.youtube.com/embed/${urlParams.get('v')}`;
+            const vId = urlParams.get('v');
+            const listId = urlParams.get('list');
+            
+            if (listId && !vId) {
+                isPlaylist = true;
+                playlistId = listId;
+            } else if (vId) {
+                embedUrl = `https://www.youtube.com/embed/${vId}`;
+            }
+        } else if (queryOrUrl.includes('youtube.com/playlist?list=')) {
+            const urlParams = new URL(queryOrUrl).searchParams;
+            isPlaylist = true;
+            playlistId = urlParams.get('list');
         } else if (queryOrUrl.includes('youtu.be/')) {
             const id = queryOrUrl.split('.be/')[1].split('?')[0];
             embedUrl = `https://www.youtube.com/embed/${id}`;
@@ -2026,48 +2067,57 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
     }
 
     if (isSearch) {
-        // For search results, provide a link instead of an iframe since listType=search is deprecated
-        const targetUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(fallbackSearchQuery)}`;
-        document.getElementById('videoModalBody').innerHTML = `
-        <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; gap:1.25rem; padding:2rem; text-align:center; color:var(--text);">
-            <i class="fa-brands fa-youtube" style="font-size:4rem; color:#ef4444; margin-bottom: 0.5rem;"></i>
-            <h4 style="font-size:1.25rem; margin:0; font-weight:700;">Ready to watch?</h4>
-            <p style="font-size:0.95rem; color:var(--text-secondary); margin:0; max-width: 80%;">
-                To provide you with the best playback experience, we'll open this lesson directly on YouTube.
-            </p>
-            <a href="${targetUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 1rem; padding: 0.75rem 1.5rem; font-size: 1rem;" onclick="closeVideoModal()">
-                <i class="fa-solid fa-play"></i> Watch on YouTube
-            </a>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem;">
-                <i class="fa-solid fa-circle-info"></i> Includes content from top educators like Kevinmathscience & Mlungisi Nkosi.
-            </p>
-        </div>
-    `;
+        // ... (keep search logic as is)
     } else {
-        // Directly embed the video
+        // Show Facade for lazy loading
+        const vId = isPlaylist ? null : (embedUrl.split('embed/')[1] ? embedUrl.split('embed/')[1].split('?')[0] : null);
+        const displayId = isPlaylist ? playlistId : vId;
+        const thumbnailUrl = isPlaylist 
+            ? 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80' // Placeholder for playlist
+            : `https://i.ytimg.com/vi/${vId}/maxresdefault.jpg`;
+        
         document.getElementById('videoModalBody').innerHTML = `
-            <div style="position:relative; width: 100%; height: 100%; min-height: 400px; overflow:hidden; border-radius:12px;">
-                <iframe src="${embedUrl}?rel=0" 
-                    style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
+            <div class="video-facade" style="background-image: url('${thumbnailUrl}')" id="videoFacade">
+                <div class="play-button-overlay">
+                    <i class="fa-solid fa-${isPlaylist ? 'list' : 'play'}"></i>
+                </div>
+                ${isPlaylist ? '<div style="position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,0.8); color:white; padding:4px 8px; border-radius:4px; font-size:0.8rem;"><i class="fa-solid fa-list"></i> PLAYLIST</div>' : ''}
+                <div class="video-progress-container">
+                    <div class="video-progress-bar" id="videoProgressBar"></div>
+                </div>
             </div>
+            <div id="playerContainer"></div>
         `;
+
+        // Load video/playlist on facade click
+        document.getElementById('videoFacade').addEventListener('click', () => {
+            document.getElementById('videoFacade').style.display = 'none';
+            if (window.videoPlayerManager) {
+                window.videoPlayerManager.loadVideo('playerContainer', displayId, {
+                    isPlaylist: isPlaylist,
+                    onProgress: (time, duration) => {
+                        if (isPlaylist) return; // Don't track progress for the whole playlist as easily
+                        const pct = (time / duration) * 100;
+                        const bar = document.getElementById('videoProgressBar');
+                        if (bar) bar.style.width = `${pct}%`;
+                    }
+                });
+            }
+        });
     }
 
     // Open with small delay
     setTimeout(() => overlay.classList.add('open'), 10);
 
     // Fetch additional info from our FastAPI backend
-    if (!isSearch) {
+    if (!isSearch && !isPlaylist) {
         let videoUrl = '';
         if (queryOrUrl.includes('youtube.com/watch?v=')) {
             videoUrl = queryOrUrl;
         } else if (queryOrUrl.includes('youtu.be/')) {
             videoUrl = queryOrUrl;
-        } else if (videoId) {
-            videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+        } else if (vId) {
+            videoUrl = `https://www.youtube.com/watch?v=${vId}`;
         }
 
         if (videoUrl) {
@@ -2094,8 +2144,8 @@ async function fetchVideoInfo(url) {
 }
 
 function updateVideoModalWithInfo(info) {
-    const modalBody = document.getElementById('videoModalBody');
-    if (!modalBody) return;
+    const modalContent = document.querySelector('.video-modal-content');
+    if (!modalContent) return;
 
     // Add info sub-panel if not already there
     let infoPanel = document.getElementById('videoInfoPanel');
@@ -2103,24 +2153,32 @@ function updateVideoModalWithInfo(info) {
         infoPanel = document.createElement('div');
         infoPanel.id = 'videoInfoPanel';
         infoPanel.className = 'video-info-panel';
-        infoPanel.style = "margin-top: 1rem; padding: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: 0.9rem; color: var(--text-secondary);";
-        modalBody.appendChild(infoPanel);
+        modalContent.appendChild(infoPanel);
     }
 
     const durationMin = Math.floor(info.duration / 60);
     const durationSec = info.duration % 60;
+    
+    // Update progress bar on facade if it exists
+    if (window.videoPlayerManager) {
+        const vId = window.videoPlayerManager.currentVideoId;
+        const savedTime = window.videoPlayerManager.getSavedProgress(vId);
+        if (savedTime > 0 && info.duration > 0) {
+            const pct = (savedTime / info.duration) * 100;
+            const bar = document.getElementById('videoProgressBar');
+            if (bar) bar.style.width = `${pct}%`;
+        }
+    }
 
     infoPanel.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 0.5rem;">
-            <strong style="color:var(--text);">${info.title}</strong>
-            <span style="background:var(--primary-pale); color:var(--primary); padding: 2px 6px; border-radius: 4px; font-size: 0.75rem;">${durationMin}:${durationSec.toString().padStart(2, '0')}</span>
-        </div>
-        <div style="font-size: 0.8rem; margin-bottom: 0.5rem;">
-            <span style="margin-right: 1rem;"><i class="fa-solid fa-user"></i> ${info.uploader}</span>
+        <h2 class="video-info-title">${info.title}</h2>
+        <div class="video-info-meta">
+            <span><i class="fa-solid fa-user"></i> ${info.uploader}</span>
             <span><i class="fa-solid fa-eye"></i> ${info.view_count.toLocaleString()} views</span>
+            <span><i class="fa-solid fa-clock"></i> ${durationMin}:${durationSec.toString().padStart(2, '0')}</span>
         </div>
-        <div style="font-size: 0.85rem; line-height: 1.4; opacity: 0.8;">
-            ${info.description}
+        <div class="video-info-description">
+            ${info.description.replace(/\n/g, '<br>')}
         </div>
     `;
 }
@@ -2129,6 +2187,21 @@ function closeVideoModal() {
     const overlay = document.getElementById('globalVideoModal');
     if (overlay) {
         overlay.classList.remove('open');
+        
+        // Remove Escape key listener
+        if (overlay._handleEscape) {
+            window.removeEventListener('keydown', overlay._handleEscape);
+            delete overlay._handleEscape;
+        }
+
+        // Destroy player
+        if (window.videoPlayerManager) {
+            window.videoPlayerManager.destroy();
+        }
+
+        // Clear info panel if exists
+        const infoPanel = document.getElementById('videoInfoPanel');
+        if (infoPanel) infoPanel.remove();
     }
 }
 

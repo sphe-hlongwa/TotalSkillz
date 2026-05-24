@@ -1,0 +1,311 @@
+{
+  "algebra": {
+    "title": "Algebra, Equations & Inequalities",
+    "desc": "Quadratic equations, surds, inequalities & simultaneous equations",
+    "lessons": [
+      {
+        "title": "Solving Quadratic Equations",
+        "formula": "ax^2 + bx + c = 0",
+        "explanation": "A quadratic equation can be solved by factorising, completing the square, or using the formula.",
+        "steps": [
+          {"desc": "Standardise the equation to equal zero.", "tex": "2x^2 - 5x = 3 \\implies 2x^2 - 5x - 3 = 0"},
+          {"desc": "Factorise the trinomial (if possible).", "tex": "(2x + 1)(x - 3) = 0"},
+          {"desc": "Set each factor to zero and solve for x.", "tex": "x = -0.5 \\text{ or } x = 3"}
+        ]
+      },
+      {
+        "title": "The Quadratic Formula",
+        "formula": "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+        "explanation": "Used when factorising is difficult or impossible.",
+        "steps": [
+          {"desc": "Identify coefficients a, b, and c.", "tex": "a=1, b=-4, c=1"},
+          {"desc": "Substitute into the formula carefully.", "tex": "x = \\frac{4 \\pm \\sqrt{16 - 4}}{2}"},
+          {"desc": "Simplify the surd and calculate.", "tex": "x = 2 \\pm \\sqrt{3}"}
+        ]
+      },
+      {
+        "title": "Quadratic Inequalities",
+        "formula": "x^2 - x - 6 < 0",
+        "explanation": "Solve by finding critical values and testing intervals.",
+        "steps": [
+          {"desc": "Find Critical Values by factorising.", "tex": "(x-3)(x+2) = 0 \\implies CV: x=3, x=-2"},
+          {"desc": "Sketch or test the number line.", "tex": "\\text{Parabola concave up}"},
+          {"desc": "Identify the region.", "tex": "-2 < x < 3"}
+        ]
+      },
+      {
+        "title": "Simultaneous Equations",
+        "formula": "y = x + 2 \\text{ and } x^2 + y^2 = 20",
+        "explanation": "Solving for two variables that satisfy two equations.",
+        "steps": [
+          {"desc": "Substitute the linear into the quadratic.", "tex": "x^2 + (x+2)^2 = 20"},
+          {"desc": "Expand and solve.", "tex": "2x^2 + 4x - 16 = 0 \\implies x = 2, x = -4"},
+          {"desc": "Find corresponding y values.", "tex": "x=2 \\implies y=4; x=-4 \\implies y=-2"}
+        ]
+      }
+    ]
+  },
+  "patterns": {
+    "title": "Number Patterns",
+    "desc": "Arithmetic & Geometric Sequences and Series",
+    "lessons": [
+      {
+        "title": "Arithmetic Sequences",
+        "formula": "T_n = a + (n-1)d",
+        "explanation": "Patterns with a constant common difference.",
+        "steps": [
+          {"desc": "Find first term (a) and common difference (d).", "tex": "5; 8; 11; \\dots \\implies a=5, d=3"},
+          {"desc": "Substitute into general term formula.", "tex": "T_n = 3n + 2"},
+          {"desc": "Find any specific term.", "tex": "T_{20} = 62"}
+        ]
+      },
+      {
+        "title": "Geometric Sequences",
+        "formula": "T_n = ar^{n-1}",
+        "explanation": "Patterns with a constant common ratio.",
+        "steps": [
+          {"desc": "Find first term (a) and common ratio (r).", "tex": "2; 6; 18; \\dots \\implies a=2, r=3"},
+          {"desc": "Apply the general term formula.", "tex": "T_n = 2(3)^{n-1}"}
+        ]
+      },
+      {
+        "title": "Sum to Infinity",
+        "formula": "S_\\infty = \\frac{a}{1-r} \\text{ if } |r|<1",
+        "explanation": "Sum of infinite terms when the ratio is fractional.",
+        "steps": [
+          {"desc": "Confirm convergence.", "tex": "r = 0.5 \\implies \\text{Convergent}"},
+          {"desc": "Apply the formula.", "tex": "S_\\infty = \\frac{10}{1 - 0.5} = 20"}
+        ]
+      }
+    ]
+  },
+  "functions": {
+    "title": "Functions & Graphs",
+    "desc": "Parabolas, hyperbolas, exponential curves, and inverses",
+    "lessons": [
+      {
+        "title": "The Parabola (Quadratic)",
+        "formula": "y = a(x - p)^2 + q",
+        "explanation": "A symmetric curve with a turning point at (p, q).",
+        "steps": [
+          {"desc": "Identify the turning point (p, q).", "tex": "y = 2(x-3)^2 + 4 \\implies TP(3, 4)"},
+          {"desc": "Determine direction of opening.", "tex": "a = 2 > 0 \\implies \\text{Opens Upwards}"},
+          {"desc": "Find intercepts for sketching.", "tex": "\\text{Set } x=0 \\to y = 22"}
+        ]
+      },
+      {
+        "title": "The Hyperbola",
+        "formula": "y = \\frac{a}{x-p} + q",
+        "explanation": "A curve with two branches and asymptotes x=p and y=q.",
+        "steps": [
+          {"desc": "Identify asymptotes.", "tex": "y = \\frac{3}{x-1} + 2 \\implies x=1, y=2"},
+          {"desc": "Locate the intercepts.", "tex": "\\text{Set } x=0 \\to y = -1"},
+          {"desc": "Sketch the branches.", "tex": "a=3 > 0 \\implies \\text{Q1 and Q3}"}
+        ]
+      },
+      {
+        "title": "Inverses & Logs",
+        "formula": "f^{-1}(x)",
+        "explanation": "Reflecting a function over the line y=x.",
+        "steps": [
+          {"desc": "Swap x and y variables.", "tex": "y = 2^x \\implies x = 2^y"},
+          {"desc": "Solve for y to find the inverse.", "tex": "y = \\log_2 x"},
+          {"desc": "Identify domain and range.", "tex": "D: x > 0, R: y \\in \\mathbb{R}"}
+        ]
+      }
+    ]
+  },
+  "finance": {
+    "title": "Finance, Growth & Decay",
+    "desc": "Annuities, loans, sinking funds, and decay",
+    "lessons": [
+      {
+        "title": "Compound Interest",
+        "formula": "A = P(1 + i)^n",
+        "explanation": "Calculating growth over time.",
+        "steps": [
+          {"desc": "Identify P, i, and n.", "tex": "P=1000, i=0.05, n=3"},
+          {"desc": "Apply the formula.", "tex": "A = 1000(1.05)^3 = 1157.63"}
+        ]
+      },
+      {
+        "title": "Future Value Annuities",
+        "formula": "F = \\frac{x[(1+i)^n - 1]}{i}",
+        "explanation": "Used for regular savings/investments.",
+        "steps": [
+          {"desc": "Determine payment x per period.", "tex": "x = 500, i = 0.08/12, n = 60"},
+          {"desc": "Calculate the accumulated sum.", "tex": "F \\approx R37\\,488"}
+        ]
+      },
+      {
+        "title": "Present Value Annuities",
+        "formula": "P = \\frac{x[1 - (1+i)^{-n}]}{i}",
+        "explanation": "Used for loan repayments.",
+        "steps": [
+          {"desc": "Determine loan amount P.", "tex": "P = 250000, i = 0.10/12, n=240"},
+          {"desc": "Solve for monthly payment x.", "tex": "x \\approx R2\\,412"}
+        ]
+      }
+    ]
+  },
+  "trigonometry": {
+    "title": "Trigonometry",
+    "desc": "ASTC diagram, double & compound angles",
+    "lessons": [
+      {
+        "title": "Reduction Formulae",
+        "formula": "\\sin(180° - \\theta) = \\sin \\theta",
+        "explanation": "Simplifying angles to acute form.",
+        "steps": [
+          {"desc": "Identify the quadrant.", "tex": "180° + \\theta \\implies \\text{3rd Quadrant}"},
+          {"desc": "Apply the correct rule.", "tex": "\\cos(180° + \\theta) = -\\cos \\theta"},
+          {"desc": "Watch for co-functions.", "tex": "\\sin(90° - \\theta) = \\cos \\theta"}
+        ]
+      },
+      {
+        "title": "Double & Compound Angles",
+        "formula": "\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B",
+        "explanation": "Expanding and simplifying trig expressions.",
+        "steps": [
+          {"desc": "Identify which identity to apply.", "tex": "\\cos 2\\theta = 2\\cos^2\\theta - 1"},
+          {"desc": "Substitute variables carefully.", "tex": "\\cos 70°\\cos 10° + \\sin 70°\\sin 10° = \\cos 60°"},
+          {"desc": "Evaluate.", "tex": "\\cos 60° = 0.5"}
+        ]
+      },
+      {
+        "title": "General Solution",
+        "formula": "\\theta = \\alpha + k \\cdot 360°",
+        "explanation": "Finding all angles that satisfy a trig equation.",
+        "steps": [
+          {"desc": "Find the reference angle.", "tex": "\\sin\\theta = 0.5 \\implies \\alpha = 30°"},
+          {"desc": "Identify quadrants.", "tex": "\\sin > 0 \\implies Q1: 30°, Q2: 150°"},
+          {"desc": "Add periodicity.", "tex": "\\theta = 30° + k \\cdot 360° \\text{ or } 150° + k \\cdot 360°"}
+        ]
+      }
+    ]
+  },
+  "analytical_geometry": {
+    "title": "Analytical Geometry",
+    "desc": "Circles, tangents, and coordinate geometry",
+    "lessons": [
+      {
+        "title": "Distance & Gradient",
+        "formula": "m = \\frac{y_2-y_1}{x_2-x_1}",
+        "explanation": "Calculating slope and length between points.",
+        "steps": [
+          {"desc": "Substitute coordinates.", "tex": "A(2,3), B(4,-1) \\implies m = -2"},
+          {"desc": "Check perpendicularity.", "tex": "m_1 \\cdot m_2 = -1"}
+        ]
+      },
+      {
+        "title": "Equation of a Circle",
+        "formula": "(x-a)^2 + (y-b)^2 = r^2",
+        "explanation": "Standard form for center (a, b) and radius r.",
+        "steps": [
+          {"desc": "Identify center and radius.", "tex": "\\text{Center}(3,-2), r=5"},
+          {"desc": "Write the equation.", "tex": "(x-3)^2 + (y+2)^2 = 25"}
+        ]
+      }
+    ]
+  },
+  "euclidean_geometry": {
+    "title": "Euclidean Geometry",
+    "desc": "Circle theorems and proportionality",
+    "lessons": [
+      {
+        "title": "Circle Theorems",
+        "formula": "\\angle \\text{ at centre} = 2 \\times \\angle \\text{ at circumference}",
+        "explanation": "Core circle properties for geometric reasoning.",
+        "steps": [
+          {"desc": "Identify geometric properties.", "tex": "\\text{Diameter} \\perp \\text{Chord} \\implies \\text{bisected}"},
+          {"desc": "Apply theorems.", "tex": "\\angle C = 90° \\text{ (angle in semi-circle)}"}
+        ]
+      },
+      {
+        "title": "Proportionality & Similarity",
+        "formula": "\\frac{AD}{DB} = \\frac{AE}{EC}",
+        "explanation": "Ratios in triangles and parallel lines.",
+        "steps": [
+          {"desc": "Identify parallel lines.", "tex": "DE \\parallel BC \\implies \\frac{AD}{DB} = \\frac{AE}{EC}"},
+          {"desc": "Establish similarity.", "tex": "\\Delta ADE ||| \\Delta ABC \\text{ (AAA)}"}
+        ]
+      }
+    ]
+  },
+  "calculus": {
+    "title": "Differential Calculus",
+    "desc": "First principles, power rules, and applications",
+    "lessons": [
+      {
+        "title": "First Principles",
+        "formula": "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
+        "explanation": "Finding the derivative using the formal definition.",
+        "steps": [
+          {"desc": "Find and simplify f(x+h).", "tex": "f(x) = x^2 \\implies f(x+h) = x^2 + 2xh + h^2"},
+          {"desc": "Substitute and simplify.", "tex": "\\frac{2xh + h^2}{h} = 2x + h"},
+          {"desc": "Evaluate the limit.", "tex": "f'(x) = 2x"}
+        ]
+      },
+      {
+        "title": "Rules of Differentiation",
+        "formula": "D_x[ax^n] = anx^{n-1}",
+        "explanation": "Applying short-cut rules to find derivatives.",
+        "steps": [
+          {"desc": "Prepare the expression.", "tex": "f(x) = 2x^{-3} + 4x^{0.5}"},
+          {"desc": "Apply the power rule.", "tex": "f'(x) = -6x^{-4} + 2x^{-0.5}"}
+        ]
+      }
+    ]
+  },
+  "probability": {
+    "title": "Counting & Probability",
+    "desc": "Factorials, Venn diagrams, and counting principles",
+    "lessons": [
+      {
+        "title": "Contingency Tables",
+        "formula": "P(A|B) = \\frac{P(A \\cap B)}{P(B)}",
+        "explanation": "Calculating probability from data tables.",
+        "steps": [
+          {"desc": "Find totals for rows and columns.", "tex": "\\text{Total} = 150"},
+          {"desc": "Identify the intersection.", "tex": "P(M \\cap B) = \\frac{20}{150}"},
+          {"desc": "Apply the formula.", "tex": "P(M|B) = 0.25"}
+        ]
+      },
+      {
+        "title": "Counting Principles",
+        "formula": "n!",
+        "explanation": "Counting arrangements and selections.",
+        "steps": [
+          {"desc": "Calculate permutations.", "tex": "5! = 120"},
+          {"desc": "Handle restrictions.", "tex": "(ABC)DE = 3! \\times 3! = 36"}
+        ]
+      }
+    ]
+  },
+  "statistics": {
+    "title": "Statistics",
+    "desc": "Regression, correlation, and distributions",
+    "lessons": [
+      {
+        "title": "Standard Deviation",
+        "formula": "\\sigma = \\sqrt{\\frac{\\sum(x - \\bar{x})^2}{n}}",
+        "explanation": "Measure of data dispersion around the mean.",
+        "steps": [
+          {"desc": "Calculate the mean.", "tex": "\\bar{x} = 20"},
+          {"desc": "Find the variance.", "tex": "\\sigma^2 = \\frac{200}{3}"},
+          {"desc": "Take the square root.", "tex": "\\sigma \\approx 8.16"}
+        ]
+      },
+      {
+        "title": "Regression & Correlation",
+        "formula": "\\hat{y} = a + bx",
+        "explanation": "Modeling trends from bivariate data.",
+        "steps": [
+          {"desc": "Identify variables.", "tex": "x: \\text{Study Hours}, y: \\text{Exam Mark}"},
+          {"desc": "Determine coefficients.", "tex": "\\hat{y} = 12.4 + 0.85x"},
+          {"desc": "Interpret correlation.", "tex": "r = 0.92 \\implies \\text{Strong Positive}"}
+        ]
+      }
+    ]
+  }
+}
