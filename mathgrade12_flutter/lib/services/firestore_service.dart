@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -5,6 +6,35 @@ import '../models/user_progress.dart';
 
 class FirestoreService extends ChangeNotifier {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
+  UserProgress? _userProgress;
+  StreamSubscription<UserProgress?>? _progressSub;
+
+  FirestoreService() {
+    _init();
+  }
+
+  void _init() {
+    FirebaseAuth.instance.authStateChanges().listen((user) {
+      _progressSub?.cancel();
+      if (user != null) {
+        _progressSub = watchUserProgress().listen((progress) {
+          _userProgress = progress;
+          notifyListeners();
+        });
+      } else {
+        _userProgress = null;
+        notifyListeners();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _progressSub?.cancel();
+    super.dispose();
+  }
+
+  UserProgress? get userProgress => _userProgress;
 
   String? get uid => FirebaseAuth.instance.currentUser?.uid;
 
@@ -58,6 +88,17 @@ class FirestoreService extends ChangeNotifier {
     await _db.collection('users').doc(uid).update({
       'settings': settings.toMap(),
     });
+  }
+
+  /// Update user profile (displayName, etc.)
+  Future<void> updateUserProfile({
+    required String displayName,
+  }) async {
+    if (uid == null) return;
+    await _db.collection('users').doc(uid).update({
+      'displayName': displayName,
+    });
+    notifyListeners();
   }
 
   /// Update user streak

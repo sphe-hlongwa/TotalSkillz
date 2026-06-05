@@ -4,9 +4,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import '../theme/app_theme.dart';
 import '../services/firestore_service.dart';
 import '../services/auth_service.dart';
+import '../services/theme_service.dart';
 import '../models/user_progress.dart';
 import '../widgets/ts_text_field.dart';
 import '../widgets/gradient_button.dart';
+import '../widgets/bug_report_bottom_sheet.dart';
+import 'profile_edit_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -140,6 +143,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Profile Card
+                  _buildProfileCard(),
+                  const SizedBox(height: 32),
+
+                  // Appearance Section
+                  _buildSectionHeader('Appearance'),
+                  const SizedBox(height: 16),
+                  _buildThemeToggle(),
+                  const SizedBox(height: 24),
+
+                  // Support Section
+                  _buildSectionHeader('Support'),
+                  const SizedBox(height: 16),
+                  _buildReportBugButton(),
+                  const SizedBox(height: 40),
+
                   _buildSectionHeader('Personal Identity'),
                   const SizedBox(height: 16),
                   TsTextField(
@@ -246,6 +265,133 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildProfileCard() {
+    final userProgress = context.watch<FirestoreService>().userProgress;
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const ProfileEditScreen()),
+      ),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: AppTheme.surface,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppTheme.border),
+        ),
+        child: Row(
+          children: [
+            CircleAvatar(
+              radius: 32,
+              backgroundColor: AppTheme.primary,
+              child: Text(
+                userProgress?.displayName.isNotEmpty == true
+                    ? userProgress!.displayName[0].toUpperCase()
+                    : 'U',
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    userProgress?.displayName ?? 'User',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppTheme.text,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    userProgress?.email ?? 'user@app.com',
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: AppTheme.textMuted,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Icon(Icons.edit, color: AppTheme.primary, size: 20),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildThemeToggle() {
+    return Consumer<ThemeService>(
+      builder: (context, themeService, _) {
+        return Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppTheme.surface,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: AppTheme.border),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    themeService.isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                    color: AppTheme.primary,
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    themeService.isDarkMode ? 'Dark Mode' : 'Light Mode',
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+              Switch(
+                value: themeService.isDarkMode,
+                activeThumbColor: AppTheme.primary,
+                onChanged: (_) => themeService.toggleTheme(),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildReportBugButton() {
+    return SizedBox(
+      width: double.infinity,
+      child: OutlinedButton.icon(
+        onPressed: () => showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          backgroundColor: AppTheme.surface,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+          ),
+          builder: (_) => const BugReportBottomSheet(),
+        ),
+        icon: const Icon(Icons.bug_report_outlined),
+        label: const Text('Report a Bug'),
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppTheme.warning,
+          side: const BorderSide(color: AppTheme.warning),
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+      ),
     );
   }
 }

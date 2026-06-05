@@ -11,22 +11,35 @@ import 'services/examiner_service.dart';
 import 'services/masterclass_service.dart';
 import 'services/discovery_service.dart';
 import 'services/daily_challenge_service.dart';
+import 'services/theme_service.dart';
+import 'services/bug_report_service.dart';
 import 'theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await GoogleSignIn.instance.initialize();
-  runApp(const TotalSkillzApp());
+  
+  // Initialize ThemeService
+  final themeService = ThemeService();
+  await themeService.init();
+  
+  runApp(TotalSkillzApp(themeService: themeService));
 }
 
 class TotalSkillzApp extends StatelessWidget {
-  const TotalSkillzApp({super.key});
+  final ThemeService themeService;
+
+  const TotalSkillzApp({
+    required this.themeService,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider(create: (_) => themeService),
         ChangeNotifierProvider(create: (_) => AuthService()),
         ChangeNotifierProvider(create: (_) => FirestoreService()),
         ChangeNotifierProvider(create: (_) => QuizService()),
@@ -34,12 +47,17 @@ class TotalSkillzApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => MasterclassService()),
         ChangeNotifierProvider(create: (_) => DiscoveryService()),
         ChangeNotifierProvider(create: (_) => DailyChallengeService()),
+        ChangeNotifierProvider(create: (_) => BugReportService()),
       ],
-      child: MaterialApp.router(
-        title: 'TotalSkillz',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.dark,
-        routerConfig: AppRouter.router,
+      child: Consumer<ThemeService>(
+        builder: (context, themeService, _) {
+          return MaterialApp.router(
+            title: 'TotalSkillz',
+            debugShowCheckedModeBanner: false,
+            theme: themeService.isDarkMode ? AppTheme.dark : AppTheme.light,
+            routerConfig: AppRouter.router,
+          );
+        },
       ),
     );
   }

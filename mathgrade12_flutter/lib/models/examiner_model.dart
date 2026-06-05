@@ -1,4 +1,4 @@
-class ExaminerQuestion {
+ class ExaminerQuestion {
   final String id;
   final String topic;
   final String question;
