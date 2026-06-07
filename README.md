@@ -12,6 +12,12 @@
 
 TotalSkillz is a dual-platform educational product helping South African Grade 12 learners master Mathematics through interactive practice, smart review, timed exam simulation, and real NSC question banks — available as a **Progressive Web App** and a native **Flutter mobile app**.
 
+<div align="center">
+  <video src="https://github.com/user-attachments/assets/993189f6-4fa7-4d52-be80-29911ca32742"
+         width="100%" controls>
+  </video>
+</div>
+
 ---
 
 ## Table of Contents
@@ -45,7 +51,12 @@ The platform ships in two forms that share the same Firebase backend:
 - **Topic-by-Topic Practice** — Drill Algebra, Functions, Calculus, Trigonometry, Sequences, Probability, Statistics, and Geometry.
 - **Timed Exam Mode** — Simulate a 45-minute NSC exam with automatic marking and score breakdown.
 - **Daily Challenges** — A fresh problem every day to build streaks and habits.
-- **Masterclass Content** — Curated lesson content per topic with step-by-step solutions.
+- **Masterclass Content** — Curated lesson content per topic with step-by-step expert derivations rendered in LaTeX.
+
+### Live Classes & Expert Mastery
+- **Workshop Tab** — Browse expert-authored masterclass sessions grouped by topic, with expandable step-by-step derivations and explanatory notes rendered in LaTeX.
+- **Book a Class** — Request a 1-on-1 or group session via Google Classroom. Choose between a free trial (first 2 lectures) or a Standard Paid session (R200 / 2 hrs).
+- **WhatsApp Booking** — Booking requests are sent directly to the tutor via WhatsApp with your name, subject (Paper 1 / Paper 2), preferred date & time, and specific topics pre-filled.
 
 ### Progress & Personalisation
 - **Performance Dashboard** — Visual progress tracking with score history, topic heatmaps, and mastery indicators.
@@ -56,6 +67,7 @@ The platform ships in two forms that share the same Firebase backend:
 - **Formula Vault** — Full Grade 12 formula sheet with beautifully rendered LaTeX/KaTeX equations, sortable by topic.
 - **Exam Paper Vault** — NSC past paper PDFs viewable in-app.
 - **Examiner Insights** — Examiner data and common question patterns.
+- **YouTube Video Recommendations** — Curated YouTube tutorial links surfaced per topic so learners can watch explanations without leaving the app.
 
 ### Auth & Accounts
 - **Google Sign-In** — One-tap authentication via Firebase Auth.
