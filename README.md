@@ -5,12 +5,12 @@
 # TotalSkillz
 **Built To Forge Greatness.**
 
-[![Platform](https://img.shields.io/badge/Android%20%7C%20iOS-supported-3DDC84?style=flat-square&logo=android&logoColor=white)](https://flutter.dev)
-[![Flutter](https://img.shields.io/badge/Flutter-3.x-54C5F8?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
-[![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Auth-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com)
-[![PWA](https://img.shields.io/badge/PWA-enabled-5A0FC8?style=flat-square&logo=pwa&logoColor=white)](https://totalskillz-7193a.web.app)
-[![Version](https://img.shields.io/badge/version-2.4.0-6C63FF?style=flat-square)](https://github.com/sphe-hlongwa/TotalSkillz/releases)
-[![License](https://img.shields.io/badge/license-ISC-lightgrey?style=flat-square)](LICENSE)
+[![Platform](https://img.shields.io/badge/Android%20%7C%20iOS-supported-3DDC84?style=flat&logo=android&logoColor=white)](https://flutter.dev)
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-54C5F8?style=flat&logo=flutter&logoColor=white)](https://flutter.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Auth-FFCA28?style=flat&logo=firebase&logoColor=black)](https://firebase.google.com)
+[![PWA](https://img.shields.io/badge/PWA-enabled-5A0FC8?style=flat&logo=pwa&logoColor=white)](https://totalskillz-7193a.web.app)
+[![Version](https://img.shields.io/badge/version-2.4.0-6C63FF?style=flat)](https://github.com/sphe-hlongwa/TotalSkillz/releases)
+[![License](https://img.shields.io/badge/license-ISC-lightgrey?style=flat)](LICENSE)
 
 ### [🌐 Web App](https://totalskillz-7193a.web.app) • [📱 Flutter App](https://github.com/sphe-hlongwa/TotalSkillz) • [📬 Contact](mailto:hlongwasphephelo40@gmail.com)
 
