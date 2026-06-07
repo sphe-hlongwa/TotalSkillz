@@ -7,3 +7,10 @@ yarn-debug.log*
 yarn-error.log*
 .netlify/
 public/js/firebase-config.js
+
+# IDE
+.vscode/
+
+# Android build artefacts & local machine config
+mathgrade12_flutter/android/build/
+mathgrade12_flutter/android/gradle/local.properties
