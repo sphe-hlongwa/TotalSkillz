@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - TotalSkillz</title>
+    <meta name="description" content="TotalSkillz Privacy Policy — how we collect, use, and protect your personal information in accordance with POPIA.">
+    <link rel="icon" type="image/jpeg" href="/logo.jpg">
+    <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.googleusercontent.com; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firebaseapp.com;">
+    <style>
+        body {
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .privacy-wrap {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        .privacy-header {
+            text-align: center;
+            padding: 3rem 0 2.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+        }
+
+        .privacy-header__icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--primary-pale);
+            color: var(--primary);
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+
+        .privacy-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .privacy-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.35rem 1rem;
+            background: var(--accent-green-light, #d1fae5);
+            color: var(--accent-green, #10b981);
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .privacy-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .privacy-section h2 i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .privacy-section p,
+        .privacy-section li {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .privacy-section ul {
+            margin: 0.5rem 0 0 1.25rem;
+        }
+
+        .privacy-section ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-box {
+            background: var(--primary-pale);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 0.9rem 1.25rem;
+            margin-top: 0.75rem;
+        }
+
+        .highlight-box p {
+            color: var(--text) !important;
+            font-size: 0.88rem !important;
+        }
+
+        .danger-box {
+            background: rgba(239, 68, 68, 0.08);
+            border-left: 3px solid #ef4444;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 0.9rem 1.25rem;
+            margin-top: 0.75rem;
+        }
+
+        .danger-box p {
+            color: var(--text) !important;
+            font-size: 0.88rem !important;
+        }
+
+        .privacy-footer {
+            text-align: center;
+            padding-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .privacy-footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .rights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        .right-item {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .right-item i {
+            color: var(--primary);
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 600px) {
+            .privacy-section { padding: 1.25rem; }
+            .privacy-header h1 { font-size: 1.5rem; }
+            .rights-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="privacy-wrap">
+        <a href="javascript:history.back()" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Go Back
+        </a>
+
+        <div class="privacy-header">
+            <div class="privacy-header__icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h1>Privacy Policy</h1>
+            <p>How TotalSkillz collects, uses, and protects your personal information.</p>
+            <span class="privacy-badge"><i class="fa-solid fa-check"></i> POPIA Compliant</span>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-circle-info"></i> Overview</h2>
+            <p>TotalSkillz ("we", "us", or "our") is committed to protecting the privacy of our users. This Privacy Policy explains how we collect, store, use, and protect your personal information in accordance with the <strong>Protection of Personal Information Act (POPIA), Act 4 of 2013</strong> of South Africa.</p>
+            <p style="margin-top: 0.5rem;">By using TotalSkillz (the web app or mobile app), you agree to the collection and use of information as described in this policy. If you do not agree, please do not use the app.</p>
+            <div class="highlight-box">
+                <p><strong>Last updated:</strong> June 2026 &nbsp;·&nbsp; <strong>Effective date:</strong> June 2026 &nbsp;·&nbsp; <strong>Operator:</strong> Sphephelo Hlongwa</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-database"></i> What Data We Collect</h2>
+            <p>We collect the following categories of personal information:</p>
+            <ul>
+                <li><strong>Account Information:</strong> Your display name, email address, and profile photo (via Google Sign-In or email/password registration).</li>
+                <li><strong>Learning Data:</strong> Your practice scores, topic progress, exam results, daily streaks, weak areas, and earned badges.</li>
+                <li><strong>Preferences:</strong> Your target mark, daily goal, weak topic selections, and exam date set during onboarding.</li>
+                <li><strong>Usage Data:</strong> Pages visited, features used, and timestamps of activity (via Firebase Analytics).</li>
+                <li><strong>Bug Reports:</strong> Any messages or comments you voluntarily submit through the in-app bug report form.</li>
+            </ul>
+            <div class="highlight-box">
+                <p>We do <strong>not</strong> collect your physical address, ID number, financial details, or any payment information.</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-gears"></i> How We Use Your Data</h2>
+            <p>We use your personal information for the following purposes:</p>
+            <ul>
+                <li>To authenticate you and provide access to your account.</li>
+                <li>To personalise your learning experience (recommendations, weak areas, targeted practice).</li>
+                <li>To display your progress on the community leaderboard (display name and streak only).</li>
+                <li>To send you important service updates (we do not send promotional emails without consent).</li>
+                <li>To investigate and resolve bug reports you submit.</li>
+                <li>To improve the app through aggregated, anonymised usage statistics.</li>
+            </ul>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-server"></i> Data Storage & Security</h2>
+            <p>Your data is stored securely using <strong>Google Firebase</strong> (Firestore &amp; Firebase Storage), hosted on Google Cloud servers. We implement the following safeguards:</p>
+            <ul>
+                <li>All data is encrypted in transit (HTTPS/TLS) and at rest by Firebase's infrastructure.</li>
+                <li>Firebase Security Rules enforce that users can only read and write their own data.</li>
+                <li>Admin-level access to user records is restricted to verified admin accounts only.</li>
+                <li>We do not store passwords — authentication is handled by Firebase Auth or Google OAuth.</li>
+            </ul>
+            <div class="danger-box">
+                <p><strong>Breach notification:</strong> In the event of a data breach that compromises your personal information, we will notify you and the Information Regulator of South Africa within a reasonable timeframe as required by POPIA.</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-share-nodes"></i> Data Sharing</h2>
+            <p>We do <strong>not</strong> sell your personal information to any third party. We share data only in the following limited circumstances:</p>
+            <ul>
+                <li><strong>Google Firebase / Google Cloud</strong> — our infrastructure provider, bound by Google's data processing terms.</li>
+                <li><strong>Community Leaderboard</strong> — your display name and streak count are visible to other authenticated users.</li>
+                <li><strong>Legal requirement</strong> — if required by a court order or applicable South African law.</li>
+            </ul>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-scale-balanced"></i> Your Rights Under POPIA</h2>
+            <p>As a data subject under POPIA, you have the following rights:</p>
+            <div class="rights-grid">
+                <div class="right-item">
+                    <i class="fa-solid fa-eye"></i>
+                    <div><strong>Right to Access</strong><br>Request a copy of all personal data we hold about you.</div>
+                </div>
+                <div class="right-item">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <div><strong>Right to Correction</strong><br>Request correction of inaccurate personal information.</div>
+                </div>
+                <div class="right-item">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <div><strong>Right to Deletion</strong><br>Request deletion of your account and all associated data.</div>
+                </div>
+                <div class="right-item">
+                    <i class="fa-solid fa-ban"></i>
+                    <div><strong>Right to Object</strong><br>Object to the processing of your personal information.</div>
+                </div>
+            </div>
+            <p style="margin-top: 1rem;">To exercise any of these rights, you can delete your account directly from <strong>Dashboard → Danger Zone → Delete Account</strong>, or contact us at the email below.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-cookie-bite"></i> Cookies & Local Storage</h2>
+            <p>TotalSkillz uses <strong>browser localStorage</strong> (not cookies) to store your practice progress, session preferences, and theme settings locally on your device. This data is not transmitted to our servers unless you are signed in, in which case it is synced to Firestore.</p>
+            <p style="margin-top: 0.5rem;">You can clear this data at any time by clearing your browser's local storage or by deleting your account.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-child"></i> Children's Privacy</h2>
+            <p>TotalSkillz is intended for use by Grade 12 students, who are typically 17–18 years of age. We do not knowingly collect personal information from children under the age of 13. If you believe a child under 13 has created an account, please contact us so we can remove their data.</p>
+        </div>
+
+        <div class="privacy-section">
+            <h2><i class="fa-solid fa-envelope"></i> Contact & Complaints</h2>
+            <p>For any privacy-related questions, data access requests, or complaints, please contact:</p>
+            <div class="highlight-box">
+                <p><strong>Information Officer:</strong> Sphephelo Hlongwa<br>
+                <strong>Email:</strong> <a href="mailto:hlongwasphephelo40@gmail.com" style="color: var(--primary);">hlongwasphephelo40@gmail.com</a></p>
+            </div>
+            <p style="margin-top: 0.75rem;">If you are not satisfied with our response, you have the right to lodge a complaint with the <strong>Information Regulator of South Africa</strong> at <a href="https://www.justice.gov.za/inforeg/" target="_blank" rel="noopener" style="color: var(--primary);">www.justice.gov.za/inforeg</a>.</p>
+        </div>
+
+        <div class="privacy-footer">
+            <p>© 2026 TotalSkillz · <a href="dashboard.html">Back to App</a></p>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

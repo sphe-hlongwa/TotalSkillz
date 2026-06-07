@@ -411,6 +411,13 @@
                     </div>
                 </div>
             </div>
+            <!-- POPIA Consent Notice -->
+            <div style="margin: 0 2rem 0.5rem; padding: 1rem; background: var(--primary-pale); border: 1px solid var(--border); border-radius: var(--radius-md);">
+                <label style="display: flex; align-items: flex-start; gap: 0.65rem; cursor: pointer; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5;">
+                    <input type="checkbox" id="privacyConsent" style="margin-top: 3px; accent-color: var(--primary); flex-shrink: 0;" required>
+                    <span>I agree to TotalSkillz collecting and storing my learning data (progress, scores, preferences) to personalise my experience. I have read the <a href="privacy.html" target="_blank" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>.</span>
+                </label>
+            </div>
             <div class="onboard-footer">
                 <button class="btn btn-secondary" onclick="goStep(2)"><i class="fa-solid fa-arrow-left"></i>
                     Back</button>
@@ -504,6 +511,17 @@
         }
 
         async function finishOnboarding() {
+            // POPIA: Enforce consent before saving any data
+            const consentBox = document.getElementById('privacyConsent');
+            if (consentBox && !consentBox.checked) {
+                if (typeof showToast === 'function') {
+                    showToast('Please accept the Privacy Policy to continue.', 'info');
+                } else {
+                    alert('Please accept the Privacy Policy to continue.');
+                }
+                return;
+            }
+
             const btn = document.getElementById('finishBtn');
             const originalBtnHtml = btn.innerHTML;
             btn.disabled = true;

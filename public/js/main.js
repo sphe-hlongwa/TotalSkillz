@@ -510,6 +510,7 @@ function injectSettingsOverlay() {
                     </div>
                 </div>
                 <p style="font-size:0.7rem; color:var(--text-muted); opacity: 0.8;">TotalSkillz v2.4.0 • Built For Success</p>
+                <a href="privacy.html" target="_blank" style="font-size:0.7rem; color:var(--text-muted); text-decoration:underline; opacity:0.7;"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
             </div>
         </div>
     `;
@@ -851,19 +852,45 @@ function confirmResetProgress() {
 }
 
 async function confirmDeleteAccount() {
-    const conf = confirm("CRITICAL: This will permanently delete your account and all progress. Are you absolutely sure?");
-    if (conf) {
-        const check = prompt("Type your email to confirm deletion:");
-        const user = firebase.auth().currentUser;
-        if (check === user?.email) {
-            try {
-                await user.delete();
-                localStorage.clear();
-                window.location.href = 'index.html';
-            } catch (error) {
-                showToast('Please re-login to complete sensitive action.', 'error');
-                console.error(error);
-            }
+    const conf = confirm("CRITICAL: This will permanently delete your account and ALL your progress, scores, and data. This cannot be undone. Are you absolutely sure?");
+    if (!conf) return;
+
+    const user = firebase.auth().currentUser;
+    if (!user) { showToast('No user signed in.', 'error'); return; }
+
+    const check = prompt(`Type your email (${user.email}) to confirm permanent deletion:`);
+    if (check !== user.email) {
+        showToast('Email did not match. Deletion cancelled.', 'error');
+        return;
+    }
+
+    showToast('Deleting your account...', 'info');
+
+    try {
+        const db = firebase.firestore();
+        const uid = user.uid;
+
+        // 1. Delete Firestore documents
+        await Promise.all([
+            db.collection('users').doc(uid).delete(),
+            db.collection('leaderboard').doc(uid).delete()
+        ]);
+
+        // 2. Delete Firebase Auth account
+        await user.delete();
+
+        // 3. Clear all local data
+        localStorage.clear();
+        sessionStorage.clear();
+
+        showToast('Account deleted. Goodbye!', 'success');
+        setTimeout(() => window.location.href = 'index.html', 1500);
+    } catch (error) {
+        if (error.code === 'auth/requires-recent-login') {
+            showToast('For security, please sign out and sign back in, then try again.', 'error');
+        } else {
+            showToast('Deletion failed: ' + error.message, 'error');
+            console.error('Delete account error:', error);
         }
     }
 }
