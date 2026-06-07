@@ -1,0 +1,121 @@
+﻿
+  \app\build.gradle.kts
+  At line:1 char:1
+  + flutter build apk --release -v 2>&1 | Out-File -FilePath build_log_ve ...
+  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      + CategoryInfo          : NotSpecified: ([   +2 ms] 
+WARN...uild.gradle.kts: 
+>    String) [], RemoteException
+      + FullyQualifiedErrorId : NativeCommandError
+   
+> [   +3 ms] applies the Kotlin Gradle Plugin, which will cause build failures 
+in 
+  future versions of Flutter. 
+  [        ] Please migrate your app to Built-in Kotlin using this guide: 
+https://
+  
+docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-dev
+  elopers
+  [        ] WARNING: Your app uses the following plugins that apply Kotlin 
+  non-constant instances of IconData at the following locations:
+  [        ] [   +6 ms]   - 
+file:///C:/Users/Administrator/Desktop/Anonsurf/TotalS
+  killz/Projects/mathgrade12_flutter/lib/screens/dashboard_screen.dart:1118:32
+  [        ] [   +5 ms] Persisting file store
+  [  +89 ms] [  +48 ms] Done persisting file store
+> [  +93 ms] [  +48 ms] Target aot_android_asset_bundle failed: Error: Avoid 
+  non-constant invocations of IconData or try to build again with 
+  --no-tree-shake-icons.
+  [        ]            #0      throwToolExit 
+  (package:flutter_tools/src/base/common.dart:34:3)
+  [        ]            #1      IconTreeShaker._findConstants 
+  [ +194 ms] [ +261 ms] exiting with code 1
+  [  +93 ms] > Task :app:compileFlutterBuildRelease FAILED
+  [ +111 ms] Build e46d750c-6889-438e-a2e5-b190c3ebe70e is closed
+  [  +92 ms] Build 29ee3e1d-5941-4724-a3b1-a7637ecd4c8c is closed
+  [        ] [Incubating] Problems report is available at: file:///C:/Users/Admi
+nistrator/Desktop/Anonsurf/TotalSkillz/Projects/mathgrade12_flutter/android/buil
+d/reports/problems/problems-report.html
+> [        ] FAILURE: Build failed with an exception.
+  [        ] * What went wrong:
+  [        ] Execution failed for task ':app:compileFlutterBuildRelease' 
+  (registered by plugin 'dev.flutter.flutter-gradle-plugin').
+  [        ] > Process 'command 'C:\dev\flutter\bin\flutter.bat'' finished with 
+  non-zero exit value 1
+  [        ] * Try:
+  [        ] > Run with --debug option to get more log output.
+  [        ] > Run with --scan to get full insights from a Build Scan (powered 
+by 
+  Develocity).
+  [        ] > Get more help at https://help.gradle.org.
+> [        ] * Exception is:
+> [        ] org.gradle.api.tasks.TaskExecutionException: Execution failed for 
+  task ':app:compileFlutterBuildRelease' (registered by plugin 
+  'dev.flutter.flutter-gradle-plugin').
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecute
+  r.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
+> [   +1 ms] 	at 
+org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecute
+  r.executeIfValid(ExecuteActionsTaskExecuter.java:133)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecute
+  r.execute(ExecuteActionsTaskExecuter.java:121)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingT
+  cuter.execute(FinalizePropertiesTaskExecuter.java:46)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExec
+  uter.execute(SkipTaskWithNoActionsExecuter.java:57)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.ex
+  ecute(SkipOnlyIfTaskExecuter.java:74)
+> [        ] 	at 
+org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecute
+> r.execute(CatchExceptionTaskExecuter.java:36)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1
+  .executeTask(EventFiringTaskExecuter.java:77)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1
+  .call(EventFiringTaskExecuter.java:55)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1
+  [        ] 	at 
+  java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+  [        ] 	at 
+  java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+  [        ] 	at java.base/java.lang.Thread.run(Unknown Source)
+> [        ] Caused by: org.gradle.process.ProcessExecutionException: Process 
+  'command 'C:\dev\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+  [        ] 	at 
+org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.asse
+  rtNormalExitValue(DefaultExecHandle.java:459)
+  [        ] 	at 
+  
+org.gradle.process.internal.DefaultExecAction.execute(DefaultExecAction.java:49)
+  [        ] 	at 
+org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execu
+  te(DefaultExecutionEngine.java:68)
+  [        ] 	at 
+org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecute
+  r.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+  [        ] 	... 33 more
+> [        ] BUILD FAILED in 16s
+  [  +12 ms] Deprecated Gradle features were used in this build, making it 
+incompatible with Gradle 10.
+  [   +2 ms] You can use '--warning-mode all' to show the individual 
+deprecation warnings and determine if they come from your own scripts or 
+plugins.
+  [   +1 ms] For more on this, please refer to https://docs.gradle.org/9.5.0/use
+rguide/command_line_interface.html#sec:command_line_warnings in the Gradle 
+documentation.
+  [        ] 12 actionable tasks: 8 executed, 4 up-to-date
+  [        ] Watched directory hierarchies: 
+[C:\dev\flutter\packages\flutter_tools\gradle, C:\Users\Administrator\Desktop\An
+onsurf\TotalSkillz\Projects\mathgrade12_flutter\android]
+
+
+
