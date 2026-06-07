@@ -20,7 +20,7 @@ Google Sign-In requires your computer's "fingerprint" to verify that your app is
 ## Step 2: Register the Android App in Firebase
 
 1. Go to the [Firebase Console](https://console.firebase.google.com/).
-2. Open your **existing** project (the one used for The Varsity Plug web app).
+2. Open your **existing** project (the one used for the TotalSkillz web app).
 3. On the Project Overview page (home icon), click the **Android icon** to add a new Android app (or click "Add app" if you already have apps listed).
 4. **Android package name:** `com.totalskillz.mathgrade12`
    - I've verified this in your `android/app/build.gradle.kts`. Enter this exact string in Firebase.
