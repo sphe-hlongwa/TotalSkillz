@@ -119,8 +119,6 @@ flutter pub get
 flutter run
 ```
 
-> See [FIREBASE_SETUP.md](FIREBASE_SETUP.md) for Firebase project configuration.
-
 ---
 
 ## Contributing

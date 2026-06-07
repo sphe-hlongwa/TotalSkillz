@@ -23,3 +23,4 @@ firestore.rules
 storage.rules
 firebase.json
 .firebaserc
+FIREBASE_SETUP.md
