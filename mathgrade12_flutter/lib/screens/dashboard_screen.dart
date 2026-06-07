@@ -39,25 +39,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
         discovery.startTour([
           DiscoveryStep(
             title: "Track Your Mastery",
-            body: "Monitor your XP, streak, and overall syllabus progress here. Consistency is key to a distinction!",
+            body:
+                "Monitor your XP, streak, and overall syllabus progress here. Consistency is key to a distinction!",
             targetKey: _statsKey,
             icon: Icons.trending_up,
           ),
           DiscoveryStep(
             title: "Targeted Practice",
-            body: "Access 3000+ questions organized by topic. We track your accuracy for each section.",
+            body:
+                "Access 3000+ questions organized by topic. We track your accuracy for each section.",
             targetKey: _practiceKey,
             icon: Icons.quiz_outlined,
           ),
           DiscoveryStep(
             title: "Your Growth Engine",
-            body: "Every mistake you make is saved here automatically. Reviewing these regularly is the fastest way to improve.",
+            body:
+                "Every mistake you make is saved here automatically. Reviewing these regularly is the fastest way to improve.",
             targetKey: _vaultKey,
             icon: Icons.lock_reset_rounded,
           ),
           DiscoveryStep(
             title: "Spot the Error",
-            body: "Learn from the examiner's perspective. Find the mistakes in derivations to master the logic.",
+            body:
+                "Learn from the examiner's perspective. Find the mistakes in derivations to master the logic.",
             targetKey: _errorKey,
             icon: Icons.search_off_rounded,
           ),
@@ -119,22 +123,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Hello, $firstName 👋',
-                                  style: Theme.of(context).textTheme.displayMedium),
+                              Text(
+                                'Hello, $firstName 👋',
+                                style: Theme.of(
+                                  context,
+                                ).textTheme.displayMedium,
+                              ),
                               const SizedBox(height: 8),
-                              Text('Ready to ace Grade 12?',
-                                  style: Theme.of(context).textTheme.bodyMedium),
+                              Text(
+                                'Ready to ace Grade 12?',
+                                style: Theme.of(context).textTheme.bodyMedium,
+                              ),
                             ],
                           ),
                         ),
                         const SizedBox(height: 24),
-                        
+
                         _buildDailyChallenge(context),
                         const SizedBox(height: 24),
 
-                        _buildSectionHeader('Your Academy', onSeeAll: () => context.push('/leaderboard')),
+                        _buildSectionHeader(
+                          'Your Academy',
+                          onSeeAll: () => context.push('/leaderboard'),
+                        ),
                         const SizedBox(height: 16),
-                        
+
                         _buildBroadcastFeed(),
                         const SizedBox(height: 24),
 
@@ -143,28 +156,31 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           delay: 100,
                           child: Container(
                             key: _statsKey,
-                            child: Row(children: [
-                              _StatCard(
-                                label: 'XP Earned',
-                                value: '${progress?.totalXp ?? 0}',
-                                icon: Icons.star,
-                                color: AppTheme.warning,
-                              ),
-                              const SizedBox(width: 12),
-                              _StatCard(
-                                label: 'Day Streak',
-                                value: '${progress?.streak ?? 0}',
-                                icon: Icons.local_fire_department,
-                                color: AppTheme.error,
-                              ),
-                              const SizedBox(width: 12),
-                              _StatCard(
-                                label: 'Progress',
-                                value: '${((progress?.overallProgress ?? 0) * 100).toInt()}%',
-                                icon: Icons.trending_up,
-                                color: AppTheme.success,
-                              ),
-                            ]),
+                            child: Row(
+                              children: [
+                                _StatCard(
+                                  label: 'XP Earned',
+                                  value: '${progress?.totalXp ?? 0}',
+                                  icon: Icons.star,
+                                  color: AppTheme.warning,
+                                ),
+                                const SizedBox(width: 12),
+                                _StatCard(
+                                  label: 'Day Streak',
+                                  value: '${progress?.streak ?? 0}',
+                                  icon: Icons.local_fire_department,
+                                  color: AppTheme.error,
+                                ),
+                                const SizedBox(width: 12),
+                                _StatCard(
+                                  label: 'Progress',
+                                  value:
+                                      '${((progress?.overallProgress ?? 0) * 100).toInt()}%',
+                                  icon: Icons.trending_up,
+                                  color: AppTheme.success,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -196,8 +212,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         // Quick actions grid
                         _AnimateIn(
                           delay: 300,
-                          child: Text('Learning Pathways',
-                              style: Theme.of(context).textTheme.headlineMedium),
+                          child: Text(
+                            'Learning Pathways',
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          ),
                         ),
                         const SizedBox(height: 16),
                         GridView.count(
@@ -221,7 +239,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               key: _vaultKey,
                               icon: Icons.lock_reset_rounded,
                               label: 'Mistake Vault',
-                              subtitle: '${progress?.mistakeVault.length ?? 0} items',
+                              subtitle:
+                                  '${progress?.mistakeVault.length ?? 0} items',
                               color: AppTheme.error,
                               onTap: () => context.push('/vault'),
                               delay: 500,
@@ -273,7 +292,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               );
             },
           ),
-          
+
           // Discovery Overlay
           if (discovery.isTourActive && discovery.currentStep != null)
             DiscoveryOverlay(
@@ -283,7 +302,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
               icon: discovery.currentStep!.icon,
               onNext: discovery.next,
               onSkip: discovery.skip,
-              isLastStep: discovery.currentStepIndex == discovery.steps.length - 1,
+              isLastStep:
+                  discovery.currentStepIndex == discovery.steps.length - 1,
             ),
         ],
       ),
@@ -299,10 +319,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
           if (i == 3) context.push('/vault');
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.topic_outlined), label: 'Topics'),
-          BottomNavigationBarItem(icon: Icon(Icons.functions), label: 'Formulas'),
-          BottomNavigationBarItem(icon: Icon(Icons.folder_outlined), label: 'Vault'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.topic_outlined),
+            label: 'Topics',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.functions),
+            label: 'Formulas',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.folder_outlined),
+            label: 'Vault',
+          ),
         ],
       ),
     );
@@ -317,7 +349,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
       builder: (context, snapshot) {
         final progress = snapshot.data;
         final now = DateTime.now();
-        final hasDoneToday = progress?.lastDailyDate != null &&
+        final hasDoneToday =
+            progress?.lastDailyDate != null &&
             progress!.lastDailyDate!.year == now.year &&
             progress.lastDailyDate!.month == now.month &&
             progress.lastDailyDate!.day == now.day;
@@ -328,14 +361,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
             decoration: BoxDecoration(
               color: AppTheme.success.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: AppTheme.success.withValues(alpha: 0.3)),
+              border: Border.all(
+                color: AppTheme.success.withValues(alpha: 0.3),
+              ),
             ),
             child: const Row(
               children: [
                 Icon(Icons.check_circle, color: AppTheme.success),
                 SizedBox(width: 12),
-                Text('Daily Challenge Completed!',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(
+                  'Daily Challenge Completed!',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ],
             ),
           );
@@ -362,7 +399,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   void _showDailyDialog(
-      BuildContext context, DailyChallengeService service, FirestoreService firestore) {
+    BuildContext context,
+    DailyChallengeService service,
+    FirestoreService firestore,
+  ) {
     showDialog(
       context: context,
       builder: (ctx) => Consumer<DailyChallengeService>(
@@ -372,7 +412,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
           return AlertDialog(
             backgroundColor: AppTheme.surface,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(24),
+            ),
             title: const Text('Daily Challenge'),
             content: Column(
               mainAxisSize: MainAxisSize.min,
@@ -405,13 +447,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           color: btnColor,
                           borderRadius: BorderRadius.circular(12),
                           border: Border.all(
-                            color: isAnswered && isCorrect ? AppTheme.success : AppTheme.border,
+                            color: isAnswered && isCorrect
+                                ? AppTheme.success
+                                : AppTheme.border,
                           ),
                         ),
                         child: Row(
                           children: [
-                            Text(String.fromCharCode(65 + i),
-                                style: const TextStyle(fontWeight: FontWeight.bold)),
+                            Text(
+                              String.fromCharCode(65 + i),
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                             const SizedBox(width: 12),
                             Expanded(child: Text(q.options[i])),
                           ],
@@ -427,17 +475,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 TextButton(
                   onPressed: () {
                     final xp = svc.isCorrect! ? 20 : 0;
-                    firestore.updateTopicProgress(
-                      topic: 'daily',
-                      attempted: 1,
-                      correct: svc.isCorrect! ? 1 : 0,
-                      total: 1,
-                      xpEarned: xp,
-                    ).then((_) {
-                      FirebaseFirestore.instance.collection('users').doc(firestore.uid).update({
-                        'lastDailyDate': FieldValue.serverTimestamp(),
-                      });
-                    });
+                    firestore
+                        .updateTopicProgress(
+                          topic: 'daily',
+                          attempted: 1,
+                          correct: svc.isCorrect! ? 1 : 0,
+                          total: 1,
+                          xpEarned: xp,
+                        )
+                        .then((_) {
+                          FirebaseFirestore.instance
+                              .collection('users')
+                              .doc(firestore.uid)
+                              .update({
+                                'lastDailyDate': FieldValue.serverTimestamp(),
+                              });
+                        });
                     Navigator.pop(ctx);
                   },
                   child: const Text('Finish'),
@@ -491,11 +544,22 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(b['title'] ?? 'Announcement', 
-                          style: TextStyle(fontWeight: FontWeight.bold, color: color, fontSize: 13)),
+                        Text(
+                          b['title'] ?? 'Announcement',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: color,
+                            fontSize: 13,
+                          ),
+                        ),
                         const SizedBox(height: 2),
-                        Text(b['body'] ?? '', 
-                          style: const TextStyle(fontSize: 12, color: AppTheme.textSubtle)),
+                        Text(
+                          b['body'] ?? '',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: AppTheme.textSubtle,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -536,14 +600,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('GO FOR DISTINCTION', 
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, letterSpacing: 1.2, fontSize: 12)),
+                    Text(
+                      'GO FOR DISTINCTION',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.2,
+                        fontSize: 12,
+                      ),
+                    ),
                     SizedBox(height: 8),
-                    Text('Book a Live Expert Session', 
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 18)),
+                    Text(
+                      'Book a Live Expert Session',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 18,
+                      ),
+                    ),
                     SizedBox(height: 4),
-                    Text('Direct 1-on-1 tutoring via Classroom.', 
-                      style: TextStyle(color: Colors.white70, fontSize: 12)),
+                    Text(
+                      'Direct 1-on-1 tutoring via Classroom.',
+                      style: TextStyle(color: Colors.white70, fontSize: 12),
+                    ),
                   ],
                 ),
               ),
@@ -571,20 +650,35 @@ class _DashboardScreenState extends State<DashboardScreen> {
             const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Found a bug?', style: TextStyle(fontWeight: FontWeight.bold)),
-                Text('Help us improve the app.', style: TextStyle(color: AppTheme.textMuted, fontSize: 12)),
+                Text(
+                  'Found a bug?',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  'Help us improve the app.',
+                  style: TextStyle(color: AppTheme.textMuted, fontSize: 12),
+                ),
               ],
             ),
             const Spacer(),
             TextButton(
               onPressed: () => context.push('/support'),
-              child: const Text('HELP', style: TextStyle(fontWeight: FontWeight.bold, color: AppTheme.primary)),
+              child: const Text(
+                'HELP',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: AppTheme.primary,
+                ),
+              ),
             ),
             const SizedBox(width: 8),
             TextButton(
               onPressed: () => _showReportModal(context),
               style: TextButton.styleFrom(foregroundColor: AppTheme.error),
-              child: const Text('REPORT', style: TextStyle(fontWeight: FontWeight.bold)),
+              child: const Text(
+                'REPORT',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
@@ -610,20 +704,28 @@ class _DashboardScreenState extends State<DashboardScreen> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Text('Report an Issue', 
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              const Text(
+                'Report an Issue',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 8),
-              const Text('Please describe what happened.', 
-                style: TextStyle(color: AppTheme.textMuted, fontSize: 13)),
+              const Text(
+                'Please describe what happened.',
+                style: TextStyle(color: AppTheme.textMuted, fontSize: 13),
+              ),
               const SizedBox(height: 20),
               TextField(
                 controller: controller,
                 maxLines: 4,
                 decoration: InputDecoration(
-                  hintText: 'e.g., The calculus quiz crashed when I tapped finish...',
+                  hintText:
+                      'e.g., The calculus quiz crashed when I tapped finish...',
                   fillColor: AppTheme.surface,
                   filled: true,
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide.none),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                    borderSide: BorderSide.none,
+                  ),
                 ),
               ),
               const SizedBox(height: 24),
@@ -632,7 +734,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   backgroundColor: AppTheme.error,
                   foregroundColor: Colors.white,
                   padding: const EdgeInsets.all(16),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
                 onPressed: () async {
                   if (controller.text.isEmpty) return;
@@ -643,11 +747,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   if (ctx.mounted) {
                     Navigator.pop(ctx);
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Report submitted! Thank you.')),
+                      const SnackBar(
+                        content: Text('Report submitted! Thank you.'),
+                      ),
                     );
                   }
                 },
-                child: const Text('Submit Report', style: TextStyle(fontWeight: FontWeight.bold)),
+                child: const Text(
+                  'Submit Report',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
               const SizedBox(height: 12),
             ],
@@ -663,16 +772,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
       children: [
         Text(
           title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         if (onSeeAll != null)
-          TextButton(
-            onPressed: onSeeAll,
-            child: const Text('See All'),
-          ),
+          TextButton(onPressed: onSeeAll, child: const Text('See All')),
       ],
     );
   }
@@ -710,7 +813,12 @@ class _StatCard extends StatelessWidget {
   final IconData icon;
   final Color color;
 
-  const _StatCard({required this.label, required this.value, required this.icon, required this.color});
+  const _StatCard({
+    required this.label,
+    required this.value,
+    required this.icon,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -734,9 +842,19 @@ class _StatCard extends StatelessWidget {
           children: [
             Icon(icon, color: color, size: 22),
             const SizedBox(height: 8),
-            Text(value, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: color)),
+            Text(
+              value,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w700,
+                color: color,
+              ),
+            ),
             const SizedBox(height: 2),
-            Text(label, style: const TextStyle(fontSize: 11, color: AppTheme.textMuted)),
+            Text(
+              label,
+              style: const TextStyle(fontSize: 11, color: AppTheme.textMuted),
+            ),
           ],
         ),
       ),
@@ -764,11 +882,17 @@ class _ProgressSection extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Overall Progress', style: Theme.of(context).textTheme.titleMedium),
-              Text('${(pct * 100).toInt()}%',
-                  style: const TextStyle(
-                      color: AppTheme.primary,
-                      fontWeight: FontWeight.w700)),
+              Text(
+                'Overall Progress',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Text(
+                '${(pct * 100).toInt()}%',
+                style: const TextStyle(
+                  color: AppTheme.primary,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 10),
@@ -829,7 +953,11 @@ class _QuickCardState extends State<_QuickCard> {
             decoration: BoxDecoration(
               color: AppTheme.surface,
               borderRadius: BorderRadius.circular(18),
-              border: Border.all(color: _isHovered ? widget.color.withValues(alpha: 0.5) : AppTheme.border),
+              border: Border.all(
+                color: _isHovered
+                    ? widget.color.withValues(alpha: 0.5)
+                    : AppTheme.border,
+              ),
               boxShadow: [
                 if (_isHovered)
                   BoxShadow(
@@ -852,10 +980,20 @@ class _QuickCardState extends State<_QuickCard> {
                   child: Icon(widget.icon, color: widget.color, size: 22),
                 ),
                 const SizedBox(height: 10),
-                Text(widget.label,
-                    style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13)),
-                Text(widget.subtitle,
-                    style: const TextStyle(color: AppTheme.textMuted, fontSize: 10)),
+                Text(
+                  widget.label,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
+                  ),
+                ),
+                Text(
+                  widget.subtitle,
+                  style: const TextStyle(
+                    color: AppTheme.textMuted,
+                    fontSize: 10,
+                  ),
+                ),
               ],
             ),
           ),
@@ -872,10 +1010,22 @@ class _StatsRingsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final attempted = progress?.topics.values.fold<int>(0, (s, t) => s + t.questionsAttempted) ?? 0;
-    final correct = progress?.topics.values.fold<int>(0, (s, t) => s + t.questionsCorrect) ?? 0;
+    final attempted =
+        progress?.topics.values.fold<int>(
+          0,
+          (s, t) => s + t.questionsAttempted,
+        ) ??
+        0;
+    final correct =
+        progress?.topics.values.fold<int>(
+          0,
+          (s, t) => s + t.questionsCorrect,
+        ) ??
+        0;
     final accuracy = attempted > 0 ? (correct / attempted * 100).round() : 0;
-    final badgeCount = _BadgesSection._computeBadges(progress).where((b) => b['earned'] == true).length;
+    final badgeCount = _BadgesSection._computeBadges(
+      progress,
+    ).where((b) => b['earned'] == true).length;
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -887,10 +1037,31 @@ class _StatsRingsRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _RingItem(label: 'Correct', value: correct, max: 50, color: AppTheme.success),
-          _RingItem(label: 'Attempted', value: attempted, max: 100, color: AppTheme.primary),
-          _RingItem(label: 'Accuracy', value: accuracy, max: 100, color: AppTheme.accent, suffix: '%'),
-          _RingItem(label: 'Badges', value: badgeCount, max: 8, color: AppTheme.warning),
+          _RingItem(
+            label: 'Correct',
+            value: correct,
+            max: 50,
+            color: AppTheme.success,
+          ),
+          _RingItem(
+            label: 'Attempted',
+            value: attempted,
+            max: 100,
+            color: AppTheme.primary,
+          ),
+          _RingItem(
+            label: 'Accuracy',
+            value: accuracy,
+            max: 100,
+            color: AppTheme.accent,
+            suffix: '%',
+          ),
+          _RingItem(
+            label: 'Badges',
+            value: badgeCount,
+            max: 8,
+            color: AppTheme.warning,
+          ),
         ],
       ),
     );
@@ -903,7 +1074,13 @@ class _RingItem extends StatelessWidget {
   final int max;
   final Color color;
   final String suffix;
-  const _RingItem({required this.label, required this.value, required this.max, required this.color, this.suffix = ''});
+  const _RingItem({
+    required this.label,
+    required this.value,
+    required this.max,
+    required this.color,
+    this.suffix = '',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -928,14 +1105,21 @@ class _RingItem extends StatelessWidget {
                 ),
                 Text(
                   '$value$suffix',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: color),
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: color,
+                  ),
                 ),
               ],
             ),
           ),
         ),
         const SizedBox(height: 6),
-        Text(label, style: const TextStyle(fontSize: 10, color: AppTheme.textMuted)),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 10, color: AppTheme.textMuted),
+        ),
       ],
     );
   }
@@ -959,15 +1143,24 @@ class _ExamCountdown extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(Icons.calendar_today, color: AppTheme.textMuted.withValues(alpha: 0.5), size: 20),
+            Icon(
+              Icons.calendar_today,
+              color: AppTheme.textMuted.withValues(alpha: 0.5),
+              size: 20,
+            ),
             const SizedBox(width: 12),
             const Expanded(
-              child: Text('Set your exam date in Settings to see a countdown.',
-                  style: TextStyle(color: AppTheme.textMuted, fontSize: 12)),
+              child: Text(
+                'Set your exam date in Settings to see a countdown.',
+                style: TextStyle(color: AppTheme.textMuted, fontSize: 12),
+              ),
             ),
             TextButton(
               onPressed: () => context.push('/settings'),
-              child: const Text('SET', style: TextStyle(fontWeight: FontWeight.bold)),
+              child: const Text(
+                'SET',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
@@ -986,14 +1179,20 @@ class _ExamCountdown extends StatelessWidget {
               : [AppTheme.primary.withValues(alpha: 0.15), AppTheme.surface],
         ),
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: isPast ? AppTheme.error.withValues(alpha: 0.3) : AppTheme.primary.withValues(alpha: 0.3)),
+        border: Border.all(
+          color: isPast
+              ? AppTheme.error.withValues(alpha: 0.3)
+              : AppTheme.primary.withValues(alpha: 0.3),
+        ),
       ),
       child: Row(
         children: [
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: (isPast ? AppTheme.error : AppTheme.primary).withValues(alpha: 0.15),
+              color: (isPast ? AppTheme.error : AppTheme.primary).withValues(
+                alpha: 0.15,
+              ),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
@@ -1025,19 +1224,27 @@ class _ExamCountdown extends StatelessWidget {
               children: [
                 Text(
                   isPast ? 'Exam date has passed' : 'Until Final Exam',
-                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   '${examDate.day}/${examDate.month}/${examDate.year}',
-                  style: const TextStyle(color: AppTheme.textMuted, fontSize: 12),
+                  style: const TextStyle(
+                    color: AppTheme.textMuted,
+                    fontSize: 12,
+                  ),
                 ),
               ],
             ),
           ),
           Icon(
             Icons.calendar_month_rounded,
-            color: (isPast ? AppTheme.error : AppTheme.primary).withValues(alpha: 0.4),
+            color: (isPast ? AppTheme.error : AppTheme.primary).withValues(
+              alpha: 0.4,
+            ),
             size: 32,
           ),
         ],
@@ -1051,36 +1258,101 @@ class _BadgesSection extends StatelessWidget {
   final UserProgress? progress;
   const _BadgesSection({this.progress});
 
-  static const List<Map<String, dynamic>> _allBadges = [
-    {'id': 'first_correct', 'label': 'First Blood', 'icon': 57388, 'desc': 'Answer your first question correctly'},
-    {'id': 'streak_3', 'label': '3-Day Streak', 'icon': 58744, 'desc': 'Maintain a 3-day streak'},
-    {'id': 'streak_7', 'label': 'Weekly Warrior', 'icon': 59475, 'desc': 'Maintain a 7-day streak'},
-    {'id': 'xp_100', 'label': 'XP Hunter', 'icon': 59448, 'desc': 'Earn 100 XP'},
-    {'id': 'xp_500', 'label': 'XP Master', 'icon': 59449, 'desc': 'Earn 500 XP'},
-    {'id': 'topics_3', 'label': 'Explorer', 'icon': 58721, 'desc': 'Practice 3 topics'},
-    {'id': 'accuracy_80', 'label': 'Sharpshooter', 'icon': 58530, 'desc': '80% accuracy (10+ Qs)'},
-    {'id': 'vault_5', 'label': 'Growth Mindset', 'icon': 59645, 'desc': '5 mistakes in Vault'},
+  static const List<Map<String, Object>> _allBadges = [
+    {
+      'id': 'first_correct',
+      'label': 'First Blood',
+      'icon': Icons.emoji_events_rounded,
+      'desc': 'Answer your first question correctly',
+    },
+    {
+      'id': 'streak_3',
+      'label': '3-Day Streak',
+      'icon': Icons.local_fire_department_rounded,
+      'desc': 'Maintain a 3-day streak',
+    },
+    {
+      'id': 'streak_7',
+      'label': 'Weekly Warrior',
+      'icon': Icons.auto_awesome_rounded,
+      'desc': 'Maintain a 7-day streak',
+    },
+    {
+      'id': 'xp_100',
+      'label': 'XP Hunter',
+      'icon': Icons.star_border_rounded,
+      'desc': 'Earn 100 XP',
+    },
+    {
+      'id': 'xp_500',
+      'label': 'XP Master',
+      'icon': Icons.star_rounded,
+      'desc': 'Earn 500 XP',
+    },
+    {
+      'id': 'topics_3',
+      'label': 'Explorer',
+      'icon': Icons.explore_rounded,
+      'desc': 'Practice 3 topics',
+    },
+    {
+      'id': 'accuracy_80',
+      'label': 'Sharpshooter',
+      'icon': Icons.speed_rounded,
+      'desc': '80% accuracy (10+ Qs)',
+    },
+    {
+      'id': 'vault_5',
+      'label': 'Growth Mindset',
+      'icon': Icons.shield_rounded,
+      'desc': '5 mistakes in Vault',
+    },
   ];
 
   static List<Map<String, dynamic>> _computeBadges(UserProgress? p) {
-    if (p == null) return _allBadges.map((b) => {...b, 'earned': false}).toList();
+    if (p == null)
+      return _allBadges.map((b) => {...b, 'earned': false}).toList();
 
-    final attempted = p.topics.values.fold<int>(0, (s, t) => s + t.questionsAttempted);
-    final correct = p.topics.values.fold<int>(0, (s, t) => s + t.questionsCorrect);
+    final attempted = p.topics.values.fold<int>(
+      0,
+      (s, t) => s + t.questionsAttempted,
+    );
+    final correct = p.topics.values.fold<int>(
+      0,
+      (s, t) => s + t.questionsCorrect,
+    );
     final accuracy = attempted > 0 ? correct / attempted : 0.0;
-    final topicsPractised = p.topics.values.where((t) => t.questionsAttempted > 0).length;
+    final topicsPractised = p.topics.values
+        .where((t) => t.questionsAttempted > 0)
+        .length;
 
     return _allBadges.map((b) {
       bool earned = false;
       switch (b['id']) {
-        case 'first_correct': earned = correct > 0; break;
-        case 'streak_3': earned = p.streak >= 3; break;
-        case 'streak_7': earned = p.streak >= 7; break;
-        case 'xp_100': earned = p.totalXp >= 100; break;
-        case 'xp_500': earned = p.totalXp >= 500; break;
-        case 'topics_3': earned = topicsPractised >= 3; break;
-        case 'accuracy_80': earned = accuracy >= 0.8 && attempted >= 10; break;
-        case 'vault_5': earned = p.mistakeVault.length >= 5; break;
+        case 'first_correct':
+          earned = correct > 0;
+          break;
+        case 'streak_3':
+          earned = p.streak >= 3;
+          break;
+        case 'streak_7':
+          earned = p.streak >= 7;
+          break;
+        case 'xp_100':
+          earned = p.totalXp >= 100;
+          break;
+        case 'xp_500':
+          earned = p.totalXp >= 500;
+          break;
+        case 'topics_3':
+          earned = topicsPractised >= 3;
+          break;
+        case 'accuracy_80':
+          earned = accuracy >= 0.8 && attempted >= 10;
+          break;
+        case 'vault_5':
+          earned = p.mistakeVault.length >= 5;
+          break;
       }
       return {...b, 'earned': earned};
     }).toList();
@@ -1105,8 +1377,14 @@ class _BadgesSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('Badges', style: Theme.of(context).textTheme.titleMedium),
-              Text('$earned / ${badges.length}',
-                  style: const TextStyle(color: AppTheme.warning, fontWeight: FontWeight.bold, fontSize: 13)),
+              Text(
+                '$earned / ${badges.length}',
+                style: const TextStyle(
+                  color: AppTheme.warning,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 12),
@@ -1115,7 +1393,7 @@ class _BadgesSection extends StatelessWidget {
             runSpacing: 10,
             children: badges.map((b) {
               final isEarned = b['earned'] == true;
-              final iconData = IconData(b['icon'] as int, fontFamily: 'MaterialIcons');
+              final iconData = b['icon'] as IconData;
               return Tooltip(
                 message: '${b['label']}: ${b['desc']}',
                 child: AnimatedContainer(
@@ -1136,7 +1414,9 @@ class _BadgesSection extends StatelessWidget {
                     children: [
                       Icon(
                         iconData,
-                        color: isEarned ? AppTheme.warning : AppTheme.textMuted.withValues(alpha: 0.3),
+                        color: isEarned
+                            ? AppTheme.warning
+                            : AppTheme.textMuted.withValues(alpha: 0.3),
                         size: 24,
                       ),
                       const SizedBox(height: 4),
@@ -1145,7 +1425,9 @@ class _BadgesSection extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 9,
                           fontWeight: FontWeight.w600,
-                          color: isEarned ? AppTheme.warning : AppTheme.textMuted,
+                          color: isEarned
+                              ? AppTheme.warning
+                              : AppTheme.textMuted,
                         ),
                       ),
                     ],

@@ -129,28 +129,32 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget _buildPage(_OnboardPage page) {
     return Padding(
       padding: const EdgeInsets.all(32),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: page.color.withValues(alpha: 0.15),
-              border: Border.all(color: page.color.withValues(alpha: 0.4), width: 2),
-            ),
-            child: Icon(page.icon, size: 56, color: page.color),
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: page.color.withValues(alpha: 0.15),
+                  border: Border.all(color: page.color.withValues(alpha: 0.4), width: 2),
+                ),
+                child: Icon(page.icon, size: 56, color: page.color),
+              ),
+              const SizedBox(height: 48),
+              Text(page.title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 16),
+              Text(page.body,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: AppTheme.textMuted, fontSize: 16, height: 1.5)),
+            ],
           ),
-          const SizedBox(height: 48),
-          Text(page.title,
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 16),
-          Text(page.body,
-              textAlign: TextAlign.center,
-              style: const TextStyle(color: AppTheme.textMuted, fontSize: 16, height: 1.5)),
-        ],
+        ),
       ),
     );
   }
