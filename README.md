@@ -54,33 +54,33 @@ A dual-platform Grade 12 Mathematics learning tool built for South African stude
 <br/><b>LeaderBoard</b>
 </td>
 <td align="center" width="25%">
-<img src="assets/screenshots/daily_challenge.jpg" alt="Settings" width="180" style="border-radius: 16px;"/>
+<img src="assets/screenshots/settings.jpg" alt="Settings" width="180" style="border-radius: 16px;"/>
 <br/><b>Settings</b>
 </td>
 <td align="center" width="25%">
-<img src="assets/screenshots/exam_mode.jpg" alt="Examiner Mode" width="180" style="border-radius: 16px;"/>
+<img src="assets/screenshots/examiner.jpg" alt="Examiner Mode" width="180" style="border-radius: 16px;"/>
 <br/><b>Examiner Mode</b>
 </td>
 <td align="center" width="25%">
-<img src="assets/screenshots/results.jpg" alt="Live Classes" width="180" style="border-radius: 16px;"/>
+<img src="assets/screenshots/live_classes.jpg" alt="Live Classes" width="180" style="border-radius: 16px;"/>
 <br/><b>Live Classes</b>
 </td>
 </tr>
 <tr>
 <td align="center">
-<img src="assets/screenshots/topics.jpg" alt="Exam Results" width="180" style="border-radius: 16px;"/>
+<img src="assets/screenshots/results.jpg" alt="Exam Results" width="180" style="border-radius: 16px;"/>
 <br/><b>Exam Results</b>
 </td>
 <td align="center">
-<img src="assets/screenshots/examiner.jpg" alt="Exam Mode" width="180" style="border-radius: 16px;"/>
+<img src="assets/screenshots/exam_mode.jpg" alt="Exam Mode" width="180" style="border-radius: 16px;"/>
 <br/><b>Exam Mode</b>
 </td>
 <td align="center">
-<img src="assets/screenshots/live_classes.jpg" alt="Topics" width="180" style="border-radius: 16px;"/>
+<img src="assets/screenshots/topics.jpg" alt="Topics" width="180" style="border-radius: 16px;"/>
 <br/><b>Topics</b>
 </td>
 <td align="center">
-<img src="assets/screenshots/settings.jpg" alt="Dashboard" width="180" style="border-radius: 16px;"/>
+<img src="assets/screenshots/daily_challenge.jpg" alt="Dashboard" width="180" style="border-radius: 16px;"/>
 <br/><b>Dashboard</b>
 </td>
 </tr>
