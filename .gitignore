@@ -14,3 +14,6 @@ public/js/firebase-config.js
 # Android build artefacts & local machine config
 mathgrade12_flutter/android/build/
 mathgrade12_flutter/android/gradle/local.properties
+
+# Firebase Configuration
+mathgrade12_flutter/lib/firebase_options.dart
