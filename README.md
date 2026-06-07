@@ -12,12 +12,6 @@
 
 TotalSkillz is a dual-platform educational product helping South African Grade 12 learners master Mathematics through interactive practice, smart review, timed exam simulation, and real NSC question banks — available as a **Progressive Web App** and a native **Flutter mobile app**.
 
-<div align="center">
-  <video src="https://github.com/user-attachments/assets/993189f6-4fa7-4d52-be80-29911ca32742"
-         width="100%" controls>
-  </video>
-</div>
-
 ---
 
 ## Table of Contents
