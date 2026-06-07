@@ -1966,29 +1966,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Curated grade 12 maths video IDs per topic (avoids broken listType=search embeds)
 window.TOPIC_VIDEO_MAP = {
-    'algebra': 'JaLIBFOT8XM',  // Grade 12 Algebra
-    'patterns': 'KNwRMs5mflE',  // Arithmetic & Geometric sequences
-    'sequence': 'KNwRMs5mflE',
-    'functions': 'Uc3Q92xfL5A',  // Grade 12 Functions
-    'inverse': 'Uc3Q92xfL5A',
-    'finance': 'xzpz7MXCMR0',  // Financial Maths
-    'annuities': 'xzpz7MXCMR0',
-    'trigonometry': 'jZe6IjFyqBU',  // Grade 12 Trig
-    'compound angle': 'jZe6IjFyqBU',
-    'analytical_geometry': 'fYyARMqwMG4',  // Analytical Geometry
+    'algebra': 'grnP3mduZkM',  // Grade 12 Algebra
+    'patterns': 'XZJdyPkCxuE',  // Arithmetic & Geometric sequences
+    'sequence': 'XZJdyPkCxuE',
+    'functions': '2IWIywXcpvg',  // Grade 12 Functions
+    'inverse': 'ALmlMfeE9FA',
+    'finance': 'zwuBlg2hfuvoT',  // Financial Maths
+    'annuities': 'ZdH0kzfN1OwzUuCp',
+    'trigonometry': 'g8VCHoSk5_o',  // Grade 12 Trig
+    'compound angle': 'fhHEtg-kgIf8dPJz',
+    'analytical_geometry': 'x_i2ksL0REI',  // Analytical Geometry
     'analytical': 'fYyARMqwMG4',
-    'circle geometry': 'fYyARMqwMG4',
-    'euclidean_geometry': 'GUHxO_KZRQM',  // Euclidean Geometry / Circle Theorems
+    'circle geometry': '2MuCHn-QwA5dzoqB',
+    'euclidean_geometry': 'nWn-HjCP9wY',  // Euclidean Geometry / Circle Theorems
     'euclidean': 'GUHxO_KZRQM',
-    'theorems': 'GUHxO_KZRQM',
-    'calculus': '_-4T3fEQtbs',  // Calculus Differentiation
-    'derivative': '_-4T3fEQtbs',
-    'probability': 'YoUF5tKfzh4',  // Probability
-    'counting': 'YoUF5tKfzh4',
-    'statistics': 'MRqtXL2dFP4',  // Statistics regression
-    'regression': 'MRqtXL2dFP4',
-    'quadratic': 'JaLIBFOT8XM',
-    'revision': '6u_KrFkD8tk',  // General grade 12 maths revision
+    'theorems': 'j-DOGwvCWjk',
+    'calculus': 'alUkVWVEP10',  // Calculus Differentiation
+    'derivative': 'WsQQvHm4lSw',
+    'probability': '94AmzeR9n2w',  // Probability
+    'counting': 'loYKqFQcksY',
+    'statistics': 'XZo4xyJXCak',  // Statistics regression
+    'regression': 'yXbx5EHE1ag',
+    'quadratic': 'Ws_tyxB-Xyo',
+    'revision': 'kJd8o0r1Cz8',  // General grade 12 maths revision
 };
 
 function openVideoModal(queryOrUrl, title = 'Video Lesson') {
@@ -2036,6 +2036,7 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
     let embedUrl = '';
     let isSearch = false;
     let fallbackSearchQuery = '';
+    let parsedVideoId = null;
 
     function isValidUrl(string) {
         try {
@@ -2052,41 +2053,42 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
     if (isValidUrl(queryOrUrl)) {
         if (queryOrUrl.includes('youtube.com/watch?v=')) {
             const urlParams = new URL(queryOrUrl).searchParams;
-            const vId = urlParams.get('v');
+            parsedVideoId = urlParams.get('v');
             const listId = urlParams.get('list');
-            
-            if (listId && !vId) {
+
+            if (listId && !parsedVideoId) {
                 isPlaylist = true;
                 playlistId = listId;
-            } else if (vId) {
-                embedUrl = `https://www.youtube.com/embed/${vId}`;
+            } else if (parsedVideoId) {
+                embedUrl = `https://www.youtube.com/embed/${parsedVideoId}`;
             }
         } else if (queryOrUrl.includes('youtube.com/playlist?list=')) {
             const urlParams = new URL(queryOrUrl).searchParams;
             isPlaylist = true;
             playlistId = urlParams.get('list');
         } else if (queryOrUrl.includes('youtu.be/')) {
-            const id = queryOrUrl.split('.be/')[1].split('?')[0];
-            embedUrl = `https://www.youtube.com/embed/${id}`;
+            parsedVideoId = queryOrUrl.split('.be/')[1].split('?')[0];
+            embedUrl = `https://www.youtube.com/embed/${parsedVideoId}`;
         }
     }
 
-    if (!embedUrl) {
+    if (!embedUrl && !isPlaylist) {
         // Search query — find curated video ID or fallback
         const lower = queryOrUrl.toLowerCase();
-        let videoId = null;
+        let topicVideoId = null;
 
         // Try to match against known topic keys
         const topicKeys = Object.keys(TOPIC_VIDEO_MAP).sort((a, b) => b.length - a.length);
         for (const key of topicKeys) {
             if (lower.includes(key.replace(/_/g, ' '))) {
-                videoId = TOPIC_VIDEO_MAP[key];
+                topicVideoId = TOPIC_VIDEO_MAP[key];
                 break;
             }
         }
 
-        if (videoId) {
-            embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        if (topicVideoId) {
+            parsedVideoId = topicVideoId;
+            embedUrl = `https://www.youtube.com/embed/${topicVideoId}`;
         } else {
             isSearch = true;
             fallbackSearchQuery = `${queryOrUrl} Kevinmathscience OR Mlungisi Nkosi OR The Organic Chemistry Tutor`;
@@ -2094,15 +2096,27 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
     }
 
     if (isSearch) {
-        // ... (keep search logic as is)
+        // Handle Search Fallback inside the modal
+        document.getElementById('videoModalBody').innerHTML = `
+            <div style="padding: 2rem; text-align: center;">
+                <i class="fa-brands fa-youtube" style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;"></i>
+                <h4>Search for Video</h4>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                    We couldn't find a direct link for this topic. Click below to search YouTube for the best tutorials.
+                </p>
+                <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(fallbackSearchQuery)}" 
+                   target="_blank" class="btn btn-primary">
+                    <i class="fa-solid fa-magnifying-glass"></i> Search YouTube
+                </a>
+            </div>
+        `;
     } else {
         // Show Facade for lazy loading
-        const vId = isPlaylist ? null : (embedUrl.split('embed/')[1] ? embedUrl.split('embed/')[1].split('?')[0] : null);
-        const displayId = isPlaylist ? playlistId : vId;
-        const thumbnailUrl = isPlaylist 
+        const displayId = isPlaylist ? playlistId : parsedVideoId;
+        const thumbnailUrl = isPlaylist
             ? 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80' // Placeholder for playlist
-            : `https://i.ytimg.com/vi/${vId}/maxresdefault.jpg`;
-        
+            : `https://i.ytimg.com/vi/${parsedVideoId}/maxresdefault.jpg`;
+
         document.getElementById('videoModalBody').innerHTML = `
             <div class="video-facade" style="background-image: url('${thumbnailUrl}')" id="videoFacade">
                 <div class="play-button-overlay">
@@ -2143,8 +2157,8 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
             videoUrl = queryOrUrl;
         } else if (queryOrUrl.includes('youtu.be/')) {
             videoUrl = queryOrUrl;
-        } else if (vId) {
-            videoUrl = `https://www.youtube.com/watch?v=${vId}`;
+        } else if (parsedVideoId) {
+            videoUrl = `https://www.youtube.com/watch?v=${parsedVideoId}`;
         }
 
         if (videoUrl) {
@@ -2185,7 +2199,7 @@ function updateVideoModalWithInfo(info) {
 
     const durationMin = Math.floor(info.duration / 60);
     const durationSec = info.duration % 60;
-    
+
     // Update progress bar on facade if it exists
     if (window.videoPlayerManager) {
         const vId = window.videoPlayerManager.currentVideoId;
@@ -2214,7 +2228,7 @@ function closeVideoModal() {
     const overlay = document.getElementById('globalVideoModal');
     if (overlay) {
         overlay.classList.remove('open');
-        
+
         // Remove Escape key listener
         if (overlay._handleEscape) {
             window.removeEventListener('keydown', overlay._handleEscape);
