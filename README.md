@@ -46,16 +46,45 @@ A dual-platform Grade 12 Mathematics learning tool built for South African stude
 
 ## Screenshots
 
-> Screenshots coming soon. See the [live web app](https://totalskillz-7193a.web.app) for a full preview.
-
----
-
-## Demo
-
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/993189f6-4fa7-4d52-be80-29911ca32742"
-         width="80%" controls>
-  </video>
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="assets/screenshots/dashboard.jpg" alt="Dashboard" width="180" style="border-radius: 16px;"/>
+<br/><b>Dashboard</b>
+</td>
+<td align="center" width="25%">
+<img src="assets/screenshots/daily_challenge.jpg" alt="Daily Challenge" width="180" style="border-radius: 16px;"/>
+<br/><b>Daily Challenge</b>
+</td>
+<td align="center" width="25%">
+<img src="assets/screenshots/exam_mode.jpg" alt="Exam Mode" width="180" style="border-radius: 16px;"/>
+<br/><b>Exam Mode</b>
+</td>
+<td align="center" width="25%">
+<img src="assets/screenshots/results.jpg" alt="Results" width="180" style="border-radius: 16px;"/>
+<br/><b>Exam Results</b>
+</td>
+</tr>
+<tr>
+<td align="center">
+<img src="assets/screenshots/topics.jpg" alt="Topics" width="180" style="border-radius: 16px;"/>
+<br/><b>Masterclass</b>
+</td>
+<td align="center">
+<img src="assets/screenshots/examiner.jpg" alt="Examiner" width="180" style="border-radius: 16px;"/>
+<br/><b>Examiner Mode</b>
+</td>
+<td align="center">
+<img src="assets/screenshots/live_classes.jpg" alt="Live Classes" width="180" style="border-radius: 16px;"/>
+<br/><b>Live Classes</b>
+</td>
+<td align="center">
+<img src="assets/screenshots/settings.jpg" alt="Settings" width="180" style="border-radius: 16px;"/>
+<br/><b>Settings</b>
+</td>
+</tr>
+</table>
 </div>
 
 ---
