@@ -9,10 +9,10 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.x-54C5F8?style=flat-square&logo=flutter&logoColor=white)](https://flutter.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-Firestore%20%7C%20Auth-FFCA28?style=flat-square&logo=firebase&logoColor=black)](https://firebase.google.com)
 [![PWA](https://img.shields.io/badge/PWA-enabled-5A0FC8?style=flat-square&logo=pwa&logoColor=white)](https://totalskillz-7193a.web.app)
-[![Version](https://img.shields.io/badge/version-2.4.0-6C63FF?style=flat-square)](https://github.com/sphe-hlongwa/Projects/releases)
+[![Version](https://img.shields.io/badge/version-2.4.0-6C63FF?style=flat-square)](https://github.com/sphe-hlongwa/TotalSkillz/releases)
 [![License](https://img.shields.io/badge/license-ISC-lightgrey?style=flat-square)](LICENSE)
 
-### [🌐 Web App](https://totalskillz-7193a.web.app) • [📱 Flutter App](https://github.com/sphe-hlongwa/Projects) • [📬 Contact](mailto:hlongwasphephelo40@gmail.com)
+### [🌐 Web App](https://totalskillz-7193a.web.app) • [📱 Flutter App](https://github.com/sphe-hlongwa/TotalSkillz) • [📬 Contact](mailto:hlongwasphephelo40@gmail.com)
 
 </div>
 
@@ -106,8 +106,8 @@ A dual-platform Grade 12 Mathematics learning tool built for South African stude
 
 ### Web App
 ```bash
-git clone https://github.com/sphe-hlongwa/Projects.git
-cd Projects
+git clone https://github.com/sphe-hlongwa/TotalSkillz.git
+cd TotalSkillz
 npm install
 npm start        # → http://localhost:3000
 ```
@@ -125,8 +125,8 @@ flutter run
 
 ## Contributing
 
-- 🐛 **Found a bug?** [Open an issue](https://github.com/sphe-hlongwa/Projects/issues)
-- 💡 **Have an idea?** [Request a feature](https://github.com/sphe-hlongwa/Projects/issues)
+- 🐛 **Found a bug?** [Open an issue](https://github.com/sphe-hlongwa/TotalSkillz/issues)
+- 💡 **Have an idea?** [Request a feature](https://github.com/sphe-hlongwa/TotalSkillz/issues)
 - 📬 **Get in touch:** [hlongwasphephelo40@gmail.com](mailto:hlongwasphephelo40@gmail.com)
 
 ---
