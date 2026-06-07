@@ -509,7 +509,7 @@ function injectSettingsOverlay() {
                         <a href="https://github.com/sphe-hlongwa" target="_blank" style="color: var(--text-muted); font-size: 1.1rem;"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
-                <p style="font-size:0.7rem; color:var(--text-muted); opacity: 0.8;">TotalSkillz v2.4.0 • Built For Success</p>
+                <p style="font-size:0.7rem; color:var(--text-muted); opacity: 0.8;">TotalSkillz v2.4.0 - Built For Success</p>
                 <a href="privacy.html" target="_blank" style="font-size:0.7rem; color:var(--text-muted); text-decoration:underline; opacity:0.7;"><i class="fa-solid fa-shield-halved"></i> Privacy Policy</a>
             </div>
         </div>
