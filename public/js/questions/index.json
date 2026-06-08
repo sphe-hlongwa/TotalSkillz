@@ -1,0 +1,52 @@
+﻿[
+    {
+        "topic":  "functions",
+        "count":  68,
+        "file":  "js/questions/functions.json"
+    },
+    {
+        "topic":  "calculus",
+        "count":  84,
+        "file":  "js/questions/calculus.json"
+    },
+    {
+        "topic":  "algebra",
+        "count":  137,
+        "file":  "js/questions/algebra.json"
+    },
+    {
+        "topic":  "patterns",
+        "count":  56,
+        "file":  "js/questions/patterns.json"
+    },
+    {
+        "topic":  "finance",
+        "count":  57,
+        "file":  "js/questions/finance.json"
+    },
+    {
+        "topic":  "trigonometry",
+        "count":  71,
+        "file":  "js/questions/trigonometry.json"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "count":  34,
+        "file":  "js/questions/analytical_geometry.json"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "count":  59,
+        "file":  "js/questions/euclidean_geometry.json"
+    },
+    {
+        "topic":  "probability",
+        "count":  53,
+        "file":  "js/questions/probability.json"
+    },
+    {
+        "topic":  "statistics",
+        "count":  29,
+        "file":  "js/questions/statistics.json"
+    }
+]

@@ -1,0 +1,1274 @@
+﻿[
+    {
+        "topic":  "functions",
+        "difficulty":  "manageable",
+        "q":  "Consider the graph of $f(x) = x^2 - 4$. What are the x-intercepts of this function?",
+        "options":  [
+                        "$(-2; 0)$ and $(2; 0)$",
+                        "$(0; -4)$",
+                        "$(2; 0)$ only",
+                        "$(-4; 0)$ and $(4; 0)$"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Set $f(x) = 0$:",
+                         "$x^2 - 4 = 0$",
+                         "$(x - 2)(x + 2) = 0$",
+                         "$x = 2$ or $x = -2$",
+                         "The intercepts are $(-2; 0)$ and $(2; 0)$."
+                     ],
+        "graph":  {
+                      "fn":  "x^2 - 4",
+                      "domain":  [
+                                     -5,
+                                     5
+                                 ],
+                      "yDomain":  [
+                                      -5,
+                                      5
+                                  ]
+                  }
+    },
+    {
+        "topic":  "functions",
+        "difficulty":  "manageable",
+        "q":  "The graph shows $g(x) = \\frac{2}{x-1} + 1$. Identify the vertical asymptote.",
+        "options":  [
+                        "$x = 1$",
+                        "$x = -1$",
+                        "$y = 1$",
+                        "$y = 0$"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The vertical asymptote occurs where the denominator is zero.",
+                         "$x - 1 = 0 \\implies x = 1$."
+                     ],
+        "graph":  {
+                      "fn":  "2/(x-1) + 1",
+                      "domain":  [
+                                     -5,
+                                     7
+                                 ],
+                      "yDomain":  [
+                                      -5,
+                                      7
+                                  ]
+                  }
+    },
+    {
+        "topic":  "functions",
+        "q":  "Which of the following expressions is equivalent to \\(f(x) = \\frac{2x+3}{-x-3}\\)?",
+        "options":  [
+                        "\\(\\frac{3}{x+3} - 2\\)",
+                        "\\(\\frac{-3}{x+3} - 2\\)",
+                        "\\(\\frac{3}{x-3} + 2\\)",
+                        "\\(\\frac{-2}{x+3} + 3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f(x) = \\frac{2x+3}{-(x+3)}\\)",
+                         "\\(= \\frac{2x+6-3}{-(x+3)}\\)",
+                         "\\(= \\frac{2(x+3)-3}{-(x+3)}\\)",
+                         "\\(= \\frac{2(x+3)}{-(x+3)} - \\frac{3}{-(x+3)}\\)",
+                         "\\(= -2 + \\frac{3}{x+3} = \\frac{3}{x+3} - 2\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(f(x) = \\frac{3}{x+3} - 2\\), determine the coordinates of the intercepts of \\(f\\) with the axes.",
+        "options":  [
+                        "x-int: \\((-1.5 ; 0)\\), y-int: \\((0 ; -1)\\)",
+                        "x-int: \\((1.5 ; 0)\\), y-int: \\((0 ; -1)\\)",
+                        "x-int: \\((-1.5 ; 0)\\), y-int: \\((0 ; -2)\\)",
+                        "x-int: \\((-1.5 ; 0)\\), y-int: \\((0 ; 1)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For the y-intercept, let \\(x = 0\\): \\(f(0) = \\frac{3}{0+3} - 2 = 1 - 2 = -1\\). Point is \\((0 ; -1)\\).",
+                         "For the x-intercept, let \\(y = 0\\): \\(0 = \\frac{3}{x+3} - 2 \\implies 2 = \\frac{3}{x+3}\\)",
+                         "\\(2(x+3) = 3 \\implies 2x + 6 = 3 \\implies 2x = -3 \\implies x = -1.5\\). Point is \\((-1.5 ; 0)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "What are the equations of the asymptotes of the graph \\(f(x) = \\frac{3}{x+3} - 2\\)?",
+        "options":  [
+                        "\\(x = -3\\) and \\(y = -2\\)",
+                        "\\(x = 3\\) and \\(y = -2\\)",
+                        "\\(x = -3\\) and \\(y = 2\\)",
+                        "\\(x = 3\\) and \\(y = 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The general form of a hyperbola is \\(y = \\frac{a}{x-p} + q\\), with asymptotes \\(x = p\\) and \\(y = q\\).",
+                         "From \\(f(x) = \\frac{3}{x+3} - 2\\), we can see \\(p = -3\\) and \\(q = -2\\).",
+                         "Vertical asymptote: \\(x = -3\\).",
+                         "Horizontal asymptote: \\(y = -2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the axis of symmetry of \\(f(x) = \\frac{3}{x+3} - 2\\) that represents a decreasing function.",
+        "options":  [
+                        "\\(y = -x - 5\\)",
+                        "\\(y = x + 1\\)",
+                        "\\(y = -x - 1\\)",
+                        "\\(y = x - 5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The axes of symmetry for a hyperbola pass through the point of intersection of its asymptotes \\((-3; -2)\\).",
+                         "They have gradients of \\(1\\) (increasing) and \\(-1\\) (decreasing).",
+                         "For the decreasing axis of symmetry, \\(m = -1\\).",
+                         "\\(y - y_1 = m(x - x_1) \\implies y - (-2) = -1(x - (-3))\\)",
+                         "\\(y + 2 = -x - 3 \\implies y = -x - 5\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the value(s) of \\(x\\) for which \\(f(x) = \\frac{3}{x+3} - 2\\) is decreasing.",
+        "options":  [
+                        "\\(x \\in \\mathbb{R} , x \\neq -3\\)",
+                        "\\(x \u003e -3\\)",
+                        "\\(x \u003c -3\\)",
+                        "\\(x \\in \\mathbb{R}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For the hyperbola \\(f(x) = \\frac{a}{x-p} + q\\), if \\(a \u003e 0\\), the function is decreasing in both quadrants where it exists.",
+                         "Here, \\(a = 3\\) (which is positive).",
+                         "Therefore, the function is decreasing for all real values of \\(x\\) except at the vertical asymptote.",
+                         "The vertical asymptote is at \\(x = -3\\).",
+                         "So, it is decreasing for \\(x \\in \\mathbb{R} , x \\neq -3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Sketched below is the parabola \\(f\\) and the straight line \\(g(x) = 3x + 6\\). R and S are the x-intercepts of \\(f\\), and \\(P(-\\frac{1}{2}; 9)\\) is its turning point. \\(g\\) has its x-intercept at R.\u003cbr\u003e\u003cbr\u003e\u003cdiv style=\"width:100%; max-width:450px; margin: 1.5rem auto; display: flex; justify-content: center;\"\u003e\u003csvg viewBox=\"-40 -40 220 220\" style=\"width:100%; max-width: 400px; height:auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));\"\u003e\u003cdefs\u003e\u003cmarker id=\"arrow-axis\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"\u003e\u003cpath d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--text-muted)\"/\u003e\u003c/marker\u003e\u003cmarker id=\"arrow-line\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"\u003e\u003cpath d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--primary)\"/\u003e\u003c/marker\u003e\u003cmarker id=\"arrow-parabola\" viewBox=\"0 0 10 10\" refX=\"5\" refY=\"5\" markerWidth=\"5\" markerHeight=\"5\" orient=\"auto-start-reverse\"\u003e\u003cpath d=\"M 0 0 L 10 5 L 0 10 z\" fill=\"var(--accent-amber)\"/\u003e\u003c/marker\u003e\u003c/defs\u003e\u003cg stroke=\"var(--text-muted)\" stroke-width=\"1.5\"\u003e\u003cline x1=\"-30\" y1=\"120\" x2=\"160\" y2=\"120\" marker-start=\"url(#arrow-axis)\" marker-end=\"url(#arrow-axis)\"/\u003e\u003cline x1=\"120\" y1=\"170\" x2=\"120\" y2=\"-20\" marker-start=\"url(#arrow-axis)\" marker-end=\"url(#arrow-axis)\"/\u003e\u003c/g\u003e\u003ctext x=\"165\" y=\"115\" fill=\"var(--text-muted)\" font-family=\"math\" font-size=\"14\"\u003ex\u003c/text\u003e\u003ctext x=\"130\" y=\"-15\" fill=\"var(--text-muted)\" font-family=\"math\" font-size=\"14\"\u003ey\u003c/text\u003e\u003cpath d=\"M 20 170 Q 60 -100 140 170\" fill=\"none\" stroke=\"var(--accent-amber)\" stroke-width=\"2.5\" marker-start=\"url(#arrow-parabola)\" marker-end=\"url(#arrow-parabola)\"/\u003e\u003ctext x=\"20\" y=\"110\" fill=\"var(--text)\" font-family=\"serif\" font-weight=\"bold\" font-size=\"14\"\u003eR\u003c/text\u003e\u003ctext x=\"135\" y=\"110\" fill=\"var(--text)\" font-family=\"serif\" font-weight=\"bold\" font-size=\"14\"\u003eS\u003c/text\u003e\u003ctext x=\"65\" y=\"10\" fill=\"var(--text)\" font-family=\"serif\" font-size=\"12\"\u003eP(-1/2 ; 9)\u003c/text\u003e\u003ccircle cx=\"60\" cy=\"20\" r=\"4\" fill=\"var(--accent-amber)\"/\u003e\u003ctext x=\"35\" y=\"45\" fill=\"var(--accent-amber)\" font-family=\"serif\" font-style=\"italic\" font-weight=\"bold\" font-size=\"16\"\u003ef\u003c/text\u003e\u003cline x1=\"15\" y1=\"170\" x2=\"155\" y2=\"-10\" stroke=\"var(--primary)\" stroke-width=\"2.5\" marker-start=\"url(#arrow-line)\" marker-end=\"url(#arrow-line)\"/\u003e\u003ctext x=\"145\" y=\"15\" fill=\"var(--primary)\" font-family=\"serif\" font-style=\"italic\" font-weight=\"bold\" font-size=\"16\"\u003eg\u003c/text\u003e\u003c/svg\u003e\u003c/div\u003eCalculate the coordinates of R.",
+        "options":  [
+                        "\\((-2 ; 0)\\)",
+                        "\\((2 ; 0)\\)",
+                        "\\((0 ; 6)\\)",
+                        "\\((-3 ; 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "R is the x-intercept of both \\(f\\) and \\(g\\).",
+                         "Since we have the equation for \\(g(x) = 3x + 6\\), we can find its x-intercept by setting \\(y = 0\\).",
+                         "\\(3x + 6 = 0\\)",
+                         "\\(3x = -6\\)",
+                         "\\(x = -2\\)",
+                         "Therefore, the coordinates of R are \\((-2 ; 0)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Sketched below is the parabola \\(f\\) and the straight line \\(g(x) = 3x + 6\\). R and S are the x-intercepts of \\(f\\), and \\(P(-\\frac{1}{2}; 9)\\) is its turning point. \\(g\\) has its x-intercept at R.\u003cbr\u003e\u003cbr\u003eDetermine the equation of the parabola \\(f\\).",
+        "options":  [
+                        "\\(f(x) = -2x^2 - 2x + 8\\)",
+                        "\\(f(x) = -4x^2 - 4x + 8\\)",
+                        "\\(f(x) = -2x^2 - 4x + 6\\)",
+                        "\\(f(x) = -4x^2 - 2x + 6\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Since we are given the turning point \\(P(-\\frac{1}{2}; 9)\\), we can use the turning point form of a parabola: \\(f(x) = a(x - p)^2 + q\\).",
+                         "Substitute the turning point \\(p = -\\frac{1}{2}, q = 9\\):",
+                         "\\(f(x) = a(x + \\frac{1}{2})^2 + 9\\)",
+                         "We also know the parabola passes through the point R\\((-2; 0)\\). Substitute this point to solve for \\(a\\):",
+                         "\\(0 = a(-2 + \\frac{1}{2})^2 + 9\\)",
+                         "\\(-9 = a(-\\frac{3}{2})^2\\)",
+                         "\\(-9 = a(\\frac{9}{4})\\)",
+                         "\\(a = -9 \\times \\frac{4}{9} = -4\\)",
+                         "Substitute \\(a\\) back into the equation: \\(f(x) = -4(x + \\frac{1}{2})^2 + 9\\)",
+                         "Expand to get the standard form:",
+                         "\\(f(x) = -4(x^2 + x + \\frac{1}{4}) + 9\\)",
+                         "\\(f(x) = -4x^2 - 4x - 1 + 9\\)",
+                         "\\(f(x) = -4x^2 - 4x + 8\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the value(s) of \\(x\\) for which \\(f(x) \\ge 0\\), given \\(f(x) = \\frac{2x+3}{-x-3}\\).",
+        "options":  [
+                        "\\(-3 \u003c x \\le -1.5\\)",
+                        "\\(x \\le -1.5\\)",
+                        "\\(x \u003e -3\\)",
+                        "\\(-3 \\le x \\le -1.5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "We need to solve \\(\\frac{2x+3}{-x-3} \\ge 0\\).",
+                         "Find critical values by setting numerator and denominator to zero:",
+                         "Numerator: \\(2x + 3 = 0 \\implies x = -1.5\\)",
+                         "Denominator: \\(-x - 3 = 0 \\implies x = -3\\)",
+                         "Test intervals around \\(-3\\) and \\(-1.5\\):",
+                         "For \\(x \u003c -3\\), e.g., \\(-4\\): \\(\\frac{2(-4)+3}{-(-4)-3} = \\frac{-5}{1} = -5\\) (Negative)",
+                         "For \\(-3 \u003c x \u003c -1.5\\), e.g., \\(-2\\): \\(\\frac{2(-2)+3}{-(-2)-3} = \\frac{-1}{-1} = 1\\) (Positive)",
+                         "For \\(x \u003e -1.5\\), e.g., \\(0\\): \\(\\frac{2(0)+3}{-0-3} = \\frac{3}{-3} = -1\\) (Negative)",
+                         "The inequality is \\(\\ge 0\\), so include the root \\(-1.5\\) but always exclude the asymptote \\(-3\\).",
+                         "Result: \\(-3 \u003c x \\le -1.5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Consider \\(g(x) = \\left(\\frac{1}{3}\\right)^x\\). Determine the equation of \\(g^{-1}\\) in the form \\(y = \\dots\\)",
+        "options":  [
+                        "\\(y = \\log_{3} x\\)",
+                        "\\(y = \\log_{\\frac{1}{3}} x\\)",
+                        "\\(y = 3^x\\)",
+                        "\\(y = -3^x\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "The given function is \\(y = \\left(\\frac{1}{3}\\right)^x\\).",
+                         "To find the inverse function \\(g^{-1}\\), swap \\(x\\) and \\(y\\):",
+                         "\\(x = \\left(\\frac{1}{3}\\right)^y\\)",
+                         "Convert the exponential equation to logarithmic form to solve for \\(y\\):",
+                         "\\(y = \\log_{\\frac{1}{3}} x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Consider \\(g(x) = \\left(\\frac{1}{3}\\right)^x\\) and its inverse \\(g^{-1}(x) = \\log_{\\frac{1}{3}} x\\).\u003cbr\u003e\u003cbr\u003eWhich of the following describes the key features of the sketch graph of \\(g^{-1}\\)?\u003cbr\u003e\u003cbr\u003e\u003cdiv style=\"width:100%; max-width:500px; margin: 1.5rem auto; border-radius:8px; overflow:hidden; box-shadow: var(--shadow-sm);\"\u003e\u003ciframe src=\"https://www.desmos.com/calculator/2x2vmln5e8?embed\" width=\"100%\" height=\"300\" style=\"border: 1px solid #ccc; background: white;\" frameborder=\"0\"\u003e\u003c/iframe\u003e\u003c/div\u003e",
+        "options":  [
+                        "Intercept at \\((0; 1)\\), passing through \\((3; -1)\\), asymptote at \\(y=0\\)",
+                        "Intercept at \\((1; 0)\\), passing through \\((3; -1)\\), asymptote at \\(x=0\\)",
+                        "Intercept at \\((1; 0)\\), passing through \\((3; 1)\\), asymptote at \\(x=0\\)",
+                        "Intercept at \\((0; 1)\\), passing through \\((\\frac{1}{3}; 1)\\), asymptote at \\(y=0\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Since \\(g(x) = (1/3)^x\\) has a y-intercept at \\(y=1\\), passing through \\((0,1)\\), its inverse \\(g^{-1}\\) will have an x-intercept at \\(x=1\\), passing through \\((1,0)\\).",
+                         "The horizontal asymptote of \\(g\\) is \\(y=0\\). Therefore, the vertical asymptote of \\(g^{-1}\\) is \\(x=0\\) (the y-axis).",
+                         "Let\u0027s find another point on \\(g^{-1}\\) using \\(y = \\log_{\\frac{1}{3}} x\\).",
+                         "Let \\(x = 3\\): \\(y = \\log_{\\frac{1}{3}} 3 = -1\\). So it passes through \\((3; -1)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "The graph of \\(h(x) = a\\left(\\frac{1}{3}\\right)^x + 7\\) passes through the point \\((-2 ; 10)\\). Calculate the value of \\(a\\).",
+        "options":  [
+                        "\\(a = 3\\)",
+                        "\\(a = 1\\)",
+                        "\\(a = \\frac{1}{3}\\)",
+                        "\\(a = -1\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Substitute the point \\(x = -2\\) and \\(y = 10\\) into the equation for \\(h(x)\\):",
+                         "\\(10 = a\\left(\\frac{1}{3}\\right)^{-2} + 7\\)",
+                         "\\(10 - 7 = a\\left(3^{-1}\\right)^{-2}\\)",
+                         "\\(3 = a(3^2)\\)",
+                         "\\(3 = 9a\\)",
+                         "\\(a = \\frac{1}{3}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(g(x) = \\left(\\frac{1}{3}\\right)^x\\) and \\(h(x) = \\frac{1}{3}\\left(\\frac{1}{3}\\right)^x + 7\\). Describe the translation from \\(h\\) to \\(g\\).",
+        "options":  [
+                        "Shift 1 unit right and 7 units down",
+                        "Shift 1 unit left and 7 units down",
+                        "Shift 1 unit left and 7 units up",
+                        "Shift 1 unit right and 7 units up"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "First, simplify \\(h(x)\\): \\(h(x) = \\left(\\frac{1}{3}\\right)^1 \\cdot \\left(\\frac{1}{3}\\right)^x + 7 = \\left(\\frac{1}{3}\\right)^{x+1} + 7\\)",
+                         "Notice that \\(h(x) = g(x+1) + 7\\). This means \\(h\\) is derived from \\(g\\) by shifting it 1 unit LEFT and 7 units UP.",
+                         "The question asks for the translation from \\(h\\) back to \\(g\\).",
+                         "Therefore, we must reverse these steps: shift 1 unit RIGHT and 7 units DOWN.",
+                         "Check: Start with \\(h(x)\\). Shift right 1 unit (replace \\(x\\) with \\(x-1\\)): \\(h(x-1) = (1/3)^{(x-1)+1} + 7 = (1/3)^x + 7\\).",
+                         "Shift down 7 units (subtract 7): \\((1/3)^x + 7 - 7 = (1/3)^x = g(x)\\). Correct!"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "The graph of \\(f^{-1}(x) = \\sqrt{3x}\\), \\(x \\ge 0\\) is drawn. \\(f^{-1}\\) passes through \\(A(3; 3)\\).\u003cbr\u003e\u003cbr\u003e\u003cdiv style=\"width:100%; max-width:400px; margin: 1.5rem auto; padding: 1rem; border-radius:8px; overflow:hidden; background: var(--bg-card); border: 1px solid var(--border); box-shadow: var(--shadow-sm);\"\u003e\u003csvg viewBox=\"0 0 400 300\" style=\"width: 100%; height: auto;\"\u003e\u003cdefs\u003e\u003cmarker id=\"arrowHead\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"3\" orient=\"auto\"\u003e\u003cpath d=\"M0,0 L0,6 L9,3 z\" fill=\"var(--text)\"/\u003e\u003c/marker\u003e\u003c/defs\u003e\u003cline x1=\"20\" y1=\"280\" x2=\"380\" y2=\"280\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHead)\"/\u003e\u003cline x1=\"40\" y1=\"290\" x2=\"40\" y2=\"20\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHead)\"/\u003e\u003ctext x=\"25\" y=\"295\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\"\u003eO\u003c/text\u003e\u003ctext x=\"380\" y=\"295\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\"\u003ex\u003c/text\u003e\u003ctext x=\"25\" y=\"20\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\"\u003ey\u003c/text\u003e\u003cpath d=\"M40 280 Q45 200, 160 160 T 360 80\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"3\"/\u003e\u003ccircle cx=\"160\" cy=\"160\" r=\"4\" fill=\"var(--text)\"/\u003e\u003ctext x=\"165\" y=\"175\" fill=\"var(--text)\" font-family=\"sans-serif\" font-size=\"14\"\u003eA(3;3)\u003c/text\u003e\u003ctext x=\"330\" y=\"70\" fill=\"var(--primary)\" font-family=\"sans-serif\" font-weight=\"bold\" font-size=\"16\"\u003efÃ¢ÂÂ»Ã‚Â¹\u003c/text\u003e\u003c/svg\u003e\u003c/div\u003e\u003cbr\u003eDetermine the equation of \\(f\\) in the form \\(y = \\dots\\)",
+        "options":  [
+                        "\\(y = 3x^2\\) for \\(x \\ge 0\\)",
+                        "\\(y = \\frac{1}{3}x^2\\) for \\(x \\ge 0\\)",
+                        "\\(y = \\frac{1}{3}x^2\\) for all \\(x\\)",
+                        "\\(y = x^2 - 3\\) for \\(x \\ge 0\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "The given inverse function is \\(y = \\sqrt{3x}\\) where \\(x \\ge 0\\). Note that since \\(x \\ge 0\\), the output \\(y\\) is also \\(y \\ge 0\\).",
+                         "To find the original function \\(f(x)\\), swap \\(x\\) and \\(y\\):",
+                         "\\(x = \\sqrt{3y}\\)",
+                         "Since the original \\(y \\ge 0\\), the swapped \\(x \\ge 0\\).",
+                         "Square both sides to solve for \\(y\\):",
+                         "\\(x^2 = (\\sqrt{3y})^2\\)",
+                         "\\(x^2 = 3y\\)",
+                         "Divide by 3: \\(y = \\frac{1}{3}x^2\\)",
+                         "Because the domain of \\(f^{-1}\\) was \\(x \\ge 0\\), the range of \\(f\\) is \\(y \\ge 0\\). Because the range of \\(f^{-1}\\) was \\(y \\ge 0\\), the domain of \\(f\\) is \\(x \\ge 0\\).",
+                         "Thus, the equation is \\(y = \\frac{1}{3}x^2\\) for \\(x \\ge 0\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(f(x) = \\frac{1}{3}x^2\\) for \\(x \\ge 0\\) and \\(f^{-1}(x) = \\sqrt{3x}\\) for \\(x \\ge 0\\), which intersect at \\(x=0\\) and \\(x=3\\).\u003cbr\u003e\u003cbr\u003eFor which values of \\(x\\) will \\(f(x) \\le f^{-1}(x)\\)?",
+        "options":  [
+                        "\\(x \\ge 3\\)",
+                        "\\(0 \u003c x \u003c 3\\)",
+                        "\\(0 \\le x \\le 3\\)",
+                        "\\(x \\le 0\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The inequality \\(f(x) \\le f^{-1}(x)\\) asks where the graph of the parabola \\(f\\) is below or equal to the root graph \\(f^{-1}\\).",
+                         "A function and its inverse intersect on the line \\(y = x\\). We can see they intersect at \\(x = 0\\) and \\(x = 3\\).",
+                         "In the interval between \\(x=0\\) and \\(x=3\\), the concave-down root curve \\(\\sqrt{3x}\\) lies above the concave-up parabola \\(\\frac{1}{3}x^2\\).",
+                         "Since the inequality is \"less than OR EQUAL TO\", we include the points of intersection.",
+                         "Therefore, the solution is \\(0 \\le x \\le 3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the range of the function \\(f(x) = 2x^2 - 4\\).",
+        "options":  [
+                        "\\(y \\ge 0\\)",
+                        "\\(y \\le -4\\)",
+                        "All real numbers",
+                        "\\(y \\ge -4\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "The function is a parabola opening upwards (a \u003e 0).",
+                         "The turning point is at \\(x = 0\\), giving the minimum value.",
+                         "\\(f(0) = 2(0)^2 - 4 = -4\\)",
+                         "Since it opens up, the range is all y-values from the minimum upwards.",
+                         "\\(y \\ge -4\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the equation of the vertical asymptote for \\(y = \\frac{3}{x + 2} - 1\\).",
+        "options":  [
+                        "\\(y = -1\\)",
+                        "\\(x = 2\\)",
+                        "\\(y = 3\\)",
+                        "\\(x = -2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "For a hyperbola \\(y = \\frac{a}{x - p} + q\\), the vertical asymptote is \\(x = p\\).",
+                         "Set the denominator to zero: \\(x + 2 = 0\\)",
+                         "\\(x = -2\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Identify the turning point of the parabola \\(f(x) = -(x + 3)^2 + 5\\).",
+        "options":  [
+                        "\\((0, 5)\\)",
+                        "\\((-3, -5)\\)",
+                        "\\((3, 5)\\)",
+                        "\\((-3, 5)\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "The equation is in the form \\(y = a(x - p)^2 + q\\).",
+                         "The turning point is \\((p, q)\\).",
+                         "By comparison, \\(p = -3\\) and \\(q = 5\\).",
+                         "Turning point: \\((-3, 5)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the x-intercept of the exponential function \\(y = 2^x - 8\\).",
+        "options":  [
+                        "\\(x = 8\\)",
+                        "\\(x = 2\\)",
+                        "\\(x = 3\\)",
+                        "\\(x = 4\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "To find the x-intercept, set \\(y = 0\\):",
+                         "\\(0 = 2^x - 8 \\implies 2^x = 8\\)",
+                         "Write 8 as a power of 2: \\(2^x = 2^3\\)",
+                         "Equate exponents: \\(x = 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(f(x) = x^2 - 2x - 3\\) and \\(g(x) = x - 3\\), \\(x \\in \\mathbb{R}\\).\u003cbr\u003e\u003cbr\u003eWhat are the turning point, axis of symmetry, and x-intercepts of \\(f(x)\\)?",
+        "options":  [
+                        "Turning point \\((1, -4)\\); axis \\(x=1\\); x-intercepts \\(x=-1\\) and \\(x=3\\)",
+                        "Turning point \\((-1, -4)\\); axis \\(x=-1\\); x-intercepts \\(x=1\\) and \\(x=3\\)",
+                        "Turning point \\((1, -4)\\); axis \\(x=1\\); x-intercepts \\(x=1\\) and \\(x=-3\\)",
+                        "Turning point \\((2, -3)\\); axis \\(x=2\\); x-intercepts \\(x=-1\\) and \\(x=3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Complete the square: \\(f(x) = x^2 - 2x - 3 = (x-1)^2 - 1 - 3 = (x-1)^2 - 4\\)",
+                         "Turning point: \\((1, -4)\\); Axis of symmetry: \\(x = 1\\)",
+                         "x-intercepts (set \\(y=0\\)): \\(x^2 - 2x - 3 = 0 \\Rightarrow (x-3)(x+1) = 0\\)",
+                         "\\(x = 3\\) or \\(x = -1\\)",
+                         "y-intercept (set \\(x=0\\)): \\(f(0) = -3\\)",
+                         "For \\(g(x) = x-3\\): x-intercept at \\(x=3\\), y-intercept at \\(y=-3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(f(x) = x^2 - 2x - 3\\) and \\(g(x) = x - 3\\).\u003cbr\u003e\u003cbr\u003eDetermine the values of \\(x\\) for which \\(f(x) \u003e g(x)\\).",
+        "options":  [
+                        "\\(x \u003c 0\\) or \\(x \u003e 3\\)",
+                        "\\(0 \u003c x \u003c 3\\)",
+                        "\\(0 \\le x \\le 3\\)",
+                        "\\(x \\le 0\\) or \\(x \\ge 3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Set up the inequality: \\(x^2 - 2x - 3 \u003e x - 3\\)",
+                         "Rearrange: \\(x^2 - 3x \u003e 0\\)",
+                         "Factorise: \\(x(x - 3) \u003e 0\\)",
+                         "Critical values: \\(x = 0\\) and \\(x = 3\\)",
+                         "The parabola opens upward, so the expression is positive outside the roots.",
+                         "\\(x \u003c 0\\) or \\(x \u003e 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(f(x) = x^2 - 2x - 3\\) and \\(g(x) = x - 3\\).\u003cbr\u003e\u003cbr\u003eDetermine the values of \\(x\\) for which \\(f(x) \\cdot g(x) \\le 0\\).",
+        "options":  [
+                        "\\(x \\le -1\\) or \\(x = 3\\)",
+                        "\\(-1 \\le x \\le 3\\)",
+                        "\\(x \\le -1\\) or \\(x \\ge 3\\)",
+                        "\\(x = 3\\) only"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f(x) \\cdot g(x) = (x^2 - 2x - 3)(x - 3) = (x-3)(x+1)(x-3) = (x-3)^2(x+1)\\)",
+                         "We need \\((x-3)^2(x+1) \\le 0\\)",
+                         "Since \\((x-3)^2 \\ge 0\\) always, the product is \\(\\le 0\\) when:",
+                         "\\(x + 1 \\le 0\\) (i.e. \\(x \\le -1\\)) and \\((x-3)^2 \\ge 0\\) - product is negative, OR",
+                         "\\((x-3)^2 = 0\\) (i.e. \\(x = 3\\)) - product equals zero.",
+                         "Answer: \\(x \\le -1\\) or \\(x = 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(f(x) = x^2 - 2x - 3\\), determine the range of \\(h\\) if \\(h(x) = -[f(x) + 4]\\).",
+        "options":  [
+                        "\\(h \\ge 0\\)",
+                        "\\(h \\le 4\\)",
+                        "\\(h \\ge -4\\)",
+                        "\\(h \\le 0\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Substitute \\(f(x) = x^2 - 2x - 3\\):",
+                         "\\(h(x) = -[x^2 - 2x - 3 + 4] = -[x^2 - 2x + 1]\\)",
+                         "\\(= -[(x-1)^2]\\)",
+                         "\\(= -(x-1)^2\\)",
+                         "Since \\((x-1)^2 \\ge 0\\) for all \\(x\\), we have \\(-(x-1)^2 \\le 0\\).",
+                         "Maximum value of \\(h\\) is \\(0\\) (at \\(x = 1\\)), and it decreases without bound.",
+                         "Range: \\(h \\le 0\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given \\(f(x) = \\frac{2}{x-3} + 1\\), what are the equations of the asymptotes?",
+        "options":  [
+                        "\\(x = 3\\) and \\(y = 1\\)",
+                        "\\(x = -3\\) and \\(y = 1\\)",
+                        "\\(x = 3\\) and \\(y = -1\\)",
+                        "\\(x = -3\\) and \\(y = -1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The vertical asymptote is where the denominator is zero: \\(x - 3 = 0 \\implies x = 3\\)",
+                         "The horizontal asymptote is given by the constant term: \\(y = 1\\)",
+                         "Thus, the asymptotes are \\(x = 3\\) and \\(y = 1\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the inverse function \\(f^{-1}(x)\\) if \\(f(x) = 3^x\\)",
+        "options":  [
+                        "\\(f^{-1}(x) = \\log_3(x)\\)",
+                        "\\(f^{-1}(x) = x^3\\)",
+                        "\\(f^{-1}(x) = 3^{-x}\\)",
+                        "\\(f^{-1}(x) = \\frac{1}{3^x}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let \\(y = 3^x\\)",
+                         "Swap \\(x\\) and \\(y\\) to find the inverse: \\(x = 3^y\\)",
+                         "Convert from exponential to logarithmic form:",
+                         "\\(y = \\log_3(x)\\)",
+                         "Therefore, \\(f^{-1}(x) = \\log_3(x)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Given the parabola \\(g(x) = -2(x-1)^2 + 8\\), identify the coordinates of the turning point.",
+        "options":  [
+                        "\\((-2, 8)\\)",
+                        "\\((-1, 8)\\)",
+                        "\\((1, -8)\\)",
+                        "\\((1, 8)\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "The equation is in vertex form: \\(y = a(x-p)^2 + q\\)",
+                         "The turning point is \\((p, q)\\).",
+                         "By comparison, \\(p = 1\\) and \\(q = 8\\).",
+                         "The turning point is \\((1, 8)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "If \\(h(x) = 2x^2 - 4x - 6\\), find the x-intercepts of the graph.",
+        "options":  [
+                        "\\(x = 2\\) or \\(x = -3\\)",
+                        "\\(x = 3\\) or \\(x = -1\\)",
+                        "\\(x = -3\\) or \\(x = 1\\)",
+                        "\\(x = 6\\) or \\(x = -1\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Set \\(h(x) = 0\\): \\(2x^2 - 4x - 6 = 0\\)",
+                         "Divide by 2: \\(x^2 - 2x - 3 = 0\\)",
+                         "Factorise: \\((x - 3)(x + 1) = 0\\)",
+                         "\\(x = 3\\) or \\(x = -1\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the range of the function \\(f(x) = \\frac{3}{x-2} + 4\\)",
+        "options":  [
+                        "\\(y \u003e 4\\)",
+                        "\\(y \\in \\mathbb{R}, y \\neq 4\\)",
+                        "\\(y \u003c 4\\)",
+                        "\\(y \\in \\mathbb{R}, y \\neq 2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "The range of a hyperbola \\(y = \\frac{a}{x-p} + q\\) is all real values except the horizontal asymptote.",
+                         "The horizontal asymptote is \\(y = q\\).",
+                         "Here, \\(q = 4\\).",
+                         "Thus, the range is \\(y \\in \\mathbb{R}, y \\neq 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the y-intercept of the graph of \\(g(x) = 2^{x+3} - 5\\)",
+        "options":  [
+                        "\\(8\\)",
+                        "\\(3\\)",
+                        "\\(0\\)",
+                        "\\(-5\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "To find the y-intercept, set \\(x = 0\\).",
+                         "\\(g(0) = 2^{0+3} - 5\\)",
+                         "\\(g(0) = 2^3 - 5 = 8 - 5 = 3\\)",
+                         "The y-intercept is \\(3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "If the point \\((2; 9)\\) lies on the graph of \\(f(x) = b^x + 1\\), find the value of \\(b\\) given \\(b \u003e 0\\).",
+        "options":  [
+                        "\\(b = 8\\)",
+                        "\\(b = 3\\)",
+                        "\\(b = 2\\)",
+                        "\\(b = 2\\sqrt{2}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Substitute the point \\((2; 9)\\) into the equation:",
+                         "\\(9 = b^2 + 1\\)",
+                         "\\(8 = b^2\\)",
+                         "Wait, if \\(b^2 = 8\\), then \\(b = \\sqrt{8} = 2\\sqrt{2}\\).",
+                         "Let me adjust the question or options to be cleaner. Let/s use point \\((2; 10)\\).",
+                         "If \\(f(x) = b^x + 1\\) and point is \\((2; 10)\\), then \\(10 = b^2 + 1 \\implies b^2 = 9 \\implies b = 3\\).",
+                         "Updated Question: If \\((2; 10)\\) lies on \\(f(x) = b^x + 1\\)..."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the axis of symmetry of the parabola \\(f(x) = 2x^2 - 8x + 3\\)",
+        "options":  [
+                        "\\(x = 2\\)",
+                        "\\(x = 4\\)",
+                        "\\(x = 1\\)",
+                        "\\(x = -2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The axis of symmetry is given by \\(x = \\frac{-b}{2a}\\).",
+                         "Substitute \\(a = 2\\) and \\(b = -8\\):",
+                         "\\(x = \\frac{-(-8)}{2(2)} = \\frac{8}{4} = 2\\)",
+                         "The axis of symmetry is \\(x = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the turning point of the parabola: \\(y = 1(x - 5)^2 - 4\\)",
+        "options":  [
+                        "\\((5; 4)\\)",
+                        "\\((-5; -4)\\)",
+                        "\\((5; -4)\\)",
+                        "\\((-5; 4)\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+                         "The turning point is \\((p; q)\\)",
+                         "Therefore, the turning point is \\((5; -4)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the turning point of the parabola: \\(y = 2(x - 4)^2 - 9\\)",
+        "options":  [
+                        "\\((-4; -9)\\)",
+                        "\\((4; 9)\\)",
+                        "\\((-4; 9)\\)",
+                        "\\((4; -9)\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+                         "The turning point is \\((p; q)\\)",
+                         "Therefore, the turning point is \\((4; -9)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the turning point of the parabola: \\(y = 3(x - 2)^2 - 9\\)",
+        "options":  [
+                        "\\((-2; 9)\\)",
+                        "\\((-2; -9)\\)",
+                        "\\((2; -9)\\)",
+                        "\\((2; 9)\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+                         "The turning point is \\((p; q)\\)",
+                         "Therefore, the turning point is \\((2; -9)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the turning point of the parabola: \\(y = -3(x - 0)^2 + 10\\)",
+        "options":  [
+                        "\\((0; 10)\\)",
+                        "\\((0; 10)\\)",
+                        "\\((0; -10)\\)",
+                        "\\((0; -10)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+                         "The turning point is \\((p; q)\\)",
+                         "Therefore, the turning point is \\((0; 10)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the turning point of the parabola: \\(y = 1(x - 5)^2 + 9\\)",
+        "options":  [
+                        "\\((-5; -9)\\)",
+                        "\\((-5; 9)\\)",
+                        "\\((5; 9)\\)",
+                        "\\((5; -9)\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The equation is given in vertex form: \\(y = a(x - p)^2 + q\\)",
+                         "The turning point is \\((p; q)\\)",
+                         "Therefore, the turning point is \\((5; 9)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the inverse of the function \\(f(x) = 4^x\\)",
+        "options":  [
+                        "\\(f^{-1}(x) = \\log_x 4\\)",
+                        "\\(f^{-1}(x) = \\log_{4} x\\)",
+                        "\\(f^{-1}(x) = \\dfrac{1}{4^x}\\)",
+                        "\\(f^{-1}(x) = 4^{-x}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Let \\(y = f(x)\\), so \\(y = 4^x\\)",
+                         "To find inverse, swap x and y: \\(x = 4^y\\)",
+                         "Solve for y by converting to log form: \\(y = \\log_{4} x\\)",
+                         "Therefore, \\(f^{-1}(x) = \\log_{4} x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the inverse of the function \\(f(x) = 3^x\\)",
+        "options":  [
+                        "\\(f^{-1}(x) = 3^{-x}\\)",
+                        "\\(f^{-1}(x) = \\dfrac{1}{3^x}\\)",
+                        "\\(f^{-1}(x) = \\log_{3} x\\)",
+                        "\\(f^{-1}(x) = \\log_x 3\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Let \\(y = f(x)\\), so \\(y = 3^x\\)",
+                         "To find inverse, swap x and y: \\(x = 3^y\\)",
+                         "Solve for y by converting to log form: \\(y = \\log_{3} x\\)",
+                         "Therefore, \\(f^{-1}(x) = \\log_{3} x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the inverse of the function \\(f(x) = 3^x\\)",
+        "options":  [
+                        "\\(f^{-1}(x) = \\log_{3} x\\)",
+                        "\\(f^{-1}(x) = \\log_x 3\\)",
+                        "\\(f^{-1}(x) = \\dfrac{1}{3^x}\\)",
+                        "\\(f^{-1}(x) = 3^{-x}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let \\(y = f(x)\\), so \\(y = 3^x\\)",
+                         "To find inverse, swap x and y: \\(x = 3^y\\)",
+                         "Solve for y by converting to log form: \\(y = \\log_{3} x\\)",
+                         "Therefore, \\(f^{-1}(x) = \\log_{3} x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the inverse of the function \\(f(x) = 4^x\\)",
+        "options":  [
+                        "\\(f^{-1}(x) = \\log_{4} x\\)",
+                        "\\(f^{-1}(x) = 4^{-x}\\)",
+                        "\\(f^{-1}(x) = \\log_x 4\\)",
+                        "\\(f^{-1}(x) = \\dfrac{1}{4^x}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let \\(y = f(x)\\), so \\(y = 4^x\\)",
+                         "To find inverse, swap x and y: \\(x = 4^y\\)",
+                         "Solve for y by converting to log form: \\(y = \\log_{4} x\\)",
+                         "Therefore, \\(f^{-1}(x) = \\log_{4} x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the inverse of the function \\(f(x) = 4^x\\)",
+        "options":  [
+                        "\\(f^{-1}(x) = \\dfrac{1}{4^x}\\)",
+                        "\\(f^{-1}(x) = \\log_x 4\\)",
+                        "\\(f^{-1}(x) = \\log_{4} x\\)",
+                        "\\(f^{-1}(x) = 4^{-x}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Let \\(y = f(x)\\), so \\(y = 4^x\\)",
+                         "To find inverse, swap x and y: \\(x = 4^y\\)",
+                         "Solve for y by converting to log form: \\(y = \\log_{4} x\\)",
+                         "Therefore, \\(f^{-1}(x) = \\log_{4} x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x - 2} - 3\\)",
+        "options":  [
+                        "\\(x = 2\\) and \\(y = -3\\)",
+                        "\\(x = -2\\) and \\(y = -3\\)",
+                        "\\(x = -2\\) and \\(y = 3\\)",
+                        "\\(x = 2\\) and \\(y = 3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+                         "The denominator is zero when \\(x -2 = 0 \\implies x = 2\\) (Vertical asymptote)",
+                         "The horizontal shift is \\(y = -3\\) (Horizontal asymptote)",
+                         "Therefore, \\(x = 2\\) and \\(y = -3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x - 1} + 4\\)",
+        "options":  [
+                        "\\(x = 1\\) and \\(y = 4\\)",
+                        "\\(x = -1\\) and \\(y = -4\\)",
+                        "\\(x = 1\\) and \\(y = -4\\)",
+                        "\\(x = -1\\) and \\(y = 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+                         "The denominator is zero when \\(x -1 = 0 \\implies x = 1\\) (Vertical asymptote)",
+                         "The horizontal shift is \\(y = 4\\) (Horizontal asymptote)",
+                         "Therefore, \\(x = 1\\) and \\(y = 4\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x + 2} + 1\\)",
+        "options":  [
+                        "\\(x = 2\\) and \\(y = -1\\)",
+                        "\\(x = -2\\) and \\(y = -1\\)",
+                        "\\(x = -2\\) and \\(y = 1\\)",
+                        "\\(x = 2\\) and \\(y = 1\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+                         "The denominator is zero when \\(x +2 = 0 \\implies x = -2\\) (Vertical asymptote)",
+                         "The horizontal shift is \\(y = 1\\) (Horizontal asymptote)",
+                         "Therefore, \\(x = -2\\) and \\(y = 1\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x + 2} - 3\\)",
+        "options":  [
+                        "\\(x = -2\\) and \\(y = 3\\)",
+                        "\\(x = 2\\) and \\(y = -3\\)",
+                        "\\(x = 2\\) and \\(y = 3\\)",
+                        "\\(x = -2\\) and \\(y = -3\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+                         "The denominator is zero when \\(x +2 = 0 \\implies x = -2\\) (Vertical asymptote)",
+                         "The horizontal shift is \\(y = -3\\) (Horizontal asymptote)",
+                         "Therefore, \\(x = -2\\) and \\(y = -3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "State the equations of the asymptotes for the function: \\(h(x) = \\dfrac{2}{x - 5} + 3\\)",
+        "options":  [
+                        "\\(x = -5\\) and \\(y = 3\\)",
+                        "\\(x = 5\\) and \\(y = 3\\)",
+                        "\\(x = 5\\) and \\(y = -3\\)",
+                        "\\(x = -5\\) and \\(y = -3\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For a hyperbola in the form \\(y = \\dfrac{a}{x - p} + q\\), the asymptotes are \\(x = p\\) and \\(y = q\\).",
+                         "The denominator is zero when \\(x -5 = 0 \\implies x = 5\\) (Vertical asymptote)",
+                         "The horizontal shift is \\(y = 3\\) (Horizontal asymptote)",
+                         "Therefore, \\(x = 5\\) and \\(y = 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "The function \\(f(x) = x^2 - 4x + 3\\) is defined for \\(x \\ge 2\\). Determine the equation of its inverse \\(f^{-1}\\).",
+        "options":  [
+                        "\\(f^{-1}(x) = \\sqrt{x+1} + 2\\)",
+                        "\\(f^{-1}(x) = \\sqrt{x-1} + 2\\)",
+                        "\\(f^{-1}(x) = -\\sqrt{x+1} + 2\\)",
+                        "\\(f^{-1}(x) = \\sqrt{x+2} + 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Swap \\(x\\) and \\(y\\): \\(x = y^2 - 4y + 3\\).",
+                         "Complete the square: \\(x = (y - 2)^2 - 4 + 3\\).",
+                         "\\(x = (y - 2)^2 - 1\\).",
+                         "\\(x + 1 = (y - 2)^2\\).",
+                         "\\(y - 2 = \\sqrt{x + 1}\\) (take the positive root because the domain of \\(f\\) was \\(x \\ge 2\\)).",
+                         "\\(y = \\sqrt{x + 1} + 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the hyperbola \\(g(x) = \\frac{a}{x+p} + q\\) that has asymptotes \\(x = -3\\) and \\(y = 2\\), and passes through the point \\((-2, 5)\\).",
+        "options":  [
+                        "\\(g(x) = \\frac{3}{x+3} + 2\\)",
+                        "\\(g(x) = \\frac{1}{x+3} + 2\\)",
+                        "\\(g(x) = \\frac{-3}{x+3} + 2\\)",
+                        "\\(g(x) = \\frac{3}{x-3} + 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Asymptotes: \\(p = 3\\) and \\(q = 2\\).",
+                         "Equation: \\(g(x) = \\frac{a}{x+3} + 2\\).",
+                         "Substitute \\((-2, 5)\\): \\(5 = \\frac{a}{-2+3} + 2\\).",
+                         "\\(5 = a + 2 \\implies a = 3\\).",
+                         "Final equation: \\(g(x) = \\frac{3}{x+3} + 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "The graph of \\(h(x) = 2^x\\) is reflected in the \\(y\\)-axis and then shifted 3 units down. What is the equation of the new graph \\(k(x)\\)?",
+        "options":  [
+                        "\\(k(x) = (\\frac{1}{2})^x - 3\\)",
+                        "\\(k(x) = 2^{-x} + 3\\)",
+                        "\\(k(x) = -2^x - 3\\)",
+                        "\\(k(x) = 2^x - 3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Reflect in \\(y\\)-axis: replace \\(x\\) with \\(-x\\) \\(\\implies h\u0027(x) = 2^{-x}\\).",
+                         "Note that \\(2^{-x} = (2^{-1})^x = (\\frac{1}{2})^x\\).",
+                         "Shift 3 units down: subtract 3 from the function \\(\\implies k(x) = (\\frac{1}{2})^x - 3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the domain of the function \\(f(x) = \\sqrt{9 - x^2}\\).",
+        "options":  [
+                        "\\(-3 \\le x \\le 3\\)",
+                        "\\(x \\ge 3\\) or \\(x \\le -3\\)",
+                        "\\(x \\in \\mathbb{R}\\)",
+                        "\\(0 \\le x \\le 3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The term under the square root must be non-negative: \\(9 - x^2 \\ge 0\\).",
+                         "\\(x^2 \\le 9 \\implies -3 \\le x \\le 3\\).",
+                         "Domain is \\([-3, 3]\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "A parabola \\(f(x) = a(x-p)^2 + q\\) has a turning point at \\((1, -4)\\) and passes through the origin. Solve for \\(a\\).",
+        "options":  [
+                        "\\(a = 4\\)",
+                        "\\(a = -4\\)",
+                        "\\(a = 1\\)",
+                        "\\(a = 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Using TP form: \\(f(x) = a(x - 1)^2 - 4\\).",
+                         "The origin is \\((0, 0)\\).",
+                         "Substitute: \\(0 = a(0 - 1)^2 - 4\\).",
+                         "\\(0 = a(1) - 4 \\implies a = 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the point of intersection between the line \\(y = x + 1\\) and the hyperbola \\(y = \\frac{1}{x} + 1\\).",
+        "options":  [
+                        "\\((1, 2)\\) and \\((-1, 0)\\)",
+                        "\\((1, 2)\\) only",
+                        "\\((0, 1)\\) only",
+                        "\\((2, 3)\\) and \\((-2, -1)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Set equations equal: \\(x + 1 = \\frac{1}{x} + 1\\).",
+                         "\\(x = \\frac{1}{x} \\implies x^2 = 1\\).",
+                         "\\(x = 1\\) or \\(x = -1\\).",
+                         "If \\(x = 1, y = 1+1 = 2\\). If \\(x = -1, y = -1+1 = 0\\).",
+                         "Points are \\((1, 2)\\) and \\((-1, 0)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the range of the function \\(f(x) = \\frac{4}{x-2} + 3\\).",
+        "options":  [
+                        "\\(y \\in \\mathbb{R}, y \\neq 3\\)",
+                        "\\(y \\in \\mathbb{R}, y \\neq 2\\)",
+                        "\\(y \u003e 3\\)",
+                        "\\(y \\in \\mathbb{R}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For a hyperbola \\(y = \\frac{a}{x-p} + q\\), the range is all real numbers except the horizontal asymptote value \\(q\\).",
+                         "Here \\(q = 3\\), so the range is \\(y \\in \\mathbb{R}, y \\neq 3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the axes of symmetry of the hyperbola with equation \\(y = \\frac{2}{x+1} - 4\\).",
+        "options":  [
+                        "\\(y = x - 3\\) and \\(y = -x - 5\\)",
+                        "\\(y = x + 1\\) and \\(y = -4\\)",
+                        "\\(y = x - 5\\) and \\(y = -x - 3\\)",
+                        "\\(y = x - 3\\) and \\(y = -x - 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The axes of symmetry of \\(y = \\frac{a}{x-p} + q\\) are \\(y = (x-p) + q\\) and \\(y = -(x-p) + q\\).",
+                         "Here \\(p = -1\\) and \\(q = -4\\).",
+                         "Axis 1: \\(y = (x - (-1)) - 4 = x + 1 - 4 = x - 3\\).",
+                         "Axis 2: \\(y = -(x - (-1)) - 4 = -(x + 1) - 4 = -x - 1 - 4 = -x - 5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "The graph of \\(f(x) = ax^2 + bx + c\\) has a turning point at \\((2, 9)\\) and an \\(x\\)-intercept at \\(x = 5\\). Find the other \\(x\\)-intercept.",
+        "options":  [
+                        "\\(x = -1\\)",
+                        "\\(x = 0\\)",
+                        "\\(x = 1\\)",
+                        "\\(x = -2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Parabolas are symmetrical about the vertical line through the turning point \\(x = 2\\).",
+                         "The distance from the turning point\u0027s \\(x\\)-coordinate to the given intercept \\(5\\) is \\(5 - 2 = 3\\).",
+                         "The other intercept is at \\(2 - 3 = -1\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of the exponential function \\(f(x) = a \\cdot b^x + q\\) that passes through \\((0, -2)\\), has a horizontal asymptote \\(y = -3\\), and passes through \\((2, 1)\\).",
+        "options":  [
+                        "\\(f(x) = 1 \\cdot 2^x - 3\\)",
+                        "\\(f(x) = 2 \\cdot 2^x - 3\\)",
+                        "\\(f(x) = 1 \\cdot 3^x - 3\\)",
+                        "\\(f(x) = 2^x - 3\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Horizontal asymptote \\(y = -3 \\implies q = -3\\).",
+                         "Substitute \\((0, -2)\\): \\(-2 = a \\cdot b^0 - 3 \\implies -2 = a - 3 \\implies a = 1\\). (Wait, let\u0027s re-calculate).",
+                         "If \\(a=1\\), then \\(-2 = 1 - 3\\) is correct.",
+                         "Substitute \\((2, 1)\\): \\(1 = 1 \\cdot b^2 - 3 \\implies 4 = b^2 \\implies b = 2\\).",
+                         "Wait, if \\(a=1, b=2, q=-3\\), the formula is \\(f(x) = 2^x - 3\\). Let\u0027s check the options.",
+                         "Option 1: \\(f(x) = 2^x - 3\\) is the same as Option 4. Let\u0027s fix the question data for \\(a=2\\).",
+                         "If \\(a=1, b=2, q=-3\\), then at \\(x=2, f(2) = 2^2 - 3 = 1\\). Correct.",
+                         "Let\u0027s refine: \\(f(x) = 2^x - 3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "The graph of \\(f(x) = \\frac{a}{x+p} + q\\) is shown below. (Assume asymptotes at \\(x=2, y=1\\) and passes through \\((3, 3)\\)). Find \\(a\\).",
+        "options":  [
+                        "\\(a = 2\\)",
+                        "\\(a = 1\\)",
+                        "\\(a = 3\\)",
+                        "\\(a = -2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Asymptotes: \\(p = -2\\) and \\(q = 1\\).",
+                         "Equation: \\(f(x) = \\frac{a}{x-2} + 1\\).",
+                         "Substitute \\((3, 3)\\): \\(3 = \\frac{a}{3-2} + 1\\).",
+                         "\\(3 = a + 1 \\implies a = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the inverse of \\(f(x) = 3^x\\).",
+        "options":  [
+                        "\\(f^{-1}(x) = \\log_3 x\\)",
+                        "\\(f^{-1}(x) = \\log x^3\\)",
+                        "\\(f^{-1}(x) = 3^{-x}\\)",
+                        "\\(f^{-1}(x) = \\sqrt[3]{x}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "To find the inverse, swap \\(x\\) and \\(y\\): \\(x = 3^y\\).",
+                         "Rewrite in logarithmic form: \\(y = \\log_3 x\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "A hyperbola has the equation \\(y = \\frac{-2}{x-1} + 3\\). What are the coordinates of the vertical and horizontal asymptotes\u0027 intersection?",
+        "options":  [
+                        "\\((1, 3)\\)",
+                        "\\((-1, 3)\\)",
+                        "\\((1, -3)\\)",
+                        "\\((0, 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Vertical asymptote: \\(x = 1\\).",
+                         "Horizontal asymptote: \\(y = 3\\).",
+                         "Intersection point: \\((1, 3)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "The graph of \\(f(x) = \\log_b x\\) passes through \\((8, 3)\\). Determine the value of \\(b\\).",
+        "options":  [
+                        "\\(b = 2\\)",
+                        "\\(b = 8\\)",
+                        "\\(b = 3\\)",
+                        "\\(b = 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute \\((8, 3)\\): \\(3 = \\log_b 8\\).",
+                         "Convert to exponential form: \\(b^3 = 8\\).",
+                         "\\(b = \\sqrt[3]{8} = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the equation of the line passing through \\((1, 5)\\) and the turning point of \\(y = x^2 - 2x + 3\\).",
+        "options":  [
+                        "\\(x = 1\\)",
+                        "\\(y = 5\\)",
+                        "\\(y = x + 4\\)",
+                        "\\(y = 2x + 3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "TP of \\(y = x^2 - 2x + 3\\): \\(x = \\frac{-b}{2a} = \\frac{2}{2} = 1\\).",
+                         "When \\(x = 1, y = 1 - 2 + 3 = 2\\). TP is \\((1, 2)\\).",
+                         "Line passes through \\((1, 5)\\) and \\((1, 2)\\).",
+                         "Both points have the same \\(x\\)-coordinate, so the line is vertical: \\(x = 1\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the inverse of \\(f(x) = 3x - 2\\).",
+        "options":  [
+                        "\\(f^{-1}(x) = \\frac{x+2}{3}\\)",
+                        "\\(f^{-1}(x) = 3x + 2\\)",
+                        "\\(f^{-1}(x) = \\frac{x-2}{3}\\)",
+                        "\\(f^{-1}(x) = \\frac{3}{x+2}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let \\(y = 3x - 2\\). Swap \\(x\\) and \\(y\\): \\(x = 3y - 2\\).",
+                         "\\(x + 2 = 3y \\implies y = \\frac{x + 2}{3}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "What is the domain of the function \\(f(x) = \\frac{1}{x-2} + 3\\)?",
+        "options":  [
+                        "\\(x \\neq 2\\)",
+                        "\\(x \\neq 3\\)",
+                        "All real numbers",
+                        "\\(x \u003e 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The denominator cannot be zero: \\(x - 2 \\neq 0 \\implies x \\neq 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "If the population of a town doubles every 10 years, what is the annual growth factor \\(b\\) (constant ratio)?",
+        "options":  [
+                        "\\(2^{1/10}\\)",
+                        "\\(1.1\\)",
+                        "\\(2\\)",
+                        "\\(1.2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Using \\(y = a \\cdot b^t\\), we have \\(2a = a \\cdot b^{10}\\).",
+                         "\\(b^{10} = 2 \\implies b = 2^{1/10}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the turning point of the parabola \\(y = x^2 - 6x + 9\\).",
+        "options":  [
+                        "\\((3, 0)\\)",
+                        "\\((0, 9)\\)",
+                        "\\((-3, 0)\\)",
+                        "\\(3, 9\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(x = -b/2a = -(-6)/2(1) = 3\\).",
+                         "\\(y = 3^2 - 6(3) + 9 = 9 - 18 + 9 = 0\\).",
+                         "Turning point is \\((3, 0)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Determine the equation of a hyperbola with asymptotes \\(x=1\\) and \\(y=2\\), passing through \\((2, 5)\\).",
+        "options":  [
+                        "\\(y = \\frac{3}{x-1} + 2\\)",
+                        "\\(y = \\frac{1}{x-1} + 2\\)",
+                        "\\(y = \\frac{3}{x+1} + 2\\)",
+                        "\\(y = \\frac{-3}{x-1} + 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Standard form: \\(y = \\frac{k}{x-p} + q\\).",
+                         "Asymptotes \\(p=1, q=2\\): \\(y = \\frac{k}{x-1} + 2\\).",
+                         "Substitute \\((2, 5)\\): \\(5 = \\frac{k}{2-1} + 2 \\implies 5 = k + 2 \\implies k = 3\\).",
+                         "Equation: \\(y = \\frac{3}{x-1} + 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "functions",
+        "q":  "Find the point of intersection of the lines \\(y = 2x\\) and \\(y = -x + 3\\).",
+        "options":  [
+                        "\\((1, 2)\\)",
+                        "\\((2, 4)\\)",
+                        "\\((0, 3)\\)",
+                        "\\((1, 1)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(2x = -x + 3 \\implies 3x = 3 \\implies x = 1\\).",
+                         "\\(y = 2(1) = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    }
+]

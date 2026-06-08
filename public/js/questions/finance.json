@@ -1,0 +1,1053 @@
+﻿[
+    {
+        "topic":  "finance",
+        "q":  "R1 000 is invested for 5 years at an interest rate of 10% per annum, compounded monthly. Calculate the final value.",
+        "options":  [
+                        "R1 500.00",
+                        "R1 610.51",
+                        "R1 645.31",
+                        "R1 628.89"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(P = 1000, n = 5 \\times 12 = 60, i = \\frac{0.10}{12}\\)",
+                         "Formula: \\(A = P(1 + i)^n\\)",
+                         "\\(A = 1000(1 + \\frac{0.10}{12})^{60}\\)",
+                         "\\(A = 1000(1.008333)^{60} \\approx R1 645.31\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Calculate the monthly repayment on a loan of R200 000, repaid over 20 years at an interest rate of 9% p.a., compounded monthly.",
+        "options":  [
+                        "R1 500.00",
+                        "R1 850.00",
+                        "R1 799.45",
+                        "R2 120.30"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(P = 200 000, n = 20 \\times 12 = 240, i = \\frac{0.09}{12} = 0.0075\\)",
+                         "Use Present Value Annuity formula: \\(P = \\frac{x[1 - (1 + i)^{-n}]}{i}\\)",
+                         "\\(200 000 = \\frac{x[1 - (1.0075)^{-240}]}{0.0075}\\)",
+                         "\\(x = \\frac{200 000 \\times 0.0075}{1 - (1.0075)^{-240}} \\approx R1 799.45\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "R500 is deposited monthly into a sinking fund earning 12% p.a. compounded monthly. How much is in the fund after 3 years?",
+        "options":  [
+                        "R21 538.44",
+                        "R20 120.50",
+                        "R22 410.00",
+                        "R18 000.00"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(x = 500, n = 3 \\times 12 = 36, i = \\frac{0.12}{12} = 0.01\\)",
+                         "Use Future Value Annuity formula: \\(F = \\frac{x[(1 + i)^n - 1]}{i}\\)",
+                         "\\(F = \\frac{500[(1.01)^{36} - 1]}{0.01}\\)",
+                         "\\(F = 50000[1.430768 - 1] \\approx R21 538.44\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Convert a nominal interest rate of 12% p.a. compounded quarterly to the effective annual interest rate.",
+        "options":  [
+                        "12.68%",
+                        "12.00%",
+                        "13.10%",
+                        "12.55%"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "\\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+                         "\\(m = 4\\) (compounded quarterly)",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.12}{4})^4 = (1.03)^4\\)",
+                         "\\(1 + i_{eff} \\approx 1.1255\\)",
+                         "\\(i_{eff} \\approx 0.1255 \\implies 12.55\\%\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Siya invests R500 000 for 5 years at an interest rate of 6,5% p.a. compounded monthly.\u003cbr\u003e\u003cbr\u003eCalculate the \u003cstrong\u003eeffective annual interest rate\u003c/strong\u003e of the investment (correct to 4 decimal places).",
+        "options":  [
+                        "6,5000%",
+                        "6,6972%",
+                        "7,2500%",
+                        "6,5417%"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the effective rate formula: \\(i_{eff} = \\left(1 + \\dfrac{i_{nom}}{m}\\right)^m - 1\\)",
+                         "Here: \\(i_{nom} = 0{,}065\\) and \\(m = 12\\) (compounded monthly)",
+                         "\\(i_{eff} = \\left(1 + \\dfrac{0{,}065}{12}\\right)^{12} - 1\\)",
+                         "\\(= (1{,}005 41\\overline{6})^{12} - 1\\)",
+                         "\\(\\approx 1{,}066972 - 1\\)",
+                         "\\(i_{eff} \\approx 0{,}066972 = 6{,}6972\\%\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Siya invests R500 000 for 5 years at an interest rate of 6,5% p.a. compounded monthly. (Effective rate Ã¢â€°Ë† 6,6972% p.a.)\u003cbr\u003e\u003cbr\u003eCalculate how much money Siya will receive at the end of the 5 years.",
+        "options":  [
+                        "R662 500,00",
+                        "R691 406,00",
+                        "R680 290,50",
+                        "R712 550,25"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use compound interest formula: \\(A = P\\left(1 + \\dfrac{i}{m}\\right)^{mn}\\)",
+                         "\\(P = 500\\,000,\\; i = 0{,}065,\\; m = 12,\\; n = 5\\)",
+                         "\\(A = 500\\,000 \\times \\left(1 + \\dfrac{0{,}065}{12}\\right)^{60}\\)",
+                         "\\(= 500\\,000 \\times (1{,}005 41\\overline{6})^{60}\\)",
+                         "\\(= 500\\,000 \\times (1{,}066 972)^5\\)",
+                         "\\(\\approx 500\\,000 \\times 1{,}382 812\\)",
+                         "\\(\\approx \\text{R}691\\,406\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A sports car is purchased for R800 000. After how many years will the value of the car be R250 000, if the annual rate of depreciation is 20,75% p.a. on the reducing-balance method?",
+        "options":  [
+                        "4 years",
+                        "6 years",
+                        "5 years",
+                        "7 years"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the reducing-balance formula: \\(A = P(1 - i)^n\\)",
+                         "\\(250\\,000 = 800\\,000 \\times (1 - 0{,}2075)^n\\)",
+                         "\\(\\dfrac{250\\,000}{800\\,000} = (0{,}7925)^n\\)",
+                         "\\(0{,}3125 = (0{,}7925)^n\\)",
+                         "Take logs of both sides: \\(n = \\dfrac{\\log 0{,}3125}{\\log 0{,}7925}\\)",
+                         "\\(n = \\dfrac{-0{,}50515}{-0{,}10083} \\approx 5{,}01\\)",
+                         "\\(\\therefore n \\approx 5\\) years"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A school plans to build a mini-hall costing R2 000 000 in 10 years\u0027 time. On 1 January 2025, R650 197 is deposited at 6,1% p.a. compounded monthly for 5 years. On 1 January 2030, an additional amount R\\(x\\) is deposited, earning 7,47% p.a. compounded quarterly for the remaining 5 years.\u003cbr\u003e\u003cbr\u003eCalculate the value of \\(x\\).",
+        "options":  [
+                        "\\(x \\approx \\text{R}480\\,000\\)",
+                        "\\(x \\approx \\text{R}550\\,000\\)",
+                        "\\(x \\approx \\text{R}500\\,527\\)",
+                        "\\(x \\approx \\text{R}620\\,000\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Step 1: Grow R650 197 at 6,1% p.a. compounded monthly for 5 years (to Jan 2030):",
+                         "\\(A_1 = 650\\,197 \\times \\left(1 + \\dfrac{0{,}061}{12}\\right)^{60} \\approx 650\\,197 \\times 1{,}35537 \\approx \\text{R}881\\,447\\)",
+                         "Step 2: On Jan 2030, total in account = \\(881\\,447 + x\\)",
+                         "Step 3: Grow for 5 years at 7,47% p.a. compounded quarterly (20 periods):",
+                         "\\((881\\,447 + x) \\times \\left(1 + \\dfrac{0{,}0747}{4}\\right)^{20} = 2\\,000\\,000\\)",
+                         "\\((881\\,447 + x) \\times (1{,}018675)^{20} = 2\\,000\\,000\\)",
+                         "\\((881\\,447 + x) \\times 1{,}44773 = 2\\,000\\,000\\)",
+                         "\\(881\\,447 + x = \\dfrac{2\\,000\\,000}{1{,}44773} \\approx 1\\,381\\,974\\)",
+                         "\\(x \\approx 1\\,381\\,974 - 881\\,447 \\approx \\text{R}500\\,527\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "How long must R50 000 be invested to \u003cstrong\u003edouble\u003c/strong\u003e at an interest rate of 8,5% p.a. on the straight-line (simple interest) method? Give your answer in years and months.",
+        "options":  [
+                        "10 years and 6 months",
+                        "12 years and 0 months",
+                        "11 years and 9 months",
+                        "11 years and 3 months"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Simple interest formula: \\(A = P(1 + in)\\)",
+                         "For doubling: \\(A = 2P\\)",
+                         "\\(2P = P(1 + 0{,}085 \\cdot n)\\)",
+                         "\\(2 = 1 + 0{,}085n \\Rightarrow 0{,}085n = 1\\)",
+                         "\\(n = \\dfrac{1}{0{,}085} = 11{,}7647...\\) years",
+                         "\\(0{,}7647 \\times 12 \\approx 9{,}18\\) months -\u003e 9 months",
+                         "Answer: \\(\\approx\\) 11 years and 9 months"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "On 1 June 2024, Thabiso received a loan of R250 000 at 15% p.a. compounded monthly to buy a car. He missed his first two monthly instalments (July and August 2024) and only started paying on 1 September 2024.\u003cbr\u003e\u003cbr\u003eCalculate the amount Thabiso owed the bank on \u003cstrong\u003e1 August 2024\u003c/strong\u003e (a month before his first payment).",
+        "options":  [
+                        "\\(\\approx\\) R253 148",
+                        "\\(\\approx\\) R256 289",
+                        "\\(\\approx\\) R262 695",
+                        "\\(\\approx\\) R250 000"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "From 1 June 2024 to 1 August 2024 = 2 months.",
+                         "Use compound interest: \\(A = P\\left(1 + \\dfrac{i}{m}\\right)^n\\)",
+                         "\\(A = 250\\,000 \\times \\left(1 + \\dfrac{0{,}15}{12}\\right)^2\\)",
+                         "\\(= 250\\,000 \\times (1{,}0125)^2\\)",
+                         "\\(= 250\\,000 \\times 1{,}02515625\\)",
+                         "\\(\\approx \\text{R}256\\,289{,}06\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Thabiso\u0027s balance on 1 September 2024 (after 3 months of no payment) is Ã¢â€°Ë† R259 493. He now pays monthly until 1 June 2028.\u003cbr\u003e\u003cbr\u003eCalculate his \u003cstrong\u003emonthly instalment\u003c/strong\u003e.",
+        "options":  [
+                        "\\(\\approx\\) R6 500",
+                        "\\(\\approx\\) R7 578",
+                        "\\(\\approx\\) R8 200",
+                        "\\(\\approx\\) R7 100"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "From 1 June 2024 to 1 September 2024 = 3 months; balance grows further:",
+                         "\\(A = 250\\,000 \\times (1{,}0125)^3 \\approx \\text{R}259\\,493\\)",
+                         "This is the present value on 1 September 2024.",
+                         "Payments: 1 Sep 2024 to 1 Jun 2028 = 45 monthly payments \\((n = 45)\\)",
+                         "Use present value of annuity: \\(PV = x \\times \\dfrac{1 - (1+i)^{-n}}{i}\\)",
+                         "\\(259\\,493 = x \\times \\dfrac{1 - (1{,}0125)^{-45}}{0{,}0125}\\)",
+                         "\\((1{,}0125)^{-45} \\approx 0{,}57193\\)",
+                         "\\(259\\,493 = x \\times \\dfrac{0{,}42807}{0{,}0125} = x \\times 34{,}246\\)",
+                         "\\(x \\approx \\dfrac{259\\,493}{34{,}246} \\approx \\text{R}7\\,578\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "R\\(x\\) is invested at 12% p.a. compounded monthly. Three years later, R\\(2x\\) is deposited into the same account. After 7 years total, there is R276 558,75 in the account. Determine the value of \\(x\\).",
+        "options":  [
+                        "\\(x = \\text{R}40\\,000\\)",
+                        "\\(x = \\text{R}60\\,000\\)",
+                        "\\(x = \\text{R}50\\,000\\)",
+                        "\\(x = \\text{R}45\\,000\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Monthly rate: \\(i = 0{,}12/12 = 0{,}01\\)",
+                         "First deposit (Rx) grows for 7 years = 84 months: \\(x \\times (1{,}01)^{84}\\)",
+                         "Second deposit (R2x) grows for 4 years = 48 months: \\(2x \\times (1{,}01)^{48}\\)",
+                         "\\((1{,}01)^{84} \\approx 2{,}30653\\) and \\((1{,}01)^{48} \\approx 1{,}61223\\)",
+                         "Total: \\(x(2{,}30653) + 2x(1{,}61223) = 276\\,558{,}75\\)",
+                         "\\(2{,}30653x + 3{,}22446x = 276\\,558{,}75\\)",
+                         "\\(5{,}53099x = 276\\,558{,}75\\)",
+                         "\\(x = \\dfrac{276\\,558{,}75}{5{,}53099} = \\text{R}50\\,000\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A father saves \\(R1\\,000\\) every month for his daughter\\/s education. The bank offers an interest rate of \\(9\\%\\) p.a. compounded monthly. Calculate the value of his savings after 5 years.",
+        "options":  [
+                        "\\(R65\\,400,00\\)",
+                        "\\(R60\\,000,00\\)",
+                        "\\(R75\\,424,14\\)",
+                        "\\(R82\\,100,00\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "This is a Future Value Annuity problem.",
+                         "\\(x = 1000\\), \\(i = 0,09 / 12 = 0,0075\\), \\(n = 5 \\times 12 = 60\\)",
+                         "\\(F = \\frac{x[(1 + i)^n - 1]}{i}\\)",
+                         "\\(F = \\frac{1000[(1 + 0,0075)^{60} - 1]}{0,0075}\\)",
+                         "\\(F \\approx R75\\,424,14\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A car depreciates on a reducing balance at a rate of \\(15\\%\\) p.a. If the car is currently worth \\(R200\\,000\\), what will its value be in 3 years time?",
+        "options":  [
+                        "\\(R140\\,000\\)",
+                        "\\(R122\\,825\\)",
+                        "\\(R110\\,000\\)",
+                        "\\(R135\\,200\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use reducing balance formula: \\(A = P(1 - i)^n\\)",
+                         "\\(P = 200\\,000\\), \\(i = 0,15\\), \\(n = 3\\)",
+                         "\\(A = 200\\,000(1 - 0,15)^3\\)",
+                         "\\(A = 200\\,000(0,85)^3 \\approx R122\\,825\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Determine the effective annual interest rate if the nominal interest rate is \\(12\\%\\) p.a. compounded quarterly.",
+        "options":  [
+                        "\\(13\\%\\)",
+                        "\\(12,36\\%\\)",
+                        "\\(12\\%\\)",
+                        "\\(12,55\\%\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the formula: \\(1 + i_e = (1 + \\frac{i_n}{m})^m\\)",
+                         "\\(i_n = 0,12\\), \\(m = 4\\)",
+                         "\\(1 + i_e = (1 + \\frac{0,12}{4})^4\\)",
+                         "\\(1 + i_e = (1,03)^4 \\approx 1,1255\\)",
+                         "\\(i_e = 0,1255 \\implies 12,55\\%\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A loan of \\(R500\\,000\\) is to be repaid over 20 years with monthly installments at \\(10\\%\\) p.a. compounded monthly. Calculate the monthly installment \\(x\\).",
+        "options":  [
+                        "\\(R5\\,000,00\\)",
+                        "\\(R4\\,825,11\\)",
+                        "\\(R4\\,500,00\\)",
+                        "\\(R5\\,200,00\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "This is a Present Value Annuity problem.",
+                         "\\(P = 500\\,000\\), \\(i = 0,10 / 12\\), \\(n = 20 \\times 12 = 240\\)",
+                         "\\(P = \\frac{x[1 - (1 + i)^{-n}]}{i} \\implies x = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\)",
+                         "\\(x = \\frac{500\\,000(0,10/12)}{1 - (1 + 0,10/12)^{-240}}\\)",
+                         "\\(x \\approx R4\\,825,11\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "How long (in years) will it take for an investment to double if it grows at \\(10\\%\\) p.a. compounded annually?",
+        "options":  [
+                        "\\(8,5\\, \\text{years}\\)",
+                        "\\(10\\, \\text{years}\\)",
+                        "\\(7,27\\, \\text{years}\\)",
+                        "\\(5\\, \\text{years}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use compound interest: \\(A = P(1 + i)^n\\)",
+                         "For doubling, \\(A = 2P\\): \\(2P = P(1 + 0,10)^n\\)",
+                         "\\(2 = (1,1)^n \\implies \\log 2 = n \\log 1,1\\)",
+                         "\\(n = \\frac{\\log 2}{\\log 1,1} \\approx 7,27\\, \\text{years}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Calculate the monthly payment on a loan of \\(R100\\,000\\) at \\(12\\%\\) p.a. compounded monthly, to be repaid over 5 years.",
+        "options":  [
+                        "\\(R2\\,000,00\\)",
+                        "\\(R2\\,500,00\\)",
+                        "\\(R1\\,666,67\\)",
+                        "\\(R2\\,224,44\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Present Value Annuity: \\(x = \\frac{P \\cdot i}{1 - (1 + i)^{-n}}\\)",
+                         "\\(P = 100\\,000\\), \\(i = 0,12 / 12 = 0,01\\), \\(n = 5 \\times 12 = 60\\)",
+                         "\\(x = \\frac{100\\,000(0,01)}{1 - (1,01)^{-60}} \\approx R2\\,224,44\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Thabo invests R\\(15\\,000\\) in an account earning \\(8\\%\\) p.a. compounded quarterly. How much will he have after 5 years?",
+        "options":  [
+                        "\\( R21\\,000.00 \\)",
+                        "\\( R22\\,289.21 \\)",
+                        "\\( R21\\,889.32 \\)",
+                        "\\( R22\\,300.00 \\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the compound interest formula: \\(A = P(1 + i)^n\\)",
+                         "\\(P = 15000\\)",
+                         "\\(i = \\frac{0.08}{4} = 0.02\\) per quarter",
+                         "\\(n = 5 \\times 4 = 20\\) quarters",
+                         "\\(A = 15000(1 + 0.02)^{20}\\)",
+                         "\\(A = 15000(1.485947)\\}",
+                         "\\(A \\approx R22\\,289.21\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A business buys a machine for R\\(250\\,000\\). It depreciates at \\(12\\%\\) p.a. on a reducing balance. Calculate its book value after 4 years.",
+        "options":  [
+                        "\\( R130\\,000.00 \\)",
+                        "\\( R152\\,184.32 \\)",
+                        "\\( R149\\,800.00 \\)",
+                        "\\( R149\\,923.84 \\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the reducing balance depreciation formula: \\(A = P(1 - i)^n\\)",
+                         "\\(P = 250000\\), \\(i = 0.12\\), \\(n = 4\\)",
+                         "\\(A = 250000(1 - 0.12)^4\\)",
+                         "\\(A = 250000(0.88)^4\\)",
+                         "\\(A = 250000(0.599695)\\)",
+                         "\\(A \\approx R149\\,923.84\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Lerato wants to save R\\(50\\,000\\) for a deposit on a car in 3 years\u0027 time. She opens a sinking fund that earns \\(9\\%\\) p.a. compounded monthly. Calculate her required monthly deposit.",
+        "options":  [
+                        "\\( R1\\,214.50 \\)",
+                        "\\( R1\\,388.89 \\)",
+                        "\\( R1\\,230.15 \\)",
+                        "\\( R1\\,206.87 \\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the future value of an annuity formula: \\(F = \\frac{x[(1+i)^n - 1]}{i}\\)",
+                         "\\(F = 50000\\), \\(i = \\frac{0.09}{12} = 0.0075\\), \\(n = 3 \\times 12 = 36\\) payments",
+                         "\\(50000 = \\frac{x[(1 + 0.0075)^{36} - 1]}{0.0075}\\)",
+                         "\\(50000 \\times 0.0075 = x[1.308645 - 1]\\)",
+                         "\\(375 = 0.308645x\\)",
+                         "\\(x = \\frac{375}{0.308645} \\approx R1\\,206.87\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Determine the effective annual interest rate if the nominal interest rate is \\(10.5\\%\\) p.a. compounded monthly.",
+        "options":  [
+                        "\\( 10.5\\% \\)",
+                        "\\( 11.02\\% \\)",
+                        "\\( 10.87\\% \\)",
+                        "\\( 11.51\\% \\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+                         "\\(i_{nom} = 0.105\\), \\(m = 12\\)",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.105}{12})^{12}\\)",
+                         "\\(1 + i_{eff} = (1.00875)^{12} \\approx 1.11020\\)",
+                         "\\(i_{eff} = 0.11020 \\times 100\\% = 11.02\\%\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Jason takes out a loan of R\\(800\\,000\\) to buy a house. His interest rate is \\(11\\%\\) p.a. compounded monthly. He repays the loan over 20 years. What is his monthly instalment?",
+        "options":  [
+                        "\\( R8\\,257.45 \\)",
+                        "\\( R7\\,984.32 \\)",
+                        "\\( R8\\,000.00 \\)",
+                        "\\( R3\\,333.33 \\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the present value of an annuity formula: \\(P = \\frac{x[1 - (1+i)^{-n}]}{i}\\)",
+                         "\\(P = 800000\\), \\(i = \\frac{0.11}{12}\\), \\(n = 20 \\times 12 = 240\\)",
+                         "\\(800000 = \\frac{x[1 - (1 + \\frac{0.11}{12})^{-240}]}{\\frac{0.11}{12}}\\)",
+                         "\\(800000 \\times \\frac{0.11}{12} = x[1 - (1.009167)^{-240}]\\)",
+                         "\\(7333.33 = x[1 - 0.111933] = 0.888067x\\)",
+                         "\\(x = \\frac{7333.33}{0.888067} \\approx R8\\,257.45\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A car valued at R9000 depreciates on the reducing balance method at 10% p.a. Calculate its value after 3 years. (Round to nearest integer)",
+        "options":  [
+                        "R6561",
+                        "R11979",
+                        "R6300",
+                        "R5905"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+                         "\\(P = 9000\\), \\(i = 10/100 = 0.1\\), \\(n = 3\\)",
+                         "\\(A = 9000(1 - 0.1)^{3}\\)",
+                         "\\(A \\approx 6561\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A car valued at R7000 depreciates on the reducing balance method at 11% p.a. Calculate its value after 4 years. (Round to nearest integer)",
+        "options":  [
+                        "R3953",
+                        "R4392",
+                        "R10626",
+                        "R3920"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+                         "\\(P = 7000\\), \\(i = 11/100 = 0.11\\), \\(n = 4\\)",
+                         "\\(A = 7000(1 - 0.11)^{4}\\)",
+                         "\\(A \\approx 4392\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A car valued at R13000 depreciates on the reducing balance method at 13% p.a. Calculate its value after 3 years. (Round to nearest integer)",
+        "options":  [
+                        "R18758",
+                        "R7704",
+                        "R8561",
+                        "R7930"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+                         "\\(P = 13000\\), \\(i = 13/100 = 0.13\\), \\(n = 3\\)",
+                         "\\(A = 13000(1 - 0.13)^{3}\\)",
+                         "\\(A \\approx 8561\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A car valued at R17000 depreciates on the reducing balance method at 15% p.a. Calculate its value after 4 years. (Round to nearest integer)",
+        "options":  [
+                        "R8874",
+                        "R7987",
+                        "R6800",
+                        "R29733"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+                         "\\(P = 17000\\), \\(i = 15/100 = 0.15\\), \\(n = 4\\)",
+                         "\\(A = 17000(1 - 0.15)^{4}\\)",
+                         "\\(A \\approx 8874\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A car valued at R6000 depreciates on the reducing balance method at 15% p.a. Calculate its value after 7 years. (Round to nearest integer)",
+        "options":  [
+                        "R15960",
+                        "R1731",
+                        "R-300",
+                        "R1923"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the reducing balance formula: \\(A = P(1 - i)^n\\)",
+                         "\\(P = 6000\\), \\(i = 15/100 = 0.15\\), \\(n = 7\\)",
+                         "\\(A = 6000(1 - 0.15)^{7}\\)",
+                         "\\(A \\approx 1923\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Convert a nominal interest rate of 6% p.a. compounded monthly to an effective annual rate.",
+        "options":  [
+                        "6%",
+                        "6.60%",
+                        "6.50%",
+                        "6.17%"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.06}{12})^{12}\\)",
+                         "\\(i_{eff} = (1 + \\frac{0.06}{12})^{12} - 1 = 0.0617\\)",
+                         "Multiply by 100: 6.17%"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Convert a nominal interest rate of 6% p.a. compounded monthly to an effective annual rate.",
+        "options":  [
+                        "6%",
+                        "6.60%",
+                        "6.17%",
+                        "6.50%"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.06}{12})^{12}\\)",
+                         "\\(i_{eff} = (1 + \\frac{0.06}{12})^{12} - 1 = 0.0617\\)",
+                         "Multiply by 100: 6.17%"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Convert a nominal interest rate of 7% p.a. compounded monthly to an effective annual rate.",
+        "options":  [
+                        "7.70%",
+                        "7.23%",
+                        "7.50%",
+                        "7%"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.07}{12})^{12}\\)",
+                         "\\(i_{eff} = (1 + \\frac{0.07}{12})^{12} - 1 = 0.0723\\)",
+                         "Multiply by 100: 7.23%"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Convert a nominal interest rate of 11% p.a. compounded monthly to an effective annual rate.",
+        "options":  [
+                        "11.50%",
+                        "11.57%",
+                        "12.10%",
+                        "11%"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.11}{12})^{12}\\)",
+                         "\\(i_{eff} = (1 + \\frac{0.11}{12})^{12} - 1 = 0.1157\\)",
+                         "Multiply by 100: 11.57%"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Convert a nominal interest rate of 10% p.a. compounded monthly to an effective annual rate.",
+        "options":  [
+                        "10.50%",
+                        "10.47%",
+                        "11.00%",
+                        "10%"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\)",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.1}{12})^{12}\\)",
+                         "\\(i_{eff} = (1 + \\frac{0.1}{12})^{12} - 1 = 0.1047\\)",
+                         "Multiply by 100: 10.47%"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Thabo deposits R1000 at the end of every month into an account earning 8% p.a. compounded monthly. How much will he have after 8 years?",
+        "options":  [
+                        "R107094.87",
+                        "R133868.58",
+                        "R96000.00",
+                        "R160642.30"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+                         "\\(x = 1000\\), \\(i = 0.08/12\\), \\(n = 8 \\times 12 = 96\\)",
+                         "\\(F = \\dfrac{1000[(1+0.0067)^{96} - 1]}{0.0067}\\)",
+                         "\\(F = R133868.58\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Thabo deposits R1000 at the end of every month into an account earning 8% p.a. compounded monthly. How much will he have after 5 years?",
+        "options":  [
+                        "R73476.86",
+                        "R60000.00",
+                        "R88172.23",
+                        "R58781.48"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+                         "\\(x = 1000\\), \\(i = 0.08/12\\), \\(n = 5 \\times 12 = 60\\)",
+                         "\\(F = \\dfrac{1000[(1+0.0067)^{60} - 1]}{0.0067}\\)",
+                         "\\(F = R73476.86\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Thabo deposits R900 at the end of every month into an account earning 12% p.a. compounded monthly. How much will he have after 6 years?",
+        "options":  [
+                        "R75391.15",
+                        "R64800.00",
+                        "R113086.73",
+                        "R94238.94"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+                         "\\(x = 900\\), \\(i = 0.12/12\\), \\(n = 6 \\times 12 = 72\\)",
+                         "\\(F = \\dfrac{900[(1+0.0100)^{72} - 1]}{0.0100}\\)",
+                         "\\(F = R94238.94\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Thabo deposits R1200 at the end of every month into an account earning 8% p.a. compounded monthly. How much will he have after 10 years?",
+        "options":  [
+                        "R175628.19",
+                        "R263442.29",
+                        "R144000.00",
+                        "R219535.24"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+                         "\\(x = 1200\\), \\(i = 0.08/12\\), \\(n = 10 \\times 12 = 120\\)",
+                         "\\(F = \\dfrac{1200[(1+0.0067)^{120} - 1]}{0.0067}\\)",
+                         "\\(F = R219535.24\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Thabo deposits R1000 at the end of every month into an account earning 9% p.a. compounded monthly. How much will he have after 10 years?",
+        "options":  [
+                        "R193514.28",
+                        "R120000.00",
+                        "R232217.13",
+                        "R154811.42"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the Future Value Annuity formula: \\(F = \\dfrac{x[(1+i)^n - 1]}{i}\\)",
+                         "\\(x = 1000\\), \\(i = 0.09/12\\), \\(n = 10 \\times 12 = 120\\)",
+                         "\\(F = \\dfrac{1000[(1+0.0075)^{120} - 1]}{0.0075}\\)",
+                         "\\(F = R193514.28\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A machine costs R500,000 and depreciates at 15% p.a. on the reducing balance method. Calculate the scrap value after 6 years (to the nearest Rand).",
+        "options":  [
+                        "R188,575",
+                        "R190,000",
+                        "R225,000",
+                        "R150,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the reducing balance formula: \\(A = P(1 - i)^n\\).",
+                         "\\(P = 500,000, i = 0.15, n = 6\\).",
+                         "\\(A = 500,000(1 - 0.15)^6 = 500,000(0.85)^6\\).",
+                         "\\(A \\approx 500,000(0.37715) \\approx 188,575\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "How many years (to the nearest year) will it take for an investment to double if it earns 9% interest compounded monthly?",
+        "options":  [
+                        "8 years",
+                        "10 years",
+                        "12 years",
+                        "15 years"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use compound interest formula: \\(A = P(1 + \\frac{i}{m})^{n \\cdot m}\\).",
+                         "We want \\(A = 2P\\), so \\(2 = (1 + \\frac{0.09}{12})^{12n}\\).",
+                         "\\(2 = (1.0075)^{12n}\\).",
+                         "Take logs: \\(\\log 2 = 12n \\log 1.0075\\).",
+                         "\\(12n = \\frac{\\log 2}{\\log 1.0075} \\approx 92.766\\).",
+                         "\\(n \\approx 7.73\\). Round to nearest: 8 years."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Calculate the effective interest rate p.a. if the nominal rate is 12% p.a. compounded quarterly.",
+        "options":  [
+                        "12.55%",
+                        "12.36%",
+                        "12.68%",
+                        "12.00%"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use formula: \\(1 + i_{eff} = (1 + \\frac{i_{nom}}{m})^m\\).",
+                         "\\(1 + i_{eff} = (1 + \\frac{0.12}{4})^4 = (1.03)^4\\).",
+                         "\\(1 + i_{eff} \\approx 1.1255\\).",
+                         "\\(i_{eff} = 0.1255 \\implies 12.55\\%\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Determine the monthly payment required to pay off a loan of R200,000 over 5 years at an interest rate of 10% p.a. compounded monthly.",
+        "options":  [
+                        "R4,249",
+                        "R3,500",
+                        "R4,800",
+                        "R5,100"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use present value annuity formula: \\(P = x \\left( \\frac{1 - (1+i)^{-n}}{i} \\right)\\).",
+                         "\\(P = 200,000, i = \\frac{0.10}{12}, n = 60\\).",
+                         "\\(200,000 = x \\left( \\frac{1 - (1.008333)^{-60}}{0.008333} \\right)\\).",
+                         "\\(200,000 \\approx x(47.065)\\).",
+                         "\\(x \\approx 4249.41\\). Round: R4,249."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "R50,000 is invested in a fund to provide for the replacement of equipment in 8 years\u0027 time. If the interest is 8.5% p.a. compounded monthly, what will be the value of the investment after 8 years?",
+        "options":  [
+                        "R98,392",
+                        "R85,000",
+                        "R100,000",
+                        "R90,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use compound interest formula: \\(A = P(1 + \\frac{i}{m})^{nm}\\).",
+                         "\\(P = 50,000, i = 0.085, m = 12, n = 8\\).",
+                         "\\(A = 50,000(1 + \\frac{0.085}{12})^{96}\\).",
+                         "\\(A \\approx 50,000(1.9678) \\approx 98,392\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A person saves R1,000 per month into an account that pays 7% interest p.a. compounded monthly. How much is in the account after 10 years?",
+        "options":  [
+                        "R173,085",
+                        "R120,000",
+                        "R150,000",
+                        "R180,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use future value annuity formula: \\(F = x \\left( \\frac{(1+i)^n - 1}{i} \\right)\\).",
+                         "\\(x = 1,000, i = \\frac{0.07}{12}, n = 120\\).",
+                         "\\(F = 1,000 \\left( \\frac{(1+0.005833)^{120} - 1}{0.005833} \\right)\\).",
+                         "\\(F \\approx 1,000(173.085) \\approx 173,085\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A laptop costs R12,000. It depreciates by R1,500 every year linearly. Calculate its value after 4 years.",
+        "options":  [
+                        "R6,000",
+                        "R8,000",
+                        "R4,000",
+                        "R10,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Linear depreciation: \\(A = P(1 - i \\cdot n)\\) or just subtract the amount.",
+                         "\\(Value = 12,000 - (1,500 \\cdot 4)\\).",
+                         "\\(Value = 12,000 - 6,000 = 6,000\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A loan of R100,000 is to be repaid with monthly installments over 4 years. The interest rate is 12% p.a. compounded monthly. Calculate the outstanding balance after 2 years (to the nearest Rand).",
+        "options":  [
+                        "R56,602",
+                        "R50,000",
+                        "R60,000",
+                        "R45,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "First find monthly payment \\(x\\): \\(100,000 = x \\left( \\frac{1 - (1.01)^{-48}}{0.01} \\right) \\implies x \\approx 2633.38\\).",
+                         "Outstanding balance is the present value of the remaining 24 payments.",
+                         "\\(Balance = 2633.38 \\left( \\frac{1 - (1.01)^{-24}}{0.01} \\right) \\approx R56,602\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "R2,000 is invested every quarter for 10 years at an interest rate of 8% p.a. compounded quarterly. Calculate the final value.",
+        "options":  [
+                        "R120,804",
+                        "R80,000",
+                        "R100,000",
+                        "R150,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Future value annuity: \\(F = x \\left( \\frac{(1+i)^n - 1}{i} \\right)\\).",
+                         "\\(x = 2,000, i = \\frac{0.08}{4} = 0.02, n = 40\\).",
+                         "\\(F = 2,000 \\left( \\frac{(1.02)^{40} - 1}{0.02} \\right)\\).",
+                         "\\(F \\approx 2,000(60.402) \\approx 120,804\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "R10,000 is invested at 8% p.a. compounded monthly. What is the value of the investment after 5 years?",
+        "options":  [
+                        "R14,898",
+                        "R15,000",
+                        "R14,000",
+                        "R13,500"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(A = P(1 + \\frac{i}{m})^{nm} = 10,000(1 + \\frac{0.08}{12})^{60}\\).",
+                         "\\(A = 10,000(1.006667)^{60} \\approx 14,898\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Determine the monthly payment to repay a R500,000 mortgage over 20 years at 9% p.a. compounded monthly.",
+        "options":  [
+                        "R4,499",
+                        "R5,000",
+                        "R3,500",
+                        "R6,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(P = x \\left[ \\frac{1 - (1+i)^{-n}}{i} \\right]\\).",
+                         "\\(500,000 = x \\left[ \\frac{1 - (1 + \\frac{0.09}{12})^{-240}}{\\frac{0.09}{12}} \\right]\\).",
+                         "\\(500,000 = x(111.144) \\implies x \\approx 4,499\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "What is the effective annual interest rate for 12% p.a. compounded quarterly?",
+        "options":  [
+                        "12.55%",
+                        "12.36%",
+                        "12.68%",
+                        "12.00%"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(1 + i_{eff} = (1 + \\frac{0.12}{4})^4 = (1.03)^4\\).",
+                         "\\(1 + i_{eff} \\approx 1.1255 \\implies i_{eff} = 12.55\\%\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "If a car is worth R200,000 and depreciates by 15% p.a. on the reducing balance method, what is its value after 3 years?",
+        "options":  [
+                        "R122,825",
+                        "R110,000",
+                        "R130,000",
+                        "R115,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(A = P(1-i)^n = 200,000(0.85)^3\\).",
+                         "\\(A = 200,000(0.614125) = 122,825\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Calculate the nominal interest rate p.a. compounded monthly if the effective rate is 10.47% p.a.",
+        "options":  [
+                        "10%",
+                        "9.5%",
+                        "11%",
+                        "10.5%"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(1.1047 = (1 + \\frac{i}{12})^{12}\\).",
+                         "\\(\\sqrt[12]{1.1047} = 1 + \\frac{i}{12} \\implies 1.00833 = 1 + \\frac{i}{12}\\).",
+                         "\\(\\frac{i}{12} = 0.00833 \\implies i = 0.1 = 10\\%\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "R5,000 is invested in a fund at the beginning of each year. If the fund earns 10% interest p.a. compounded annually, find the future value after 5 years.",
+        "options":  [
+                        "R33,578",
+                        "R30,525",
+                        "R25,000",
+                        "R35,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Future value of an annuity with payments at the *start*: \\(F = x [ \\frac{(1+i)^n - 1}{i} ] (1+i)\\).",
+                         "\\(F = 5,000 [ \\frac{(1.1)^5 - 1}{0.1} ] (1.1) = 5,000 (6.1051) (1.1) = 33,578.05\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "How long (to the nearest year) will it take for R1,000 to double at 12% p.a. simple interest?",
+        "options":  [
+                        "8 years",
+                        "7 years",
+                        "9 years",
+                        "6 years"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(A = P(1 + in) \\implies 2,000 = 1,000(1 + 0.12n)\\).",
+                         "\\(2 = 1 + 0.12n \\implies 1 = 0.12n \\implies n = 1/0.12 \\approx 8.33\\). Round to: 9? Wait, nearest year is 8. Select 2? Option 2 is 9. Let\u0027s select 8 as Option 0."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A loan of R100,000 is to be repaid in 12 monthly installments. If the interest is 12% p.a. compounded monthly, calculate the outstanding balance after 6 months.",
+        "options":  [
+                        "R52,019",
+                        "R50,000",
+                        "R60,000",
+                        "R45,000"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "First monthly payment \\(x\\): \\(100,000 = x [ \\frac{1 - (1.01)^{-12}}{0.01} ] \\implies x \\approx 8884.88\\).",
+                         "Outstanding balance = PV of remaining 6 payments.",
+                         "\\(OB = 8884.88 [ \\frac{1 - (1.01)^{-6}}{0.01} ] \\approx R52,019\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "A machine costs R100,000 new and depreciates linearly to R40,000 in 10 years. What is the annual depreciation rate?",
+        "options":  [
+                        "6%",
+                        "5%",
+                        "7%",
+                        "4%"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Linear depreciation: \\(A = P(1 - in)\\).",
+                         "\\(40,000 = 100,000(1 - 10i) \\implies 0.4 = 1 - 10i\\).",
+                         "\\(10i = 0.6 \\implies i = 0.06 = 6\\%\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "finance",
+        "q":  "Determine the final value of an investment of R1 into an account that triples every month for 1 year.",
+        "options":  [
+                        "\\(3^{12}\\)",
+                        "\\(12^3\\)",
+                        "\\(36\\)",
+                        "\\(3^{13}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Geometric growth: \\(A = P \\cdot r^n\\).",
+                         "\\(A = 1 \\cdot 3^{12}\\)."
+                     ],
+        "difficulty":  "manageable"
+    }
+]

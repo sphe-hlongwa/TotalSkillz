@@ -1,0 +1,1524 @@
+﻿[
+    {
+        "topic":  "calculus",
+        "difficulty":  "hard",
+        "q":  "The cubic function $h(x) = x^3 - 3x$ is shown. Find the x-coordinates of the stationary points.",
+        "options":  [
+                        "$x = -1$ and $x = 1$",
+                        "$x = 0$ and $x = 3$",
+                        "$x = -3$ and $x = 3$",
+                        "$x = -2$ and $x = 2$"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Find the derivative: $h\u0027(x) = 3x^2 - 3$",
+                         "Set $h\u0027(x) = 0$:",
+                         "$3(x^2 - 1) = 0$",
+                         "$x^2 = 1 \\implies x = \\pm 1$."
+                     ],
+        "graph":  {
+                      "fn":  "x^3 - 3x",
+                      "domain":  [
+                                     -3,
+                                     3
+                                 ],
+                      "yDomain":  [
+                                      -5,
+                                      5
+                                  ]
+                  }
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine the derivative of \\(f(x) = \\frac{1}{x}\\) using first principles.",
+        "options":  [
+                        "\\(\\ln x\\)",
+                        "\\(-x^{-2}\\)",
+                        "\\(x^{-2}\\)",
+                        "\\(x^0\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "\\(f\u0027(x) = \\lim_{h \\to 0} \\frac{\\frac{1}{x+h} - \\frac{1}{x}}{h}\\)",
+                         "Find common denominator: \\(\\frac{x - (x+h)}{x(x+h)} \\cdot \\frac{1}{h}\\)",
+                         "\\(= \\frac{-h}{x(x+h)h} = \\frac{-1}{x(x+h)}\\)",
+                         "As \\(h \\to 0\\), derivative is \\(-\\frac{1}{x^2} = -x^{-2}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A rectangular garden with a perimeter of 40m is to be enclosed. Find the maximum possible area.",
+        "options":  [
+                        "\\(200 m^2\\)",
+                        "\\(80 m^2\\)",
+                        "\\(400 m^2\\)",
+                        "\\(100 m^2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Perimeter: \\(2x + 2y = 40 \\implies y = 20 - x\\)",
+                         "Area: \\(A = x(20 - x) = 20x - x^2\\)",
+                         "Differentiate and set to zero: \\(A\u0027 = 20 - 2x = 0\\)",
+                         "\\(x = 10\\). Then \\(y = 10\\).",
+                         "Max Area = \\(10 \\times 10 = 100 m^2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Identify the x-coordinate of the point of inflection for the function \\(f(x) = x^3 - 3x^2 + 5\\).",
+        "options":  [
+                        "\\(x = 2\\)",
+                        "\\(x = 1\\)",
+                        "\\(x = 3\\)",
+                        "\\(x = 0\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Point of inflection is where the second derivative is zero.",
+                         "\\(f\u0027(x) = 3x^2 - 6x\\)",
+                         "\\(f\u0027\u0027(x) = 6x - 6\\)",
+                         "Set \\(6x - 6 = 0 \\implies x = 1\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the stationary points of the function \\(y = 2x^2 - 4x + 1\\).",
+        "options":  [
+                        "\\((2, 1)\\)",
+                        "\\((1, 1)\\)",
+                        "\\((1, -1)\\)",
+                        "\\((0, 1)\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Stationary points are where \\(y\u0027 = 0\\).",
+                         "\\(y\u0027 = 4x - 4\\)",
+                         "\\(4x - 4 = 0 \\implies x = 1\\)",
+                         "Substitute \\(x=1\\) into original eq: \\(y = 2(1)^2 - 4(1) + 1 = 2 - 4 + 1 = -1\\)",
+                         "Stationary point is \\((1, -1)\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(f\u0027(x)\\) from first principles, given that \\(f(x) = x^2 - 2\\).",
+        "options":  [
+                        "\\(f\u0027(x) = 2x - 2\\)",
+                        "\\(f\u0027(x) = x^2\\)",
+                        "\\(f\u0027(x) = 2x\\)",
+                        "\\(f\u0027(x) = 2x + h\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(f\u0027(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}\\)",
+                         "\\(f(x+h) = (x+h)^2 - 2 = x^2 + 2xh + h^2 - 2\\)",
+                         "\\(f\u0027(x) = \\lim_{h \\to 0} \\dfrac{x^2 + 2xh + h^2 - 2 - (x^2 - 2)}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{2xh + h^2}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{h(2x + h)}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} (2x + h)\\)",
+                         "\\(= 2x\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\dfrac{d}{dx}\\left[3x^2 - 4x\\right]\\)",
+        "options":  [
+                        "\\(6x\\)",
+                        "\\(6x - 4\\)",
+                        "\\(3x - 4\\)",
+                        "\\(6x^2 - 4\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Apply the power rule: \\(\\dfrac{d}{dx}[x^n] = nx^{n-1}\\)",
+                         "\\(\\dfrac{d}{dx}[3x^2] = 3 \\cdot 2x = 6x\\)",
+                         "\\(\\dfrac{d}{dx}[-4x] = -4\\)",
+                         "\\(\\dfrac{d}{dx}[3x^2 - 4x] = 6x - 4\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(g\u0027(x)\\) if \\(g(x) = -2\\sqrt{x}(x-1)^2\\)",
+        "options":  [
+                        "\\(g\u0027(x) = -5x\\sqrt{x} + 6\\sqrt{x} - \\dfrac{1}{\\sqrt{x}}\\)",
+                        "\\(g\u0027(x) = -4\\sqrt{x}(x-1)\\)",
+                        "\\(g\u0027(x) = -2(x-1)^2 + \\sqrt{x}\\)",
+                        "\\(g\u0027(x) = -5x^{3/2} + 4x^{1/2}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Expand first: \\(g(x) = -2x^{1/2}(x-1)^2 = -2x^{1/2}(x^2 - 2x + 1)\\)",
+                         "\\(= -2x^{5/2} + 4x^{3/2} - 2x^{1/2}\\)",
+                         "Differentiate term by term using the power rule:",
+                         "\\(g\u0027(x) = -2 \\cdot \\dfrac{5}{2}x^{3/2} + 4 \\cdot \\dfrac{3}{2}x^{1/2} - 2 \\cdot \\dfrac{1}{2}x^{-1/2}\\)",
+                         "\\(= -5x^{3/2} + 6x^{1/2} - x^{-1/2}\\)",
+                         "\\(= -5x\\sqrt{x} + 6\\sqrt{x} - \\dfrac{1}{\\sqrt{x}}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "The line \\(y = 4x - 14\\) is a common tangent to \\(f(x) = 2x^2 - 4x - 6\\) and \\(g(x) = ax^2 + bx - 18\\). Calculate the values of \\(a\\) and \\(b\\).",
+        "options":  [
+                        "\\(a = 1\\) and \\(b = -4\\)",
+                        "\\(a = -1\\) and \\(b = 8\\)",
+                        "\\(a = 2\\) and \\(b = -4\\)",
+                        "\\(a = -2\\) and \\(b = 6\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Find the tangent point on \\(f\\): \\(f\u0027(x) = 4x - 4 = 4 \\Rightarrow x = 2\\)",
+                         "Check: \\(f(2) = 8 - 8 - 6 = -6\\) and \\(y = 4(2) - 14 = -6\\)  [DONE]. Tangent point is \\((2, -6)\\).",
+                         "Since it\u0027s a common tangent at the same point, \\(g\\) must pass through \\((2, -6)\\) with gradient 4.",
+                         "Gradient: \\(g\u0027(2) = 2a(2) + b = 4a + b = 4\\) ... (I)",
+                         "Point: \\(g(2) = 4a + 2b - 18 = -6 \\Rightarrow 4a + 2b = 12 \\Rightarrow 2a + b = 6\\) ... (II)",
+                         "Subtract (I) from (II): \\((2a + b) - (4a + b) = 6 - 4 \\Rightarrow -2a = 2 \\Rightarrow a = -1\\)",
+                         "Substitute into (II): \\(2(-1) + b = 6 \\Rightarrow b = 8\\)",
+                         "\\(a = -1\\) and \\(b = 8\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(f\u0027(x)\\) from first principles, given that \\(f(x) = x^2 + x\\).",
+        "options":  [
+                        "\\(f\u0027(x) = 2x\\)",
+                        "\\(f\u0027(x) = 2x + 1\\)",
+                        "\\(f\u0027(x) = x + 1\\)",
+                        "\\(f\u0027(x) = 2x - 1\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "\\(f\u0027(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}\\)",
+                         "\\(f(x+h) = (x+h)^2 + (x+h) = x^2 + 2xh + h^2 + x + h\\)",
+                         "\\(f\u0027(x) = \\lim_{h \\to 0} \\dfrac{x^2 + 2xh + h^2 + x + h - x^2 - x}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{2xh + h^2 + h}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{h(2x + h + 1)}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} (2x + h + 1)\\)",
+                         "\\(= 2x + 1\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(f\u0027(x)\\) if \\(f(x) = 3x^4 - \\dfrac{1}{2}x^2\\)",
+        "options":  [
+                        "\\(f\u0027(x) = 12x^3 - x\\)",
+                        "\\(f\u0027(x) = 12x^3 - \\dfrac{1}{2}\\)",
+                        "\\(f\u0027(x) = 3x^3 - x\\)",
+                        "\\(f\u0027(x) = 12x^4 - x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Apply the power rule \\(\\dfrac{d}{dx}[x^n] = nx^{n-1}\\) to each term:",
+                         "\\(\\dfrac{d}{dx}[3x^4] = 3 \\times 4x^3 = 12x^3\\)",
+                         "\\(\\dfrac{d}{dx}\\left[-\\dfrac{1}{2}x^2\\right] = -\\dfrac{1}{2} \\times 2x = -x\\)",
+                         "\\(f\u0027(x) = 12x^3 - x\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(D_x\\left[\\dfrac{x + 4}{\\sqrt{x}}\\right]\\)",
+        "options":  [
+                        "\\(\\dfrac{1}{2\\sqrt{x}} - \\dfrac{2}{x\\sqrt{x}}\\)",
+                        "\\(\\dfrac{1}{\\sqrt{x}} - \\dfrac{4}{x^2}\\)",
+                        "\\(\\dfrac{1}{2\\sqrt{x}} + \\dfrac{2}{x\\sqrt{x}}\\)",
+                        "\\(\\dfrac{x+4}{2x\\sqrt{x}}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Rewrite using index laws: \\(\\dfrac{x+4}{\\sqrt{x}} = \\dfrac{x}{x^{1/2}} + \\dfrac{4}{x^{1/2}} = x^{1/2} + 4x^{-1/2}\\)",
+                         "Differentiate term by term:",
+                         "\\(D_x\\left[x^{1/2}\\right] = \\dfrac{1}{2}x^{-1/2}\\)",
+                         "\\(D_x\\left[4x^{-1/2}\\right] = 4 \\times \\left(-\\dfrac{1}{2}\\right)x^{-3/2} = -2x^{-3/2}\\)",
+                         "\\(= \\dfrac{1}{2}x^{-1/2} - 2x^{-3/2}\\)",
+                         "\\(= \\dfrac{1}{2\\sqrt{x}} - \\dfrac{2}{x\\sqrt{x}}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(f\u0027(x)\\) from first principles, given that \\(f(x) = \\dfrac{3}{x}\\).",
+        "options":  [
+                        "\\(f\u0027(x) = \\dfrac{3}{x^2}\\)",
+                        "\\(f\u0027(x) = -\\dfrac{3}{x^2}\\)",
+                        "\\(f\u0027(x) = \\dfrac{3}{x}\\)",
+                        "\\(f\u0027(x) = -3x\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "\\(f\u0027(x) = \\lim_{h \\to 0} \\dfrac{f(x+h) - f(x)}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{\\dfrac{3}{x+h} - \\dfrac{3}{x}}{h}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{3x - 3(x+h)}{xh(x+h)}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{-3h}{xh(x+h)}\\)",
+                         "\\(= \\lim_{h \\to 0} \\dfrac{-3}{x(x+h)}\\)",
+                         "\\(= -\\dfrac{3}{x^2}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(D_x\\left[\\dfrac{\\sqrt[3]{x^2} - x^{-3/2}}{\\sqrt{x}}\\right]\\)",
+        "options":  [
+                        "\\(\\dfrac{1}{6}x^{-5/6} + 2x^{-3}\\)",
+                        "\\(\\dfrac{1}{6}x^{-5/6} - 2x^{-3}\\)",
+                        "\\(\\dfrac{1}{3}x^{-1/6} + 2x^{-2}\\)",
+                        "\\(x^{-5/6} - 2x^{-3}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Rewrite: \\(\\dfrac{x^{2/3} - x^{-3/2}}{x^{1/2}}\\)",
+                         "\\(= x^{2/3 - 1/2} - x^{-3/2 - 1/2} = x^{1/6} - x^{-2}\\)",
+                         "Differentiate: \\(D_x[x^{1/6}] = \\dfrac{1}{6}x^{-5/6}\\)",
+                         "\\(D_x[-x^{-2}] = -(-2)x^{-3} = 2x^{-3}\\)",
+                         "\\(= \\dfrac{1}{6}x^{-5/6} + 2x^{-3} = \\dfrac{1}{6\\sqrt[6]{x^5}} + \\dfrac{2}{x^3}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\dfrac{dy}{dx}\\) if \\(xy - y = x^2 - 1\\).",
+        "options":  [
+                        "\\(\\dfrac{dy}{dx} = \\dfrac{2x - y}{x - 1}\\)",
+                        "\\(\\dfrac{dy}{dx} = 1\\)",
+                        "\\(\\dfrac{dy}{dx} = 2x\\)",
+                        "\\(\\dfrac{dy}{dx} = \\dfrac{x-1}{2x}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factor the left side: \\(y(x - 1) = x^2 - 1 = (x-1)(x+1)\\)",
+                         "Divide both sides by \\((x-1)\\), for \\(x \\neq 1\\): \\(y = x + 1\\)",
+                         "\\(\\dfrac{dy}{dx} = 1\\)",
+                         "Alternatively, differentiate implicitly: \\(y + x\\dfrac{dy}{dx} - \\dfrac{dy}{dx} = 2x\\)",
+                         "\\(\\dfrac{dy}{dx}(x-1) = 2x - y\\); substituting \\(y = x+1\\): \\(\\dfrac{dy}{dx} = \\dfrac{2x-(x+1)}{x-1} = \\dfrac{x-1}{x-1} = 1\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "The gradient of the tangent to \\(f(x) = ax^3 + bx^2\\) at point \\((1, 5)\\) is 12.\u003cbr\u003eShow which values of \\(a\\) and \\(b\\) are correct.",
+        "options":  [
+                        "\\(a = 3, b = 2\\)",
+                        "\\(a = 2, b = 3\\)",
+                        "\\(a = 1, b = 4\\)",
+                        "\\(a = 4, b = 1\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Since \\((1, 5)\\) lies on \\(f\\): \\(f(1) = a(1)^3 + b(1)^2 = a + b = 5\\) ... (I)",
+                         "\\(f\u0027(x) = 3ax^2 + 2bx\\)",
+                         "Gradient at \\(x=1\\) is 12: \\(f\u0027(1) = 3a + 2b = 12\\) ... (II)",
+                         "From (I): \\(b = 5 - a\\). Substitute into (II): \\(3a + 2(5-a) = 12\\)",
+                         "\\(3a + 10 - 2a = 12 \\Rightarrow a = 2\\)",
+                         "\\(b = 5 - 2 = 3\\)  [DONE]"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "For \\(f(x) = 2x^3 + 3x^2\\) (where \\(a=2, b=3\\)), determine the coordinates of the points where the tangent is parallel to the x-axis.",
+        "options":  [
+                        "\\((0, 0)\\) only",
+                        "\\((-1, 1)\\) only",
+                        "\\((0, 0)\\) and \\((-1, 1)\\)",
+                        "\\((1, 5)\\) and \\((0, 0)\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Tangent parallel to x-axis means \\(f\u0027(x) = 0\\).",
+                         "\\(f\u0027(x) = 6x^2 + 6x = 6x(x+1) = 0\\)",
+                         "\\(x = 0\\) or \\(x = -1\\)",
+                         "\\(f(0) = 0\\) -\u003e point \\((0, 0)\\)",
+                         "\\(f(-1) = 2(-1)^3 + 3(-1)^2 = -2 + 3 = 1\\) -\u003e point \\((-1, 1)\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A cubic function \\(f\\) satisfies: \\(f(0)=0\\), \\(f(3)=0\\), \\(f\u0027(1)=0\\), \\(f\u0027(3)=0\\), \\(f\u0027\u0027(2)=0\\), and \\(f\u0027\u0027(x) \u003c 0\\) for \\(x \u003e 2\\).\u003cbr\u003e\u003cbr\u003eWhat does \\(f\u0027\u0027(x) \u003c 0\\) for \\(x \u003e 2\\) mean?",
+        "options":  [
+                        "\\(f\\) is increasing for \\(x \u003e 2\\)",
+                        "\\(f\\) is concave down (the gradient of \\(f\\) is decreasing) for \\(x \u003e 2\\)",
+                        "\\(f\\) has a minimum at \\(x = 2\\)",
+                        "\\(f\u0027\\) is positive for \\(x \u003e 2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "\\(f\u0027\u0027(x) \u003c 0\\) means the second derivative is negative.",
+                         "This indicates that \\(f\u0027(x)\\) is decreasing - the function is concave down.",
+                         "In graph terms: the curve bends downward for \\(x \u003e 2\\).",
+                         "\\(x = 2\\) is a point of inflection where the concavity changes."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "For the cubic \\(f\\) with \\(f(x) = -2x^3 + 12x^2 - 18x\\), \\(f\u0027(x) = -6(x-1)(x-3)\\).\u003cbr\u003e\u003cbr\u003eDetermine the values of \\(x\\) for which \\(f\u0027(x) \\cdot f(x) \u003c 0\\).",
+        "options":  [
+                        "\\(0 \u003c x \u003c 1\\) or \\(x \u003e 3\\)",
+                        "\\(x \u003c 0\\) or \\(1 \u003c x \u003c 3\\)",
+                        "\\(1 \u003c x \u003c 3\\) only",
+                        "\\(x \u003c 0\\) only"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "\\(f(x) = -2x(x-3)^2\\) and \\(f\u0027(x) = -6(x-1)(x-3)\\)",
+                         "\\(f\u0027(x) \\cdot f(x) = -6(x-1)(x-3) \\times (-2x)(x-3)^2 = 12x(x-1)(x-3)^3\\)",
+                         "We need \\(12x(x-1)(x-3)^3 \u003c 0\\), i.e., \\(x(x-1)(x-3)^3 \u003c 0\\)",
+                         "Critical values: \\(x = 0, 1, 3\\). Note \\((x-3)^3\\) and \\((x-3)\\) have the same sign.",
+                         "Sign table: \\(x \u003c 0\\): \\((-)(-)(-)= -\\)  [DONE] ; \\(0\u003cx\u003c1\\): \\((+)(-)(-) = +\\) Ã¢Å“â€”",
+                         "\\(1 \u003c x \u003c 3\\): \\((+)(+)(-) = -\\)  [DONE] ; \\(x \u003e 3\\): \\((+)(+)(+) = +\\) Ã¢Å“â€”",
+                         "\\(x \u003c 0\\) or \\(1 \u003c x \u003c 3\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A cubic \\(f\\) has stationary points at \\(x=1\\) and \\(x=3\\), zeros at \\(x=0\\) and \\(x=3\\), and passes through \\(W(5, -40)\\). Find \\(f(x) = px^3 + qx^2 + rx\\).",
+        "options":  [
+                        "\\(f(x) = -2x^3 + 12x^2 - 18x\\)",
+                        "\\(f(x) = 2x^3 - 12x^2 + 18x\\)",
+                        "\\(f(x) = -x^3 + 6x^2 - 9x\\)",
+                        "\\(f(x) = -2x^3 + 6x^2 - 12x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Since \\(f\u0027(x) = 0\\) at \\(x=1\\) and \\(x=3\\): \\(f\u0027(x) = a(x-1)(x-3) = a(x^2-4x+3)\\)",
+                         "Integrate: \\(f(x) = a\\left(\\dfrac{x^3}{3} - 2x^2 + 3x\\right) + C\\)",
+                         "\\(f(0) = 0 \\Rightarrow C = 0\\); \\(f(3) = a(9-18+9) = 0\\)  [DONE] (free)",
+                         "Substitute \\(W(5,-40)\\): \\(a\\left(\\dfrac{125}{3} - 50 + 15\\right) = -40\\)",
+                         "\\(a \\times \\dfrac{20}{3} = -40 \\Rightarrow a = -6\\)",
+                         "\\(f(x) = -6\\left(\\dfrac{x^3}{3} - 2x^2 + 3x\\right) = -2x^3 + 12x^2 - 18x\\)",
+                         "So \\(p = -2, q = 12, r = -18\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(f\u0027(x)\\) from first principles if \\(f(x) = 3x^2\\). The limit definition step is:",
+        "options":  [
+                        "\\(\\lim_{x \\to 0} \\frac{3(x+h)^2 - 3x^2}{h}\\)",
+                        "\\(\\lim_{h \\to 0} \\frac{3(x+h)^2 - 3x^2}{h}\\)",
+                        "\\(\\frac{3(x+h)^2 - 3x^2}{h}\\)",
+                        "\\(\\lim_{h \\to 0} \\frac{(3x+h)^2 - 3x^2}{h}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "First principles formula: \\(f\u0027(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}\\)",
+                         "Substitute \\(f(x) = 3x^2\\):",
+                         "\\(f(x+h) = 3(x+h)^2\\)",
+                         "Thus, \\(f\u0027(x) = \\lim_{h \\to 0} \\frac{3(x+h)^2 - 3x^2}{h}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\frac{dy}{dx}\\) if \\(y = \\frac{2}{x^3} - \\sqrt{x}\\)",
+        "options":  [
+                        "\\(6x^{-4} - \\frac{1}{2}x^{-1/2}\\)",
+                        "\\(-6x^{-2} - 2x^{1/2}\\)",
+                        "\\(-2x^{-4} - \\frac{1}{2}x^{-1/2}\\)",
+                        "\\(-6x^{-4} - \\frac{1}{2}x^{-1/2}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Convert to exponent form: \\(y = 2x^{-3} - x^{1/2}\\)",
+                         "Apply the power rule: \\(\\frac{d}{dx} x^n = n x^{n-1}\\)",
+                         "\\(\\frac{dy}{dx} = 2(-3)x^{-3-1} - \\frac{1}{2}x^{1/2 - 1}\\)",
+                         "\\(\\frac{dy}{dx} = -6x^{-4} - \\frac{1}{2}x^{-1/2}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Given \\(f(x) = x^3 - 3x^2\\), find the x-coordinates of the stationary points.",
+        "options":  [
+                        "\\(x = 1\\) and \\(x = 2\\)",
+                        "\\(x = -2\\) and \\(x = 0\\)",
+                        "\\(x = 0\\) and \\(x = 3\\)",
+                        "\\(x = 0\\) and \\(x = 2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Stationary points occur where \\(f\u0027(x) = 0\\)",
+                         "Differentiate: \\(f\u0027(x) = 3x^2 - 6x\\)",
+                         "Set to zero: \\(3x^2 - 6x = 0\\)",
+                         "Factorise: \\(3x(x - 2) = 0\\)",
+                         "Therefore, \\(x = 0\\) or \\(x = 2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "The volume of a box is given by \\(V(x) = 4x^3 - 48x^2 + 144x\\). Find the value of \\(x\\) that maximises the volume, where \\(0 \u003c x \u003c 6\\).",
+        "options":  [
+                        "\\(x = 6\\)",
+                        "\\(x = 2\\)",
+                        "\\(x = 4\\)",
+                        "\\(x = 3\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Find the derivative: \\(V\u0027(x) = 12x^2 - 96x + 144\\)",
+                         "Set \\(V\u0027(x) = 0\\) for maximum: \\(12(x^2 - 8x + 12) = 0\\)",
+                         "Factorise: \\((x - 2)(x - 6) = 0\\)",
+                         "Since the domain is \\(0 \u003c x \u003c 6\\), \\(x = 6\\) is invalid.",
+                         "The value that maximises the volume is \\(x = 2\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(f\u0027(x)\\) if \\(f(x) = \\frac{x^3 - 8}{x - 2}\\) for \\(x \\neq 2\\)",
+        "options":  [
+                        "\\(x^2 + 2x + 4\\)",
+                        "\\(2x + 2\\)",
+                        "\\(3x + 2\\)",
+                        "\\(3x^2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Simplify the expression before differentiating.",
+                         "Factorise the numerator (difference of cubes): \\(x^3 - 8 = (x - 2)(x^2 + 2x + 4)\\)",
+                         "\\(f(x) = \\frac{(x - 2)(x^2 + 2x + 4)}{x - 2} = x^2 + 2x + 4\\)",
+                         "Now differentiate: \\(f\u0027(x) = 2x + 2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the x-coordinate of the point of inflection for the function \\(f(x) = x^3 - 6x^2 + 9x\\)",
+        "options":  [
+                        "\\(x = 3\\)",
+                        "\\(x = 1\\)",
+                        "\\(x = 2\\)",
+                        "\\(x = 0\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The point of inflection occurs where the second derivative \\(f\u0027\u0027(x) = 0\\)",
+                         "First derivative: \\(f\u0027(x) = 3x^2 - 12x + 9\\)",
+                         "Second derivative: \\(f\u0027\u0027(x) = 6x - 12\\)",
+                         "Set to zero: \\(6x - 12 = 0 \\implies 6x = 12 \\implies x = 2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "An object moves such that its displacement \\(s\\) (in metres) after \\(t\\) seconds is given by \\(s(t) = t^2 - 4t + 5\\). Find its velocity at \\(t = 3\\) seconds.",
+        "options":  [
+                        "\\(3\\, \\text{m/s}\\)",
+                        "\\(5\\, \\text{m/s}\\)",
+                        "\\(1\\, \\text{m/s}\\)",
+                        "\\(2\\, \\text{m/s}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Velocity is the derivative of displacement: \\(v(t) = s\u0027(t)\\)",
+                         "\\(v(t) = 2t - 4\\)",
+                         "At \\(t = 3\\): \\(v(3) = 2(3) - 4 = 6 - 4 = 2\\, \\text{m/s}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine the gradient of the tangent to the curve \\(f(x) = 2x^2\\) at the point where \\(x = 1\\).",
+        "options":  [
+                        "\\(1\\)",
+                        "\\(2\\)",
+                        "\\(4\\)",
+                        "\\(0\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The gradient of the tangent is given by the derivative at that point: \\(f\u0027(x)\\)",
+                         "\\(f\u0027(x) = 4x\\)",
+                         "At \\(x = 1\\): \\(f\u0027(1) = 4(1) = 4\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A cone has a radius \\(r\\) and a perpendicular height \\(h\\). The sum of the radius and height is \\(12\\text{ cm}\\). Determine the maximum possible volume of the cone. (Volume of cone = \\(\\frac{1}{3}\\pi r^2 h\\))",
+        "options":  [
+                        "\\(128\\pi\\text{ cm}^3\\)",
+                        "\\(\\frac{256}{3}\\pi\\text{ cm}^3\\)",
+                        "\\(512\\pi\\text{ cm}^3\\)",
+                        "\\(64\\pi\\text{ cm}^3\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "\\(r + h = 12 \\Rightarrow h = 12 - r\\)",
+                         "\\(V(r) = \\frac{1}{3}\\pi r^2 (12 - r) = 4\\pi r^2 - \\frac{1}{3}\\pi r^3\\)",
+                         "\\(V\u0027(r) = 8\\pi r - \\pi r^2 = 0\\)",
+                         "\\(\\pi r(8 - r) = 0 \\Rightarrow r = 8\\) (since \\(r \u003e 0\\))",
+                         "\\(h = 12 - 8 = 4\\)",
+                         "\\(V_{max} = \\frac{1}{3}\\pi (8)^2 (4) = \\frac{256}{3}\\pi \\approx 268.08\\text{ cm}^3\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine the coordinates of the turning points of the graph of \\(f(x) = x^3 - 3x^2 - 9x + 5\\).",
+        "options":  [
+                        "\\((-1, 10)\\) and \\((3, -22)\\)",
+                        "\\( (1, -6) \\) and \\( (-3, -22) \\)",
+                        "\\((-1, 10)\\) and \\((3, 22)\\)",
+                        "\\( (1, 6) \\) and \\( (-3, 22) \\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f\u0027(x) = 3x^2 - 6x - 9\\)",
+                         "Set \\(f\u0027(x) = 0\\): \\(3(x^2 - 2x - 3) = 0 \\Rightarrow 3(x-3)(x+1) = 0\\)",
+                         "\\(x = 3\\) or \\(x = -1\\)",
+                         "Substitute to find y: \\(f(-1) = (-1)^3 - 3(-1)^2 - 9(-1) + 5 = -1 - 3 + 9 + 5 = 10\\)",
+                         "\\(f(3) = (3)^3 - 3(3)^2 - 9(3) + 5 = 27 - 27 - 27 + 5 = -22\\)",
+                         "Turning points: \\((-1, 10)\\) and \\((3, -22)\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "The function \\(g(x) = -2x^3 + px^2 + qx + 12\\) has a local minimum at \\(x = -1\\) and a point of inflection at \\(x = 1\\). Determine the values of \\(p\\) and \\(q\\).",
+        "options":  [
+                        "\\(p = 6, q = -12\\)",
+                        "\\(p = -6, q = 12\\)",
+                        "\\(p = 6, q = 18\\)",
+                        "\\(p = -6, q = -18\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Point of inflection at \\(x = 1 \\Rightarrow g\u0027\u0027(1) = 0\\)",
+                         "\\(g\u0027(x) = -6x^2 + 2px + q\\)",
+                         "\\(g\u0027\u0027(x) = -12x + 2p\\)",
+                         "\\(-12(1) + 2p = 0 \\Rightarrow 2p = 12 \\Rightarrow p = 6\\)",
+                         "Local minimum at \\(x = -1 \\Rightarrow g\u0027(-1) = 0\\)",
+                         "\\(-6(-1)^2 + 2(6)(-1) + q = 0\\)",
+                         "\\(-6 - 12 + q = 0 \\Rightarrow q = 18\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Evaluate \\(\\lim_{x \\to 2} \\frac{x^3 - 8}{x - 2}\\).",
+        "options":  [
+                        "\\(12\\)",
+                        "\\(0\\)",
+                        "\\(8\\)",
+                        "Undefined"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise numerator (difference of cubes): \\(x^3 - 8 = (x - 2)(x^2 + 2x + 4)\\)",
+                         "\\(\\lim_{x \\to 2} \\frac{(x - 2)(x^2 + 2x + 4)}{x - 2}\\)",
+                         "Cancel common factor: \\(\\lim_{x \\to 2} (x^2 + 2x + 4)\\)",
+                         "Substitute \\(x = 2\\): \\(2^2 + 2(2) + 4 = 4 + 4 + 4 = 12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A stone is thrown vertically upwards. Its height \\(h\\) in metres above the ground after \\(t\\) seconds is given by \\(h(t) = -5t^2 + 20t + 2\\). Calculate the maximum height reached by the stone.",
+        "options":  [
+                        "\\(22 \\text{ m}\\)",
+                        "\\(42 \\text{ m}\\)",
+                        "\\(20 \\text{ m}\\)",
+                        "\\(32 \\text{ m}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Max height occurs when velocity (derivative of height) is zero.",
+                         "\\(v(t) = h\u0027(t) = -10t + 20\\)",
+                         "Set \\(v(t) = 0\\): \\(-10t + 20 = 0 \\Rightarrow 10t = 20 \\Rightarrow t = 2\\text{ seconds}\\)",
+                         "Substitute \\(t = 2\\) into the original height equation:",
+                         "\\(h(2) = -5(2)^2 + 20(2) + 2 = -20 + 40 + 2 = 22\\text{ m}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\frac{dy}{dx}\\) if \\(y = 2x^2 - \\dfrac{2}{x^2}\\)",
+        "options":  [
+                        "\\(4x^1 + \\dfrac{2}{x^3}\\)",
+                        "\\(4x^1 - \\dfrac{4}{x^3}\\)",
+                        "\\(4x^1 + \\dfrac{4}{x^3}\\)",
+                        "\\(4x^2 + \\dfrac{4}{x^2}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Rewrite the expression with negative exponents: \\(y = 2x^2 - 2x^{-2}\\)",
+                         "Apply the power rule \\((nx^{n-1})\\):",
+                         "\\(\\frac{dy}{dx} = 2(2)x^{2-1} - 2(-2)x^{-2-1}\\)",
+                         "\\(\\frac{dy}{dx} = 4x^1 + 4x^{-3}\\)",
+                         "Write with positive exponents: \\(4x^1 + \\dfrac{4}{x^3}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\frac{dy}{dx}\\) if \\(y = 6x^4 - \\dfrac{6}{x^2}\\)",
+        "options":  [
+                        "\\(24x^3 + \\dfrac{12}{x^3}\\)",
+                        "\\(24x^3 + \\dfrac{6}{x^3}\\)",
+                        "\\(24x^4 + \\dfrac{12}{x^2}\\)",
+                        "\\(24x^3 - \\dfrac{12}{x^3}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Rewrite the expression with negative exponents: \\(y = 6x^4 - 6x^{-2}\\)",
+                         "Apply the power rule \\((nx^{n-1})\\):",
+                         "\\(\\frac{dy}{dx} = 6(4)x^{4-1} - 6(-2)x^{-2-1}\\)",
+                         "\\(\\frac{dy}{dx} = 24x^3 + 12x^{-3}\\)",
+                         "Write with positive exponents: \\(24x^3 + \\dfrac{12}{x^3}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\frac{dy}{dx}\\) if \\(y = 4x^3 - \\dfrac{4}{x^2}\\)",
+        "options":  [
+                        "\\(12x^2 + \\dfrac{4}{x^3}\\)",
+                        "\\(12x^2 - \\dfrac{8}{x^3}\\)",
+                        "\\(12x^3 + \\dfrac{8}{x^2}\\)",
+                        "\\(12x^2 + \\dfrac{8}{x^3}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Rewrite the expression with negative exponents: \\(y = 4x^3 - 4x^{-2}\\)",
+                         "Apply the power rule \\((nx^{n-1})\\):",
+                         "\\(\\frac{dy}{dx} = 4(3)x^{3-1} - 4(-2)x^{-2-1}\\)",
+                         "\\(\\frac{dy}{dx} = 12x^2 + 8x^{-3}\\)",
+                         "Write with positive exponents: \\(12x^2 + \\dfrac{8}{x^3}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\frac{dy}{dx}\\) if \\(y = 4x^2 - \\dfrac{4}{x^2}\\)",
+        "options":  [
+                        "\\(8x^2 + \\dfrac{8}{x^2}\\)",
+                        "\\(8x^1 + \\dfrac{8}{x^3}\\)",
+                        "\\(8x^1 + \\dfrac{4}{x^3}\\)",
+                        "\\(8x^1 - \\dfrac{8}{x^3}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Rewrite the expression with negative exponents: \\(y = 4x^2 - 4x^{-2}\\)",
+                         "Apply the power rule \\((nx^{n-1})\\):",
+                         "\\(\\frac{dy}{dx} = 4(2)x^{2-1} - 4(-2)x^{-2-1}\\)",
+                         "\\(\\frac{dy}{dx} = 8x^1 + 8x^{-3}\\)",
+                         "Write with positive exponents: \\(8x^1 + \\dfrac{8}{x^3}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\frac{dy}{dx}\\) if \\(y = 3x^5 - \\dfrac{3}{x^2}\\)",
+        "options":  [
+                        "\\(15x^4 + \\dfrac{3}{x^3}\\)",
+                        "\\(15x^4 - \\dfrac{6}{x^3}\\)",
+                        "\\(15x^4 + \\dfrac{6}{x^3}\\)",
+                        "\\(15x^5 + \\dfrac{6}{x^2}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Rewrite the expression with negative exponents: \\(y = 3x^5 - 3x^{-2}\\)",
+                         "Apply the power rule \\((nx^{n-1})\\):",
+                         "\\(\\frac{dy}{dx} = 3(5)x^{5-1} - 3(-2)x^{-2-1}\\)",
+                         "\\(\\frac{dy}{dx} = 15x^4 + 6x^{-3}\\)",
+                         "Write with positive exponents: \\(15x^4 + \\dfrac{6}{x^3}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f\u0027(x) = (x - -3)(x - 3)\\)",
+        "options":  [
+                        "\\(x = -3\\) and \\(x = 3\\)",
+                        "There are no turning points.",
+                        "\\(x = 0\\)",
+                        "\\(x = 3\\) and \\(x = -3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Turning points occur where the first derivative is zero: \\(f\u0027(x) = 0\\)",
+                         "\\((x - -3)(x - 3) = 0\\)",
+                         "\\(x = -3\\) and \\(x = 3\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f\u0027(x) = (x - -1)(x - -2)\\)",
+        "options":  [
+                        "There are no turning points.",
+                        "\\(x = -1\\) and \\(x = -2\\)",
+                        "\\(x = 0\\)",
+                        "\\(x = 1\\) and \\(x = 2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Turning points occur where the first derivative is zero: \\(f\u0027(x) = 0\\)",
+                         "\\((x - -1)(x - -2) = 0\\)",
+                         "\\(x = -1\\) and \\(x = -2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f\u0027(x) = (x - -2)(x - 3)\\)",
+        "options":  [
+                        "There are no turning points.",
+                        "\\(x = -2\\) and \\(x = 3\\)",
+                        "\\(x = 0\\)",
+                        "\\(x = 2\\) and \\(x = -3\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Turning points occur where the first derivative is zero: \\(f\u0027(x) = 0\\)",
+                         "\\((x - -2)(x - 3) = 0\\)",
+                         "\\(x = -2\\) and \\(x = 3\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f\u0027(x) = (x - 3)(x - -1)\\)",
+        "options":  [
+                        "\\(x = 0\\)",
+                        "There are no turning points.",
+                        "\\(x = -3\\) and \\(x = 1\\)",
+                        "\\(x = 3\\) and \\(x = -1\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Turning points occur where the first derivative is zero: \\(f\u0027(x) = 0\\)",
+                         "\\((x - 3)(x - -1) = 0\\)",
+                         "\\(x = 3\\) and \\(x = -1\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the x-coordinates of the turning points of \\(f(x)\\) if \\(f\u0027(x) = (x - 1)(x - -3)\\)",
+        "options":  [
+                        "\\(x = -1\\) and \\(x = 3\\)",
+                        "There are no turning points.",
+                        "\\(x = 1\\) and \\(x = -3\\)",
+                        "\\(x = 0\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Turning points occur where the first derivative is zero: \\(f\u0027(x) = 0\\)",
+                         "\\((x - 1)(x - -3) = 0\\)",
+                         "\\(x = 1\\) and \\(x = -3\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A farmer has 59m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+        "options":  [
+                        "\\(386.7777777777778\\text{ m}^2\\)",
+                        "\\(870.25\\text{ m}^2\\)",
+                        "\\(3481\\text{ m}^2\\)",
+                        "\\(435.125\\text{ m}^2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 59 \\implies y = 59 - 2x\\)",
+                         "Area \\(A = x \\cdot y = x(59 - 2x) = 59x - 2x^2\\)",
+                         "To maximize, set derivative to zero: \\(A\u0027 = 59 - 4x = 0 \\implies 4x = 59 \\implies x = 14.75\\)",
+                         "Substitute \\(x\\) back: \\(y = 59 - 2(14.75) = 29.5\\)",
+                         "Max Area \\(A = (14.75)(29.5) = 435.125\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A farmer has 58m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+        "options":  [
+                        "\\(373.7777777777777\\text{ m}^2\\)",
+                        "\\(3364\\text{ m}^2\\)",
+                        "\\(420.5\\text{ m}^2\\)",
+                        "\\(841\\text{ m}^2\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 58 \\implies y = 58 - 2x\\)",
+                         "Area \\(A = x \\cdot y = x(58 - 2x) = 58x - 2x^2\\)",
+                         "To maximize, set derivative to zero: \\(A\u0027 = 58 - 4x = 0 \\implies 4x = 58 \\implies x = 14.5\\)",
+                         "Substitute \\(x\\) back: \\(y = 58 - 2(14.5) = 29\\)",
+                         "Max Area \\(A = (14.5)(29) = 420.5\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A farmer has 52m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+        "options":  [
+                        "\\(2704\\text{ m}^2\\)",
+                        "\\(338\\text{ m}^2\\)",
+                        "\\(300.4444444444444\\text{ m}^2\\)",
+                        "\\(676\\text{ m}^2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 52 \\implies y = 52 - 2x\\)",
+                         "Area \\(A = x \\cdot y = x(52 - 2x) = 52x - 2x^2\\)",
+                         "To maximize, set derivative to zero: \\(A\u0027 = 52 - 4x = 0 \\implies 4x = 52 \\implies x = 13\\)",
+                         "Substitute \\(x\\) back: \\(y = 52 - 2(13) = 26\\)",
+                         "Max Area \\(A = (13)(26) = 338\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A farmer has 49m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+        "options":  [
+                        "\\(300.125\\text{ m}^2\\)",
+                        "\\(2401\\text{ m}^2\\)",
+                        "\\(600.25\\text{ m}^2\\)",
+                        "\\(266.7777777777777\\text{ m}^2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 49 \\implies y = 49 - 2x\\)",
+                         "Area \\(A = x \\cdot y = x(49 - 2x) = 49x - 2x^2\\)",
+                         "To maximize, set derivative to zero: \\(A\u0027 = 49 - 4x = 0 \\implies 4x = 49 \\implies x = 12.25\\)",
+                         "Substitute \\(x\\) back: \\(y = 49 - 2(12.25) = 24.5\\)",
+                         "Max Area \\(A = (12.25)(24.5) = 300.125\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A farmer has 55m of fencing to enclose a rectangular area against a straight river. No fencing is needed along the river. Find the maximum area he can enclose.",
+        "options":  [
+                        "\\(3025\\text{ m}^2\\)",
+                        "\\(756.25\\text{ m}^2\\)",
+                        "\\(336.1111111111111\\text{ m}^2\\)",
+                        "\\(378.125\\text{ m}^2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Let width be \\(x\\) and length against river be \\(y\\). Perimeter \\(2x + y = 55 \\implies y = 55 - 2x\\)",
+                         "Area \\(A = x \\cdot y = x(55 - 2x) = 55x - 2x^2\\)",
+                         "To maximize, set derivative to zero: \\(A\u0027 = 55 - 4x = 0 \\implies 4x = 55 \\implies x = 13.75\\)",
+                         "Substitute \\(x\\) back: \\(y = 55 - 2(13.75) = 27.5\\)",
+                         "Max Area \\(A = (13.75)(27.5) = 378.125\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(f\u0027(x)\\) from first principles if \\(f(x) = 2x^2 - x\\).",
+        "options":  [
+                        "\\(4x - 1\\)",
+                        "\\(2x - 1\\)",
+                        "\\(4x^2 - 1\\)",
+                        "\\(4x + 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f\u0027(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}\\).",
+                         "\\(f(x+h) = 2(x+h)^2 - (x+h) = 2(x^2 + 2xh + h^2) - x - h = 2x^2 + 4xh + 2h^2 - x - h\\).",
+                         "\\(f(x+h) - f(x) = (2x^2 + 4xh + 2h^2 - x - h) - (2x^2 - x) = 4xh + 2h^2 - h\\).",
+                         "\\(\\frac{4xh + 2h^2 - h}{h} = 4x + 2h - 1\\).",
+                         "As \\(h \\to 0, 4x + 2(0) - 1 = 4x - 1\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine \\(\\frac{dy}{dx}\\) if \\(y = \\frac{1}{x^2} + \\sqrt{x}\\).",
+        "options":  [
+                        "\\(-2x^{-3} + \\frac{1}{2}x^{-1/2}\\)",
+                        "\\(2x^{-1} + \\frac{1}{2}x^{1/2}\\)",
+                        "\\(-x^{-3} + x^{-1/2}\\)",
+                        "\\(-2x^{-3} + 2x^{1/2}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Convert terms to exponent form: \\(y = x^{-2} + x^{1/2}\\).",
+                         "Apply power rule: \\(\\frac{dy}{dx} = -2x^{-2-1} + \\frac{1}{2}x^{1/2-1} = -2x^{-3} + \\frac{1}{2}x^{-1/2}\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the equation of the tangent to the curve \\(f(x) = x^3 - 3x + 2\\) at the point where \\(x = 2\\).",
+        "options":  [
+                        "\\(y = 9x - 14\\)",
+                        "\\(y = 9x + 4\\)",
+                        "\\(y = 4x + 2\\)",
+                        "\\(y = 3x - 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Find gradient at \\(x = 2\\): \\(f\u0027(x) = 3x^2 - 3\\).",
+                         "\\(f\u0027(2) = 3(2)^2 - 3 = 12 - 3 = 9\\).",
+                         "Find \\(y\\)-coordinate: \\(f(2) = 2^3 - 3(2) + 2 = 8 - 6 + 2 = 4\\).",
+                         "Use \\(y - y_1 = m(x - x_1)\\): \\(y - 4 = 9(x - 2)\\).",
+                         "\\(y = 9x - 18 + 4 \\implies y = 9x - 14\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine the turning points of the function \\(g(x) = x^3 - 12x\\).",
+        "options":  [
+                        "\\((2, -16)\\) and \\((-2, 16)\\)",
+                        "\\((2, 16)\\) and \\((-2, -16)\\)",
+                        "\\((4, -32)\\) and \\((-4, 32)\\)",
+                        "\\((0, 0)\\) only"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Set derivative to zero: \\(g\u0027(x) = 3x^2 - 12 = 0\\).",
+                         "\\(x^2 = 4 \\implies x = 2\\) or \\(x = -2\\).",
+                         "If \\(x = 2, g(2) = 8 - 24 = -16 \\implies (2, -16)\\).",
+                         "If \\(x = -2, g(-2) = -8 + 24 = 16 \\implies (-2, 16)\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the point of inflection of \\(h(x) = x^3 - 6x^2 + 9x + 1\\).",
+        "options":  [
+                        "\\((2, 3)\\)",
+                        "\\((1, 5)\\)",
+                        "\\((3, 1)\\)",
+                        "\\((0, 1)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Find second derivative: \\(h\u0027(x) = 3x^2 - 12x + 9\\).",
+                         "\\(h\u0027\u0027(x) = 6x - 12\\).",
+                         "Set \\(h\u0027\u0027(x) = 0 \\implies 6x = 12 \\implies x = 2\\).",
+                         "If \\(x = 2, h(2) = 8 - 24 + 18 + 1 = 3\\).",
+                         "The point of inflection is \\((2, 3)\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A rectangular garden is to be fenced using 40 metres of fencing. One side is a wall. What is the maximum area that can be enclosed?",
+        "options":  [
+                        "200 \\(m^2\\)",
+                        "100 \\(m^2\\)",
+                        "400 \\(m^2\\)",
+                        "150 \\(m^2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let the sides perpendicular to the wall be \\(x\\) and the side parallel be \\(y\\).",
+                         "Perimeter: \\(2x + y = 40 \\implies y = 40 - 2x\\).",
+                         "Area: \\(A = x y = x(40 - 2x) = 40x - 2x^2\\).",
+                         "Max area at \\(A\u0027 = 0\\): \\(40 - 4x = 0 \\implies x = 10\\).",
+                         "Max Area: \\(A = 40(10) - 2(10)^2 = 400 - 200 = 200\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "The distance covered by a car is given by \\(s(t) = t^2 + 4t\\) metres. What is the speed of the car at \\(t = 3\\) seconds?",
+        "options":  [
+                        "10 m/s",
+                        "7 m/s",
+                        "21 m/s",
+                        "14 m/s"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Speed is the first derivative of distance: \\(v(t) = s\u0027(t)\\).",
+                         "\\(v(t) = 2t + 4\\).",
+                         "At \\(t = 3\\): \\(v(3) = 2(3) + 4 = 10\\) m/s."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find \\(D_x [ (2x - 3)^2 ]\\).",
+        "options":  [
+                        "\\(8x - 12\\)",
+                        "\\(4x - 6\\)",
+                        "\\(4x\\)",
+                        "\\(8x + 12\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Expand: \\((2x - 3)^2 = 4x^2 - 12x + 9\\).",
+                         "Differentiate: \\(8x - 12\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A cubic function has turning points at \\(x=1\\) and \\(x=5\\). For which values of \\(x\\) will the function be concave down if \\(a \u003e 0\\)?",
+        "options":  [
+                        "\\(x \u003c 3\\)",
+                        "\\(x \u003e 3\\)",
+                        "\\(x = 3\\)",
+                        "\\(x \u003c 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The point of inflection is the average of the turning points\u0027 x-coordinates: \\(x = \\frac{1+5}{2} = 3\\).",
+                         "Since \\(a \u003e 0\\), the graph starts by going up, turns at \\(x=1\\), goes down, turns at \\(x=5\\), and goes up.",
+                         "Concave down is before the point of inflection for this orientation.",
+                         "Hence \\(x \u003c 3\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine the derivative of \\(f(x) = \\frac{1}{2}x^4 - 3x^2 + 5\\).",
+        "options":  [
+                        "\\(2x^3 - 6x\\)",
+                        "\\(2x^3 - 3x\\)",
+                        "\\(x^3 - 6x\\)",
+                        "\\(4x^3 - 6x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f\u0027(x) = \\frac{1}{2}(4)x^3 - 3(2)x = 2x^3 - 6x\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "At what value of \\(x\\) does \\(y = x^2 - 4x + 10\\) have a minimum?",
+        "options":  [
+                        "\\(x = 2\\)",
+                        "\\(x = 4\\)",
+                        "\\(x = -2\\)",
+                        "\\(x = 0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Find derivative and set to zero: \\(2x - 4 = 0 \\implies x = 2\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the gradient of the function \\(y = 2x^2\\) at the point where \\(y = 8\\) and \\(x \u003e 0\\).",
+        "options":  [
+                        "\\(8\\)",
+                        "\\(4\\)",
+                        "\\(2\\)",
+                        "\\(16\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "If \\(y = 8\\), then \\(2x^2 = 8 \\implies x^2 = 4 \\implies x = 2\\) (since \\(x \u003e 0\\)).",
+                         "Gradient function \\(y\u0027 = 4x\\).",
+                         "At \\(x = 2, y\u0027 = 4(2) = 8\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Evaluate: \\(\\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3}\\)",
+        "options":  [
+                        "\\(6\\)",
+                        "\\(0\\)",
+                        "\\(3\\)",
+                        "Undefined"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise: \\(\\frac{(x - 3)(x + 3)}{x - 3} = x + 3\\).",
+                         "Limit: \\(3 + 3 = 6\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "If \\(f(x) = p x^3\\) and \\(f\u0027(2) = 24\\), find \\(p\\).",
+        "options":  [
+                        "\\(2\\)",
+                        "\\(3\\)",
+                        "\\(4\\)",
+                        "\\(6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f\u0027(x) = 3p x^2\\).",
+                         "\\(f\u0027(2) = 3p (2)^2 = 12p = 24 \\implies p = 2\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine the values of \\(x\\) for which \\(f(x) = x^2 - 4x\\) is increasing.",
+        "options":  [
+                        "\\(x \u003e 2\\)",
+                        "\\(x \u003c 2\\)",
+                        "\\(x \u003e 0\\)",
+                        "\\(x \u003c 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "A function increases when its derivative is positive: \\(2x - 4 \u003e 0\\).",
+                         "\\(2x \u003e 4 \\implies x \u003e 2\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find \\(\\lim_{x \\to 2} (x^2 + 3)\\).",
+        "options":  [
+                        "\\(7\\)",
+                        "\\(5\\)",
+                        "\\(x^2 + 3\\)",
+                        "\\(0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Direct substitution: \\(2^2 + 3 = 4 + 3 = 7\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Differentiate \\(y = (x+1)(x-2)\\).",
+        "options":  [
+                        "\\(2x - 1\\)",
+                        "\\(2x + 1\\)",
+                        "\\(x^2 - x\\)",
+                        "\\(1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Expand: \\(y = x^2 - x - 2\\).",
+                         "Differentiate: \\(\\frac{dy}{dx} = 2x - 1\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "What is the y-intercept of the tangent to \\(f(x) = x^2\\) at \\(x = 1\\)?",
+        "options":  [
+                        "\\(-1\\)",
+                        "\\(1\\)",
+                        "\\(0\\)",
+                        "\\(2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Gradient at \\(x = 1\\): \\(f\u0027(1) = 2(1) = 2\\).",
+                         "Point: \\((1, 1)\\).",
+                         "Equation: \\(y - 1 = 2(x - 1) \\implies y = 2x - 1\\).",
+                         "y-intercept is -1."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the stationary point of \\(y = x^2 - 4x + 10\\).",
+        "options":  [
+                        "\\((2, 6)\\)",
+                        "\\((4, 10)\\)",
+                        "\\((0, 10)\\)",
+                        "\\(2, 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(y\u0027 = 2x - 4 = 0 \\implies x = 2\\).",
+                         "\\(y = 2^2 - 4(2) + 10 = 4 - 8 + 10 = 6\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "If the volume of water in a tank is \\(V(t) = 10t - t^2\\), at what time is the tank filling at a rate of 2 units/sec?",
+        "options":  [
+                        "\\(4\\)",
+                        "\\(2\\)",
+                        "\\(8\\)",
+                        "\\(5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Rate of change \\(V\u0027(t) = 10 - 2t\\).",
+                         "\\(10 - 2t = 2 \\implies 8 = 2t \\implies t = 4\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Determine the speed of a particle at \\(t = 2\\) if its distance is \\(s(t) = t^3 - t\\).",
+        "options":  [
+                        "\\(11\\)",
+                        "\\(7\\)",
+                        "\\(8\\)",
+                        "\\(12\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Speed \\(v(t) = s\u0027(t) = 3t^2 - 1\\).",
+                         "At \\(t = 2, v(2) = 3(4) - 1 = 11\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the acceleration of a falling object if its distance is \\(s(t) = 5t^2\\).",
+        "options":  [
+                        "\\(10\\)",
+                        "\\(5\\)",
+                        "\\(10t\\)",
+                        "\\(0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(v(t) = s\u0027(t) = 10t\\).",
+                         "\\(a(t) = v\u0027(t) = 10\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "For which values of \\(x\\) is the function \\(f(x) = x^3 - 48x\\) increasing?",
+        "options":  [
+                        "\\(x \u003c -4\\) or \\(x \u003e 4\\)",
+                        "\\(-4 \u003c x \u003c 4\\)",
+                        "\\(x \u003e 0\\)",
+                        "\\(x \u003c 0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f\u0027(x) = 3x^2 - 48 \u003e 0\\).",
+                         "\\(x^2 \u003e 16 \\implies x \u003c -4\\) or \\(x \u003e 4\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the point of inflection of \\(f(x) = x^3 - 6x^2\\).",
+        "options":  [
+                        "\\((2, -16)\\)",
+                        "\\((0, 0)\\)",
+                        "\\((4, -32)\\)",
+                        "\\(2, 0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f\u0027(x) = 3x^2 - 12x\\).",
+                         "\\(f\u0027\u0027(x) = 6x - 12 = 0 \\implies x = 2\\).",
+                         "\\(f(2) = 2^3 - 6(2)^2 = 8 - 24 = -16\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "What is the maximum area of a rectangle with perimeter 40?",
+        "options":  [
+                        "\\(100\\)",
+                        "\\(400\\)",
+                        "\\(200\\)",
+                        "\\(50\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let sides be \\(x\\) and \\(y\\). \\(2x + 2y = 40 \\implies y = 20 - x\\).",
+                         "\\(Area A = x(20 - x) = 20x - x^2\\).",
+                         "\\(A\u0027 = 20 - 2x = 0 \\implies x = 10, y = 10\\).",
+                         "\\(Area = 10 \\times 10 = 100\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Differentiate \\(f(x) = 10\\) (a constant).",
+        "options":  [
+                        "\\(0\\)",
+                        "\\(10\\)",
+                        "\\(1\\)",
+                        "\\(x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The derivative of any constant is zero."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "If \\(f(x) = x^n\\), then \\(f\u0027(x) = \\dots\\)",
+        "options":  [
+                        "\\(nx^{n-1}\\)",
+                        "\\(x^{n+1}/(n+1)\\)",
+                        "\\(nx^n\\)",
+                        "\\(x^{n-1}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is the basic power rule for differentiation."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find a point on \\(y = x^2\\) where the tangent is parallel to \\(y = 4x\\).",
+        "options":  [
+                        "\\((2, 4)\\)",
+                        "\\((1, 1)\\)",
+                        "\\((4, 16)\\)",
+                        "\\((0, 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Gradient \\(y\u0027 = 2x\\).",
+                         "Set \\(2x = 4 \\implies x = 2\\).",
+                         "\\(y = 2^2 = 4\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the intercepts of the function \\(f(x) = x^3 - x\\).",
+        "options":  [
+                        "\\((0, 0), (1, 0), (-1, 0)\\)",
+                        "\\((0, 0)\\) only",
+                        "\\((1, 0), (-1, 0)\\)",
+                        "\\(0, 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(x^3 - x = x(x^2 - 1) = x(x-1)(x+1) = 0\\). Intercepts are 0, 1, -1."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "What is the maximum height of a ball thrown vertically if its height is \\(h(t) = 20t - 5t^2\\)?",
+        "options":  [
+                        "\\(20\\)",
+                        "\\(40\\)",
+                        "\\(2\\)",
+                        "\\(0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(h\u0027(t) = 20 - 10t = 0 \\implies t = 2\\).",
+                         "\\(h(2) = 20(2) - 5(4) = 40 - 20 = 20\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A rectangular box with an open top has a square base. The volume is \\(256\\) \\(cm^3\\). Find the dimensions for minimum surface area.",
+        "options":  [
+                        "\\(8 \\times 8 \\times 4\\)",
+                        "\\(4 \\times 4 \\times 16\\)",
+                        "\\(16 \\times 16 \\times 1\\)",
+                        "\\(8 \\times 8 \\times 8\\)"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Let base side be \\(x\\) and height be \\(h\\). \\(V = x^2 h = 256 \\implies h = 256/x^2\\).",
+                         "Surface area \\(A = x^2 + 4xh = x^2 + 4x(256/x^2) = x^2 + 1024/x\\).",
+                         "\\(A\u0027 = 2x - 1024/x^2 = 0 \\implies 2x^3 = 1024 \\implies x^3 = 512 \\implies x = 8\\).",
+                         "Then \\(h = 256/64 = 4\\). Dimensions: \\(8 \\times 8 \\times 4\\)."
+                     ]
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A wire of length \\(40\\) cm is cut into two pieces. One is bent into a square and the other into a circle. What ratio of lengths minimizes the total area?",
+        "options":  [
+                        "\\(4 : \\pi\\)",
+                        "\\(1 : 1\\)",
+                        "\\(\\pi : 4\\)",
+                        "\\(2 : 1\\)"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Let square side be \\(s\\) (length \\(4s\\)) and circle radius be \\(r\\) (length \\(2\\pi r\\)).",
+                         "\\(4s + 2\\pi r = 40\\). Area \\(A = s^2 + \\pi r^2\\).",
+                         "Minimize \\(A(s) = s^2 + \\pi (\\frac{40-4s}{2\\pi})^2\\).",
+                         "Result: \\(2s = 8\\pi r/4 \\implies 4s = 2\\pi r (4/\\pi)\\). Ratio of lengths is \\(4:\\pi\\)."
+                     ]
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Find the point on the parabola \\(y = x^2\\) closest to the point \\((0, 5)\\).",
+        "options":  [
+                        "\\((\\sqrt{4.5}, 4.5)\\)",
+                        "\\((2, 4)\\)",
+                        "\\((0, 0)\\)",
+                        "\\((1, 1)\\)"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Distance squared \\(D = (x-0)^2 + (x^2-5)^2 = x^2 + x^4 - 10x^2 + 25 = x^4 - 9x^2 + 25\\).",
+                         "\\(D\u0027 = 4x^3 - 18x = 0 \\implies 2x(2x^2 - 9) = 0\\).",
+                         "\\(x = \\pm \\sqrt{4.5}\\). \\(y = 4.5\\)."
+                     ]
+    },
+    {
+        "topic":  "calculus",
+        "q":  "A cylinder is inscribed in a cone of radius \\(R\\) and height \\(H\\). Find the maximum volume of the cylinder.",
+        "options":  [
+                        "\\(4/9 V_{cone}\\)",
+                        "\\(4/27 \\pi R^2 H\\)",
+                        "\\(1/3 V_{cone}\\)",
+                        "\\(1/2 V_{cone}\\)"
+                    ],
+        "answer":  1,
+        "difficulty":  "hard",
+        "solution":  [
+                         "By similar triangles, \\(r/R = (H-h)/H \\implies h = H(1 - r/R)\\).",
+                         "\\(V = \\pi r^2 h = \\pi r^2 H(1 - r/R) = \\pi H (r^2 - r^3/R)\\).",
+                         "\\(V\u0027 = \\pi H (2r - 3r^2/R) = 0 \\implies r = 2/3 R\\).",
+                         "\\(V_{max} = \\pi H (4/9 R^2 - 8/27 R^2) = 4/27 \\pi R^2 H\\)."
+                     ]
+    },
+    {
+        "topic":  "calculus",
+        "q":  "Water is leaking out of an inverted conical tank at \\(10,000\\) \\(cm^3/min\\). The tank is \\(6m\\) high and has radius \\(2m\\). Find rate of drop in height when \\(h = 2m\\).",
+        "options":  [
+                        "\\(2.25/\\pi\\) cm/min",
+                        "\\(10/\\pi\\) cm/min",
+                        "\\(5/\\pi\\) cm/min",
+                        "\\(1/\\pi\\) cm/min"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "\\(r/h = 2/6 = 1/3 \\implies r = h/3\\).",
+                         "\\(V = 1/3 \\pi r^2 h = 1/27 \\pi h^3\\).",
+                         "\\(dV/dt = 1/9 \\pi h^2 (dh/dt)\\).",
+                         "\\(-10000 = 1/9 \\pi (200)^2 (dh/dt) = \\frac{40000\\pi}{9} (dh/dt)\\).",
+                         "\\(dh/dt = \\frac{-90000}{40000\\pi} = -2.25/\\pi\\)."
+                     ]
+    },
+    {
+        "topic":  "calculus",
+        "q":  "The displacement of a particle is \\(s(t) = t^3 - 6t^2 + 9t\\). When is it moving left?",
+        "options":  [
+                        "\\(1 \u003c t \u003c 3\\)",
+                        "\\(t \u003c 1\\)",
+                        "\\(t \u003e 3\\)",
+                        "Always"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "\\(v(t) = 3t^2 - 12t + 9 = 3(t^2 - 4t + 3) = 3(t-1)(t-3)\\).",
+                         "Moving left when \\(v(t) \u003c 0\\). Parabola opens up, roots at 1 and 3.",
+                         "Negative between 1 and 3."
+                     ]
+    }
+]

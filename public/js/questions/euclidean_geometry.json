@@ -1,0 +1,941 @@
+﻿[
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In a circle, the angle subtended by an arc at the center is \\(110^\\circ\\). What is the angle subtended by the same arc at any point on the circumference?",
+        "options":  [
+                        "\\(220^\\circ\\)",
+                        "\\(90^\\circ\\)",
+                        "\\(110^\\circ\\)",
+                        "\\(55^\\circ\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Theorem: The angle at the center is twice the angle at the circumference.",
+                         "\\(\\angle_{center} = 2 \\times \\angle_{circumference}\\)",
+                         "\\(110^\\circ = 2 \\times \\angle_{circumference}\\)",
+                         "\\(\\angle_{circumference} = 55^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If \\(ABCD\\) is a cyclic quadrilateral and \\(\\angle A = 85^\\circ\\), what is the size of the opposite angle \\(\\angle C\\)?",
+        "options":  [
+                        "\\(275^\\circ\\)",
+                        "\\(95^\\circ\\)",
+                        "\\(180^\\circ\\)",
+                        "\\(85^\\circ\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Theorem: Opposite angles of a cyclic quadrilateral are supplementary (add up to \\(180^\\circ\\)).",
+                         "\\(\\angle A + \\angle C = 180^\\circ\\)",
+                         "\\(85^\\circ + \\angle C = 180^\\circ\\)",
+                         "\\(\\angle C = 180^\\circ - 85^\\circ = 95^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "According to the tangent-chord theorem, the angle between a tangent and a chord is equal to:",
+        "options":  [
+                        "\\(90^\\circ\\)",
+                        "the angle in the alternate segment",
+                        "the angle at the center",
+                        "twice the angle at the circumference"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "The tangent-chord theorem states that the angle between a tangent and a chord through the point of contact is equal to the angle subtended by the chord in the alternate segment."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If two triangles are similar and the ratio of their corresponding sides is 2:3, what is the ratio of their areas?",
+        "options":  [
+                        "8:27",
+                        "1:1.5",
+                        "4:9",
+                        "2:3"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "For similar figures, if the ratio of lengths is \\(k\\), the ratio of areas is \\(k^2\\).",
+                         "Side ratio = \\(2/3\\)",
+                         "Area ratio = \\((2/3)^2 = 4/9\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Two triangles, \\(\\Delta ABC\\) and \\(\\Delta DEF\\), are similar. The area of \\(\\Delta ABC\\) is 20 and the ratio of their corresponding sides is \\(\\frac{AB}{DE} = \\frac{1}{2}\\). What is the area of \\(\\Delta DEF\\)?",
+        "options":  [
+                        "\\(100\\)",
+                        "\\(80\\)",
+                        "\\(40\\)",
+                        "\\(10\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For similar triangles, the ratio of their areas is the square of the ratio of their sides.",
+                         "\\(\\frac{\\text{Area } \\Delta ABC}{\\text{Area } \\Delta DEF} = \\left(\\frac{AB}{DE}\\right)^2\\)",
+                         "\\(\\frac{20}{\\text{Area } \\Delta DEF} = \\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}\\)",
+                         "\\(\\text{Area } \\Delta DEF = 20 \\times 4 = 80\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In a cyclic quadrilateral \\(ABCD\\), angle \\(A = 3x\\) and angle \\(C = 2x\\). What is the value of \\(x\\)?",
+        "options":  [
+                        "\\(72^\\circ\\)",
+                        "\\(36^\\circ\\)",
+                        "\\(18^\\circ\\)",
+                        "\\(54^\\circ\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Opposite angles of a cyclic quadrilateral are supplementary (add up to \\(180^\\circ\\)).",
+                         "\\(A + C = 180^\\circ\\)",
+                         "\\(3x + 2x = 180^\\circ\\)",
+                         "\\(5x = 180^\\circ\\)",
+                         "\\(x = 36^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "A chord of length 8 cm is at a distance of 3 cm from the centre of a circle. Calculate the radius of the circle.",
+        "options":  [
+                        "\\(6\\, \\text{cm}\\)",
+                        "\\(5\\, \\text{cm}\\)",
+                        "\\(4\\, \\text{cm}\\)",
+                        "\\(\\sqrt{73}\\, \\text{cm}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "The perpendicular from the centre to a chord bisects the chord.",
+                         "This forms a right-angled triangle with the radius as the hypotenuse.",
+                         "Base \\(= 8 / 2 = 4\\, \\text{cm}\\); Height (distance from centre) \\(= 3\\, \\text{cm}\\).",
+                         "\\(r^2 = 4^2 + 3^2 = 16 + 9 = 25\\)",
+                         "\\(r = \\sqrt{25} = 5\\, \\text{cm}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In \\(\\Delta ABC\\), side \\(DE \\parallel BC\\) with \\(D\\) on \\(AB\\) and \\(E\\) on \\(AC\\). If \\(AD = 2\\), \\(DB = 3\\), and \\(AE = 4\\), find the length of \\(EC\\).",
+        "options":  [
+                        "\\(3\\)",
+                        "\\(6\\)",
+                        "\\(4,5\\)",
+                        "\\(5\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "By the Line Proportionality Theorem: \\(\\frac{AD}{DB} = \\frac{AE}{EC}\\)",
+                         "\\(\\frac{2}{3} = \\frac{4}{EC}\\)",
+                         "Cross-multiply: \\(2 \\cdot EC = 12\\)",
+                         "\\(EC = 6\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "A line segment from the centre of a circle perpendicular to a chord...",
+        "options":  [
+                        "Is twice the chord length",
+                        "Is equal to the radius",
+                        "Bisects the chord",
+                        "Is parallel to the chord"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Theorem: The line drawn from the centre of a circle perpendicular to a chord bisects the chord.",
+                         "This is a fundamental circle theorem in Grade 11/12 Geometry."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 Ã— angle at circumference\"?",
+        "options":  [
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Angles in same segment are equal",
+                        "Exterior angle of cyclic quad = interior opposite angle"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Angle at centre = 2 Ã— angle at circumference\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 Ã— angle at circumference\"?",
+        "options":  [
+                        "Angles in same segment are equal",
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Exterior angle of cyclic quad = interior opposite angle"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Angle at centre = 2 Ã— angle at circumference\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 Ã— angle at circumference\"?",
+        "options":  [
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Angles in same segment are equal",
+                        "Tan-chord theorem"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Angle at centre = 2 Ã— angle at circumference\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Angles in same segment are equal\"?",
+        "options":  [
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Tan-chord theorem",
+                        "Angles in same segment are equal",
+                        "Angle at centre = 2 Ã— angle at circumference"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Angles in same segment are equal\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+        "options":  [
+                        "Exterior angle of cyclic quad = interior opposite angle",
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Angles in same segment are equal"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Tan-chord theorem\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+        "options":  [
+                        "Angles in same segment are equal",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Exterior angle of cyclic quad = interior opposite angle",
+                        "Tan-chord theorem"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Tan-chord theorem\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 Ã— angle at circumference\"?",
+        "options":  [
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Exterior angle of cyclic quad = interior opposite angle",
+                        "Tan-chord theorem",
+                        "Angle at centre = 2 Ã— angle at circumference"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Angle at centre = 2 Ã— angle at circumference\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+        "options":  [
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Angles in same segment are equal",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Tan-chord theorem"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Tan-chord theorem\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180Â°\"?",
+        "options":  [
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Angles in same segment are equal",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Exterior angle of cyclic quad = interior opposite angle"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180Â°\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 Ã— angle at circumference\"?",
+        "options":  [
+                        "Tan-chord theorem",
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Angles in same segment are equal"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Angle at centre = 2 Ã— angle at circumference\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+        "options":  [
+                        "Exterior angle of cyclic quad = interior opposite angle",
+                        "Tan-chord theorem",
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Opposite angles of cyclic quad sum to 180Â°"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Tan-chord theorem\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+        "options":  [
+                        "Exterior angle of cyclic quad = interior opposite angle",
+                        "Angles in same segment are equal",
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Tan-chord theorem"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Tan-chord theorem\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Tan-chord theorem\"?",
+        "options":  [
+                        "Angles in same segment are equal",
+                        "Exterior angle of cyclic quad = interior opposite angle",
+                        "Tan-chord theorem",
+                        "Opposite angles of cyclic quad sum to 180Â°"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Tan-chord theorem\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Opposite angles of cyclic quad sum to 180Â°\"?",
+        "options":  [
+                        "Tan-chord theorem",
+                        "Angles in same segment are equal",
+                        "Angle at centre = 2 Ã— angle at circumference",
+                        "Opposite angles of cyclic quad sum to 180Â°"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Opposite angles of cyclic quad sum to 180Â°\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which Euclidean Geometry theorem states exactly this: \"Angle at centre = 2 Ã— angle at circumference\"?",
+        "options":  [
+                        "Opposite angles of cyclic quad sum to 180Â°",
+                        "Tan-chord theorem",
+                        "Exterior angle of cyclic quad = interior opposite angle",
+                        "Angles in same segment are equal"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "This is standard Euclidean geometry theory.",
+                         "The correct theorem name/description is \"Angle at centre = 2 Ã— angle at circumference\"."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In a circle with center \\(O\\), angle \\(AOB = 100^\\circ\\). What is the size of the angle at the circumference subtended by the same arc?",
+        "options":  [
+                        "\\(50^\\circ\\)",
+                        "\\(100^\\circ\\)",
+                        "\\(200^\\circ\\)",
+                        "\\(25^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Angle at the center is twice the angle at the circumference.",
+                         "Angle = \\(1/2 \\cdot 100^\\circ = 50^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If \\(ABCD\\) is a cyclic quadrilateral and \\(\\hat{A} = 80^\\circ\\), find the size of \\(\\hat{C}\\).",
+        "options":  [
+                        "\\(100^\\circ\\)",
+                        "\\(80^\\circ\\)",
+                        "\\(180^\\circ\\)",
+                        "\\(20^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Opposite angles of a cyclic quad are supplementary (add to 180).",
+                         "\\(180^\\circ - 80^\\circ = 100^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "A tangent \\(PT\\) touches a circle at \\(T\\). If the radius of the circle is 5 units and \\(OP = 13\\) units (where \\(O\\) is the center), find the length of the tangent \\(PT\\).",
+        "options":  [
+                        "\\(12\\) units",
+                        "\\(8\\) units",
+                        "\\(\\sqrt{194}\\) units",
+                        "\\(10\\) units"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The radius is perpendicular to the tangent: \\(\\Delta OTP\\) is a right-angled triangle.",
+                         "\\(PT^2 + OT^2 = OP^2 \\implies PT^2 + 5^2 = 13^2\\).",
+                         "\\(PT^2 + 25 = 169 \\implies PT^2 = 144 \\implies PT = 12\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In \\(\\Delta ABC\\), a line \\(DE\\) is parallel to \\(BC\\), with \\(D\\) on \\(AB\\) and \\(E\\) on \\(AC\\). If \\(AD = 4, DB = 2\\) and \\(AE = 6\\), find \\(EC\\).",
+        "options":  [
+                        "\\(3\\)",
+                        "\\(2\\)",
+                        "\\(4\\)",
+                        "\\(5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the proportionality theorem: \\(\\frac{AD}{DB} = \\frac{AE}{EC}\\).",
+                         "\\(\\frac{4}{2} = \\frac{6}{EC} \\implies 2 = \\frac{6}{EC} \\implies EC = 3\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "The ratio of the corresponding sides of two similar triangles is \\(2:3\\). What is the ratio of their areas?",
+        "options":  [
+                        "\\(4:9\\)",
+                        "\\(2:3\\)",
+                        "\\(\\sqrt{2}:\\sqrt{3}\\)",
+                        "\\(8:27\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: The ratio of the areas of similar triangles is equal to the square of the ratio of their corresponding sides.",
+                         "\\(2^2:3^2 = 4:9\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which theorem states that the exterior angle of a cyclic quadrilateral is equal to the interior opposite angle?",
+        "options":  [
+                        "Exterior angle of a cyclic quad",
+                        "Angles in same segment",
+                        "Tangent-chord theorem",
+                        "Midpoint theorem"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is the property of the exterior angle of a cyclic quad."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "What is the sum of the angles in a triangle?",
+        "options":  [
+                        "\\(180^\\circ\\)",
+                        "\\(360^\\circ\\)",
+                        "\\(90^\\circ\\)",
+                        "\\(270^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Fundamental property of triangles."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In an isosceles triangle \\(ABC\\) with \\(AB = AC\\), if \\(\\hat{A} = 40^\\circ\\), find \\(\\hat{B}\\).",
+        "options":  [
+                        "\\(70^\\circ\\)",
+                        "\\(40^\\circ\\)",
+                        "\\(140^\\circ\\)",
+                        "\\(50^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Angles opposite equal sides are equal: \\(\\hat{B} = \\hat{C}\\).",
+                         "Sum of angles = 180: \\(40 + 2\\hat{B} = 180 \\implies 2\\hat{B} = 140 \\implies \\hat{B} = 70^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which theorem involves the angle between a tangent and a chord?",
+        "options":  [
+                        "Tangent-chord theorem",
+                        "Angle at circumference",
+                        "Cyclic quad opposite angles",
+                        "Pythagoras theorem"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The tangent-chord theorem states the angle between a tangent and a chord is equal to the angle subtended by the chord in the alternate segment."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If a line segment joins the midpoints of two sides of a triangle, it is _____ to the third side.",
+        "options":  [
+                        "parallel",
+                        "perpendicular",
+                        "double",
+                        "equal"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is the Midpoint Theorem: It is parallel to the third side and half its length."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "A chord of length 8 units is 3 units from the center of the circle. Find the radius of the circle.",
+        "options":  [
+                        "\\(5\\) units",
+                        "\\(4\\) units",
+                        "\\(\\sqrt{7}\\) units",
+                        "\\(6\\) units"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The perpendicular from the center bisects the chord (length 4).",
+                         "Use Pythagoras: \\(r^2 = 3^2 + 4^2 = 9 + 16 = 25 \\implies r = 5\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Angle in a semi-circle is always:",
+        "options":  [
+                        "\\(90^\\circ\\)",
+                        "\\(180^\\circ\\)",
+                        "\\(45^\\circ\\)",
+                        "\\(60^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Fundamental circle theorem."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which condition is NOT sufficient for two triangles to be congruent?",
+        "options":  [
+                        "Angle-Angle-Angle (AAA)",
+                        "Side-Side-Side (SSS)",
+                        "Side-Angle-Side (SAS)",
+                        "Right-angle-Hypotenuse-Side (RHS)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "AAA proves similarity, not necessarily congruency."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In rectangle \\(ABCD\\), diagonal \\(AC = 10\\). What is diagonal \\(BD\\)?",
+        "options":  [
+                        "\\(10\\)",
+                        "\\(5\\)",
+                        "\\(20\\)",
+                        "Cannot be determined"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "In a rectangle, diagonals are equal in length."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "What is the size of the angle subtended by the diameter at the circumference of a circle?",
+        "options":  [
+                        "\\(90^\\circ\\)",
+                        "\\(180^\\circ\\)",
+                        "\\(45^\\circ\\)",
+                        "\\(60^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Angle in a semi-circle is a right angle."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If a line is drawn from the center of a circle perpendicular to a chord, it _____ the chord.",
+        "options":  [
+                        "bisects",
+                        "trisects",
+                        "is equal to",
+                        "is parallel to"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: The perpendicular from the center of a circle to a chord bisects the chord."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "A chord of 24 units is 5 units from the center. What is the radius of the circle?",
+        "options":  [
+                        "\\(13\\)",
+                        "\\(12\\)",
+                        "\\(15\\)",
+                        "\\(17\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Half the chord is 12 units.",
+                         "By Pythagoras: \\(r^2 = 12^2 + 5^2 = 144 + 25 = 169\\).",
+                         "\\(r = 13\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "The angle between a tangent and a radius at the point of contact is:",
+        "options":  [
+                        "\\(90^\\circ\\)",
+                        "\\(0^\\circ\\)",
+                        "\\(45^\\circ\\)",
+                        "\\(180^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Tangent is perpendicular to the radius at the point of contact."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Two tangents, \\(PA\\) and \\(PB\\), are drawn from a point \\(P\\) outside a circle. If \\(PA = 10\\) cm, what is the length of \\(PB\\)?",
+        "options":  [
+                        "\\(10\\) cm",
+                        "\\(5\\) cm",
+                        "\\(20\\) cm",
+                        "Cannot be determined"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Tangents drawn from the same external point to a circle are equal in length."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If angle at center \\(AOB = 120^\\circ\\), find the size of the angle at the circumference subtended by the same major arc.",
+        "options":  [
+                        "\\(60^\\circ\\)",
+                        "\\(240^\\circ\\)",
+                        "\\(120^\\circ\\)",
+                        "\\(30^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Angle at the center is twice the angle at the circumference.",
+                         "Angle = \\(120/2 = 60^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Angles in the same segment of a circle are:",
+        "options":  [
+                        "Equal",
+                        "Supplementary",
+                        "Complementary",
+                        "Opposite"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Angles subtended by a chord in the same segment of a circle are equal."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In cyclic quad \\(ABCD\\), find \\(\\hat{B}\\) if \\(\\hat{D} = 110^\\circ\\).",
+        "options":  [
+                        "\\(70^\\circ\\)",
+                        "\\(110^\\circ\\)",
+                        "\\(180^\\circ\\)",
+                        "\\(20^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: Opposite angles of a cyclic quadrilateral are supplementary.",
+                         "\\(\\hat{B} = 180 - 110 = 70^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "What is equal to the exterior angle of a cyclic quadrilateral?",
+        "options":  [
+                        "The interior opposite angle",
+                        "The adjacent interior angle",
+                        "The opposite exterior angle",
+                        "90 degrees"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: The exterior angle of a cyclic quadrilateral is equal to the interior opposite angle."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Which theorem relates the angle between a tangent and a chord to the angle in the alternate segment?",
+        "options":  [
+                        "Tan-chord theorem",
+                        "Alternate segment theorem",
+                        "Both A and B",
+                        "None of the above"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The tan-chord theorem is also often referred to as the alternate segment theorem."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In \\(\\Delta ABC\\), \\(D\\) and \\(E\\) are points on \\(AB\\) and \\(AC\\) such that \\(DE \\parallel BC\\). If \\(AD=2, DB=4\\), find the ratio \\(AE:AC\\).",
+        "options":  [
+                        "\\(1:3\\)",
+                        "\\(1:2\\)",
+                        "\\(2:3\\)",
+                        "\\(1:1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "By proportionality theorem: \\(\\frac{AE}{EC} = \\frac{AD}{DB} = \\frac{2}{4} = 1/2\\).",
+                         "Let \\(AE = k, EC = 2k\\). Then \\(AC = 3k\\).",
+                         "Ratio \\(AE:AC = k:3k = 1:3\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "Two triangles are similar if their corresponding _____ are in the same ratio.",
+        "options":  [
+                        "sides",
+                        "angles",
+                        "areas",
+                        "perimeters"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Definition of similarity: Corresponding angles are equal AND corresponding sides are in proportion."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If \\(\\Delta ABC ||| \\Delta DEF\\) and the ratio of sides is \\(1:2\\), and the area of \\(\\Delta ABC\\) is 5, what is the area of \\(\\Delta DEF\\)?",
+        "options":  [
+                        "\\(20\\)",
+                        "\\(10\\)",
+                        "\\(25\\)",
+                        "\\(50\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Ratio of areas = (ratio of sides)\\({}^2 = (1/2)^2 = 1/4\\).",
+                         "\\(\\frac{5}{Area DEF} = 1/4 \\implies Area DEF = 20\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "The product of the segments of two chords intersecting inside a circle is equal. If chords \\(AB\\) and \\(CD\\) intersect at \\(E\\), and \\(AE=2, EB=6, CE=3\\). Find \\(ED\\).",
+        "options":  [
+                        "\\(4\\)",
+                        "\\(3\\)",
+                        "\\(12\\)",
+                        "\\(9\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Theorem: \\(AE \\cdot EB = CE \\cdot ED\\).",
+                         "\\(2 \\cdot 6 = 3 \\cdot ED \\implies 12 = 3 \\cdot ED \\implies ED = 4\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "A line parallel to one side of a triangle divides the other two sides _____.",
+        "options":  [
+                        "proportionally",
+                        "equally",
+                        "perpendicularly",
+                        "none"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is the basic proportionality theorem."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "If two circles intersect at two points, the line joining the centers is the ______ _____ of the common chord.",
+        "options":  [
+                        "Perpendicular bisector",
+                        "Parallel line",
+                        "Tangent",
+                        "Radius"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Theorem: The line segment joining the centers of two intersecting circles is the perpendicular bisector of the common chord."
+                     ]
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In a circle, chords of equal length are _______ from the center.",
+        "options":  [
+                        "Equidistant",
+                        "Parallel",
+                        "Perpendicular",
+                        "Double"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Theorem: Equal chords of a circle are equidistant from the center."
+                     ]
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "The area of a cyclic quadrilateral with sides \\(a, b, c, d\\) is given by Brahmagupta\u0027s formula. If sides are 3, 4, 4, 5, find \\(s\\) (semi-perimeter).",
+        "options":  [
+                        "\\(8\\)",
+                        "\\(16\\)",
+                        "\\(4\\)",
+                        "\\(3.14\\)"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "\\(s = (3+4+4+5)/2 = 16/2 = 8\\)."
+                     ]
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "The ratio of the areas of two similar triangles is equal to the ratio of the _____ of their corresponding sides.",
+        "options":  [
+                        "Squares",
+                        "Cubes",
+                        "Roots",
+                        "Lengths"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Theorem: The ratio of the areas of two similar triangles is the square of the ratio of their corresponding sides."
+                     ]
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "In \\(\\Delta ABC\\), \\(\\hat{A} = 90^\\circ\\) and \\(AD \\perp BC\\). Which is true?",
+        "options":  [
+                        "\\(AD^2 = BD \\cdot DC\\)",
+                        "\\(AB^2 = BD \\cdot BC\\)",
+                        "\\(AC^2 = CD \\cdot BC\\)",
+                        "All of the above"
+                    ],
+        "answer":  3,
+        "difficulty":  "hard",
+        "solution":  [
+                         "These are the Corollaries of the Theorem of Pythagoras (Similarity in right-angled triangles)."
+                     ]
+    },
+    {
+        "topic":  "euclidean_geometry",
+        "q":  "What name is given to the point where the three altitudes of a triangle intersect?",
+        "options":  [
+                        "Orthocenter",
+                        "Centroid",
+                        "Incenter",
+                        "Circumcenter"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Definition: The orthocenter is the point of concurrency of the altitudes of a triangle."
+                     ]
+    }
+]

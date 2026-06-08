@@ -1,0 +1,469 @@
+﻿[
+    {
+        "topic":  "statistics",
+        "q":  "Calculate the mean of the following data set: \\(2, 4, 6, 8, 10\\).",
+        "options":  [
+                        "6",
+                        "7",
+                        "8",
+                        "5"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Sum of values: \\(2 + 4 + 6 + 8 + 10 = 30\\)",
+                         "Number of values: 5",
+                         "Mean = \\(\\frac{30}{5} = 6\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "What is the standard deviation of a data set where all values are identical (e.g., \\(5, 5, 5, 5\\))?",
+        "options":  [
+                        "0",
+                        "Undefined",
+                        "5",
+                        "1"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Standard deviation measures spread or dispersion.",
+                         "If all values are identical, there is no spread.",
+                         "Therefore, the deviation from the mean for every point is zero, making the standard deviation 0."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "In a box-and-whisker plot, what percentage of the data lies between the first quartile (Q1) and the third quartile (Q3)?",
+        "options":  [
+                        "100%",
+                        "75%",
+                        "50%",
+                        "25%"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The interquartile range (IQR) is the distance between Q1 and Q3.",
+                         "Q1 is the 25th percentile and Q3 is the 75th percentile.",
+                         "The middle 50% of the data falls between these two quartiles."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "Given a least squares regression line \\(\\hat{y} = 2x + 1\\), predict the value of \\(y\\) when \\(x = 5\\).",
+        "options":  [
+                        "11",
+                        "7",
+                        "10",
+                        "12"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute \\(x = 5\\) into the equation:",
+                         "\\(\\hat{y} = 2(5) + 1 = 10 + 1 = 11\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "The least squares regression line for a set of data is given by \\(\\hat{y} = 12 + 1,5x\\). Predict the value of \\(y\\) if \\(x = 10\\).",
+        "options":  [
+                        "\\(27\\)",
+                        "\\(15\\)",
+                        "\\(12\\)",
+                        "\\(25\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute \\(x = 10\\) into the regression equation:",
+                         "\\(\\hat{y} = 12 + 1,5(10)\\)",
+                         "\\(\\hat{y} = 12 + 15 = 27\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "If the correlation coefficient \\(r\\) for a bivariate data set is \\(-0,92\\), which of the following best describes the relationship?",
+        "options":  [
+                        "Strong negative correlation",
+                        "Weak negative correlation",
+                        "Strong positive correlation",
+                        "No correlation"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The \\(r\\)-value ranges from -1 to 1.",
+                         "An \\(r\\)-value close to -1 indicates a strong negative linear relationship.",
+                         "Since \\(-0,92\\) is very close to -1, it is a strong negative correlation."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "Calculate the mean of the following data set: \\(12; 15; 18; 25; 30\\)",
+        "options":  [
+                        "\\(20\\)",
+                        "\\(25\\)",
+                        "\\(18\\)",
+                        "\\(22\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The mean is the sum of the values divided by the number of values.",
+                         "Sum \\(= 12 + 15 + 18 + 25 + 30 = 100\\)",
+                         "Number of values \\(n = 5\\)",
+                         "Mean \\(= 100 / 5 = 20\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "The data set for heights of learners is normally distributed with a mean of \\(160\\, \\text{cm}\\) and a standard deviation of \\(8\\, \\text{cm}\\). What percentage of learners are expected to have a height between \\(152\\, \\text{cm}\\) and \\(168\\, \\text{cm}\\)?",
+        "options":  [
+                        "\\(50\\%\\)",
+                        "\\(99,7\\%\\)",
+                        "\\(68\\%\\)",
+                        "\\(95\\%\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "In a normal distribution, approximately \\(68\\%\\) of the data lies within one standard deviation of the mean.",
+                         "\\(160 - 8 = 152\\) and \\(160 + 8 = 168\\).",
+                         "This range is \\(\\mu \\pm 1\\sigma\\).",
+                         "Therefore, \\(68\\%\\) of learners are in this range."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "In a set of 11 scores, the median is 20. If a score of 40 is added to the data set, what is the new median?",
+        "options":  [
+                        "Between 20 and 40",
+                        "20",
+                        "30",
+                        "Insufficient information"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The original 11 scores had the 6th term as the median (20).",
+                         "Adding 40 (which is larger than 20) makes the data set 12 terms.",
+                         "The new median is the average of the 6th and 7th terms.",
+                         "Since 40 is larger than 20, the new 7th term will be $\\ge 20$.",
+                         "The median will likely shift slightly upwards or stay 20 if the 7th term was also 20."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "Calculate the mean of the following data set: \\(10, 12, 15, 18, 20\\).",
+        "options":  [
+                        "\\(15\\)",
+                        "\\(14\\)",
+                        "\\(16\\)",
+                        "\\(15.5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Mean \\(\\bar{x} = \\frac{\\sum x}{n}\\).",
+                         "\\(\\bar{x} = \\frac{10 + 12 + 15 + 18 + 20}{5} = \\frac{75}{5} = 15\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "Find the median of the following data set: \\(5, 9, 3, 11, 7, 1\\).",
+        "options":  [
+                        "\\(6\\)",
+                        "\\(7\\)",
+                        "\\(5\\)",
+                        "\\(8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "First, order the data: \\(1, 3, 5, 7, 9, 11\\).",
+                         "Since there are 6 terms, the median is the average of the 3rd and 4th terms.",
+                         "\\(Median = \\frac{5 + 7}{2} = 6\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "In a data set, the values are \\(2, 5, 5, 8, 10, 12\\). What is the mode?",
+        "options":  [
+                        "\\(5\\)",
+                        "\\(8\\)",
+                        "\\(2\\)",
+                        "No mode"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The mode is the most frequently occurring value. Here, 5 appears twice."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "Calculate the range of the data set: \\(15, 22, 10, 31, 18\\).",
+        "options":  [
+                        "\\(21\\)",
+                        "\\(31\\)",
+                        "\\(10\\)",
+                        "\\(15\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Range = Maximum - Minimum.",
+                         "\\(Range = 31 - 10 = 21\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "If \\(Q_1 = 12\\) and \\(Q_3 = 20\\), calculate the Interquartile Range (IQR).",
+        "options":  [
+                        "\\(8\\)",
+                        "\\(32\\)",
+                        "\\(16\\)",
+                        "\\(4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(IQR = Q_3 - Q_1\\).",
+                         "\\(IQR = 20 - 12 = 8\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "A data set has a mean of 50 and a standard deviation of 5. What value is 2 standard deviations above the mean?",
+        "options":  [
+                        "\\(60\\)",
+                        "\\(55\\)",
+                        "\\(40\\)",
+                        "\\(70\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(Value = \\bar{x} + 2\\sigma\\).",
+                         "\\(Value = 50 + 2(5) = 60\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "According to the outlier rule, a value is an outlier if it is greater than \\(Q_3 + 1.5 \\times IQR\\). If \\(Q_1 = 10, Q_3 = 20\\), is 40 an outlier?",
+        "options":  [
+                        "Yes",
+                        "No",
+                        "Cannot be determined",
+                        "Only if it\u0027s 35"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(IQR = 20 - 10 = 10\\).",
+                         "\\(Upper Fence = 20 + 1.5(10) = 20 + 15 = 35\\).",
+                         "Since \\(40 \u003e 35\\), it is an outlier."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "In a box and whisker plot, which part represents the median?",
+        "options":  [
+                        "The line inside the box",
+                        "The left edge of the box",
+                        "The right whisker",
+                        "The whole box"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The box represents the central 50% of the data, and the line inside represents the median (Q2)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "A distribution is positively skewed if:",
+        "options":  [
+                        "Mean \u003e Median",
+                        "Mean \u003c Median",
+                        "Mean = Median",
+                        "Standard deviation is 0"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Positive skewness (skewed to the right) occurs when the mean is pulled towards higher values, making it larger than the median."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "A scatter plot shows a strong negative correlation. Which \u0027r\u0027 value is most likely?",
+        "options":  [
+                        "\\(-0.9\\)",
+                        "\\(0.9\\)",
+                        "\\(-0.1\\)",
+                        "\\(0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Strong correlation means \u0027r\u0027 is close to 1 or -1. \u0027Negative\u0027 means it is below zero."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "The least squares regression line is \\(y = 10 + 2x\\). What is the predicted value of \\(y\\) when \\(x = 5\\)?",
+        "options":  [
+                        "\\(20\\)",
+                        "\\(15\\)",
+                        "\\(10\\)",
+                        "\\(30\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute \\(x = 5\\) into the equation: \\(y = 10 + 2(5) = 20\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "What is the lower quartile (Q1) of the set: \\(2, 4, 6, 8, 10, 12, 14\\)?",
+        "options":  [
+                        "\\(4\\)",
+                        "\\(2\\)",
+                        "\\(6\\)",
+                        "\\(8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The data is already ordered. Median is 8.",
+                         "Lower half is \\(2, 4, 6\\).",
+                         "Median of the lower half is 4."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "A cumulative frequency graph is also known as a/an:",
+        "options":  [
+                        "Ogive",
+                        "Histogram",
+                        "Polygon",
+                        "Frequency table"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The term \u0027Ogive\u0027 specifically refers to the cumulative frequency curve."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "If the variance of a data set is 25, what is the standard deviation?",
+        "options":  [
+                        "\\(5\\)",
+                        "\\(25\\)",
+                        "\\(625\\)",
+                        "\\(12.5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Standard deviation is the square root of variance: \\(\\sqrt{25} = 5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "A data set has 100 values. In which position is the median?",
+        "options":  [
+                        "Average of 50th and 51st",
+                        "50th",
+                        "51st",
+                        "49th"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For an even number of values \\(n\\), the median is the average of the \\((n/2)\\)-th and \\((n/2 + 1)\\)-th positions."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "In a data set of 20 values, the sum of values is 400. What is the mean?",
+        "options":  [
+                        "\\(20\\)",
+                        "\\(400\\)",
+                        "\\(10\\)",
+                        "\\(8000\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\bar{x} = 400/20 = 20\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "Which measure of central tendency is most affected by outliers?",
+        "options":  [
+                        "Mean",
+                        "Median",
+                        "Mode",
+                        "None"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The mean uses every value in the calculation, so an extreme outlier significantly changes it."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "A box plot shows Q1 = 10, Median = 15, Q3 = 30. Which is true?",
+        "options":  [
+                        "Positively skewed",
+                        "Negatively skewed",
+                        "Symmetric",
+                        "Cannot tell"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(Q3 - Median = 30 - 15 = 15\\). \\(Median - Q1 = 15 - 10 = 5\\).",
+                         "Since the right half of the box is larger, it is positively skewed."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "If 5 is added to every value in a data set with a standard deviation of 10, what is the new standard deviation?",
+        "options":  [
+                        "\\(10\\)",
+                        "\\(15\\)",
+                        "\\(50\\)",
+                        "\\(5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Adding a constant to every value shifts the mean but does not change the spread/standard deviation."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "statistics",
+        "q":  "What is the correlation coefficient \\(r\\) for a relationship that follows \\(y = 2x + 1\\) perfectly?",
+        "options":  [
+                        "\\(1\\)",
+                        "\\(-1\\)",
+                        "\\(0\\)",
+                        "\\(0.5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Since it\u0027s a perfect positive linear relationship, \\(r = 1\\)."
+                     ],
+        "difficulty":  "manageable"
+    }
+]

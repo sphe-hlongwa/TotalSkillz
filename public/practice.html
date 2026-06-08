@@ -279,20 +279,50 @@
     <script src="components/sidebar.js?v=6"></script>
 
     <script>
-        // ---- Question Bank with LaTeX ----
+        // ---- On-Demand Question Bank ----
+        // topicCache: stores already-fetched topic arrays so we never re-download
+        const topicCache = {};
         let questionBank = [];
-        async function loadQuestions() {
+
+        const ALL_TOPICS = [
+            'algebra', 'patterns', 'functions', 'finance',
+            'trigonometry', 'analytical_geometry', 'euclidean_geometry',
+            'calculus', 'probability', 'statistics'
+        ];
+
+        async function fetchTopic(topic) {
+            if (topicCache[topic]) return topicCache[topic]; // already in memory
+            const res = await fetch(`js/questions/${topic}.json`);
+            if (!res.ok) throw new Error(`Failed to load ${topic}`);
+            const data = await res.json();
+            topicCache[topic] = data;
+            return data;
+        }
+
+        async function loadQuestions(topic) {
             try {
-                const response = await fetch('js/questions.json');
-                questionBank = await response.json();
+                if (!topic || topic === 'all' || topic === 'review') {
+                    // Load all topics in parallel — still faster than one 391KB file
+                    // because the browser can request them concurrently
+                    const results = await Promise.all(ALL_TOPICS.map(fetchTopic));
+                    questionBank = results.flat();
+                } else if (topic === 'vault') {
+                    // Vault drill questions are already injected via sessionStorage
+                    // Don't overwrite questionBank here
+                    return;
+                } else {
+                    questionBank = await fetchTopic(topic);
+                }
                 filterQuestions();
                 renderQuestion();
                 renderTopicBreakdown();
             } catch (e) {
                 console.error('Error loading questions:', e);
+                showToast('Failed to load questions. Please refresh.', 'error');
             }
         }
-        loadQuestions();
+
+        loadQuestions(currentTopic);
 
         let currentTopic = 'all';
         let sessionCorrect = 0, sessionTotal = 0, questionIndex = 0;
@@ -336,12 +366,13 @@
         }
 
         document.querySelectorAll('.pill').forEach(pill => {
-            pill.addEventListener('click', () => {
+            pill.addEventListener('click', async () => {
                 document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
                 currentTopic = pill.dataset.topic;
                 sessionCorrect = 0; sessionTotal = 0; consecutiveFails = 0;
-                filterQuestions(); renderQuestion();
+                // Load topic on demand (uses cache if already fetched)
+                await loadQuestions(currentTopic);
             });
         });
 

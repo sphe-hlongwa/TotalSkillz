@@ -1,0 +1,1213 @@
+﻿[
+    {
+        "topic":  "trigonometry",
+        "q":  "Calculate the value of \\(\\cos 75^\\circ\\) without using a calculator, using compound angle identities.",
+        "options":  [
+                        "\\(\\frac{\\sqrt{3} - 1}{2}\\)",
+                        "\\(\\frac{\\sqrt{6} + \\sqrt{2}}{4}\\)",
+                        "\\(\\frac{\\sqrt{6} - \\sqrt{2}}{4}\\)",
+                        "\\(\\frac{\\sqrt{2} - \\sqrt{6}}{4}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(\\cos 75^\\circ = \\cos(45^\\circ + 30^\\circ)\\)",
+                         "Use formula: \\(\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B\\)",
+                         "\\(\\cos(45+30) = \\cos 45 \\cos 30 - \\sin 45 \\sin 30\\)",
+                         "\\(= (\\frac{\\sqrt{2}}{2})(\\frac{\\sqrt{3}}{2}) - (\\frac{\\sqrt{2}}{2})(\\frac{1}{2})\\)",
+                         "\\(= \\frac{\\sqrt{6}}{4} - \\frac{\\sqrt{2}}{4} = \\frac{\\sqrt{6} - \\sqrt{2}}{4}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Find the general solution for the equation: \\(2\\sin^2 x + \\sin x - 1 = 0\\)",
+        "options":  [
+                        "\\(x = 60^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 30^\\circ + k \\cdot 360^\\circ, 150^\\circ + k \\cdot 360^\\circ, 270^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 30^\\circ + k \\cdot 180^\\circ\\)",
+                        "\\(x = 30^\\circ, 270^\\circ\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factorise the quadratic: \\((2\\sin x - 1)(\\sin x + 1) = 0\\)",
+                         "Case 1: \\(\\sin x = 0.5 \\implies x = 30^\\circ + k \\cdot 360^\\circ\\) or \\(x = 150^\\circ + k \\cdot 360^\\circ\\)",
+                         "Case 2: \\(\\sin x = -1 \\implies x = 270^\\circ + k \\cdot 360^\\circ\\)",
+                         "General solution includes all three branches for integers \\(k\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "In \\(\\triangle ABC\\), \\(a = 5\\), \\(b = 7\\), and \\(\\angle C = 60^\\circ\\). Calculate the length of side \\(c\\).",
+        "options":  [
+                        "\\(\\sqrt{44}\\)",
+                        "\\(\\sqrt{74}\\)",
+                        "6",
+                        "\\(\\sqrt{39}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the Cosine Rule: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\)",
+                         "\\(c^2 = 5^2 + 7^2 - 2(5)(7) \\cos 60^\\circ\\)",
+                         "\\(c^2 = 25 + 49 - 70(0.5)\\)",
+                         "\\(c^2 = 74 - 35 = 39\\)",
+                         "\\(c = \\sqrt{39}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify the expression: \\(\\sin(x + 30^\\circ) + \\sin(x - 30^\\circ)\\)",
+        "options":  [
+                        "\\(\\sqrt{3} \\sin x\\)",
+                        "\\(\\cos x\\)",
+                        "\\(\\sqrt{3} \\cos x\\)",
+                        "\\(2\\sin x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use compound angle expansion:",
+                         "\\(\\sin(x+30) = \\sin x \\cos 30 + \\cos x \\sin 30\\)",
+                         "\\(\\sin(x-30) = \\sin x \\cos 30 - \\cos x \\sin 30\\)",
+                         "Add them: \\(2 \\sin x \\cos 30\\)",
+                         "\\(2 \\sin x (\\frac{\\sqrt{3}}{2}) = \\sqrt{3} \\sin x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify fully: \\(\\frac{\\sin(180^\\circ - x) \\cdot \\cos(360^\\circ - x)}{\\sin(90^\\circ - x)}\\)",
+        "options":  [
+                        "\\(\\cos x\\)",
+                        "\\(-\\sin x\\)",
+                        "\\(\\tan x\\)",
+                        "\\(\\sin x\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use reduction formulae:",
+                         "\\(\\sin(180^\\circ - x) = \\sin x\\) (2nd quadrant, positive)",
+                         "\\(\\cos(360^\\circ - x) = \\cos x\\) (4th quadrant, positive)",
+                         "\\(\\sin(90^\\circ - x) = \\cos x\\) (co-function)",
+                         "Substitute: \\(\\frac{\\sin x \\cdot \\cos x}{\\cos x}\\)",
+                         "Cancel \\(\\cos x\\) to get \\(\\sin x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Consider the graphs of \\(f(x) = \\sin 2x\\) and \\(g(x) = \\cos(x - 45^\\circ)\\) for \\(x \\in [-180^\\circ ; 180^\\circ]\\).\u003cbr\u003e\u003cbr\u003e\u003cdiv style=\"width:100%; max-width:500px; margin: 1.5rem auto; padding: 1rem; border-radius:12px; background: var(--bg-card); border: 2px solid var(--border); box-shadow: var(--shadow-md); position: relative; overflow: hidden;\"\u003e\u003csvg viewBox=\"0 0 400 300\" style=\"width: 100%; height: auto; display: block;\"\u003e\u003cdefs\u003e\u003cpattern id=\"graph-grid-final\" width=\"40\" height=\"40\" patternUnits=\"userSpaceOnUse\"\u003e\u003cpath d=\"M 40 0 L 0 0 0 40\" fill=\"none\" stroke=\"var(--border)\" stroke-width=\"0.5\" opacity=\"0.3\"/\u003e\u003c/pattern\u003e\u003cmarker id=\"arrowHeadFinal\" markerWidth=\"10\" markerHeight=\"10\" refX=\"9\" refY=\"3\" orient=\"auto\"\u003e\u003cpath d=\"M0,0 L0,6 L9,3 z\" fill=\"var(--text)\"/\u003e\u003c/marker\u003e\u003c/defs\u003e\u003crect width=\"400\" height=\"300\" fill=\"url(#graph-grid-final)\"/\u003e\u003cline x1=\"20\" y1=\"150\" x2=\"380\" y2=\"150\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHeadFinal)\"/\u003e\u003cline x1=\"200\" y1=\"280\" x2=\"200\" y2=\"20\" stroke=\"var(--text)\" stroke-width=\"2\" marker-end=\"url(#arrowHeadFinal)\"/\u003e\u003cpath d=\"M40 150 Q75 40, 115 150 T 195 150 T 275 150 T 355 150\" fill=\"none\" stroke=\"var(--primary)\" stroke-width=\"3\" style=\"filter: drop-shadow(0px 0px 3px var(--primary));\"/\u003e\u003cpath d=\"M40 220 Q120 40, 240 70 T 360 220\" fill=\"none\" stroke=\"var(--accent-amber)\" stroke-width=\"3\" style=\"filter: drop-shadow(0px 0px 3px var(--accent-amber));\"/\u003e\u003ccircle cx=\"240\" cy=\"70\" r=\"4.5\" fill=\"var(--text)\"/\u003e\u003ctext x=\"240\" y=\"55\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\"\u003eC\u003c/text\u003e\u003ccircle cx=\"340\" cy=\"185\" r=\"4\" fill=\"var(--text)\"/\u003e\u003ctext x=\"340\" y=\"210\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\"\u003eD\u003c/text\u003e\u003ccircle cx=\"125\" cy=\"185\" r=\"4\" fill=\"var(--text)\"/\u003e\u003ctext x=\"110\" y=\"210\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\"\u003eB\u003c/text\u003e\u003ccircle cx=\"155\" cy=\"230\" r=\"4\" fill=\"var(--text)\"/\u003e\u003ctext x=\"145\" y=\"255\" fill=\"var(--text)\" font-weight=\"bold\" font-family=\"monospace\"\u003eA\u003c/text\u003e\u003ctext x=\"330\" y=\"45\" fill=\"var(--accent-amber)\" font-weight=\"bold\" font-family=\"monospace\" font-size=\"16\"\u003eg\u003c/text\u003e\u003ctext x=\"330\" y=\"115\" fill=\"var(--primary)\" font-weight=\"bold\" font-family=\"monospace\" font-size=\"16\"\u003ef\u003c/text\u003e\u003ctext x=\"185\" y=\"145\" fill=\"var(--text)\" font-size=\"11\"\u003e0Ã‚Â°\u003c/text\u003e\u003ctext x=\"270\" y=\"145\" fill=\"var(--text)\" font-size=\"11\"\u003e90Ã‚Â°\u003c/text\u003e\u003ctext x=\"350\" y=\"145\" fill=\"var(--text)\" font-size=\"11\"\u003e180Ã‚Â°\u003c/text\u003e\u003ctext x=\"100\" y=\"145\" fill=\"var(--text)\" font-size=\"11\"\u003e-90Ã‚Â°\u003c/text\u003e\u003ctext x=\"15\" y=\"145\" fill=\"var(--text)\" font-size=\"11\"\u003e-180Ã‚Â°\u003c/text\u003e\u003c/svg\u003e\u003c/div\u003e\u003cbr\u003eDetermine the general solution of \\(\\cos(x - 45^\\circ) = \\sin 2x\\).",
+        "options":  [
+                        "\\(x = 45^\\circ + k \\cdot 120^\\circ\\)",
+                        "\\(x = 135^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 45^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 15^\\circ + k \\cdot 180^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\cos(x - 45^\\circ) = \\cos(90^\\circ - 2x)\\)",
+                         "General Solution: \\(x - 45^\\circ = \\pm(90^\\circ - 2x) + k \\cdot 360^\\circ\\)",
+                         "Case 1 (+): \\(3x = 135^\\circ + k \\cdot 360^\\circ \\implies x = 45^\\circ + k \\cdot 120^\\circ\\)",
+                         "Case 2 (-): \\(-x = -45^\\circ + k \\cdot 360^\\circ\\)",
+                         "Both reduce to the general form: \\(x = 45^\\circ + k \\cdot 120^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Using the diagram provided, write down the period of \\(g(x)\\).",
+        "options":  [
+                        "\\(180^\\circ\\)",
+                        "\\(360^\\circ\\)",
+                        "\\(90^\\circ\\)",
+                        "\\(720^\\circ\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Function \\(g(x) = \\cos(x - 45^\\circ)\\) is a standard cosine graph shifted horizontally.",
+                         "The shift does not affect the period. Standard period is \\(360^\\circ\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Identify the coordinates of the minimum point \\(A\\) on graph \\(g\\).",
+        "options":  [
+                        "\\((-135^\\circ ; -1)\\)",
+                        "\\((-45^\\circ ; -1)\\)",
+                        "\\((225^\\circ ; -1)\\)",
+                        "\\((-135^\\circ ; 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Minimum value is -1. Occurs when \\(x - 45^\\circ = -180^\\circ\\).",
+                         "Therefore, \\(x = -135^\\circ\\). Point \\(A\\) is \\((-135^\\circ ; -1)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "For which values of \\(x\\) in the interval \\(x \\in [0^\\circ ; 180^\\circ]\\) is \\(\\frac{f(x)}{g(x)} \u003c 0\\)?",
+        "options":  [
+                        "\\(x \\in (90^\\circ ; 135^\\circ)\\)",
+                        "\\(x \\in (45^\\circ ; 90^\\circ)\\)",
+                        "\\(x \\in (135^\\circ ; 180^\\circ)\\)",
+                        "\\(x \\in (0^\\circ ; 45^\\circ)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The ratio is negative when \\(f\\) and \\(g\\) have opposite signs.",
+                         "Between \\(90^\\circ\\) and \\(135^\\circ\\), \\(f\\) is negative and \\(g\\) is positive. Ratio is negative."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Solve for \\(x \\in [0^\\circ ; 180^\\circ]\\) if \\(\\sin 2x \\ge \\frac{1}{\\sqrt{2}}(\\cos x + \\sin x)\\).",
+        "options":  [
+                        "\\(x = 45^\\circ\\) or \\(x \\in [165^\\circ ; 180^\\circ]\\)",
+                        "\\(x \\in [45^\\circ ; 165^\\circ]\\)",
+                        "\\(x \\in [0^\\circ ; 45^\\circ]\\)",
+                        "\\(x \\in [165^\\circ ; 180^\\circ]\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The inequality is \\(f(x) \\ge g(x)\\). From the graph, this happens only at \\(x=45^\\circ\\) and when \\(x \\ge 165^\\circ\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "If \\(\\tan \\theta = \\frac{3}{4}\\) and \\(\\theta \\in [180^\\circ; 360^\\circ]\\), determine \\(\\sin \\theta\\) without a calculator.",
+        "options":  [
+                        "\\(-\\frac{3}{5}\\)",
+                        "\\(\\frac{3}{5}\\)",
+                        "\\(-\\frac{4}{5}\\)",
+                        "\\(\\frac{4}{5}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Tangent is positive in Q3. Given domain restricts to Q3 or Q4, so \\(\\theta\\) is in Q3.",
+                         "In Q3, \\(x = -4\\) and \\(y = -3\\)",
+                         "\\(r^2 = x^2 + y^2 = 25 \\implies r = 5\\). \\(\\sin \\theta = \\frac{y}{r} = -\\frac{3}{5}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Solve for \\(x\\) if \\(\\sin 2x = \\cos(x - 30^\\circ)\\)",
+        "options":  [
+                        "\\(x = 40^\\circ + k \\cdot 120^\\circ\\) or \\(x = 60^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 20^\\circ + k \\cdot 120^\\circ\\)",
+                        "\\(x = 60^\\circ + k \\cdot 180^\\circ\\)",
+                        "\\(x = 40^\\circ + k \\cdot 360^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use co-functions: \\(\\sin 2x = \\sin(90^\\circ - (x - 30^\\circ)) = \\sin(120^\\circ - x)\\).",
+                         "Case 1: \\(2x = 120^\\circ - x + 360k \\implies x = 40^\\circ + 120k\\).",
+                         "Case 2: \\(2x = 180 - (120 - x) + 360k \\implies x = 60^\\circ + 360k\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "If \\(5\\sin\\beta - 4 = 0\\) and \\(\\beta \\in (90^\\circ ; 270^\\circ)\\), determine the value of \\(\\cos\\beta\\).",
+        "options":  [
+                        "\\(\\frac{3}{5}\\)",
+                        "\\(-\\frac{3}{5}\\)",
+                        "\\(-\\frac{4}{5}\\)",
+                        "\\(\\frac{4}{5}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "\\(\\sin\\beta = \\frac{4}{5}\\). Since \\(\\beta\\) is in Q2, \\(x\\) is negative.",
+                         "\\(x^2 + 16 = 25 \\implies x = -3\\). \\(\\cos\\beta = -\\frac{3}{5}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Given \\(\\cos\\beta = -\\frac{3}{5}\\), find the value of \\(\\cos 2\\beta\\).",
+        "options":  [
+                        "\\(-\\frac{7}{25}\\)",
+                        "\\(\\frac{7}{25}\\)",
+                        "\\(-\\frac{1}{25}\\)",
+                        "\\(\\frac{18}{25}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\cos 2\\beta = 2\\cos^2\\beta - 1 = 2(\\frac{9}{25}) - 1 = -\\frac{7}{25}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify fully: \\(\\frac{\\sin(-180^\\circ - \\theta) \\cdot \\tan(180^\\circ - \\theta) \\cdot \\cos(-\\theta)}{\\cos^2(90^\\circ + \\theta) + 3\\sin^2\\theta}\\)",
+        "options":  [
+                        "\\(\\frac{1}{4}\\)",
+                        "\\(-\\frac{\\tan \\theta}{4}\\)",
+                        "\\(-\\frac{1}{4}\\)",
+                        "\\(-\\frac{1}{2}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Numerator: \\(\\sin\\theta \\cdot (-\\tan\\theta) \\cdot \\cos\\theta = -\\sin^2\\theta\\).",
+                         "Denominator: \\(\\sin^2\\theta + 3\\sin^2\\theta = 4\\sin^2\\theta\\).",
+                         "Result: \\(-\\frac{1}{4}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Prove the identity: \\(\\frac{1}{8}(1 - \\cos 4x) = \\sin^2 x \\cos^2 x\\). Which step correctly starts the LHS?",
+        "options":  [
+                        "\\(\\frac{1}{8}(2\\sin^2 2x)\\)",
+                        "\\(\\frac{1}{4}(1 - \\cos^2 2x)\\)",
+                        "\\(\\frac{1}{8}(1 - (2\\cos^2 2x - 1))\\)",
+                        "\\(\\frac{1}{8}\\sin 4x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(1 - \\cos 4x = 2\\sin^2 2x\\). \\(LHS = \\frac{1}{8}(2\\sin^2 2x) = \\frac{1}{4}\\sin^2 2x\\).",
+                         "\\(\\frac{1}{4}(2\\sin x \\cos x)^2 = \\sin^2 x \\cos^2 x = RHS\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "In \\(\\Delta ABC\\), side \\(a=5\\), side \\(b=7\\), and \\(\\angle C=60^\\circ\\). Calculate the length of side \\(c\\).",
+        "options":  [
+                        "\\(8\\)",
+                        "\\(6\\)",
+                        "\\(\\sqrt{39}\\)",
+                        "\\(\\sqrt{74}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the Cosine Rule: \\(c^2 = a^2 + b^2 - 2ab \\cos C\\)",
+                         "\\(c^2 = 5^2 + 7^2 - 2(5)(7) \\cos 60^\\circ\\)",
+                         "\\(c^2 = 25 + 49 - 70(0,5)\\)",
+                         "\\(c^2 = 74 - 35 = 39\\)",
+                         "\\(c = \\sqrt{39}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify the expression: \\(\\cos(x - 90^\\circ)\\)",
+        "options":  [
+                        "\\(-\\cos x\\)",
+                        "\\(-\\sin x\\)",
+                        "\\(\\sin x\\)",
+                        "\\(\\cos x\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(\\cos(x - 90^\\circ) = \\cos(-(90^\\circ - x))\\)",
+                         "Since cosine is an even function, \\(\\cos(-\\theta) = \\cos \\theta\\).",
+                         "So, \\(\\cos(x - 90^\\circ) = \\cos(90^\\circ - x)\\).",
+                         "Using co-functions, \\(\\cos(90^\\circ - x) = \\sin x\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify fully: \\(\\frac{1 - \\cos 2x}{\\sin 2x}\\)",
+        "options":  [
+                        "\\(\\sin x\\)",
+                        "\\(\\cot x\\)",
+                        "\\(\\tan x\\)",
+                        "\\(1\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use identities: \\(\\cos 2x = 1 - 2\\sin^2 x\\) and \\(\\sin 2x = 2\\sin x \\cos x\\)",
+                         "Numerator: \\(1 - (1 - 2\\sin^2 x) = 2\\sin^2 x\\)",
+                         "Expression: \\(\\frac{2\\sin^2 x}{2\\sin x \\cos x}\\)",
+                         "Cancel \\(2\\) and one \\(\\sin x\\):",
+                         "\\(\\frac{\\sin x}{\\cos x} = \\tan x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Find the general solution for \\(x\\) if \\(2\\sin x = 1\\)",
+        "options":  [
+                        "\\(x = 30^\\circ + k \\cdot 90^\\circ\\)",
+                        "\\(x = 60^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 30^\\circ + k \\cdot 360^\\circ\\) or \\(x = 150^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 30^\\circ + k \\cdot 180^\\circ\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(\\sin x = \\frac{1}{2}\\)",
+                         "Reference angle \\(= \\sin^{-1}(0,5) = 30^\\circ\\)",
+                         "Sine is positive in Q1 and Q2.",
+                         "Q1: \\(x = 30^\\circ + k \\cdot 360^\\circ\\)",
+                         "Q2: \\(x = 180^\\circ - 30^\\circ + k \\cdot 360^\\circ = 150^\\circ + k \\cdot 360^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+        "options":  [
+                        "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)",
+                        "\\(-\\tan \\theta\\)",
+                        "\\(\\tan \\theta\\)",
+                        "\\(-\\sin \\theta\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+                         "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+        "options":  [
+                        "\\(\\tan \\theta\\)",
+                        "\\(-\\sin \\theta\\)",
+                        "\\(-\\tan \\theta\\)",
+                        "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+                         "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+        "options":  [
+                        "\\(-\\sin \\theta\\)",
+                        "\\(\\tan \\theta\\)",
+                        "\\(-\\tan \\theta\\)",
+                        "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+                         "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+        "options":  [
+                        "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)",
+                        "\\(-\\tan \\theta\\)",
+                        "\\(-\\sin \\theta\\)",
+                        "\\(\\tan \\theta\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+                         "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\dfrac{\\sin(180^\\circ + \\theta) \\cdot \\cos(90^\\circ + \\theta)}{\\cos(360^\\circ - \\theta)}\\)",
+        "options":  [
+                        "\\(-\\tan \\theta\\)",
+                        "\\(\\tan \\theta\\)",
+                        "\\(\\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)",
+                        "\\(-\\sin \\theta\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "\\(\\sin(180^\\circ + \\theta)\\) is in 3rd quadrant (sine is negative) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(90^\\circ + \\theta)\\) is in 2nd quadrant (cosine is negative, co-ratio) \\(\\rightarrow -\\sin \\theta\\)",
+                         "\\(\\cos(360^\\circ - \\theta)\\) is in 4th quadrant (cosine is positive) \\(\\rightarrow \\cos \\theta\\)",
+                         "\\(\\dfrac{(-\\sin \\theta)(-\\sin \\theta)}{\\cos \\theta} = \\dfrac{\\sin^2 \\theta}{\\cos \\theta}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+        "options":  [
+                        "\\(1\\)",
+                        "\\(\\sin x \\cos x\\)",
+                        "\\(2\\sin^2 x\\)",
+                        "\\(2\\cos^2 x\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+                         "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+                         "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+                         "Cosine terms cancel: \\(2\\sin^2 x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+        "options":  [
+                        "\\(2\\sin^2 x\\)",
+                        "\\(2\\cos^2 x\\)",
+                        "\\(1\\)",
+                        "\\(\\sin x \\cos x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+                         "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+                         "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+                         "Cosine terms cancel: \\(2\\sin^2 x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+        "options":  [
+                        "\\(2\\cos^2 x\\)",
+                        "\\(1\\)",
+                        "\\(\\sin x \\cos x\\)",
+                        "\\(2\\sin^2 x\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+                         "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+                         "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+                         "Cosine terms cancel: \\(2\\sin^2 x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+        "options":  [
+                        "\\(\\sin x \\cos x\\)",
+                        "\\(2\\cos^2 x\\)",
+                        "\\(2\\sin^2 x\\)",
+                        "\\(1\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+                         "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+                         "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+                         "Cosine terms cancel: \\(2\\sin^2 x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\sin 2x \\cdot \\tan x\\) entirely in terms of sine and cosine.",
+        "options":  [
+                        "\\(\\sin x \\cos x\\)",
+                        "\\(1\\)",
+                        "\\(2\\cos^2 x\\)",
+                        "\\(2\\sin^2 x\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Double angle identity: \\(\\sin 2x = 2\\sin x \\cos x\\)",
+                         "Quotient identity: \\(\\tan x = \\dfrac{\\sin x}{\\cos x}\\)",
+                         "\\(2\\sin x \\cos x \\cdot \\dfrac{\\sin x}{\\cos x}\\)",
+                         "Cosine terms cancel: \\(2\\sin^2 x\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+        "options":  [
+                        "\\(45^\\circ\\)",
+                        "\\(60^\\circ\\)",
+                        "\\(30^\\circ\\)",
+                        "\\(120^\\circ\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+                         "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+        "options":  [
+                        "\\(60^\\circ\\)",
+                        "\\(120^\\circ\\)",
+                        "\\(45^\\circ\\)",
+                        "\\(30^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+                         "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+        "options":  [
+                        "\\(120^\\circ\\)",
+                        "\\(45^\\circ\\)",
+                        "\\(30^\\circ\\)",
+                        "\\(60^\\circ\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+                         "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+        "options":  [
+                        "\\(120^\\circ\\)",
+                        "\\(30^\\circ\\)",
+                        "\\(60^\\circ\\)",
+                        "\\(45^\\circ\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+                         "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the reference angle for the equation: \\(2\\cos \\theta = 1\\)",
+        "options":  [
+                        "\\(45^\\circ\\)",
+                        "\\(120^\\circ\\)",
+                        "\\(30^\\circ\\)",
+                        "\\(60^\\circ\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Isolate the trig ratio: \\(\\cos \\theta = \\dfrac{1}{2}\\)",
+                         "Reference angle = \\(\\cos^{-1}(0.5) = 60^\\circ\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify without a calculator: \\(\\frac{\\sin (180^\\circ - \\theta) \\cdot \\cos (90^\\circ + \\theta)}{\\tan \\theta \\cdot \\cos (360^\\circ - \\theta)}\\)",
+        "options":  [
+                        "\\(-\\sin \\theta\\)",
+                        "\\(\\sin \\theta\\)",
+                        "\\(-\\cos \\theta\\)",
+                        "\\(-\\tan \\theta\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sin(180 - \\theta) = \\sin \\theta\\).",
+                         "\\(\\cos(90 + \\theta) = -\\sin \\theta\\).",
+                         "\\(\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}\\).",
+                         "\\(\\cos(360 - \\theta) = \\cos \\theta\\).",
+                         "Expression: \\(\\frac{\\sin \\theta \\cdot (-\\sin \\theta)}{(\\frac{\\sin \\theta}{\\cos \\theta}) \\cdot \\cos \\theta} = \\frac{-\\sin^2 \\theta}{\\sin \\theta} = -\\sin \\theta\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the general solution of: \\(2\\sin 2x = 1\\)",
+        "options":  [
+                        "\\(x = 15^\\circ + k \\cdot 180^\\circ\\) or \\(x = 75^\\circ + k \\cdot 180^\\circ\\)",
+                        "\\(x = 30^\\circ + k \\cdot 360^\\circ\\) or \\(x = 150^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 15^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 60^\\circ + k \\cdot 180^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sin 2x = 0.5\\). Reference angle is \\(30^\\circ\\).",
+                         "Case 1: \\(2x = 30^\\circ + k \\cdot 360^\\circ \\implies x = 15^\\circ + k \\cdot 180^\\circ\\).",
+                         "Case 2: \\(2x = 180^\\circ - 30^\\circ + k \\cdot 360^\\circ \\implies 2x = 150^\\circ + k \\cdot 360^\\circ \\implies x = 75^\\circ + k \\cdot 180^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Calculate the area of \\(\\Delta ABC\\) if \\(a = 10, b = 12\\) and \\(\\hat{C} = 45^\\circ\\).",
+        "options":  [
+                        "\\(30\\sqrt{2}\\)",
+                        "\\(60\\sqrt{2}\\)",
+                        "\\(30\\)",
+                        "\\(60\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(Area = \\frac{1}{2}ab \\sin C = \\frac{1}{2}(10)(12) \\sin 45^\\circ\\).",
+                         "\\(Area = 60 \\cdot \\frac{\\sqrt{2}}{2} = 30\\sqrt{2}\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\cos (A + B) \\cos B + \\sin (A + B) \\sin B\\)",
+        "options":  [
+                        "\\(\\cos A\\)",
+                        "\\(\\sin A\\)",
+                        "\\(\\cos (A + 2B)\\)",
+                        "\\(\\sin (A - B)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is the expansion of \\(\\cos (X - Y)\\) where \\(X = A + B\\) and \\(Y = B\\).",
+                         "\\(\\cos ((A + B) - B) = \\cos A\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "If \\(\\cos 20^\\circ = p\\), determine \\(\\sin 40^\\circ\\) in terms of \\(p\\).",
+        "options":  [
+                        "\\(2p\\sqrt{1-p^2}\\)",
+                        "\\(2p^2 - 1\\)",
+                        "\\(1 - 2p^2\\)",
+                        "\\(p^2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sin 40^\\circ = \\sin(2 \\cdot 20^\\circ) = 2\\sin 20^\\circ \\cos 20^\\circ\\).",
+                         "Since \\(\\cos 20^\\circ = p\\), then \\(\\sin 20^\\circ = \\sqrt{1 - p^2}\\).",
+                         "\\(\\sin 40^\\circ = 2(\\sqrt{1 - p^2})(p) = 2p\\sqrt{1 - p^2}\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the maximum value of the function \\(f(x) = 3\\sin x - 1\\).",
+        "options":  [
+                        "2",
+                        "3",
+                        "4",
+                        "1"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The max value of \\(\\sin x\\) is 1.",
+                         "Max \\(f(x) = 3(1) - 1 = 2\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "If \\(\\tan \\theta = \\frac{4}{3}\\) and \\(180^\\circ \u003c \\theta \u003c 270^\\circ\\), calculate \\(\\cos \\theta\\).",
+        "options":  [
+                        "\\(-3/5\\)",
+                        "\\(3/5\\)",
+                        "\\(-4/5\\)",
+                        "\\(4/5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "In the 3rd quadrant, both sine and cosine are negative.",
+                         "Opposite = -4, Adjacent = -3.",
+                         "Hypotenuse = \\(\\sqrt{(-4)^2 + (-3)^2} = 5\\).",
+                         "\\(\\cos \\theta = \\frac{Adj}{Hyp} = -3/5\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Prove the following identity: \\(\\tan x + \\frac{\\cos x}{1 + \\sin x} = \\sec x\\). Which step is correct?",
+        "options":  [
+                        "Numerator simplifies to \\(1 + \\sin x\\) after common denominator",
+                        "Numerator simplifies to \\(\\sec^2 x\\)",
+                        "The identity is false",
+                        "Common denominator is \\(\\cos^2 x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "LHS: \\(\\frac{\\sin x}{\\cos x} + \\frac{\\cos x}{1 + \\sin x}\\).",
+                         "Common denominator: \\(\\cos x(1 + \\sin x)\\).",
+                         "Numerator: \\(\\sin x(1 + \\sin x) + \\cos^2 x = \\sin x + \\sin^2 x + \\cos^2 x = \\sin x + 1\\).",
+                         "LHS = \\(\\frac{1 + \\sin x}{\\cos x(1 + \\sin x)} = \\frac{1}{\\cos x} = \\sec x\\).",
+                         "Numerator indeed simplified to \\(1 + \\sin x\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Solve for \\(x\\) in \\([0^\\circ, 180^\\circ]\\): \\(\\sin x = \\cos 2x\\)",
+        "options":  [
+                        "\\(30^\\circ\\) and \\(150^\\circ\\)",
+                        "\\(30^\\circ\\), \\(150^\\circ\\) and \\(90^\\circ\\)",
+                        "\\(60^\\circ\\) and \\(120^\\circ\\)",
+                        "\\(45^\\circ\\) and \\(135^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use co-functions or identity: \\(\\sin x = \\sin(90 - 2x)\\).",
+                         "Case 1: \\(x = 90 - 2x + k \\cdot 360 \\implies 3x = 90 \\implies x = 30^\\circ\\).",
+                         "Case 2: \\(x = 180 - (90 - 2x) + k \\cdot 360 \\implies x = 180 - 90 + 2x \\implies -x = 90 \\implies x = -90\\) (Not in range).",
+                         "Also \\(150^\\circ\\) works: \\(\\sin 150 = 0.5\\), \\(\\cos 300 = 0.5\\).  [DONE]",
+                         "Wait, let\u0027s substitute options: \\(\\sin 30 = 0.5, \\cos 60 = 0.5\\). \\(\\sin 150 = 0.5, \\cos 300 = 0.5\\).",
+                         "Answers are \\(30^\\circ\\) and \\(150^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Find the period of the function \\(y = \\tan 2x\\).",
+        "options":  [
+                        "\\(90^\\circ\\)",
+                        "\\(180^\\circ\\)",
+                        "\\(360^\\circ\\)",
+                        "\\(45^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The period of \\(\\tan x\\) is \\(180^\\circ\\).",
+                         "The period of \\(\\tan bx\\) is \\(\\frac{180}{b}\\).",
+                         "Here \\(b=2\\), so period = \\(\\frac{180}{2} = 90^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify to a single trig ratio: \\(\\frac{2\\cos^2 x - 1}{\\cos x + \\sin x}\\)",
+        "options":  [
+                        "\\(\\cos x - \\sin x\\)",
+                        "\\(\\cos x + \\sin x\\)",
+                        "\\(\\sin 2x\\)",
+                        "\\(\\tan x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Numerator is the double angle identity for \\(\\cos 2x = \\cos^2 x - \\sin^2 x\\).",
+                         "Also \\(2\\cos^2 x - 1 = \\cos^2 x - \\sin^2 x = (\\cos x - \\sin x)(\\cos x + \\sin x)\\).",
+                         "Expression: \\(\\frac{(\\cos x - \\sin x)(\\cos x + \\sin x)}{\\cos x + \\sin x} = \\cos x - \\sin x\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Express \\(\\cos 3x\\) in terms of \\(\\sin x\\) and \\(\\cos x\\) using compound angles.",
+        "options":  [
+                        "\\(\\cos 2x \\cos x - \\sin 2x \\sin x\\)",
+                        "\\(\\cos 2x \\cos x + \\sin 2x \\sin x\\)",
+                        "\\(\\cos^3 x - 3\\sin x\\)",
+                        "\\(3\\cos x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\cos 3x = \\cos(2x + x)\\).",
+                         "\\(= \\cos 2x \\cos x - \\sin 2x \\sin x\\) (correct application of compound angle formula)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Find the general solution of \\(\\tan \\theta = -1\\).",
+        "options":  [
+                        "\\(\\theta = 135^\\circ + k \\cdot 180^\\circ\\)",
+                        "\\(\\theta = 315^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(\\theta = -45^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(\\theta = 45^\\circ + k \\cdot 180^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Reference angle is \\(45^\\circ\\).",
+                         "Tangent is negative in the 2nd and 4th quadrants.",
+                         "2nd quadrant: \\(180^\\circ - 45^\\circ = 135^\\circ\\).",
+                         "General solution: \\(135^\\circ + k \\cdot 180^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "A building\u0027s height is \\(h\\). The angle of elevation from a point 10m away is \\(60^\\circ\\). What is \\(h\\)?",
+        "options":  [
+                        "\\(10\\sqrt{3}\\)",
+                        "\\(10/\\sqrt{3}\\)",
+                        "\\(20\\)",
+                        "\\(10\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\tan 60^\\circ = \\frac{h}{10}\\).",
+                         "\\(h = 10 \\tan 60^\\circ = 10\\sqrt{3}\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Solve: \\(\\cos x = \\sin(x + 20^\\circ)\\)",
+        "options":  [
+                        "\\(35^\\circ\\)",
+                        "\\(70^\\circ\\)",
+                        "\\(45^\\circ\\)",
+                        "\\(20^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Convert to co-functions: \\(\\sin(90 - x) = \\sin(x + 20)\\).",
+                         "\\(90 - x = x + 20 \\implies 2x = 70 \\implies x = 35^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the general solution of: \\(\\cos 2x = \\sin x\\).",
+        "options":  [
+                        "\\(x = 30^\\circ + k \\cdot 120^\\circ\\) or \\(x = -90^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 60^\\circ + k \\cdot 180^\\circ\\)",
+                        "\\(x = 30^\\circ + k \\cdot 360^\\circ\\)",
+                        "\\(x = 150^\\circ + k \\cdot 180^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\cos 2x = \\cos (90^\\circ - x)\\).",
+                         "Case 1: \\(2x = 90^\\circ - x + k \\cdot 360^\\circ \\implies 3x = 90^\\circ + k \\cdot 360^\\circ \\implies x = 30^\\circ + k \\cdot 120^\\circ\\).",
+                         "Case 2: \\(2x = -(90^\\circ - x) + k \\cdot 360^\\circ \\implies 2x = -90^\\circ + x + k \\cdot 360^\\circ \\implies x = -90^\\circ + k \\cdot 360^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Prove that \\((\\sin x + \\cos x)^2 = 1 + \\sin 2x\\). Which identity is used?",
+        "options":  [
+                        "\\(\\sin^2 x + \\cos^2 x = 1\\)",
+                        "\\(\\tan x = \\sin x / \\cos x\\)",
+                        "\\(\\cos 2x = \\cos^2 x - \\sin^2 x\\)",
+                        "\\(\\sin(A+B) = \\dots\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "LHS = \\(\\sin^2 x + 2\\sin x \\cos x + \\cos^2 x\\).",
+                         "Using \\(\\sin^2 x + \\cos^2 x = 1\\) and \\(2\\sin x \\cos x = \\sin 2x\\).",
+                         "LHS = \\(1 + \\sin 2x\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Calculate the area of \\(\\Delta PQR\\) if \\(p = 8, q = 10\\) and \\(\\hat{R} = 30^\\circ\\).",
+        "options":  [
+                        "\\(20\\)",
+                        "\\(40\\)",
+                        "\\(20\\sqrt{3}\\)",
+                        "\\(10\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(Area = \\frac{1}{2}pq \\sin R = \\frac{1}{2}(8)(10) \\sin 30^\\circ\\).",
+                         "\\(Area = 40 \\cdot (0.5) = 20\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Find angle \\(A\\) in \\(\\Delta ABC\\) if \\(a=7, b=8, c=9\\).",
+        "options":  [
+                        "\\(48.19^\\circ\\)",
+                        "\\(60^\\circ\\)",
+                        "\\(45^\\circ\\)",
+                        "\\(72.5^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Cosine Rule: \\(\\cos A = \\frac{b^2 + c^2 - a^2}{2bc}\\).",
+                         "\\(\\cos A = \\frac{8^2 + 9^2 - 7^2}{2(8)(9)} = \\frac{64 + 81 - 49}{144} = \\frac{96}{144} = 0.6667\\).",
+                         "\\(A = \\arccos(0.6667) \\approx 48.189^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "In \\(\\Delta DEF\\), \\(\\hat{D} = 40^\\circ\\), \\(\\hat{E} = 60^\\circ\\) and \\(f = 12\\). Find length \\(d\\).",
+        "options":  [
+                        "\\(7.82\\)",
+                        "\\(10.5\\)",
+                        "\\(12\\)",
+                        "\\(9.2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\hat{F} = 180 - 40 - 60 = 80^\\circ\\).",
+                         "Sine Rule: \\(\\frac{d}{\\sin D} = \\frac{f}{\\sin F} \\implies d = \\frac{12 \\sin 40^\\circ}{\\sin 80^\\circ}\\).",
+                         "\\(d \\approx \\frac{12(0.6428)}{0.9848} \\approx 7.83\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify: \\(\\sin (90^\\circ - x) \\cdot \\cos (180^\\circ + x)\\).",
+        "options":  [
+                        "\\(-\\cos^2 x\\)",
+                        "\\(\\sin^2 x\\)",
+                        "\\(\\cos^2 x\\)",
+                        "\\(-\\sin x \\cos x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sin(90-x) = \\cos x\\).",
+                         "\\(\\cos(180+x) = -\\cos x\\).",
+                         "Result: \\(\\cos x \\cdot (-\\cos x) = -\\cos^2 x\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Without a calculator, evaluate \\(\\sin^2 30^\\circ + \\cos^2 30^\\circ\\).",
+        "options":  [
+                        "\\(1\\)",
+                        "\\(1/2\\)",
+                        "\\(3/4\\)",
+                        "\\(0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "This is the fundamental Pythagorean identity \\(\\sin^2 \\theta + \\cos^2 \\theta = 1\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "What is the maximum value of the expression \\(2 - 3\\cos x\\)?",
+        "options":  [
+                        "\\(5\\)",
+                        "\\(2\\)",
+                        "\\(-1\\)",
+                        "\\(3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The range of \\(\\cos x\\) is \\([-1, 1]\\).",
+                         "The range of \\(-3\\cos x\\) is \\([-3, 3]\\).",
+                         "The range of \\(2 - 3\\cos x\\) is \\([2-3, 2+3] = [-1, 5]\\).",
+                         "Maximum is 5."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine the period of the function \\(y = 3\\sin(2x - 10^\\circ)\\).",
+        "options":  [
+                        "\\(180^\\circ\\)",
+                        "\\(360^\\circ\\)",
+                        "\\(90^\\circ\\)",
+                        "\\(720^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The period of \\(\\sin bx\\) is \\(360/b\\).",
+                         "Here \\(b = 2\\), so period = \\(360/2 = 180^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "From the top of a 50m cliff, the angle of depression to a boat is \\(20^\\circ\\). How far is the boat from the base of the cliff?",
+        "options":  [
+                        "\\(137.4\\)m",
+                        "\\(50\\)m",
+                        "\\(18.2\\)m",
+                        "\\(146.2\\)m"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The angle of depression is equal to the angle of elevation from the boat.",
+                         "\\(\\tan 20^\\circ = \\frac{50}{d} \\implies d = \\frac{50}{\\tan 20^\\circ}\\).",
+                         "\\(d \\approx \\frac{50}{0.36397} \\approx 137.37\\)m."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "In a 3D context, a vertical pole \\(PQ\\) of height \\(h\\) stands at \\(Q\\). From \\(R\\), the angle of elevation to \\(P\\) is \\(\\alpha\\). If \\(QR = x\\), then \\(h = \\dots\\)",
+        "options":  [
+                        "\\(x \\tan \\alpha\\)",
+                        "\\(x \\sin \\alpha\\)",
+                        "\\(x \\cos \\alpha\\)",
+                        "\\(x / \\tan \\alpha\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "In right-angled \\(\\Delta PQR\\), \\(\\tan \\alpha = \\frac{PQ}{QR} = \\frac{h}{x}\\).",
+                         "\\(h = x \\tan \\alpha\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Expand \\(\\cos(45^\\circ + x)\\) using compound angle identities.",
+        "options":  [
+                        "\\(\\frac{\\sqrt{2}}{2}(\\cos x - \\sin x)\\)",
+                        "\\(\\frac{\\sqrt{2}}{2}(\\cos x + \\sin x)\\)",
+                        "\\(\\frac{1}{2}(\\cos x - \\sin x)\\)",
+                        "\\(\\cos 45^\\circ \\cos x + \\sin 45^\\circ \\sin x\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\cos(A+B) = \\cos A \\cos B - \\sin A \\sin B\\).",
+                         "\\(\\cos(45+x) = \\cos 45 \\cos x - \\sin 45 \\sin x = \\frac{\\sqrt{2}}{2} \\cos x - \\frac{\\sqrt{2}}{2} \\sin x\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "If \\(\\sin x = 3/5\\) and \\(90^\\circ \u003c x \u003c 180^\\circ\\), find \\(\\cos 2x\\).",
+        "options":  [
+                        "\\(7/25\\)",
+                        "\\(16/25\\)",
+                        "\\(-7/25\\)",
+                        "\\(1/2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\cos 2x = 1 - 2\\sin^2 x\\).",
+                         "\\(\\cos 2x = 1 - 2(3/5)^2 = 1 - 2(9/25) = 1 - 18/25 = 7/25\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Determine \\(\\theta\\) to two decimal places if \\(\\tan \\theta = 1.5\\) and \\(180^\\circ \u003c \\theta \u003c 360^\\circ\\).",
+        "options":  [
+                        "\\(236.31^\\circ\\)",
+                        "\\(56.31^\\circ\\)",
+                        "\\(123.69^\\circ\\)",
+                        "\\(303.69^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Reference angle \\(\\alpha = \\arctan(1.5) \\approx 56.31^\\circ\\).",
+                         "Tangent is positive in 1st and 3rd quadrants.",
+                         "In 3rd quadrant: \\(180^\\circ + 56.31^\\circ = 236.31^\\circ\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Evaluate \\(\\sin 15^\\circ\\) exactly.",
+        "options":  [
+                        "\\(\\frac{\\sqrt{6} - \\sqrt{2}}{4}\\)",
+                        "\\(\\frac{\\sqrt{6} + \\sqrt{2}}{4}\\)",
+                        "\\(\\frac{\\sqrt{3} - 1}{2}\\)",
+                        "\\(0.25\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sin(45-30) = \\sin 45 \\cos 30 - \\cos 45 \\sin 30\\).",
+                         "\\(= (\\frac{\\sqrt{2}}{2})(\\frac{\\sqrt{3}}{2}) - (\\frac{\\sqrt{2}}{2})(\\frac{1}{2}) = \\frac{\\sqrt{6}}{4} - \\frac{\\sqrt{2}}{4}\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "In 3D space, a vertical pole \\(PQ\\) of height \\(h\\) stands at \\(P\\). From \\(A\\) and \\(B\\) on the ground, the angles of elevation of \\(Q\\) are \\(\\alpha\\) and \\(\\beta\\). If \\(A, P, B\\) are in a straight line, find \\(AB\\).",
+        "options":  [
+                        "\\(h(\\cot \\alpha + \\cot \\beta)\\)",
+                        "\\(h(\\tan \\alpha + \\tan \\beta)\\)",
+                        "\\(h(\\cos \\alpha + \\cos \\beta)\\)",
+                        "\\(h/(\\tan \\alpha \\tan \\beta)\\)"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "In \\(\\Delta APQ, AP = h/\\tan \\alpha = h\\cot \\alpha\\).",
+                         "In \\(\\Delta BPQ, BP = h/\\tan \\beta = h\\cot \\beta\\).",
+                         "If \\(P\\) is between \\(A\\) and \\(B\\), \\(AB = AP + BP = h(\\cot \\alpha + \\cot \\beta)\\)."
+                     ]
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "In 3D trigonometry, which result is most commonly used to find sides in a non-right-angled horizontal triangle?",
+        "options":  [
+                        "Cosine Rule",
+                        "Sine Rule",
+                        "Both A and B",
+                        "Only Tan Rule"
+                    ],
+        "answer":  2,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Depending on the given information (SSS, SAS vs ASA, AAS), both Sine and Cosine rules are standard 3D trig tools."
+                     ]
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "A bird at \\(B\\) is observed from \\(A\\) and \\(C\\) on level ground. Angle of elevation from \\(A\\) is \\(30^\\circ\\). Bearing of bird from \\(A\\) is \\(045^\\circ\\). Distance \\(AC = 100\\). This is an example of:",
+        "options":  [
+                        "3D Trigonometry",
+                        "Spherical Trig",
+                        "2D Trig",
+                        "Not enough info"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Bearings combined with elevations involve multiple planes, making it 3D trigonometry."
+                     ]
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Simplify \\(\\cos(90^\\circ + x)\\sin(180^\\circ - x) - \\cos^2(x)\\).",
+        "options":  [
+                        "\\(-1\\)",
+                        "\\(1\\)",
+                        "\\(0\\)",
+                        "\\(-2\\cos^2(x)\\)"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "\\(\\cos(90+x) = -\\sin x\\). \\(\\sin(180-x) = \\sin x\\).",
+                         "Expression = \\((-\\sin x)(\\sin x) - \\cos^2 x = -\\sin^2 x - \\cos^2 x = -(\\sin^2 x + \\cos^2 x) = -1\\)."
+                     ]
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "Find the general solution of \\(2\\sin^2 x + \\sin x - 1 = 0\\).",
+        "options":  [
+                        "\\(x = 30^\\circ + k\\cdot 360^\\circ\\), etc.",
+                        "\\(x = 90^\\circ + k\\cdot 180^\\circ\\)",
+                        "\\(x = 45^\\circ + k\\cdot 360^\\circ\\)",
+                        "No solution"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "Factorise: \\((2\\sin x - 1)(\\sin x + 1) = 0\\).",
+                         "\\(\\sin x = 0.5\\) or \\(\\sin x = -1\\).",
+                         "\\(x = 30^\\circ + k\\cdot 360^\\circ\\) or \\(150^\\circ + k\\cdot 360^\\circ\\) or \\(270^\\circ + k\\cdot 360^\\circ\\)."
+                     ]
+    },
+    {
+        "topic":  "trigonometry",
+        "q":  "If \\(\\tan \\theta = t\\), express \\(\\cos 2\\theta\\) in terms of \\(t\\).",
+        "options":  [
+                        "\\(\\frac{1-t^2}{1+t^2}\\)",
+                        "\\(\\frac{2t}{1+t^2}\\)",
+                        "\\(1-t^2\\)",
+                        "\\(t^2-1\\)"
+                    ],
+        "answer":  0,
+        "difficulty":  "hard",
+        "solution":  [
+                         "\\(\\cos 2\\theta = \\cos^2 \\theta - \\sin^2 \\theta = \\frac{\\cos^2 \\theta - \\sin^2 \\theta}{\\cos^2 \\theta + \\sin^2 \\theta} = \\frac{1 - \\tan^2 \\theta}{1 + \\tan^2 \\theta} = \\frac{1-t^2}{1+t^2}\\)."
+                     ]
+    }
+]

@@ -1,0 +1,566 @@
+﻿[
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the equation of a circle with center \\((2, -3)\\) and radius \\(5\\).",
+        "options":  [
+                        "\\((x - 2)^2 + (y + 3)^2 = 25\\)",
+                        "\\((x + 2)^2 + (y - 3)^2 = 25\\)",
+                        "\\((x - 2)^2 + (y + 3)^2 = 5\\)",
+                        "\\(x^2 + y^2 = 25\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Standard form: \\((x - a)^2 + (y - b)^2 = r^2\\)",
+                         "Substitute center \\((a, b) = (2, -3)\\) and \\(r = 5\\):",
+                         "\\((x - 2)^2 + (y - (-3))^2 = 5^2\\)",
+                         "\\((x - 2)^2 + (y + 3)^2 = 25\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Calculate the midpoint of the line segment joining points \\(A(1, 4)\\) and \\(B(5, 10)\\).",
+        "options":  [
+                        "\\((2, 3)\\)",
+                        "\\((3, 7)\\)",
+                        "\\((6, 14)\\)",
+                        "\\((4, 6)\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Midpoint formula: \\(M(\\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2})\\)",
+                         "\\(x_M = \\frac{1 + 5}{2} = 3\\)",
+                         "\\(y_M = \\frac{4 + 10}{2} = 7\\)",
+                         "Midpoint is \\((3, 7)\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Determine the gradient of a line that is perpendicular to the line \\(y = 3x - 5\\).",
+        "options":  [
+                        "\\(-3\\)",
+                        "\\(3\\)",
+                        "\\(-\\frac{1}{3}\\)",
+                        "\\(\\frac{1}{3}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The given line has gradient \\(m_1 = 3\\).",
+                         "For perpendicular lines, \\(m_1 \\times m_2 = -1\\).",
+                         "\\(3 \\times m_2 = -1 \\implies m_2 = -\\frac{1}{3}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Calculate the distance between the points \\((0, 0)\\) and \\((6, 8)\\).",
+        "options":  [
+                        "100",
+                        "10",
+                        "14",
+                        "7"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Distance formula: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\)",
+                         "\\(d = \\sqrt{(6-0)^2 + (8-0)^2}\\)",
+                         "\\(d = \\sqrt{36 + 64} = \\sqrt{100} = 10\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "The equation of a circle is \\(x^2 + y^2 - 4x + 6y - 12 = 0\\). Find the coordinates of the centre.",
+        "options":  [
+                        "\\((4, -6)\\)",
+                        "\\((-4, 6)\\)",
+                        "\\((-2, 3)\\)",
+                        "\\((2, -3)\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Group terms: \\((x^2 - 4x) + (y^2 + 6y) = 12\\)",
+                         "Complete the square: \\((x^2 - 4x + 4) + (y^2 + 6y + 9) = 12 + 4 + 9\\)",
+                         "\\((x - 2)^2 + (y + 3)^2 = 25\\)",
+                         "The equation is in form \\((x - a)^2 + (y - b)^2 = r^2\\)",
+                         "The centre is \\((2, -3)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the equation of the tangent to the circle \\(x^2 + y^2 = 25\\) at the point \\((3, 4)\\).",
+        "options":  [
+                        "\\(y = -\\frac{3}{4}x + \\frac{25}{4}\\)",
+                        "\\(y = \\frac{3}{4}x + \\frac{7}{4}\\)",
+                        "\\(y = \\frac{4}{3}x\\)",
+                        "\\(y = -\\frac{4}{3}x + 8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The centre of the circle is \\((0, 0)\\).",
+                         "Gradient of radius \\(m_{rad} = \\frac{4 - 0}{3 - 0} = \\frac{4}{3}\\)",
+                         "Tangent is perpendicular to radius, so \\(m_{tan} = -\\frac{3}{4}\\)",
+                         "Equation of tangent: \\(y - y_1 = m(x - x_1)\\)",
+                         "\\(y - 4 = -\\frac{3}{4}(x - 3)\\)",
+                         "\\(y = -\\frac{3}{4}x + \\frac{9}{4} + \\frac{16}{4} = -\\frac{3}{4}x + \\frac{25}{4}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "If the distance between the points \\((k; 2)\\) and \\((1; -1)\\) is 5 units, find the possible values of \\(k\\).",
+        "options":  [
+                        "\\(k = 3\\)",
+                        "\\(k = 4\\) or \\(k = -2\\)",
+                        "\\(k = 6\\) or \\(k = -4\\)",
+                        "\\(k = 5\\) or \\(k = -3\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Distance formula: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\)",
+                         "\\(5 = \\sqrt{(k - 1)^2 + (2 - (-1))^2}\\)",
+                         "Square both sides: \\(25 = (k - 1)^2 + 3^2\\)",
+                         "\\(25 = (k - 1)^2 + 9 \\implies (k - 1)^2 = 16\\)",
+                         "\\(k - 1 = \\pm 4\\)",
+                         "\\(k = 1 + 4 = 5\\) or \\(k = 1 - 4 = -3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the equation of the line passing through \\((1; 2)\\) and parallel to \\(y = 3x - 5\\).",
+        "options":  [
+                        "\\(y = 3x - 1\\)",
+                        "\\(y = -\\frac{1}{3}x + \\frac{5}{3}\\)",
+                        "\\(y = 3x + 5\\)",
+                        "\\(y = 3x + 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Parallel lines have the same gradient. So \\(m = 3\\).",
+                         "Use point-slope form: \\(y - y_1 = m(x - x_1)\\)",
+                         "\\(y - 2 = 3(x - 1)\\)",
+                         "\\(y = 3x - 3 + 2\\)",
+                         "\\(y = 3x - 1\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Calculate the distance between the points \\(A(2, 3)\\) and \\(B(5, 7)\\).",
+        "options":  [
+                        "\\(5\\)",
+                        "\\(7\\)",
+                        "\\(\\sqrt{13}\\)",
+                        "\\(4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the distance formula: \\(d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\\).",
+                         "\\(d = \\sqrt{(5 - 2)^2 + (7 - 3)^2} = \\sqrt{3^2 + 4^2}\\).",
+                         "\\(d = \\sqrt{9 + 16} = \\sqrt{25} = 5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the midpoint of the line segment joining \\(P(-1, 4)\\) and \\(Q(7, -2)\\).",
+        "options":  [
+                        "\\((3, 1)\\)",
+                        "\\((4, 1)\\)",
+                        "\\((3, 2)\\)",
+                        "\\((4, 2)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use midpoint formula: \\(M = \\left( \\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2} \\right)\\).",
+                         "\\(M = \\left( \\frac{-1 + 7}{2}, \\frac{4 - 2}{2} \\right) = (3, 1)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Determine the gradient of the line passing through \\((1, 2)\\) and \\((4, 8)\\).",
+        "options":  [
+                        "\\(2\\)",
+                        "\\(3\\)",
+                        "\\(1/2\\)",
+                        "\\(6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Gradient \\(m = \\frac{y_2 - y_1}{x_2 - x_1}\\).",
+                         "\\(m = \\frac{8 - 2}{4 - 1} = \\frac{6}{3} = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the equation of a line perpendicular to \\(y = 2x + 1\\) that passes through the point \\((0, 4)\\).",
+        "options":  [
+                        "\\(y = -\\frac{1}{2}x + 4\\)",
+                        "\\(y = -2x + 4\\)",
+                        "\\(y = \\frac{1}{2}x + 4\\)",
+                        "\\(y = 2x + 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The product of perpendicular gradients is \\(-1\\).",
+                         "\\(m_1 = 2 \\implies m_2 = -1/2\\).",
+                         "Using \\(y = mx + c\\) and the y-intercept \\((0, 4)\\): \\(y = -\\frac{1}{2}x + 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Determine the angle of inclination (to the nearest degree) of the line \\(y = x + 5\\).",
+        "options":  [
+                        "\\(45^\\circ\\)",
+                        "\\(60^\\circ\\)",
+                        "\\(30^\\circ\\)",
+                        "\\(90^\\circ\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Gradient \\(m = \\tan \\theta\\).",
+                         "Here \\(m = 1\\), so \\(\\tan \\theta = 1 \\implies \\theta = 45^\\circ\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the center and radius of the circle with equation \\((x-3)^2 + (y+4)^2 = 25\\).",
+        "options":  [
+                        "Center \\((3, -4)\\), Radius \\(5\\)",
+                        "Center \\((-3, 4)\\), Radius \\(5\\)",
+                        "Center \\((3, -4)\\), Radius \\(25\\)",
+                        "Center \\((3, 4)\\), Radius \\(5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The standard form is \\((x-a)^2 + (y-b)^2 = r^2\\).",
+                         "\\(a = 3, b = -4, r = 5\\).",
+                         "Center is \\((3, -4)\\) and radius is \\(5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the equation of the tangent to the circle \\(x^2 + y^2 = 25\\) at the point \\((3, 4)\\).",
+        "options":  [
+                        "\\(y = -\\frac{3}{4}x + \\frac{25}{4}\\)",
+                        "\\(y = \\frac{3}{4}x + \\frac{25}{4}\\)",
+                        "\\(y = -\\frac{4}{3}x + 8\\)",
+                        "\\(y = -x + 7\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Radius gradient from \\((0, 0)\\) to \\((3, 4)\\): \\(m_r = 4/3\\).",
+                         "Tangent is perpendicular: \\(m_t = -3/4\\).",
+                         "Equation: \\(y - 4 = -\\frac{3}{4}(x - 3)\\).",
+                         "\\(y = -\\frac{3}{4}x + \\frac{9}{4} + 4 = -\\frac{3}{4}x + \\frac{25}{4}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Determine the value of \\(k\\) if the points \\(A(1, 2)\\), \\(B(3, k)\\), and \\(C(5, 6)\\) are collinear.",
+        "options":  [
+                        "\\(4\\)",
+                        "\\(3\\)",
+                        "\\(5\\)",
+                        "\\(2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Gradient \\(AB = \\) Gradient \\(AC\\).",
+                         "Gradient \\(AC = \\frac{6 - 2}{5 - 1} = \\frac{4}{4} = 1\\).",
+                         "Gradient \\(AB = \\frac{k - 2}{3 - 1} = \\frac{k - 2}{2}\\).",
+                         "\\(\\frac{k - 2}{2} = 1 \\implies k - 2 = 2 \\implies k = 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Determine the equation of a circle with center \\((3, 4)\\) that passes through the origin.",
+        "options":  [
+                        "\\((x-3)^2 + (y-4)^2 = 25\\)",
+                        "\\(x^2 + y^2 = 25\\)",
+                        "\\((x-3)^2 + (y-4)^2 = 5\\)",
+                        "\\((x+3)^2 + (y+4)^2 = 25\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Radius is distance from \\((0, 0)\\) to \\((3, 4)\\).",
+                         "\\(r^2 = (3-0)^2 + (4-0)^2 = 9 + 16 = 25\\).",
+                         "Equation: \\((x-3)^2 + (y-4)^2 = 25\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the gradient of a line parallel to the x-axis.",
+        "options":  [
+                        "\\(0\\)",
+                        "Undefined",
+                        "\\(1\\)",
+                        "\\(-1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "A line parallel to the x-axis is horizontal. Its gradient is 0."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the equation of the locus of points equidistant from \\((0, 0)\\).",
+        "options":  [
+                        "\\(x^2 + y^2 = r^2\\)",
+                        "\\(y = x\\)",
+                        "\\(x + y = 0\\)",
+                        "\\(x = y^2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The locus of points equidistant from a fixed point is a circle."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "The points \\(A(x, 2)\\) and \\(B(4, 6)\\) have a distance of 5 units. Find the positive value of \\(x\\).",
+        "options":  [
+                        "\\(7\\)",
+                        "\\(1\\)",
+                        "\\(5\\)",
+                        "\\(4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\((x-4)^2 + (2-6)^2 = 5^2 \\implies (x-4)^2 + 16 = 25\\).",
+                         "\\((x-4)^2 = 9 \\implies x-4 = 3 \\ or \\ x-4 = -3\\).",
+                         "\\(x = 7\\) or \\(x = 1\\). Positive value is 7."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "What is the gradient of the line \\(3x - 2y = 6\\)?",
+        "options":  [
+                        "\\(3/2\\)",
+                        "\\(3\\)",
+                        "\\(-3/2\\)",
+                        "\\(2/3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Rewrite in \\(y = mx + c\\) form: \\(2y = 3x - 6 \\implies y = \\frac{3}{2}x - 3\\).",
+                         "Gradient is \\(3/2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the point of intersection of \\(y = 2x\\) and \\(y = -x + 6\\).",
+        "options":  [
+                        "\\((2, 4)\\)",
+                        "\\((3, 6)\\)",
+                        "\\((1, 2)\\)",
+                        "\\((4, 8)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(2x = -x + 6 \\implies 3x = 6 \\implies x = 2\\).",
+                         "\\(y = 2(2) = 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Equation of the y-axis is:",
+        "options":  [
+                        "\\(x = 0\\)",
+                        "\\(y = 0\\)",
+                        "\\(y = x\\)",
+                        "\\(x = 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Every point on the y-axis has an x-coordinate of 0."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the distance of \\((3, 4)\\) from the origin.",
+        "options":  [
+                        "\\(5\\)",
+                        "\\(7\\)",
+                        "\\(3.5\\)",
+                        "\\(4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\sqrt{3^2 + 4^2} = 5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "If the line \\(y = ax + 2\\) passes through the point \\((1, 4)\\), find \\(a\\).",
+        "options":  [
+                        "\\(2\\)",
+                        "\\(4\\)",
+                        "\\(1\\)",
+                        "\\(6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute the point: \\(4 = a(1) + 2 \\implies a = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "What is the equation of a circle with center \\((-2, 3)\\) and radius 4?",
+        "options":  [
+                        "\\((x+2)^2 + (y-3)^2 = 16\\)",
+                        "\\((x-2)^2 + (y+3)^2 = 16\\)",
+                        "\\((x+2)^2 + (y-3)^2 = 4\\)",
+                        "\\(x^2 + y^2 = 16\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Using \\((x-a)^2 + (y-b)^2 = r^2\\): \\((x - (-2))^2 + (y - 3)^2 = 4^2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "A line has a gradient of \\(-3\\). What is the gradient of a line perpendicular to it?",
+        "options":  [
+                        "\\(1/3\\)",
+                        "\\(3\\)",
+                        "\\(-3\\)",
+                        "\\(-1/3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The product of perpendicular gradients is -1: \\(-3 \\cdot m = -1 \\implies m = 1/3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the distance of the point \\((3, 7)\\) from the line \\(y = 5\\).",
+        "options":  [
+                        "\\(2\\)",
+                        "\\(3\\)",
+                        "\\(7\\)",
+                        "\\(5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The vertical distance is essentially the difference in y-coordinates: \\(|7 - 5| = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Determine the midpoint of the line segment joining \\((0, 0)\\) and \\((4, 6)\\).",
+        "options":  [
+                        "\\((2, 3)\\)",
+                        "\\((4, 3)\\)",
+                        "\\((2, 6)\\)",
+                        "\\((3, 2)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(M = (\\frac{0+4}{2}, \\frac{0+6}{2}) = (2, 3)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the equation of the locus of points equidistant from \\((1, 1)\\) and \\((3, 3)\\).",
+        "options":  [
+                        "\\(y = -x + 4\\)",
+                        "\\(y = x\\)",
+                        "\\(y = x + 2\\)",
+                        "\\(x^2 + y^2 = 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The locus is the perpendicular bisector.",
+                         "Midpoint: \\((2, 2)\\). Gradient of segment: \\(\\frac{3-1}{3-1} = 1\\).",
+                         "Perpendicular gradient: \\(-1\\).",
+                         "Equation: \\(y - 2 = -1(x - 2) \\implies y = -x + 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Determine the radius of the circle \\(x^2 + y^2 - 4x + 6y - 3 = 0\\).",
+        "options":  [
+                        "\\(4\\)",
+                        "\\(16\\)",
+                        "\\(3\\)",
+                        "\\(\\sqrt{13}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Complete the square: \\((x^2 - 4x + 4) + (y^2 + 6y + 9) = 3 + 4 + 9\\).",
+                         "\\((x-2)^2 + (y+3)^2 = 16\\). Radius \\(r = \\sqrt{16} = 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Find the center of the circle \\(x^2 + y^2 - 4x + 6y - 3 = 0\\).",
+        "options":  [
+                        "\\((2, -3)\\)",
+                        "\\((-2, 3)\\)",
+                        "\\((4, -6)\\)",
+                        "\\((0, 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "From the completed square form \\((x-2)^2 + (y+3)^2 = 16\\), the center is \\((2, -3)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "A triangle has vertices \\(A(0, 0), B(4, 0)\\) and \\(C(0, 3)\\). Prove it is right-angled.",
+        "options":  [
+                        "Gradients of AB and AC product is not relevant as they are axes",
+                        "AC is vertical and AB is horizontal",
+                        "The triangle is isosceles",
+                        "AC = AB"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "AC lies on the y-axis (horizontal x=0). AB lies on the x-axis (vertical y=0).",
+                         "Since axes are perpendicular, the triangle is right-angled at the origin."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "analytical_geometry",
+        "q":  "Identify the shape formed by the points \\((0, 0), (4, 0), (4, 4), (0, 4)\\).",
+        "options":  [
+                        "Square",
+                        "Rhombus (not square)",
+                        "Rectangle (not square)",
+                        "Parallelogram"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "All sides are 4 units long. Adjacent sides are perpendicular (axes). Hence, it is a square."
+                     ],
+        "difficulty":  "manageable"
+    }
+]

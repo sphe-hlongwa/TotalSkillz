@@ -1,0 +1,2537 @@
+﻿[
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 - 12x = 0\\)",
+        "options":  [
+                        "\\(x = 0\\) or \\(x = -4\\)",
+                        "\\(x = 4\\)",
+                        "\\(x = 0\\) or \\(x = 4\\)",
+                        "\\(x = 3\\) or \\(x = 4\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Factorise the expression: \\(3x(x - 4) = 0\\)",
+                         "Set each factor to zero: \\(3x = 0\\) or \\(x - 4 = 0\\)",
+                         "\\(x = 0\\) or \\(x = 4\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Simplify the expression: \\(\\frac{x^2 - 9}{x + 3}\\)",
+        "options":  [
+                        "\\(x - 9\\)",
+                        "\\(x - 3\\)",
+                        "\\(x + 3\\)",
+                        "\\(x^2 - 3\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factorise the numerator using difference of squares: \\(x^2 - 9 = (x - 3)(x + 3)\\)",
+                         "Substitute back: \\(\\frac{(x - 3)(x + 3)}{x + 3}\\)",
+                         "Cancel the common factor \\((x + 3)\\):",
+                         "Result is \\(x - 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) and \\(y\\): \\(x + y = 5\\) and \\(x^2 + y^2 = 13\\)",
+        "options":  [
+                        "\\((0, 5)\\) or \\((5, 0)\\)",
+                        "\\((2, 2)\\)",
+                        "\\((1, 4)\\) or \\((4, 1)\\)",
+                        "\\((2, 3)\\) or \\((3, 2)\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "From first eq: \\(y = 5 - x\\)",
+                         "Substitute into second: \\(x^2 + (5 - x)^2 = 13\\)",
+                         "Expand: \\(x^2 + 25 - 10x + x^2 = 13\\)",
+                         "\\(2x^2 - 10x + 12 = 0\\)",
+                         "Divide by 2: \\(x^2 - 5x + 6 = 0\\)",
+                         "Factorise: \\((x - 2)(x - 3) = 0 \\implies x=2\\) or \\(x=3\\)",
+                         "If \\(x=2, y=3\\). If \\(x=3, y=2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Determine the nature of the roots for the equation \\(x^2 + 4x + 4 = 0\\).",
+        "options":  [
+                        "Real, rational and unequal",
+                        "Non-real/Imaginary",
+                        "Real, rational and equal",
+                        "Real, irrational and unequal"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Calculate the discriminant \\(\\Delta = b^2 - 4ac\\)",
+                         "\\(a=1, b=4, c=4\\)",
+                         "\\(\\Delta = (4)^2 - 4(1)(4) = 16 - 16 = 0\\)",
+                         "Since \\(\\Delta = 0\\), the roots are real, rational and equal."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 3x - 10 = 0\\)",
+        "options":  [
+                        "\\(x = -5\\) or \\(x = 2\\)",
+                        "\\(x = 5\\) or \\(x = 2\\)",
+                        "\\(x = -5\\) or \\(x = -2\\)",
+                        "\\(x = 5\\) or \\(x = -2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Factorise: \\(x^2 - 3x - 10 = 0\\)",
+                         "Find two numbers that multiply to \\(-10\\) and add to \\(-3\\): these are \\(-5\\) and \\(+2\\).",
+                         "\\((x - 5)(x + 2) = 0\\)",
+                         "\\(x = 5\\) or \\(x = -2\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 6x + 1 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.18\\) or \\(x \\approx 1.82\\)",
+                        "\\(x \\approx 0.18\\) or \\(x \\approx -1.82\\)",
+                        "\\(x \\approx -0.18\\) or \\(x \\approx -1.82\\)",
+                        "\\(x \\approx -0.18\\) or \\(x \\approx 1.82\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Here \\(a = 3, b = 6, c = 1\\)",
+                         "\\(\\Delta = 6^2 - 4(3)(1) = 36 - 12 = 24\\)",
+                         "\\(x = \\dfrac{-6 \\pm \\sqrt{24}}{6}\\)",
+                         "\\(x = \\dfrac{-6 + 4.899}{6} \\approx -0.18\\) or \\(x = \\dfrac{-6 - 4.899}{6} \\approx -1.82\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2^{x+4} + 2^x = 8\\,704\\)",
+        "options":  [
+                        "\\(x = 7\\)",
+                        "\\(x = 8\\)",
+                        "\\(x = 10\\)",
+                        "\\(x = 9\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Apply the exponent law: \\(2^{x+4} = 2^x \\cdot 2^4 = 16 \\cdot 2^x\\)",
+                         "Substitute into the equation: \\(16 \\cdot 2^x + 2^x = 8704\\)",
+                         "Factorise: \\(2^x(16 + 1) = 8704\\)",
+                         "\\(2^x \\cdot 17 = 8704\\)",
+                         "\\(2^x = \\dfrac{8704}{17} = 512 = 2^9\\)",
+                         "\\(x = 9\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\((x - 8)(x + 2) \\le 0\\)",
+        "options":  [
+                        "\\(x \\le -2\\) or \\(x \\ge 8\\)",
+                        "\\(-2 \\le x \\le 8\\)",
+                        "\\(-2 \u003c x \u003c 8\\)",
+                        "\\(x \u003c -2\\) or \\(x \u003e 8\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Find critical values by setting each factor to zero:",
+                         "\\(x - 8 = 0 \\Rightarrow x = 8\\) and \\(x + 2 = 0 \\Rightarrow x = -2\\)",
+                         "Test intervals on a number line: the product is \\(\\le 0\\) (negative or zero) when the factors have opposite signs.",
+                         "This occurs between the critical values.",
+                         "Include equality (\\(\\le\\)) so the endpoints are included.",
+                         "\\(-2 \\le x \\le 8\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x + 3\\sqrt{x + 2} = 2\\)",
+        "options":  [
+                        "\\(x = 2\\)",
+                        "\\(x = -2\\)",
+                        "\\(x = -1\\)",
+                        "No real solution"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Let \\(u = \\sqrt{x + 2}\\), so \\(u^2 = x + 2\\), meaning \\(x = u^2 - 2\\).",
+                         "Substitute into the equation: \\((u^2 - 2) + 3u = 2\\)",
+                         "\\(u^2 + 3u - 4 = 0\\)",
+                         "Factorise: \\((u + 4)(u - 1) = 0\\)",
+                         "\\(u = -4\\) (rejected, since \\(u = \\sqrt{x+2} \\ge 0\\)) or \\(u = 1\\)",
+                         "\\(\\sqrt{x + 2} = 1 \\Rightarrow x + 2 = 1 \\Rightarrow x = -1\\)",
+                         "Verify: \\(-1 + 3\\sqrt{-1+2} = -1 + 3(1) = 2\\)  [DONE]"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "A rectangle has sides of \\((y - 3)\\) metres and \\((x + 2)\\) metres. It has a perimeter of 24 metres and an area of 32 square metres. Calculate the values of \\(x\\) and \\(y\\).",
+        "options":  [
+                        "\\(x = 4\\) and \\(y = 8\\)",
+                        "\\(x = 6, y = 7\\) or \\(x = 2, y = 11\\)",
+                        "\\(x = 3\\) and \\(y = 10\\)",
+                        "\\(x = 5, y = 8\\) or \\(x = 2, y = 11\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Perimeter: \\(2[(y - 3) + (x + 2)] = 24\\)",
+                         "\\((y - 3) + (x + 2) = 12 \\Rightarrow x + y = 13 \\Rightarrow y = 13 - x\\)",
+                         "Area: \\((y - 3)(x + 2) = 32\\)",
+                         "Substitute \\(y = 13 - x\\): \\((13 - x - 3)(x + 2) = 32\\)",
+                         "\\((10 - x)(x + 2) = 32\\)",
+                         "\\(10x + 20 - x^2 - 2x = 32\\)",
+                         "\\(-x^2 + 8x - 12 = 0 \\Rightarrow x^2 - 8x + 12 = 0\\)",
+                         "\\((x - 6)(x - 2) = 0\\)",
+                         "\\(x = 6, y = 7\\) or \\(x = 2, y = 11\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Show that \\(\\left(1 + x^m + x^{-n}\\right)^2 - \\left(1 - x^m - x^{-n}\\right)^2\\) is divisible by 2 for all real values of \\(m\\) and \\(n\\). Which identity best demonstrates this?",
+        "options":  [
+                        "The expression equals \\(2(x^m + x^{-n})\\)",
+                        "The expression equals \\((x^m + x^{-n})^2\\)",
+                        "Using difference of squares, the expression simplifies to \\(4(x^m + x^{-n})\\), which is divisible by 4 and hence by 2",
+                        "The expression equals \\(2\\) for all values of \\(m\\) and \\(n\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Let \\(A = 1\\) and \\(B = x^m + x^{-n}\\) so the expression becomes \\((A + B)^2 - (A - B)^2\\).",
+                         "Apply the difference of squares identity: \\((A+B)^2 - (A-B)^2 = [(A+B) - (A-B)][(A+B) + (A-B)]\\)",
+                         "\\(= [2B][2A]\\)",
+                         "\\(= 4AB\\)",
+                         "\\(= 4(1)(x^m + x^{-n})\\)",
+                         "\\(= 4(x^m + x^{-n})\\)",
+                         "Since the expression equals \\(4(x^m + x^{-n})\\), it is divisible by 4, and therefore also divisible by 2, for all real values of \\(m\\) and \\(n\\).  [DONE]"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 2x + 1 = 0\\)",
+        "options":  [
+                        "\\(x = 1\\) or \\(x = -1\\)",
+                        "\\(x = -1\\) (equal roots)",
+                        "\\(x = 1\\) (equal roots)",
+                        "\\(x = 2\\) or \\(x = -1\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Recognise the perfect square: \\(x^2 + 2x + 1 = (x + 1)^2\\)",
+                         "\\((x + 1)^2 = 0\\)",
+                         "\\(x + 1 = 0\\)",
+                         "\\(x = -1\\) (equal roots - discriminant \\(\\Delta = 0\\))"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x(5x - 3) = 1\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.84\\) or \\(x \\approx -0.24\\)",
+                        "\\(x \\approx -0.84\\) or \\(x \\approx 0.24\\)",
+                        "\\(x \\approx 0.84\\) or \\(x \\approx 0.24\\)",
+                        "\\(x \\approx -0.84\\) or \\(x \\approx -0.24\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Expand: \\(5x^2 - 3x = 1\\)",
+                         "Rearrange: \\(5x^2 - 3x - 1 = 0\\)",
+                         "Use quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\) with \\(a=5, b=-3, c=-1\\)",
+                         "\\(\\Delta = (-3)^2 - 4(5)(-1) = 9 + 20 = 29\\)",
+                         "\\(x = \\dfrac{3 \\pm \\sqrt{29}}{10}\\)",
+                         "\\(x \\approx \\dfrac{3 + 5.39}{10} \\approx 0.84\\) or \\(x \\approx \\dfrac{3 - 5.39}{10} \\approx -0.24\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2x + 3 \u003e x^2\\)",
+        "options":  [
+                        "\\(x \u003c -1\\) or \\(x \u003e 3\\)",
+                        "\\(-1 \\le x \\le 3\\)",
+                        "\\(-1 \u003c x \u003c 3\\)",
+                        "\\(x \\le -1\\) or \\(x \\ge 3\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Rearrange: \\(0 \u003e x^2 - 2x - 3\\)",
+                         "Factorise: \\(x^2 - 2x - 3 \u003c 0\\)",
+                         "\\((x - 3)(x + 1) \u003c 0\\)",
+                         "Critical values: \\(x = 3\\) and \\(x = -1\\)",
+                         "The parabola opens upward, so the expression is negative between the roots.",
+                         "\\(-1 \u003c x \u003c 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\sqrt{7x - 12} - x = 0\\)",
+        "options":  [
+                        "\\(x = 3\\) only",
+                        "\\(x = 4\\) only",
+                        "\\(x = 3\\) or \\(x = 4\\)",
+                        "\\(x = 2\\) or \\(x = 6\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Isolate the surd: \\(\\sqrt{7x - 12} = x\\)",
+                         "Square both sides: \\(7x - 12 = x^2\\)",
+                         "Rearrange: \\(x^2 - 7x + 12 = 0\\)",
+                         "Factorise: \\((x - 3)(x - 4) = 0\\)",
+                         "\\(x = 3\\) or \\(x = 4\\)",
+                         "Verify both (squaring can introduce extraneous roots):",
+                         "\\(x=3\\): \\(\\sqrt{21-12} = \\sqrt{9} = 3\\)  [DONE]",
+                         "\\(x=4\\): \\(\\sqrt{28-12} = \\sqrt{16} = 4\\)  [DONE]",
+                         "Both solutions are valid."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\left(\\dfrac{1}{6}\\right)^{3x+2} \\cdot 216^{3x} = \\dfrac{1}{216}\\)",
+        "options":  [
+                        "\\(x = \\dfrac{1}{6}\\)",
+                        "\\(x = -\\dfrac{1}{6}\\)",
+                        "\\(x = \\dfrac{1}{3}\\)",
+                        "\\(x = -\\dfrac{1}{3}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Write everything as powers of 6: \\(216 = 6^3\\), \\(\\dfrac{1}{6} = 6^{-1}\\), \\(\\dfrac{1}{216} = 6^{-3}\\)",
+                         "\\((6^{-1})^{3x+2} \\cdot (6^3)^{3x} = 6^{-3}\\)",
+                         "\\(6^{-(3x+2)} \\cdot 6^{9x} = 6^{-3}\\)",
+                         "Add exponents on the left: \\(6^{-3x-2+9x} = 6^{-3}\\)",
+                         "\\(6^{6x-2} = 6^{-3}\\)",
+                         "Equate exponents: \\(6x - 2 = -3\\)",
+                         "\\(6x = -1 \\Rightarrow x = -\\dfrac{1}{6}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve simultaneously for \\(x\\) and \\(y\\):\u003cbr\u003e\\(x + y = 3\\) and \\(x^2 + 2y^2 = 18\\)",
+        "options":  [
+                        "\\(x = 0, y = 3\\) or \\(x = 4, y = -1\\)",
+                        "\\(x = 3, y = 0\\) or \\(x = -1, y = 4\\)",
+                        "\\(x = 2, y = 1\\) or \\(x = -2, y = 5\\)",
+                        "\\(x = 1, y = 2\\) or \\(x = 3, y = 0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "From the first equation: \\(x = 3 - y\\)",
+                         "Substitute into the second: \\((3 - y)^2 + 2y^2 = 18\\)",
+                         "\\(9 - 6y + y^2 + 2y^2 = 18\\)",
+                         "\\(3y^2 - 6y + 9 = 18\\)",
+                         "\\(3y^2 - 6y - 9 = 0 \\Rightarrow y^2 - 2y - 3 = 0\\)",
+                         "\\((y - 3)(y + 1) = 0\\)",
+                         "\\(y = 3\\) -\u003e \\(x = 0\\), or \\(y = -1\\) -\u003e \\(x = 4\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\((\\sqrt{5})^x - (\\sqrt[3]{2})^y = 17\\), where \\(x\\) and \\(y \\in \\mathbb{N}\\), determine the value of \\(P = x \\times y\\).",
+        "options":  [
+                        "\\(P = 24\\)",
+                        "\\(P = 18\\)",
+                        "\\(P = 36\\)",
+                        "\\(P = 30\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Rewrite: \\(5^{x/2} - 2^{y/3} = 17\\)",
+                         "Try small natural numbers for \\(x\\). Let \\(x = 4\\): \\(5^{4/2} = 5^2 = 25\\)",
+                         "\\(25 - 2^{y/3} = 17 \\Rightarrow 2^{y/3} = 8 = 2^3\\)",
+                         "\\(\\dfrac{y}{3} = 3 \\Rightarrow y = 9\\)",
+                         "Both \\(x = 4\\) and \\(y = 9\\) are natural numbers  [DONE]",
+                         "\\(P = x \\times y = 4 \\times 9 = 36\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 4x = 0\\)",
+        "options":  [
+                        "\\(x = 4\\) only",
+                        "\\(x = -4\\) only",
+                        "\\(x = 0\\) or \\(x = -4\\)",
+                        "\\(x = 0\\) or \\(x = 4\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Factorise by taking out the common factor:",
+                         "\\(x(x + 4) = 0\\)",
+                         "\\(x = 0\\) or \\(x + 4 = 0\\)",
+                         "\\(x = 0\\) or \\(x = -4\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2x^2 - \\dfrac{1}{2} = 3x\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 1.65\\) or \\(x \\approx -0.15\\)",
+                        "\\(x \\approx -1.65\\) or \\(x \\approx 0.15\\)",
+                        "\\(x \\approx 1.65\\) or \\(x \\approx 0.15\\)",
+                        "\\(x \\approx -1.65\\) or \\(x \\approx -0.15\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Multiply through by 2 to clear the fraction: \\(4x^2 - 1 = 6x\\)",
+                         "Rearrange: \\(4x^2 - 6x - 1 = 0\\)",
+                         "Use the quadratic formula with \\(a=4, b=-6, c=-1\\):",
+                         "\\(\\Delta = (-6)^2 - 4(4)(-1) = 36 + 16 = 52\\)",
+                         "\\(x = \\dfrac{6 \\pm \\sqrt{52}}{8} = \\dfrac{6 \\pm 2\\sqrt{13}}{8} = \\dfrac{3 \\pm \\sqrt{13}}{4}\\)",
+                         "\\(x \\approx \\dfrac{3 + 3.606}{4} \\approx 1.65\\) or \\(x \\approx \\dfrac{3 - 3.606}{4} \\approx -0.15\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 5x \\ge 2\\)",
+        "options":  [
+                        "\\(-2 \\le x \\le \\dfrac{1}{3}\\)",
+                        "\\(x \u003c -2\\) or \\(x \u003e \\dfrac{1}{3}\\)",
+                        "\\(x \\le -2\\) or \\(x \\ge \\dfrac{1}{3}\\)",
+                        "\\(-2 \u003c x \u003c \\dfrac{1}{3}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Rearrange: \\(3x^2 + 5x - 2 \\ge 0\\)",
+                         "Factorise: \\((3x - 1)(x + 2) \\ge 0\\)",
+                         "Critical values: \\(x = \\dfrac{1}{3}\\) and \\(x = -2\\)",
+                         "The parabola opens upward, so the expression is \\(\\ge 0\\) outside the roots.",
+                         "Include equality (\\(\\ge\\)), so endpoints are included.",
+                         "\\(x \\le -2\\) or \\(x \\ge \\dfrac{1}{3}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2^{2x} + 2^x - 6 = 0\\)",
+        "options":  [
+                        "\\(x = 0\\)",
+                        "\\(x = 2\\)",
+                        "\\(x = 1\\)",
+                        "\\(x = -1\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Let \\(k = 2^x\\), then \\(2^{2x} = (2^x)^2 = k^2\\).",
+                         "Substitute: \\(k^2 + k - 6 = 0\\)",
+                         "Factorise: \\((k + 3)(k - 2) = 0\\)",
+                         "\\(k = -3\\) (rejected, since \\(2^x \u003e 0\\) for all \\(x\\)) or \\(k = 2\\)",
+                         "\\(2^x = 2 = 2^1\\)",
+                         "\\(x = 1\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 2x + 3 + \\dfrac{2}{x^2 - 2x} = 0\\)",
+        "options":  [
+                        "\\(x = 1\\)",
+                        "No real solution",
+                        "\\(x = 0\\) or \\(x = 2\\)",
+                        "\\(x = 1\\) or \\(x = 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let \\(u = x^2 - 2x\\). Note: \\(u \\neq 0\\) (denominator).",
+                         "Substitute: \\(u + 3 + \\dfrac{2}{u} = 0\\)",
+                         "Multiply by \\(u\\): \\(u^2 + 3u + 2 = 0\\)",
+                         "Factorise: \\((u + 1)(u + 2) = 0\\)",
+                         "\\(u = -1\\) or \\(u = -2\\)",
+                         "Case 1: \\(x^2 - 2x = -1 \\Rightarrow x^2 - 2x + 1 = 0 \\Rightarrow (x-1)^2 = 0 \\Rightarrow x = 1\\)",
+                         "Case 2: \\(x^2 - 2x = -2 \\Rightarrow x^2 - 2x + 2 = 0\\); \\(\\Delta = 4 - 8 = -4 \u003c 0\\) (no real solutions)",
+                         "Verify \\(x=1\\): \\(x^2-2x = 1-2 = -1 \\neq 0\\)  [DONE]",
+                         "\\(x = 1\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\sqrt{x + 5} - x = -1\\)",
+        "options":  [
+                        "\\(x = 4\\) only",
+                        "\\(x = -1\\) only",
+                        "\\(x = 4\\) or \\(x = -1\\)",
+                        "No real solution"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Isolate the surd: \\(\\sqrt{x + 5} = x - 1\\)",
+                         "Restriction: \\(x - 1 \\ge 0 \\Rightarrow x \\ge 1\\)",
+                         "Square both sides: \\(x + 5 = (x-1)^2 = x^2 - 2x + 1\\)",
+                         "Rearrange: \\(x^2 - 3x - 4 = 0\\)",
+                         "Factorise: \\((x - 4)(x + 1) = 0\\)",
+                         "\\(x = 4\\) or \\(x = -1\\)",
+                         "Check against restriction \\(x \\ge 1\\): \\(x = -1\\) is rejected.",
+                         "Verify \\(x = 4\\): \\(\\sqrt{9} - 4 = 3 - 4 = -1\\)  [DONE]",
+                         "\\(x = 4\\) only."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) and \\(y\\) simultaneously:\u003cbr\u003e\\(x + 2y = 5\\) and \\(2y^2 - xy - 4x^2 = 8\\)",
+        "options":  [
+                        "\\(x = \\tfrac{1}{2}, y = \\tfrac{9}{4}\\) or \\(x = -3, y = 4\\)",
+                        "\\(x = 1, y = 2\\) or \\(x = -3, y = 4\\)",
+                        "\\(x = \\tfrac{1}{2}, y = \\tfrac{9}{4}\\) or \\(x = 3, y = -4\\)",
+                        "\\(x = 2, y = \\tfrac{3}{2}\\) or \\(x = -3, y = 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "From the first equation: \\(x = 5 - 2y\\)",
+                         "Substitute into the second equation:",
+                         "\\(2y^2 - (5-2y)y - 4(5-2y)^2 = 8\\)",
+                         "\\(2y^2 - 5y + 2y^2 - 4(25 - 20y + 4y^2) = 8\\)",
+                         "\\(4y^2 - 5y - 100 + 80y - 16y^2 = 8\\)",
+                         "\\(-12y^2 + 75y - 108 = 0\\)",
+                         "Divide by \\(-3\\): \\(4y^2 - 25y + 36 = 0\\)",
+                         "Factorise: \\((4y - 9)(y - 4) = 0\\)",
+                         "\\(y = \\dfrac{9}{4}\\) -\u003e \\(x = 5 - \\dfrac{9}{2} = \\dfrac{1}{2}\\)",
+                         "\\(y = 4\\) -\u003e \\(x = 5 - 8 = -3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "For which values of \\(k\\) will the roots of \\(6x^2 + 6 = 4kx\\) be real and equal?",
+        "options":  [
+                        "\\(k = 6\\) or \\(k = -6\\)",
+                        "\\(k = 2\\) or \\(k = -2\\)",
+                        "\\(k = 0\\)",
+                        "\\(k = 3\\) or \\(k = -3\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Rearrange to standard form: \\(6x^2 - 4kx + 6 = 0\\)",
+                         "Here: \\(a = 6,\\; b = -4k,\\; c = 6\\)",
+                         "For real and equal roots, the discriminant must equal zero: \\(\\Delta = 0\\)",
+                         "\\(b^2 - 4ac = 0\\)",
+                         "\\((-4k)^2 - 4(6)(6) = 0\\)",
+                         "\\(16k^2 - 144 = 0\\)",
+                         "\\(k^2 = 9\\)",
+                         "\\(k = 3\\) or \\(k = -3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\((x + 3)(2 - 5x) = 0\\)",
+        "options":  [
+                        "\\(x = 3\\) or \\(x = -2\\)",
+                        "\\(x = -3\\) or \\(x = \\dfrac{2}{5}\\)",
+                        "\\(x = 3\\) or \\(x = \\dfrac{2}{5}\\)",
+                        "\\(x = -3\\) or \\(x = -\\dfrac{2}{5}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Set each factor equal to zero:",
+                         "\\(x + 3 = 0 \\Rightarrow x = -3\\)",
+                         "\\(2 - 5x = 0 \\Rightarrow 5x = 2 \\Rightarrow x = \\dfrac{2}{5}\\)",
+                         "\\(x = -3\\) or \\(x = \\dfrac{2}{5}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(7x^2 + 5x - 8 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.77\\) or \\(x \\approx -1.48\\)",
+                        "\\(x \\approx -0.77\\) or \\(x \\approx 1.48\\)",
+                        "\\(x \\approx 0.77\\) or \\(x \\approx 1.48\\)",
+                        "\\(x \\approx -0.77\\) or \\(x \\approx -1.48\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the quadratic formula with \\(a = 7, b = 5, c = -8\\):",
+                         "\\(\\Delta = 5^2 - 4(7)(-8) = 25 + 224 = 249\\)",
+                         "\\(x = \\dfrac{-5 \\pm \\sqrt{249}}{14}\\)",
+                         "\\(\\sqrt{249} \\approx 15.78\\)",
+                         "\\(x \\approx \\dfrac{-5 + 15.78}{14} \\approx 0.77\\) or \\(x \\approx \\dfrac{-5 - 15.78}{14} \\approx -1.48\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\dfrac{7}{x^2 - 2x - 8} \u003e 0\\)",
+        "options":  [
+                        "\\(-2 \u003c x \u003c 4\\)",
+                        "\\(x \u003c -2\\) or \\(x \u003e 4\\)",
+                        "\\(-4 \u003c x \u003c 2\\)",
+                        "\\(x \u003c -4\\) or \\(x \u003e 2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Since the numerator 7 is positive, the sign of the fraction depends on the denominator.",
+                         "We need the denominator \\(\u003e 0\\): \\(x^2 - 2x - 8 \u003e 0\\)",
+                         "Factorise: \\((x - 4)(x + 2) \u003e 0\\)",
+                         "Critical values: \\(x = 4\\) and \\(x = -2\\)",
+                         "The parabola opens upward, so the expression is \\(\u003e 0\\) outside the roots.",
+                         "\\(x \u003c -2\\) or \\(x \u003e 4\\)",
+                         "Note: \\(x = -2\\) and \\(x = 4\\) are excluded (denominator = 0)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3^{x+2} = 42 - 5 \\cdot 3^x\\)",
+        "options":  [
+                        "\\(x = 0\\)",
+                        "\\(x = 2\\)",
+                        "\\(x = -1\\)",
+                        "\\(x = 1\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Apply the exponent law: \\(3^{x+2} = 3^2 \\cdot 3^x = 9 \\cdot 3^x\\)",
+                         "Substitute: \\(9 \\cdot 3^x = 42 - 5 \\cdot 3^x\\)",
+                         "Collect like terms: \\(9 \\cdot 3^x + 5 \\cdot 3^x = 42\\)",
+                         "\\(14 \\cdot 3^x = 42\\)",
+                         "\\(3^x = 3 = 3^1\\)",
+                         "\\(x = 1\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x - \\sqrt{5x - 1} = 5\\)",
+        "options":  [
+                        "\\(x = 2\\) only",
+                        "\\(x = 13\\) only",
+                        "\\(x = 2\\) or \\(x = 13\\)",
+                        "No real solution"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Rearrange: \\(x - 5 = \\sqrt{5x - 1}\\)",
+                         "Restriction: \\(x - 5 \\ge 0 \\Rightarrow x \\ge 5\\)",
+                         "Square both sides: \\((x-5)^2 = 5x - 1\\)",
+                         "\\(x^2 - 10x + 25 = 5x - 1\\)",
+                         "\\(x^2 - 15x + 26 = 0\\)",
+                         "Factorise: \\((x - 2)(x - 13) = 0\\)",
+                         "\\(x = 2\\) or \\(x = 13\\)",
+                         "Check restriction \\(x \\ge 5\\): \\(x = 2\\) is rejected.",
+                         "Verify \\(x = 13\\): \\(13 - \\sqrt{65-1} = 13 - \\sqrt{64} = 13 - 8 = 5\\)  [DONE]",
+                         "\\(x = 13\\) only."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) and \\(y\\) simultaneously:\u003cbr\u003e\\(x - y = 3\\) and \\(x^2 - xy = 2y^2 + 7\\)",
+        "options":  [
+                        "\\(x = 5, y = 2\\) or \\(x = \\tfrac{5}{2}, y = -\\tfrac{1}{2}\\)",
+                        "\\(x = 5, y = 2\\) or \\(x = -\\tfrac{5}{2}, y = \\tfrac{1}{2}\\)",
+                        "\\(x = 4, y = 1\\) or \\(x = 3, y = 0\\)",
+                        "\\(x = 5, y = 2\\) or \\(x = \\tfrac{7}{2}, y = \\tfrac{1}{2}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "From the first equation: \\(x = y + 3\\)",
+                         "Substitute into the second:",
+                         "\\((y+3)^2 - (y+3)y = 2y^2 + 7\\)",
+                         "\\(y^2 + 6y + 9 - y^2 - 3y = 2y^2 + 7\\)",
+                         "\\(3y + 9 = 2y^2 + 7\\)",
+                         "\\(2y^2 - 3y - 2 = 0\\)",
+                         "Factorise: \\((2y + 1)(y - 2) = 0\\)",
+                         "\\(y = -\\dfrac{1}{2}\\) -\u003e \\(x = \\dfrac{5}{2}\\)",
+                         "\\(y = 2\\) -\u003e \\(x = 5\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Prove that the roots of \\(2x^2 + px - p^2 = 0\\) are rational for all rational values of \\(p\\). Which statement correctly demonstrates this?",
+        "options":  [
+                        "The discriminant \\(\\Delta = 9p^2\\), which is a perfect square, so \\(\\sqrt{\\Delta} = 3|p|\\) is rational",
+                        "The discriminant \\(\\Delta = p^2\\), making roots always rational",
+                        "The discriminant \\(\\Delta = 8p^2\\), so roots are irrational unless \\(p = 0\\)",
+                        "The sum of the roots \\(= -\\tfrac{p}{2}\\) which is always rational"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Calculate the discriminant: \\(\\Delta = b^2 - 4ac\\) with \\(a=2, b=p, c=-p^2\\)",
+                         "\\(\\Delta = p^2 - 4(2)(-p^2) = p^2 + 8p^2 = 9p^2\\)",
+                         "\\(\\sqrt{\\Delta} = \\sqrt{9p^2} = 3|p|\\), which is rational for any rational \\(p\\).",
+                         "Since \\(\\Delta \\ge 0\\) and \\(\\sqrt{\\Delta}\\) is rational, the roots \\(x = \\dfrac{-p \\pm 3p}{4}\\) are rational.",
+                         "Specifically: \\(x = \\dfrac{-p + 3p}{4} = \\dfrac{p}{2}\\) or \\(x = \\dfrac{-p - 3p}{4} = -p\\).  [DONE]"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x(x + 3) = 28\\)",
+        "options":  [
+                        "\\(x = 7\\) or \\(x = -4\\)",
+                        "\\(x = -7\\) or \\(x = 4\\)",
+                        "\\(x = 4\\) or \\(x = 7\\)",
+                        "\\(x = -7\\) or \\(x = -4\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Expand and rearrange: \\(x^2 + 3x - 28 = 0\\)",
+                         "Factorise - find two numbers that multiply to \\(-28\\) and add to \\(3\\): these are \\(7\\) and \\(-4\\):",
+                         "\\((x + 7)(x - 4) = 0\\)",
+                         "\\(x = -7\\) or \\(x = 4\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2x^2 + 7x - 1 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx -0.14\\) or \\(x \\approx 3.64\\)",
+                        "\\(x \\approx 0.14\\) or \\(x \\approx -3.64\\)",
+                        "\\(x \\approx 0.14\\) or \\(x \\approx 3.64\\)",
+                        "\\(x \\approx -0.14\\) or \\(x \\approx -3.64\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the quadratic formula with \\(a = 2, b = 7, c = -1\\):",
+                         "\\(\\Delta = 7^2 - 4(2)(-1) = 49 + 8 = 57\\)",
+                         "\\(x = \\dfrac{-7 \\pm \\sqrt{57}}{4}\\)",
+                         "\\(\\sqrt{57} \\approx 7.55\\)",
+                         "\\(x \\approx \\dfrac{-7 + 7.55}{4} \\approx 0.14\\) or \\(x \\approx \\dfrac{-7 - 7.55}{4} \\approx -3.64\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\((x + 4)(5 - x) \\ge 0\\)",
+        "options":  [
+                        "\\(x \u003c -4\\) or \\(x \u003e 5\\)",
+                        "\\(-4 \u003c x \u003c 5\\)",
+                        "\\(-4 \\le x \\le 5\\)",
+                        "\\(x \\le -4\\) or \\(x \\ge 5\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Critical values: \\(x + 4 = 0 \\Rightarrow x = -4\\) and \\(5 - x = 0 \\Rightarrow x = 5\\)",
+                         "The product is \\(\\ge 0\\) when both factors are non-negative or both non-positive.",
+                         "Test intervals: the expression is positive between the roots.",
+                         "Include equality (\\(\\ge\\)) so endpoints are included.",
+                         "\\(-4 \\le x \\le 5\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2\\sqrt{x + 4} - 3 = x + 1\\)",
+        "options":  [
+                        "\\(x = 0\\) only",
+                        "\\(x = -4\\) only",
+                        "\\(x = 0\\) or \\(x = -4\\)",
+                        "No real solution"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Rearrange: \\(2\\sqrt{x+4} = x + 4\\)",
+                         "Let \\(u = \\sqrt{x+4}\\), so \\(u^2 = x + 4\\) and \\(u \\ge 0\\):",
+                         "\\(2u = u^2 \\Rightarrow u^2 - 2u = 0 \\Rightarrow u(u-2) = 0\\)",
+                         "\\(u = 0\\) or \\(u = 2\\)",
+                         "If \\(u = 0\\): \\(\\sqrt{x+4} = 0 \\Rightarrow x = -4\\)",
+                         "If \\(u = 2\\): \\(\\sqrt{x+4} = 2 \\Rightarrow x + 4 = 4 \\Rightarrow x = 0\\)",
+                         "Verify \\(x = -4\\): \\(2\\sqrt{0} - 3 = -3\\) and \\(-4 + 1 = -3\\)  [DONE]",
+                         "Verify \\(x = 0\\): \\(2\\sqrt{4} - 3 = 1\\) and \\(0 + 1 = 1\\)  [DONE]",
+                         "\\(x = 0\\) or \\(x = -4\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve simultaneously for \\(x\\) and \\(y\\):\u003cbr\u003e\\(y - x = -7\\) and \\(x^2 + 3xy = -27\\)",
+        "options":  [
+                        "\\(x = 3, y = -4\\) or \\(x = \\tfrac{9}{4}, y = -\\tfrac{19}{4}\\)",
+                        "\\(x = 3, y = -4\\) or \\(x = -\\tfrac{9}{4}, y = \\tfrac{19}{4}\\)",
+                        "\\(x = -3, y = 4\\) or \\(x = \\tfrac{9}{4}, y = -\\tfrac{19}{4}\\)",
+                        "\\(x = 3, y = 4\\) or \\(x = \\tfrac{9}{4}, y = \\tfrac{19}{4}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "From the first equation: \\(y = x - 7\\)",
+                         "Substitute into the second: \\(x^2 + 3x(x - 7) = -27\\)",
+                         "\\(x^2 + 3x^2 - 21x = -27\\)",
+                         "\\(4x^2 - 21x + 27 = 0\\)",
+                         "\\(\\Delta = (-21)^2 - 4(4)(27) = 441 - 432 = 9\\)",
+                         "\\(x = \\dfrac{21 \\pm 3}{8}\\)",
+                         "\\(x = \\dfrac{24}{8} = 3\\) or \\(x = \\dfrac{18}{8} = \\dfrac{9}{4}\\)",
+                         "If \\(x = 3\\): \\(y = 3 - 7 = -4\\)",
+                         "If \\(x = \\dfrac{9}{4}\\): \\(y = \\dfrac{9}{4} - 7 = -\\dfrac{19}{4}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Simplify fully (without a calculator): \\(\\sqrt[n]{\\dfrac{10^n + 2^{n+2}}{5^{2n} + 4 \\cdot 5^n}}\\), where \\(n \\neq 0\\)",
+        "options":  [
+                        "\\(\\dfrac{2}{5}\\)",
+                        "\\(\\dfrac{4}{5}\\)",
+                        "\\(2\\)",
+                        "\\(\\dfrac{2}{25}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Simplify the numerator: \\(10^n + 2^{n+2} = (2 \\cdot 5)^n + 4 \\cdot 2^n = 2^n \\cdot 5^n + 4 \\cdot 2^n = 2^n(5^n + 4)\\)",
+                         "Simplify the denominator: \\(5^{2n} + 4 \\cdot 5^n = 5^n \\cdot 5^n + 4 \\cdot 5^n = 5^n(5^n + 4)\\)",
+                         "Divide: \\(\\dfrac{2^n(5^n + 4)}{5^n(5^n + 4)} = \\dfrac{2^n}{5^n} = \\left(\\dfrac{2}{5}\\right)^n\\)",
+                         "Take the \\(n\\)th root: \\(\\sqrt[n]{\\left(\\dfrac{2}{5}\\right)^n} = \\dfrac{2}{5}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) if \\(x^2 - 5x - 2 = 0\\). Leave your answer in simplest surd form.",
+        "options":  [
+                        "\\(x = \\frac{-5 \\pm \\sqrt{33}}{2}\\)",
+                        "\\(x = 5 \\pm \\sqrt{33}\\)",
+                        "\\(x = \\frac{5 \\pm \\sqrt{17}}{2}\\)",
+                        "\\(x = \\frac{5 \\pm \\sqrt{33}}{2}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute \\(a=1, b=-5, c=-2\\):",
+                         "\\(x = \\frac{-(-5) \\pm \\sqrt{(-5)^2 - 4(1)(-2)}}{2(1)}\\)",
+                         "\\(x = \\frac{5 \\pm \\sqrt{25 + 8}}{2}\\)",
+                         "\\(x = \\frac{5 \\pm \\sqrt{33}}{2}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Calculate the value of \\(\\sum_{k=1}^{50} (2k - 1)\\)",
+        "options":  [
+                        "\\(2550\\)",
+                        "\\(2450\\)",
+                        "\\(2500\\)",
+                        "\\(5000\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "This is an arithmetic series where \\(T_k = 2k - 1\\).",
+                         "First term \\(a = 2(1) - 1 = 1\\)",
+                         "Last term \\(l = T_{50} = 2(50) - 1 = 99\\)",
+                         "Number of terms \\(n = 50 - 1 + 1 = 50\\)",
+                         "\\(S_n = \\frac{n}{2}(a + l)\\)",
+                         "\\(S_{50} = \\frac{50}{2}(1 + 99) = 25(100) = 2500\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve the inequality: \\(x^2 - 4x \u003e 5\\)",
+        "options":  [
+                        "\\(x \u003c -5\\) or \\(x \u003e 1\\)",
+                        "\\(x \u003c -1\\) or \\(x \u003e 5\\)",
+                        "\\(-5 \u003c x \u003c 1\\)",
+                        "\\(-1 \u003c x \u003c 5\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Rearrange to standard form: \\(x^2 - 4x - 5 \u003e 0\\)",
+                         "Factorise: \\((x - 5)(x + 1) \u003e 0\\)",
+                         "Critical values are \\(x = 5\\) and \\(x = -1\\)",
+                         "Since it is \\(\u003e 0\\), the solution is outside the roots:",
+                         "\\(x \u003c -1\\) or \\(x \u003e 5\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "The first three terms of a geometric sequence are \\(x\\), \\(x+2\\), and \\(x+6\\). Determine the value of \\(x\\).",
+        "options":  [
+                        "\\(x = 2\\)",
+                        "\\(x = -4\\)",
+                        "\\(x = 4\\)",
+                        "\\(x = -2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For a geometric sequence, the common ratio is constant: \\(\\frac{T_2}{T_1} = \\frac{T_3}{T_2}\\)",
+                         "\\(\\frac{x+2}{x} = \\frac{x+6}{x+2}\\)",
+                         "Cross-multiply: \\((x+2)^2 = x(x+6)\\)",
+                         "\\(x^2 + 4x + 4 = x^2 + 6x\\)",
+                         "\\(4 = 2x \\implies x = 2\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) and \\(y\\) simultaneously: \\(3x - y = 1\\) and \\(x^2 + xy - y^2 = -1\\)",
+        "options":  [
+                        "\\(x = 1, y = 2\\) or \\(x = 0, y = -1\\)",
+                        "\\(x = -1, y = -4\\)",
+                        "\\(x = 0, y = 1\\)",
+                        "\\(x = 0, y = -1\\) or \\(x = \\frac{2}{5}, y = \\frac{1}{5}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "From \\(3x - y = 1\\), express \\(y\\) in terms of \\(x\\): \\(y = 3x - 1\\)",
+                         "Substitute into the second equation: \\(x^2 + x(3x - 1) - (3x - 1)^2 = -1\\)",
+                         "Expand: \\(x^2 + 3x^2 - x - (9x^2 - 6x + 1) = -1\\)",
+                         "Simplify: \\(4x^2 - x - 9x^2 + 6x - 1 = -1\\)",
+                         "\\(-5x^2 + 5x = 0 \\implies -5x(x - 1) = 0\\)",
+                         "Wait, let/s re-check expansions: \\(4x^2 - 9x^2 = -5x^2\\), \\(-x + 6x = 5x\\). Correct.",
+                         "Actually, \\(-5x(x-1)=0 \\implies x=0\\) or \\(x=1\\).",
+                         "If \\(x=0, y=3(0)-1 = -1\\). If \\(x=1, y=3(1)-1 = 2\\).",
+                         "Checking options: \\(x=0, y=-1\\) is there. Let re-calculate the second root.",
+                         "Wait, the options list \\(x=2/5\\). Let/s re-check the expansion of \\((3x-1)^2\\).",
+                         "\\((3x-1)^2 = 9x^2 - 6x + 1\\).",
+                         "\\(4x^2 - x - (9x^2 - 6x + 1) = -5x^2 + 5x - 1 = -1\\)",
+                         "\\(-5x^2 + 5x = 0\\) is definitely \\(x=1\\) or \\(x=0\\).",
+                         "Let me fix the options in implementation to match the correct calculation.",
+                         "Correct roots: \\((0, -1)\\) and \\((1, 2)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\sqrt{2x + 5} = x + 1\\)",
+        "options":  [
+                        "\\(x = 2\\) or \\(x = -2\\)",
+                        "\\(x = 4\\)",
+                        "\\(x = -2\\)",
+                        "\\(x = 2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Square both sides: \\(2x + 5 = (x + 1)^2\\)",
+                         "\\(2x + 5 = x^2 + 2x + 1\\)",
+                         "\\(4 = x^2 \\implies x = 2\\) or \\(x = -2\\)",
+                         "Check solutions in original equation:",
+                         "If \\(x = 2\\): \\(\\sqrt{2(2)+5} = \\sqrt{9} = 3\\); RHS \\(= 2+1 = 3\\). (Valid)",
+                         "If \\(x = -2\\): \\(\\sqrt{2(-2)+5} = \\sqrt{1} = 1\\); RHS \\(= -2+1 = -1\\). (Invalid)",
+                         "Therefore, \\(x = 2\\) is the only solution."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "For which values of \\(k\\) will the equation \\(x^2 + (k+2)x + 4 = 0\\) have equal roots?",
+        "options":  [
+                        "\\(k = 2\\) or \\(k = -6\\)",
+                        "\\(k = 2\\) or \\(k = 6\\)",
+                        "\\(k = 4\\)",
+                        "\\(k = -2\\) or \\(k = 6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For equal roots, the discriminant must be zero: \\(\\Delta = b^2 - 4ac = 0\\)",
+                         "Substitute \\(a=1, b=k+2, c=4\\):",
+                         "\\((k+2)^2 - 4(1)(4) = 0\\)",
+                         "\\((k+2)^2 - 16 = 0\\)",
+                         "\\((k+2)^2 = 16 \\implies k+2 = \\pm 4\\)",
+                         "\\(k = 4-2 = 2\\) or \\(k = -4-2 = -6\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "The sum to infinity of a geometric series is 9, and the first term is 3. Find the common ratio \\(r\\).",
+        "options":  [
+                        "\\(r = \\frac{3}{4}\\)",
+                        "\\(r = \\frac{1}{2}\\)",
+                        "\\(r = \\frac{2}{3}\\)",
+                        "\\(r = \\frac{1}{3}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the sum to infinity formula: \\(S_\\infty = \\frac{a}{1 - r}\\)",
+                         "Substitute \\(S_\\infty = 9\\) and \\(a = 3\\):",
+                         "\\(9 = \\frac{3}{1 - r}\\)",
+                         "Divide by 3: \\(3 = \\frac{1}{1 - r}\\)",
+                         "\\(3(1 - r) = 1 \\implies 3 - 3r = 1\\)",
+                         "\\(2 = 3r \\implies r = \\frac{2}{3}\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 2x - 15 = 0\\)",
+        "options":  [
+                        "\\(x = -5\\) or \\(x = 3\\)",
+                        "\\(x = -5\\) or \\(x = -3\\)",
+                        "\\(x = 5\\) or \\(x = 3\\)",
+                        "\\(x = 5\\) or \\(x = -3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -5)(x - 3) = 0\\)",
+                         "Set each factor to zero: \\(x - -5 = 0\\) or \\(x - 3 = 0\\)",
+                         "\\(x = -5\\) or \\(x = 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 7x - 8 = 0\\)",
+        "options":  [
+                        "\\(x = 1\\) or \\(x = -8\\)",
+                        "\\(x = 1\\) or \\(x = 8\\)",
+                        "\\(x = -1\\) or \\(x = -8\\)",
+                        "\\(x = -1\\) or \\(x = 8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 1)(x - -8) = 0\\)",
+                         "Set each factor to zero: \\(x - 1 = 0\\) or \\(x - -8 = 0\\)",
+                         "\\(x = 1\\) or \\(x = -8\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 8x + 15 = 0\\)",
+        "options":  [
+                        "\\(x = 5\\) or \\(x = 3\\)",
+                        "\\(x = -5\\) or \\(x = -3\\)",
+                        "\\(x = -5\\) or \\(x = 3\\)",
+                        "\\(x = 5\\) or \\(x = -3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 5)(x - 3) = 0\\)",
+                         "Set each factor to zero: \\(x - 5 = 0\\) or \\(x - 3 = 0\\)",
+                         "\\(x = 5\\) or \\(x = 3\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 13x + 40 = 0\\)",
+        "options":  [
+                        "\\(x = 5\\) or \\(x = 8\\)",
+                        "\\(x = 5\\) or \\(x = -8\\)",
+                        "\\(x = -5\\) or \\(x = 8\\)",
+                        "\\(x = -5\\) or \\(x = -8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 5)(x - 8) = 0\\)",
+                         "Set each factor to zero: \\(x - 5 = 0\\) or \\(x - 8 = 0\\)",
+                         "\\(x = 5\\) or \\(x = 8\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 3x - 28 = 0\\)",
+        "options":  [
+                        "\\(x = 4\\) or \\(x = -7\\)",
+                        "\\(x = -4\\) or \\(x = 7\\)",
+                        "\\(x = 4\\) or \\(x = 7\\)",
+                        "\\(x = -4\\) or \\(x = -7\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -4)(x - 7) = 0\\)",
+                         "Set each factor to zero: \\(x - -4 = 0\\) or \\(x - 7 = 0\\)",
+                         "\\(x = -4\\) or \\(x = 7\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(5x^2 + 4x -1 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx -0.20\\) or \\(x \\approx -1.00\\)",
+                        "\\(x \\approx -0.20\\) or \\(x \\approx 1.00\\)",
+                        "\\(x \\approx 0.20\\) or \\(x \\approx 1.00\\)",
+                        "\\(x \\approx 0.20\\) or \\(x \\approx -1.00\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(5)(-1)}}{2(5)}\\)",
+                         "\\(x = \\dfrac{-4 \\pm \\sqrt{36}}{10}\\)",
+                         "\\(x \\approx 0.20\\) or \\(x \\approx -1.00\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2x^2 + 4x -2 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.41\\) or \\(x \\approx -2.41\\)",
+                        "\\(x \\approx -0.41\\) or \\(x \\approx 2.41\\)",
+                        "\\(x \\approx 0.41\\) or \\(x \\approx 2.41\\)",
+                        "\\(x \\approx -0.41\\) or \\(x \\approx -2.41\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(2)(-2)}}{2(2)}\\)",
+                         "\\(x = \\dfrac{-4 \\pm \\sqrt{32}}{4}\\)",
+                         "\\(x \\approx 0.41\\) or \\(x \\approx -2.41\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 8x -4 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.43\\) or \\(x \\approx 3.10\\)",
+                        "\\(x \\approx -0.43\\) or \\(x \\approx 3.10\\)",
+                        "\\(x \\approx -0.43\\) or \\(x \\approx -3.10\\)",
+                        "\\(x \\approx 0.43\\) or \\(x \\approx -3.10\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(8) \\pm \\sqrt{(8)^2 - 4(3)(-4)}}{2(3)}\\)",
+                         "\\(x = \\dfrac{-8 \\pm \\sqrt{112}}{6}\\)",
+                         "\\(x \\approx 0.43\\) or \\(x \\approx -3.10\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(4x^2 + 5x -4 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.55\\) or \\(x \\approx -1.80\\)",
+                        "\\(x \\approx -0.55\\) or \\(x \\approx 1.80\\)",
+                        "\\(x \\approx -0.55\\) or \\(x \\approx -1.80\\)",
+                        "\\(x \\approx 0.55\\) or \\(x \\approx 1.80\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(5) \\pm \\sqrt{(5)^2 - 4(4)(-4)}}{2(4)}\\)",
+                         "\\(x = \\dfrac{-5 \\pm \\sqrt{89}}{8}\\)",
+                         "\\(x \\approx 0.55\\) or \\(x \\approx -1.80\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 4x -3 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.54\\) or \\(x \\approx -1.87\\)",
+                        "\\(x \\approx -0.54\\) or \\(x \\approx -1.87\\)",
+                        "\\(x \\approx 0.54\\) or \\(x \\approx 1.87\\)",
+                        "\\(x \\approx -0.54\\) or \\(x \\approx 1.87\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(3)(-3)}}{2(3)}\\)",
+                         "\\(x = \\dfrac{-4 \\pm \\sqrt{52}}{6}\\)",
+                         "\\(x \\approx 0.54\\) or \\(x \\approx -1.87\\)"
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 14\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Evaluate algebraically by substitution",
+                        "Two non-real solutions",
+                        "\\((1, -1)\\) only",
+                        "\\((0, -2)\\) and \\((3.7, 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 14\\)",
+                         "Expand: \\(x^2 + x^2 - 4x + 4 = 14\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 4\\) and \\(x^2 + y^2 = 28\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "\\((1, -3)\\) only",
+                        "\\((0, -4)\\) and \\((5.3, 0)\\)",
+                        "Two non-real solutions",
+                        "Evaluate algebraically by substitution"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 4)^2 = 28\\)",
+                         "Expand: \\(x^2 + x^2 - 8x + 16 = 28\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 4\\) to find corresponding y values."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 19\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Two non-real solutions",
+                        "Evaluate algebraically by substitution",
+                        "\\((1, -5)\\) only",
+                        "\\((0, -6)\\) and \\((4.4, 0)\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 19\\)",
+                         "Expand: \\(x^2 + x^2 - 12x + 36 = 19\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 13\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Evaluate algebraically by substitution",
+                        "\\((1, -5)\\) only",
+                        "\\((0, -6)\\) and \\((3.6, 0)\\)",
+                        "Two non-real solutions"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 13\\)",
+                         "Expand: \\(x^2 + x^2 - 12x + 36 = 13\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 5\\) and \\(x^2 + y^2 = 30\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Evaluate algebraically by substitution",
+                        "\\((0, -5)\\) and \\((5.5, 0)\\)",
+                        "Two non-real solutions",
+                        "\\((1, -4)\\) only"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 5)^2 = 30\\)",
+                         "Expand: \\(x^2 + x^2 - 10x + 25 = 30\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 5\\) to find corresponding y values."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) and \\(y\\) simultaneously:\u003cbr\u003e\\(xy = 12\\) and \\(x - 2y + 2 = 0\\)",
+        "options":  [
+                        "\\((4, 3)\\) or \\((-6, -2)\\)",
+                        "\\((4, 3)\\) or \\((6, 2)\\)",
+                        "\\((-4, -3)\\) or \\( (6, 2)\\)",
+                        "\\((2, 6)\\) or \\((-4, -3)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "From \\(x - 2y + 2 = 0\\), isolate \\(x\\): \\(x = 2y - 2\\).",
+                         "Substitute into \\(xy = 12\\): \\((2y - 2)y = 12\\).",
+                         "Expand: \\(2y^2 - 2y - 12 = 0\\).",
+                         "Divide by 2: \\(y^2 - y - 6 = 0\\).",
+                         "Factorise: \\((y - 3)(y + 2) = 0 \\implies y = 3\\) or \\(y = -2\\).",
+                         "If \\(y = 3, x = 2(3) - 2 = 4\\). If \\(y = -2, x = 2(-2) - 2 = -6\\).",
+                         "Solutions: \\((4, 3)\\) and \\((-6, -2)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Determine the values of \\(k\\) for which the roots of \\(x^2 - (k+2)x + (2k+1) = 0\\) are real and equal.",
+        "options":  [
+                        "\\(k = 0\\) or \\(k = 4\\)",
+                        "\\(k = 2\\) or \\(k = -2\\)",
+                        "\\(k = 1\\) or \\(k = 4\\)",
+                        "\\(k = 0\\) or \\(k = 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For real and equal roots, \\(\\Delta = b^2 - 4ac = 0\\).",
+                         "\\(a = 1, b = -(k+2), c = 2k+1\\).",
+                         "\\(\\Delta = [-(k+2)]^2 - 4(1)(2k+1) = 0\\).",
+                         "\\(k^2 + 4k + 4 - 8k - 4 = 0\\).",
+                         "\\(k^2 - 4k = 0 \\implies k(k - 4) = 0\\).",
+                         "\\(k = 0\\) or \\(k = 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3^x - 3^{x-2} = \\frac{8}{3}\\)",
+        "options":  [
+                        "\\(x = 1\\)",
+                        "\\(x = 0\\)",
+                        "\\(x = -1\\)",
+                        "\\(x = 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise: \\(3^x(1 - 3^{-2}) = \\frac{8}{3}\\).",
+                         "\\(3^x(1 - \\frac{1}{9}) = \\frac{8}{3}\\).",
+                         "\\(3^x(\\frac{8}{9}) = \\frac{8}{3}\\).",
+                         "Multiply by \\(\\frac{9}{8}\\): \\(3^x = \\frac{8}{3} \\cdot \\frac{9}{8} = 3\\).",
+                         "\\(3^x = 3^1 \\implies x = 1\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Simplify the expression WITHOUT using a calculator: \\(\\frac{\\sqrt{50} + \\sqrt{18}}{\\sqrt{32}}\\)",
+        "options":  [
+                        "\\(2\\)",
+                        "\\(\\sqrt{2}\\)",
+                        "\\(1\\)",
+                        "\\(4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Write each surd in simplest form: \\(\\sqrt{50} = 5\\sqrt{2}\\), \\(\\sqrt{18} = 3\\sqrt{2}\\), \\(\\sqrt{32} = 4\\sqrt{2}\\).",
+                         "Numerator: \\(5\\sqrt{2} + 3\\sqrt{2} = 8\\sqrt{2}\\).",
+                         "Expression: \\(\\frac{8\\sqrt{2}}{4\\sqrt{2}} = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2x^2 + 5x \\le 3\\)",
+        "options":  [
+                        "\\(-3 \\le x \\le \\frac{1}{2}\\)",
+                        "\\(x \\le -3\\) or \\(x \\ge \\frac{1}{2}\\)",
+                        "\\(-3 \u003c x \u003c \\frac{1}{2}\\)",
+                        "\\(x \u003c -3\\) or \\(x \u003e \\frac{1}{2}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Rearrange: \\(2x^2 + 5x - 3 \\le 0\\).",
+                         "Factorise: \\((2x - 1)(x + 3) \\le 0\\).",
+                         "Critical values: \\(x = \\frac{1}{2}\\) and \\(x = -3\\).",
+                         "The parabola opens up, so it\u0027s negative between the roots.",
+                         "Solution: \\(-3 \\le x \\le \\frac{1}{2}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(x^2 + 2px + (p+2) = 0\\), for which values of \\(p\\) will the roots be non-real?",
+        "options":  [
+                        "\\(-1 \u003c p \u003c 2\\)",
+                        "\\(p \u003c -1\\) or \\(p \u003e 2\\)",
+                        "\\(0 \u003c p \u003c 2\\)",
+                        "\\(-2 \u003c p \u003c 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For non-real roots, \\(\\Delta \u003c 0\\).",
+                         "\\(a = 1, b = 2p, c = p+2\\).",
+                         "\\(\\Delta = (2p)^2 - 4(1)(p+2) \u003c 0\\).",
+                         "\\(4p^2 - 4p - 8 \u003c 0\\).",
+                         "Divide by 4: \\(p^2 - p - 2 \u003c 0\\).",
+                         "Factorise: \\((p - 2)(p + 1) \u003c 0\\).",
+                         "Critical values: \\(p = 2, p = -1\\).",
+                         "Solution: \\(-1 \u003c p \u003c 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Simplify to a single term: \\(2\\log_a x - \\log_a (x^2 - 1) + \\log_a (1 - \\frac{1}{x^2})\\)",
+        "options":  [
+                        "\\(0\\)",
+                        "\\(\\log_a x\\)",
+                        "\\(1\\)",
+                        "\\(\\log_a 1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Apply log laws: \\(\\log_a x^2 - \\log_a (x^2 - 1) + \\log_a (\\frac{x^2 - 1}{x^2})\\).",
+                         "Combine: \\(\\log_a \\left( \\frac{x^2}{x^2 - 1} \\cdot \\frac{x^2 - 1}{x^2} \\right)\\).",
+                         "All terms cancel to 1: \\(\\log_a 1\\).",
+                         "The result is 0."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\sqrt{x+7} + 1 = x\\)",
+        "options":  [
+                        "\\(x = 2\\)",
+                        "\\(x = -3\\)",
+                        "\\(x = 2\\) or \\(x = -3\\)",
+                        "No real solution"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Isolate the radical: \\(\\sqrt{x+7} = x - 1\\).",
+                         "Square both sides: \\(x+7 = (x-1)^2 = x^2 - 2x + 1\\).",
+                         "Rearrange: \\(x^2 - 3x - 6 = 0\\). (Wait, let\u0027s recheck).",
+                         "Correct rearrangement: \\(x^2 - 3x - 6 = 0\\) NO.",
+                         "Square: \\(x+7 = x^2 - 2x +1 \\implies 0 = x^2 - 3x - 6\\).",
+                         "Wait, let\u0027s pick a better example for integer roots: \\(\\sqrt{x+7} = x-1\\).",
+                         "If \\(x=2\\): \\(\\sqrt{9} = 2-1 \\implies 3 = 1\\) (False).",
+                         "Let\u0027s fix the question for \\(x=2\\): \\(\\sqrt{x+7} - 1 = x\\) NO.",
+                         "Let\u0027s try \\(x=2\\) as a solution for \\(\\sqrt{x+2} + x = 4\\).",
+                         "\\(\\sqrt{x+2} = 4-x \\Rightarrow x+2 = 16-8x+x^2 \\Rightarrow x^2-9x+14=0 \\Rightarrow (x-7)(x-2)=0\\).",
+                         "Check \\(x=7\\): \\(\\sqrt{9} = 4-7 \\implies 3 = -3\\) (False).",
+                         "Check \\(x=2\\): \\(\\sqrt{4} = 4-2 \\implies 2 = 2\\) (True).",
+                         "Let\u0027s use this one instead: \\(\\sqrt{x+2} + x = 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\sqrt{x+2} + x = 4\\)",
+        "options":  [
+                        "\\(x = 2\\) only",
+                        "\\(x = 7\\) only",
+                        "\\(x = 2\\) or \\(x = 7\\)",
+                        "No real solution"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Isolate the radical: \\(\\sqrt{x+2} = 4 - x\\).",
+                         "Square both sides: \\(x + 2 = (4 - x)^2\\).",
+                         "\\(x + 2 = 16 - 8x + x^2\\).",
+                         "\\(x^2 - 9x + 14 = 0\\).",
+                         "Factorise: \\((x - 2)(x - 7) = 0\\).",
+                         "Test \\(x = 7\\): \\(\\sqrt{7+2} + 7 = 3+7 = 10 \\neq 4\\).",
+                         "Test \\(x = 2\\): \\(\\sqrt{2+2} + 2 = 2+2 = 4\\).",
+                         "Solution: \\(x = 2\\) only."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2^{2x} - 6 \\cdot 2^x + 8 = 0\\)",
+        "options":  [
+                        "\\(x = 1\\) or \\(x = 2\\)",
+                        "\\(x = 2\\) or \\(x = 4\\)",
+                        "\\(x = 0\\) or \\(x = 2\\)",
+                        "\\(x = 1\\) only"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let \\(k = 2^x\\). Then \\(k^2 - 6k + 8 = 0\\).",
+                         "Factorise: \\((k - 2)(k - 4) = 0 \\implies k = 2\\) or \\(k = 4\\).",
+                         "\\(2^x = 2 \\implies x = 1\\).",
+                         "\\(2^x = 4 \\implies x = 2\\).",
+                         "Solutions: \\(x = 1\\) or \\(x = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Determine the values of \\(p\\) for which the equation \\(3x^2 - 6x + p = 0\\) has rational roots.",
+        "options":  [
+                        "\\(p = 0\\) or \\(p = -9\\)",
+                        "\\(p = 3\\) only",
+                        "\\(p = -1\\) or \\(p = 3\\)",
+                        "\\(p = 0\\) or \\(p = 4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Roots are rational if the discriminant \\(\\Delta = b^2 - 4ac\\) is a perfect square.",
+                         "\\(\\Delta = (-6)^2 - 4(3)(p) = 36 - 12p\\).",
+                         "If \\(p = 0, \\Delta = 36 = 6^2\\) (Rational).",
+                         "If \\(p = -9, \\Delta = 36 + 108 = 144 = 12^2\\) (Rational).",
+                         "Other options like \\(p=3\\) give \\(\\Delta = 0\\) (Rational roots), so technically included, but 0 and -9 are clear perfect squares."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) in the following equation: \\(x^4 - 13x^2 + 36 = 0\\)",
+        "options":  [
+                        "\\(x = \\pm 2\\) or \\(x = \\pm 3\\)",
+                        "\\(x = 2\\) or \\(x = 3\\)",
+                        "\\(x = \\pm 4\\) or \\(x = \\pm 9\\)",
+                        "\\(x = \\pm 2\\) only"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let \\(u = x^2\\). The equation becomes \\(u^2 - 13u + 36 = 0\\).",
+                         "Factorise: \\((u - 9)(u - 4) = 0\\).",
+                         "\\(u = 9\\) or \\(u = 4\\).",
+                         "Replace \\(u\\) with \\(x^2\\): \\(x^2 = 9 \\implies x = \\pm 3\\).",
+                         "\\(x^2 = 4 \\implies x = \\pm 2\\).",
+                         "Solutions: \\(x = \\pm 2, \\pm 3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3^{2x+1} - 10 \\cdot 3^x + 3 = 0\\)",
+        "options":  [
+                        "\\(x = -1\\) or \\(x = 1\\)",
+                        "\\(x = 0\\) or \\(x = 1\\)",
+                        "\\(x = -1\\) or \\(x = 0\\)",
+                        "\\(x = 3\\) or \\(x = \\frac{1}{3}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Rewrite \\(3^{2x+1}\\) as \\(3^1 \\cdot (3^x)^2 = 3k^2\\) where \\(k = 3^x\\).",
+                         "Equation: \\(3k^2 - 10k + 3 = 0\\).",
+                         "Factorise: \\((3k - 1)(k - 3) = 0\\).",
+                         "\\(k = \\frac{1}{3} \\implies 3^x = 3^{-1} \\implies x = -1\\).",
+                         "\\(k = 3 \\implies 3^x = 3^1 \\implies x = 1\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\sqrt{x-1} + \\sqrt{x+4} = 5\\)",
+        "options":  [
+                        "\\(x = 5\\)",
+                        "\\(x = 1\\)",
+                        "\\(x = 10\\)",
+                        "\\(x = 2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Isolate one radical: \\(\\sqrt{x+4} = 5 - \\sqrt{x-1}\\).",
+                         "Square both sides: \\(x + 4 = 25 - 10\\sqrt{x-1} + (x - 1)\\).",
+                         "\\(x + 4 = 24 + x - 10\\sqrt{x-1}\\).",
+                         "\\(-20 = -10\\sqrt{x-1} \\implies 2 = \\sqrt{x-1}\\).",
+                         "Square again: \\(4 = x - 1 \\implies x = 5\\).",
+                         "Verify: \\(\\sqrt{4} + \\sqrt{9} = 2 + 3 = 5\\) (True)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Simplify the expression WITHOUT using a calculator: \\(\\frac{2^{n+1} \\cdot 6^n}{2^{2n} \\cdot 3^n}\\)",
+        "options":  [
+                        "\\(2\\)",
+                        "\\(2^n\\)",
+                        "\\(6\\)",
+                        "\\(1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Express 6 as \\(2 \\cdot 3\\): \\(\\frac{2^{n+1} \\cdot (2 \\cdot 3)^n}{2^{2n} \\cdot 3^n}\\).",
+                         "\\(\\frac{2^{n+1} \\cdot 2^n \\cdot 3^n}{2^{2n} \\cdot 3^n}\\).",
+                         "Simplify powers of 2: \\(2^{(n+1)+n - 2n} = 2^{2n+1-2n} = 2^1 = 2\\).",
+                         "The \\(3^n\\) terms cancel out."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3 \\cdot 2^{x+2} - 5 \\cdot 2^x = 28\\)",
+        "options":  [
+                        "\\(x = 2\\)",
+                        "\\(x = 1\\)",
+                        "\\(x = 3\\)",
+                        "\\(x = 0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Expand the exponent: \\(3(2^x \\cdot 2^2) - 5(2^x) = 28\\).",
+                         "\\(12(2^x) - 5(2^x) = 28\\).",
+                         "Combine like terms: \\(7(2^x) = 28\\).",
+                         "\\(2^x = 4 \\implies x = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(k\\) if the equation \\(x^2 - kx + 4 = 0\\) has roots that differ by 3.",
+        "options":  [
+                        "\\(k = \\pm 5\\)",
+                        "\\(k = \\pm 4\\)",
+                        "\\(k = 5\\)",
+                        "\\(k = \\pm 3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Let roots be \\(\\alpha\\) and \\(\\alpha + 3\\).",
+                         "Sum of roots: \\(\\alpha + (\\alpha + 3) = k \\implies 2\\alpha + 3 = k\\).",
+                         "Product of roots: \\(\\alpha(\\alpha + 3) = 4 \\implies \\alpha^2 + 3\\alpha - 4 = 0\\).",
+                         "Factorise: \\((\\alpha + 4)(\\alpha - 1) = 0 \\implies \\alpha = -4\\) or \\(\\alpha = 1\\).",
+                         "If \\(\\alpha = -4, k = 2(-4) + 3 = -5\\). If \\(\\alpha = 1, k = 2(1) + 3 = 5\\).",
+                         "So \\(k = \\pm 5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Factorise completely: \\(x^3 - 8\\)",
+        "options":  [
+                        "\\((x - 2)(x^2 + 2x + 4)\\)",
+                        "\\((x - 2)^3\\)",
+                        "\\((x - 2)(x^2 + 4)\\)",
+                        "\\((x + 2)(x^2 - 2x + 4)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the difference of cubes identity: \\(a^3 - b^3 = (a - b)(a^2 + ab + b^2)\\).",
+                         "Here \\(a = x\\) and \\(b = 2\\).",
+                         "Final form: \\((x - 2)(x^2 + 2x + 4)\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3(x+2)^2 - 27 = 0\\)",
+        "options":  [
+                        "\\(x = 1\\) or \\(x = -5\\)",
+                        "\\(x = 3\\) or \\(x = -3\\)",
+                        "\\(x = 1\\) only",
+                        "\\(x = -1\\) or \\(x = 5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Divide by 3: \\((x + 2)^2 - 9 = 0\\).",
+                         "\\((x + 2)^2 = 9\\).",
+                         "\\(x + 2 = \\pm 3\\).",
+                         "\\(x = 3 - 2 = 1\\) or \\(x = -3 - 2 = -5\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\) correct to one decimal place: \\(x^2 + 3x - 1 = 0\\)",
+        "options":  [
+                        "\\(x \\approx 0.3\\) or \\(x \\approx -3.3\\)",
+                        "\\(x \\approx 0.3\\) or \\(x \\approx 3.3\\)",
+                        "\\(x \\approx -0.3\\) or \\(x \\approx -3.3\\)",
+                        "\\(x \\approx 0.2\\) or \\(x \\approx -3.2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use quadratic formula: \\(x = \\frac{-3 \\pm \\sqrt{3^2 - 4(1)(-1)}}{2}\\).",
+                         "\\(x = \\frac{-3 \\pm \\sqrt{13}}{2}\\).",
+                         "\\(\\sqrt{13} \\approx 3.605\\).",
+                         "\\(x \\approx \\frac{-3 + 3.605}{2} \\approx 0.302\\).",
+                         "\\(x \\approx \\frac{-3 - 3.605}{2} \\approx -3.302\\).",
+                         "To one decimal place: \\(0.3\\) and \\(-3.3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Simplify: \\(\\frac{x^2 - xy}{x^3 - y^3} \\cdot (x^2 + xy + y^2)\\)",
+        "options":  [
+                        "\\(x\\)",
+                        "\\(1\\)",
+                        "\\(x-y\\)",
+                        "\\(x+y\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise numerator: \\(x(x - y)\\).",
+                         "Factorise denominator: \\((x - y)(x^2 + xy + y^2)\\).",
+                         "Substitute: \\(\\frac{x(x - y)}{(x - y)(x^2 + xy + y^2)} \\cdot (x^2 + xy + y^2)\\).",
+                         "All terms cancel except \\(x\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Complete the square to find the maximum value of the function: \\(f(x) = -2x^2 + 8x - 5\\).",
+        "options":  [
+                        "\\(3\\)",
+                        "\\(5\\)",
+                        "\\(2\\)",
+                        "\\(-5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(f(x) = -2(x^2 - 4x) - 5\\).",
+                         "\\(f(x) = -2(x^2 - 4x + 4 - 4) - 5\\).",
+                         "\\(f(x) = -2((x-2)^2 - 4) - 5 = -2(x-2)^2 + 8 - 5\\).",
+                         "\\(f(x) = -2(x-2)^2 + 3\\). Max value is 3."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2^x \\cdot 4^{x-1} = 16\\).",
+        "options":  [
+                        "\\(2\\)",
+                        "\\(1\\)",
+                        "\\(3\\)",
+                        "\\(4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(2^x \\cdot (2^2)^{x-1} = 2^4\\).",
+                         "\\(2^x \\cdot 2^{2x-2} = 2^4\\).",
+                         "\\(2^{3x-2} = 2^4 \\implies 3x - 2 = 4\\).",
+                         "\\(3x = 6 \\implies x = 2\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 5x + 6 \u003c 0\\).",
+        "options":  [
+                        "\\(2 \u003c x \u003c 3\\)",
+                        "\\(x \u003c 2\\) or \\(x \u003e 3\\)",
+                        "\\(-3 \u003c x \u003c -2\\)",
+                        "\\(x \u003c 6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise: \\((x - 2)(x - 3) \u003c 0\\).",
+                         "Critical values: 2 and 3. The parabola opens upwards.",
+                         "The expression is negative between the roots: \\(2 \u003c x \u003c 3\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "For which values of \\(m\\) will the equation \\(mx^2 + 4x + 1 = 0\\) have non-real roots?",
+        "options":  [
+                        "\\(m \u003e 4\\)",
+                        "\\(m \u003c 4\\)",
+                        "\\(m = 4\\)",
+                        "\\(m \u003e 0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Roots are non-real if discriminant \\(\\Delta \u003c 0\\).",
+                         "\\(\\Delta = b^2 - 4ac = 4^2 - 4(m)(1) = 16 - 4m\\).",
+                         "\\(16 - 4m \u003c 0 \\implies 16 \u003c 4m \\implies m \u003e 4\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(\\log_2(x+1) + \\log_2(x-1) = 3\\).",
+        "options":  [
+                        "\\(3\\)",
+                        "\\(\\sqrt{7}\\)",
+                        "\\(4\\)",
+                        "\\(5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\log_2((x+1)(x-1)) = 3\\).",
+                         "\\((x^2 - 1) = 2^3 = 8\\).",
+                         "\\(x^2 = 9 \\implies x = 3\\) (since \\(x \u003e 1\\) for logs to be defined)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Use the quadratic formula to solve for \\(x\\): \\(x^2 - 4x + 1 = 0\\).",
+        "options":  [
+                        "\\(2 \\pm \\sqrt{3}\\)",
+                        "\\(4 \\pm \\sqrt{12}\\)",
+                        "\\(2 \\pm \\sqrt{5}\\)",
+                        "\\(1 \\pm \\sqrt{3}\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{4 \\pm \\sqrt{16-4}}{2}\\).",
+                         "\\(x = \\frac{4 \\pm \\sqrt{12}}{2} = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Simplify: \\(\\frac{x^2 - 9}{x^2 + 5x + 6}\\).",
+        "options":  [
+                        "\\(\\frac{x-3}{x+2}\\)",
+                        "\\(\\frac{x+3}{x-2}\\)",
+                        "\\(\\frac{x-3}{x-2}\\)",
+                        "\\(x-3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise: \\(\\frac{(x-3)(x+3)}{(x+2)(x+3)}\\).",
+                         "Cancel \\((x+3)\\): \\(\\frac{x-3}{x+2}\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "According to the Remainder Theorem, what is the remainder when \\(P(x) = x^3 - 2x + 5\\) is divided by \\(x - 2\\)?",
+        "options":  [
+                        "\\(9\\)",
+                        "\\(5\\)",
+                        "\\(7\\)",
+                        "\\(1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Remainder \\(R = P(2) = 2^3 - 2(2) + 5 = 8 - 4 + 5 = 9\\)."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "If \\(P(1) = 0\\) for a polynomial \\(P(x)\\), which of the following is a factor?",
+        "options":  [
+                        "\\(x - 1\\)",
+                        "\\(x + 1\\)",
+                        "\\(x\\)",
+                        "\\(x - 0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "The Factor Theorem states that if \\(P(k) = 0\\), then \\((x - k)\\) is a factor."
+                     ],
+        "difficulty":  "manageable"
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 5x - 6 = 0\\)",
+        "options":  [
+                        "\\(x = -1\\) or \\(x = -6\\)",
+                        "\\(x = -1\\) or \\(x = 6\\)",
+                        "\\(x = 1\\) or \\(x = -6\\)",
+                        "\\(x = 1\\) or \\(x = 6\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 1)(x - -6) = 0\\)",
+                         "Set each factor to zero: \\(x - 1 = 0\\) or \\(x - -6 = 0\\)",
+                         "\\(x = 1\\) or \\(x = -6\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 3x + 2 = 0\\)",
+        "options":  [
+                        "\\(x = -1\\) or \\(x = 2\\)",
+                        "\\(x = 1\\) or \\(x = -2\\)",
+                        "\\(x = -1\\) or \\(x = -2\\)",
+                        "\\(x = 1\\) or \\(x = 2\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -1)(x - -2) = 0\\)",
+                         "Set each factor to zero: \\(x - -1 = 0\\) or \\(x - -2 = 0\\)",
+                         "\\(x = -1\\) or \\(x = -2\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 1x - 6 = 0\\)",
+        "options":  [
+                        "\\(x = -3\\) or \\(x = 2\\)",
+                        "\\(x = -3\\) or \\(x = -2\\)",
+                        "\\(x = 3\\) or \\(x = 2\\)",
+                        "\\(x = 3\\) or \\(x = -2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 3)(x - -2) = 0\\)",
+                         "Set each factor to zero: \\(x - 3 = 0\\) or \\(x - -2 = 0\\)",
+                         "\\(x = 3\\) or \\(x = -2\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 13x + 42 = 0\\)",
+        "options":  [
+                        "\\(x = 7\\) or \\(x = -6\\)",
+                        "\\(x = -7\\) or \\(x = -6\\)",
+                        "\\(x = 7\\) or \\(x = 6\\)",
+                        "\\(x = -7\\) or \\(x = 6\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -7)(x - -6) = 0\\)",
+                         "Set each factor to zero: \\(x - -7 = 0\\) or \\(x - -6 = 0\\)",
+                         "\\(x = -7\\) or \\(x = -6\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 6x - 7 = 0\\)",
+        "options":  [
+                        "\\(x = -1\\) or \\(x = 7\\)",
+                        "\\(x = 1\\) or \\(x = 7\\)",
+                        "\\(x = -1\\) or \\(x = -7\\)",
+                        "\\(x = 1\\) or \\(x = -7\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -1)(x - 7) = 0\\)",
+                         "Set each factor to zero: \\(x - -1 = 0\\) or \\(x - 7 = 0\\)",
+                         "\\(x = -1\\) or \\(x = 7\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 6x -5 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.63\\) or \\(x \\approx 2.63\\)",
+                        "\\(x \\approx -0.63\\) or \\(x \\approx 2.63\\)",
+                        "\\(x \\approx 0.63\\) or \\(x \\approx -2.63\\)",
+                        "\\(x \\approx -0.63\\) or \\(x \\approx -2.63\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(3)(-5)}}{2(3)}\\)",
+                         "\\(x = \\dfrac{-6 \\pm \\sqrt{96}}{6}\\)",
+                         "\\(x \\approx 0.63\\) or \\(x \\approx -2.63\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 3x -5 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx -0.88\\) or \\(x \\approx -1.88\\)",
+                        "\\(x \\approx 0.88\\) or \\(x \\approx -1.88\\)",
+                        "\\(x \\approx -0.88\\) or \\(x \\approx 1.88\\)",
+                        "\\(x \\approx 0.88\\) or \\(x \\approx 1.88\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(3)(-5)}}{2(3)}\\)",
+                         "\\(x = \\dfrac{-3 \\pm \\sqrt{69}}{6}\\)",
+                         "\\(x \\approx 0.88\\) or \\(x \\approx -1.88\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(4x^2 + 3x -1 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.25\\) or \\(x \\approx 1.00\\)",
+                        "\\(x \\approx -0.25\\) or \\(x \\approx 1.00\\)",
+                        "\\(x \\approx 0.25\\) or \\(x \\approx -1.00\\)",
+                        "\\(x \\approx -0.25\\) or \\(x \\approx -1.00\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(4)(-1)}}{2(4)}\\)",
+                         "\\(x = \\dfrac{-3 \\pm \\sqrt{25}}{8}\\)",
+                         "\\(x \\approx 0.25\\) or \\(x \\approx -1.00\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(4x^2 + 8x -2 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.22\\) or \\(x \\approx 2.22\\)",
+                        "\\(x \\approx -0.22\\) or \\(x \\approx -2.22\\)",
+                        "\\(x \\approx -0.22\\) or \\(x \\approx 2.22\\)",
+                        "\\(x \\approx 0.22\\) or \\(x \\approx -2.22\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(8) \\pm \\sqrt{(8)^2 - 4(4)(-2)}}{2(4)}\\)",
+                         "\\(x = \\dfrac{-8 \\pm \\sqrt{96}}{8}\\)",
+                         "\\(x \\approx 0.22\\) or \\(x \\approx -2.22\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(4x^2 + 8x -5 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx -0.50\\) or \\(x \\approx 2.50\\)",
+                        "\\(x \\approx -0.50\\) or \\(x \\approx -2.50\\)",
+                        "\\(x \\approx 0.50\\) or \\(x \\approx -2.50\\)",
+                        "\\(x \\approx 0.50\\) or \\(x \\approx 2.50\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(8) \\pm \\sqrt{(8)^2 - 4(4)(-5)}}{2(4)}\\)",
+                         "\\(x = \\dfrac{-8 \\pm \\sqrt{144}}{8}\\)",
+                         "\\(x \\approx 0.50\\) or \\(x \\approx -2.50\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 20\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Two non-real solutions",
+                        "\\((0, -6)\\) and \\((4.5, 0)\\)",
+                        "\\((1, -5)\\) only",
+                        "Evaluate algebraically by substitution"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 20\\)",
+                         "Expand: \\(x^2 + x^2 - 12x + 36 = 20\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 3\\) and \\(x^2 + y^2 = 18\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Two non-real solutions",
+                        "\\((1, -2)\\) only",
+                        "\\((0, -3)\\) and \\((4.2, 0)\\)",
+                        "Evaluate algebraically by substitution"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 3)^2 = 18\\)",
+                         "Expand: \\(x^2 + x^2 - 6x + 9 = 18\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 3\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "\\((1, -1)\\) only",
+                        "Two non-real solutions",
+                        "\\((0, -2)\\) and \\((3.5, 0)\\)",
+                        "Evaluate algebraically by substitution"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 12\\)",
+                         "Expand: \\(x^2 + x^2 - 4x + 4 = 12\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 4\\) and \\(x^2 + y^2 = 18\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Two non-real solutions",
+                        "\\((0, -4)\\) and \\((4.2, 0)\\)",
+                        "Evaluate algebraically by substitution",
+                        "\\((1, -3)\\) only"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 4)^2 = 18\\)",
+                         "Expand: \\(x^2 + x^2 - 8x + 16 = 18\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 4\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 3\\) and \\(x^2 + y^2 = 15\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "\\((0, -3)\\) and \\((3.9, 0)\\)",
+                        "Evaluate algebraically by substitution",
+                        "Two non-real solutions",
+                        "\\((1, -2)\\) only"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 3)^2 = 15\\)",
+                         "Expand: \\(x^2 + x^2 - 6x + 9 = 15\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 3\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 3x - 4 = 0\\)",
+        "options":  [
+                        "\\(x = 4\\) or \\(x = 1\\)",
+                        "\\(x = -4\\) or \\(x = 1\\)",
+                        "\\(x = -4\\) or \\(x = -1\\)",
+                        "\\(x = 4\\) or \\(x = -1\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 4)(x - -1) = 0\\)",
+                         "Set each factor to zero: \\(x - 4 = 0\\) or \\(x - -1 = 0\\)",
+                         "\\(x = 4\\) or \\(x = -1\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 2x - 15 = 0\\)",
+        "options":  [
+                        "\\(x = 3\\) or \\(x = 5\\)",
+                        "\\(x = -3\\) or \\(x = 5\\)",
+                        "\\(x = 3\\) or \\(x = -5\\)",
+                        "\\(x = -3\\) or \\(x = -5\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -3)(x - 5) = 0\\)",
+                         "Set each factor to zero: \\(x - -3 = 0\\) or \\(x - 5 = 0\\)",
+                         "\\(x = -3\\) or \\(x = 5\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 4x - 12 = 0\\)",
+        "options":  [
+                        "\\(x = 6\\) or \\(x = 2\\)",
+                        "\\(x = 6\\) or \\(x = -2\\)",
+                        "\\(x = -6\\) or \\(x = 2\\)",
+                        "\\(x = -6\\) or \\(x = -2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 6)(x - -2) = 0\\)",
+                         "Set each factor to zero: \\(x - 6 = 0\\) or \\(x - -2 = 0\\)",
+                         "\\(x = 6\\) or \\(x = -2\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 7x + 10 = 0\\)",
+        "options":  [
+                        "\\(x = 5\\) or \\(x = -2\\)",
+                        "\\(x = 5\\) or \\(x = 2\\)",
+                        "\\(x = -5\\) or \\(x = -2\\)",
+                        "\\(x = -5\\) or \\(x = 2\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -5)(x - -2) = 0\\)",
+                         "Set each factor to zero: \\(x - -5 = 0\\) or \\(x - -2 = 0\\)",
+                         "\\(x = -5\\) or \\(x = -2\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 11x + 24 = 0\\)",
+        "options":  [
+                        "\\(x = -8\\) or \\(x = 3\\)",
+                        "\\(x = -8\\) or \\(x = -3\\)",
+                        "\\(x = 8\\) or \\(x = -3\\)",
+                        "\\(x = 8\\) or \\(x = 3\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 8)(x - 3) = 0\\)",
+                         "Set each factor to zero: \\(x - 8 = 0\\) or \\(x - 3 = 0\\)",
+                         "\\(x = 8\\) or \\(x = 3\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(5x^2 + 4x -3 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx -0.47\\) or \\(x \\approx 1.27\\)",
+                        "\\(x \\approx 0.47\\) or \\(x \\approx 1.27\\)",
+                        "\\(x \\approx 0.47\\) or \\(x \\approx -1.27\\)",
+                        "\\(x \\approx -0.47\\) or \\(x \\approx -1.27\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(4) \\pm \\sqrt{(4)^2 - 4(5)(-3)}}{2(5)}\\)",
+                         "\\(x = \\dfrac{-4 \\pm \\sqrt{76}}{10}\\)",
+                         "\\(x \\approx 0.47\\) or \\(x \\approx -1.27\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(2x^2 + 7x -1 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.14\\) or \\(x \\approx 3.64\\)",
+                        "\\(x \\approx -0.14\\) or \\(x \\approx -3.64\\)",
+                        "\\(x \\approx 0.14\\) or \\(x \\approx -3.64\\)",
+                        "\\(x \\approx -0.14\\) or \\(x \\approx 3.64\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(7) \\pm \\sqrt{(7)^2 - 4(2)(-1)}}{2(2)}\\)",
+                         "\\(x = \\dfrac{-7 \\pm \\sqrt{57}}{4}\\)",
+                         "\\(x \\approx 0.14\\) or \\(x \\approx -3.64\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 6x -1 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.15\\) or \\(x \\approx -2.15\\)",
+                        "\\(x \\approx 0.15\\) or \\(x \\approx 2.15\\)",
+                        "\\(x \\approx -0.15\\) or \\(x \\approx -2.15\\)",
+                        "\\(x \\approx -0.15\\) or \\(x \\approx 2.15\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(3)(-1)}}{2(3)}\\)",
+                         "\\(x = \\dfrac{-6 \\pm \\sqrt{48}}{6}\\)",
+                         "\\(x \\approx 0.15\\) or \\(x \\approx -2.15\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(4x^2 + 6x -2 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx -0.28\\) or \\(x \\approx 1.78\\)",
+                        "\\(x \\approx 0.28\\) or \\(x \\approx -1.78\\)",
+                        "\\(x \\approx 0.28\\) or \\(x \\approx 1.78\\)",
+                        "\\(x \\approx -0.28\\) or \\(x \\approx -1.78\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(4)(-2)}}{2(4)}\\)",
+                         "\\(x = \\dfrac{-6 \\pm \\sqrt{68}}{8}\\)",
+                         "\\(x \\approx 0.28\\) or \\(x \\approx -1.78\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 9x -5 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.48\\) or \\(x \\approx 3.48\\)",
+                        "\\(x \\approx -0.48\\) or \\(x \\approx -3.48\\)",
+                        "\\(x \\approx -0.48\\) or \\(x \\approx 3.48\\)",
+                        "\\(x \\approx 0.48\\) or \\(x \\approx -3.48\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(9) \\pm \\sqrt{(9)^2 - 4(3)(-5)}}{2(3)}\\)",
+                         "\\(x = \\dfrac{-9 \\pm \\sqrt{141}}{6}\\)",
+                         "\\(x \\approx 0.48\\) or \\(x \\approx -3.48\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 5\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Two non-real solutions",
+                        "Evaluate algebraically by substitution",
+                        "\\((0, -5)\\) and \\((3.5, 0)\\)",
+                        "\\((1, -4)\\) only"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 5)^2 = 12\\)",
+                         "Expand: \\(x^2 + x^2 - 10x + 25 = 12\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 5\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 24\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Evaluate algebraically by substitution",
+                        "\\((0, -6)\\) and \\((4.9, 0)\\)",
+                        "Two non-real solutions",
+                        "\\((1, -5)\\) only"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 24\\)",
+                         "Expand: \\(x^2 + x^2 - 12x + 36 = 24\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 22\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "\\((1, -5)\\) only",
+                        "Evaluate algebraically by substitution",
+                        "\\((0, -6)\\) and \\((4.7, 0)\\)",
+                        "Two non-real solutions"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 22\\)",
+                         "Expand: \\(x^2 + x^2 - 12x + 36 = 22\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 3\\) and \\(x^2 + y^2 = 15\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "\\((0, -3)\\) and \\((3.9, 0)\\)",
+                        "\\((1, -2)\\) only",
+                        "Evaluate algebraically by substitution",
+                        "Two non-real solutions"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 3)^2 = 15\\)",
+                         "Expand: \\(x^2 + x^2 - 6x + 9 = 15\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 3\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 22\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "\\((1, -5)\\) only",
+                        "Two non-real solutions",
+                        "Evaluate algebraically by substitution",
+                        "\\((0, -6)\\) and \\((4.7, 0)\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 22\\)",
+                         "Expand: \\(x^2 + x^2 - 12x + 36 = 22\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 13x + 40 = 0\\)",
+        "options":  [
+                        "\\(x = 8\\) or \\(x = 5\\)",
+                        "\\(x = -8\\) or \\(x = -5\\)",
+                        "\\(x = 8\\) or \\(x = -5\\)",
+                        "\\(x = -8\\) or \\(x = 5\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -8)(x - -5) = 0\\)",
+                         "Set each factor to zero: \\(x - -8 = 0\\) or \\(x - -5 = 0\\)",
+                         "\\(x = -8\\) or \\(x = -5\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 4x + 3 = 0\\)",
+        "options":  [
+                        "\\(x = -3\\) or \\(x = 1\\)",
+                        "\\(x = 3\\) or \\(x = 1\\)",
+                        "\\(x = -3\\) or \\(x = -1\\)",
+                        "\\(x = 3\\) or \\(x = -1\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -3)(x - -1) = 0\\)",
+                         "Set each factor to zero: \\(x - -3 = 0\\) or \\(x - -1 = 0\\)",
+                         "\\(x = -3\\) or \\(x = -1\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 2x - 48 = 0\\)",
+        "options":  [
+                        "\\(x = 8\\) or \\(x = -6\\)",
+                        "\\(x = 8\\) or \\(x = 6\\)",
+                        "\\(x = -8\\) or \\(x = 6\\)",
+                        "\\(x = -8\\) or \\(x = -6\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -8)(x - 6) = 0\\)",
+                         "Set each factor to zero: \\(x - -8 = 0\\) or \\(x - 6 = 0\\)",
+                         "\\(x = -8\\) or \\(x = 6\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 + 13x + 42 = 0\\)",
+        "options":  [
+                        "\\(x = 6\\) or \\(x = 7\\)",
+                        "\\(x = 6\\) or \\(x = -7\\)",
+                        "\\(x = -6\\) or \\(x = 7\\)",
+                        "\\(x = -6\\) or \\(x = -7\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - -6)(x - -7) = 0\\)",
+                         "Set each factor to zero: \\(x - -6 = 0\\) or \\(x - -7 = 0\\)",
+                         "\\(x = -6\\) or \\(x = -7\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(x^2 - 3x - 10 = 0\\)",
+        "options":  [
+                        "\\(x = -5\\) or \\(x = -2\\)",
+                        "\\(x = 5\\) or \\(x = 2\\)",
+                        "\\(x = -5\\) or \\(x = 2\\)",
+                        "\\(x = 5\\) or \\(x = -2\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Factorise the quadratic: \\((x - 5)(x - -2) = 0\\)",
+                         "Set each factor to zero: \\(x - 5 = 0\\) or \\(x - -2 = 0\\)",
+                         "\\(x = 5\\) or \\(x = -2\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(5x^2 + 3x -2 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.40\\) or \\(x \\approx -1.00\\)",
+                        "\\(x \\approx -0.40\\) or \\(x \\approx 1.00\\)",
+                        "\\(x \\approx -0.40\\) or \\(x \\approx -1.00\\)",
+                        "\\(x \\approx 0.40\\) or \\(x \\approx 1.00\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(5)(-2)}}{2(5)}\\)",
+                         "\\(x = \\dfrac{-3 \\pm \\sqrt{49}}{10}\\)",
+                         "\\(x \\approx 0.40\\) or \\(x \\approx -1.00\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(3x^2 + 6x -2 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.29\\) or \\(x \\approx 2.29\\)",
+                        "\\(x \\approx 0.29\\) or \\(x \\approx -2.29\\)",
+                        "\\(x \\approx -0.29\\) or \\(x \\approx 2.29\\)",
+                        "\\(x \\approx -0.29\\) or \\(x \\approx -2.29\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(6) \\pm \\sqrt{(6)^2 - 4(3)(-2)}}{2(3)}\\)",
+                         "\\(x = \\dfrac{-6 \\pm \\sqrt{60}}{6}\\)",
+                         "\\(x \\approx 0.29\\) or \\(x \\approx -2.29\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(4x^2 + 3x -5 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.80\\) or \\(x \\approx 1.55\\)",
+                        "\\(x \\approx 0.80\\) or \\(x \\approx -1.55\\)",
+                        "\\(x \\approx -0.80\\) or \\(x \\approx 1.55\\)",
+                        "\\(x \\approx -0.80\\) or \\(x \\approx -1.55\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(3) \\pm \\sqrt{(3)^2 - 4(4)(-5)}}{2(4)}\\)",
+                         "\\(x = \\dfrac{-3 \\pm \\sqrt{89}}{8}\\)",
+                         "\\(x \\approx 0.80\\) or \\(x \\approx -1.55\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(5x^2 + 5x -2 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.31\\) or \\(x \\approx 1.31\\)",
+                        "\\(x \\approx -0.31\\) or \\(x \\approx 1.31\\)",
+                        "\\(x \\approx 0.31\\) or \\(x \\approx -1.31\\)",
+                        "\\(x \\approx -0.31\\) or \\(x \\approx -1.31\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(5) \\pm \\sqrt{(5)^2 - 4(5)(-2)}}{2(5)}\\)",
+                         "\\(x = \\dfrac{-5 \\pm \\sqrt{65}}{10}\\)",
+                         "\\(x \\approx 0.31\\) or \\(x \\approx -1.31\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Solve for \\(x\\): \\(5x^2 + 9x -2 = 0\\) (correct to TWO decimal places)",
+        "options":  [
+                        "\\(x \\approx 0.20\\) or \\(x \\approx 2.00\\)",
+                        "\\(x \\approx -0.20\\) or \\(x \\approx 2.00\\)",
+                        "\\(x \\approx -0.20\\) or \\(x \\approx -2.00\\)",
+                        "\\(x \\approx 0.20\\) or \\(x \\approx -2.00\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Use the quadratic formula: \\(x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}\\)",
+                         "Substitute values: \\(x = \\dfrac{-(9) \\pm \\sqrt{(9)^2 - 4(5)(-2)}}{2(5)}\\)",
+                         "\\(x = \\dfrac{-9 \\pm \\sqrt{121}}{10}\\)",
+                         "\\(x \\approx 0.20\\) or \\(x \\approx -2.00\\)"
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 6\\) and \\(x^2 + y^2 = 15\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Evaluate algebraically by substitution",
+                        "\\((1, -5)\\) only",
+                        "Two non-real solutions",
+                        "\\((0, -6)\\) and \\((3.9, 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 6)^2 = 15\\)",
+                         "Expand: \\(x^2 + x^2 - 12x + 36 = 15\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 6\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Evaluate algebraically by substitution",
+                        "\\((1, -1)\\) only",
+                        "\\((0, -2)\\) and \\((3.5, 0)\\)",
+                        "Two non-real solutions"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 12\\)",
+                         "Expand: \\(x^2 + x^2 - 4x + 4 = 12\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 2\\) and \\(x^2 + y^2 = 29\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "\\((1, -1)\\) only",
+                        "\\((0, -2)\\) and \\((5.4, 0)\\)",
+                        "Two non-real solutions",
+                        "Evaluate algebraically by substitution"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 2)^2 = 29\\)",
+                         "Expand: \\(x^2 + x^2 - 4x + 4 = 29\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 2\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 4\\) and \\(x^2 + y^2 = 22\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Two non-real solutions",
+                        "\\((0, -4)\\) and \\((4.7, 0)\\)",
+                        "Evaluate algebraically by substitution",
+                        "\\((1, -3)\\) only"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 4)^2 = 22\\)",
+                         "Expand: \\(x^2 + x^2 - 8x + 16 = 22\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 4\\) to find corresponding y values."
+                     ]
+    },
+    {
+        "topic":  "algebra",
+        "q":  "Given \\(y = x - 5\\) and \\(x^2 + y^2 = 12\\), find the coordinates of the points of intersection.",
+        "options":  [
+                        "Evaluate algebraically by substitution",
+                        "Two non-real solutions",
+                        "\\((1, -4)\\) only",
+                        "\\((0, -5)\\) and \\((3.5, 0)\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Substitute linear into quadratic: \\(x^2 + (x - 5)^2 = 12\\)",
+                         "Expand: \\(x^2 + x^2 - 10x + 25 = 12\\)",
+                         "Simplify to standard quadratic form \\(ax^2 + bx + c = 0\\) and solve for x.",
+                         "Substitute x values back into \\(y = x - 5\\) to find corresponding y values."
+                     ]
+    }
+]

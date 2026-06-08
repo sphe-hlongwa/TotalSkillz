@@ -24,3 +24,7 @@ storage.rules
 firebase.json
 .firebaserc
 FIREBASE_SETUP.md
+
+# Documentation
+docs/
+scripts/

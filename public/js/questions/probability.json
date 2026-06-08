@@ -1,0 +1,888 @@
+﻿[
+    {
+        "topic":  "probability",
+        "q":  "In how many different ways can the letters of the word \"MATHS\" be arranged?",
+        "options":  [
+                        "720",
+                        "60",
+                        "120",
+                        "24"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The word \"MATHS\" has 5 distinct letters.",
+                         "The number of arrangements is given by \\(5!\\) (5 factorial).",
+                         "\\(5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "If events \\(A\\) and \\(B\\) are mutually exclusive, and \\(P(A) = 0.3\\) and \\(P(B) = 0.4\\), what is \\(P(A \\text{ or } B)\\)?",
+        "options":  [
+                        "1.0",
+                        "0.1",
+                        "0.7",
+                        "0.12"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "For mutually exclusive events, \\(P(A \\text{ and } B) = 0\\).",
+                         "\\(P(A \\text{ or } B) = P(A) + P(B)\\)",
+                         "\\(P(A \\text{ or } B) = 0.3 + 0.4 = 0.7\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Consider two independent events \\(A\\) and \\(B\\) where \\(P(A) = 0.4\\) and \\(P(B) = 0.5\\). Find \\(P(A \\text{ and } B)\\).",
+        "options":  [
+                        "0.25",
+                        "0.2",
+                        "0.9",
+                        "0.1"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For independent events, \\(P(A \\text{ and } B) = P(A) \\times P(B)\\).",
+                         "\\(P(A \\text{ and } B) = 0.4 \\times 0.5 = 0.2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many ways can 3 people be seated in a row of 5 chairs?",
+        "options":  [
+                        "15",
+                        "10",
+                        "60",
+                        "125"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "This is a permutation problem (order matters): \\(P(5, 3)\\)",
+                         "\\(P(5, 3) = \\frac{5!}{(5-3)!} = \\frac{120}{2} = 60\\)",
+                         "Alternatively, there are 5 options for the 1st person, 4 for the 2nd, and 3 for the 3rd: \\(5 \\times 4 \\times 3 = 60\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Two events A and B are such that \\(P(A) = 0{,}4\\), \\(P(B) = x\\) and \\(P(A \\text{ or } B) = 0{,}52\\).\u003cbr\u003e\u003cbr\u003eDetermine the value of \\(x\\) for which A and B are \u003cstrong\u003emutually exclusive\u003c/strong\u003e.",
+        "options":  [
+                        "\\(x = 0{,}22\\)",
+                        "\\(x = 0{,}12\\)",
+                        "\\(x = 0{,}08\\)",
+                        "\\(x = 0{,}52\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For mutually exclusive events: \\(P(A \\text{ or } B) = P(A) + P(B)\\)",
+                         "\\(0{,}52 = 0{,}4 + x\\)",
+                         "\\(x = 0{,}52 - 0{,}4 = 0{,}12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Two events A and B are such that \\(P(A) = 0{,}4\\), \\(P(B) = x\\) and \\(P(A \\text{ or } B) = 0{,}52\\).\u003cbr\u003e\u003cbr\u003eDetermine the value of \\(x\\) for which A and B are \u003cstrong\u003eindependent\u003c/strong\u003e.",
+        "options":  [
+                        "\\(x = 0{,}12\\)",
+                        "\\(x = 0{,}25\\)",
+                        "\\(x = 0{,}2\\)",
+                        "\\(x = 0{,}3\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B) = 0{,}4x\\)",
+                         "Use the addition rule: \\(P(A \\text{ or } B) = P(A) + P(B) - P(A \\text{ and } B)\\)",
+                         "\\(0{,}52 = 0{,}4 + x - 0{,}4x\\)",
+                         "\\(0{,}52 = 0{,}4 + 0{,}6x\\)",
+                         "\\(0{,}12 = 0{,}6x\\)",
+                         "\\(x = 0{,}2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A school organised a winter camp for 120 learners. They chose from coffee (C), milo (M) and tea (T).\u003cbr\u003eÃ¢â‚¬Â¢ 5 drink none \u0026nbsp;Ã¢â‚¬Â¢ 10 only milo \u0026nbsp;Ã¢â‚¬Â¢ 8 only coffee \u0026nbsp;Ã¢â‚¬Â¢ 6 only tea\u003cbr\u003eÃ¢â‚¬Â¢ 35 do not drink tea \u0026nbsp;Ã¢â‚¬Â¢ 66 drink coffee and tea \u0026nbsp;Ã¢â‚¬Â¢ 75 drink milo and tea \u0026nbsp;Ã¢â‚¬Â¢ \\(x\\) drink all three\u003cbr\u003e\u003cbr\u003eDetermine the value of \\(x\\).",
+        "options":  [
+                        "\\(x = 48\\)",
+                        "\\(x = 55\\)",
+                        "\\(x = 62\\)",
+                        "\\(x = 70\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Those who do not drink tea = only C + only M + (CÃ¢Ë†Â©M only) + none = 35",
+                         "\\(8 + 10 + (C{\\cap}M \\text{ only}) + 5 = 35 \\Rightarrow C{\\cap}M \\text{ only} = 12\\)",
+                         "Let CÃ¢Ë†Â©T only = \\(b\\) and MÃ¢Ë†Â©T only = \\(c\\).",
+                         "Coffee and tea (at least): \\(b + x = 66\\) -\u003e \\(b = 66 - x\\)",
+                         "Milo and tea (at least): \\(c + x = 75\\) -\u003e \\(c = 75 - x\\)",
+                         "Total: \\(8 + 10 + 6 + 12 + (66-x) + (75-x) + x + 5 = 120\\)",
+                         "\\(182 - x = 120\\)",
+                         "\\(x = 62\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Winter camp scenario (120 learners, C/M/T). From the Venn diagram: \\(x = 62\\), CÃ¢Ë†Â©T only = 4, MÃ¢Ë†Â©T only = 13, CÃ¢Ë†Â©M only = 12.\u003cbr\u003e\u003cbr\u003eDetermine the probability that a learner chosen at random drinks \u003cstrong\u003ecoffee and tea\u003c/strong\u003e.",
+        "options":  [
+                        "\\(\\dfrac{4}{120}\\)",
+                        "\\(\\dfrac{66}{120} = \\dfrac{11}{20}\\)",
+                        "\\(\\dfrac{62}{120}\\)",
+                        "\\(\\dfrac{13}{120}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Learners who drink coffee AND tea (at least) = CÃ¢Ë†Â©T only + all three = 4 + 62 = 66",
+                         "\\(P(C \\text{ and } T) = \\dfrac{66}{120} = \\dfrac{11}{20} = 0{,}55\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Winter camp scenario (120 learners). Determine the probability that a learner chosen at random prefers \u003cstrong\u003eat least TWO\u003c/strong\u003e of the beverages.",
+        "options":  [
+                        "\\(\\dfrac{62}{120}\\)",
+                        "\\(\\dfrac{78}{120}\\)",
+                        "\\(\\dfrac{91}{120}\\)",
+                        "\\(\\dfrac{79}{120}\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Learners who drink at least two beverages = (CÃ¢Ë†Â©M only) + (CÃ¢Ë†Â©T only) + (MÃ¢Ë†Â©T only) + all three",
+                         "\\(= 12 + 4 + 13 + 62 = 91\\)",
+                         "\\(P(\\text{at least 2}) = \\dfrac{91}{120}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Winter camp scenario (120 learners). Determine \\(P(\\text{not C and not T})\\).",
+        "options":  [
+                        "\\(\\dfrac{5}{120}\\)",
+                        "\\(\\dfrac{10}{120}\\)",
+                        "\\(\\dfrac{22}{120}\\)",
+                        "\\(\\dfrac{15}{120} = \\dfrac{1}{8}\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "\"Not C and not T\" means learners who drink neither coffee nor tea.",
+                         "These are: only milo + none = 10 + 5 = 15",
+                         "\\(P(\\text{not C and not T}) = \\dfrac{15}{120} = \\dfrac{1}{8} = 0{,}125\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A 4-digit PIN is made using digits 0-9. How many PINs are possible if digits can be repeated?",
+        "options":  [
+                        "\\(5\\,040\\)",
+                        "\\(10\\)",
+                        "\\(10\\,000\\)",
+                        "\\(9\\,000\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "There are 10 choices for each of the 4 positions.",
+                         "Using the fundamental counting principle:",
+                         "Total combinations = \\(10 \\times 10 \\times 10 \\times 10 = 10\\,000\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events A and B are mutually exclusive. If \\(P(A) = 0,4\\) and \\(P(A \\cup B) = 0,7\\), find \\(P(B)\\).",
+        "options":  [
+                        "\\(0,28\\)",
+                        "\\(1,1\\)",
+                        "\\(0,3\\)",
+                        "\\(0,12\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "For mutually exclusive events, \\(P(A \\cap B) = 0\\).",
+                         "The addition rule is \\(P(A \\cup B) = P(A) + P(B) - P(A \\cap B)\\)",
+                         "Substitute the given values:",
+                         "\\(0,7 = 0,4 + P(B) - 0\\)",
+                         "\\(P(B) = 0,7 - 0,4 = 0,3\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many different arrangements can be made from the letters of the word \"SUCCESS\"?",
+        "options":  [
+                        "\\(210\\)",
+                        "\\(420\\)",
+                        "\\(840\\)",
+                        "\\(5\\,040\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "The word \"SUCCESS\" has 7 letters.",
+                         "There are repeating letters: 3 S\u0027s and 2 C\u0027s.",
+                         "The number of arrangements is \\(\\frac{n!}{n_1! \\times n_2! \\times ...}\\)",
+                         "\\(\\frac{7!}{3! \\times 2!} = \\frac{5040}{6 \\times 2} = \\frac{5040}{12}\\)",
+                         "\\(= 420\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A bag contains 5 red balls and 3 blue balls. A ball is drawn and NOT replaced. Then a second ball is drawn. What is the probability that both are red?",
+        "options":  [
+                        "\\(\\frac{5}{28}\\)",
+                        "\\(\\frac{5}{14}\\)",
+                        "\\(\\frac{10}{27}\\)",
+                        "\\(\\frac{25}{64}\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "P(First is red) = \\(\\frac{5}{8}\\)",
+                         "Since there is NO replacement, there are now 4 red balls out of 7 total.",
+                         "P(Second is red | First was red) = \\(\\frac{4}{7}\\)",
+                         "P(Both red) = \\(\\frac{5}{8} \\times \\frac{4}{7} = \\frac{20}{56}\\)",
+                         "Simplify the fraction: \\(\\frac{20}{56} = \\frac{5}{14}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events A and B are independent. If \\(P(A) = 0,3\\) and \\(P(B) = 0,6\\), find \\(P(A \\cap B)\\).",
+        "options":  [
+                        "\\(0,3\\)",
+                        "\\(0,18\\)",
+                        "\\(0,9\\)",
+                        "\\(0,2\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For independent events, \\(P(A \\cap B) = P(A) \\times P(B)\\)",
+                         "\\(P(A \\cap B) = 0,3 \\times 0,6 = 0,18\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "In how many different ways can 5 distinct books be arranged on a shelf?",
+        "options":  [
+                        "\\(25\\)",
+                        "\\(24\\)",
+                        "\\(120\\)",
+                        "\\(60\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "The number of arrangements of \\(n\\) distinct objects is \\(n!\\)",
+                         "For 5 books, arrangements \\(= 5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "In a group of 30 students, 20 like Mathematics, 15 like Science, and 10 like both. How many students like NEITHER Mathematics nor Science?",
+        "options":  [
+                        "\\(15\\)",
+                        "\\(0\\)",
+                        "\\(5\\)",
+                        "\\(10\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Let \\(M\\) be Math and \\(S\\) be Science.",
+                         "\\(n(M \\cup S) = n(M) + n(S) - n(M \\cap S) = 20 + 15 - 10 = 25\\)",
+                         "Number who like neither \\(= \\text{Total} - n(M \\cup S) = 30 - 25 = 5\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A bag contains 4 red balls and 6 blue balls. A ball is drawn, its color is recorded, and it is REPLACED. Then a second ball is drawn. Find the probability that both balls are red.",
+        "options":  [
+                        "\\(0,12\\)",
+                        "\\(0,24\\)",
+                        "\\(0,4\\)",
+                        "\\(0,16\\)"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "\\(P(\\text{Red}) = \\frac{4}{10} = 0,4\\)",
+                         "Since the ball is REPLACED, the events are independent.",
+                         "\\(P(\\text{both Red}) = 0,4 \\times 0,4 = 0,16\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A committee of 3 boys and 2 girls is to be chosen from a group of 8 boys and 6 girls. In how many ways can this be done?",
+        "options":  [
+                        "\\(840\\)",
+                        "\\(1120\\)",
+                        "\\(56\\)",
+                        "\\(15\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Choose 3 boys from 8: \\(\\binom{8}{3} = \\frac{8!}{3!(8-3)!} = \\frac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56\\)",
+                         "Choose 2 girls from 6: \\(\\binom{6}{2} = \\frac{6!}{2!(6-2)!} = \\frac{6 \\times 5}{2 \\times 1} = 15\\)",
+                         "Total combinations = \\(56 \\times 15 = 840\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "The letters of the word EQUATION are arranged randomly in a row. What is the probability that the arrangement starts and ends with a consonant?",
+        "options":  [
+                        "\\( \\frac{3}{28} \\)",
+                        "\\( \\frac{1}{14} \\)",
+                        "\\( \\frac{15}{56} \\)",
+                        "\\( \\frac{5}{28} \\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "EQUATION has 8 letters: 5 vowels (E, U, A, I, O) and 3 consonants (Q, T, N).",
+                         "Total arrangements = \\(8! = 40320\\)",
+                         "Favourable outcomes: Choose first consonant (3 options), choose last consonant (2 options), arrange remaining 6 letters (\\(6!\\)).",
+                         "\\(3 \\times 2 \\times 6! = 6 \\times 720 = 4320\\)",
+                         "Probability = \\(\\frac{4320}{40320} = \\frac{432}{4032} = \\frac{3}{28}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A bag contains 5 red balls, 3 blue balls, and 2 green balls. Two balls are drawn at random without replacement. What is the probability that they are both the same colour?",
+        "options":  [
+                        "\\( \\frac{14}{45} \\)",
+                        "\\( \\frac{1}{3} \\)",
+                        "\\( \\frac{19}{45} \\)",
+                        "\\( \\frac{28}{90} \\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Total balls = 10. Total ways to draw 2 balls = \\(\\binom{10}{2} = 45\\).",
+                         "Ways to draw 2 red = \\(\\binom{5}{2} = 10\\)",
+                         "Ways to draw 2 blue = \\(\\binom{3}{2} = 3\\)",
+                         "Ways to draw 2 green = \\(\\binom{2}{2} = 1\\)",
+                         "Total favourable ways = \\(10 + 3 + 1 = 14\\)",
+                         "Probability = \\(\\frac{14}{45}\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events \\(C\\) and \\(D\\) are mutually exclusive. It is given that \\(P(C) = 2x\\), \\(P(D) = x\\), and \\(P(C \\text{ or } D) = 0.6\\). Determine the value of \\(x\\).",
+        "options":  [
+                        "\\(0.3\\)",
+                        "\\(0.2\\)",
+                        "\\(0.4\\)",
+                        "\\(0.15\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For mutually exclusive events, \\(P(C \\text{ or } D) = P(C) + P(D)\\).",
+                         "\\(0.6 = 2x + x\\)",
+                         "\\(0.6 = 3x\\)",
+                         "\\(x = 0.2\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "In a class of 40 learners, 24 play soccer, 18 play rugby, and 6 play neither. How many learners play BOTH soccer and rugby?",
+        "options":  [
+                        "\\(6\\)",
+                        "\\(12\\)",
+                        "\\(8\\)",
+                        "\\(10\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Total playing = 40 - 6 = 34.",
+                         "Using the formula: \\(n(S \\cup R) = n(S) + n(R) - n(S \\cap R)\\)",
+                         "\\(34 = 24 + 18 - n(S \\cap R)\\)",
+                         "\\(34 = 42 - n(S \\cap R)\\)",
+                         "\\(n(S \\cap R) = 42 - 34 = 8\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events A and B are independent. If \\(P(A) = 0.6\\) and \\(P(B) = 0.2\\), calculate \\(P(A \\text{ and } B)\\).",
+        "options":  [
+                        "\\(0.12\\)",
+                        "\\(1\\)",
+                        "\\(0\\)",
+                        "\\(0.8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+                         "\\(P(A \\text{ and } B) = 0.6 \\times 0.2 = 0.12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events A and B are independent. If \\(P(A) = 0.3\\) and \\(P(B) = 0.3\\), calculate \\(P(A \\text{ and } B)\\).",
+        "options":  [
+                        "\\(0.09\\)",
+                        "\\(1\\)",
+                        "\\(0\\)",
+                        "\\(0.6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+                         "\\(P(A \\text{ and } B) = 0.3 \\times 0.3 = 0.09\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events A and B are independent. If \\(P(A) = 0.2\\) and \\(P(B) = 0.6\\), calculate \\(P(A \\text{ and } B)\\).",
+        "options":  [
+                        "\\(1\\)",
+                        "\\(0.12\\)",
+                        "\\(0\\)",
+                        "\\(0.8\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+                         "\\(P(A \\text{ and } B) = 0.2 \\times 0.6 = 0.12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events A and B are independent. If \\(P(A) = 0.3\\) and \\(P(B) = 0.4\\), calculate \\(P(A \\text{ and } B)\\).",
+        "options":  [
+                        "\\(0\\)",
+                        "\\(0.12\\)",
+                        "\\(0.7\\)",
+                        "\\(1\\)"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+                         "\\(P(A \\text{ and } B) = 0.3 \\times 0.4 = 0.12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Events A and B are independent. If \\(P(A) = 0.3\\) and \\(P(B) = 0.5\\), calculate \\(P(A \\text{ and } B)\\).",
+        "options":  [
+                        "\\(1\\)",
+                        "\\(0\\)",
+                        "\\(0.15\\)",
+                        "\\(0.8\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "For independent events: \\(P(A \\text{ and } B) = P(A) \\times P(B)\\)",
+                         "\\(P(A \\text{ and } B) = 0.3 \\times 0.5 = 0.15\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many unique 4-letter arrangements can be made using the letters of the word \u0027MATA\u0027?",
+        "options":  [
+                        "16",
+                        "24",
+                        "12",
+                        "24"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Total letters: 4 (Numerator = 4!)",
+                         "Repeated letters: 2! (Denominator)",
+                         "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many unique 4-letter arrangements can be made using the letters of the word \u0027DATA\u0027?",
+        "options":  [
+                        "24",
+                        "12",
+                        "16",
+                        "24"
+                    ],
+        "answer":  1,
+        "solution":  [
+                         "Total letters: 4 (Numerator = 4!)",
+                         "Repeated letters: 2! (Denominator)",
+                         "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many unique 4-letter arrangements can be made using the letters of the word \u0027BASE\u0027?",
+        "options":  [
+                        "48",
+                        "28",
+                        "24",
+                        "24"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "Total letters: 4 (Numerator = 4!)",
+                         "No repeated letters.",
+                         "Total arrangements = \\(\\dfrac{4!}{1} = 24\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many unique 4-letter arrangements can be made using the letters of the word \u0027CELL\u0027?",
+        "options":  [
+                        "24",
+                        "16",
+                        "24",
+                        "12"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Total letters: 4 (Numerator = 4!)",
+                         "Repeated letters: 2! (Denominator)",
+                         "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many unique 4-letter arrangements can be made using the letters of the word \u0027MATA\u0027?",
+        "options":  [
+                        "24",
+                        "24",
+                        "16",
+                        "12"
+                    ],
+        "answer":  3,
+        "solution":  [
+                         "Total letters: 4 (Numerator = 4!)",
+                         "Repeated letters: 2! (Denominator)",
+                         "Total arrangements = \\(\\dfrac{4!}{2!} = 12\\)"
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many different 5-letter arrangements can be made from the letters in the word \u0027STUDY\u0027?",
+        "options":  [
+                        "\\(120\\)",
+                        "\\(60\\)",
+                        "\\(24\\)",
+                        "\\(5\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Number of arrangements = \\(5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "In how many ways can 3 books be arranged on a shelf if there are 3 distinct books available?",
+        "options":  [
+                        "\\(6\\)",
+                        "\\(3\\)",
+                        "\\(9\\)",
+                        "\\(1\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(3! = 3 \\times 2 \\times 1 = 6\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A bag contains 3 red balls and 7 blue balls. What is the probability of picking a red ball at random?",
+        "options":  [
+                        "\\(0.3\\)",
+                        "\\(0.7\\)",
+                        "\\(3/7\\)",
+                        "\\(1/3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(P(Red) = \\frac{\\text{Number of Red}}{\\text{Total Balls}} = \\frac{3}{3+7} = \\frac{3}{10} = 0.3\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "If events \\(A\\) and \\(B\\) are independent, and \\(P(A) = 0.4\\), \\(P(B) = 0.5\\), find \\(P(A \\cap B)\\).",
+        "options":  [
+                        "\\(0.2\\)",
+                        "\\(0.9\\)",
+                        "\\(0.1\\)",
+                        "\\(0.45\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For independent events, \\(P(A \\cap B) = P(A) \\times P(B)\\).",
+                         "\\(0.4 \\times 0.5 = 0.2\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "If events \\(A\\) and \\(B\\) are mutually exclusive, find \\(P(A \\cap B)\\).",
+        "options":  [
+                        "\\(0\\)",
+                        "\\(1\\)",
+                        "\\(0.5\\)",
+                        "Cannot be determined"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Mutually exclusive events cannot happen at the same time, so their intersection is zero."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A fair coin is tossed twice. What is the probability of getting two heads?",
+        "options":  [
+                        "\\(1/4\\)",
+                        "\\(1/2\\)",
+                        "\\(3/4\\)",
+                        "\\(1/8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Sample space: \\(HH, HT, TH, TT\\).",
+                         "Success: \\(HH\\) (1 outcome out of 4).",
+                         "\\(P = 1/4\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "In a Venn diagram, \\(P(A) = 0.6, P(A \\cap B) = 0.2\\). What is the probability of \u0027only A\u0027?",
+        "options":  [
+                        "\\(0.4\\)",
+                        "\\(0.8\\)",
+                        "\\(0.2\\)",
+                        "\\(0.6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(P(\text{only } A) = P(A) - P(A \\cap B) = 0.6 - 0.2 = 0.4\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A menu has 3 starters and 4 main courses. How many different 2-course meal combinations are possible?",
+        "options":  [
+                        "\\(12\\)",
+                        "\\(7\\)",
+                        "\\(1\\)",
+                        "\\(24\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Fundamental Counting Principle: \\(3 \\times 4 = 12\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "Calculate \\(5!\\).",
+        "options":  [
+                        "\\(120\\)",
+                        "\\(60\\)",
+                        "\\(25\\)",
+                        "\\(24\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(5 \\times 4 \\times 3 \\times 2 \\times 1 = 120\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "What is the probability of rolling a sum of 7 with two fair dice?",
+        "options":  [
+                        "\\(1/6\\)",
+                        "\\(1/12\\)",
+                        "\\(7/36\\)",
+                        "\\(1/36\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Combinations for sum of 7: \\((1,6), (2,5), (3,4), (4,3), (5,2), (6,1)\\).",
+                         "Total outcomes = 36.",
+                         "\\(P = 6/36 = 1/6\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "What is the probability of getting a prime number when rolling a fair 6-sided die?",
+        "options":  [
+                        "\\(1/2\\)",
+                        "\\(1/3\\)",
+                        "\\(2/3\\)",
+                        "\\(1/6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Prime numbers on a die: \\(2, 3, 5\\) (3 outcomes).",
+                         "\\(P = 3/6 = 1/2\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "If two events collectively cover all possible outcomes, they are said to be:",
+        "options":  [
+                        "Exhaustive",
+                        "Independent",
+                        "Mutually exclusive",
+                        "Complementary"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Exhaustive events are those whose union is the entire sample space (P = 1)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "If \\(P(A) = 0.25\\), what is \\(P(A^c)\\)?",
+        "options":  [
+                        "\\(0.75\\)",
+                        "\\(0.25\\)",
+                        "\\(1.25\\)",
+                        "\\(0\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(P(A^c) = 1 - P(A) = 1 - 0.25 = 0.75\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "The probability that it rains is 0.3. The probability that it is windy given it rains is 0.8. What is the probability that it rains and is windy?",
+        "options":  [
+                        "\\(0.24\\)",
+                        "\\(1.1\\)",
+                        "\\(0.5\\)",
+                        "\\(0.8\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(P(A \\cap B) = P(A) \\times P(B|A)\\).",
+                         "\\(0.3 \\times 0.8 = 0.24\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many ways can the letters in \u0027COCO\u0027 be arranged?",
+        "options":  [
+                        "\\(6\\)",
+                        "\\(24\\)",
+                        "\\(12\\)",
+                        "\\(4\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "\\(\\frac{4!}{2! 2!} = \\frac{24}{4} = 6\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "How many ways can 3 letters be chosen from {A, B, C, D} if order doesn\u0027t matter?",
+        "options":  [
+                        "\\(4\\)",
+                        "\\(24\\)",
+                        "\\(12\\)",
+                        "\\(6\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Combinations: \\(4C3 = \\frac{4!}{3!1!} = 4\\).",
+                         "Possible sets: {A,B,C}, {A,B,D}, {A,C,D}, {B,C,D}."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "If \\(P(A) = 0.5, P(B) = 0.6\\) and they are mutually exclusive, what is \\(P(A \\cup B)\\)?",
+        "options":  [
+                        "This scenario is impossible",
+                        "\\(1.1\\)",
+                        "\\(0\\)",
+                        "\\(0.3\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "For mutually exclusive events, \\(P(A \\cup B) = P(A) + P(B)\\).",
+                         "However, probabilities cannot exceed 1. Thus, \\(P(A) + P(B) = 1.1\\) is impossible for mutually exclusive events."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "What is the probability of picking a face card (J, Q, K) from a standard 52-card deck?",
+        "options":  [
+                        "\\(3/13\\)",
+                        "\\(12/52\\)",
+                        "Both A and B",
+                        "\\(1/4\\)"
+                    ],
+        "answer":  2,
+        "solution":  [
+                         "There are 12 face cards (3 per suit). \\(12/52 = 3/13\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "A machine has a 90% success rate. What is the probability it fails twice in a row?",
+        "options":  [
+                        "\\(0.01\\)",
+                        "\\(0.1\\)",
+                        "\\(0.81\\)",
+                        "\\(0.2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Failure probability = 0.1.",
+                         "\\(P(Fail, Fail) = 0.1 \\times 0.1 = 0.01\\)."
+                     ],
+        "difficulty":  "hard"
+    },
+    {
+        "topic":  "probability",
+        "q":  "In a group of 10 people, 6 like coffee and 5 like tea. If 2 like neither, how many like both?",
+        "options":  [
+                        "\\(3\\)",
+                        "\\(1\\)",
+                        "\\(4\\)",
+                        "\\(2\\)"
+                    ],
+        "answer":  0,
+        "solution":  [
+                         "Total who like something = 10 - 2 = 8.",
+                         "Using \\(n(A \\cup B) = n(A) + n(B) - n(A \\cap B)\\).",
+                         "\\(8 = 6 + 5 - n(both) \\implies 8 = 11 - n(both) \\implies n(both) = 3\\)."
+                     ],
+        "difficulty":  "hard"
+    }
+]

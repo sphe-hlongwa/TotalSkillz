@@ -2,6 +2,9 @@
    Total Skill - Core JavaScript
    ============================================ */
 
+// 2. Hardcoded localhost + mixed content - Configure base URL per environment
+const API_BASE = window.APP_CONFIG?.apiBase ?? '';
+
 // ---- Theme ----
 function getTheme() {
     return localStorage.getItem('totalskillz_theme') || 'light';
@@ -996,14 +999,27 @@ async function handleProfilePic(input) {
             // Convert to Blob (JPEG, 85% quality)
             canvas.toBlob(async (blob) => {
                 try {
-                    // [DEPRECATED] Upload to Firebase Storage: avatars/{uid}/profile.jpg
-                    // Disabling for now as storage is not yet set up
-                    /*
-                    const storageRef = firebase.storage().ref(`avatars/${user.uid}/profile.jpg`);
-                    const uploadTask = await storageRef.put(blob, { contentType: 'image/jpeg' });
-                    const downloadURL = await uploadTask.ref.getDownloadURL();
+                    const CLOUD_NAME = 'dijbs5ulp';
+                    const UPLOAD_PRESET = 'TotalSkillz';
 
-                    // Update Firebase Auth profile with real URL (not base64)
+                    const formData = new FormData();
+                    formData.append('file', blob);
+                    formData.append('upload_preset', UPLOAD_PRESET);
+
+                    const uploadRes = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    if (!uploadRes.ok) {
+                        const errorData = await uploadRes.json();
+                        throw new Error(errorData.error?.message || 'Failed to upload image to Cloudinary');
+                    }
+
+                    const uploadData = await uploadRes.json();
+                    const downloadURL = uploadData.secure_url;
+
+                    // Update Firebase Auth profile with real URL
                     await user.updateProfile({ photoURL: downloadURL });
 
                     // Also persist URL to Firestore user doc so other devices pick it up
@@ -1011,8 +1027,6 @@ async function handleProfilePic(input) {
                         { photoURL: downloadURL },
                         { merge: true }
                     );
-                    */
-                    showToast('Profile photo storage is currently disabled.', 'info');
 
                     // Refresh all avatars on page immediately
                     document.querySelectorAll('.user-avatar').forEach(av => {
@@ -1252,6 +1266,7 @@ async function saveProgress(data) {
                 const firstName = name.split(' ')[0]; // first name only for anonymity
                 await firebase.firestore().collection('leaderboard').doc(user.uid).set({
                     displayName: firstName,
+                    photoURL: user.photoURL || null,
                     totalCorrect: data.totalCorrect || 0,
                     totalAttempted: data.totalAttempted || 0,
                     streak: data.streak || 0,
@@ -1268,15 +1283,32 @@ async function saveProgress(data) {
 }
 
 async function syncFromFirestore(uid) {
+    // ---- Smart Cache Guard ----
+    // Only fetch from Firestore if local data is older than 5 minutes.
+    // This dramatically reduces Firestore reads for users navigating between pages.
+    const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+    const tsKey = `totalskillz_sync_ts_${uid}`;
+    const lastSync = parseInt(localStorage.getItem(tsKey) || '0', 10);
+    const localData = localStorage.getItem(`totalskillz_progress_${uid}`);
+
+    if (localData && Date.now() - lastSync < CACHE_TTL_MS) {
+        // Data is fresh — skip Firestore read entirely
+        console.log('[Sync] Using cached progress (< 5 min old). Skipping Firestore read.');
+        return JSON.parse(localData);
+    }
+
     try {
         const doc = await firebase.firestore().collection('users').doc(uid).get();
         if (doc.exists && doc.data().progress) {
             const data = doc.data().progress;
             localStorage.setItem(`totalskillz_progress_${uid}`, JSON.stringify(data));
+            localStorage.setItem(tsKey, Date.now().toString()); // Record sync timestamp
             return data;
         }
     } catch (error) {
         console.error("Error syncing from Firestore:", error);
+        // Return local data as fallback so the app still works offline
+        if (localData) return JSON.parse(localData);
     }
     return null;
 }
@@ -1879,7 +1911,19 @@ async function fetchLeaderboard() {
             displayUsers = allUsers.slice(startIndex, startIndex + 5);
         }
 
-        const visibleUsers = window.showFullLeaderboard ? displayUsers : displayUsers.slice(0, 2);
+        let visibleUsers = [];
+        if (window.showFullLeaderboard) {
+            visibleUsers = displayUsers;
+        } else {
+            if (myRank !== -1) {
+                // Show user and up to 2 people directly above them
+                const startIdx = Math.max(0, myRank - 3); 
+                visibleUsers = allUsers.slice(startIdx, myRank);
+            } else {
+                // Not in top 20, just show top 3
+                visibleUsers = displayUsers.slice(0, 3);
+            }
+        }
 
         let html = '';
         let displayDelay = 1;
@@ -1894,6 +1938,10 @@ async function fetchLeaderboard() {
             const bgStyle = isMe ? 'background: var(--bg-hover); border: 1px solid var(--primary-light);' : '';
             const indicator = isMe ? '<span style="font-size: 0.7rem; color: var(--primary); font-weight: bold; margin-left: 0.4rem;">(You)</span>' : '';
 
+            const avatarContent = user.photoURL 
+                ? `<img src="${user.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;" alt="${name}'s avatar">`
+                : initials;
+
             // Professional Rank Display with Icons
             let rankDisplay = user.rank;
             if (user.rank === 1) rankDisplay = '<i class="fa-solid fa-medal" style="color: #f59e0b; font-size: 1.2rem;"></i>';
@@ -1905,7 +1953,7 @@ async function fetchLeaderboard() {
                 <div class="leaderboard-item" style="animation-delay: ${displayDelay * 0.1}s; ${bgStyle}">
                     <div class="leaderboard-item__rank">${rankDisplay}</div>
                     <div class="leaderboard-item__user">
-                        <div class="leaderboard-item__avatar" style="${isMe ? 'background: var(--primary); color: white;' : ''}">${initials}</div>
+                        <div class="leaderboard-item__avatar" style="${isMe && !user.photoURL ? 'background: var(--primary); color: white;' : ''}">${avatarContent}</div>
                         <div class="leaderboard-item__details">
                             <div class="leaderboard-item__name" style="${isMe ? 'color: var(--primary);' : ''}">${name}${indicator}</div>
                         </div>
@@ -1971,15 +2019,15 @@ window.TOPIC_VIDEO_MAP = {
     'sequence': 'XZJdyPkCxuE',
     'functions': '2IWIywXcpvg',  // Grade 12 Functions
     'inverse': 'ALmlMfeE9FA',
-    'finance': 'zwuBlg2hfuvoT',  // Financial Maths
-    'annuities': 'ZdH0kzfN1OwzUuCp',
+    'finance': '-kZTsNnRlac',  // Financial Maths
+    'annuities': '5n_JBf-9ohA',
     'trigonometry': 'g8VCHoSk5_o',  // Grade 12 Trig
-    'compound angle': 'fhHEtg-kgIf8dPJz',
+    'compound angle': 'yq76CaYxPWc',
     'analytical_geometry': 'x_i2ksL0REI',  // Analytical Geometry
-    'analytical': 'fYyARMqwMG4',
-    'circle geometry': '2MuCHn-QwA5dzoqB',
+    'analytical': '4rDnk9o9_wg',
+    'circle geometry': 'REbGfxDc_2A',
     'euclidean_geometry': 'nWn-HjCP9wY',  // Euclidean Geometry / Circle Theorems
-    'euclidean': 'GUHxO_KZRQM',
+    'euclidean': 'u2OYPDu_mhk',
     'theorems': 'j-DOGwvCWjk',
     'calculus': 'alUkVWVEP10',  // Calculus Differentiation
     'derivative': 'WsQQvHm4lSw',
@@ -2026,6 +2074,10 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
     }
 
     // Add Escape key listener
+    // 3. Event listener memory leak - Remove any existing handler before adding a new one
+    if (overlay._handleEscape) {
+        window.removeEventListener('keydown', overlay._handleEscape);
+    }
     const handleEscape = (e) => {
         if (e.key === 'Escape') closeVideoModal();
     };
@@ -2133,17 +2185,16 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
         // Load video/playlist on facade click
         document.getElementById('videoFacade').addEventListener('click', () => {
             document.getElementById('videoFacade').style.display = 'none';
-            if (window.videoPlayerManager) {
-                window.videoPlayerManager.loadVideo('playerContainer', displayId, {
-                    isPlaylist: isPlaylist,
-                    onProgress: (time, duration) => {
-                        if (isPlaylist) return; // Don't track progress for the whole playlist as easily
-                        const pct = (time / duration) * 100;
-                        const bar = document.getElementById('videoProgressBar');
-                        if (bar) bar.style.width = `${pct}%`;
-                    }
-                });
-            }
+            // 3. Event listener memory leak - Ensure window.videoPlayerManager?.loadVideo() uses optional chaining
+            window.videoPlayerManager?.loadVideo('playerContainer', displayId, {
+                isPlaylist: isPlaylist,
+                onProgress: (time, duration) => {
+                    if (isPlaylist) return; // Don't track progress for the whole playlist as easily
+                    const pct = (time / duration) * 100;
+                    const bar = document.getElementById('videoProgressBar');
+                    if (bar) bar.style.width = `${pct}%`;
+                }
+            });
         });
     }
 
@@ -2169,7 +2220,8 @@ function openVideoModal(queryOrUrl, title = 'Video Lesson') {
 
 async function fetchVideoInfo(url) {
     try {
-        const response = await fetch('http://localhost:8000/api/video/info', {
+        // 2. Hardcoded localhost + mixed content - Replace the base URL with a configurable constant
+        const response = await fetch(`${API_BASE}/api/video/info`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url })
@@ -2201,27 +2253,53 @@ function updateVideoModalWithInfo(info) {
     const durationSec = info.duration % 60;
 
     // Update progress bar on facade if it exists
-    if (window.videoPlayerManager) {
-        const vId = window.videoPlayerManager.currentVideoId;
-        const savedTime = window.videoPlayerManager.getSavedProgress(vId);
-        if (savedTime > 0 && info.duration > 0) {
-            const pct = (savedTime / info.duration) * 100;
-            const bar = document.getElementById('videoProgressBar');
-            if (bar) bar.style.width = `${pct}%`;
-        }
+    // 3. Event listener memory leak - Ensure window.videoPlayerManager?.getSavedProgress() uses optional chaining
+    const vId = window.videoPlayerManager?.currentVideoId;
+    const savedTime = window.videoPlayerManager?.getSavedProgress(vId);
+    if (savedTime > 0 && info.duration > 0) {
+        const pct = (savedTime / info.duration) * 100;
+        const bar = document.getElementById('videoProgressBar');
+        if (bar) bar.style.width = `${pct}%`;
     }
 
-    infoPanel.innerHTML = `
-        <h2 class="video-info-title">${info.title}</h2>
-        <div class="video-info-meta">
-            <span><i class="fa-solid fa-user"></i> ${info.uploader}</span>
-            <span><i class="fa-solid fa-eye"></i> ${info.view_count.toLocaleString()} views</span>
-            <span><i class="fa-solid fa-clock"></i> ${durationMin}:${durationSec.toString().padStart(2, '0')}</span>
-        </div>
-        <div class="video-info-description">
-            ${info.description.replace(/\n/g, '<br>')}
-        </div>
-    `;
+    // 1. XSS vulnerability - safe DOM construction using textContent
+    infoPanel.innerHTML = '';
+
+    const titleEl = document.createElement('h2');
+    titleEl.className = 'video-info-title';
+    titleEl.textContent = info.title;
+    infoPanel.appendChild(titleEl);
+
+    const metaEl = document.createElement('div');
+    metaEl.className = 'video-info-meta';
+
+    const uploaderSpan = document.createElement('span');
+    uploaderSpan.innerHTML = '<i class="fa-solid fa-user"></i> ';
+    uploaderSpan.appendChild(document.createTextNode(info.uploader));
+    metaEl.appendChild(uploaderSpan);
+
+    const viewsSpan = document.createElement('span');
+    viewsSpan.innerHTML = '<i class="fa-solid fa-eye"></i> ';
+    viewsSpan.appendChild(document.createTextNode(`${info.view_count.toLocaleString()} views`));
+    metaEl.appendChild(viewsSpan);
+
+    const clockSpan = document.createElement('span');
+    clockSpan.innerHTML = '<i class="fa-solid fa-clock"></i> ';
+    clockSpan.appendChild(document.createTextNode(`${durationMin}:${durationSec.toString().padStart(2, '0')}`));
+    metaEl.appendChild(clockSpan);
+
+    infoPanel.appendChild(metaEl);
+
+    const descEl = document.createElement('div');
+    descEl.className = 'video-info-description';
+    const descParts = (info.description || '').split('\\n');
+    descParts.forEach((part, index) => {
+        descEl.appendChild(document.createTextNode(part));
+        if (index < descParts.length - 1) {
+            descEl.appendChild(document.createElement('br'));
+        }
+    });
+    infoPanel.appendChild(descEl);
 }
 
 function closeVideoModal() {
@@ -2236,9 +2314,8 @@ function closeVideoModal() {
         }
 
         // Destroy player
-        if (window.videoPlayerManager) {
-            window.videoPlayerManager.destroy();
-        }
+        // 3. Event listener memory leak - Ensure window.videoPlayerManager?.destroy() uses optional chaining
+        window.videoPlayerManager?.destroy();
 
         // Clear info panel if exists
         const infoPanel = document.getElementById('videoInfoPanel');
