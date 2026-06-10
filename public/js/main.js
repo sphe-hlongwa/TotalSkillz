@@ -131,7 +131,12 @@ function initHeader() {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
                 .then(reg => console.log('SW Registered', reg))
-                .catch(err => console.error('SW Registration Failed', err));
+                .catch(err => {
+                    console.warn('SW Registration Failed', err);
+                    if (typeof showToast === 'function') {
+                        showToast('Offline mode disabled (storage access blocked)', 'info');
+                    }
+                });
         });
     }
 }
@@ -1277,7 +1282,10 @@ async function saveProgress(data) {
                 }, { merge: true });
             }
         } catch (error) {
-            console.error("Error saving progress to Firestore:", error);
+            console.warn("Error saving progress to Firestore:", error);
+            if (typeof showToast === 'function') {
+                showToast("Cloud sync unavailable. Progress saved locally.", "info");
+            }
         }
     }, 5000);
 }
@@ -1497,7 +1505,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const isProtected = protectedPages.some(p => window.location.pathname.endsWith(p));
 
         if (user) {
-            console.log("Authenticated as:", user.email || user.phoneNumber);
+            if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') {
+                console.debug("Authenticated user session active.");
+            }
 
             // Populate avatars on the page
             const avatars = document.querySelectorAll('.user-avatar');
@@ -1520,17 +1530,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 av.style.fontSize = '0.8rem';
             });
 
-            // Admin Shortcut (Hardcoded Super Admin or Firestore Role)
+            // Admin Shortcut (Firestore Role)
             firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
-                const isAdmin = (doc.data() && doc.data().role === 'admin') || user.email === "hlongwasphephelo40@gmail.com";
+                const isAdmin = doc.exists && doc.data() && doc.data().role === 'admin';
                 const adminLink = document.getElementById('adminSidebarLink');
                 if (adminLink) adminLink.style.display = isAdmin ? 'flex' : 'none';
-            }).catch(() => {
-                // Fallback to hardcoded check if Firestore fails
-                const adminLink = document.getElementById('adminSidebarLink');
-                if (adminLink && user.email === "hlongwasphephelo40@gmail.com") {
-                    adminLink.style.display = 'flex';
-                }
+            }).catch(err => {
+                console.error("Error fetching user role for admin check:", err);
             });
 
             // Sync progress

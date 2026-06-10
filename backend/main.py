@@ -8,7 +8,15 @@ from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import yt_dlp
 import logging
+import os
+import sentry_sdk
 
+sentry_sdk.init(
+    dsn="https://fa1dada52bba2b735b61264aeafc7b6c@o4511536084484096.ingest.us.sentry.io/4511536224075776",
+    traces_sample_rate=1.0,
+    profiles_sample_rate=1.0,
+    send_default_pii=True,
+)
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -24,9 +32,9 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://totalskillz.web.app",
-    "https://totalskillz-3bc18.web.app",
+    "https://totalskillz-7193a.web.app",
     "https://totalskillz.firebaseapp.com",
-    "https://totalskillz-3bc18.firebaseapp.com",
+    "https://totalskillz-7193a.firebaseapp.com",
 ]
 
 app.add_middleware(

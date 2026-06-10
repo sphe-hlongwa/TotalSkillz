@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="js/sentry-init.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TotalSkillz - Admin Control Point</title>
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="css/dashboard.css?v=6">
     <link rel="stylesheet" href="components/sidebar.css?v=6">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-7193a.web.app https://*.firebaseapp.com http://localhost:8000; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-7193a.firebaseapp.com https://*.firebaseapp.com https://www.youtube.com https://www.youtube-nocookie.com;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: https://www.gstatic.com https://*.googleapis.com https://*.googleusercontent.com blob: https://res.cloudinary.com; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://totalskillz.web.app https://totalskillz-7193a.web.app https://*.firebaseapp.com http://localhost:8000 https://api.cloudinary.com https://www.gstatic.com; frame-src 'self' https://totalskillz.firebaseapp.com https://totalskillz-7193a.firebaseapp.com https://*.firebaseapp.com https://www.youtube.com https://www.youtube-nocookie.com;">
     <style>
         :root {
             --admin-bg: #000000;
@@ -514,6 +515,7 @@
 
     <div class="main-layout" id="mainLayout">
         <header class="header">
+    <script src="js/sentry-init.js"></script>
             <div class="header__left">
                 <button id="sidebarToggle" class="sidebar-toggle-btn" aria-label="Toggle sidebar">
                     <i class="fa-solid fa-bars"></i>
@@ -904,7 +906,6 @@
     <script src="components/sidebar.js?v=6"></script>
 
     <script>
-        const ADMIN_EMAIL = "hlongwasphephelo40@gmail.com";
         let allReports = [];
         let allUsers = [];
 
@@ -920,11 +921,9 @@
                 const data = doc.data() || {};
                 const isVerified = user.emailVerified;
 
-                // Super Admin fallback or Admin role
-                const isSuperAdmin = user.email === ADMIN_EMAIL;
                 const isAdmin = data.role === 'admin';
 
-                if (!isSuperAdmin && !isAdmin) {
+                if (!isAdmin) {
                     showCriticalError("ACCESS DENIED: Insufficient permissions.");
                     setTimeout(() => window.location.href = 'dashboard.html', 3000);
                     return;
@@ -954,7 +953,7 @@
 
             shroud.innerHTML = `
                 <i class="fa-solid fa-triangle-exclamation" style="font-size:3rem; color:var(--admin-red); margin-bottom:1rem;"></i>
-                <h2 style="color:white; font-family:sans-serif; text-align:center; padding:0 20px;">${msg}</h2>
+                <h2 style="color:white; font-family:sans-serif; text-align:center; padding:0 20px;">${sanitizeHTML(msg)}</h2>
                 <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap: wrap; justify-content: center;">
                     ${resendHtml}
                     <button class="admin-btn" onclick="logoutAdmin()" style="border-color:var(--admin-red); color:var(--admin-red);">Logout</button>
@@ -968,7 +967,7 @@
             if (user) {
                 user.sendEmailVerification()
                     .then(() => {
-                        alert("Verification email sent! Please check your inbox (and spam folder) for hlongwasphephelo40@gmail.com. Once verified, simply refresh this page.");
+                        alert("Verification email sent! Please check your inbox (and spam folder) for " + user.email + ". Once verified, simply refresh this page.");
                     })
                     .catch((error) => {
                         alert("Error sending verification email: " + error.message);
@@ -1015,12 +1014,13 @@
                     if (d.status === 'open') open++;
                     if (d.status === 'closed') closed++;
                     const date = d.timestamp ? new Date(d.timestamp.toDate()).toLocaleDateString() : 'N/A';
+                    const sStatus = sanitizeHTML((d.status || '').toUpperCase());
                     recentHtml += `<tr>
                         <td style="color:var(--admin-muted);">${date}</td>
-                        <td>${d.email || '—'}</td>
-                        <td><span class="badge badge-blue">${d.module || '—'}</span></td>
-                        <td style="max-width:260px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${d.comment || '—'}</td>
-                        <td><span class="badge ${d.status === 'open' ? 'badge-open' : 'badge-closed'}">${(d.status || '').toUpperCase()}</span></td>
+                        <td>${sanitizeHTML(d.email || '—')}</td>
+                        <td><span class="badge badge-blue">${sanitizeHTML(d.module || '—')}</span></td>
+                        <td style="max-width:260px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${sanitizeHTML(d.comment || '—')}</td>
+                        <td><span class="badge ${d.status === 'open' ? 'badge-open' : 'badge-closed'}">${sStatus}</span></td>
                     </tr>`;
                 });
 
@@ -1085,7 +1085,7 @@
                 } catch (e2) {
                     console.error("User load error:", e2);
                     tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; color:var(--admin-red); padding:2rem;">
-                        <i class="fa-solid fa-triangle-exclamation"></i> Error: ${e2.message}
+                        <i class="fa-solid fa-triangle-exclamation"></i> Error: ${sanitizeHTML(e2.message)}
                     </td></tr>`;
                     if (e2.message.includes('permission')) {
                         showToast("Access denied: You don't have permission to view users.", "error");
@@ -1107,7 +1107,10 @@
                 const lastActive = u.lastUpdated
                     ? new Date(u.lastUpdated.toDate ? u.lastUpdated.toDate() : u.lastUpdated).toLocaleDateString()
                     : '—';
-                const initials = (u.displayName || u.email || '?').substring(0, 2).toUpperCase();
+                // Escape user-controlled fields before inserting into HTML
+                const sDisplayName = sanitizeHTML(u.displayName || '—');
+                const sEmail       = sanitizeHTML(u.email || '—');
+                const sInitials    = sanitizeHTML((u.displayName || u.email || '?').substring(0, 2).toUpperCase());
 
                 const isAdmin = u.role === 'admin';
                 const isSuperAdmin = u.email === ADMIN_EMAIL;
@@ -1116,10 +1119,10 @@
                 return `<tr>
                     <td>
                         <div style="display:flex; align-items:center; gap:0.75rem;">
-                            <div style="width:32px; height:32px; border-radius:50%; background:var(--admin-accent-dim); color:var(--admin-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem; flex-shrink:0;">${initials}</div>
+                            <div style="width:32px; height:32px; border-radius:50%; background:var(--admin-accent-dim); color:var(--admin-accent); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.75rem; flex-shrink:0;">${sInitials}</div>
                             <div>
-                                <div style="font-weight:600;">${u.displayName || '—'}</div>
-                                <div style="font-size:0.75rem; color:var(--admin-muted);">${u.email || '—'}</div>
+                                <div style="font-weight:600;">${sDisplayName}</div>
+                                <div style="font-size:0.75rem; color:var(--admin-muted);">${sEmail}</div>
                             </div>
                         </div>
                     </td>
@@ -1131,12 +1134,12 @@
                     <td>
                         <div style="display:flex; gap:0.5rem;">
                             ${!isSuperAdmin ? `
-                                <button class="admin-btn ${isAdmin ? 'warning' : 'success'}" style="padding: 0.35rem 0.6rem;" 
+                                <button class="admin-btn ${isAdmin ? 'warning' : 'success'}" style="padding: 0.35rem 0.6rem;"
                                     onclick="toggleAdminRole('${u.id}', ${isAdmin})" title="${isAdmin ? 'Revoke Admin' : 'Make Admin'}">
                                     <i class="fa-solid ${isAdmin ? 'fa-user-minus' : 'fa-user-shield'}"></i>
                                 </button>
                             ` : ''}
-                            <button class="admin-btn danger" style="padding: 0.35rem 0.6rem;" onclick="deleteUserRecord('${u.id}', '${(u.displayName || u.email || 'this user').replace(/'/g, "\\'")}')" title="Delete User Record">
+                            <button class="admin-btn danger" style="padding: 0.35rem 0.6rem;" onclick="deleteUserRecord('${u.id}')" title="Delete User Record">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
                         </div>
@@ -1165,7 +1168,11 @@
             }
         }
 
-        async function deleteUserRecord(uid, name) {
+        async function deleteUserRecord(uid) {
+            // Resolve the display name from the in-memory list — never accept user-controlled
+            // text from the DOM (e.g. via onclick attribute injection).
+            const user = allUsers.find(u => u.id === uid);
+            const name = user ? (user.displayName || user.email || 'this user') : 'this user';
             if (!confirm(`Delete ALL data for "${name}"?\n\nThis removes:\n• User profile\n• Leaderboard entry\n• Their reports\n• Their responses\n\nThis CANNOT be undone.`)) return;
 
             const db = firebase.firestore();
@@ -1232,7 +1239,7 @@
             } catch (e) {
                 console.error("Reports load error:", e);
                 tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;color:var(--admin-red);padding:2rem;">
-                    <i class="fa-solid fa-triangle-exclamation"></i> Error loading reports: ${e.message}
+                    <i class="fa-solid fa-triangle-exclamation"></i> Error loading reports: ${sanitizeHTML(e.message)}
                 </td></tr>`;
                 if (e.message.includes('permission')) {
                     showToast("Access denied for bug reports.", "error");
@@ -1258,19 +1265,20 @@
 
             tbody.innerHTML = filtered.map(r => {
                 const date = r.timestamp ? new Date(r.timestamp.toDate()).toLocaleDateString() : 'N/A';
+                const sStatus = sanitizeHTML((r.status || '').toUpperCase());
                 const resolveBtn = r.status === 'open'
                     ? `<button class="admin-btn success" onclick="resolveReport('${r.id}')"><i class="fa-solid fa-check"></i> Resolve</button>`
                     : `<span style="color:var(--admin-muted); font-size:0.75rem;"><i class="fa-solid fa-lock"></i> Done</span>`;
 
                 return `<tr>
                     <td style="color:var(--admin-muted); white-space:nowrap;">${date}</td>
-                    <td style="font-size:0.82rem;">${r.email || '—'}</td>
+                    <td style="font-size:0.82rem;">${sanitizeHTML(r.email || '—')}</td>
                     <td>
-                        <span class="badge badge-blue">${r.module || '—'}</span><br>
-                        <span style="font-size:0.72rem; color:var(--admin-muted);">${r.context || ''}</span>
+                        <span class="badge badge-blue">${sanitizeHTML(r.module || '—')}</span><br>
+                        <span style="font-size:0.72rem; color:var(--admin-muted);">${sanitizeHTML(r.context || '')}</span>
                     </td>
-                    <td style="max-width:280px; font-size:0.82rem;">${r.comment || '—'}</td>
-                    <td><span class="badge ${r.status === 'open' ? 'badge-open' : 'badge-closed'}">${(r.status || '').toUpperCase()}</span></td>
+                    <td style="max-width:280px; font-size:0.82rem;">${sanitizeHTML(r.comment || '—')}</td>
+                    <td><span class="badge ${r.status === 'open' ? 'badge-open' : 'badge-closed'}">${sStatus}</span></td>
                     <td style="display:flex; gap:0.4rem; align-items:center;">
                         ${resolveBtn}
                         <button class="admin-btn danger" onclick="deleteReport('${r.id}')"><i class="fa-solid fa-trash"></i></button>
@@ -1314,12 +1322,14 @@
                     const date = d.createdAt ? new Date(d.createdAt.toDate()).toLocaleDateString() : 'N/A';
                     const expires = d.expiresAt ? new Date(d.expiresAt.toDate()).toLocaleDateString() : 'Never';
                     const typeColors = { info: '#38bdf8', success: '#22c55e', warning: '#f59e0b', alert: '#ef4444' };
+                    // d.type comes from a <select> but escape defensively
+                    const safeType = sanitizeHTML(d.type || '');
                     const color = typeColors[d.type] || '#38bdf8';
                     return `<tr>
                         <td style="color:var(--admin-muted);">${date}</td>
-                        <td><span style="color:${color}; font-weight:700; text-transform:capitalize;">${d.type}</span></td>
-                        <td style="font-weight:600;">${d.title}</td>
-                        <td style="font-size:0.82rem; max-width:240px;">${d.message}</td>
+                        <td><span style="color:${color}; font-weight:700; text-transform:capitalize;">${safeType}</span></td>
+                        <td style="font-weight:600;">${sanitizeHTML(d.title || '')}</td>
+                        <td style="font-size:0.82rem; max-width:240px;">${sanitizeHTML(d.message || '')}</td>
                         <td style="color:var(--admin-muted);">${expires}</td>
                         <td>
                             <button class="admin-btn danger" onclick="deleteBroadcast('${doc.id}')">
@@ -1331,7 +1341,7 @@
             } catch (e) {
                 console.error("Broadcasts load error:", e);
                 tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--admin-red); padding:2rem;">
-                    <i class="fa-solid fa-triangle-exclamation"></i> Error: ${e.message}
+                    <i class="fa-solid fa-triangle-exclamation"></i> Error: ${sanitizeHTML(e.message)}
                 </td></tr>`;
                 if (e.message.includes('permission')) {
                     showToast("Access denied for broadcasts.", "error");
@@ -1392,11 +1402,11 @@
                     return `<tr>
                         <td style="color:var(--admin-muted);">${date}</td>
                         <td>
-                            <div style="font-weight:700;">${d.name || 'Anonymous'}</div>
-                            <div style="font-size:0.75rem; color:var(--admin-muted);">${d.email || ''}</div>
+                            <div style="font-weight:700;">${sanitizeHTML(d.name || 'Anonymous')}</div>
+                            <div style="font-size:0.75rem; color:var(--admin-muted);">${sanitizeHTML(d.email || '')}</div>
                         </td>
-                        <td style="font-weight:600; color:var(--admin-accent);">${d.broadcastTitle || 'Direct Msg'}</td>
-                        <td style="font-size:0.9rem; max-width:300px;">${d.message}</td>
+                        <td style="font-weight:600; color:var(--admin-accent);">${sanitizeHTML(d.broadcastTitle || 'Direct Msg')}</td>
+                        <td style="font-size:0.9rem; max-width:300px;">${sanitizeHTML(d.message || '')}</td>
                         <td>
                             <button class="admin-btn danger" onclick="deleteResponse('${doc.id}')">
                                 <i class="fa-solid fa-trash"></i>
@@ -1407,7 +1417,7 @@
             } catch (e) {
                 console.error("Error loading responses:", e);
                 tbody.innerHTML = `<tr><td colspan="5" style="color:var(--admin-red);text-align:center;padding:2rem;">
-                    <i class="fa-solid fa-triangle-exclamation"></i> Error loading responses: ${e.message}
+                    <i class="fa-solid fa-triangle-exclamation"></i> Error loading responses: ${sanitizeHTML(e.message)}
                 </td></tr>`;
                 if (e.message.includes('permission')) {
                     showToast("Access denied for student responses.", "error");

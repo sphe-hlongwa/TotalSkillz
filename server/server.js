@@ -1,9 +1,15 @@
+require("./instrument.js");
+
 const express = require('express');
 const path = require('path');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const crypto = require('crypto'); // built-in Node module — no install needed
+
+const Sentry = require('@sentry/node');
 
 const app = express();
+
 const { generateAllQuestions } = require('../scripts/generate_questions');
 const PORT = process.env.PORT || 3000;
 
@@ -12,6 +18,42 @@ const VALID_TOPICS = new Set([
     'all', 'algebra', 'patterns', 'functions', 'calculus',
     'finance', 'probability', 'trigonometry', 'geometry'
 ]);
+
+// ---- ADMIN SECRET ----
+// Set ADMIN_SECRET in your environment (e.g. in a .env file or shell export).
+// Example: ADMIN_SECRET=change-me-to-a-long-random-string
+// The client must send: X-Admin-Secret: <value> with every admin API request.
+const ADMIN_SECRET = process.env.ADMIN_SECRET || '';
+
+/**
+ * Middleware: verify the shared admin secret using a timing-safe comparison.
+ * Returns 401 when the header is missing, 403 when it does not match.
+ */
+function requireAdminSecret(req, res, next) {
+    const provided = req.headers['x-admin-secret'] || '';
+
+    // Reject immediately if no secret is configured server-side (misconfiguration guard)
+    if (!ADMIN_SECRET) {
+        console.error('ADMIN_SECRET env var is not set — admin endpoint is disabled.');
+        return res.status(503).json({ success: false, message: 'Admin endpoint not configured.' });
+    }
+
+    // Reject if the caller supplied no token
+    if (!provided) {
+        return res.status(401).json({ success: false, message: 'Unauthorized.' });
+    }
+
+    // Timing-safe comparison prevents secret-length leakage
+    const secretBuf   = Buffer.from(ADMIN_SECRET);
+    const providedBuf = Buffer.alloc(secretBuf.length);
+    Buffer.from(provided).copy(providedBuf);
+
+    if (!crypto.timingSafeEqual(secretBuf, providedBuf)) {
+        return res.status(403).json({ success: false, message: 'Forbidden.' });
+    }
+
+    next();
+}
 
 // Body parsing middleware with size limit to prevent payload attacks
 app.use(express.json({ limit: '1kb' }));
@@ -23,8 +65,9 @@ app.use(helmet({
             ...helmet.contentSecurityPolicy.getDefaultDirectives(),
             "script-src": [
                 "'self'",
+                // TODO: Remove 'unsafe-inline' once all inline handlers are migrated
                 "'unsafe-inline'",
-                "'unsafe-eval'",
+                // 'unsafe-eval' intentionally omitted — nothing requires eval()
                 "https://www.gstatic.com",
                 "https://apis.google.com",
                 "https://cdn.jsdelivr.net",
@@ -52,15 +95,17 @@ app.use(helmet({
                 "https://*.firebaseio.com",
                 "https://*.firebaseapp.com",
                 "https://totalskillz.web.app",
-                "https://totalskillz-3bc18.web.app",
-                "http://localhost:8000"
+                "https://totalskillz-7193a.web.app",
+                "http://localhost:8000",
+                "https://api.cloudinary.com",
+                "https://www.gstatic.com"
             ],
             "frame-src": [
                 "'self'",
                 "https://*.firebaseapp.com",
                 "https://www.google.com/recaptcha/",
                 "https://totalskillz.firebaseapp.com",
-                "https://totalskillz-3bc18.firebaseapp.com"
+                "https://totalskillz-7193a.firebaseapp.com"
             ],
             "img-src": [
                 "'self'",
@@ -68,7 +113,8 @@ app.use(helmet({
                 "blob:",
                 "https://*.googleusercontent.com",
                 "https://www.gstatic.com",
-                "https://*.googleapis.com"
+                "https://*.googleapis.com",
+                "https://res.cloudinary.com"
             ],
         },
     },
@@ -102,8 +148,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
-// Administrative API: Generate New Questions (with stricter rate limit + input validation)
-app.post('/api/admin/generate-questions', adminLimiter, (req, res) => {
+// Administrative API: Generate New Questions
+// Protected by: rate limiting (5/min), shared admin secret, topic whitelist.
+app.post('/api/admin/generate-questions', adminLimiter, requireAdminSecret, (req, res) => {
     try {
         // Sanitize & validate input
         let { topic } = req.body;
@@ -128,13 +175,13 @@ app.post('/api/admin/generate-questions', adminLimiter, (req, res) => {
         if (!VALID_TOPICS.has(topic)) {
             return res.status(400).json({
                 success: false,
-                message: `Invalid topic "${topic}". Allowed: ${[...VALID_TOPICS].join(', ')}`
+                message: `Invalid topic. Allowed: ${[...VALID_TOPICS].join(', ')}`
             });
         }
 
         console.log(`Admin requested question generation for topic: ${topic}`);
         const result = generateAllQuestions({ topic });
-        
+
         res.json({
             success: true,
             message: `Successfully generated ${result.newCount} new questions.`,
@@ -142,16 +189,20 @@ app.post('/api/admin/generate-questions', adminLimiter, (req, res) => {
             totalCount: result.totalCount
         });
     } catch (error) {
+        // Log full error server-side; return only a generic message to callers.
         console.error('Error during question generation:', error);
         res.status(500).json({
             success: false,
-            message: 'Failed to generate questions. Check server logs.',
-            error: error.message
+            message: 'Failed to generate questions. Check server logs.'
         });
     }
 });
+
+// The error handler must be before any other error middleware and after all controllers
+Sentry.setupExpressErrorHandler(app);
 
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
     console.log('Press Ctrl+C to stop the server.');
 });
+

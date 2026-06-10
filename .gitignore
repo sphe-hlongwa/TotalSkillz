@@ -11,20 +11,43 @@ public/js/firebase-config.js
 # IDE
 .vscode/
 
-# Android build artefacts & local machine config
-mathgrade12_flutter/android/build/
-mathgrade12_flutter/android/app/build/
-mathgrade12_flutter/build/
-mathgrade12_flutter/android/gradle/local.properties
+# ---- TotalSkillz_Flutter build artefacts & local machine config ----
+TotalSkillz_Flutter/.dart_tool/
+TotalSkillz_Flutter/.flutter-plugins
+TotalSkillz_Flutter/.flutter-plugins-dependencies
+TotalSkillz_Flutter/.packages
+TotalSkillz_Flutter/.metadata
+TotalSkillz_Flutter/build/
+TotalSkillz_Flutter/android/build/
+TotalSkillz_Flutter/android/app/build/
+TotalSkillz_Flutter/android/.gradle/
+TotalSkillz_Flutter/android/local.properties
+TotalSkillz_Flutter/android/gradle/local.properties
+TotalSkillz_Flutter/ios/Pods/
+TotalSkillz_Flutter/ios/.symlinks/
+TotalSkillz_Flutter/ios/Flutter/Flutter.framework
+TotalSkillz_Flutter/ios/Flutter/Flutter.podspec
+TotalSkillz_Flutter/*.iml
 
-# Firebase Configuration
-mathgrade12_flutter/lib/firebase_options.dart
-firestore.rules
-storage.rules
-firebase.json
-.firebaserc
-FIREBASE_SETUP.md
+# ---- Firebase / Google secrets ----
+# google-services.json contains API keys — do NOT commit to public repos.
+TotalSkillz_Flutter/android/app/google-services.json
+# firebase_options.dart is auto-generated and contains project config.
+# Uncomment the line below if you consider it sensitive for your project.
+# TotalSkillz_Flutter/lib/firebase_options.dart
 
-# Documentation
+# Windows download Zone.Identifier sidecar files
+TotalSkillz_Flutter/android/app/google-services.json:Zone.Identifier
+TotalSkillz_Flutter/android/app/google-services.jsonZone.Identifier
+
+# ---- Firebase project files (kept in repo for CI/CD) ----
+# firestore.rules, storage.rules, firebase.json, .firebaserc are intentionally tracked.
+# Remove these lines if you want to stop tracking them.
+# firestore.rules
+# storage.rules
+# firebase.json
+# .firebaserc
+
+# ---- Documentation (kept locally, not published) ----
 docs/
 scripts/
