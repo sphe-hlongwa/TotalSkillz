@@ -78,7 +78,7 @@ body::before {
     content: '';
     position: fixed;
     inset: -5%;
-    background-image: url('../black_backround.jpg');
+
     background-size: cover;
     background-position: center;
     filter: blur(5px) brightness(0.9);
@@ -115,7 +115,7 @@ body::before {
 }
 
 body[data-theme="dark"]::before {
-    background-image: url('../black_backround.jpg');
+
     filter: blur(5px) brightness(0.4);
 }
 

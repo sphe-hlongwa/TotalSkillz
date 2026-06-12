@@ -112,13 +112,13 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                             margin: const EdgeInsets.only(bottom: 12),
                             decoration: BoxDecoration(
                               color: isCurrentUser 
-                                ? AppTheme.primary.withValues(alpha: 0.15)
-                                : (isTopThree ? AppTheme.surface.withValues(alpha: 0.8) : AppTheme.surface),
+                                ? AppTheme.primary.withOpacity(0.15)
+                                : (isTopThree ? AppTheme.surface.withOpacity(0.8) : AppTheme.surface),
                               borderRadius: BorderRadius.circular(16),
                               border: Border.all(
                                 color: isCurrentUser
                                   ? AppTheme.primary 
-                                  : (isTopThree ? AppTheme.primary.withValues(alpha: 0.3) : AppTheme.border),
+                                  : (isTopThree ? AppTheme.primary.withOpacity(0.3) : AppTheme.border),
                                 width: isCurrentUser ? 2 : 1,
                               ),
                             ),

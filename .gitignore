@@ -6,7 +6,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .netlify/
-public/js/firebase-config.js
+# public/js/firebase-config.js
 
 # IDE
 .vscode/
