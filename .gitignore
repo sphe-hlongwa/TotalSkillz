@@ -34,7 +34,7 @@ TotalSkillz_Flutter/*.iml
 TotalSkillz_Flutter/android/app/google-services.json
 # firebase_options.dart is auto-generated and contains project config.
 # Uncomment the line below if you consider it sensitive for your project.
-# TotalSkillz_Flutter/lib/firebase_options.dart
+TotalSkillz_Flutter/lib/firebase_options.dart
 
 # Windows download Zone.Identifier sidecar files
 TotalSkillz_Flutter/android/app/google-services.json:Zone.Identifier

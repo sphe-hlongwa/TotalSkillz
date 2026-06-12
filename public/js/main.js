@@ -46,7 +46,7 @@ function getUser() {
     // Firebase manages user state globally via auth.currentUser
     const user = window.totalskillz_auth ? window.totalskillz_auth.currentUser : null;
     if (user) {
-        return { name: user.displayName || 'User', email: user.email, uid: user.uid };
+        return { name: user.displayName || 'User', email: user.email, uid: user.uid, photoURL: user.photoURL };
     }
     // Fallback to legacy check during migration
     const u = localStorage.getItem('totalskillz_user');
@@ -121,7 +121,22 @@ function initHeader() {
     // User avatar
     const user = getUser();
     document.querySelectorAll('.user-avatar').forEach(el => {
-        if (user) el.textContent = getInitials(user.name);
+        if (user) {
+            if (user.photoURL) {
+                el.textContent = '';
+                const img = document.createElement('img');
+                img.src = user.photoURL;
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.borderRadius = '50%';
+                el.appendChild(img);
+                el.style.background = 'transparent';
+            } else {
+                el.textContent = getInitials(user.name);
+                el.style.background = '';
+            }
+        }
     });
 
     initBottomNav();
@@ -308,30 +323,37 @@ function getInitialProgress() {
 function getProgress(uid) {
     // If no UID is provided, try to get it from current session
     if (!uid) {
-        const user = firebase.auth().currentUser;
+        const user = window.totalskillz_auth ? window.totalskillz_auth.currentUser : null;
         if (user) uid = user.uid;
     }
+
+    const ensureFields = (data) => {
+        if (!data.settings) data.settings = getInitialProgress().settings;
+        if (data.bio === undefined) data.bio = '';
+        if (!data.mistakeVault) data.mistakeVault = [];
+        if (!data.topics) data.topics = getInitialProgress().topics;
+        return data;
+    };
 
     if (uid) {
         const userKey = `totalskillz_progress_${uid}`;
         const p = localStorage.getItem(userKey);
         if (p) {
-            const data = JSON.parse(p);
-            // Ensure new fields exist
-            if (!data.settings) data.settings = getInitialProgress().settings;
-            if (data.bio === undefined) data.bio = '';
-            if (!data.mistakeVault) data.mistakeVault = [];
-            return data;
+            let data;
+            try { data = JSON.parse(p); } catch(e) { data = getInitialProgress(); }
+            return ensureFields(data);
         }
     }
 
     // Fallback to legacy key (migration path)
     const legacyProgress = localStorage.getItem('totalskillz_progress');
     if (legacyProgress) {
-        const data = JSON.parse(legacyProgress);
+        let data;
+        try { data = JSON.parse(legacyProgress); } catch(e) { data = getInitialProgress(); }
+        data = ensureFields(data);
         // If we have a UID now, migrate it immediately
         if (uid) {
-            localStorage.setItem(`totalskillz_progress_${uid}`, legacyProgress);
+            localStorage.setItem(`totalskillz_progress_${uid}`, JSON.stringify(data));
             localStorage.removeItem('totalskillz_progress'); // Remove legacy after migration to avoid double-dipping
         }
         return data;
@@ -1035,7 +1057,14 @@ async function handleProfilePic(input) {
 
                     // Refresh all avatars on page immediately
                     document.querySelectorAll('.user-avatar').forEach(av => {
-                        av.innerHTML = `<img src="${downloadURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+                        av.textContent = '';
+                        const img = document.createElement('img');
+                        img.src = downloadURL;
+                        img.style.width = '100%';
+                        img.style.height = '100%';
+                        img.style.objectFit = 'cover';
+                        img.style.borderRadius = '50%';
+                        av.appendChild(img);
                         av.style.background = 'transparent';
                         av.style.opacity = '1';
                     });
@@ -1146,7 +1175,14 @@ function populateProfileModal() {
 
     if (avatarEl) {
         if (user.photoURL) {
-            avatarEl.innerHTML = `<img src="${user.photoURL}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+            avatarEl.textContent = '';
+            const img = document.createElement('img');
+            img.src = user.photoURL;
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            img.style.borderRadius = '50%';
+            avatarEl.appendChild(img);
             avatarEl.style.background = 'transparent';
         } else {
             avatarEl.textContent = initials;

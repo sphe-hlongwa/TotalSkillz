@@ -24,7 +24,25 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
           IconButton(
             icon: const Icon(Icons.info_outline),
             onPressed: () {
-              // Show scoring logic
+              showDialog(
+                context: context,
+                builder: (ctx) => AlertDialog(
+                  backgroundColor: AppTheme.surface,
+                  title: const Text('Scoring System'),
+                  content: const Text(
+                    '• XP is earned by completing quizzes.\n'
+                    '• Your streak increases by 1 for each consecutive day you practice.\n'
+                    '• The leaderboard ranks by total XP, then by streak.',
+                    style: TextStyle(height: 1.5),
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(ctx),
+                      child: const Text('GOT IT'),
+                    ),
+                  ],
+                ),
+              );
             },
           ),
         ],
@@ -66,40 +84,80 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                   return const Center(child: Text('No students found.'));
                 }
 
-                return ListView.builder(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  itemCount: users.length,
-                  itemBuilder: (ctx, i) {
-                    final user = users[i];
-                    final isTopThree = i < 3;
-                    final displayName = user['displayName']?.toString() ?? 'Anonymous';
-                    final xp = (user['xp'] ?? user['totalXp'] ?? 0) as int;
-                    final streak = (user['streak'] ?? 0) as int;
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('Top Students', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                          Text('${users.length} Participants', style: const TextStyle(color: AppTheme.textMuted, fontSize: 13)),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        itemCount: users.length,
+                        itemBuilder: (ctx, i) {
+                          final user = users[i];
+                          final isTopThree = i < 3;
+                          final isCurrentUser = user['uid'] == firestore.uid;
+                          final displayName = user['displayName']?.toString() ?? 'Anonymous';
+                          final xp = (user['xp'] ?? user['totalXp'] ?? 0) as int;
+                          final streak = (user['streak'] ?? 0) as int;
 
-                    return Container(
-                      margin: const EdgeInsets.only(bottom: 12),
-                      decoration: BoxDecoration(
-                        color: isTopThree ? AppTheme.primary.withValues(alpha: 0.1) : AppTheme.surface,
-                        borderRadius: BorderRadius.circular(16),
-                        border: Border.all(
-                          color: isTopThree ? AppTheme.primary.withValues(alpha: 0.3) : AppTheme.border,
-                        ),
+                          return Container(
+                            margin: const EdgeInsets.only(bottom: 12),
+                            decoration: BoxDecoration(
+                              color: isCurrentUser 
+                                ? AppTheme.primary.withValues(alpha: 0.15)
+                                : (isTopThree ? AppTheme.surface.withValues(alpha: 0.8) : AppTheme.surface),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                color: isCurrentUser
+                                  ? AppTheme.primary 
+                                  : (isTopThree ? AppTheme.primary.withValues(alpha: 0.3) : AppTheme.border),
+                                width: isCurrentUser ? 2 : 1,
+                              ),
+                            ),
+                            child: ListTile(
+                              leading: _buildRankBadge(i + 1),
+                              title: Row(
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      displayName,
+                                      style: TextStyle(
+                                        fontWeight: (isTopThree || isCurrentUser) ? FontWeight.bold : FontWeight.normal,
+                                      ),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                  if (isCurrentUser) ...[
+                                    const SizedBox(width: 8),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                      decoration: BoxDecoration(
+                                        color: AppTheme.primary,
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                      child: const Text('YOU', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold)),
+                                    ),
+                                  ],
+                                ],
+                              ),
+                              subtitle: Text('$xp XP • $streak Day Streak'),
+                              trailing: isTopThree 
+                                ? const Icon(Icons.emoji_events, color: Colors.amber)
+                                : null,
+                            ),
+                          );
+                        },
                       ),
-                      child: ListTile(
-                        leading: _buildRankBadge(i + 1),
-                        title: Text(
-                          displayName,
-                          style: TextStyle(
-                            fontWeight: isTopThree ? FontWeight.bold : FontWeight.normal,
-                          ),
-                        ),
-                        subtitle: Text('$xp XP • $streak Day Streak'),
-                        trailing: isTopThree 
-                          ? const Icon(Icons.emoji_events, color: Colors.amber)
-                          : null,
-                      ),
-                    );
-                  },
+                    ),
+                  ],
                 );
               },
             ),

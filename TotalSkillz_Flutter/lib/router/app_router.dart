@@ -19,6 +19,7 @@ import '../screens/live_classes_screen.dart';
 import '../screens/leaderboard_screen.dart';
 import '../screens/examiner_screen.dart';
 import '../screens/admin_screen.dart';
+import '../screens/privacy_policy_screen.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -81,6 +82,7 @@ class AppRouter {
       GoRoute(path: '/support', builder: (ctx, _) => const SupportScreen()),
       GoRoute(path: '/settings', builder: (ctx, _) => const SettingsScreen()),
       GoRoute(path: '/phone-auth', builder: (ctx, _) => const PhoneAuthScreen()),
+      GoRoute(path: '/privacy-policy', builder: (ctx, _) => const PrivacyPolicyScreen()),
     ],
     errorBuilder: (ctx, state) => Scaffold(
       body: Center(child: Text('Page not found: ${state.error}')),

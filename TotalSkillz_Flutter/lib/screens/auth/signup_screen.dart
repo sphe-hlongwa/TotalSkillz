@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../services/auth_service.dart';
@@ -24,6 +25,39 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _obscurePass = true;
   String? _errorMsg;
   int _strengthScore = 0;  // 0-4
+  bool _agreedToTerms = false;
+  DateTime? _dob;
+  bool _ageValidated = false;
+
+  bool _isOver13(DateTime dob) {
+    final today = DateTime.now();
+    int age = today.year - dob.year;
+    if (today.month < dob.month || (today.month == dob.month && today.day < dob.day)) {
+      age--;
+    }
+    return age >= 13;
+  }
+
+  Future<void> _selectDob() async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now().subtract(const Duration(days: 13 * 365)),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null) {
+      setState(() {
+        _dob = picked;
+        _ageValidated = _isOver13(picked);
+        if (!_ageValidated) {
+          _agreedToTerms = false;
+          _errorMsg = 'You must be 13 or older to use TotalSkillz.';
+        } else if (_errorMsg == 'You must be 13 or older to use TotalSkillz.') {
+          _errorMsg = null;
+        }
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -66,6 +100,14 @@ class _SignupScreenState extends State<SignupScreen> {
 
   Future<void> _signUp() async {
     if (!_formKey.currentState!.validate()) return;
+    if (!_ageValidated) {
+      setState(() => _errorMsg = 'Please enter a valid Date of Birth (13+).');
+      return;
+    }
+    if (!_agreedToTerms) {
+      setState(() => _errorMsg = 'You must agree to the Terms and Privacy Policy.');
+      return;
+    }
     setState(() { _loading = true; _errorMsg = null; });
     try {
       await context.read<AuthService>().signUpWithEmail(
@@ -200,6 +242,36 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ]),
                       ],
+                      const SizedBox(height: 16),
+                      InkWell(
+                        onTap: _selectDob,
+                        borderRadius: BorderRadius.circular(12),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                          decoration: BoxDecoration(
+                            color: AppTheme.surface2,
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: (_dob != null && !_ageValidated) ? AppTheme.error : AppTheme.border,
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                _dob == null 
+                                  ? 'Date of Birth (Required)' 
+                                  : 'DOB: ${_dob!.day}/${_dob!.month}/${_dob!.year}',
+                                style: TextStyle(
+                                  color: _dob == null ? AppTheme.textMuted : AppTheme.text,
+                                  fontSize: 15,
+                                ),
+                              ),
+                              const Icon(Icons.calendar_today, color: AppTheme.textMuted, size: 20),
+                            ],
+                          ),
+                        ),
+                      ),
                     ]),
                   ),
 
@@ -219,9 +291,53 @@ class _SignupScreenState extends State<SignupScreen> {
                     const SizedBox(height: 12),
                   ],
 
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Tooltip(
+                        message: _ageValidated ? '' : 'You must verify your age first',
+                        child: SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Checkbox(
+                            value: _agreedToTerms,
+                            activeColor: AppTheme.primary,
+                            onChanged: _ageValidated
+                                ? (v) => setState(() => _agreedToTerms = v ?? false)
+                                : null,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            style: const TextStyle(color: AppTheme.textMuted, fontSize: 12, height: 1.4),
+                            children: [
+                              const TextSpan(text: 'I agree to the '),
+                              TextSpan(
+                                text: 'Terms of Use',
+                                style: const TextStyle(color: AppTheme.primary, fontWeight: FontWeight.bold),
+                                recognizer: TapGestureRecognizer()..onTap = () => context.push('/privacy-policy'),
+                              ),
+                              const TextSpan(text: ' and '),
+                              TextSpan(
+                                text: 'Privacy Policy',
+                                style: const TextStyle(color: AppTheme.primary, fontWeight: FontWeight.bold),
+                                recognizer: TapGestureRecognizer()..onTap = () => context.push('/privacy-policy'),
+                              ),
+                              const TextSpan(text: '.'),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 24),
+
                   GradientButton(
                     text: 'Create Account',
-                    onPressed: _loading ? null : _signUp,
+                    onPressed: (_loading || !_agreedToTerms) ? null : _signUp,
                     loading: _loading,
                     icon: Icons.arrow_forward,
                   ),
