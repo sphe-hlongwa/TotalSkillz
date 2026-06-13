@@ -12,7 +12,7 @@
 [![Version](https://img.shields.io/badge/version-2.4.0-6C63FF?style=flat)](https://github.com/sphe-hlongwa/TotalSkillz/releases)
 [![License](https://img.shields.io/badge/license-ISC-lightgrey?style=flat)](LICENSE)
 
-### [🌐 Web App](https://totalskillz-7193a.web.app) • [📱 Flutter App](https://github.com/sphe-hlongwa/TotalSkillz) • [📬 Contact](mailto:hlongwasphephelo40@gmail.com)
+### [<img src="https://api.iconify.design/mdi/web.svg?color=%234285f4" width="18" align="center"> Web App](https://totalskillz-7193a.web.app) • [<img src="https://api.iconify.design/mdi/cellphone.svg?color=%2334A853" width="18" align="center"> Flutter App](https://github.com/sphe-hlongwa/TotalSkillz) • [<img src="https://api.iconify.design/mdi/email.svg?color=%23ea4335" width="18" align="center"> Contact](mailto:hlongwasphephelo40@gmail.com)
 
 </div>
 
@@ -22,21 +22,21 @@
 
 A dual-platform Grade 12 Mathematics learning tool built for South African students — available as a **Flutter mobile app** (Android & iOS) and a **Progressive Web App**, both powered by the same Firebase backend.
 
-| 🎯 **Learning & Practice** | 📊 **Progress & Insights** |
+| <img src="https://api.iconify.design/mdi/target.svg?color=%23ea4335" width="18" align="center"> **Learning & Practice** | <img src="https://api.iconify.design/mdi/chart-bar.svg?color=%234285f4" width="18" align="center"> **Progress & Insights** |
 | :--- | :--- |
 | **Topic Practice:** Drill all 8 CAPS topics with instant feedback. | **Dashboard:** Score history, topic heatmaps, and mastery indicators. |
 | **Exam Mode:** 45-minute timed NSC exam simulation with auto-marking. | **Leaderboard:** Community-wide rankings to keep you motivated. |
 | **Daily Challenges:** A new problem every day to build streaks. | **Personalisation:** Set a target mark and flag your weak areas at onboarding. |
 | **Masterclass:** Expert step-by-step derivations rendered in LaTeX. | |
 
-| 📚 **Resources** | 🎓 **Live Classes** |
+| <img src="https://api.iconify.design/mdi/bookshelf.svg?color=%23fbbc05" width="18" align="center"> **Resources** | <img src="https://api.iconify.design/mdi/school.svg?color=%23673ab7" width="18" align="center"> **Live Classes** |
 | :--- | :--- |
 | **Formula Vault:** Full Grade 12 formula sheet with LaTeX rendering. | **Workshop:** Expert masterclass sessions expandable by topic. |
 | **Exam Paper Vault:** NSC past papers viewable as PDFs in-app. | **Book a Session:** 1-on-1 Google Classroom sessions via WhatsApp booking. |
 | **Examiner Insights:** Examiner data and common question patterns. | **Tiers:** Free trial (first 2 lectures) or Standard Paid (R200 / 2 hrs). |
 | **YouTube Recommendations:** Curated tutorial links surfaced per topic. | |
 
-| 🔐 **Auth & Accounts** | ⚙️ **Platform** |
+| <img src="https://api.iconify.design/mdi/lock.svg?color=%23fbbc05" width="18" align="center"> **Auth & Accounts** | <img src="https://api.iconify.design/mdi/cog.svg?color=%23757575" width="18" align="center"> **Platform** |
 | :--- | :--- |
 | **Google Sign-In:** One-tap Firebase authentication. | **Dark & Light Mode:** Full Material 3 theme system. |
 | **Profile Management:** Edit display name, avatar, and preferences. | **Offline Ready:** Core content works without an internet connection. |
@@ -123,15 +123,15 @@ flutter run
 
 ## Contributing
 
-- 🐛 **Found a bug?** [Open an issue](https://github.com/sphe-hlongwa/TotalSkillz/issues)
-- 💡 **Have an idea?** [Request a feature](https://github.com/sphe-hlongwa/TotalSkillz/issues)
-- 📬 **Get in touch:** [hlongwasphephelo40@gmail.com](mailto:hlongwasphephelo40@gmail.com)
+- <img src="https://api.iconify.design/mdi/bug.svg?color=%23ea4335" width="18" align="center"> **Found a bug?** [Open an issue](https://github.com/sphe-hlongwa/TotalSkillz/issues)
+- <img src="https://api.iconify.design/mdi/lightbulb-on.svg?color=%23fbbc05" width="18" align="center"> **Have an idea?** [Request a feature](https://github.com/sphe-hlongwa/TotalSkillz/issues)
+- <img src="https://api.iconify.design/mdi/email.svg?color=%23ea4335" width="18" align="center"> **Get in touch:** [hlongwasphephelo40@gmail.com](mailto:hlongwasphephelo40@gmail.com)
 
 ---
 
 <div align="center">
 
-**Made with ❤️ for South African learners**
+**Made with <img src="https://api.iconify.design/mdi/heart.svg?color=%23ea4335" width="18" align="center"> for South African learners**
 
 <sub>Built and maintained by <a href="https://github.com/sphe-hlongwa">Sphephelo Hlongwa</a> · Computer Science, University of the Witwatersrand</sub><br>
 <sub>© 2026 TotalSkillz. Licensed under ISC.</sub>
