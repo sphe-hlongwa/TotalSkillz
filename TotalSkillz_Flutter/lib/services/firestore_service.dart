@@ -248,4 +248,19 @@ class FirestoreService extends ChangeNotifier {
       'timestamp': FieldValue.serverTimestamp(),
     });
   }
+
+  /// Leaderboard: Watch top students ordered by XP
+  Stream<List<Map<String, dynamic>>> watchTopStudents({int limit = 10}) {
+    return _db
+        .collection('users')
+        .orderBy('xp', descending: true)
+        .limit(limit)
+        .snapshots()
+        .map((snap) => snap.docs.map((d) {
+              final data = d.data();
+              data['uid'] = d.id;
+              return data;
+            }).toList());
+  }
 }
+

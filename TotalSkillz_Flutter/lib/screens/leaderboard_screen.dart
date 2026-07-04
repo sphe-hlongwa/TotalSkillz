@@ -114,7 +114,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                               color: isCurrentUser 
                                 ? AppTheme.primary.withOpacity(0.15)
                                 : (isTopThree ? AppTheme.surface.withOpacity(0.8) : AppTheme.surface),
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(8),
                               border: Border.all(
                                 color: isCurrentUser
                                   ? AppTheme.primary 

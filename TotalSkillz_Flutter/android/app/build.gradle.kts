@@ -57,15 +57,7 @@ kotlin {
     }
 }
 
-dependencies {
-    // Import the Firebase BoM
-    implementation(platform("com.google.firebase:firebase-bom:34.11.0"))
 
-    // Add dependencies for Firebase products
-    implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-storage")
-}
 
 flutter {
     source = "../.."

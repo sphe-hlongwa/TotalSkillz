@@ -263,17 +263,53 @@ class _PracticeScreenState extends State<PracticeScreen> {
   }
 
   Widget _buildMathText(String text, {TextStyle? style}) {
-    if (text.contains(r'\(') || text.contains(r'\[') || text.contains(r'\\')) {
-      final cleaned = text
-          .replaceAll(r'\(', '')
-          .replaceAll(r'\)', '')
-          .replaceAll(r'\[', '')
-          .replaceAll(r'\]', '');
-      return Math.tex(
-        cleaned,
-        textStyle: style ?? const TextStyle(fontSize: 15, color: AppTheme.text),
-      );
+    final textStyle = style ?? const TextStyle(fontSize: 15, color: AppTheme.text, height: 1.5);
+    
+    final RegExp mathRegExp = RegExp(r'(\$\$.*?\$\$|\$.*?\$|\\\(.*?\\\)|\\\[.*?\\\])', dotAll: true);
+    final Iterable<RegExpMatch> matches = mathRegExp.allMatches(text);
+    
+    List<InlineSpan> spans = [];
+    int lastMatchEnd = 0;
+    
+    for (final match in matches) {
+      if (match.start > lastMatchEnd) {
+        spans.add(TextSpan(text: text.substring(lastMatchEnd, match.start), style: textStyle));
+      }
+      
+      String mathContent = match.group(0)!;
+      if (mathContent.startsWith(r'$$') && mathContent.endsWith(r'$$')) {
+        mathContent = mathContent.substring(2, mathContent.length - 2);
+      } else if (mathContent.startsWith(r'$') && mathContent.endsWith(r'$')) {
+        mathContent = mathContent.substring(1, mathContent.length - 1);
+      } else if (mathContent.startsWith(r'\(') && mathContent.endsWith(r'\)')) {
+        mathContent = mathContent.substring(2, mathContent.length - 2);
+      } else if (mathContent.startsWith(r'\[') && mathContent.endsWith(r'\]')) {
+        mathContent = mathContent.substring(2, mathContent.length - 2);
+      }
+      
+      spans.add(WidgetSpan(
+        alignment: PlaceholderAlignment.middle,
+        child: Math.tex(
+          mathContent,
+          textStyle: textStyle,
+          mathStyle: MathStyle.text,
+          onErrorFallback: (err) => Text(mathContent, style: textStyle.copyWith(color: AppTheme.error)),
+        ),
+      ));
+      
+      lastMatchEnd = match.end;
     }
-    return Text(text, style: style ?? const TextStyle(fontSize: 15, color: AppTheme.text));
+    
+    if (lastMatchEnd < text.length) {
+      spans.add(TextSpan(text: text.substring(lastMatchEnd), style: textStyle));
+    }
+    
+    if (spans.isEmpty) {
+      return Text(text, style: textStyle);
+    }
+    
+    return RichText(
+      text: TextSpan(children: spans),
+    );
   }
 }

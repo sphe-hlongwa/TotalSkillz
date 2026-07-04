@@ -20,9 +20,14 @@ import '../screens/leaderboard_screen.dart';
 import '../screens/examiner_screen.dart';
 import '../screens/admin_screen.dart';
 import '../screens/privacy_policy_screen.dart';
+import '../widgets/main_layout.dart';
+
+final GlobalKey<NavigatorState> _rootNavigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppRouter {
   static final GoRouter router = GoRouter(
+    navigatorKey: _rootNavigatorKey,
     initialLocation: '/login',
     redirect: (context, state) async {
       final user = FirebaseAuth.instance.currentUser;
@@ -55,34 +60,42 @@ class AppRouter {
       GoRoute(path: '/signup', builder: (ctx, _) => const SignupScreen()),
       GoRoute(path: '/forgot-password', builder: (ctx, _) => const ForgotPasswordScreen()),
       GoRoute(path: '/onboarding', builder: (ctx, _) => const OnboardingScreen()),
-
-      // Main app routes
-      GoRoute(path: '/dashboard', builder: (ctx, _) => const DashboardScreen()),
-      GoRoute(path: '/topics', builder: (ctx, _) => const TopicsScreen()),
-      GoRoute(
-        path: '/practice',
-        builder: (ctx, state) {
-          final topic = state.uri.queryParameters['topic'];
-          return PracticeScreen(topic: topic);
-        },
-      ),
-      GoRoute(
-        path: '/exam',
-        builder: (ctx, state) {
-          final topic = state.uri.queryParameters['topic'];
-          return ExamScreen(topic: topic);
-        },
-      ),
-      GoRoute(path: '/formulas', builder: (ctx, _) => const FormulaScreen()),
-      GoRoute(path: '/vault', builder: (ctx, _) => const VaultScreen()),
-      GoRoute(path: '/live-classes', builder: (ctx, _) => const LiveClassesScreen()),
-      GoRoute(path: '/leaderboard', builder: (ctx, _) => const LeaderboardScreen()),
-      GoRoute(path: '/examiner', builder: (ctx, _) => const ExaminerScreen()),
-      GoRoute(path: '/admin', builder: (ctx, _) => const AdminScreen()),
-      GoRoute(path: '/support', builder: (ctx, _) => const SupportScreen()),
-      GoRoute(path: '/settings', builder: (ctx, _) => const SettingsScreen()),
       GoRoute(path: '/phone-auth', builder: (ctx, _) => const PhoneAuthScreen()),
       GoRoute(path: '/privacy-policy', builder: (ctx, _) => const PrivacyPolicyScreen()),
+
+      // Main app routes wrapped in ShellRoute
+      ShellRoute(
+        navigatorKey: _shellNavigatorKey,
+        builder: (context, state, child) {
+          return MainLayout(child: child);
+        },
+        routes: [
+          GoRoute(path: '/dashboard', builder: (ctx, _) => const DashboardScreen()),
+          GoRoute(path: '/topics', builder: (ctx, _) => const TopicsScreen()),
+          GoRoute(
+            path: '/practice',
+            builder: (ctx, state) {
+              final topic = state.uri.queryParameters['topic'];
+              return PracticeScreen(topic: topic);
+            },
+          ),
+          GoRoute(
+            path: '/exam',
+            builder: (ctx, state) {
+              final topic = state.uri.queryParameters['topic'];
+              return ExamScreen(topic: topic);
+            },
+          ),
+          GoRoute(path: '/formulas', builder: (ctx, _) => const FormulaScreen()),
+          GoRoute(path: '/vault', builder: (ctx, _) => const VaultScreen()),
+          GoRoute(path: '/live-classes', builder: (ctx, _) => const LiveClassesScreen()),
+          GoRoute(path: '/leaderboard', builder: (ctx, _) => const LeaderboardScreen()),
+          GoRoute(path: '/examiner', builder: (ctx, _) => const ExaminerScreen()),
+          GoRoute(path: '/admin', builder: (ctx, _) => const AdminScreen()),
+          GoRoute(path: '/support', builder: (ctx, _) => const SupportScreen()),
+          GoRoute(path: '/settings', builder: (ctx, _) => const SettingsScreen()),
+        ],
+      ),
     ],
     errorBuilder: (ctx, state) => Scaffold(
       body: Center(child: Text('Page not found: ${state.error}')),

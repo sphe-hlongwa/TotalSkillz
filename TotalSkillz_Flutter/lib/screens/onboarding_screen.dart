@@ -35,7 +35,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     ),
     _OnboardPage(
       icon: Icons.functions_rounded,
-      color: AppTheme.accent,
+      color: AppTheme.secondary,
       title: 'All Formulas at Your Fingertips',
       body: 'Browse the complete Grade 12 formula sheet with beautifully rendered equations, sorted by topic.',
     ),

@@ -126,7 +126,7 @@ class _AdminScreenState extends State<AdminScreen> {
             _AdminStat(
               label: 'Admins',
               value: '$adminsCount',
-              color: AppTheme.accent,
+              color: AppTheme.secondary,
             ),
           ],
         ),
@@ -175,7 +175,7 @@ class _AdminScreenState extends State<AdminScreen> {
                   Text(
                     '$avgXp XP',
                     style: const TextStyle(
-                      color: AppTheme.accent,
+                      color: AppTheme.secondary,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -253,12 +253,12 @@ class _AdminScreenState extends State<AdminScreen> {
                     CircleAvatar(
                       radius: 20,
                       backgroundColor:
-                          (isAdmin ? AppTheme.accent : AppTheme.primary)
+                          (isAdmin ? AppTheme.secondary : AppTheme.primary)
                               .withValues(alpha: 0.1),
                       child: Text(
                         displayName[0].toUpperCase(),
                         style: TextStyle(
-                          color: isAdmin ? AppTheme.accent : AppTheme.primary,
+                          color: isAdmin ? AppTheme.secondary : AppTheme.primary,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
